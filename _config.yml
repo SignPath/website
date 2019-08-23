@@ -25,9 +25,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 # Build settings
 markdown: kramdown
 plugins:
-  - jekyll-toc
   - jekyll-redirect-from
-#  - jekyll-feed
 
 toc:
   min_level: 1

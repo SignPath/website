@@ -33,5 +33,4 @@ end
 gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 
 ### plugins added
-gem 'jekyll-toc'
 gem 'jekyll-redirect-from'
