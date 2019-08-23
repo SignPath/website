@@ -18,7 +18,7 @@
 							{% if parts.size > 2 %}
 								{% assign tail = parts[2] | split:"." %}
 								{% if tail[0] == entry.path %}
-									{{ content | toc_only }}
+									{% toc %}
 								{% endif %}
 							{% endif %}
 						</li>
