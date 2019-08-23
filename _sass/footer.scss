@@ -1,0 +1,34 @@
+footer {
+	background-color: #263238;
+	color: #fff;
+
+	& > div {
+		max-width: 1170px; /* same as body */
+		margin: auto;
+		display: flex;
+		justify-content: space-between;
+
+		& > div {
+			display: flex;
+			flex-direction: column;
+			margin: 20px 40px;
+			justify-content: center;
+
+			a {
+				color: inherit;
+				margin: 5px 0px;
+				display: inline-block;
+
+			}
+		}
+
+		& > div:first-child > img {
+			margin-bottom: 10px;
+			max-width: 100%;
+		}
+
+		& > div:last-child {
+			min-width: 140px;
+		}
+	}
+}

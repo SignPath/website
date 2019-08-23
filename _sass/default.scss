@@ -1,0 +1,15 @@
+section.default-section {
+	& > div {
+		padding-top: 30px;
+
+		& > article {
+			& > h2 {
+				margin-top: 0px;
+			}
+
+			& > h3 {
+				text-align: left;
+			}
+		}
+	}
+}

@@ -1,0 +1,174 @@
+section.resources-section {
+	& > div {
+		text-align: left;
+		padding-top: 30px;
+		padding-left: 16px;
+		padding-right: 16px;
+		display: flex;
+		align-items: flex-start;
+		max-width: 1170px;
+
+		& > aside {
+			background-color: #eee;
+			border-radius: 6px;
+			font-size: 0.9em;
+			min-width: 220px;
+			margin-bottom: 30px;
+			margin-right: 20px;
+
+			& > ul {
+				margin: 10px 20px;
+			}
+
+			ul {
+				padding: 0px;
+				list-style-type: none;
+			}
+
+			ul > li {
+				padding: 5px 0px;
+
+				&:last-child {
+					padding-bottom: 0px;
+				}
+			}
+
+			& > ul > li > ul > li {
+				padding-left: 20px;
+			}
+		}
+
+		& > article {
+
+			& > h2:first-child {
+				margin-top: 0px;
+			}
+
+			& > h2 {
+				margin-bottom: 0px;
+				padding-bottom: 5px;
+				border-bottom: 1px solid #ddd;
+			}
+
+			& > h3 {
+				font-size: 1.3em;
+				margin-top: 1.5em;
+				margin-bottom: 0.5em;
+				text-align: left;
+			}
+
+			p {
+				margin-top: 5px;
+			}
+		}
+
+		/** HIGHLIGHTS **/
+		div.panel {
+			border: 1px solid #ddd;
+			border-radius: 6px;
+			padding: 0px 20px;
+			margin: 10px 0px;
+
+			&.info {
+				background-color: #bff0ff;
+
+			}
+
+			& > div.panel-header {
+				background-color: #ddd;
+				margin: 0px;
+				padding: 5px 10px;
+				display: inline-block;
+				font-size: 1em;
+				margin-left: -20px;
+
+				& > i {
+					font-weight: 800;
+					margin-right: 10px;
+				}
+			}
+		}
+
+		table {
+			border-collapse: collapse;
+
+			thead {
+				background-color: #ced7db;
+			}
+
+			td, th {
+				border: 1px solid #ced7db;
+				padding: 5px 10px;
+			}
+
+			td {
+				font-size: 0.9em;
+			}
+		}
+	}
+}
+
+/**
+ *
+ * MOBILE
+ *
+ **/
+
+@media only screen and (max-width: 1000px) {
+	section.resources-section > div {
+		margin-left: auto;
+		flex-direction: column;
+
+		& > aside {
+			width: 100%;
+		}
+
+		table, tr, tbody, td {
+			display: block;
+		}
+
+		table {
+
+			thead {
+				display: none;
+			}
+
+			tr {
+				margin-bottom: 1em;
+				border: 1px solid #ced7db;
+				background-color: #eceff1;
+
+				td {
+					position: relative;
+					margin-left: 140px;
+					border: 0px solid transparent;
+					padding-left: 0px;
+					border-bottom: 1px solid #ced7db;
+					min-height: calc(1em + 10px); /* to deal with empty cells */
+
+					&:before {
+						position: absolute;
+						width: 130px;
+						left: -140px;
+						top: 0px;
+						bottom: -1px;
+						content: attr(data-label);
+						padding-left: 10px;
+						padding-top: 5px;
+						padding-bottom: 5px;
+						font-weight: 800;
+						border-bottom: 1px solid #ced7db;
+					}
+
+					&:last-child {
+						border-bottom: 0px solid transparent;
+						
+						&:before {
+							border-bottom: 0px solid transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}

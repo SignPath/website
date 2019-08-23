@@ -1,0 +1,31 @@
+section.home-start {
+	background-image: url('../start.jpg');
+	padding: 100px 0px;
+
+	& > div {
+		max-width: 640px;
+		text-align: left;
+
+		& > h1 {
+			font-size: 4.2em;
+			margin: 0px;
+			padding: 0px;
+			line-height: 1.2em;
+			font-weight: 600;
+		}
+
+		& > p {
+			font-size: 1.3em;
+			line-height: 1.5em;
+		}
+
+		& > div {
+			display: flex;
+			font-weight: 600;
+		
+			& > *:first-child {
+				margin-right: 20px;
+			}
+		}
+	}
+}
