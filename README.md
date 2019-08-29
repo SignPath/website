@@ -5,7 +5,7 @@
 This repository contains the SignPath website data. It runs on Github pages, which is build upon [Jekyll](https://jekyllrb.com).
 
 ## Running it
-There are two ways of running the application locally: Either directly using a local Ruby installation or by using Docker. In both setups the website will be reachable on (http://localhost:4000)[http://localhost:4000]
+There are two ways of running the application locally: Either directly using a local Ruby installation or by using Docker. In both setups the website will be reachable on [http://localhost:4000](http://localhost:4000)
 
 ### Running it on local Ruby installation
 You need to have Ruby and RubyGems installed. See the [official documentation of Jekyll](https://jekyllrb.com/docs/installation/).
