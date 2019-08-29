@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-appurl='{{ site.data.hosts.app[jekyll.environment] }}'>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,10 +12,8 @@
   <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
   <!-- TODO -->
   <meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
-  <!-- TODO -->
-  <link rel="canonical" href="http://localhost:4000/" />
-  <!-- TODO -->
-  <meta property="og:url" content="http://localhost:4000/" />
+  <link rel="canonical" href="{{ site.data.hosts.web[jekyll.environment] }}" />
+  <meta property="og:url" content="{{ site.data.hosts.web[jekyll.environment] }}" />
   <meta property="og:site_name" content="SignPath - Code signing simple and secure" />
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/line-awesome.min.css'>
@@ -61,7 +59,7 @@
               <li><a href='/contact'>Contact</a></li>
             </ul>
           </li>
-          <li class='login'><a class='btn btn-flat' href='https://app.signpath.io/Web/Home/Login'>Login</a>
+          <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Home/Login'>Login</a>
           </li>
         </ul>
         <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>

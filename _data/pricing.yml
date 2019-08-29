@@ -9,7 +9,10 @@
   add_100gb_per_year: 60
   retention_time: 1 year
   product_id: 
-    prod: 19784257
+    production: 19784257
+    fqa: 20051804
+    iqa: 24573359
+    development: dev-single
 
 - name: Team
   base_per_year_1yr: 882
@@ -23,7 +26,10 @@
   add_100gb_per_year: 120
   retention_time: 2 years
   product_id: 
-    prod: 19896251
+    production: 19784407
+    fqa: 20051809
+    iqa: 24574076
+    development: dev-team
 
 - name: Business
   base_per_year_1yr: 2700
@@ -37,4 +43,7 @@
   add_100gb_per_year: 96
   retention_time: 2 years
   product_id:
-    prod: 19910233
+    production: 19784688
+    fqa: fqa-business
+    iqa: iqa-business
+    development: dev-business

@@ -62,7 +62,7 @@
 					<li>-<span class='period'>&nbsp;</span></li>
 					<li>1 month</li>
 				</ul>
-				<a class='btn btn-primary footer' href='https://app.signpath.io/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
+				<a class='btn btn-primary footer' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
 			</div>
 			{% for product in site.data.pricing %}
 				<div class='product'>
@@ -104,7 +104,7 @@
 						</li>
 						<li>{{ product.retention_time }}</li>
 					</ul>
-					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id.prod }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid='{{ product.product_id.prod }}'>Buy</a>
+					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid='{{ product.product_id[jekyll.environment] }}'>Buy</a>
 				</div>
 			{% endfor %}
 		</div>

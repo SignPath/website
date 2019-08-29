@@ -167,7 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('free-trial-button').style.display = 'none';
       document.querySelectorAll('div.product a.footer').forEach(function(a) {
         a.innerText = 'Change';
-        a.href = 'https://app.signpath.io/Web/' + params.organizationId + '/Subscription/CompleteChange?productId=' + a.dataset.productid + '&paymentToken=' + encodeURIComponent(params.paymentToken);
+        a.href = document.documentElement.dataset.appurl + '/Web/' + params.organizationId + '/Subscription/CompleteChange?productId=' + a.dataset.productid + '&paymentToken=' + encodeURIComponent(params.paymentToken);
       })
     }
   }
