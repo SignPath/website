@@ -45,4 +45,4 @@ permalink: /resources/blog/:year/:month/:day/:title.html
 #   - vendor/ruby/
 
 sass:
-    style: compact
+    style: compressed

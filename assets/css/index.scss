@@ -3,6 +3,7 @@
 
 /** main.scss must come first **/
 @import 
+	'variables.scss', // contains colors,
 	'main.scss', 
 	'card.scss',
 	'header.scss', 

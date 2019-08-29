@@ -6,10 +6,10 @@ section.resources-section {
 		padding-right: 16px;
 		display: flex;
 		align-items: flex-start;
-		max-width: 1170px;
+		max-width: $content-width;
 
 		& > aside {
-			background-color: #eee;
+			background-color: $light-grey-background-color;
 			border-radius: 6px;
 			font-size: 0.9em;
 			min-width: 220px;
@@ -47,7 +47,7 @@ section.resources-section {
 			& > h2 {
 				margin-bottom: 0px;
 				padding-bottom: 5px;
-				border-bottom: 1px solid #ddd;
+				border-bottom: 1px solid $grey-border-color;
 			}
 
 			& > h3 {
@@ -64,18 +64,18 @@ section.resources-section {
 
 		/** HIGHLIGHTS **/
 		div.panel {
-			border: 1px solid #ddd;
+			border: 1px solid $grey-border-color;
 			border-radius: 6px;
 			padding: 0px 20px;
 			margin: 10px 0px;
 
 			&.info {
-				background-color: #bff0ff;
+				background-color: $light-blue-background-color;
 
 			}
 
 			& > div.panel-header {
-				background-color: #ddd;
+				background-color: $grey-border-color;
 				margin: 0px;
 				padding: 5px 10px;
 				display: inline-block;
@@ -93,11 +93,11 @@ section.resources-section {
 			border-collapse: collapse;
 
 			thead {
-				background-color: #ced7db;
+				background-color: $light-grey-background-color;
 			}
 
 			td, th {
-				border: 1px solid #ced7db;
+				border: 1px solid $grey-border-color;
 				padding: 5px 10px;
 			}
 
@@ -135,15 +135,15 @@ section.resources-section {
 
 			tr {
 				margin-bottom: 1em;
-				border: 1px solid #ced7db;
-				background-color: #eceff1;
+				border: 1px solid $grey-border-color;
+				background-color: $light-grey-background-color;
 
 				td {
 					position: relative;
 					margin-left: 140px;
 					border: 0px solid transparent;
 					padding-left: 0px;
-					border-bottom: 1px solid #ced7db;
+					border-bottom: 1px solid $grey-border-color;
 					min-height: calc(1em + 10px); /* to deal with empty cells */
 
 					&:before {
@@ -157,7 +157,7 @@ section.resources-section {
 						padding-top: 5px;
 						padding-bottom: 5px;
 						font-weight: 800;
-						border-bottom: 1px solid #ced7db;
+						border-bottom: 1px solid $grey-border-color;
 					}
 
 					&:last-child {

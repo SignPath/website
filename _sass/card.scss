@@ -7,11 +7,11 @@
 	justify-content: center;
 
 	& > *.card {
-		border: 1px solid #ddd;
-		border-radius: 6px;
+		border: 1px solid $grey-border-color;
+		border-radius: $border-radius;
 		max-width: 340px;
-		background: #fff;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		background: $white-background-color;
+		box-shadow: $shadow;
 		padding: 0px;
 		margin-left: 20px;
 		margin-bottom: 20px;
@@ -22,7 +22,7 @@
 
 		& > *.header {
 			display: block;
-			color: #fff;
+			color: $white-font-color;
 			background-size: cover;
 			padding: 60px 20px;
 			border-top-left-radius: inherit;

@@ -14,9 +14,9 @@ section.pricing-main {
 		align-items: flex-start;
 
 		& > div {
-			background-color: #fff;
+			background-color: $white-background-color;
 			border-radius: 6px;
-			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+			box-shadow: $shadow;
 
 			& > div.header {
 				height: 160px;
@@ -30,7 +30,7 @@ section.pricing-main {
 				& > li {
 					padding: 10px;
 					text-align: center;
-					border-bottom: 1px solid #eceff1;
+					border-bottom: 1px solid $light-grey-border-color;
 
 					&:last-child {
 						border-bottom: 0px solid transparent;
@@ -46,7 +46,7 @@ section.pricing-main {
 			& > div.selectors {
 				border-top-left-radius: inherit;
 				border-top-right-radius: inherit;
-				background-color: #455a64;
+				background-color: $medium-grey-background-color;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
@@ -95,7 +95,7 @@ section.pricing-main {
 					}
 
 					&.outdated {
-						color: #ddd;
+						color: $light-grey-font-color;
 						text-decoration: line-through;
 						font-size: 1em;
 						line-height: 1em;
@@ -113,10 +113,10 @@ section.pricing-main {
 				font-size: 1.2em;
 			}
 
-			&:nth-child(2) > div.header { background-color: #006a8a; } /* TODO: why start with 2nd? */;
-			&:nth-child(3) > div.header { background-color: #0b8bb1; }
-			&:nth-child(4) > div.header { background-color: #17abd8; }
-			&:nth-child(5) > div.header { background-color: #22ccff; }
+			&:nth-child(2) > div.header { background-color: $pricing1-background-color; } // start with 2nd, because top is first child
+			&:nth-child(3) > div.header { background-color: $pricing2-background-color; }
+			&:nth-child(4) > div.header { background-color: $pricing3-background-color; }
+			&:nth-child(5) > div.header { background-color: $pricing4-background-color; }
 		}
 	}
 
@@ -137,8 +137,8 @@ section.pricing-main {
 		border-radius: 6px;
 
 		& > h2 {
-			background-color: #263238;
-			color: #fff;
+			background-color: $dark-grey-background-color;
+			color: $white-font-color;
 			padding: 20px;
 			margin: 0px;
 			text-align: center;
@@ -149,7 +149,7 @@ section.pricing-main {
 		& > div {
 			display: flex;
 			align-items: center;
-			background-color: #fff;
+			background-color: $white-background-color;
 			border-top-right-radius: inherit;
 			border-bottom-right-radius: inherit;
 
@@ -187,32 +187,23 @@ div.toggle {
 			height: 0;
 			font-size: 1em;
 			margin: 0px;
-			color: #fff;
+			color: $white-font-color;
 			opacity: 0;
 
 			&:checked {
-				& + span {
-					/* background-color: #00b1e6; */
-				}
 
 				& + span:before {
 					transform: translateX(28px);
 				}
 
 				& ~ div:before {
-					color: inherit;
+					color: $blue-font-color;
 				}
 
 				& ~ div:after {
-					color: #00b1e6;
+					color: inherit;
 				}
 			}
-
-			&:focus + span {
-				box-shadow: 0 0 2px #faac14;
-			}
-
-			
 		}
 
 		& > div {
@@ -223,10 +214,9 @@ div.toggle {
 			height: 0px;
 			font-size: 1em;
 			line-height: 1em;
-			color: #fff;
+			color: $white-font-color;
 
 			&:before {
-				color: #22ccff;
 				position: absolute;
 				right: 35px;
 				left: -160px;
@@ -238,6 +228,7 @@ div.toggle {
 			}
 
 			&:after {
+				color: $blue-font-color;
 				position: absolute;
 				text-align: left;
 				left: 35px;
@@ -256,7 +247,7 @@ div.toggle {
 			left: calc(50% - 25px);
 			right: 0;
 			bottom: 0;
-			background-color: #ccc;
+			background-color: $secondary-color;
 			transition: .4s;
 			border-radius: 1.4em;
 			width: 50px;
@@ -269,7 +260,7 @@ div.toggle {
 				width: calc(1.4em - 4px);
 				left: 2px;
 				bottom: 2px;
-				background-color: #fff;
+				background-color: $white-background-color;
 				transition: .4s;
 				border-radius: 50%;
 			}
@@ -327,7 +318,7 @@ div.toggle {
 						}
 
 						&:nth-last-child(2) {
-							border-bottom: 0px solid transparent;;
+							border-bottom: 0px solid transparent;
 						}
 					}
 				}

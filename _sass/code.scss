@@ -18,9 +18,9 @@ code {
 	margin: 0px;
 	margin-top: 5px;
 	margin-bottom: 1em;
-	border: 1px solid #ddd;
-	border-radius: 6px;
-	background-color: #eceff1;
+	border: 1px solid $grey-border-color;
+	border-radius: $border-radius;
+	background-color: $light-grey-background-color;
 }
 
 /** Github theme from https://jwarby.github.io/jekyll-pygments-themes/languages/java.html */

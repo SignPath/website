@@ -1,9 +1,9 @@
 footer {
-	background-color: #263238;
-	color: #fff;
+	background-color: $dark-grey-background-color;
+	color: $white-font-color;
 
 	& > div {
-		max-width: 1170px; /* same as body */
+		max-width: $content-width;
 		margin: auto;
 		display: flex;
 		justify-content: space-between;
