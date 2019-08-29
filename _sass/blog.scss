@@ -1,0 +1,23 @@
+section.blog-section {
+	& > div {
+		padding-top: 0px;
+
+		h2 {
+			margin-top: 20px;
+		}
+
+		ul {
+
+			div.info {
+				display: flex;
+				justify-content: space-between;
+
+				& > span {
+					color: #455a64;
+					display: inline-block;
+					font-size: .8em;
+				}
+			}
+		}
+	}
+}

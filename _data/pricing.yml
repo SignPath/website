@@ -1,0 +1,40 @@
+- name: Single
+  base_per_year_1yr: 216
+  base_per_year_3yrs: 162
+  num_users: 2
+  num_certs_on_hsm: 1
+  add_cert_per_year: 144
+  num_test_certs: 3
+  processed_data_per_month_in_gb: 100
+  add_100gb_per_year: 60
+  retention_time: 1 year
+  product_id: 
+    prod: 19784257
+
+- name: Team
+  base_per_year_1yr: 882
+  base_per_year_3yrs: 662
+  num_users: 5
+  add_user_per_year: 144
+  num_certs_on_hsm: 1
+  add_cert_per_year: 144
+  num_test_certs: 5
+  processed_data_per_month_in_gb: 200
+  add_100gb_per_year: 120
+  retention_time: 2 years
+  product_id: 
+    prod: 19896251
+
+- name: Business
+  base_per_year_1yr: 2700
+  base_per_year_3yrs: 2025
+  num_users: 20
+  add_user_per_year: 48
+  num_certs_on_hsm: 2
+  add_cert_per_year: 120
+  num_test_certs: 10
+  processed_data_per_month_in_gb: 500
+  add_100gb_per_year: 96
+  retention_time: 2 years
+  product_id:
+    prod: 19910233

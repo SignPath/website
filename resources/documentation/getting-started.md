@@ -3,7 +3,6 @@ title: Documentation - SignPath.io
 header: Documentation
 layout: resources
 toc: true
-background_image: '/assets/start.jpg'
 ---
 
 ## Abstract

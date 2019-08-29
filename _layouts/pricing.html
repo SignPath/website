@@ -1,0 +1,133 @@
+{% include header.html %}
+{% assign reduced_price_factor = 0.75 %}
+
+<section class='bg-blue font-white pricing-start top-section'>
+	<div>
+		<h1>Pricing that fits your needs</h1>
+	</div>
+</section>
+
+<section class='bg-grey pricing-main'>
+	<div>
+		<div class='products-table'>
+			<div class='top'>
+				<div class='header selectors'>
+					<div class='toggle'>
+						<label>
+							<input type='checkbox' id='currency-toggle'>
+							<span></span>
+							<div data-before='$ USD' data-after='EUR €'></div>
+						</label>
+					</div>
+					<div class='toggle'>
+						<label>
+							<input type='checkbox' id='period-toggle'>
+							<span></span>
+							<div data-before='per month' data-after='per year'></div>
+						</label>
+					</div>
+					<div class='toggle'>
+						<label>
+							<input type='checkbox' id='duration-toggle'>
+							<span></span>
+							<div data-before='1 year' data-after='3 years'></div>
+						</label>
+					</div>
+				</div>
+				<ul class='body'>
+					<li class='label'>Projects</li>
+					<li class='label'>User accounts</li>
+					<li class='label secondary'>Additional user<span class='period'>per month</span></li>
+					<li class='label'>Active release certificates on HSM</li>
+					<li class='label secondary'>Additional certificate<span class='period'>per month</span></li>
+					<li class='label'>Active test certificates</li>
+					<li class='label'>Processed data</li>
+					<li class='label secondary'>Additional 100GB<span class='period'>per month</span></li>
+					<li class='label'>Data retention time</li>
+				</ul>
+			</div>
+			<div class='product'>
+				<div class='header'>
+					<h2>Free Trial<sup>1)</sup></h2>
+					<h3>Free</h3>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li>2<sup>2)</sup></li>
+					<li>-<span class='period'>&nbsp;</span></li>
+					<li>0</li>
+					<li>-<span class='period'>&nbsp;</span></li>
+					<li>3</li>
+					<li>100 MB</li>
+					<li>-<span class='period'>&nbsp;</span></li>
+					<li>1 month</li>
+				</ul>
+				<a class='btn btn-primary footer' href='https://app.signpath.io/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
+			</div>
+			{% for product in site.data.pricing %}
+				<div class='product'>
+					<div class='header'>
+						<h2>{{ product.name }}</h2>
+						<h3 class='outdated'>
+							<span class='price' data-price1yr='{{ product.base_per_year_1yr }}' data-price3yrs='{{ product.base_per_year_3yrs }}'>
+								${{ product.base_per_year_1yr | divided_by: 12 | round }}
+							</span>
+						</h3>
+						<h3>
+							<span class='price' data-price1yr='{{ product.base_per_year_1yr | times: reduced_price_factor }}' data-price3yrs='{{ product.base_per_year_3yrs | times: reduced_price_factor }}'>
+								${{ product.base_per_year_1yr | divided_by: 12 | times: reduced_price_factor | round }}
+							</span>
+							<span class='period' data-period='month'>per month</span>
+						</h3>
+					</div>
+					<ul class='body'>
+						<li>Unlimited</li>
+						<li>{{ product.num_users }}{% if product.num_users == 2 %}<sup>2)</sup>{% endif %}</li>
+						<li>
+							{% if product.add_user_per_year %}
+								<span class='price' data-price='{{ product.add_user_per_year }}'>${{ product.add_user_per_year | divided_by: 12 | round }}</span>
+								<span class='period' data-period='month'>per month</span>
+							{% else %}
+								-<span class='period'>&nbsp;</span>
+							{% endif %}
+						</li>
+						<li>{{ product.num_certs_on_hsm }}</li>
+						<li>
+							<span class='price' data-price='{{ product.add_cert_per_year }}'>${{ product.add_cert_per_year | divided_by: 12 | round }}</span>
+							<span class='period' data-period='month'>per month</span>
+						</li>
+						<li>{{ product.num_test_certs }}</li>
+						<li>{{ product.processed_data_per_month_in_gb }}</li>
+						<li>
+							<span class='price' data-price='{{ product.add_100gb_per_year }}'>${{ product.add_100gb_per_year | divided_by: 12 | round }}</span>
+							<span class='period' data-period='month'>per month</span>
+						</li>
+						<li>{{ product.retention_time }}</li>
+					</ul>
+					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id.prod }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid='{{ product.product_id.prod }}'>Buy</a>
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class='enterprise-product'>
+			<h2>Enterprise</h2>
+			<div>
+				<p>For organizations that need additional security, control, and support. Get information about enterprise plans and on-premises deployment.</p>
+				<a class='btn btn-primary footer' href='mailto:sales@signpathio?subject=Enterprise%20subscription'>Contact us</a> 
+			</div>
+		</div>
+
+		<div class='info'>
+			<p>
+				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
+				<strong><i class='la la-info-circle'></i> Code-signing certificates need to be purchased separately.</strong>
+			</p>
+			<p>
+				1) In the free trial version, a timestamp with a self-signed certificate is applied.<br> 
+				2) In addition to your own user account, you can create one for build automation.
+			</p>
+		</div>
+	</div>
+</section>
+
+{% include footer.html %}

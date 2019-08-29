@@ -1,0 +1,359 @@
+section.pricing-start {
+	& > div > h1 {
+			text-align: center;
+	}
+}
+
+section.pricing-main {
+	& > div {
+		padding: 40px;
+	}
+
+	& > div > div.products-table {
+		display: flex;
+		align-items: flex-start;
+
+		& > div {
+			background-color: #fff;
+			border-radius: 6px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+			& > div.header {
+				height: 160px;
+			}
+
+			& > ul.body {
+				list-style-type: none;
+				margin: 0px;
+				padding: 0px 20px;
+
+				& > li {
+					padding: 10px;
+					text-align: center;
+					border-bottom: 1px solid #eceff1;
+
+					&:last-child {
+						border-bottom: 0px solid transparent;
+					}
+				}
+			}
+		}
+
+		& > div.top {
+			flex-grow: 2;
+			margin-right: 10px;
+
+			& > div.selectors {
+				border-top-left-radius: inherit;
+				border-top-right-radius: inherit;
+				background-color: #455a64;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+
+			& > ul > li {
+				text-align: left;
+				font-weight: bold;
+
+				&.secondary {
+					text-align: right;
+					font-weight: normal;
+				}
+			}
+		}
+
+		& > div.product {
+			flex-grow: 1;
+			flex-basis: 15%;
+			margin-left: 10px;
+
+			& > div.header {
+				color: #fff;
+				border-top-left-radius: inherit;
+				border-top-right-radius: inherit;
+
+				& > h2 {
+					margin: 0px;
+					text-transform: uppercase;
+					font-size: 1.4em;
+					line-height: 2em;
+					padding: 6px;
+					padding-top: 12px;
+					text-align: center;
+				}
+
+				& > h3 {
+					margin: 0px;
+					font-size: 1.8em;
+					padding: 0px 10px;
+					line-height: 1.8em;
+
+					& > span.period {
+						font-size: .5em;
+						line-height: .8em;
+					}
+
+					&.outdated {
+						color: #ddd;
+						text-decoration: line-through;
+						font-size: 1em;
+						line-height: 1em;
+					}
+				}
+			}
+
+			& > ul > li.label {
+				display: none;
+			}
+
+			& > a.footer {
+				display: block;
+				text-align: center;
+				font-size: 1.2em;
+			}
+
+			&:nth-child(2) > div.header { background-color: #006a8a; } /* TODO: why start with 2nd? */;
+			&:nth-child(3) > div.header { background-color: #0b8bb1; }
+			&:nth-child(4) > div.header { background-color: #17abd8; }
+			&:nth-child(5) > div.header { background-color: #22ccff; }
+		}
+	}
+
+	sup {
+		font-size: 0.5em;
+	}
+
+	span.period {
+		font-size: .7em;
+		display: block;
+	}
+
+	& > div > div.enterprise-product {
+		display: flex;
+		align-items: stretch;
+		margin: 40px 0px;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		border-radius: 6px;
+
+		& > h2 {
+			background-color: #263238;
+			color: #fff;
+			padding: 20px;
+			margin: 0px;
+			text-align: center;
+			border-top-left-radius: inherit;
+			border-bottom-left-radius: inherit;
+		}
+
+		& > div {
+			display: flex;
+			align-items: center;
+			background-color: #fff;
+			border-top-right-radius: inherit;
+			border-bottom-right-radius: inherit;
+
+			& > p {
+				padding: 20px;
+				flex-shrink: 1;
+			}
+
+			& > a {
+				margin: 20px;
+				font-size: 1.2em;
+				text-align: center;
+				flex-shrink: 0;
+			}
+		}
+	}
+}
+
+div.toggle {
+	display: block;
+	width: 100%;
+	text-align: center;
+
+	& > label {
+		position: relative;
+		display: inline-block;
+		width: 100%;
+		height: 30px;
+
+		& > input {
+			position: absolute;
+			left: 50%;
+			top: 0px;
+			width: 0;
+			height: 0;
+			font-size: 1em;
+			margin: 0px;
+			color: #fff;
+			opacity: 0;
+
+			&:checked {
+				& + span {
+					/* background-color: #00b1e6; */
+				}
+
+				& + span:before {
+					transform: translateX(28px);
+				}
+
+				& ~ div:before {
+					color: inherit;
+				}
+
+				& ~ div:after {
+					color: #00b1e6;
+				}
+			}
+
+			&:focus + span {
+				box-shadow: 0 0 2px #faac14;
+			}
+
+			
+		}
+
+		& > div {
+			position: absolute;
+			left: 50%;
+			top: 0px;
+			width: 0px;
+			height: 0px;
+			font-size: 1em;
+			line-height: 1em;
+			color: #fff;
+
+			&:before {
+				color: #22ccff;
+				position: absolute;
+				right: 35px;
+				left: -160px;
+				width: auto;
+				top: calc( (1.4em - 1em) / 2);
+				text-align: right;
+				content: attr(data-before);
+				font-weight: bold;
+			}
+
+			&:after {
+				position: absolute;
+				text-align: left;
+				left: 35px;
+				right: -160px;
+				top: calc( (1.4em - 1em) / 2);
+				content: attr(data-after);
+				opacity: 1;
+				font-weight: bold;
+			}
+		}
+		
+		& > span {
+			position: absolute;
+			cursor: pointer;
+			top: 0px;
+			left: calc(50% - 25px);
+			right: 0;
+			bottom: 0;
+			background-color: #ccc;
+			transition: .4s;
+			border-radius: 1.4em;
+			width: 50px;
+			height: 1.4em;
+		
+			&:before {
+				content: '';
+				position: absolute;
+				height: calc(1.4em - 4px);
+				width: calc(1.4em - 4px);
+				left: 2px;
+				bottom: 2px;
+				background-color: #fff;
+				transition: .4s;
+				border-radius: 50%;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	section.pricing-main > div {
+		padding: 20px;
+
+		& > div.products-table {
+			flex-direction: column;
+
+			& > div.top {
+				width: 100%;
+				margin-right: 0px;
+
+				div.selectors {
+					border-radius: inherit;
+				}
+
+				& > ul.body {
+					display: none;
+				}
+			}
+
+			& > div.product {
+				margin-top: 20px;
+				margin-left: 0px;
+				width: 100%;
+
+				& > a {
+					border-bottom-right-radius: inherit;
+					border-bottom-left-radius: inherit;
+				}
+
+				& > ul.body {
+					display: flex;
+					flex-wrap: wrap;
+
+					& > li {
+						width: calc(50% - 20px);
+
+						&.label {
+							display: inline-block;
+						}
+
+						&:nth-child(odd) {
+							text-align: left;
+						}
+
+						&:nth-child(even) {
+							text-align: right;
+						}
+
+						&:nth-last-child(2) {
+							border-bottom: 0px solid transparent;;
+						}
+					}
+				}
+			}
+		}
+
+		& > div.enterprise-product {
+			flex-direction: column;
+
+			& > h2 {
+				border-bottom-left-radius: 0px;
+				border-top-right-radius: inherit;
+			}
+
+			& > div {
+				flex-direction: column;
+				align-items: stretch;
+				border-bottom-right-radius: inherit;
+				border-bottom-left-radius: inherit;
+
+				& > a {
+					margin: 0px;
+					border-bottom-right-radius: inherit;
+					border-bottom-left-radius: inherit;
+				}
+			}
+		}
+	}
+}

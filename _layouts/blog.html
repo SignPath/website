@@ -1,0 +1,67 @@
+{% include header.html %}
+
+<section class="bg-blue font-white top-section">
+  <div>
+    <h1>{{ page.header }}</h1>
+  </div>
+</section>
+<section class="blog-section bg-grey">
+  <div>
+
+    {% if page.featured_slugs %}
+      <h2>Featured Posts</h2>
+      <ul class='card-container'>
+        {% for post in site.posts %}
+          {% if page.featured_slugs contains post.slug %}
+            <li class='card'>
+              <a class='header' style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
+                <h3>{{ post.title }}</h3>
+              </a>
+              <div class='body'>
+                <div class='info'>
+                  <span><i class='la la-user'></i> {{ post.author }}</span>
+                  <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
+                </div>
+                <p>
+                  {% if post.summary %}
+                    {{ post.summary }}
+                  {% else %}
+                    {{ post.excerpt | truncatewords: 15 }}
+                  {% endif %}
+                </p>
+                <a class='btn btn-secondary' href='{{ post.url }}'>Read more</a>
+              </div>
+            </li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    {% endif %}
+
+    <h2>Recent Posts</h2>
+    <ul class='card-container'>
+      {% for post in site.posts %}
+        <li class='card'>
+          <a class='header' style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
+            <h3>{{ post.title }}</h3>
+          </a>
+          <div class='body'>
+            <div class='info'>
+              <span><i class='la la-user'></i> {{ post.author }}</span>
+              <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
+            </div>
+            <p>
+              {% if post.summary %}
+                {{ post.summary }}
+              {% else %}
+                {{ post.excerpt | truncatewords: 15 }}
+              {% endif %}
+            </p>
+            <a class='btn btn-secondary' href='{{ post.url }}'>Read more</a>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+
+  </div>
+</section>
+{% include footer.html %}

@@ -1,0 +1,19 @@
+{% include header.html %}
+
+<section class="bg-image font-white top-section" style='background-image:url(/assets/posts/{{ page.image }}.jpg);'>
+	<div>
+		<h1>{{ page.title }}</h1>
+		<div class='info'>
+          <div><i class='la la-user'></i> {{ page.author }}</div>
+          <div><i class='la la-calendar'></i> {{ page.date | date: '%B %d, %Y' }}</div>
+        </div>
+	</div>
+</section>
+<section class="default-section">
+	<div>
+		<article>
+			{{ content }}
+		</article>
+	</div>
+</section>
+{% include footer.html %}
