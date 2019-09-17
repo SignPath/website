@@ -49,6 +49,7 @@ a.btn, button.btn {
 	padding: 6px 20px;
 	border: 1px solid transparent;
 	color: inherit;
+	box-shadow: $shadow;
 }
 
 a.btn-flat {
@@ -71,6 +72,7 @@ a.btn-primary {
 
 a.btn-secondary, button.btn-secondary {
 	background-color: $secondary-color;
+	color: $black-font-color;
 
 	&:hover {
 		background-color: $primary-color;
@@ -101,6 +103,11 @@ main {
 				font-size: 2em;
 				text-align: center;
 				margin-top: 0px;
+			}
+
+			& > p {
+				text-align: center;
+				margin-bottom: 2em;
 			}
 
 			h3 {
@@ -222,6 +229,13 @@ div.columns {
 
 	ul {
 		display: inline-block;
+	}
+
+	& > .column-stretched {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
 	}
 }
 

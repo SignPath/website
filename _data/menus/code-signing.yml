@@ -6,3 +6,9 @@
 
 - text: Windows platform
   path: windows-platform
+
+- text: Maturity model
+  path: maturity-model
+
+- text: Tools landscape
+  path: tools-landscape

@@ -17,6 +17,7 @@ section.home-start {
 		& > p {
 			font-size: 1.3em;
 			line-height: 1.5em;
+			text-align: left;
 		}
 
 		& > div {
@@ -26,6 +27,47 @@ section.home-start {
 			& > *:first-child {
 				margin-right: 20px;
 			}
+		}
+	}
+}
+
+ul.home-feature-list {
+	list-style-type: none;
+	text-align: left;
+	padding: 0px;
+
+	& > li {
+		font-size: 1.3em;
+		margin-bottom: 0.5em;
+
+		& > i {
+			margin-right: 0.5em;
+		}
+	}
+}
+
+ul.home-method-list {
+	list-style-type: none;
+	text-align: left;
+	padding: 0px;
+
+	& > li {
+		font-size: 1.3em;
+		margin-bottom: 0.5em;
+
+		& > i {
+			margin-right: 0.5em;
+		}
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	main > section.home-start {
+
+		padding-bottom: 0px;
+
+		& > div > h1 {
+			font-size: 3em;
 		}
 	}
 }
