@@ -20,6 +20,8 @@ To run the installation locally, you need to execute
 
 If you want to include drafts into the blog, add the `--drafts` flag.
 
+Depending on the value of the environment variable `JEKYLL_ENV`, different links will be used on the website. The supported values are `production` (default on Github), `fqa`, `iqa` and `development` (default otherwise)
+
 ### Running it using Docker
 You need to have Docker installed.
 Then, run the following comand:
@@ -49,6 +51,10 @@ In order to publish a blog post, perform the following steps:
 ### Adding/removing job posts
 
 In order to add or remove a job, directly edit the `jobs/index.md` file and change the HTML code.
+
+### Changing icon set
+
+The general icons used on the website come from [Line Awesome](https://icons8.com/line-awesome) and a set of them are self-created / from various sources. The latter are collected in `assets/icons/single` and are then combined into the `fontello` font using (fontello.com)[http://fontello.com/].
 
 ## Deploying
 TODO

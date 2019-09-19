@@ -14,7 +14,8 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 title: SignPath - Code signing simple and secure
-email: your-email@example.com
+email_sales: sales@signpath.io?subject=Enterprise%20subscription
+email_oss: support@signpath.io?subject=OSS%20subscription
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
@@ -32,17 +33,11 @@ toc:
   max_level: 2
 permalink: /resources/blog/:year/:month/:day/:title.html
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+    - Gemfile
+    - Gemfile.lock
+    - assets/icons/single
+    - README.md
 
 sass:
     style: compressed
