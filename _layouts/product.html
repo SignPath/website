@@ -4,87 +4,104 @@
   <div>
 		<h1>The preferred code signing solution</h1>
 		<h3>
-			Supports open source developers<br>
 			Empowers development teams<br>
-			Satisfies InfoSec leaders<br>
+			and satisfies InfoSec leaders<br>
 		</h3>
-		<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary'>Free Trial</a>
+		<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary'>Start free trial</a>
 	</div>
 </section>
 
 <section class='bg-grey'>
 	<div>
+		<div class='columns'>
+			<div>
+				<h3>Code signing as a service</h3>
+				<p>
+					SignPath provides your organization with a simple and secure code signing process. Development teams can define workflows that integrate well with their existing software development lifecycle. Responsibilities, tasks, alerts and inventories of your private keys and certificates are well documented and transparent for the InfoSec teams.
+				</p>
+			</div>
+			<div>
+				<h3>Security matters</h3>
+				<p>
+					Code signing is a cornerstone of anti-malware protection. Operating systems, app stores, add-ins, systems and management software rely on the validity of signatures and certificates. That’s why code signing keys and processes are under constant attack. SignPath turns code signing into a controlled and repeatable process that aligns the needs of both development teams and InfoSec experts. SignPath fulfills the recommendations of the <a href='https://casecurity.org/wp-content/uploads/2016/12/CASC-Code-Signing.pdf' target='_blank'>CA Security Council</a>. 
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class='feature'>
+	<div class='img'><div><img src='/assets/img/features/certificate-management.png' title='Certificate management' /></div></div>
+	<div class='description'>
+		<h2>Certificate management</h2>
+		<h3>Don't hassle with USB tokens or HSM setups</h3>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			In SignPath all your organization's code signing certificates are centrally managed. The InfoSec teams have full control over what code is signed and which certificate was used. They can view the entire history in case of an incident and define clear policies to restrict how each certificate may be used. SignPath allows you to import your own certificates or create a certificate signing request (CSR) for your certificate authority (CA). You are also notified on time before your certificate expires.
 		</p>
 	</div>
 </section>
 
-<section>
-	<div>
-		<h2>This is a header</h2>
+<section class='feature right'>
+	<div class='img'><div><img src='/assets/img/features/policy-enforcement.png' title='Policy enforcement' /></div></div>
+	<div class='description'>
+		<h2>Policy enforcement</h2>
+		<h3>Take control over your code signing process</h3>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			SignPath enables development teams to stay agile by allowing them to automate the code signing process as long as they stay within the boundaries of your organization's policies. Administrators can define which kind of software may be signed, who is allowed to submit a signing request and how many approvers must authorize it before it is signed. Additionally, SignPath offers origin verification, which ensures that a software artifact was built from a specific commit in your source code repository.
 		</p>
 	</div>
 </section>
 
 <section class='feature'>
-	<img src='/assets/start.jpg' title='TODO' />
-	<div>
-		<h2>Feature header</h2>
+	<div class='img'><div><img src='/assets/img/features/deep-signing.png' title='Deep signing' /></div></div>
+	<div class='description'>
+		<h2>Deep signing of nested files</h2>
+		<h3>Sign executables and libraries within your installers and packages</h3>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			Signing the installer or library package alone means that the software installed on your customer's systems is not digitally secured any more once the shipped installer has been unpacked and disposed. In order to continously ensure the authenticity and integrity of your software components, SignPath signs all files within the installation package and then automatically repackages the installer and signs the entire package.
+		</p>
+	</div>
+</section>
+
+
+<section class='feature right'>
+	<div class='img'><div><img src='/assets/img/features/build-integration.png' title='Build integration' /></div></div>
+	<div class='description'>
+		<h2>Build integration</h2>
+		<h3>Automate your code signing process</h3>
+		<p>
+			Software development processes are increasingly automated to cope with the demand for more agility and frequent releases. SignPath allows code signing to be part of the build pipeline by providing a modern API, third party integrations and tools for seamless CI integration.
 		</p>
 	</div>
 </section>
 
 <section class='feature'>
-	<img src='/assets/start.jpg' title='TODO' class='right' />
-	<div>
-		<h2>Feature header</h2>
+	<div class='img'><div><img src='/assets/img/features/secure-private-keys.png' title='Secure private keys' /></div></div>
+	<div class='description'>
+		<h2>Secure storage of private keys</h2>
+		<h3 class='subtitle'>Rest assured that your private keys can never be compromised</h3>
 		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+			SignPath provides a FIPS-certified Hardware Security Module (HSM) to generate and store the private keys for your certificates. The HSM is located in a physically secured data center. Every signing operation takes place on the HSM ensuring that the private key is never exposed. The key infrastructure of SignPath fulfills all requirements for Extended Validation (EV) certificates without having to deal with USB tokens or spending big money on dedicated hardware.
 		</p>
 	</div>
 </section>
 
-<section class='feature'>
-	<img src='/assets/start.jpg' title='TODO' />
-	<div>
-		<h2>Feature header</h2>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
-	</div>
-</section>
-
-<section class='feature'>
-	<img src='/assets/start.jpg' title='TODO' class='right' />
-	<div>
-		<h2>Feature header</h2>
-		<p>
-			Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-		</p>
-	</div>
-</section>
-
-<section class='bg-blue font-white product-start'>
+<section class='bg-blue font-white'>
   <div>
-		<h2>Other features overview</h2>
+		<h2>Increase your security with ease</h2>
 		<div class='columns'>
 			<div>
 				<i class='la la-rotate-right header'></i>
 				<h3>Establish a process</h3>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Don’t assume that code signing processes are followed by your team. Monitor and automate the execution. Adapt workflows for different software products and development teams.
 				</p>
 			</div>
 			<div>
 				<i class='la la-map-signs header'></i>
 				<h3>Align InfoSec and development teams</h3>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Development teams need to own the code signing process in order to stay agile. InfoSec teams need to enforce their security policies. With SignPath both teams get the necessary freedom and guarantee for an effective and secure code signing process. 
 				</p>
 			</div>
 		</div>
@@ -93,18 +110,18 @@
 				<i class='la la-briefcase header'></i>
 				<h3>Meet customer expectations</h3>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Your customers demand high security in their IT infrastructure. Meet their expectations by providing them with signed software and a process that excels at every security audit. 
 				</p>
 			</div>
 			<div>
 				<i class='la la-money header'></i>
 				<h3>Save costs</h3>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+					Get started in minutes with our code signing as a service solution. No need for complicated setups and installation of CSPs, timestamping servers or integration of Hardware Security Modules (HSMs).
 				</p>
 			</div>
 		</div>
-		<a href='mailto:sales@signpath.io' class='btn btn-primary'>Contact us</a>
+		<p><a href='/product/comparison' class='btn btn-flat'>Compare SignPath to other vendors</a></p>
 	</div>
 </section>
 

@@ -1,4 +1,6 @@
 section.product-start {
+	background-image: url('../img/product.jpg');
+
 	& > div {
 		text-align: center;
 
@@ -11,27 +13,70 @@ section.product-start {
 main > section.feature {
 	display: flex;
 	flex-wrap: wrap;
+	padding: 40px 0px;
+	max-width: $content-width;
+	margin: auto;
 
-	& > div {
+	&.grey {
+		background-color: $light-grey-background-color;
+	}
+
+	& > div.description {
 		width: 50%;
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		padding: 0px;
 		padding: 40px 0px;
-		background-color: $light-grey-background-color;
+		text-align: left;
+
+		& > * {
+			text-align: inherit;
+		}
 		
-		& > p {
-			margin: 0px 40px;
+		& > h2 {
+			margin-bottom: 0px;
+		}
+
+		& > h3, h2 {
+			margin-left: 40px;
+			margin-right: 40px;
+			margin-top: 0px;
+		}
+		
+		& > p, & > ul {
+			margin: 20px 40px;
+			margin-top: 0px;
 		}
 	}
 
-	& > img {
+	& > div.img {
 		min-width: 300px;
 		width: 50%;
-		display: inline-block;
+		display: flex;
+		padding: 0px;
+		justify-content: center;
+		align-items: center;
 
-		&.right {
+		& > div {
+			margin: 20px;
+			overflow: hidden;
+			box-shadow: $shadow;
+			border-radius: $border-radius;
+
+			& > img {
+				width: auto;
+				display: block;
+			}
+		}
+	}
+
+	&.right {
+		& > div.description {
+			text-align: right;
+		}
+
+		& > div.img {
 			order: 2;
 		}
 	}
@@ -40,19 +85,34 @@ main > section.feature {
 @media only screen and (max-width: 1000px) {
 	main > section.feature {
 
-		& > div {
+		& > div.description {
 			width: 100%;
+			text-align: center;
 
 			& > p {
 				margin: 0px 20px;
 			}
 		}
 
-		& > img {
+		& > div.img {
 			width: 100%;
+			max-height: 50%;
 
-			&.right {
-				order: 0;
+			& > div {
+
+				& > img {
+					max-width: 100%;
+				}
+			}
+		}
+
+		&.right {
+			& > div.description {
+				text-align: center;
+			}
+
+			& > div.img {
+			 	order: 0;
 			}
 		}
 	}

@@ -103,6 +103,8 @@ main {
 				font-size: 2em;
 				text-align: center;
 				margin-top: 0px;
+				margin-left: 40px;
+				margin-right: 40px;
 			}
 
 			& > p {
@@ -113,11 +115,8 @@ main {
 			h3 {
 				font-size: 1.5em;
 				text-align: center;
-			}
-
-			span.subtitle {
-				text-align: center;
-				display: block;
+				margin-left: 40px;
+				margin-right: 40px;
 			}
 		}
 	}

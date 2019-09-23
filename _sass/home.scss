@@ -1,5 +1,5 @@
 section.home-start {
-	background-image: url('../start.jpg');
+	background-image: url('../img/home.jpg');
 	padding: 100px 0px;
 
 	& > div {
@@ -22,7 +22,6 @@ section.home-start {
 
 		& > div {
 			display: flex;
-			font-weight: 600;
 		
 			& > *:first-child {
 				margin-right: 20px;
