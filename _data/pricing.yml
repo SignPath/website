@@ -8,11 +8,17 @@
   processed_data_per_month_in_gb: 100
   add_100gb_per_year: 60
   retention_time: 1 year
-  product_id: 
-    production: 19784257
-    fqa: 20051804
-    iqa: 24573359
-    development: dev-single
+  product_id:
+    one_year:
+      production: 19784257
+      fqa: 20051804
+      iqa: 24573359
+      development: dev-single-one-year
+    three_years:
+      production: 19868454
+      fqa: 20051806
+      iqa: 24573359
+      development: dev-single-three-years
 
 - name: Team
   base_per_year_1yr: 882
@@ -25,11 +31,17 @@
   processed_data_per_month_in_gb: 200
   add_100gb_per_year: 120
   retention_time: 2 years
-  product_id: 
-    production: 19784407
-    fqa: 20051809
-    iqa: 24574076
-    development: dev-team
+  product_id:
+    one_year:
+      production: 19784407
+      fqa: 20051809
+      iqa: 24574076
+      development: dev-team-one-year
+    three_years:
+      production: 19896251
+      fqa: 20051810
+      iqa: 24574076
+      development: dev-team-three-years
 
 - name: Business
   base_per_year_1yr: 2700
@@ -43,7 +55,13 @@
   add_100gb_per_year: 96
   retention_time: 2 years
   product_id:
-    production: 19784688
-    fqa: fqa-business
-    iqa: iqa-business
-    development: dev-business
+    one_year:
+      production: 19784688
+      fqa: fqa-business
+      iqa: iqa-business
+      development: dev-business-one-year
+    three_years:
+      production: 19910233
+      fqa: fqa-business
+      iqa: iqa-business
+      development: dev-business-three-years

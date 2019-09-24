@@ -151,24 +151,41 @@ document.addEventListener('DOMContentLoaded', function() {
       })
       
     }
+
+    function recreateLinks() {
+      var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
+      var period   = document.getElementById('period-toggle'  ).checked ? 'year' : 'month';
+      var duration = document.getElementById('duration-toggle').checked ? '3yrs' : '1yr';
+
+      // deal with links on the pricing page correctly - unfortunately, URL is not supported by IE
+      let params = {};
+      window.location.search.substr(1).split('&').forEach(function(part) {
+        var parts = part.split('=');
+        if (parts.length > 1) {
+          params[parts[0]] = decodeURIComponent(parts[1])
+        }
+      })
+      if (params.currentProductId) {
+        document.getElementById('free-trial-button').style.display = 'none';
+      }
+
+      document.querySelectorAll('div.product a.footer').forEach(function(a) {
+        var productid = a.dataset[duration == '1yr' ? 'productid_one_year' : 'productid_three_years']
+
+        if (params.currentProductId) { // update links
+          a.innerText = 'Change';
+          a.href = document.documentElement.dataset.appurl + '/Web/' + params.organizationId + '/Subscription/CompleteChange?productId=' + productid + '&paymentToken=' + encodeURIComponent(params.paymentToken);
+        } else {
+          a.href = 'https://secure.avangate.com/order/checkout.php?PRODS=' + productid + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' + (currency == '$' ? 'USD' : 'EUR') + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
+        }
+      });
+    }
+
     document.querySelectorAll('section.pricing-main div.toggle input').forEach(function(input) {
       input.addEventListener('change', recalculatePrices);
+      input.addEventListener('change', recreateLinks);
     });
 
-    // deal with links on the pricing page correctly - unfortunately, URL is not supported by IE
-    let params = {};
-    window.location.search.substr(1).split('&').forEach(function(part) {
-      var parts = part.split('=');
-      if (parts.length > 1) {
-        params[parts[0]] = decodeURIComponent(parts[1])
-      }
-    })
-    if (params.currentProductId) {
-      document.getElementById('free-trial-button').style.display = 'none';
-      document.querySelectorAll('div.product a.footer').forEach(function(a) {
-        a.innerText = 'Change';
-        a.href = document.documentElement.dataset.appurl + '/Web/' + params.organizationId + '/Subscription/CompleteChange?productId=' + a.dataset.productid + '&paymentToken=' + encodeURIComponent(params.paymentToken);
-      })
-    }
+    recreateLinks();
   }
 })

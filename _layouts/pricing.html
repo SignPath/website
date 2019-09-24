@@ -105,7 +105,7 @@
 						</li>
 						<li>{{ product.retention_time }}</li>
 					</ul>
-					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid='{{ product.product_id[jekyll.environment] }}'>Buy</a>
+					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>
 			{% endfor %}
 		</div>
@@ -113,7 +113,7 @@
 		<div class='additional-product'>
 			<h2>Enterprise</h2>
 			<div>
-				<p>For organizations that need additional security, control, and support. Get information about enterprise plans and on-premises deployment.</p>
+				<p>For organizations that need additional security, control, and support. Get information about enterprise plans and on-premises deployments.</p>
 				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a> 
 			</div>
 		</div>
