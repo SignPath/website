@@ -138,18 +138,24 @@ section.pricing-main {
 		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 		border-radius: 6px;
 
-		& > h2 {
+		& > div:first-child {
 			background-color: $dark-grey-background-color;
-			color: $white-font-color;
-			padding: 20px;
-			margin: 0px;
-			text-align: center;
+			display: flex;
+			align-items: center;
 			border-top-left-radius: inherit;
 			border-bottom-left-radius: inherit;
-			min-width: 140px;
+			min-width: 200px;
+
+			& > h2 {
+				color: $white-font-color;
+				padding: 20px;
+				margin: 0px;
+				text-align: center;
+				flex-grow: 1;
+			}
 		}
 
-		& > div {
+		& > div:last-child {
 			display: flex;
 			align-items: center;
 			background-color: $white-background-color;
@@ -333,12 +339,16 @@ div.toggle {
 		& > div.additional-product {
 			flex-direction: column;
 
-			& > h2 {
+			& > div:first-child {
 				border-bottom-left-radius: 0px;
 				border-top-right-radius: inherit;
+				
+				& > h2 {
+					text-align: center;
+				}
 			}
 
-			& > div {
+			& > div:last-child {
 				flex-direction: column;
 				align-items: stretch;
 				border-bottom-right-radius: inherit;

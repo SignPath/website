@@ -64,6 +64,10 @@ main > section.feature {
 			box-shadow: $shadow;
 			border-radius: $border-radius;
 
+			&.no-shadow {
+				box-shadow: none;
+			}
+
 			& > img {
 				width: auto;
 				display: block;

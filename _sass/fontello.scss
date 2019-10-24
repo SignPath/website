@@ -56,12 +56,14 @@
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
- 
+
 .icon-java:before { content: '\e800'; } /* '' */
 .icon-nested:before { content: '\e801'; } /* '' */
 .icon-nuget:before { content: '\e802'; } /* '' */
 .icon-office:before { content: '\e803'; } /* '' */
-.icon-powershell:before { content: '\e804'; } /* '' */
-.icon-visual-studio:before { content: '\e805'; } /* '' */
-.icon-windows:before { content: '\e806'; } /* '' */
-.icon-clickonce:before { content: '\e807'; } /* '' */
+.icon-origin-verification:before { content: '\e804'; } /* '' */
+.icon-powershell:before { content: '\e805'; } /* '' */
+.icon-visual-studio:before { content: '\e806'; } /* '' */
+.icon-windows:before { content: '\e807'; } /* '' */
+.icon-cicd:before { content: '\e808'; } /* '' */
+.icon-clickonce:before { content: '\e809'; } /* '' */
