@@ -18,6 +18,7 @@ section.resources-section {
 
 			& > ul {
 				margin: 10px 20px;
+
 			}
 
 			ul {
@@ -27,6 +28,10 @@ section.resources-section {
 
 			ul > li {
 				padding: 5px 0px;
+
+				&.active > a {
+					font-weight: bold;
+				}
 
 				&:last-child {
 					padding-bottom: 0px;

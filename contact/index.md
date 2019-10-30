@@ -4,6 +4,228 @@ header: Contact us
 layout: default
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Nibh nisl condimentum id venenatis a. Aliquam malesuada bibendum arcu vitae elementum. Imperdiet sed euismod nisi porta lorem mollis aliquam ut. Aliquam purus sit amet luctus venenatis lectus magna. Proin fermentum leo vel orci porta non pulvinar neque laoreet. Mattis rhoncus urna neque viverra justo nec ultrices dui. Dui ut ornare lectus sit amet est placerat in egestas. Rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Egestas quis ipsum suspendisse ultrices gravida dictum fusce ut. Lorem donec massa sapien faucibus et molestie ac. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim. Faucibus interdum posuere lorem ipsum dolor sit. Sit amet commodo nulla facilisi nullam.
-
-Pharetra pharetra massa massa ultricies mi quis hendrerit. Mattis pellentesque id nibh tortor. Quisque non tellus orci ac auctor augue mauris augue neque. Commodo nulla facilisi nullam vehicula ipsum. Facilisis gravida neque convallis a cras. Velit scelerisque in dictum non. Blandit volutpat maecenas volutpat blandit aliquam etiam erat velit. Scelerisque purus semper eget duis at. Tincidunt lobortis feugiat vivamus at augue eget. In est ante in nibh. Consectetur adipiscing elit duis tristique sollicitudin. Turpis egestas pretium aenean pharetra magna ac. Diam maecenas sed enim ut sem viverra aliquet eget sit. Eget dolor morbi non arcu. Orci nulla pellentesque dignissim enim sit. Sapien pellentesque habitant morbi tristique senectus. Ullamcorper a lacus vestibulum sed arcu.
+<h2>How can we help you?</h2>
+<form
+  action="https://formspree.io/mnqagopv"
+  method="POST"
+>
+  <label>
+    Name
+    <input type="text" name="name" required>
+  </label>
+  <label>
+    Company name
+    <input type="text" name="company" required>
+  </label>
+  <label>
+    Company email
+    <input type="text" name="email" type="email" required>
+  </label>
+  <label>
+    Country
+    <!--<input type="text" name="country" required>-->
+    <select name="country" required>
+        <option selected="selected" disabled></option>
+        <option>Afghanistan</option>
+        <option>Albania</option>
+        <option>Algeria</option>
+        <option>Andorra</option>
+        <option>Angola</option>
+        <option>Antigua and Barbuda</option>
+        <option>Argentina</option>
+        <option>Armenia</option>
+        <option>Australia</option>
+        <option>Austria</option>
+        <option>Azerbaijan</option>
+        <option>Bahamas</option>
+        <option>Bahrain</option>
+        <option>Bangladesh</option>
+        <option>Barbados</option>
+        <option>Belarus</option>
+        <option>Belgium</option>
+        <option>Belize</option>
+        <option>Benin</option>
+        <option>Bhutan</option>
+        <option>Bolivia</option>
+        <option>Bosnia and Herzegovina</option>
+        <option>Botswana</option>
+        <option>Brazil</option>
+        <option>Brunei</option>
+        <option>Bulgaria</option>
+        <option>Burkina Faso</option>
+        <option>Burundi</option>
+        <option>Côte d'Ivoire</option>
+        <option>Cabo Verde</option>
+        <option>Cambodia</option>
+        <option>Cameroon</option>
+        <option>Canada</option>
+        <option>Central African Republic</option>
+        <option>Chad</option>
+        <option>Chile</option>
+        <option>China</option>
+        <option>Colombia</option>
+        <option>Comoros</option>
+        <option>Congo (Congo-Brazzaville)</option>
+        <option>Costa Rica</option>
+        <option>Croatia</option>
+        <option>Cuba</option>
+        <option>Cyprus</option>
+        <option>Czechia (Czech Republic)</option>
+        <option>Democratic Republic of the Congo</option>
+        <option>Denmark</option>
+        <option>Djibouti</option>
+        <option>Dominica</option>
+        <option>Dominican Republic</option>
+        <option>Ecuador</option>
+        <option>Egypt</option>
+        <option>El Salvador</option>
+        <option>Equatorial Guinea</option>
+        <option>Eritrea</option>
+        <option>Estonia</option>
+        <option>Eswatini (fmr. "Swaziland")</option>
+        <option>Ethiopia</option>
+        <option>Fiji</option>
+        <option>Finland</option>
+        <option>France</option>
+        <option>Gabon</option>
+        <option>Gambia</option>
+        <option>Georgia</option>
+        <option>Germany</option>
+        <option>Ghana</option>
+        <option>Greece</option>
+        <option>Grenada</option>
+        <option>Guatemala</option>
+        <option>Guinea</option>
+        <option>Guinea-Bissau</option>
+        <option>Guyana</option>
+        <option>Haiti</option>
+        <option>Holy See</option>
+        <option>Honduras</option>
+        <option>Hungary</option>
+        <option>Iceland</option>
+        <option>India</option>
+        <option>Indonesia</option>
+        <option>Iran</option>
+        <option>Iraq</option>
+        <option>Ireland</option>
+        <option>Israel</option>
+        <option>Italy</option>
+        <option>Jamaica</option>
+        <option>Japan</option>
+        <option>Jordan</option>
+        <option>Kazakhstan</option>
+        <option>Kenya</option>
+        <option>Kiribati</option>
+        <option>Kuwait</option>
+        <option>Kyrgyzstan</option>
+        <option>Laos</option>
+        <option>Latvia</option>
+        <option>Lebanon</option>
+        <option>Lesotho</option>
+        <option>Liberia</option>
+        <option>Libya</option>
+        <option>Liechtenstein</option>
+        <option>Lithuania</option>
+        <option>Luxembourg</option>
+        <option>Madagascar</option>
+        <option>Malawi</option>
+        <option>Malaysia</option>
+        <option>Maldives</option>
+        <option>Mali</option>
+        <option>Malta</option>
+        <option>Marshall Islands</option>
+        <option>Mauritania</option>
+        <option>Mauritius</option>
+        <option>Mexico</option>
+        <option>Micronesia</option>
+        <option>Moldova</option>
+        <option>Monaco</option>
+        <option>Mongolia</option>
+        <option>Montenegro</option>
+        <option>Morocco</option>
+        <option>Mozambique</option>
+        <option>Myanmar (formerly Burma)</option>
+        <option>Namibia</option>
+        <option>Nauru</option>
+        <option>Nepal</option>
+        <option>Netherlands</option>
+        <option>New Zealand</option>
+        <option>Nicaragua</option>
+        <option>Niger</option>
+        <option>Nigeria</option>
+        <option>North Korea</option>
+        <option>North Macedonia</option>
+        <option>Norway</option>
+        <option>Oman</option>
+        <option>Pakistan</option>
+        <option>Palau</option>
+        <option>Palestine State</option>
+        <option>Panama</option>
+        <option>Papua New Guinea</option>
+        <option>Paraguay</option>
+        <option>Peru</option>
+        <option>Philippines</option>
+        <option>Poland</option>
+        <option>Portugal</option>
+        <option>Qatar</option>
+        <option>Romania</option>
+        <option>Russia</option>
+        <option>Rwanda</option>
+        <option>Saint Kitts and Nevis</option>
+        <option>Saint Lucia</option>
+        <option>Saint Vincent and the Grenadines</option>
+        <option>Samoa</option>
+        <option>San Marino</option>
+        <option>Sao Tome and Principe</option>
+        <option>Saudi Arabia</option>
+        <option>Senegal</option>
+        <option>Serbia</option>
+        <option>Seychelles</option>
+        <option>Sierra Leone</option>
+        <option>Singapore</option>
+        <option>Slovakia</option>
+        <option>Slovenia</option>
+        <option>Solomon Islands</option>
+        <option>Somalia</option>
+        <option>South Africa</option>
+        <option>South Korea</option>
+        <option>South Sudan</option>
+        <option>Spain</option>
+        <option>Sri Lanka</option>
+        <option>Sudan</option>
+        <option>Suriname</option>
+        <option>Sweden</option>
+        <option>Switzerland</option>
+        <option>Syria</option>
+        <option>Tajikistan</option>
+        <option>Tanzania</option>
+        <option>Thailand</option>
+        <option>Timor-Leste</option>
+        <option>Togo</option>
+        <option>Tonga</option>
+        <option>Trinidad and Tobago</option>
+        <option>Tunisia</option>
+        <option>Turkey</option>
+        <option>Turkmenistan</option>
+        <option>Tuvalu</option>
+        <option>Uganda</option>
+        <option>Ukraine</option>
+        <option>United Arab Emirates</option>
+        <option>United Kingdom</option>
+        <option>United States of America</option>
+        <option>Uruguay</option>
+        <option>Uzbekistan</option>
+        <option>Vanuatu</option>
+        <option>Venezuela</option>
+        <option>Vietnam</option>
+        <option>Yemen</option>
+        <option>Zambia</option>
+        <option>Zimbabwe</option>
+    </select>
+  </label>
+  <label>
+    Your message
+    <textarea name="message"></textarea>
+  </label>
+  <button type="submit" class='btn btn-primary'>Send</button>
+</form>

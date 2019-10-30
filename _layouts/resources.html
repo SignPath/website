@@ -13,13 +13,17 @@
 			<aside>
 				<ul>
 					{% for entry in site.data.menus[root] %}
-						<li>
+						{% assign className = nil %}
+						{% if parts.size > 2 %}
+							{% assign tail = parts[2] | split:"." %}
+							{% if tail[0] == entry.path %}
+								{% assign className = 'active' %}
+							{% endif %}
+						{% endif %}
+						<li class='{{ className }}'>
 							<a href='/{{parts[0]}}/{{parts[1]}}/{{entry.path}}'>{{ entry.text }}</a>
-							{% if parts.size > 2 %}
-								{% assign tail = parts[2] | split:"." %}
-								{% if tail[0] == entry.path %}
-									{% include toc.html html=content %}
-								{% endif %}
+							{% if tail[0] == entry.path %}
+								{% include toc.html html=content %}
 							{% endif %}
 						</li>
 					{% endfor %}	
