@@ -308,6 +308,32 @@ form {
 	}
 }
 
+/**
+ * cookie info
+ */
+div#cookie-info {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	background-color: $dark-grey-background-color;
+	color: $white-font-color;
+	padding: 2em;
+	box-shadow: $shadow-top;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	transition: opacity 2s ease-in;
+
+	&.show {
+		display: flex;
+	}
+	
+	& > * {
+		margin: 0em 1em;
+	}
+}
+
 
 @media only screen and (max-width: 1000px) {
 	section.top-section > div {
