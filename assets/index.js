@@ -218,5 +218,28 @@ document.addEventListener('DOMContentLoaded', function() {
       document.getElementById('cookie-info').classList.remove('show');
     })
   }
+
+  /** DEVOPS PAGE **/
+  document.querySelectorAll('section.devops-section div.tabs > ul > li > a').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var tab = this.dataset.tabkey;
+      document.querySelectorAll('section.devops-section div.tabs > div.panel > *').forEach(function(panel) {
+        if (panel.dataset.tabcontent == tab) {
+            panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      })
+      document.querySelectorAll('section.devops-section div.tabs > ul > li > a').forEach(function(header) {
+        if (header.dataset.tabkey == tab) {
+            header.parentNode.classList.add('active');
+        } else {
+          header.parentNode.classList.remove('active');
+        }
+      })
+      e.preventDefault();
+      return false;
+    });
+  });
 })
 

@@ -1,0 +1,154 @@
+svg.devops path {
+    fill: #263238;
+}
+svg.devops path.blue {
+    fill: #00b1e6;
+}
+svg.devops text, svg.devops tspan {
+    font-size: 7.7px;
+    fill: #fff;
+}
+
+
+section.devops-section {
+    div.header-img {
+        text-align: center;
+
+        svg {
+            max-width: 500px;
+        }
+    }
+}
+
+section.devops-section {
+    div.tabs {
+
+        & > ul {
+            list-style-type: none;
+            padding: 0px;
+            margin: 0px;
+            margin-left: 2.5em;
+            display: inline-flex;
+            border-top-left-radius: $border-radius;
+            border-top-right-radius: $border-radius;
+
+            & > li {
+                
+                background-color: $light-grey-background-color;
+                border-right: 1px solid $white-background-color;
+                border-top-left-radius: $border-radius;
+                border-top-right-radius: $border-radius;
+                box-shadow: $shadow-top;
+
+                &:last-child {
+                    border-right: 0px solid transparent;
+                }
+
+                a:active, a:hover, a:visited, a {
+                    padding: 1em 1em;
+                    color: $black-font-color;
+                    display: inline-block;
+                    cursor: pointer;
+                }
+
+                &.active {
+                    background-color: $dark-grey-background-color;
+                    a:active, a:hover, a:visited, a {
+                        color: $white-font-color;
+                    }
+                }
+            }
+        }
+
+        & > div.panel {
+            background: $dark-grey-background-color;
+            box-shadow: $shadow-top;
+            border-radius: $border-radius;
+            overflow: hidden;
+
+            & > * {
+                display: none;
+                font-family: monospace;
+            }
+
+            & > *.active {
+                display: block;
+            }
+        }
+    }
+
+    code {
+        color: $white-font-color;
+        overflow: auto;
+        word-wrap: normal;
+        word-break: break-all;
+        counter-reset: line;
+        width: calc(100%-2em);
+        border-radius: 6px;
+        padding: 1em;
+
+        * {
+            word-wrap: break-word;
+            word-break: break-all;
+        }
+
+        & > span {
+            display: block;
+            position: relative;
+            padding-left: 3em;
+            white-space: pre-wrap;
+
+            &:before {
+                content: counter(line);
+                display: inline-block;
+                counter-increment: line;
+                position: absolute;
+                padding: 0 0.5em;
+                width: 1.5em;
+                left: -1em;
+                text-align: right;
+                color: $light-grey-font-color;
+                background-color: $medium-grey-background-color;
+                height: 100%;
+            }
+
+            &:first-child:before {
+                padding-top: 1em;
+                top: -1em;
+                box-shadow: $shadow-top;
+            }
+
+            &:last-child:before {
+                padding-bottom: 1em;
+            }
+        }
+
+        span.indent {
+            display: inline-block;
+            min-width: 2em;
+        }
+
+        span.command {
+            color: $light-blue-font-color;
+        }
+
+        span.parameter {
+            color: $grey-font-color;
+        }
+
+        span.string {
+            color: $blue-font-color;
+        }
+
+        span.variable {
+            color: $orange-font-color;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    /* hide text on smaller screens and show icons in tabs only */
+    section.devops-section div.tabs > ul > li > a > span {
+        display: none;
+    }
+}
