@@ -23,7 +23,7 @@
 						<li class='{{ className }}'>
 							<a href='/{{parts[0]}}/{{parts[1]}}/{{entry.path}}'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
-								{% include toc.html html=content %}
+								{% include toc.html html=content h_max=2 %}
 							{% endif %}
 						</li>
 					{% endfor %}	

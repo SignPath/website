@@ -357,4 +357,15 @@ div#cookie-info {
 
 
 	}
+
+	div#cookie-info {
+
+		&.show {
+			flex-direction: column;
+		}
+
+		& > * {
+			margin: 0.5em 0.5em;
+		}
+	}
 }
