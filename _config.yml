@@ -31,7 +31,7 @@ plugins:
 toc:
   min_level: 1
   max_level: 2
-permalink: /resources/blog/:year/:month/:day/:title.html
+permalink: /code-signing/blog/:year/:month/:day/:title.html
 
 exclude:
     - Gemfile

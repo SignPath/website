@@ -46,6 +46,10 @@ nav > ul { /** main navigation **/
 		margin: 0px 20px;
 		position: relative;
 
+		&.login {
+			margin-right: 0px;
+		}
+
 		a {
 			color: inherit;
 			font-size: 1em;
@@ -91,6 +95,7 @@ nav > ul { /** main navigation **/
 				background-color: $white-background-color;
 				border-left: 1px solid $grey-border-color;
 				border-right: 1px solid $grey-border-color;
+				white-space: nowrap;
 
 				&:first-child {
 					border-top: 1px solid $grey-border-color;

@@ -9,12 +9,7 @@ toc: true
 
 The artifact configuration describes the structure of the artifacts you want to sign. For simple artifacts, you can use predefined configurations to get started quickly. For signing several artifacts together, and for more complex artifacts, specify the structure of your artifact and provide signing directives using XML.
 
-<div class='panel info' markdown='1' data-title='Tips'>
-<div class='panel-header'><i class='la la-info-circle'></i>Tips</div>
-* **Basic artifact configurations can be generated from sample artifacts.** However, this is feature is not yet integrated in the online application. Until then, feel free to ask our support for help at [support@singpath.io](mailto:support@signpath.io?subject=Request%20for%20artifact%20configuration). Please attach your sample artifact.
-* Alternatively, if you don't know the internal structure of your artifact, [extract container files](#extracting-artifact-packages) to your disk first.
-* Use a schema-aware XML editor, such as Microsoft Visual Studio, to edit your artifact configuration. (Some tools may require you to download the [schema](https://app.signpath.io/web/artifact-configuration/v1.xsd)).
-</div>
+![Artifact configuration XML](/assets/img/resources/documentation_artifact-configuration.png)
 
 ## Deep signing
 
@@ -440,15 +435,3 @@ Example of a directory structure that would match this configuration:
         main.exe
         resources/
           en.resource.dll
-
-## Extracting artifact packages
-
-You can use the following tools in order to manually extract files from your artifacts. From the extracted file structure, you can then easily create a matching artifact configuration.
-
-We recommend that you apply these tools to all contained files recursively and create a very specific artifact configuration.
-
-| File type       | Recommended tools |
-| --------------- | ----------------- |
-| .zip, .cab      | Extract using tools like WinZip or 7-Zip or Windows Explorer.
-| .vsix, .nupkg   | These are just special ZIP archives. Either change the extension to .ZIP or use a tool like 7-Zip to directly extract their contents.
-| .msi            | Use the Windows tool msiexec.exe to perform an administrative install. Note that this might execute parts of the MSI file, so only use this for trusted files.<br> `msiexec /a filename.msi TARGETDIR=c:\full-path`

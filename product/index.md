@@ -1,5 +1,3 @@
 ---
-title: Product - SignPath.io
-layout: product
+redirect_to: "/product/features"
 ---
-
