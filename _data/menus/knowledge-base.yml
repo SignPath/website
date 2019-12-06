@@ -7,5 +7,14 @@
 - text: Windows platform
   path: windows-platform
 
-- text: Maturity model
-  path: maturity-model
+- text: Managing test certificates
+  path: test-certificates
+
+- text: CASC best practices
+  path: casc
+
+- text: Storage of private keys
+  path: private-keys
+
+- text: Media coverage
+  path: media-coverage

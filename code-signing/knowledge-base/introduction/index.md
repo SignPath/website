@@ -1,11 +1,9 @@
 ---
 title: Code Signing - SignPath.io
-header: Code Signing
+header: Knowledge Base
 layout: resources
 toc: true
 ---
-
-_*TODO: Important: This is just a demo - text needs to be finalized!*_
 
 ## Purpose
 

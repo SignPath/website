@@ -68,6 +68,10 @@ section.resources-section {
 			p {
 				margin-top: 5px;
 			}
+
+			img {
+				max-width: 100%;
+			}
 		}
 
 		/** HIGHLIGHTS **/
@@ -77,9 +81,8 @@ section.resources-section {
 			padding: 0px 20px;
 			margin: 10px 0px;
 
-			&.info {
+			&.info, &.warning {
 				background-color: $light-blue-background-color;
-
 			}
 
 			& > div.panel-header {

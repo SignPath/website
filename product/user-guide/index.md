@@ -1,6 +1,3 @@
 ---
-title: Documentation - SignPath.io
-header: Documentation
-layout: resources
-toc: true
+redirect_to: "/product/user-guide/getting-started"
 ---

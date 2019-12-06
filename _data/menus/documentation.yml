@@ -1,14 +1,8 @@
-- text: Getting started
-  path: getting-started
-
-- text: Managing certificates
-  path: managing-certificates
+- text: Overview
+  path: overview
 
 - text: Artifact configuration
   path: artifact-configuration
 
 - text: Build system integration
   path: build-system-integration
-
-- text: Signing code
-  path: signing-code
