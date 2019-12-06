@@ -55,6 +55,13 @@ section.resources-section {
 				margin-bottom: 0px;
 				padding-bottom: 5px;
 				border-bottom: 1px solid $grey-border-color;
+
+				&:target::before { /* anchor margin on top */
+					content: "";
+					display: block;
+					margin-top: -100px;
+					height: 100px;
+				}
 			}
 
 			& > h3 {
