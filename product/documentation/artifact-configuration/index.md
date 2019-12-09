@@ -70,6 +70,13 @@ Container-format elements may contain other file elements for deep signing.
     <td>Windows cabinet files</td>
   </tr>
   <tr>
+    <td><code>&lt;catalog-file&gt;</code></td>
+    <td>Yes</td>
+    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td>.cat</td>
+    <td>Windows catalog files</td>
+  </tr>
+  <tr>
     <td><code>&lt;appx-file&gt;</code></td>
     <td>Yes</td>
     <td><code>&lt;authenticode-sign&gt;</code></td>
