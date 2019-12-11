@@ -5,6 +5,8 @@ layout: resources
 toc: true
 ---
 
+## Overview
+
 How do you keep your keys secure? There are a number of ways to store your private keys, but only hardware security modules (HSMs) guarantee that the private key cannot be extracted:
 
 * [PFX files with private keys](#pfx-files-with-private-keys)

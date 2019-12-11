@@ -5,6 +5,8 @@ layout: resources
 toc: true
 ---
 
+## Overview
+
 Once your artifact configuration and project is set up, you can submit a signing request by either
 
 * uploading an artifact on the web interface or

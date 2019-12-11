@@ -5,6 +5,8 @@ layout: resources
 toc: true
 ---
 
+## Overview
+
 A project in SignPath bundles all settings that are required to sign one or a bundle of artifacts that belong together (e.g. a product). Projects consist of the following parts:
 
 * One or more **artifact configurations** which define how an artifact (or a version of the artifact) is structured, and which parts should be signed as well as the signing methods

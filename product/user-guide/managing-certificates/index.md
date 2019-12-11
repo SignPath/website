@@ -5,6 +5,8 @@ layout: resources
 toc: true
 ---
 
+## Overview
+
 SignPath helps you control access to your code signing certificates. You have to decide how many code signing certificates you need in your organization. Depending on your business model, you might want to use one certificate across your entire organizations or have separate certificates for each project or customer.
 
 ## Test and Release certificates

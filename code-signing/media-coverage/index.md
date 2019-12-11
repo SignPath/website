@@ -5,6 +5,8 @@ layout: resources
 toc: true
 ---
 
+## Overview
+
 Recent attack reports, tech and mainstream media as well as research groups show the increasing role of **supply-chain attacks** using **stolen code signing certificates** (or more accurately, their private keys) in targeted attacks.
 
 In short, while high-value targets often have their defenses up, the same is not always the case for software vendors and contractors. So in order to compromise worthwhile targets, attackers will try to infiltrate them by attacking their suppliers first. With a valid signature from a known supplier, it is much easier to infiltrate the network of a hardened target.

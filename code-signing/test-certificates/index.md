@@ -1,9 +1,11 @@
 ---
 title: Code Signing - SignPath.io
-header: Code Signing
+header: Managing test certificates
 layout: resources
 toc: true
 ---
+
+## Overview
 
 Test certificates can be used to sign development builds that are not going to be distributed to your users or customers. You can read how to create test certificates in SignPath in the [user guide](/product/user-guide/managing-certificates) In order to ensure your artifacts behave the same way during installation even though they are not signed by commercial CA you need to trust the certificate on the computers you use for testing. There are some options when managing test certificates:
 
