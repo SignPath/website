@@ -68,5 +68,9 @@ ul.home-method-list {
 		& > div > h1 {
 			font-size: 3em;
 		}
+
+		& > div > p > br {
+			display: none;
+		}
 	}
 }
