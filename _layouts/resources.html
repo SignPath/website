@@ -8,8 +8,8 @@
 <section class="resources-section">
 	<div>
 		{% assign parts = page.path | split:"/" %}
-		{% assign root = parts[1] %}
-		{% if site.data.menus contains parts[1] %}
+		{% assign root = parts[-3] %}
+		{% if site.data.menus contains parts[-3] %}
 			<aside>
 				<ul>
 					{% for entry in site.data.menus[root] %}

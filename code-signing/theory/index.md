@@ -129,7 +129,7 @@ It is recommended to store private keys only on secure hardware, such as HSMs.
 
 <div class='panel warning' markdown='1' data-title='Priate keys are not safe in PFX files'>
 <div class='panel-header'><i class='la la-exclamation-triangle'></i>Priate keys are not safe in PFX files</div>
-PFX files with private keys are convenient, but are considered insecure. Read about [alternatives](/code-signing/knowledge-base/private-keys).
+PFX files with private keys are convenient, but are considered insecure. Read about [alternatives](/code-signing/private-keys).
 </div>
 
 ## Certificate Authorities (CAs)

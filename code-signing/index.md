@@ -1,3 +1,3 @@
 ---
-redirect_to: '/code-signing/knowledge-base'
+redirect_to: '/code-signing/introduction'
 ---
