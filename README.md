@@ -38,13 +38,13 @@ To edit the content, simply edit the respective `*.md` files.
 
 In order to publish a blog post, perform the following steps:
 
-1. Add the content of the blog post in markdown-file titled `YYYY-MM-DD-slug`a folder `resources/blog/_drafts`. Make sure to fill out the metadata at the top of the file (see existing posts)
+1. Add the content of the blog post in markdown-file titled `YYYY-MM-DD-slug`a folder `blog/_drafts`. Make sure to fill out the metadata at the top of the file (see existing posts)
 2. Add two versions of the background image to the `assets/posts/` folder:
  	
  	* A full-resolution version under `YYYY-MM-DD-slug.png|jpg` (must have a width that fills the screen of all devices)
  	* A low-resolution version under `YYYY-MM-DD-slug_small.png|jpg` (width of 340px)
  	* Both images should have a black layer on top with 50% transparency to ensure that white font is easily readable
-3. Optionally add the slug to the `featured_slugs` section under `resources/blog/index.md`
+3. Optionally add the slug to the `featured_slugs` section under `blog/index.md`
 4. See if the post works by running the website using the `--drafts` flag.
 5. If everything is good, move the markdown file from the `_drafts` to a `_posts` subfolder.
 
