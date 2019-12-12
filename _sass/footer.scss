@@ -14,6 +14,15 @@ footer {
 			margin: 20px 40px;
 			justify-content: center;
 
+			svg {
+				width: 100%;
+
+				text {
+					font-family: inherit;
+					fill: $white-font-color;
+				}
+			}
+
 			a {
 				color: inherit;
 				margin: 5px 0px;
