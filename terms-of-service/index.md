@@ -1,7 +1,8 @@
 ---
-title: Terms of services - SignPath.io
-header: Terms of services
+title: Terms of service - SignPath.io
+header: Terms of service
 layout: default
+redirect_from: /terms-of-services
 ---
 
 Effective date: 02.04.2019
