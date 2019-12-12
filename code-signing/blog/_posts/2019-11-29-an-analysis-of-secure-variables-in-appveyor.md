@@ -19,7 +19,7 @@ The first thing to be aware of is that secure variables are only protected from 
 ## Secure Variable Encryption
 We analysed properties of the encryption of secure variables.
 
-We found out that **the used cipher is a block cipher and has 128 bit (16 bytes) block size**. This can be discovered by increasing the length of the plaintext. If the ciphertext length increases equally to the the plaintext length, the used cipher is a stream cipher. If the ciphertext length increases in blocks, i.e. the ciphertext length doesn't always increase with increased plaintext length, but when it does it increases with equal or greater length than the plaintext, then it is a block cipher. In the case of a block cipher, one can easily find out the block length by observing the length increase of the ciphertext. Alternatively block size one can guess the block size by finding x of the equation ciphertext_length mod x = 0.
+We found out that **the used cipher is a block cipher and has 128 bit (16 bytes) block size**. This can be discovered by increasing the length of the plaintext. If the ciphertext length increases equally to the the plaintext length, the used cipher is a stream cipher. If the ciphertext length increases in blocks, then it is a block cipher. In the case of a block cipher, one can easily find out the block length by observing the increase in length of the ciphertext.
 
 Furthermore, we found out that the used cipher mode is **CBC**. For that we performed the following test.
 
@@ -56,7 +56,7 @@ Here we can already see that our encrypted ciphertext has 16 bytes more than the
 To find out more about block size and the mode of operation, we modified the following bytes of the ciphertext:
 
 	15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
-	B9 86 11 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
+	B9 86 **11** 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
 	E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 D7
 	84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
 
@@ -67,8 +67,8 @@ This ciphertext decrypted to the following value:
 The hexadecimal representation of this string is:
 
 	42 65 61 72 65 72 20 53 65 63 72 65 74 54 6F 6B
-	4C 09 51 34 FD 75 35 16 69 3F 79 FD FD 27 31 1C
-	35 36 36 38 39 30 31 32 33 34 35 36 37 38 39 30
+	**4C 09 51 34 FD 75 35 16 69 3F 79 FD FD 27 31 1C**
+	35 **36** 36 38 39 30 31 32 33 34 35 36 37 38 39 30
 
 We can see that a change of the third byte in the second ciphertext block changed the whole second plaintext block and the third byte of the next plaintext block. This perfectly matches the behavior of the cipher mode CBC (as displayed in the following figure). 
 
@@ -122,7 +122,7 @@ Lastly, we crafted ciphertext that causes bad padding. For that we changed the l
 
 	15 5C 1A 42 EA 30 80 86 C3 98 FA 3D F3 BB DD 62
 	B9 86 10 77 9E 94 DE E5 EA 78 BC 31 3C E8 B9 4D
-	E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 00
+	E3 B6 B1 3C FF DC 3A B5 84 AE AB CE 03 1C 96 **00**
 	84 C4 0A A7 1A 9F 64 E4 D1 20 7D 20 FD F9 4A 8E
 
 With this ciphertext we let AppVeyor authenticate against our web server one last time. The result was:
