@@ -10,9 +10,6 @@
 - text: Managing test certificates
   path: test-certificates
 
-- text: CASC best practices
-  path: casc
-
 - text: Storage of private keys
   path: private-keys
 
