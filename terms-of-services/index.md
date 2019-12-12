@@ -26,7 +26,7 @@ Effective date: 02.04.2019
 
 #### 2.2 Required Information
 
-* You must provide a valid email address in order to complete the signup process. Any other information requested, such as your real name, is optional, unless you opt for a paid subscription, in which case additional information will be necessary for billing purposes.
+* You must provide a valid email address in order to complete the sign up process. Any other information requested, such as your real name, is optional, unless you opt for a paid subscription, in which case additional information will be necessary for billing purposes.
 
 #### 2.3 Account Requirements
 
