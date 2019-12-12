@@ -14,11 +14,11 @@ layout: default
     <input type="text" name="name" required>
   </label>
   <label>
-    Company name
+    Company
     <input type="text" name="company" required>
   </label>
   <label>
-    Company email
+    Email
     <input type="text" name="email" type="email" required>
   </label>
   <label>
