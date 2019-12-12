@@ -9,9 +9,9 @@ toc: true
 
 Installing and updating software is arguably the most vulnerable activity from a security perspective. While anti-malware software can mitigate some well-known risks, it can never provide full protection. Since even a single successful attack is enough to take over a user account, a computer or even a network, it is imperative that only software from trusted sources is installed on user devices and servers.
 
-Code signing is used to indicate and verify the publisher of software programs and make sure the software has not been modified after publishing.
+Code Signing is used to indicate and verify the publisher of software programs and make sure the software has not been modified after publishing.
 
-Code signing can provide the following security assertions:
+Code Signing can provide the following security assertions:
 
 * **Authentication:** who signed the code
 * **Integrity:** the code cannot be changed undetected
@@ -28,9 +28,9 @@ On a higher level, the objective of code signing is to provide evidence that sof
 
 ## Implementation
 
-Code signing uses public key cryptography for signing and verification, in a way very similar to e-mail and PDF file signatures. Publishers are identified using certificates they purchase from trusted certificate authorities, much like HTTPS certificates.
+Code Signing uses public key cryptography for signing and verification, in a way very similar to e-mail and PDF file signatures. Publishers are identified using certificates they purchase from trusted certificate authorities, much like HTTPS certificates.
 
-Code signing certificates always identify legal entities such as businesses, educational institutions and government agencies, and sometimes individual persons.
+Code Signing certificates always identify legal entities such as businesses, educational institutions and government agencies, and sometimes individual persons.
 
 Today, code signatures are considered by most operating systems, web browsers, development platforms, add-in systems, app stores, anti-malware utilities and some enterprise management software. There are specific code signing methods for different file formats, and systems vary in how they check signatures and what effect they have.
 

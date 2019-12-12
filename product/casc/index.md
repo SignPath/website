@@ -105,7 +105,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 | CASC recommendation details                                               | Compliance    | Remarks |
 | ------------------------------------------------------------------------- | ------------- | ------- |
-| Code signing does not confirm the safety or quality of the code; it confirms the publisher and whether or not the code has been changed | **n/a** | *(informational)*
+| Code Signing does not confirm the safety or quality of the code; it confirms the publisher and whether or not the code has been changed | **n/a** | *(informational)*
 | Implement virus-scanning to help improve the quality of the released code | **Automatic** | *See above*
 
 [7]: #7-do-not-over-use-any-one-key-distribute-risk-with-multiple-certificates

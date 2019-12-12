@@ -32,7 +32,7 @@ This process can be simple in theory, but as they say, the devil is in the detai
 
 ## Public-key cryptography
 
-Code signing is based on public-key cryptography (also known as asymmetric cryptography). This method allows digital data to be signed in a secure and verifiable way.
+Code Signing is based on public-key cryptography (also known as asymmetric cryptography). This method allows digital data to be signed in a secure and verifiable way.
 
 The basic concept of public-key cryptography is that keys are always generated in pairs: a public key and a private key. The private key is only known to its owner, while the public key is known to everyone.
 
@@ -98,7 +98,7 @@ The consequences of Extended Validation differ between HTTPS and code signing:
 ### Differences between HTTPS and code signing certificates
 
 * HTTPS server certificates can use all types of validation (DV, OV or EV).
-* Code signing certificates always use at least Organization Validation (OV or EV).
+* Code Signing certificates always use at least Organization Validation (OV or EV).
 * DV HTTPS certificates are provided for free by [Let's Encrypt](https://letsencrypt.org/). Since Domain Validation cannot be used for code signing, Let's Encrypt does not provide code signing certificates.
 * The utility of Extended Validation for HTTPS certificates is currently debated due to decreasing browser emphasis. This discussion does not apply to code signing certificates.
 
@@ -229,13 +229,13 @@ A time stamp is a counter-signature, i.e. the primary code signing signature is 
 
 ## Signatures
 
-Code signing is performed by software publishers. They use their code signing certificates together with the matching private key to sign code they create.
+Code Signing is performed by software publishers. They use their code signing certificates together with the matching private key to sign code they create.
 
 Usually, the publisher is identical to the creator of the software. This can be an app author, an independent software vendor (ISV), a software contractor, or an in-house development team. Signing is usually performed either during the software build process or later, but before delivery, publishing or deployment.
 
 Signing can also be performed by third parties, usually for code from contractors. Examples include game publishers and corporate IT departments that need to put their own signature on software created by others.
 
-Code signing creates the following information:
+Code Signing creates the following information:
 
 * The signature: the file’s hash digest, cryptographically signed with the private key
 * The certificate containing the public key matching the private key (and its entire certificate chain)

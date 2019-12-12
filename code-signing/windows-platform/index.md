@@ -9,7 +9,7 @@ toc: true
 
 The primary code signing mechanism of Windows is Authenticode. It is used to sign executables and libraries as well as installers, packages, device drivers, and PowerShell scripts. Additionally, some programs use code signing to validate add-ins on installation. They use specific package formats, such as ClickOnce (Microsoft Office) or Open Packaging Convention (Microsoft Visual Studio), and therefore require specific tools for code signing. Every program has its own rules for displaying and enforcing code signing.
 
-A new member of the code signing family is NuGet, a platform for distribution of program libraries to software developers. NuGet is currently introducing optional code signing with its own tool set. Code signing will be verified by the NuGet Gallery ([nuget.org](https://www.nuget.org)) and displayed prominently online as well as in Visual Studio.
+A new member of the code signing family is NuGet, a platform for distribution of program libraries to software developers. NuGet is currently introducing optional code signing with its own tool set. Code Signing will be verified by the NuGet Gallery ([nuget.org](https://www.nuget.org)) and displayed prominently online as well as in Visual Studio.
 
 ## Applications
 
