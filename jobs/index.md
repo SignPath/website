@@ -28,3 +28,5 @@ layout: default
       </div>
     </li>
 </ul>
+
+<p class='center'>We are located in Vienna, Austria.</p>
