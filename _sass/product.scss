@@ -95,12 +95,17 @@ main > section.feature {
 
 			& > p {
 				margin: 0px 20px;
+
+				& > a.btn {
+					margin-top: 20px;
+				}
 			}
 		}
 
 		& > div.img {
 			width: 100%;
 			max-height: 50%;
+			text-align: center;
 
 			& > div {
 

@@ -1,15 +1,18 @@
 section.infosec-section {
+	svg {
+		width: 100%;
+	}
+
 	svg.devops {
-		width: 400px;
+		max-width: 400px;
 	}
 
 	svg.chain {
-		width: 300px;
-		overflow: hidden;
+		max-width: 300px;
 	}
 
 	svg.incident-management {
-		width: 300px;
+		max-width: 300px;
 	}
 }
 
@@ -46,6 +49,14 @@ svg.incident-management {
 
 		&.hole {
 			fill: #006a8a;
+		}
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	section.infosec-section {
+		svg {
+			width: 80%;
 		}
 	}
 }
