@@ -1,0 +1,51 @@
+section.infosec-section {
+	svg.devops {
+		width: 400px;
+	}
+
+	svg.chain {
+		width: 300px;
+		overflow: hidden;
+	}
+
+	svg.incident-management {
+		width: 300px;
+	}
+}
+
+svg.chain {
+	path {
+		fill: #263238;;
+	}
+
+	path.orange {
+		fill: #00b1e6;
+	}
+}
+
+svg.incident-management {
+	path.ring {
+		stroke: #263238;
+	}
+	
+	path.ring.outer {
+		fill: #bff0ff;
+	}
+
+	path.ring.middle {
+		fill: #22ccff;
+	}
+
+	path.ring.inner {
+		fill: #006a8a;
+	}
+
+	path.lock {
+		fill: #ffffff;
+		stroke: #ffffff;
+
+		&.hole {
+			fill: #006a8a;
+		}
+	}
+}
