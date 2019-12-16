@@ -8,7 +8,7 @@ layout: default
 	<div>
 		<h3>About us</h3>
 		<p>
-			SignPath was founded in 2017 as a subsidiary of RUBICON IT GmbH - a leading European software development company headquartered in Vienna, Austria. In the past years, we have extensively researched the code signing ecosystem and created a solution that allows our customers to integrate code signing into their software development process. We are constantly adding new signing methods, more secure algorithms and improved process definitions to make code signing as simple and secure as possible.
+			SignPath was founded in 2017 as a subsidiary of RUBICON IT GmbH - a leading European software development company headquartered in Vienna, Austria. Coming from the software community, we have extensively researched the code signing ecosystem and created a solution that allows our customers to integrate code signing into their software development process. We are constantly adding new signing methods, more secure algorithms and improved process definitions to make code signing as simple and secure as possible.
 		</p>
 		<a class='btn btn-primary' href='mailto:sales@signpath.io'>Contact us</a>
 	</div>
