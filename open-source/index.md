@@ -1,8 +1,4 @@
 ---
-title: Open Source - SignPath.io
-header: Open Source
-layout: resources
-toc: true
+layout: opensource
+title: SignPath for Open Source projects
 ---
-
-**TODO**

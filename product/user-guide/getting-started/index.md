@@ -12,6 +12,6 @@ To get started with SignPath, you need to follow these steps:
 1. [Create or import certificates](/product/user-guide/managing-certificates)
 2. [Invite your team](/product/user-guide/users) to join your organization
 3. [Configure your project and define your process](/product/user-guide/projects)
-4. [Integrate with your build process](/product/user-guide/signing-code)
+4. [Sign your code artifacts](/product/user-guide/signing-code)
 
-
+In order to become an advanced user, you can read a detailed description on how to [configure your artifact configuration](/product/user-guide/artifact-configuration) and how to [integrate SignPath into your automated build processes](/product/user-guide/build-system-integration).

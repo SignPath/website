@@ -19,7 +19,7 @@ section.resources-section {
 			top: 100px;
 
 			& > ul {
-				margin: 10px 20px;
+				margin: 10px 0px;
 
 			}
 
@@ -29,7 +29,15 @@ section.resources-section {
 			}
 
 			ul > li {
-				padding: 5px 0px;
+				padding: 5px 20px;
+
+				&.separator {
+					padding: 0px;
+					border-top: 1px solid $grey-border-color;
+					margin: 5px 0px;
+					overflow: hidden;
+					background-color: red;
+				}
 
 				&.active > a {
 					font-weight: bold;

@@ -23,7 +23,7 @@ At the core of each SignPath project is an artifact configuration. It describes 
 
 You can create an artifact configuration by selecting one of the predefined templates or uploading a sample artifact which will be analyzed by SignPath. In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don't want to be signed with your certificate.
 
-For details on how to write an artifact configuration in XML, see the [documentation](/product/documentation/artifact-configuration)
+For details on how to write an artifact configuration in XML, see the [documentation](/product/user-guide/artifact-configuration)
 
 ## Signing policies
 
@@ -36,7 +36,7 @@ Signing policies are useful to differentiate between different process restricti
 
 ## Integrations
 
-Integrations are an advanced way to integrate SignPath into your build pipeline. Currently, SignPath only offers an integration with AppVeyor which can be used to pull the artifact from the AppVeyor server and allows SignPath to verify its origin (repository URL and commit). For information on how to set up a build integration, see the [documentation](/product/documentation/build-system-integration).
+Integrations are an advanced way to integrate SignPath into your build pipeline. Currently, SignPath only offers an integration with AppVeyor which can be used to pull the artifact from the AppVeyor server and allows SignPath to verify its origin (repository URL and commit). For information on how to set up a build integration, see the [documentation](/product/user-guide/build-system-integration).
 
 
 

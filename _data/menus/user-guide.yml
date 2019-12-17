@@ -12,3 +12,11 @@
 
 - text: Signing code
   path: signing-code
+
+- separator: true
+
+- text: Artifact configuration
+  path: artifact-configuration
+
+- text: Build system integration
+  path: build-system-integration
