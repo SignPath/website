@@ -10,6 +10,17 @@ layout: default
   method="POST"
 >
   <label>
+    What can we help you with?
+    <!--<input type="text" name="country" required>-->
+    <select name="topic" required>
+        <option selected="selected" disabled></option>
+        <option>General / Ask the experts</option>
+        <option>Sales inquiry</option>
+        <option>Technology partner</option>
+        <option>Reselling partner</option>
+    </select>
+  </label>
+  <label>
     Name
     <input type="text" name="name" required>
   </label>
