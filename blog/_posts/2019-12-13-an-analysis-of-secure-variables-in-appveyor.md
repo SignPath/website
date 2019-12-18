@@ -1,9 +1,9 @@
 ---
 layout: post
 title:  "An analysis of secure variables in AppVeyor"
-image: '2019-11-29-bg'
-date:   2019-11-29 11:38:20 +0200
-author: Daniel Ostovary and Marc Nimmerichter
+image: '2019-12-13-bg'
+date:   2019-12-13 11:38:20 +0200
+author: Daniel Ostovary
 summary: 'We discovered that the way AppVeyor encrypts its secret variables is susceptible to padding oracle attacks.'
 ---
 
@@ -137,11 +137,10 @@ This matches the behavior of **case 1.c**.
 
 Is this a problem? Yes it is! Because this behavior exactly matches the definition of a Padding Oracle. An attacker could now continue this attack as described in [this blog post](https://robertheaton.com/2013/07/29/padding-oracle-attack/) and could obtain most or all of the plaintext from the ciphertext. Particularly, if an attacker knows the initialization vector, he/she can obtain all of the plaintext. If an attacker doesn't know the initialization vector, he/she could obtain the plaintext for the whole ciphertext except the first ciphertext block. However, in many cases the first ciphertext block can be guessed or obtained from the system.
 
-
-
 Conclusively, in this article we showed:
 
 1. How AppVeyor's secure variable works.
 2. Which encryption is used for secure variables.
 3. How this encryption can, in principle, lead to Padding Oracle attacks that allow the decryption of most or all of the ciphertext.
 
+This post was written together with Marc Nimmerichter from [Impidio](https://www.impidio.com/).
