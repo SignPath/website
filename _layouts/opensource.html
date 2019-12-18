@@ -1,0 +1,70 @@
+{% include header.html %}
+
+<section class="bg-image font-white top-section" style='background-image:url(/assets/img/opensource.jpg);'>
+  <div>
+    <h1>{{ page.title }}</h1>
+  </div>
+</section>
+
+<section class='bg-grey'>
+  <div>
+    <div class='columns'>
+      <div>
+        <h2>Open Source is ubiquituous</h2>
+        <p>
+          Open source software has become one of the pillars upon which modern software development builds. Without the thousands of high-quality open source libraries and tools, developed and maintained by contributors from all around the world, many of today's popular services and applications would be unthinkable. Due to the enormous success, open source projects enjoy the advantages of free resources for hosting, building and deploying their content.
+        </p>
+      </div>
+      <div>
+        <h2>Challenges of code signing</h2>
+        <p>
+           When it comes to code signing, community-driven projects still face a number of burdens: As they constitute no legal entity, certificate authorities (CAs) refuse to grant a code signing certificate to open source projects (only to individual contributors) and their services are also not yet provided for free. This is were the SignPath Founndation comes into play. Under the umbrella of the SignPath Foundation, open source projects can apply for a free code signing certificate. In order to use the free certificate, the build process has to be fully automated and integrated with SignPath.io, to ensure that the resulting binary results directly from the source code checked into the repository.    
+        </p>
+      </div>
+    </div>
+    <p><a class='btn btn-primary' href='mailto:{{ site.email_oss }}'>Contact us</a>
+  </div>
+</section>
+
+<section class='bg-blue font-white oss-section'>
+  <div>
+    <h2>Transparency matters</h2>
+    <div>
+      <i class="icon-origin-verification"></i>
+      <p>
+        One of the many advantages of open source software is the transparency it provides in respect to which code is executed on your system. However, for compiled programs, this only holds true if the build process is also transparent and reproducible. SignPath tightly integrates with online build systems to ensure that the library or program that is code signed was built only from code checked into the repository.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div>
+    <h2>You're in good company</h2>
+    <div class='accordion'>
+      <a href='https://github.com/gitextensions/gitextensions' target='_blank'>
+        <div>
+          <img src='/assets/img/opensource/gitextensions.svg' title='GitExtensions' />
+          <h3>Git Extensions</h3>
+          <p>Git Extensions is a graphical user interface for Git that allows you to control Git without using the commandline</p>
+        </div>
+      </a>
+      <a href='https://github.com/vim/vim-win32-installer' target='_blank'>
+        <div>
+          <img src='/assets/img/opensource/vim.gif' title='Vim' />
+          <h3>Vim for Windows</h3>
+          <p>Vim is a highly configurable text editor for efficiently creating and changing any kind of text.</p>
+        </div>
+      </a>
+      <a href='https://github.com/KirillOsenkov/MSBuildStructuredLog' target='_blank'>
+        <div>
+          <img src='/assets/img/opensource/msbuildstructuredlog.png' title='MSBuildStructuredLog' />
+          <h3>MSBuildStructured Log</h3>
+          <p>A logger for MSBuild that records a structured representation of executed targets, tasks, property and item values.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}
