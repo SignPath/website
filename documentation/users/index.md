@@ -14,7 +14,7 @@ If you aim for the highest security, we recommend assigning the administrator ro
 ## User types
 
 * **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies
-* **Regular users** are allowed to submit artifacts for signing according to the defined policies (see [Signing code](/product/user-guide/signing-code))
+* **Regular users** are allowed to submit artifacts for signing according to the defined policies (see [Signing code](/documentation/signing-code))
 * **Support users** are used to grant SignPath support staff access to your organization. You can enable them by selecting *Authorize support user* in the *More* menu on your organization page. Support users have adminstrative privileges and can be disabled to prevent further access.
 
 Additionally, you can create **CI users** for integrating with your automated build systems.

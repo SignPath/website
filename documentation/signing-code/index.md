@@ -18,4 +18,4 @@ For testing purposes or when you have very infrequent releases, you can chose to
 
 ## Build integration
 
-SignPath provides multiple ways to be integrated into your pipeline. See the [documentation](/product/user-guide/build-system-integration) for details.
+SignPath provides multiple ways to be integrated into your pipeline. See the [documentation](/documentation/build-system-integration) for details.

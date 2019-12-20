@@ -7,7 +7,7 @@ toc: true
 
 ## Overview
 
-Test certificates can be used to sign development builds that are not going to be distributed to your users or customers. You can read how to create test certificates in SignPath in the [user guide](/product/user-guide/managing-certificates) In order to ensure your artifacts behave the same way during installation even though they are not signed by commercial CA you need to trust the certificate on the computers you use for testing. There are some options when managing test certificates:
+Test certificates can be used to sign development builds that are not going to be distributed to your users or customers. You can read how to create test certificates in SignPath in the [user guide](/documentation/managing-certificates) In order to ensure your artifacts behave the same way during installation even though they are not signed by commercial CA you need to trust the certificate on the computers you use for testing. There are some options when managing test certificates:
 
 * You can either create **self-signed** certificate or create them using an **in-house CA**.
 * You can roll out the certificate by installing them **manually** or by using **automated processes**.

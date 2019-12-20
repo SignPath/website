@@ -41,9 +41,10 @@ nav > ul { /** main navigation **/
 	list-style-type: none;
 	align-items: center;
 	font-size: 1em;
+	padding-inline-start: 0px;
 
 	& > li {
-		margin: 0px 20px;
+		margin: 0px 16px;
 		position: relative;
 
 		&.login {
@@ -175,7 +176,7 @@ nav > a#main-menu-toggle {
 		overflow-y: auto;
 		flex-direction: column;
 		width: 100%;
-		padding-inline-start: 0px;
+		
 		align-items: stretch;
 		background-color: $black-background-color;
 

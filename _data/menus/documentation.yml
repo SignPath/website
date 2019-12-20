@@ -1,5 +1,19 @@
-- text: Overview
-  path: overview
+- text: Getting started
+  path: getting-started
+
+- text: Managing Certificates
+  path: managing-certificates
+
+- text: User management
+  path: users
+
+- text: Setting up projects
+  path: projects
+
+- text: Signing code
+  path: signing-code
+
+- separator: true
 
 - text: Artifact configuration
   path: artifact-configuration
