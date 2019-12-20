@@ -148,7 +148,7 @@ You can either specify these directories in the ``path`` attribute of each file 
 
 ### &lt;directory&gt; example
 
-<table markdown="1">
+<table markdown="1" class="header-small-mobile">
   <thead>
     <th>The following fragment</th>
     <th>is equivalent to</th>
@@ -281,13 +281,13 @@ Sets are especially useful if your artifacts contain repeating nested structures
 ### File set example
 
 <table markdown="1">
-	<thead>
+  <thead>
     <th>The following fragment</th>
     <th>is equivalent to</th>
   </thead>
   <tbody> 
-  	<tr> 
-  		<td>
+    <tr> 
+      <td>
 {% highlight xml %}
 <pe-file path="first.dll">
   <authenticode-sign/>
@@ -297,8 +297,8 @@ Sets are especially useful if your artifacts contain repeating nested structures
   <authenticode-sign/>
 </pe-file>
 {% endhighlight %}
-			</td> 
-			<td>
+      </td> 
+      <td>
 {% highlight xml %}
 <pe-file-set>
   <include path="first.dll">
@@ -308,9 +308,9 @@ Sets are especially useful if your artifacts contain repeating nested structures
   </for-each>
 </pe-file>
 {% endhighlight %}
-			</td> 
-		</tr> 
-	</tbody> 
+      </td> 
+    </tr> 
+  </tbody> 
 </table>
 
 ## File attribute restrictions
@@ -340,10 +340,11 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 
 ## Examples
 
-<div class='panel info' markdown='1' data-title='Examples are shortened'>
+<div class='panel info with-body' markdown='1' data-title='Examples are shortened'>
 <div class='panel-header'><i class='la la-info-circle'></i> Examples are shortened</div>
+<div class='panel-body'>
 For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
-
+</div>
 {% highlight xml %}
 <?xml version="1.0" encoding="utf-8" ?>
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">

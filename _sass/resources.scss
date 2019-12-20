@@ -95,6 +95,15 @@ section.resources-section {
 			padding: 0px 20px;
 			margin: 10px 0px;
 
+			&.with-body {
+				padding: 0px;
+
+				& > div.panel-header {
+					margin-left: 0px
+				}
+			}
+
+
 			&.info, &.warning {
 				background-color: $light-blue-background-color;
 			}
@@ -111,6 +120,10 @@ section.resources-section {
 					font-weight: 800;
 					margin-right: 10px;
 				}
+			}
+
+			& > div.panel-body {
+				margin: 20px;
 			}
 		}
 
@@ -160,6 +173,17 @@ section.resources-section {
 				display: none;
 			}
 
+			&.header-small-mobile {
+				td {
+					margin-left: 100px;
+
+					&:before {
+						left: -90px;
+						width: 80px;
+					}
+				}
+			}
+
 			tr {
 				margin-bottom: 1em;
 				border: 1px solid $grey-border-color;
@@ -172,6 +196,7 @@ section.resources-section {
 					padding-left: 0px;
 					border-bottom: 1px solid $grey-border-color;
 					min-height: calc(1em + 10px); /* to deal with empty cells */
+
 
 					&:before {
 						position: absolute;
