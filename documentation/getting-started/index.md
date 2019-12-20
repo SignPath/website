@@ -5,7 +5,7 @@ layout: resources
 toc: true
 ---
 
-This guide provides a quick introduction into setting up SignPath and using it to sign your code. Please note that for open source projects, [additional steps](/open-source) are necessary.
+This guide provides a quick introduction into setting up SignPath and using it to sign your code. Please note that for open source projects, additional steps are necessary.
 
 To get started with SignPath, you need to follow these steps:
 
