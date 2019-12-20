@@ -1,6 +1,5 @@
 ---
-title: Code Signing - SignPath.io
-header: CA Security Council best practices for code signing
+sub_header: CA Security Council best practices for code signing
 layout: resources
 toc: true
 ---
