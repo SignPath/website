@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: Managing test certificates
+main_header: Code Signing
+sub_header: Managing Test Certificates
 layout: resources
 toc: true
 ---

@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: Documentation
+main_header: Documentation
+sub_header: Artifact Configuration
 layout: resources
 toc: true
 ---

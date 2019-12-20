@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: Code Signing on Windows
+main_header: Code Signing
+sub_header: Windows Platform
 layout: resources
 toc: true
 ---

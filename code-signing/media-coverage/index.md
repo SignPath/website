@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: Media coverage of code signing breaches
+main_header: Code Signing
+sub_header: Media Coverage of Breaches
 layout: resources
 toc: true
 ---

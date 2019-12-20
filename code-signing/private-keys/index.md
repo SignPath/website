@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: Storage of private keys
+main_header: Code Signing
+sub_header: Storage of Private Keys
 layout: resources
 toc: true
 ---

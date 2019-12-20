@@ -159,6 +159,10 @@ section.top-section > div {
 		font-size: 3em;
 		margin: 0px;
 		text-align: left;
+
+		span.no-break {
+			white-space: nowrap;
+		}
 	}
 
 	& > p {

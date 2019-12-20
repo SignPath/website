@@ -1,6 +1,6 @@
 ---
-title: User Guide - SignPath.io
-header: User Guide
+main_header: Documentation
+sub_header: Getting Started
 layout: resources
 toc: true
 ---

@@ -1,6 +1,6 @@
 ---
-title: Code Signing - SignPath.io
-header: User Guide
+main_header: Documentation
+sub_header: Setting up Projects
 layout: resources
 toc: true
 ---
