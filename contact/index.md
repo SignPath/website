@@ -5,10 +5,8 @@ layout: default
 ---
 
 <h2>How can we help you?</h2>
-<form
-  action="https://formspree.io/mnqagopv"
-  method="POST"
->
+<form action="https://liveformhq.com/form/feb9467d-f944-44c8-9fec-7b25c86ef424" method="POST" accept-charset="utf-8">
+  <input type="hidden" value="{{ site.data.hosts.web[jekyll.environment] }}/newsletter-subscribed.html" name="_redirect" />
   <label>
     What can we help you with?
     <!--<input type="text" name="country" required>-->
