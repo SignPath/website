@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Setting up Projects
 layout: resources
 toc: true
+redirect_from: /documentation/key-concepts/#projects
 ---
 
 ## Overview

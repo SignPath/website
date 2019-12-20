@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Build System Integration
 layout: resources
 toc: true
+redirect_from: /documentation/integrations
 ---
 
 ## Abstract
