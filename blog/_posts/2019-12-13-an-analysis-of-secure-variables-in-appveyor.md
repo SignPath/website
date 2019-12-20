@@ -72,7 +72,7 @@ The hexadecimal representation of this string is:
 
 We can see that a change of the third byte in the second ciphertext block changed the whole second plaintext block and the third byte of the next plaintext block. This perfectly matches the behavior of the cipher mode CBC (as displayed in the following figure). 
 
-![CBC](/assets/posts/2019-11-29-cbc.png)
+![CBC](/assets/posts/2019-12-13-cbc.png)
 
 Generally, in CBC a change in a byte of a ciphertext block at index X directly affects all bytes of the same ciphertext block and the byte at index X of the next ciphertext block. The observed behavior further confirms that the encryption algorithm is a block cipher with 16 bytes length.
 
@@ -96,7 +96,7 @@ It must be possible to distinguish the following cases (e.g. by different error 
 
 This information, combined with the knowledge of how CBC and PKCS#7 work and some basic logic is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.
 
-We used a secure variable (encrypted Bearer SecretToken123456789012345678901234567890) to let AppVeyor authenticate against our web server.  On the web server we received:
+We used a secure variable (encrypted Bearer <code class='inline'>SecretToken123456789012345678901234567890</code>) to let AppVeyor authenticate against our web server.  On the web server we received:
 
 	POST / HTTP/1.1
 	Authorization: Bearer SecretToken123456789012345678901234567890
