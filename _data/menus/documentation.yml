@@ -1,22 +1,22 @@
-- text: Getting started
+- text: Getting Started
   path: getting-started
 
 - text: Managing Certificates
   path: managing-certificates
 
-- text: User management
+- text: Managing Users
   path: users
 
-- text: Setting up projects
+- text: Setting up Projects
   path: projects
 
-- text: Signing code
+- text: Signing Code
   path: signing-code
 
 - separator: true
 
-- text: Artifact configuration
+- text: Artifact Configuration
   path: artifact-configuration
 
-- text: Build system integration
+- text: Build System Integration
   path: build-system-integration
