@@ -15,7 +15,7 @@ layout: default
 	<div>
 		<h3>Vision</h3>
 		<p>
-			TODO
+			At SignPath, we believe that signing code is crucial for secure distribution of software artifacts. Increased frequency of releases make it even more important that the origin of every shipped code is verifiable. Therefore we are developing the world's leading code signing solution to allow organizations of all sizes to reliably and securely sign their code - without compromising on their agility.
 		</p>
 		<a class='btn btn-primary' href='/jobs'>See open positions</a>
 	</div>
