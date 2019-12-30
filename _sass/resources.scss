@@ -224,3 +224,7 @@ section.resources-section {
 		}
 	}
 }
+
+table#signing-file-elements tr td code {
+	word-break: normal;
+}
