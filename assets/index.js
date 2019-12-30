@@ -101,7 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var r = 0; r<rows.length; r++) {
       var cells = rows[r].querySelectorAll('td');
       for (var c = 0; c<headers.length; c++) {
-        cells[c].dataset.label = headers[c].innerText;
+        if (c < cells.length) {
+          cells[c].dataset.label = headers[c].innerText;
+        }
       }
     }
   }
