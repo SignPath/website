@@ -11,19 +11,21 @@ SignPath is designed to make sure that people in charge of security have full co
 
 If you aim for the highest security, we recommend assigning the administrator role only to InfoSec staff and have them working directly with the development teams.
 
-## User types
+## User roles
 
-* **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies
-* **Regular users** are allowed to submit artifacts for signing according to the defined policies (see [Signing code](/documentation/signing-code))
-* **Support users** are used to grant SignPath support staff access to your organization. You can enable them by selecting *Authorize support user* in the *More* menu on your organization page. Support users have adminstrative privileges and can be disabled to prevent further access.
+* **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies.
+* **Regular users** are allowed to submit and/or signing requests according to the signing policies (see [Signing code](/documentation/signing-code)).
 
-Additionally, you can create **CI users** for integrating with your automated build systems.
+## Special user types
+
+* **CI users** are used to integrate SignPath into your build automation.
+* A **support user** account can be added to grant SignPath support access to your organization. Select *Authorize support user* in the *More* menu on your organization page. Support users have adminstrative privileges. You can disable them to prevent further access.
 
 ## Notifications and audit logs
 
 Signpath will inform you and your team about signing requests:
 
 * Administrators will be notified about completed and re-submitted signing requests
-* Users will be notified about the status of a signing request they created or when their approval is required.
+* Users will be notified about the status of a signing request they created, or when their approval is required
 
-Additionally, you can use the web application to see a full activity audit for each entity, including users, certificates, projects, signing policies and signing requests.
+The web application has a full activity audit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).

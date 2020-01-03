@@ -6,7 +6,7 @@
 	padding: 0px;
 	justify-content: center;
 
-	& > *.card {
+	& > * {
 		border: 1px solid $grey-border-color;
 		border-radius: $border-radius;
 		max-width: 340px;
@@ -20,7 +20,7 @@
 			margin-left: 0px;
 		}
 
-		& > *.header {
+		& > *:first-child { /* was: *.header */
 			display: block;
 			color: $white-font-color;
 			background-size: cover;
@@ -28,13 +28,20 @@
 			border-top-left-radius: inherit;
 			border-top-right-radius: inherit;
 
-			& > h3 {
-				margin: 0px;
+			/* was: h3 */
+			margin: 0px;
+
+			/* copied from h3 */
+			font-size: 1.5em;
+			text-align: center;
+
+			& > a {
+				color: inherit;
 			}
 		}
 
-		& > div.body {
-			padding: 20px;
+		& > *:not(:first-child) { /* was: div.body */
+			padding: 0 20px 0 20px;
 		}
 	}
 }

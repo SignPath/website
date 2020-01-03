@@ -14,8 +14,8 @@ How do you keep your keys secure? There are a number of ways to store your priva
 * [USB HSM tokens](#usb-hsm-tokens)
 * [Professional HSMs](#professional-hsms)
 
-<div class='panel info' markdown='1' data-title='Tips'>
-<div class='panel-header'><i class='la la-info-circle'></i>EV and OV certificates</div>
+<div class='panel info' markdown='1' >
+<div class='panel-header'>EV and OV certificates</div>
 Extended Validation (EV) certificates are only available with HSMs. While Organization Validated (OV) certificates can still be obtained from many Certificate Authorities without hardware protection, this is considered insecure.
 </div>
 

@@ -13,7 +13,7 @@ The artifact configuration describes the structure of the artifacts you want to 
 
 ## Deep signing
 
-In case you have more complex, nested artifacts, you might want to not only sign the container itself (for instance, an MSI installer package), but also all files that are shipped within the container (e.g. .exe and .dll files within the MSI installer). Therefore, every container format can contain multiple other file or directory elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. In order for SignPath to find the right file, all inner elements need a path attribute.
+In case you have more complex, nested artifacts, you might want to not only sign the container itself (for instance, an MSI installer package), but also all files that are shipped within the container (e.g., .exe and .dll files within the MSI installer). Therefore, every container format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. In order for SignPath to find the right file, all inner elements need a path attribute.
 
 ## File elements
 
@@ -26,9 +26,9 @@ Container-format elements may contain other file elements for deep signing.
 <table id="signing-file-elements">
 <thead>
   <tr>
-    <th>Element</th>
+    <th style="width: 9em;">Element</th>
     <th>Container format</th>
-    <th>Signing directive</th>
+    <th style="width: 10em;">Signing directive</th>
     <th>Extensions</th>
     <th>Description</th>
   </tr>
@@ -121,15 +121,14 @@ Deep signing is not yet supported.
 
 #### Signing an MSI package
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <authenticode-sign/>
   </msi-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
-See [Examples] for more complex artifact configurations.
 See [Examples] for more complex artifact configurations.
 
 ### Signing multiple artifacts
@@ -142,30 +141,32 @@ You can combine signing multiple artifacts with deep signing.
 
 All supported container formats have an internal directory structure. You can see this structure if you extract a container to a local disk.
 
-You can either specify these directories in the ``path`` attribute of each file element, or nest these file elements  within ``<directory>`` elements.
+You can either specify these directories in the ``path`` attribute of each file element or nest these file elements within ``<directory>`` elements.
 
 `<directory>` elements are also used for [ClickOnce signing].
 
 ### &lt;directory&gt; example
 
-<table markdown="1" class="header-small-mobile">
+<table>
   <thead>
     <th>The following fragment</th>
     <th>is equivalent to</th>
   </thead>
-  <tbody> <tr> <td>
+  <tbody> 
+    <tr> 
+      <td markdown="1">
 
-{% highlight xml %}
-<zip-file>
+~~~ xml
+<zip-file> 
   <pe-file path="bin/program.exe">
     <authenticode-sign/>
   </pe-file>
 </zip-file>
-{% endhighlight %}
+~~~
 
-</td> <td>
+</td> <td markdown="1">
 
-{% highlight xml %}
+~~~ xml
 <zip-file>
   <directory path="bin">
     <pe-file path="program.exe">
@@ -173,7 +174,7 @@ You can either specify these directories in the ``path`` attribute of each file 
     </pe-file>
   </directory>
 </zip-file>
-{% endhighlight %}
+~~~
 
 </td> </tr> </tbody> </table>
 
@@ -203,7 +204,7 @@ ClickOnce signing, also called 'manifest signing', is a method used for ClickOnc
 
 ClickOnce signing applies to directories, not to individual files. Therefore, you need to specify a `<directory>` element for this method. If you want to sign files in the root directory of a container, specify `path="."`.
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
     <directory path=".">
@@ -211,7 +212,7 @@ ClickOnce signing applies to directories, not to individual files. Therefore, yo
     </directory>
   </zip-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
 Using `<clickonce-sign>` is equivalent to using Microsoft's `mage.exe`.
 
@@ -280,15 +281,16 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 ### File set example
 
-<table markdown="1">
+<table>
   <thead>
     <th>The following fragment</th>
     <th>is equivalent to</th>
   </thead>
   <tbody> 
     <tr> 
-      <td>
-{% highlight xml %}
+      <td markdown="1">
+
+~~~ xml
 <pe-file path="first.dll">
   <authenticode-sign/>
 </pe-file>
@@ -296,22 +298,21 @@ Sets are especially useful if your artifacts contain repeating nested structures
 <pe-file path="second.dll">
   <authenticode-sign/>
 </pe-file>
-{% endhighlight %}
-      </td> 
-      <td>
-{% highlight xml %}
+~~~
+
+</td> <td markdown="1">
+
+~~~ xml
 <pe-file-set>
-  <include path="first.dll">
-  <include path="second.dll">
+  <include path="first.dll" />
+  <include path="second.dll" />
   <for-each>
     <authenticode-sign/>
   </for-each>
-</pe-file>
-{% endhighlight %}
-      </td> 
-    </tr> 
-  </tbody> 
-</table>
+</pe-file-set>
+~~~
+
+</td> </tr> </tbody> </table>
 
 ## File attribute restrictions
 
@@ -319,7 +320,7 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 
 ### File attribute restriction example
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <!-- requires all pe-files to have the respective attributes set -->
@@ -334,42 +335,43 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
     <authenticode-sign /> <!-- finally sign the MSI file -->
   </msi-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
 [Examples]: #examples
 
 ## Examples
 
-<div class='panel info with-body' markdown='1' data-title='Examples are shortened'>
-<div class='panel-header'><i class='la la-info-circle'></i> Examples are shortened</div>
-<div class='panel-body'>
+<div class='panel info' markdown='1' >
+<div class='panel-header'> Examples are shortened</div>
+
 For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
-</div>
-{% highlight xml %}
+
+~~~ xml
 <?xml version="1.0" encoding="utf-8" ?>
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <!-- ... -->
 </artifact-configuration>
-{% endhighlight %}
+~~~
+
 </div>
 
 ### Predefined configuration for single Portable Executable file
 
 This configuration works for all PE files.
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <pe-file>
     <authenticode-sign/>
   </pe-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
 ### Signing multiple artifacts in a ZIP container
 
 You can sign multiple unrelated artifacts by packing them into a single ZIP file.
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
     <pe-file path="app.exe">
@@ -380,13 +382,13 @@ You can sign multiple unrelated artifacts by packing them into a single ZIP file
     </powershell-file>
   </zip-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
 ### Deep-signing an MSI installer
 
 This will sign the PE files `libs/common.dll` and `main.exe`, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.
 
-{% highlight xml %}
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file path="MyProduct.v*.msi">
     <directory path="libs">
@@ -400,13 +402,16 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
     <authenticode-sign/>
   </msi-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
 
 ### Signing similar directories within an MSI file
 
-This artifact configuration describes an MSI installer package containing several components. These components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
+This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
 
-{% highlight xml %}
+<table class="noborder">
+<tr><td markdown="1">
+
+~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <directory-set>
@@ -416,7 +421,8 @@ This artifact configuration describes an MSI installer package containing severa
       <for-each>
         <pe-file-set>
           <include path="main.exe" />
-          <include path="resources\*.resource.dll" min-matches="0" max-matches="unbounded" />
+          <include path="resources\*.resource.dll" 
+                   min-matches="0" max-matches="unbounded" />
           <for-each>
             <authenticode-sign/>
           </for-each>
@@ -426,20 +432,36 @@ This artifact configuration describes an MSI installer package containing severa
     <authenticode-sign/>
   </msi-file>
 </artifact-configuration>
-{% endhighlight %}
+~~~
+
+</td><td markdown="1">
+
+![graphical artifact configuration](/assets/img/resources/documentation_artifact-configuration_similar-definition.png)
+
+</td></tr></table>
 
 Example of a directory structure that would match this configuration:
 
-    MyApp.msi
-      component1/
-        main.exe
-        resources/
-          de.resource.dll
-          en.resource.dll
-          fr.resource.dll
-      component2/
-        main.exe
-      component3/
-        main.exe
-        resources/
-          en.resource.dll
+<table class="noborder">
+<tr><td markdown="1">
+
+~~~
+• myapp.msi 
+  • component1/
+    • main.exe
+    • resources/de.resource.dll
+    • resources/en.resource.dll
+    • resources/fr.resource.dll
+  • component2/
+    • main.exe
+  • component3/
+    • main.exe
+    • resources/en.resource.dll
+~~~
+
+(All `msi`, `exe` and `dll` files are signed with Authenticode.)
+</td><td markdown="1">
+
+![graphical resolved artifacts](/assets/img/resources/documentation_artifact-configuration_similar-resolved.png)
+
+</td></tr></table>

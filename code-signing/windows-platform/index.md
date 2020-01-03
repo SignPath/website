@@ -92,8 +92,8 @@ A CSP can provide these services:
 
 HSMs usually bring their own installable CSPs. You can think of the CSP as a device driver for the HSM.
 
-<div class='panel warning' markdown='1' data-title='Warning'>
-<div class='panel-header'><i class='la la-exclamation-triangle'></i>Warning</div>
+<div class='panel warning' markdown='1' >
+<div class='panel-header'>Warning</div>
 Here is what happens when you call SignTool.exe with a certificate from a HSM:
 
 * SignTool.exe calls the Authenticode API

@@ -1,0 +1,44 @@
+div.panel {
+	border: 1px solid grey;
+	border-radius: 6px;
+	padding: 0px 20px;
+	margin: 10px 0px;
+}
+div.panel.with-body {
+	padding: 0px;
+}
+div.panel.with-body > div.panel-header {
+	margin-left: 0px
+}
+
+div.panel.info, div.panel.warning {
+	background-color: lightblue;
+}
+div.panel.info > div.panel-header{
+	background-color: blue;
+	color: white;
+}
+div.panel.warning > div.panel-header{
+	background-color: red;
+	color: white;
+}
+div.panel > div.panel-header {
+	background-color: grey;
+	margin: 0px;
+	padding: 5px 10px;
+	display: inline-block;
+	font-size: 1em;
+	margin-left: -20px;
+}
+div.panel > i, div.panel-header > i {
+	font-weight: 800;
+	margin-right: 10px;
+}
+
+div.panel > div.panel-body {
+	margin: 20px;
+}
+
+h3{
+	font-weight: bold;
+}

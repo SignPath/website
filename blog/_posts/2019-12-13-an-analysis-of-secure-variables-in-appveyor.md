@@ -94,9 +94,9 @@ It must be possible to distinguish the following cases (e.g. by different error 
 * A given ciphertext decrypts to a malformed plaintext (e.g. with non-ASCII characters) and has valid padding
 * A given ciphertext decrypts has invalid padding
 
-This information, combined with the knowledge of how CBC and PKCS#7 work and some basic logic is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.
+This information, combined with the knowledge of how CBC and PKCS#7 work and some basic logic, is enough for an attacker to decrypt most of a given ciphertext. To confirm the existence or non-existence of a potential Padding Oracle in AppVeyor, we performed the following tests.
 
-We used a secure variable (encrypted Bearer <code class='inline'>SecretToken123456789012345678901234567890</code>) to let AppVeyor authenticate against our web server.  On the web server we received:
+We used a secure variable (encrypted Bearer `SecretToken123456789012345678901234567890` to let AppVeyor authenticate against our web server.  On the web server we received:
 
 	POST / HTTP/1.1
 	Authorization: Bearer SecretToken123456789012345678901234567890

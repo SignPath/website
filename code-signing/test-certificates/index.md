@@ -26,11 +26,17 @@ To use an in-house CA, you can create a certificate signing request (CSR) in Sig
 
 ## Installing certificates
 
-Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the <code>Trusted Root Certification Authorities</code> certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.
+Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the `Trusted Root Certification Authorities` certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.
 
-<div class='panel info' markdown='1' data-title='Tips'>
-<div class='panel-header'><i class='la la-info-circle'></i>Trusted publishers</div>
-You may also add your test certificates to the <code>Trusted Publishers</code> store on internal machines. This is what happens when a user choses always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines. Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies. (Only add your certificates to this store for computers in your own organization.)
+<div class='panel info' markdown='1' >
+<div class='panel-header'>Trusted publishers</div>
+
+You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
+
+Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies. 
+
+Only add your certificates to this store for computers in your own organization, don't use your installer to add your certificate to this store.
+
 </div>
 
 ### Manual installation
@@ -46,8 +52,14 @@ On Windows, you can install certificates by following these steps:
 
 ### Using scripts and batch files
 
-* In PowerShell scripts, use `Import-Certificate <certificate-file> -CertStoreLocation Cert:\LocalMachine\Root`
-* In batch files, use `CertUtil -addstore Root <certificate-file>`
+* In PowerShell scripts, use 
+  ~~~ powershell
+  Import-Certificate $certificate_file -CertStoreLocation Cert:\LocalMachine\Root
+  ~~~
+* In batch files, use 
+  ~~~ 
+  CertUtil -addstore Root <certificate-file>
+  ~~~
 
 These commands require administrative permissions.
 
