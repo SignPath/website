@@ -101,7 +101,9 @@ document.addEventListener('DOMContentLoaded', function() {
     for (var r = 0; r<rows.length; r++) {
       var cells = rows[r].querySelectorAll('td');
       for (var c = 0; c<headers.length; c++) {
-        cells[c].dataset.label = headers[c].innerText;
+        if (c < cells.length) {
+          cells[c].dataset.label = headers[c].innerText;
+        }
       }
     }
   }
@@ -118,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  if (window.location.pathname.endsWith('/pricing')) {
+  if (window.location.pathname.endsWith('/pricing/')) {
     // calculate prices correctly
     function recalculatePrices() {
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
@@ -191,8 +193,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // set cookie acknowledgement
   // functions taken from https://www.w3schools.com/js/js_cookies.asp
-  function setCookie(cname, cvalue) {
-    document.cookie = cname + "=" + cvalue + ";path=/";
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    var expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
   }
 
   function getCookie(cname) {
@@ -214,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
   if (getCookie(cookieConsentCookieName) != 'true') {
     document.getElementById('cookie-info').classList.add('show');
     document.getElementById('acknowledge-cookies-btn').addEventListener('click', function() {
-      setCookie(cookieConsentCookieName, 'true');
+      setCookie(cookieConsentCookieName, 'true', 356 * 20); // expires in 20 years
       document.getElementById('cookie-info').classList.remove('show');
     })
   }

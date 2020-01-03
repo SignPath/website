@@ -4,14 +4,14 @@
 - text: Theory
   path: theory
 
-- text: Windows platform
+- text: Windows Platform
   path: windows-platform
 
-- text: Managing test certificates
+- text: Managing Test Certificates
   path: test-certificates
 
-- text: Storage of private keys
+- text: Storage of Private Keys
   path: private-keys
 
-- text: Media coverage
+- text: Media Coverage
   path: media-coverage
