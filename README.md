@@ -2,7 +2,7 @@
 
 # SignPath Website
 
-This repository contains the SignPath website data. It runs on Github pages, which is build upon [Jekyll](https://jekyllrb.com).
+This repository contains the SignPath website data. It runs on Github pages, which is built upon [Jekyll](https://jekyllrb.com).
 
 ## Running it
 There are two ways of running the application locally: Either directly using a local Ruby installation or by using Docker. In both setups the website will be reachable on [http://localhost:4000](http://localhost:4000)
