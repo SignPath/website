@@ -31,7 +31,7 @@ Certificates can be rolled out to your test computers manually or using an autom
 <div class='panel info' markdown='1' >
 <div class='panel-header'>Trusted publishers</div>
 
-You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
+You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses to always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
 
 Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies. 
 
