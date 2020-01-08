@@ -118,13 +118,14 @@ section.resources-section {
 					display:inline-block;
 					font-family: "Line Awesome Free";
 
-					font-weight: 800;
+					font-weight: 400;
 					margin-right: 10px;
 				}
 			}
 
 			&.info > div.panel-header::before {
 				content: "\f05a";
+				font-weight: 400;
 			}
 			&.warning > div.panel-header::before {
 				content: "\f071";
