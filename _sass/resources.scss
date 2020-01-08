@@ -103,32 +103,38 @@ section.resources-section {
 			padding: 0px 20px;
 			margin: 10px 0px;
 
-			&.with-body {
-				padding: 0px;
-
-				& > div.panel-header {
-					margin-left: 0px
-				}
+			& > div.panel-header::before {
+				margin-right: 10px;
+				display: inline-block;
 			}
 
 			&.info, &.warning {
-				background-color: $light-blue-background-color;
 				& > div.panel-header::before {
-					/* line-awesome .la */
-					display:inline-block;
 					font-family: "Line Awesome Free";
-
-					font-weight: 400;
-					margin-right: 10px;
+					font-weight: 800;
 				}
 			}
 
-			&.info > div.panel-header::before {
-				content: "\f05a";
-				font-weight: 400;
+			&.info {
+				background-color: $light-grey-background-color;
+				& > div.panel-header::before {
+					content: "\f05a";
+				}
 			}
-			&.warning > div.panel-header::before {
-				content: "\f071";
+
+			&.warning {
+				background-color: $light-orange-background-color;
+				& > div.panel-header::before {
+					content: "\f071";				
+				}
+			}
+
+			&.product {
+				background-color: $light-blue-background-color;
+				& > div.panel-header::before {
+					content: "\e80e";
+					font-family: fontello;				
+				}
 			}
 
 			& > div.panel-header {

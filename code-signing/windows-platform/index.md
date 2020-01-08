@@ -44,17 +44,34 @@ SmartScreen is a cloud-based system that compares downloaded software against li
 
 There are two ways to gain **SmartScreen reputation**:
 
-* **Standard (OV) certificates:** The certificate is encountered several times in the wild, and no malign usage was reported.
-  * SmartScreen collects this data from Windows users. 
-  * Renewed certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
+* **Standard (OV) certificates:** The certificate is encountered several times in the wild, and no malign usage was reported. SmartScreen collects this data from Windows users.
 * **Extended Validation (EV) certificates:** these certificates have full reputation when they are issued.
+
+<div class="panel info" markdown="1">
+<div class="panel-header">EV certificates strongly recommended for Internet downloads</div>
+
+If your programs are downloaded and installed by users, SmartScreen reputation is very important. Without full reputation, users will be warned not to trust your software, and the option to execute or install it is hidden behind a "more information" link. 
+
+Renewed standard (OV) certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
+</div>
+
+<div class="panel product" markdown="1">
+<div class="panel-header">SignPath.io: use EV certificates without USB tokens</div>
+EV code-signing certificates must be stored on secure hardware. Normally this means that you will receive a USB token from the CA. These tokens are difficult to use in team scenarios and automated builds &ndash; you will have to store them safely and attach them to build computers when needed. They usually require installation of device drivers, CSPs, and often password entry for each signature. The need to build on a physical computer also defies the goal of having safe, reproducable build environments. 
+
+**SignPath.io** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
+
+* Request an attested certificate siging request (CSR) from SignPath.io
+* Buy an EV certificate from your favorite CA
+* Download the certificate from the CA, upload it to SignPath.io (does not include private key)
+</div>
 
 ### Verifications for all programs
 
-Even when a program is already installed, signatures of individual program files may still be verified:
+Even when a program is already installed, or was not downloaded from the Internet, signatures of individual program files may still be verified:
 
-* When a program tries to make changes to the system, **User Account Control** (UAC) will prompt the user for permission. The software publisher is displayed in the UAC prompt.
-* When an administrator deploys an **application whtielisting** policy, e.g., via Windows Code Integrity Policy or third party software.
+* **User Account Control** (UAC) will prompt the user for permission when a program tries to make changes to the system.
+* **Application whitelisting** policies are deployed by enterprise administrators to prevent execution of unwanted programs.
 
 #### User Account Control (UAC)
 

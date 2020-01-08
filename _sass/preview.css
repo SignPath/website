@@ -11,28 +11,23 @@ div.panel.with-body > div.panel-header {
 	margin-left: 0px
 }
 
-div.panel.info, div.panel.warning {
+div.panel.info{
+	background-color: lightgrey;
+}
+div.panel.warning {
+	background-color: lightsalmon;
+}
+div.panel.product {
 	background-color: lightblue;
-}
-div.panel.info > div.panel-header{
-	background-color: blue;
-	color: white;
-}
-div.panel.warning > div.panel-header{
-	background-color: red;
-	color: white;
 }
 div.panel > div.panel-header {
 	background-color: grey;
+	color:white;
 	margin: 0px;
 	padding: 5px 10px;
-	display: inline-block;
+	display: block;
 	font-size: 1em;
 	margin-left: -20px;
-}
-div.panel > i, div.panel-header > i {
-	font-weight: 800;
-	margin-right: 10px;
 }
 
 div.panel > div.panel-body {
