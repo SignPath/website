@@ -1,11 +1,17 @@
 ---
 layout: post
-title:  "An analysis of secure variables in AppVeyor"
+title:  "A white hat story: analysis of secure variables in AppVeyor"
 image: '2019-12-13-bg'
 date:   2019-12-13 11:38:20 +0200
 author: Daniel Ostovary
 summary: 'We discovered that the way AppVeyor encrypts its secret variables is susceptible to padding oracle attacks.'
 ---
+
+SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantee might effect the entire code signing process. 
+
+For this reason, we routinely analyze not only our own software and services, but also certain features of third party systems. 
+
+In our analysis of AppVeyor, we looked at the encryption of secrets, such as SignPath API tokens. Note that what we have discovered is not an exploitable security issue, but we thought the entire analysis still makes a good read for people interested in application security. 
 
 SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) [feature](https://www.appveyor.com/docs/build-configuration/#secure-variables). We discovered a few interesting things, which we describe in this blog post.
 
@@ -143,4 +149,4 @@ Conclusively, in this article we showed:
 2. Which encryption is used for secure variables.
 3. How this encryption can, in principle, lead to Padding Oracle attacks that allow the decryption of most or all of the ciphertext.
 
-This post was written together with Marc Nimmerichter from [Impidio](https://www.impidio.com/).
+This post was written together with Marc Nimmerichter from [Impidio](https://www.impidio.com/). All findings were responsibly disclosed to AppVeyor and only published when we agreed that they contain no exploitable information.
