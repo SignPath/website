@@ -111,14 +111,12 @@ section.resources-section {
 				}
 			}
 
-			& > div.panel-header {
-				vertical-align: middle;
-			}
-			
-			& > div.panel-header {
-				margin-left: 0px;
-				vertical-align: middle;
-			}
+			&.info, &.warning {
+				background-color: $light-blue-background-color;
+				& > div.panel-header::before {
+					/* line-awesome .la */
+					display:inline-block;
+					font-family: "Line Awesome Free";
 
 			& > div.panel-header::before {
 				/* line-awesome .la */
@@ -130,7 +128,7 @@ section.resources-section {
 			}
 
 			&.info > div.panel-header::before {
-				content: "\f24b";
+				content: "\f05a";
 			}
 			&.info {
 				background-color: $light-grey-background-color;
@@ -144,7 +142,7 @@ section.resources-section {
 			}
 
 			&.product > div.panel-header::before {
-				content: "\e80e";
+				content: "\f071";
 				font-family: fontello;
 				font-size: 1.5em;
 			}
