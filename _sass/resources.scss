@@ -145,9 +145,9 @@ section.resources-section {
 				background-color: $grey-border-color;
 				margin: 0px;
 				padding: 5px 10px;
-				display: inline-block;
 				font-size: 1em;
-				margin-left: -20px;				
+				margin-left: -20px;
+				margin-right: -20px;
 			}
 
 			& > div.panel-body {
