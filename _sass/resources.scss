@@ -103,51 +103,38 @@ section.resources-section {
 			padding: 0px 20px;
 			margin: 10px 0px;
 
-			&.with-body {
-				padding: 0px;
-
-				& > div.panel-header {
-					margin-left: 0px;
-				}
+			& > div.panel-header::before {
+				margin-right: 10px;
+				display: inline-block;
 			}
 
 			&.info, &.warning {
-				background-color: $light-blue-background-color;
 				& > div.panel-header::before {
-					/* line-awesome .la */
-					display:inline-block;
 					font-family: "Line Awesome Free";
-
-			& > div.panel-header::before {
-				/* line-awesome .la */
-				display:inline-block;
-				font:normal normal normal 16px/1 LineAwesome;font-size:1.8em;text-decoration:inherit;text-rendering:optimizeLegibility;text-transform:none;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;font-smoothing:antialiased;
-
-				font-weight: 400;
-				margin-right: 10px;
+					font-weight: 800;
+				}
 			}
 
-			&.info > div.panel-header::before {
-				content: "\f05a";
-			}
 			&.info {
 				background-color: $light-grey-background-color;
+				& > div.panel-header::before {
+					content: "\f05a";
+				}
 			}
 
-			&.warning > div.panel-header::before {
-				content: "\f1cf";				
-			}
 			&.warning {
 				background-color: $light-orange-background-color;
+				& > div.panel-header::before {
+					content: "\f071";				
+				}
 			}
 
-			&.product > div.panel-header::before {
-				content: "\f071";
-				font-family: fontello;
-				font-size: 1.5em;
-			}
 			&.product {
 				background-color: $light-blue-background-color;
+				& > div.panel-header::before {
+					content: "\e80e";
+					font-family: fontello;				
+				}
 			}
 
 			& > div.panel-header {
