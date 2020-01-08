@@ -41,13 +41,13 @@
 		}
 
 		& > *:not(:first-child) { /* was: div.body */
-			padding: 0 20px 0 20px;
+			padding: 20px;
 		}
 	}
 }
 
 @media only screen and (max-width: 740px) { /* = 20px margin + 340px card + 20px space + 340px card + 20px margin */
-	*.card-container > *.card {
+	*.card-container > * {
 		max-width: none;
 		margin-left: 0px;
 	}

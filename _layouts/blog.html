@@ -13,11 +13,11 @@
       <ul class='card-container'>
         {% for post in site.posts %}
           {% if page.featured_slugs contains post.slug %}
-            <li class='card'>
-              <a class='header' style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
-                <h3>{{ post.title }}</h3>
+            <li>
+              <a style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
+                {{ post.title }}
               </a>
-              <div class='body'>
+              <div>
                 <div class='info'>
                   <span><i class='la la-user'></i> {{ post.author }}</span>
                   <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
@@ -40,11 +40,11 @@
     <h2>Recent Posts</h2>
     <ul class='card-container'>
       {% for post in site.posts %}
-        <li class='card'>
-          <a class='header' style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
-            <h3>{{ post.title }}</h3>
+        <li>
+          <a style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
+            {{ post.title }}
           </a>
-          <div class='body'>
+          <div>
             <div class='info'>
               <span><i class='la la-user'></i> {{ post.author }}</span>
               <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
