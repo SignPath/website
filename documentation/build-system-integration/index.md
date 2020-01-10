@@ -341,3 +341,11 @@ For each completed signing request, SignPath will post the following JSON inform
 ~~~
 
 A handler for this Webhook can use the Web API for further activities, such as pushing the signed artifact to a repository. Use the Web API to get signing request data including build information.
+
+<div class="panel info" markdown="1">
+<div class="panel-header">Webhook authentication</div>
+
+Webhooks will send the `Authentication` header exactly as specified. Don't forget to add the method, for example:
+
+`Bearer JEAG1OrTXZ/t4URp5URt40DLBlA3WtcJmbwfeosyBkTABr6r`
+</div>
