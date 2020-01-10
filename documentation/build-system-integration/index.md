@@ -259,3 +259,15 @@ Replace the parameters:
 [![Azure DevOps installations](https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/SignPath.signpath-tasks?color=blue&label=Visual+Studio+Marketplace+installs)](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
 
 For Azure DevOps, you can use build pipeline tasks from the [official SignPath extension on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks).
+
+## Webhooks
+
+For every project, you can configure a webhook that is called once signing requests are completed. The payload has the following format:
+
+~~~ json
+{
+  "OrganizationId": "c2099ac1-b4b5-4b30-934e-3933c2d9922d",
+  "SigningRequestId": "a4559e13-9e95-480a-9567-5b8a3252bb27",
+  "Status": "Completed"
+}
+~~~
