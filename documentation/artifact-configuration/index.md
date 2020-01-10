@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Artifact Configuration
 layout: resources
 toc: true
+show_toc: 3
 ---
 
 ## Abstract
@@ -13,7 +14,9 @@ The artifact configuration describes the structure of the artifacts you want to 
 
 ## Deep signing
 
-In case you have more complex, nested artifacts, you might want to not only sign the container itself (for instance, an MSI installer package), but also all files that are shipped within the container (e.g., .exe and .dll files within the MSI installer). Therefore, every container format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. In order for SignPath to find the right file, all inner elements need a path attribute.
+In case you have more complex, nested artifacts, you might want to not only sign the container itself (for instance, an MSI installer package), but also all files that are shipped within the container (e.g., .exe and .dll files within the MSI installer). 
+
+Therefore, every *container* format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. All inner elements need a `path` attribute.
 
 ## File elements
 
