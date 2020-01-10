@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Build System Integration
 layout: resources
 toc: true
+show_toc: 3
 redirect_from: /documentation/integrations
 ---
 
@@ -21,7 +22,7 @@ Before accessing the API, you have to create a CI User in the User section of th
 
 The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)
 
-Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provides a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.
+Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provide a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.
 
 ## PowerShell 
 
@@ -105,7 +106,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
-### Check the status of a signing request
+### Get signing request data
 
 | Synopsis   |      |
 | ---------- | ---- |
@@ -120,7 +121,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequest/$SIGNING_REQUEST_ID
 ~~~
 
-**Success result:** HTTP status code `200`. Status of the signing request in JSON format:
+**Success result:** HTTP status code `200`. Signing request data in JSON format:
 
 ~~~ json
 {
@@ -137,10 +138,23 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
   "signingPolicyName":"test-signing",
   "unsignedArtifactLink":"https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/UnsignedArtifact",
   "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact"
+  "origin": {
+    "repositoryMetadata": {
+      "repositoryUrl": "https://github.com/name/project",
+      "branchName": "master",
+      "commitId": "efe8bbc00c5484bfd38ce13a749ea2103a8ea713"
+    },
+    "buildUrl": "https://ci.appveyor.com/project/user/project/builds/30003889/job/x6mlmxrctauro5nb",
+    "buildSettingsFile": {
+      "fileName": "AppVeyorSettings.json",
+      "downloadLink": "https://fqa.test.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/137ada35-fc11-4719-a3a4-269983692197/BuildSettingsFile"
+    }
+  }
 }
 ~~~
 
-**Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed`, `Failed`, `Denied`, `Canceled`, `RetrievingArtifact`, `ArtifactRetrievalFailed`
+* **Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed`, `Failed`, `Denied`, `Canceled`, `RetrievingArtifact`, `ArtifactRetrievalFailed`
+* `origin` is only available for signing requests with origin verification
 
 ### Download the signed artifact
 
@@ -162,46 +176,86 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
 
-## AppVeyor
+## CI integrations with origin verification
 
-If you are using the CI service AppVeyor, there is an alternative CI integration. Instead of pushing the artifact from your build script, you can issue an AppVeyor notification after your build, and SignPath.io will pull the artifact from AppVeyor. This results in additional confidence and provides the foundation for restricted Open Source signing.
+Origin verification ensures that a signed artifact is the result of building a specific source code version.
 
-### Rationale
+In order to achieve this, you cannot submit a signing request from an unfinished build. Instead, you have to finish the build job without signing, and then trigger a signing request with origin verification. 
 
-By pulling the artifact from AppVeyor, SignPath.io can make sure that the binary artifact is a result of a specific build process applied to specific source code (branch and commit).
+When signing is completed, you can use a Webhook handler for further processing, such as uploading the signed artifact to a repository. 
 
-### Prerequisites and restrictions
+Origin verification results in additional confidence. It provides the foundation for restricted Open Source signing.
 
-This feature is a proof-of-concept for Open Source projects. Future versions may allow disabling certain limitations in paid subscriptions.
+Origin verification verifies the following information:
+
+* **Source code repository URL** as specified in the SignPath **project**
+* **Branch** as specified in the **signing policy**
+* **Commit version**
+* **Build job URL** as provided by the CI system
+* **Reproducability** checks that the build process is completely determined by the source code repository
+
+Verification of reproducability depends on the CI system used. Typical verifications include:
+
+* Build settings are fully determined by a configuration file under source control
+* No manual overrides of critical build settings in CI system's build job
+* Prevent caching from previous (unverified) builds
+
+The final goal of origin verification is enable signing policies based on source code reviews. 
+
+<div class="panel warning" markdown="1">
+<div class="panel-header">Source code reviews must include build scripts</div>
+
+Note that a build scripts or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
+
+Make sure that your source code review policy includes build scripts and makefiles.
+</div>
+
+<div class="panel info" markdown="1">
+<div class="panel-header">Use origin verification restrictions</div>
+
+Enable additional restrictions for signing policies that use release certificates:
+* Select **Verify origin** to make sure that only verified builds can be signed
+* Define source code review polcies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for those branches. Typical settings include `master` or `release/*`.
+* If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
+</div>
+
+### AppVeyor
+
+#### Prerequisites and restrictions
+
+This feature is currently dedicated to Open Source projects. Future versions will allow disabling certain limitations in paid subscriptions.
 
 Current limitations:
 
 * The AppVeyor project and the Git repository must be public 
-
-Supported Git repository hosting: 
-  * [GitHub](https://github.com/)
-  * [GitLab](https://gitlab.com/)
-  * [Bitbucket](https://bitbucket.org)
 
 The following checks are performed:
 
 * No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository)
 * The build settings may not be modified between starting the AppVeyor build and calling SignPath.io
 
-This is to guarantee that the binary artifacts result purely from the specified source code.
+This is to ensure that the binary artifacts result purely from the specified source code.
 
-### Build documentation
+<div class="panel todo" markdown="1">
+<div class="panel-header">TODO</div>
 
-SignPath adds the following information to packages:
+Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml
+> At the moment those supported are: GitHub (hosted and on-premise), Bitbucket (hosted and on-premise), GitLab (hosted and on-premise), Azure DevOps, Kiln and Gitea. 
+</div>
 
-* For NuGet packages:
-  1. The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package
-  2. The commit hash and repository URL are written to the metadata of the NuGet package
+<div class="panel info" markdown="1">
+<div class="panel-header">Supported Git repositories</div>
 
-These steps allow consumers of the signed artifact to verify source code version and build settings.
+Since origin verification cannot be ensured for [alternative YAML file locations](https://www.appveyor.com/docs/build-configuration/#alternative-yaml-file-location), AppVeyor's [generic Git repository](https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml) support is not available.
 
-### Setup
-This shows the secrets that need to be shared between AppVeyor.com and SignPath.io:
+These Git repositories are currently fully supported by AppVeyor:
+  * [GitHub](https://github.com/)
+  * [GitLab](https://gitlab.com/)
+  * [Bitbucket](https://bitbucket.org)
+</div>
+
+#### Setup
+This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
 ![AppVeyor Setup flow](/assets/img/resources/documentation_build-integration_appveyor.png)
 
 <table style="table-layout: auto;">
@@ -245,17 +299,45 @@ deploy:
 - provider: Webhook
   url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectKey=<PROJECT_KEY>&SigningPolicyKey=<SIGNING_POLICY_KEY>
   authorization:
-     secure: <ENCRYPTED_ACCESS_TOKEN>
+     secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
 ~~~
 
 Replace the parameters:
 * `<ORGANIZATION_ID>`, `<PROJECT_KEY>` and `<SIGNING_POLICY_KEY>` values can be retrieved from the signing policy page
-* `<ENCRYPTED_ACCESS_TOKEN>` is the value from the previous step
+* `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
 
 </td> </tr> </tbody> </table>
 
-## Azure DevOps
+#### Attached build documentation
+
+SignPath adds the following information to packages:
+
+* For NuGet packages:
+  1. The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package
+  2. The commit hash and repository URL are written to the metadata of the NuGet package
+
+These steps allow consumers of the signed artifact to verify source code version and build settings.
+
+## Other CI integrations
+
+### Azure DevOps
 
 [![Azure DevOps installations](https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/SignPath.signpath-tasks?color=blue&label=Visual+Studio+Marketplace+installs)](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
 
 For Azure DevOps, you can use build pipeline tasks from the [official SignPath extension on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks).
+
+## Webhook notifications
+
+If you want to react on completed signing requests, you can add a **Webhook** **notification** in your project's **Integration** section.
+
+For each completed signing request, SignPath will post the following JSON information to the specified URL:
+
+~~~ json
+{
+  "OrganizationId": "094f5736-6b8c-4ca7-9514-0933c8b928e2",
+  "SigningRequestId": "b4596ce6-1b8d-4527-9cce-16b3e174fb3d",
+  "Status": "Completed"
+}
+~~~
+
+A handler for this Webhook can use the Web API for further activities, such as pushing the signed artifact to a repository. Use the Web API to get signing request data including build information.
