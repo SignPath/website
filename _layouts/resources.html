@@ -24,7 +24,7 @@
 						<li class='separator' />
 						{% else %}
 						<li class='{{ className }}'>
-							<a href='../{{entry.path}}/'>{{ entry.text }}</a>
+							<a href='../{{entry.path}}/#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
 								{% include toc.html html=content h_max=2 %}
 							{% endif %}
@@ -35,6 +35,9 @@
 			</aside>
 		{% endif %}
 		<article>
+			{% if page.show_toc %}
+				{% include toc.html html=content h_max=page.show_toc %}
+			{% endif %}
 			{{ content }}
 		</article>
 	</div>
