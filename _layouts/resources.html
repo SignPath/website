@@ -1,3 +1,8 @@
+{% if main_header != null }
+	{% assign title = "SignPath - " | append: page.main_header | append: " - " | append: page.sub_header %}
+{% else %}
+	{% assign title = "SignPath - " | append: page.sub_header %}
+{% endif %}
 {% include header.html %}
 
 <section class="bg-blue font-white top-section">

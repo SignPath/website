@@ -1,3 +1,10 @@
+{% if title == null %}
+  {% if page.title != null %}
+    {% assign title = "SignPath - " | append: page.title %}
+  {% else %}
+    {% assign title = "SignPath - Code Signing Simple and Secure" %}
+  {% endif %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en" data-appurl='{{ site.data.hosts.app[jekyll.environment] }}'>
 <head>
@@ -5,8 +12,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- Begin Jekyll SEO tag v2.6.1 -->
-  <title>SignPath - {{ page.title }}</title>
-  <meta property="og:title" content="SignPath - Code Signing - Simple and Secure" />
+  <title>{{ title }}</title>
+  <meta property="og:title" content="{{ title }}" />
   <meta property="og:locale" content="en_US" />
   <meta name="description" content="SignPath.io - Automated, repeatable and secure code signing processes
 as a service and on-premise" />
