@@ -1,0 +1,59 @@
+section.job-section {
+	& > div {
+		text-align: left;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 50px;
+        padding-right: 50px;
+        & > p {
+            text-align: left;
+        }
+    }
+}
+
+div.columns.job {
+    text-align: left;
+    margin: -1em -20px;
+
+    & > * {
+		min-width: 350px;
+	}
+}
+
+section.job-section ul {
+	& > li {
+		padding-bottom: 0.5em;
+	}
+}
+
+div.job-benefits-list {
+    padding: 0;
+
+    & > div {
+        padding: 1em;
+        background-color: $light-grey-background-color;
+
+        h2 {
+            margin-top: 0;
+        }
+        ul {
+            list-style: none;
+            overflow: visible;
+            padding-left: 2.5em;
+            position: relative;
+        
+            & > li {
+                padding-bottom: 0.5em;
+            }
+
+            & > li:before {
+                left: 1em;
+                position: absolute;
+                font-family: "Line Awesome Free";
+                font-weight: 800;
+                content: "\f00c";
+            }
+        }
+    }
+}
+

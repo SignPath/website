@@ -1,0 +1,61 @@
+{% include header.html %}
+
+<section class="bg-black font-white top-section">
+	<div>
+		<h1>{{ page.header }}</h1>
+	</div>
+</section>
+<section class="job-section">
+	<div>
+		<h1>{{ page.sub-header }}</h1>
+	</div>
+</section>
+<section class="job-section">
+	<div class="columns job">
+		<div>
+			<article>
+				{{ content }}
+			</article>
+		</div>
+		<div class="job-benefits-list">
+			<div>
+				<h2>Unsere Team-Werte</h2>
+				<a href="/assets/img/jobs/team-values.png">
+					<img src="/assets/img/jobs/team-values.png" title="Team-Werte Grafik" width="100%" />
+				</a>
+				<h2>Was wir bieten</h2>
+				<ul>
+					<li>Mitarbeit an einem von Grund auf neu entwickelten, spannenden Produkt, das Kunden dabei hilft, ihre bestehenden Softwareentwicklungsprozesse sicherer zu gestalten</li>
+					<li>Arbeit mit modernsten Technologien, die Gelegenheit sich tief in diese einzuarbeiten und Expertenwissen aufzubauen</li>
+					<li>Eine außergewöhnliche teamorientierte Arbeitsweise, gemeinsame Verantwortung mit gelebter Hilfsbereitschaft und ein starkes Teamgefühl</li>
+					<li>Ein Team auf hohem technischen Niveau, das danach strebt, immer besser zu werden</li>
+					<li>Flache Hierarchien, direkte Kommunikation und eine exzellente Gesprächsbasis bis hin zum Geschäftsführer</li>
+					<li>Flexible Arbeitszeiten und die Möglichkeit, einen Teil der Arbeitszeit im Home Office zu leisten</li>
+					<li>Die Möglichkeit, in einem Team Teilzeit zu arbeiten, in welchem dies nicht als Ausnahme gesehen, sondern voll akzeptiert wird</li>
+					<li>Freiraum und die Möglichkeit, eigene Ideen zu verwirklichen (z.B. im Rahmen unserer regelmäßigen Exploration Days)</li>
+					<li>Weiterentwicklungsmöglichkeiten innerhalb von SignPath sowie im Unternehmen RUBICON</li>
+					<li>Diverse Benefits wie z.B. Gratis-Jahreskarte der Wiener Linien, Bezahlung der privaten Internetanbindung, Gratis-Getränke uvm.</li>
+				</ul>
+				<a href="https://www.rubicon.eu/karriere/inside-rubicon/#benefits">
+					<img src="/assets/img/jobs/benefits-overview.png" title="RUBICON benefits" width="100%" />
+				</a>
+				<p> Informiere dich über unser Mutterunternehmen RUBICON&nbsp;IT und die Benefits, die auch für das SignPath&#8209;Team bereitstehen!</p>
+				<a class="btn btn-primary" href="https://www.rubicon.eu/karriere/inside-rubicon/">
+					Inside RUBICON
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="job-section">
+	<div>
+		<a class="btn btn-secondary" href="https://www.rubicon.eu/karriere/bewerbungsformular/?JobId={{page.job_id}}&SourceId=signpath.io">
+			Jetzt bewerben
+		</a>
+
+		<p style="font-style: italic">
+			Unsere KollegInnen leisten sehr gute Arbeit. Um das zu honorieren, bieten wir neben umfangreichen Sozialleistungen und Goodies auch eine sehr gute Entlohnung. Bei der ersten Einstufung spielen die Ausbildung und Vorerfahrung eine wesentliche Rolle. Gemäß §9 Abs. 2 GlBG beträgt das kollektivvertragliche Mindestgehalt für diese Position {{page.salary}} EUR brutto pro Jahr. Eine Überzahlung ist je nach Ausbildung, Qualifikation und Berufserfahrung üblich.
+		</p>
+	</div>
+</section>
+{% include footer.html %}
