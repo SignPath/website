@@ -13,7 +13,7 @@ Bring deine Expertise in unser Team ein und unterstütze uns dabei, unsere SaaS-
 
 Wir sind ein Team von 10 Personen, die gemeinsam [SignPath.io](https://signpath.io) entwickeln und betreiben.
 
-![Team-Foto](/assets/img/jobs/team-photo.jpg){: width="100%"}
+![Team-Foto](/assets/img/jobs/team-photo.jpg)
 
 ## Was dich im Alltag erwartet
 
