@@ -4,19 +4,25 @@ header: Open positions
 layout: default
 ---
 
-* [System Architect for Azure, Windows server and container technologies](system-architect)
+* [System Architect for Azure, Windows Server and container technologies](system-architect)
   {: style="background-image:url(/assets/jobs/system-architect_small.jpg)"}
 
   Take responsibility for infrastructure and operations.
 
   [Apply now](system-architect){: class="btn btn-secondary"}
-* [Infrastructure engineer for Azure, Windows server and container technologies](infrastructure-engineer)
+* [Infrastructure engineer for Azure, Windows Server and container technologies](infrastructure-engineer)
   {: style="background-image:url(/assets/jobs/infrastructure-engineer_small.jpg)"}
 
-  Help us operate the product and improve our deployment process.
+  Help us operate our service and improve our deployment process.
 
   [Apply now](infrastructure-engineer){: class="btn btn-secondary"}
+* [Junior infrastructure engineer for Azure, Windows, containers](junior-infrastructure-engineer)
+  {: style="background-image:url(/assets/jobs/junior-infrastructure-engineer_small.jpg)"}
+
+  Learn how to operate a scalabe secure Web platform.
+
+  [Apply now](junior-infrastructure-engineer){: class="btn btn-secondary"}
 {: class="card-container"}
 
-We are located in Vienna, Austria.
+All open positions are for Vienna, Austria.
 {: class="center"}
