@@ -57,6 +57,7 @@ Effective date: 02.04.2019
 	* When access is required for security reasons, including when access is required to maintain ongoing confidentiality, integrity, availability and resilience of SignPath's systems and Service.
 
 ### **3. Acceptable Use**
+
 #### 3.1 Compliance with laws and regulations
 
 * Your use of the Website and Service must not violate any applicable laws, including copyright or trademark laws, export control laws, or other laws in your jurisdiction. You are responsible for making sure that your use of the Service is in compliance with laws and any applicable regulations.
@@ -97,6 +98,7 @@ Effective date: 02.04.2019
 * All use of the SignPath API is subject to these Terms of Service.
 
 ### **5. Payment**
+
 #### 5.1 Pricing
 
 * Our pricing and payment terms are available at about.signpath.io/pricing/. If you agree to a subscription price, that will remain your price for the duration of the payment term; however, prices are subject to change at the end of a payment term.
@@ -129,10 +131,13 @@ Effective date: 02.04.2019
 #### 6.3 Termination
 
 * We reserve the right, at our sole discretion, to suspend or terminate your access to the Website, your Account or your Organization in case of your violation of these Terms.
+
 #### 6.4 Survival
+
 * All provisions of this Agreement which by their nature should survive termination will survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.
 
 ### **7. Intellectual Property**
+
 * SignPath and our licensors, vendors, agents, and/or our content providers retain ownership of all intellectual property rights of any kind related to the Website and Service. We reserve all rights that are not expressly granted to you under this Agreement or by law. 
 * This Agreement is licensed under the Creative Commons Zero license. For details, see our site-policy repository. <!-- The Creative Commons Zero license requires no attribution, however, we would like to thank GitHub for sharing their licenses and policies with everyone. -->
 
