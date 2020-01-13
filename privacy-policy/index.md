@@ -25,14 +25,9 @@ You can address the abovementioned inquiries to privacy@signpath.io.
 ## Data Protection Authority
 In case you are under the impression that we do not process your personal data in accordance with the applicable data protection laws, you may file a complaint with the Austrian Data Protection Authority:
 
-Österreichische Datenschutzbehörde
-
-Wickenburggasse 8
-
-1080 Vienna
-
-Austria / Europe
-
-Telephone: +43 1 52 152-0
-
+Österreichische Datenschutzbehörde <br>
+Wickenburggasse 8 <br>
+1080 Vienna <br>
+Austria <br>
+Telephone: +43 1 52152-0 <br>
 E-Mail: dsb@dsb.gv.at
