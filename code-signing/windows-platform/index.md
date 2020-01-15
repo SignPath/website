@@ -3,7 +3,7 @@ main_header: Code Signing
 sub_header: Windows Platform
 layout: resources
 toc: true
-show_toc: 3
+show_toc: 4
 ---
 
 ## Signing methods
