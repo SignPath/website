@@ -3,6 +3,7 @@ main_header: Code Signing
 sub_header: Theory
 layout: resources
 toc: true
+show_toc: 4
 ---
 
 ## Overview
