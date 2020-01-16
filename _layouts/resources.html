@@ -31,7 +31,9 @@
 						<li class='{{ className }}'>
 							<a href='../{{entry.path}}/#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
-								{% include toc.html html=content h_max=2 %}
+								<div class="no-mobile" >
+									{% include toc.html html=content h_max=2 %}
+								</div>
 							{% endif %}
 						</li>
 						{% endif %}
@@ -41,8 +43,11 @@
 		{% endif %}
 		<article>
 			{% if page.show_toc %}
-				{% include toc.html html=content h_max=page.show_toc %}
+				{% include toc.html class="article-toc" html=content h_max=page.show_toc %}
+			{% else %}
+				{% include toc.html class="article-toc.mobile-only" html=content h_max=2 %}
 			{% endif %}
+				
 			{{ content }}
 		</article>
 	</div>
