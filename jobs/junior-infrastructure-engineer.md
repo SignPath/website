@@ -13,7 +13,7 @@ Arbeite an unserem Service SignPath.io mit und lerne, wie man eine skalierbare, 
 
 Wir sind ein Team von 10 Personen, die gemeinsam [SignPath.io](https://signpath.io) entwickeln und betreiben.
 
-![Team-Foto](/assets/img/jobs/team-photo.jpg){: width="100%"}
+![Team-Foto](/assets/img/jobs/team-photo.jpg)
 
 ## Was dich im Alltag erwartet
 

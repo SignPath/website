@@ -139,7 +139,8 @@ Effective date: 02.04.2019
 
 ## 7. Intellectual Property
 * SignPath and our licensors, vendors, agents, and/or our content providers retain ownership of all intellectual property rights of any kind related to the Website and Service. We reserve all rights that are not expressly granted to you under this Agreement or by law. 
-* This Agreement is licensed under the Creative Commons Zero license. For details, see our site-policy repository. <!-- The Creative Commons Zero license requires no attribution, however, we would like to thank GitHub for sharing their licenses and policies with everyone. -->
+* This Agreement is licensed under the [Creative Commons Zero license](https://creativecommons.org/share-your-work/public-domain/cc0/). 
+<!-- The Creative Commons Zero license requires no attribution, however, we would like to thank GitHub for sharing their licenses and policies with everyone. -->
 
 ### 8. Communication
 
