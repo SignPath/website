@@ -283,7 +283,7 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
 1. On SignPath.io, choose the Users menu and create a new *CI User* or open an existing one
 2. Remember the **SignPath API token** for the next step
 3. On [ci.appveyor.com](https://ci.appveyor.com), open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
-4. Enter ``Bearer <SIGNPATH_API_TOKEN>`` (without &lt;brackets&gt;)
+4. Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
 5. Remember the **encrypted SignPath API token** for the next step
 
 </td>
