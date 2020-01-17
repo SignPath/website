@@ -152,6 +152,10 @@ section.resources-section {
 			& > div.panel-body {
 				margin: 20px;
 			}
+
+			&.todo {
+				display: none;
+			}
 		}
 
 		table {
