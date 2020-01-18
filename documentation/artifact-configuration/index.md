@@ -394,11 +394,9 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file path="MyProduct.v*.msi">
-    <directory path="libs">
-      <pe-file path="common.dll">
-        <authenticode-sign/>
-      </pe-file>
-    </directory>
+    <pe-file path="libs/common.dll">
+      <authenticode-sign/>
+    </pe-file>
     <pe-file path="main.exe">
       <authenticode-sign/>
     </pe-file>
