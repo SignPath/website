@@ -53,8 +53,8 @@ Only add your certificates to this store for computers in your own organization,
 On Windows, you can install certificates by following these steps:
 
 1. Open the certificate in Windows Explorer
-    * Certificate file: select *Open*.
-    * Signed files: select *Properties* from the context menu, go to the *Digital Signatures* tab, open a signature (Details) and select *View Certificate*.
+    * For certificate file: select *Open*.
+    * For signed files: select *Properties* from the context menu, go to the *Digital Signatures* tab, open a signature (Details) and select *View Certificate*.
 2. In the certificate property window, click *Install Certificate...*
 3. Select *Current User* or *Local Machine* location
 4. Select the *Trusted Root Certification Authorities* store
