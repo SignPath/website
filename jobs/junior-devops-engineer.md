@@ -1,8 +1,8 @@
 ---
 title: Jobs - Junior DevOps Engineer
-header: Junior Infrastructure Engineer
+header: Junior DevOps Engineer
 sub-header: Junior DevOps Engineer für Azure und (Windows) Container-Technologien m/w/d (Vollzeit/Teilzeit)
-job_id: Junior Infrastructure Engineer SignPath
+job_id: Junior DevOps Engineer SignPath
 salary: 33.488
 layout: job
 ---
