@@ -18,11 +18,17 @@ In case you have more complex, nested artifacts, you might want to not only sign
 
 Therefore, every *container* format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. All inner elements need a `path` attribute.
 
-## File elements
+## Defining file and directory structure
 
 Every XML description is wrapped in an `<artifact-configuration>` root element which contains exactly one file element. This file element specifies the type of artifact and signing method. Optionally, you can restrict the name of the file using the `path` attribute.
 
 Container-format elements may contain other file elements for deep signing.
+
+### Platform considerations
+
+File and directory names in `path` attributes are case-insensitive. You may use slash `/` or backslash `\` as directory separators.
+
+## File elements
 
 ### File element types and signing directives
 
@@ -144,7 +150,7 @@ You can combine signing multiple artifacts with deep signing.
 
 All supported container formats have an internal directory structure. You can see this structure if you extract a container to a local disk.
 
-You can either specify these directories in the ``path`` attribute of each file element or nest these file elements within ``<directory>`` elements.
+You can either specify these directories in the `path` attribute of each file element or nest these file elements within `<directory>` elements.
 
 `<directory>` elements are also used for [ClickOnce signing].
 
@@ -246,17 +252,23 @@ Using `<opc-sign>` for Visual Studio Extensions is equivalent to using Microsoft
 
 Every path attribute can contain the following wildcard patterns:
 
-| Wildcard | Description |
-| -------- | ----------- |
-| `*`      | Matches any number of any character (including none, excluding the directory separator)
-| `?`      | Matches  any single character
-| `[abc]`  | Matches one character given in the bracket
-| `[a-z]`  | Matches one character from the range given in the bracket
-| `[!abc]` | Matches one character that is not given in the bracket
-| `[!a-z]` | Matches one character that is not from the range given in the bracket
-| `**`     | Matches any number of path/directory segments. When used, they must be the only contents of the dedicated segment.
+| Wildcard | Description | Example | Matches |
+| -------- | ----------- | ------- | ------- |
+| `*`      | Matches any number of any character (including none, excluding the directory separator) | `m*y` | `my`, `mary`, `my first pony`
+| `?`      | Matches  any single character                                              | `th?s`: `this`, `th$s`, but not `ths`
+| `[abc]`  | Matches one character given in the bracket                                 | `[fb]oo` | `foo` and `boo`
+| `[a-z]`  | Matches one character from the range given in the bracket                  | `[0-9]`  | all digits
+| `[!abc]` | Matches one character that is not given in the bracket                     | `[!f]oo` | `boo` and `$oo`, but not `foo`
+| `[!a-z]` | Matches one character that is not from the range given in the bracket      | `[!0-9]` | every character that is not a digit
+| `**`     | Matches any number of path/directory segments. When used, they must be the only contents of the dedicated segment. | `**/*.dll` | `*.dll` files in all subdirectories (recursive)
 
-If wildcards are used, optional `max-matches` and `min-matches` parameters can be specified to limit the number of files which are allowed to match the wildcard expression. Both default to `1`. (You can also use `min-matches="0"` for optional elements even without wildcards.)
+### Number of matches
+
+If wildcards are used, optional `max-matches` and `min-matches` parameters can be specified to set the number of files that may match the wildcard expression. 
+
+* Both default to `1`, so wildcard expressions without `max-matches` or `min-matches` must match exactly one file
+* Use `min-matches="0"` for optional elements (even without wildcards)
+* Use `max-matches="unbounded"` for unlimited matches
 
 ## File and directory sets
 
@@ -422,7 +434,7 @@ This artifact configuration describes an MSI installer package containing severa
       <for-each>
         <pe-file-set>
           <include path="main.exe" />
-          <include path="resources\*.resource.dll" 
+          <include path="resources/*.resource.dll" 
                    min-matches="0" max-matches="unbounded" />
           <for-each>
             <authenticode-sign/>
