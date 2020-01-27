@@ -16,6 +16,12 @@ layout: default
   Help us operate our service and improve our deployment process.
 
   [Apply now](infrastructure-engineer){: class="btn btn-secondary"}
+* [Junior DevOps engineer for Azure and (Windows) containers](junior-devops-engineer)	
+  {: style="background-image:url(/assets/jobs/junior-devops-engineer_small.jpg)"}	
+
+  Learn how to operate a scalabe secure Web platform.	
+
+  [Apply now](junior-devops-engineer){: class="btn btn-secondary"}
 {: class="card-container"}
 
 All open positions are for Vienna, Austria.
