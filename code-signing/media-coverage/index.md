@@ -104,13 +104,13 @@ In 2018, [**SC Magazine** reported](https://www.scmagazineuk.com/avast-ccleaner-
 
 Whether this was the final stage is unknown, compromising tech firms might have been just the setup for attacks on some of their customers.
 
-### ShadowHammer
+### ASUS: ShadowHammer
 
 In 2019, a sophisticated **supply chain attack** on computer manufacturer **ASUS** was detected by **Kaspersky** and described in their APT report [Operation ShadowHammer](https://securelist.com/operation-shadowhammer/89992/).
 
 Once more, software from a legitimate vendor was **modified, signed and distributed** through the vendors official web site. The update was **automatically downloaded and installed** on many systems, since it had a **valid code signature** from ASUS.
 
-The modified version of **ASUS Live Update** included a list of target MAC addresses for the eventual targets of the attack. Any targeted PC would download a **second stage malware** from a Command and Control (C2) server. The actual targets have not yet been disclosed. As with most sophisticated, targeted attacks, **nation state actors** are assumed to be responsible.
+The modified version of **ASUS Live Update** included a list of target MAC addresses for the eventual targets of the attack. Any targeted PC would download a **second stage malware** from a Command and Control (C2) server. The actual targets have not yet been disclosed. As with most sophisticated, targeted attacks, **nation-state actors** are assumed to be responsible.
 
 Kaspersky reports a **victim distribution** with a focus on the **EU** (50%), **Russia** (18%) and **North America** (7%).
 
