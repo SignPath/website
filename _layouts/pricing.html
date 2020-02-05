@@ -9,114 +9,110 @@
 
 <section class='bg-grey pricing-main'>
 	<div>
-		<div class='additional-product'>
-			<div><h2>Enterprise</h2></div>
-			<div>
-				<p>For organizations that need additional security, control, and support. Get information about enterprise plans and on-premises deployment.</p>
-				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a> 
-			</div>
-		</div>
-
 		<div class='products-table'>
 			<div class='top'>
 				<div class='header selectors'>
-					<div class='toggle'>
-						<label>
-							<input type='checkbox' id='currency-toggle'>
-							<span></span>
-							<div data-before='$ USD' data-after='EUR €'></div>
-						</label>
-					</div>
-					<div class='toggle'>
-						<label>
-							<input type='checkbox' id='period-toggle'>
-							<span></span>
-							<div data-before='per month' data-after='per year'></div>
-						</label>
-					</div>
-					<div class='toggle'>
-						<label>
-							<input type='checkbox' id='duration-toggle'>
-							<span></span>
-							<div data-before='1 year' data-after='3 years'></div>
-						</label>
-					</div>
+					<h2>Included features</h2>
 				</div>
 				<ul class='body'>
 					<li class='label'>Projects</li>
-					<li class='label'>User accounts</li>
-					<li class='label secondary'>Additional user<span class='period'>per month</span></li>
-					<li class='label'>Active release certificates on HSM</li>
-					<li class='label secondary'>Additional certificate<span class='period'>per month</span></li>
-					<li class='label'>Active test certificates</li>
-					<li class='label'>Monthly processed data</li>
-					<li class='label secondary'>Additional 100GB<span class='period'>per month</span></li>
+					<li class='label'>Malware detection</li>
+					<li class='label'>HSM key storage</li>
+					<li class='label'>EV certificates <sup>1)</sup></li>
+					<li class='label'>Policy enforcement</li>
+					<li class='label'>Manual approval</li>
+					<li class='label'>Deep signing</li>
+					<li class='label'>CI integration</li>
+					<li class='label secondary'>Web APIs and Webhooks</li>
+					<li class='label secondary'>Origin verification</li>
+					<li class='label'>On-Premise</li>
+					<li class='label'>Support</li>
+					<li class='label'>Code signing consulting</li>
 				</ul>
 			</div>
 			<div class='product'>
 				<div class='header'>
-					<h2>Free Trial<sup>1)</sup></h2>
-					<h3>Free</h3>
+					<h2>Standard<br>Edition</h2>
 				</div>
 				<ul class='body'>
 					<li>Unlimited</li>
-					<li>2<sup>2)</sup></li>
-					<li>-<span class='period'>&nbsp;</span></li>
-					<li>0</li>
-					<li>-<span class='period'>&nbsp;</span></li>
-					<li>3<span class='sub'>&nbsp;</span> </li>
-					<li>100 MB</li>
-					<li>-<span class='period'>&nbsp;</span></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>-</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>-</li>
+					<li>-</li>
+					<li>Email</li>
+					<li>-</li>
 				</ul>
-				<a class='btn btn-primary footer' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
+				<a class='btn btn-primary footer' href='/product/pricing/standard/'>Purchase now</a>
 			</div>
-			{% for product in site.data.pricing %}
-				<div class='product'>
-					<div class='header'>
-						<h2>{{ product.name }}</h2>
-						<h3>
-							<span class='price' data-price1yr='{{ product.base_per_year_1yr }}' data-price3yrs='{{ product.base_per_year_3yrs }}'>
-								${{ product.base_per_year_1yr | divided_by: 12 | round }}
-							</span>
-							<span class='period' data-period='month'>per month</span>
-						</h3>
-					</div>
-					<ul class='body'>
-						<li>Unlimited</li>
-						<li>{{ product.num_users }}{% if product.num_users == 2 %}<sup>2)</sup>{% endif %}</li>
-						<li>
-							{% if product.add_user_per_year %}
-								<span class='price' data-price='{{ product.add_user_per_year }}'>${{ product.add_user_per_year | divided_by: 12 | round }}</span>
-								<span class='period' data-period='month'>per month</span>
-							{% else %}
-								-<span class='period'>&nbsp;</span>
-							{% endif %}
-						</li>
-						<li>{{ product.num_certs_on_hsm }}</li>
-						<li>
-							<span class='price' data-price='{{ product.add_cert_per_year }}'>${{ product.add_cert_per_year | divided_by: 12 | round }}</span>
-							<span class='period' data-period='month'>per month</span>
-						</li>
-						<li>
-							<span>{{ product.num_test_certs }}</span>
-							<span class='sub'>per release certificate</span> 
-						</li>
-						<li>{{ product.processed_data_per_month_in_gb }} GB</li>
-						<li>
-							<span class='price' data-price='{{ product.add_100gb_per_year }}'>${{ product.add_100gb_per_year | divided_by: 12 | round }}</span>
-							<span class='period' data-period='month'>per month</span>
-						</li>
-					</ul>
-					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
+			<div class='product'>
+				<div class='header'>
+					<h2>Premium<br>Edition</h2>
 				</div>
-			{% endfor %}
-		</div>
-
-		<div class='additional-product'>
-			<div><h2>Open source</h2></div>
-			<div>
-				<p>For open-source projects in need of a transparent process to sign their libraries and executables.</p>
-				<a class='btn btn-primary footer' href='mailto:{{ site.email_oss }}'>Contact us</a> 
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>-</li>
+					<li>Priority email</li>
+					<li>Available</li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
+			</div>
+			<div class='product'>
+				<div class='header'>
+					<h2>Enterprise<br>Edition</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>Phone / Email</li>
+					<li>Included</li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
+			</div>
+			<div class='product'>
+				<div class='header'>
+					<h2>Open source</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>-</li>
+					<li>required</li>
+					<li>required</li>
+					<li><i class='la la-check'></i></li>
+					<li>required</li>
+					<li>required</li>
+					<li>-</li>
+					<li>Email</li>
+					<li>Included</li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_oss }}'>Contact us</a>
 			</div>
 		</div>
 
