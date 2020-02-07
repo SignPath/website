@@ -17,6 +17,18 @@ Cookies are files with small amount of data, which may include an anonymous uniq
 
 Like many sites, we use “cookies” to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
 
+## Services used on the Web site
+
+We use the following external services on our Web site to track usage for internal marketing purposes and service improvement. 
+
+### Google Analytics
+
+Google Analytics is a tracking service that collects usage data and builds statistics from it. See [Google privacy policies](https://policies.google.com/privacy) and [Google Analytics data privacy and security principles](https://support.google.com/analytics/answer/6004245).
+
+### Leadfeeder
+
+Leadfeeder is an analysis service for Web sites. It provides information on companies that access Web sites and offers sales leads. See [Leadfeeder Privacy Notice](https://www.leadfeeder.com/privacy/).
+
 ## Your rights
 According to the applicable data protection laws you may have the right to request access to, the rectification or erasure of your personal data or restriction of processing and the right to object to the processing of your personal data as well as the right to data portability;
 
