@@ -52,7 +52,6 @@
 					<li class='label'>Active test certificates</li>
 					<li class='label'>Monthly processed data</li>
 					<li class='label secondary'>Additional 100GB<span class='period'>per month</span></li>
-					<li class='label'>Data retention time</li>
 				</ul>
 			</div>
 			<div class='product'>
@@ -69,7 +68,6 @@
 					<li>3</li>
 					<li>100 MB</li>
 					<li>-<span class='period'>&nbsp;</span></li>
-					<li>1 month</li>
 				</ul>
 				<a class='btn btn-primary footer' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
 			</div>
@@ -111,7 +109,6 @@
 							<span class='price' data-price='{{ product.add_100gb_per_year }}'>${{ product.add_100gb_per_year | divided_by: 12 | round }}</span>
 							<span class='period' data-period='month'>per month</span>
 						</li>
-						<li>{{ product.retention_time }}</li>
 					</ul>
 					<a class='btn btn-primary footer' href='https://secure.avangate.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>
@@ -129,7 +126,7 @@
 		<div class='info'>
 			<p>
 				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
-				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em>.</i>.</strong><br>
+				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>.</strong><br>
 				<strong><i class='la la-info-circle'></i> Code Signing certificates need to be purchased separately.</strong>
 			</p>
 			<p>

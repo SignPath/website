@@ -7,7 +7,6 @@
   num_test_certs: 3
   processed_data_per_month_in_gb: 100
   add_100gb_per_year: 60
-  retention_time: 1 year
   product_id:
     one_year:
       production: 19784257
@@ -30,7 +29,6 @@
   num_test_certs: 5
   processed_data_per_month_in_gb: 200
   add_100gb_per_year: 120
-  retention_time: 2 years
   product_id:
     one_year:
       production: 19784407
@@ -53,7 +51,6 @@
   num_test_certs: 10
   processed_data_per_month_in_gb: 500
   add_100gb_per_year: 96
-  retention_time: 2 years
   product_id:
     one_year:
       production: 19784688
