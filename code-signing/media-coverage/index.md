@@ -70,7 +70,7 @@ From 2015 to 2017, the tool **[EvLog](http://www.eventid.net/)** by cyber securi
 * These servers contained the modified, signed files
 * The version including the backdoor downloaded **additional payload for pre-determined attack targets** from a Command and Control (C2) server (second stage attack)
 
-The **eventual targets** are unknown, as a eleven month period is missing from the monitoring data of researchers. However, the vendor's **customers** include major **telecommunication** providers, **military** organizations, Fortune 500 companies, **defense** contractors, **IT product manufacturers** and solution providers, western **government** organizations, **banks and financial institutions**, and higher educational institutions.
+The **eventual targets** are unknown, as an eleven month period is missing from the monitoring data of researchers. However, the vendor's **customers** include major **telecommunication** providers, **military** organizations, Fortune 500 companies, **defense** contractors, **IT product manufacturers** and solution providers, western **government** organizations, **banks and financial institutions**, and higher educational institutions.
 
 RSA researchers point out that a supply chain attack of this grade will **circumvent many security measures of even hardened organizations**, since highly **privileged network administrators** are directly compromised. **Antivirus tools fail** to recognize this kind of malware, whether based on virus signatures or behavior analysis. RSA expects this attack to be **a template for many to follow**.
 
