@@ -231,7 +231,7 @@ Current limitations:
 
 The following checks are performed:
 
-* No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository)
+* No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.
 * The build settings may not be modified between starting the AppVeyor build and calling SignPath.io
 
 This is to ensure that the binary artifacts result purely from the specified source code.
