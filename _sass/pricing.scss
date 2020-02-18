@@ -4,6 +4,10 @@ section.pricing-start {
 	& > div > h1 {
 			text-align: center;
 	}
+
+	& > div > h3 {
+		text-align: center;
+	}
 }
 
 section.pricing-main {
@@ -45,13 +49,15 @@ section.pricing-main {
 			flex-grow: 2;
 			margin-right: 10px;
 
-			& > div.selectors {
+			& > div.selectors, & > div.features {
 				border-top-left-radius: inherit;
 				border-top-right-radius: inherit;
 				background-color: $medium-grey-background-color;
 				display: flex;
 				flex-direction: column;
 				justify-content: center;
+				color: $white-font-color;
+				text-align: center;
 			}
 
 			& > ul > li {
@@ -103,10 +109,25 @@ section.pricing-main {
 						line-height: 1em;
 					}
 				}
+
+				&.edition > h2 {
+					text-transform: none;
+					font-size: 1.8em;
+				}
 			}
 
 			& > ul > li.label {
 				display: none;
+			}
+
+			& > ul > li {
+				i.la-check {
+					color: $green-line-color;
+				}
+
+				i.la-times {
+					color: $red-line-color;
+				}
 			}
 
 			& > a.footer {
@@ -119,6 +140,7 @@ section.pricing-main {
 			&:nth-child(3) > div.header { background-color: $pricing2-background-color; }
 			&:nth-child(4) > div.header { background-color: $pricing3-background-color; }
 			&:nth-child(5) > div.header { background-color: $pricing4-background-color; }
+			&.oss > div.header { background-color: $dark-grey-background-color; }
 		}
 	}
 
