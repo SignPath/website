@@ -118,7 +118,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 ~~~ bash
 curl -H "Authorization: Bearer $CI_USER_TOKEN" \
-     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequest/$SIGNING_REQUEST_ID
+     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID
 ~~~
 
 **Success result:** HTTP status code `200`. Signing request data in JSON format:
