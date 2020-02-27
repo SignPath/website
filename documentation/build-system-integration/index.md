@@ -24,7 +24,11 @@ The API token is displayed when a new CI user is created. (If you lose the API k
 
 Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provide a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.
 
-## PowerShell 
+## Simple CI integration
+
+To quickly get started, you can integrate SignPath using the provided PowerShell or Azure DevOps module or by calling the REST API.
+
+### PowerShell 
 
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/SignPath.svg?style=flat-square&label=PowerShell%20Gallery)](https://www.powershellgallery.com/packages/SignPath/)
 
@@ -65,11 +69,11 @@ Create signing requests by calling the following commands via PowerShell:
       -WaitForCompletion
   ~~~
 
-## HTTP REST API
+### HTTP REST API
 
 In case the PowerShell module is not sufficient, you can communicate directly with our API by calling our public HTTP REST endpoints.
 
-### Base URL and authentication
+#### Base URL and authentication
 
 SignPath.io uses bearer authentication.
 
@@ -81,7 +85,7 @@ SignPath.io uses bearer authentication.
 
 You need to provide these values for every single API request.
 
-### Submit a signing request
+#### Submit a signing request
 
 | Synopsis           |      |
 | ------------------ | ---- |
@@ -106,7 +110,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
-### Get signing request data
+#### Get signing request data
 
 | Synopsis   |      |
 | ---------- | ---- |
@@ -137,7 +141,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
   "signingPolicyKey":"test-signing",
   "signingPolicyName":"test-signing",
   "unsignedArtifactLink":"https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/UnsignedArtifact",
-  "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact"
+  "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact",
   "origin": {
     "repositoryMetadata": {
       "repositoryUrl": "https://github.com/name/project",
@@ -156,7 +160,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 * **Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed`, `Failed`, `Denied`, `Canceled`, `RetrievingArtifact`, `ArtifactRetrievalFailed`
 * `origin` is only available for signing requests with origin verification
 
-### Download the signed artifact
+#### Download the signed artifact
 
 Once the signing request is successfully completed, the status response contains a `signedArtifactLink` field with a link to the signed artifact file. It can easily be retrieved by issuing the following command:
 
@@ -175,6 +179,12 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 ~~~
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
+
+### Azure DevOps
+
+[![Azure DevOps installations](https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/SignPath.signpath-tasks?color=blue&label=Visual+Studio+Marketplace+installs)](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
+
+For Azure DevOps, you can use build pipeline tasks from the [official SignPath extension on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks).
 
 ## CI integrations with origin verification
 
@@ -218,6 +228,16 @@ Enable additional restrictions for signing policies that use release certificate
 * Define source code review polcies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for those branches. Typical settings include `master` or `release/*`.
 * If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
 </div>
+
+#### Attached build documentation
+
+When origin verification is enabled, SignPath adds the following information to packages:
+
+* For NuGet packages:
+  1. The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package
+  2. The commit hash and repository URL are written to the metadata of the NuGet package
+
+These steps allow consumers of the signed artifact to verify source code version and build settings.
 
 ### AppVeyor
 
@@ -308,23 +328,35 @@ Replace the parameters:
 
 </td> </tr> </tbody> </table>
 
-#### Attached build documentation
+### Generic (Preview)
 
-SignPath adds the following information to packages:
+Generic CI system integration with origin verification is currently in preview and only enabled on a subscription-basis. Technically, it adds an additional layer of authentication of the build server or a proxy service using a build system token (additionally to the CI user token). To enable a trusted build system, the following steps have to be performed:
 
-* For NuGet packages:
-  1. The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package
-  2. The commit hash and repository URL are written to the metadata of the NuGet package
-
-These steps allow consumers of the signed artifact to verify source code version and build settings.
-
-## Other CI integrations
-
-### Azure DevOps
-
-[![Azure DevOps installations](https://img.shields.io/visual-studio-marketplace/azure-devops/installs/total/SignPath.signpath-tasks?color=blue&label=Visual+Studio+Marketplace+installs)](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
-
-For Azure DevOps, you can use build pipeline tasks from the [official SignPath extension on Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks).
+1. In the trusted build system section, a build system (e.g. your local TeamCity) has to be added. Similarly to creating a CI user, a build system token will be generated. This token is to be stored on the physical machine of the build system agent (or a proxy).
+2. The trusted build system has to be linked to a project. If you set up a proxy, you can enter the information necessary to authenticate with the CI server can be entered here.
+3. The trusted build system (or proxy) must authenticate using a combined authentication token `Bearer <CI-user-token>:<trusted-build-system-token>`
+4. Optionally, the proxy can query the information specified in 2. from SignPath by querying the following URL: `/Projects/<project-key>/TrustedBuildSystemLink`, which will return a JSON response
+~~~json
+{
+  "username": "my-teamcity-user",
+  "secret": "my-teamcity-password",
+  "artifactPath": "*.exe"
+}
+~~~
+5. The trusted build system or proxy can submit the signing request and specify additional origin parameters:
+~~~ bash
+curl -H "Authorization: Bearer $CI_USER_TOKEN:$TRUSTED_BUILD_SYSTEM_TOKEN" \
+     -F "ProjectKey=$YOUR_PROJECT_KEY" \
+     -F "SigningPolicyKey=test-signing" \
+     -F "Artifact=@$PATH_TO_ARTIFACT" \
+     -F "Description=$DESCRIPTION" \
+     -F "Origin.BuildUrl=https://teamcity.internal.myorganization.com/buildConfiguration/myProject/1234567" \
+     -F "Origin.RepositoryMetadata.CommitId=f738d691065e4201be33de05d6284313bfcfb470" \
+     -F "Origin.RepositoryMetadata.BranchName=master" \
+     -F "Origin.RepositoryMetadata.RepositoryUrl=https://git.internal.myorganization.com/myProject" \
+     -F "Origin.RepositoryMetadata.SourceControlManagementType=git" \
+     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests
+~~~
 
 ## Webhook notifications
 
