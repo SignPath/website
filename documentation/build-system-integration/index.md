@@ -243,16 +243,6 @@ Is the following list complete? see https://www.appveyor.com/docs/build-configur
 > At the moment those supported are: GitHub (hosted and on-premise), Bitbucket (hosted and on-premise), GitLab (hosted and on-premise), Azure DevOps, Kiln and Gitea. 
 </div>
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Supported Git repositories</div>
-
-Since origin verification cannot be ensured for [alternative YAML file locations](https://www.appveyor.com/docs/build-configuration/#alternative-yaml-file-location), AppVeyor's [generic Git repository](https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml) support is not available.
-
-These Git repositories are currently fully supported by AppVeyor:
-  * [GitHub](https://github.com/)
-  * [GitLab](https://gitlab.com/)
-  * [Bitbucket](https://bitbucket.org)
-</div>
 
 #### Setup
 This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
