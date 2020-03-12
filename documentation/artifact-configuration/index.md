@@ -121,7 +121,7 @@ Deep signing is not yet supported.
     <td>Yes</td>
     <td><code>&lt;jar-sign&gt;</code></td>
     <td>.jar, .war, .ear</td>
-    <td>Java archives</td>
+    <td>Java archives.<br><i class='la la-info-circle'></i> Only utf-8 encoding is supported.</td>
   </tr>
 </tbody>
 </table>
