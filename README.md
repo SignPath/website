@@ -26,7 +26,7 @@ Depending on the value of the environment variable `JEKYLL_ENV`, different links
 You need to have Docker installed.
 Then, run the following comand (in PowerShell):
 
-	docker run --rm --label=jekyll --volume=${PWD}:/srv/jekyll -it -p 4000:4000 jekyll/jekyll jekyll serve --force_polling
+	docker run --rm -e JEKYLL_ENV=docker --label=jekyll --volume=${PWD}:/srv/jekyll -it -p 4000:4000 jekyll/jekyll jekyll serve --force_polling
 
 ## Adding/editing/removing content
 

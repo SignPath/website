@@ -13,11 +13,13 @@
       fqa: 20051804
       iqa: 24573359
       development: dev-single-one-year
+      docker: dev-single-one-year
     three_years:
       production: 19868454
       fqa: 20051806
       iqa: 24573359
       development: dev-single-three-years
+      docker: dev-single-three-years
 
 - name: Team
   base_per_year_1yr: 882
@@ -35,11 +37,13 @@
       fqa: 20051809
       iqa: 24574076
       development: dev-team-one-year
+      docker: dev-team-one-year
     three_years:
       production: 19896251
       fqa: 20051810
       iqa: 24574076
       development: dev-team-three-years
+      docker: dev-team-three-years
 
 - name: Business
   base_per_year_1yr: 2700
@@ -57,8 +61,10 @@
       fqa: fqa-business
       iqa: iqa-business
       development: dev-business-one-year
+      docker: dev-business-one-year
     three_years:
       production: 19910233
       fqa: fqa-business
       iqa: iqa-business
       development: dev-business-three-years
+      docker: dev-business-three-years
