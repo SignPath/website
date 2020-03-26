@@ -24,7 +24,7 @@ At the core of each SignPath project is an artifact configuration. It describes 
 
 You can create an artifact configuration by selecting one of the predefined templates or uploading a sample artifact which will be analyzed by SignPath. In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don't want to be signed with your certificate.
 
-For details on how to write an artifact configuration in XML, see the [documentation](/documentation/artifact-configuration)
+For details on how to create, generate or edit an artifact configuration, see the [documentation](/documentation/artifact-configuration)
 
 ## Signing policies
 
