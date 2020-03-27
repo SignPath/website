@@ -8,7 +8,15 @@ $startTime = $(get-date)
 
 # compile it to a static page (will be located at _site)
 Write-Host "### Compiling website"
-$env:JEKYLL_ENV='fqa'; bundle exec jekyll build --drafts
+if (Get-Command "bundle.exe" -ErrorAction SilentlyContinue) 
+{ 
+    $env:JEKYLL_ENV='fqa'; bundle exec jekyll build --drafts
+}
+else 
+{
+    docker run --rm -e JEKYLL_ENV=fqa --label="jekyll-build-fqa" --volume=${PWD}:/srv/jekyll -it jekyll/jekyll jekyll build --drafts
+}
+
 
 # set up for azure connection
 Write-Host "### Preparing Azure connection"
