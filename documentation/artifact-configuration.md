@@ -152,8 +152,12 @@ Deep signing is not yet supported.
     <td><code>&lt;jar-file&gt;</code></td>
     <td>Yes</td>
     <td><code>&lt;jar-sign&gt;</code></td>
-    <td>.jar, .war, .ear</td>
-    <td>Java archives.<br><i class='la la-info-circle'></i> Only utf-8 encoding is supported.</td>
+    <td>.jar, .war, .ear, .apk, .aab</td>
+    <td>
+      Java archives and Android apps.<br>
+      <i class='la la-info-circle'></i> Only utf-8 encoding is supported.<br>
+      <i class='la la-info-circle'></i> Only apk signing scheme v1 (v2 and v3 are not yet supported)
+    </td>
   </tr>
 </tbody>
 </table>
