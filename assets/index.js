@@ -120,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  if (window.location.pathname.endsWith('/pricing/')) {
+  if (window.location.pathname.endsWith('/pricing/') || window.location.pathname.endsWith('/pricing')) {
     // calculate prices correctly
     function recalculatePrices() {
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
