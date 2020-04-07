@@ -30,6 +30,10 @@ footer {
 				margin: 5px 0px;
 				display: inline-block;
 
+				& > i {
+					font-size: 1.4em;
+					margin-right: 10px;
+				}
 			}
 		}
 
