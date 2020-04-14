@@ -144,7 +144,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <tr>
     <td><code>&lt;zip-file&gt;</code></td>
     <td>Yes</td>
-    <td><code>&lt;jar-sign&gt;</code></td>
+    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
     <td>.zip</td>
     <td>Use ZIP archives to sign multiple files at once</td>
   </tr>
