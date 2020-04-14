@@ -85,35 +85,35 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   <tr>
     <td><code>&lt;powershell-file&gt;</code></td>
     <td>No</td>
-    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.ps1, .psm1, psd1, .psdc1, .ps1xml</td>
     <td>PowerShell scripts and modules</td>
   </tr>
   <tr>
     <td><code>&lt;msi-file&gt;</code></td>
     <td>Yes</td>
-    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.msi, .msm, .msp</td>
     <td>Microsoft installer files</td>
   </tr>
   <tr>
     <td><code>&lt;cab-file&gt;</code></td>
     <td>Yes</td>
-    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.cab</td>
     <td>Windows cabinet files</td>
   </tr>
   <tr>
     <td><code>&lt;catalog-file&gt;</code></td>
     <td>Yes</td>
-    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.cat</td>
     <td>Windows catalog files</td>
   </tr>
   <tr>
     <td><code>&lt;appx-file&gt;</code></td>
     <td>Yes</td>
-    <td><code>&lt;authenticode-sign&gt;</code></td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.appx, .appxbundle</td>
     <td>
       App packages for Microsoft Store/Universal Windows Platform<br>
