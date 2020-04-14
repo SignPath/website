@@ -90,13 +90,6 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>PowerShell scripts and modules</td>
   </tr>
   <tr>
-    <td><code>&lt;zip-file&gt;</code></td>
-    <td>Yes</td>
-    <td>(none)</td>
-    <td>.zip</td>
-    <td>ZIP archives</td>
-  </tr>
-  <tr>
     <td><code>&lt;msi-file&gt;</code></td>
     <td>Yes</td>
     <td><code>&lt;authenticode-sign&gt;</code></td>
@@ -122,9 +115,9 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>Yes</td>
     <td><code>&lt;authenticode-sign&gt;</code></td>
     <td>.appx, .appxbundle</td>
-    <td>App packages for Microsoft Store/Universal Windows Platform
-
-Deep signing is not yet supported.
+    <td>
+      App packages for Microsoft Store/Universal Windows Platform<br>
+      <i class='la la-info-circle'></i> Deep signing is not yet supported.
   </td>
   </tr>
   <tr>
@@ -140,20 +133,27 @@ Deep signing is not yet supported.
     <td><code><a href="#nuget-sign">&lt;nuget-sign&gt;</a></code></td>
     <td>.nupkg</td>
     <td>NuGet packages</td>
+  <tr>
+    <td><code>&lt;jar-file&gt;</code></td>
+    <td>Yes</td>
+    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
+    <td>.jar, .war, .ear, .apk, .aab</td>
+    <td>Java archives and Android apps.</td>
+  </tr>
+  </tr>
+    <tr>
+    <td><code>&lt;zip-file&gt;</code></td>
+    <td>Yes</td>
+    <td><code>&lt;jar-sign&gt;</code></td>
+    <td>.zip</td>
+    <td>Use ZIP archives to sign multiple files at once</td>
   </tr>
   <tr>
     <td><code>&lt;directory&gt;</code></td>
     <td>Yes</td>
     <td><code><a href="#clickonce-sign">&lt;clickonce-sign&gt;</a></code></td>
     <td></td>
-    <td>Directories within container files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;jar-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code>&lt;jar-sign&gt;</code></td>
-    <td>.jar, .war, .ear</td>
-    <td>Java archives.<br><i class='la la-info-circle'></i> Only utf-8 encoding is supported.</td>
+    <td>Directories within container files (e.g. ZIP, MSI)</td>
   </tr>
 </tbody>
 </table>
@@ -279,6 +279,30 @@ Note that while OPC signing can be applied to all OPC formats, specific applicat
 Using `<opc-sign>` for Visual Studio Extensions is equivalent to using Microsoft's `VSIXSignTool.exe`.
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->
+
+### &lt;jar-sign&gt;
+
+This signing method can be used to sign the following file formats:
+
+| Format                       | Extensions       | Remarks |
+|------------------------------|------------------|---------|
+| Java archives                | .jar, .ear, .war | |
+| Android apps und app-bundles | .apk, .aab       | Only APK signing scheme v1 (v2 and v3 are not yet supported) |
+| ZIP files                    | .zip             | Only UTF-8 encoded ZIP files are supported |
+
+#### Verification
+
+* **Java** always verifies signatures for client components. For server components, you will need to create a policy. Please consult the documentation of your application server or [Oracle's documentation](https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html).
+* **Android** always verifies App signatures.
+* If you sign **ZIP files**, the receiver needs to manually check the signature before unpacking the file.
+
+For manual verification, use the following command (requires [JDK](https://openjdk.java.net/install/)):
+
+~~~ cmd
+jarsigner -verify -strict <file>.zip
+~~~
+
+Add the `-verbose` option to see the certificate.
 
 ## Using wildcards
 
