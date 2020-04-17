@@ -292,7 +292,7 @@ This signing method can be used to sign the following file formats:
 
 #### Verification
 
-* **Java** always verifies signatures for client components. For server components, you will need to create a policy. Please consult the documentation of your application server or [Oracle's documentation](https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html).
+* **Java** always verifies signatures for Applets and Web Start Applications. If you want signature verification for server applications, you need to create a policy. Please consult the documentation of your application server or [Oracle's documentation](https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html).
 * **Android** always verifies App signatures.
 * If you sign **ZIP files**, the receiver needs to manually check the signature before unpacking the file.
 
