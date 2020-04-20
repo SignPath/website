@@ -29,7 +29,7 @@
 						<li class='separator' />
 						{% else %}
 						<li class='{{ className }}'>
-							<a href='/{{parent}}/{{entry.path}}/#'>{{ entry.text }}</a>
+							<a href='/{{parent}}/{{entry.path}}#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
 								<div class="no-mobile" >
 									{% include toc.html html=content h_max=2 %}
