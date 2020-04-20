@@ -13,14 +13,14 @@
 <section class="resources-section">
 	<div>
 		{% assign parts = page.path | split:"/" %}
-		{% assign parent = parts[-3] %}
-		{% if site.data.menus contains parts[-3] %}
+		{% assign parent = parts[-2] %}
+		{% if site.data.menus contains parts[-2] %}
 			<aside>
 				<ul>
 					{% for entry in site.data.menus[parent] %}
 						{% assign className = nil %}
-						{% if parts.size > 2 %}
-							{% assign tail = parts[-2] | split:"." %}
+						{% if parts.size > 1 %}
+							{% assign tail = parts[-1] | split:"." %}
 							{% if tail[0] == entry.path %}
 								{% assign className = 'active' %}
 							{% endif %}
@@ -29,7 +29,7 @@
 						<li class='separator' />
 						{% else %}
 						<li class='{{ className }}'>
-							<a href='../{{entry.path}}/#'>{{ entry.text }}</a>
+							<a href='/{{parent}}/{{entry.path}}/#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
 								<div class="no-mobile" >
 									{% include toc.html html=content h_max=2 %}
