@@ -12,7 +12,8 @@ A project in SignPath bundles all settings that are required to sign one or a bu
 
 * One or more **artifact configurations** which define how an artifact (or a version of the artifact) is structured, and which parts should be signed as well as the signing methods
 * One or more **signing policies** (typically test-signing and release-signing) that are used to declare the rules for signing and specify a certificate
-* One or more **integrations** to allow for deeper integration within your build pipeline
+* Use **trusted build systems** to add origin verification to your signing requests
+* Configure **Webhook notifications** for build automation
 
 ## Artifact configurations
 
@@ -96,6 +97,8 @@ In some situations, it might even be necessary to sign any old release, e.g. via
 Trusted build systems are used to provide [origin verification](#origin-verification-restriction) in your build pipeline.
 
 This requires a [CI integration with origin verification support](/documentation/build-system-integration#ci-integrations-with-origin-verification). Currently only AppVeyor is supported.
+
+From your project configuration, you can link any trusted build system that your SignPath administrator has added.
 
 ## Webhooks
 
