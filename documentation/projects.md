@@ -10,25 +10,36 @@ redirect_from: /documentation/key-concepts#projects
 
 A project in SignPath bundles all settings that are required to sign one or a bundle of artifacts that belong together (e.g. a product). Projects consist of the following parts:
 
-* One or more **artifact configurations** which define how an artifact (or a version of the artifact) is structured, and which parts should be signed as well as the signing methods
-* One or more **signing policies** (typically test-signing and release-signing) that are used to declare the rules for signing and specify a certificate
-* Use **trusted build systems** to add origin verification to your signing requests
-* Configure **Webhook notifications** for build automation
+* [**Artifact configurations**](#artifact-configurations) define how an artifact is structured, which parts should be signed, and the respective signing methods.
+* [**Signing policies**](#signing-policies) are used to declare the rules for signing with a specific certificate. A typical project has signing policies for test-signing and release-signing.
+* [**Trusted build systems**](#trusted-build-systems) are specified to add origin verification to your signing requests
+* [**Webhooks**](#webhooks) provide notifications for build automation
 
 ## Artifact configurations
 
-At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed with Authenticode). You can specify **multiple artifact configurations** to allow different **versions** of your software to be signed (e.g. in case the structure of your artifact changes). You can also sign **multiple files** or **complex nested artifacts**.
+At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed 
+with Authenticode). 
 
-**Multiple files example:**
+### Signing multiple files in one step
 
-* a ZIP archive containing several artifacts that need Authenticode signing
+An artifact configuration may contain instructions to sign multiple files in a single step. Just put them in a single ZIP archive and specify how each file should b be signed.
 
-**Nested artifacts examples:** 
+### Signing nested artifacts (deep-signing)
 
-* a CAB file containing EXE and DLL files, all of which should be signed with Authenticode
-* an MSI installer containing an Office add-in, which in turn contains DLLs
+An artifact may need to be signed *and* contain files that must be signed. In this case you want to specify an artifact configuration for deep-signing. SignPath will extract the files and sign them from the inside out, then re-package everything and sign the containing file.
+
+**Examples:** 
+
+* A **CAB file** containing **EXE and DLL files**. Both the CAB file and the executables should be signed with Authenticode
+* An **MSI installer** containing an **Office add-in**, which in turn contains **DLL files**
   * the MSI file and the DLLs should be signed using Authenticode
   * the Office add-in has a ClickOnce manifest that requires manifest signing
+
+### Keeping versions of artifact configurations
+
+Specify multiple artifact configurations to allow different versions of your software to be signed (e.g. in case the structure of your artifact changes).
+
+### Defining artifact configurations
 
 You can create an artifact configuration by selecting one of the **predefined templates** or by **uploading a sample artifact** which will be analyzed by SignPath. 
 
