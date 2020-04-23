@@ -18,8 +18,13 @@ If you aim for the highest security, we recommend assigning the administrator ro
 
 ## Special user types
 
-* **CI users** are used to integrate SignPath into your build automation.
-* A **support user** account can be added to grant SignPath support access to your organization. Select *Authorize support user* in the *More* menu on your organization page. Support users have adminstrative privileges. You can disable them to prevent further access.
+### CI users
+
+CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system's build settings as secret values.
+
+### Support users
+
+A support user account can be added to grant SignPath support access to your organization. Select *Authorize support user* in the *More* menu on your organization page. Support users have administrative privileges. You can disable them to prevent further access.
 
 ## Notifications and audit logs
 

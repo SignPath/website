@@ -111,7 +111,7 @@ section.resources-section {
 				display: inline-block;
 			}
 
-			&.info, &.warning {
+			&.info, &.warning, &.tipp {
 				& > div.panel-header::before {
 					font-family: "Line Awesome Free";
 					font-weight: 800;
@@ -124,7 +124,13 @@ section.resources-section {
 					content: "\f05a";
 				}
 			}
-
+			&.tipp {
+				background-color: $light-grey-background-color;
+				& > div.panel-header::before {
+					content: "\f0eb";
+				}
+			}
+			
 			&.warning {
 				background-color: $light-orange-background-color;
 				& > div.panel-header::before {

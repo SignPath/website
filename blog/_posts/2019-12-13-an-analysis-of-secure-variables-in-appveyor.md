@@ -7,13 +7,13 @@ author: Daniel Ostovary
 summary: 'We discovered that the way AppVeyor encrypts its secret variables is susceptible to padding oracle attacks.'
 ---
 
-SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantee might effect the entire code signing process. 
+SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process. 
 
 For this reason, we routinely analyze not only our own software and services, but also certain features of third party systems. 
 
 In our analysis of AppVeyor, we looked at the encryption of secrets, such as SignPath API tokens. Note that what we have discovered is not an exploitable security issue, but we thought the entire analysis still makes a good read for people interested in application security. 
 
-SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) [feature](https://www.appveyor.com/docs/build-configuration/#secure-variables). We discovered a few interesting things, which we describe in this blog post.
+SignPath integrates with AppVeyor builds to verify the origin of build artifacts before they are signed. We recently investigated AppVeyor’s “secure variables” (aka “Encrypt YAML”) [feature](https://www.appveyor.com/docs/build-configuration#secure-variables). We discovered a few interesting things, which we describe in this blog post.
 
 # AppVeyors Secure Variables
 AppVeyor is a build software that is available on-premise or in the cloud. AppVeyor can be connected to a (public) source code repository, such as your GitHub repository, and be configured to automatically build a new version of the software whenever code in the repository is changed. The AppVeyor build configuration file (appveyor.yml) can also be checked in to a source code repository to make use of its collaboration and versioning features.
