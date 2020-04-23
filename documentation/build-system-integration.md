@@ -204,18 +204,17 @@ The final goal of origin verification is enable signing policies based on source
 
 <div class="panel warning" markdown="1">
 <div class="panel-header">Source code reviews must include build scripts</div>
-
-Note that a build scripts or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
+Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
 
 Make sure that your source code review policy includes build scripts and makefiles.
 </div>
 
-<div class="panel info" markdown="1">
+<div class="panel tipp" markdown="1">
 <div class="panel-header">Use origin verification restrictions</div>
-
 Enable additional restrictions for signing policies that use release certificates:
+
 * Select **Verify origin** to make sure that only verified builds can be signed
-* Define source code review polcies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for those branches. Typical settings include `master` or `release/*`.
+* Define source code review policies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for those branches. Typical settings include `master` or `release/*`.
 * If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
 </div>
 

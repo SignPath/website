@@ -8,7 +8,6 @@ show_toc: 3
 
 <div class="panel product" markdown="1">
 <div class="panel-header"> SignPath.io free trial subscriptions </div>
-
 If you are using a free trial subscription, you also need to [download](/assets/FreeTrialTimestampingServer.cer) and [install](#manual-installation) our timestamp certificate for signature verification. Don't forget to uninstall the certificate after the trial period.
 
 For paid and Open Source subscriptions, this is not necessary. 
@@ -37,15 +36,13 @@ To use an in-house CA, you can create a certificate signing request (CSR) in Sig
 
 Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the `Trusted Root Certification Authorities` certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.
 
-<div class='panel info' markdown='1' >
+<div class='panel tipp' markdown='1' >
 <div class='panel-header'>Trusted publishers</div>
-
 You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses to always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
 
 Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies. 
 
 Only add your certificates to this store for computers in your own organization, don't use your installer to add your certificate to this store.
-
 </div>
 
 ### Manual installation

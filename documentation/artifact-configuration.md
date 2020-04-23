@@ -414,7 +414,6 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 
 <div class='panel info' markdown='1' >
 <div class='panel-header'> Examples are shortened</div>
-
 For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
 
 ~~~ xml
@@ -423,7 +422,6 @@ For the sake of clarity, all examples omit the XML prolog. A complete artifact c
   <!-- ... -->
 </artifact-configuration>
 ~~~
-
 </div>
 
 ### Predefined configuration for single Portable Executable file

@@ -23,7 +23,6 @@ Windows marks downloaded software as insecure ("Mark-of-the-Web") and evaluates 
 
 <div class="panel info" markdown="1">
 <div class="panel-header">Mark-of-the-Web: downloaded files and code signing</div>
-
 The Mark-of-the-Web (MotW) is a flag on a file that indicates it has been *downloaded from the internet*. It is applied by browsers and other tools that download files to local disks. This indicates to Windows that the program might not be secure. When the program is started, the signature and certificate validation process is executed. 
 
 All major browsers for Windows apply the MotW correctly (Internet Explorer, Edge, Chrome, Firefox and Opera). Notably, 7zip does not propagate the MotW when unpacking. 
@@ -50,7 +49,6 @@ There are two ways to gain **SmartScreen reputation**:
 
 <div class="panel info" markdown="1">
 <div class="panel-header">EV certificates strongly recommended for Internet downloads</div>
-
 If your programs are downloaded and installed by users, SmartScreen reputation is very important. Without full reputation, users will be warned not to trust your software, and the option to execute or install it is hidden behind a "more information" link. 
 
 Renewed standard (OV) certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
@@ -145,7 +143,6 @@ An HSM is a device that stores secret keys and performs cryptographic operations
 
 <div class="panel warning" markdown="1">
 <div class="panel-header">HSM limitations</div>
-
 Note that hardware keys can still be physically stolen, especially when stored on inexpensive USB devices. 
 
 Additionally, even if the key is not stolen, it could be abused by a hacker who gains access to the HSM, or a system that can access the HSM, such as a build server.
@@ -165,16 +162,16 @@ HSMs usually bring their own installable CSPs. You can think of the CSP as a dev
 <div class='panel info' markdown="1">
 <div class='panel-header'>HSM code signing under the hood</div>
 
-Here is what happens when you call SignTool.exe with a certificate from a HSM:
+Here is what happens when you call SignTool.exe with a certificate from an HSM:
 
-* SignTool.exe calls the Authenticode API
-  * Authenticode computes the digest via CryptoAPI (CAPI)
-  * Authenticode calls CAPI to create a signature for the digest
-    * CAPI finds the certificate on the CSP provided by the HSM
-    * CAPI calls the CSP with the digest and the certificate's ID
-      * The CSP submits a *create signature* request to the HSM
-        * The HSM creates a signature
-  * Authenticode stores the signature in the file
+1. **SignTool.exe** calls the Windows CryptoAPI (**CAPI**) and passes the **file** and **certificate ID**
+1. **CAPI** finds the Subject Interface Package (**SIP**) for the **file** type
+1. The **SIP** computes the file's hash **digest** 
+1. **CAPI** selects the **HSM**'s Cryptographic Service Provider (**CSP**) based on the certificate
+1. **CAPI** calls the **CSP** with the **digest** and the **certificate ID**
+1. The **CSP** submits a *create signature* request to the **HSM**
+1. The **HSM** creates a **signature**
+1. The **SIP** writes the **signature** to the **file**
 </div>
 
 In this process, the HSM will never expose the private key to any other system.

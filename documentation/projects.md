@@ -8,12 +8,17 @@ redirect_from: /documentation/key-concepts#projects
 
 ## Overview
 
-A project in SignPath bundles all settings that are required to sign one or a bundle of artifacts that belong together (e.g. a product). Projects consist of the following parts:
+A project in SignPath bundles all settings that are required to sign one or a bundle of artifacts that belong together (e.g. a product). 
 
-* [**Artifact configurations**](#artifact-configurations) define how an artifact is structured, which parts should be signed, and the respective signing methods.
-* [**Signing policies**](#signing-policies) are used to declare the rules for signing with a specific certificate. A typical project has signing policies for test-signing and release-signing.
-* [**Trusted build systems**](#trusted-build-systems) are specified to add origin verification to your signing requests
-* [**Webhooks**](#webhooks) provide notifications for build automation
+Projects consist of these settings:
+
+* [**Artifact configurations**](#artifact-configurations) define the **structure** of an artifact is structured, which parts should be signed, and the respective **signing methods**.
+
+* [**Signing policies**](#signing-policies) are used to declare the **rules and permissions** for signing with a specific **certificate**. A typical project has signing policies for **test-signing** and **release-signing**.
+
+* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification-restriction) to your signing requests.
+
+* [**Webhooks**](#webhooks) provide notifications for build automation.
 
 ## Artifact configurations
 
@@ -45,11 +50,25 @@ You can create an artifact configuration by selecting one of the **predefined te
 
 In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don't want to be signed with your certificate.
 
-For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration)
+For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration).
 
 ## Signing policies
 
-Signing policies are useful to differentiate between different process restrictions. For instance, you might want to use a test certificate for signing internal releases and use the production certificate only for customer-facing release builds. Signing policies allow you to configure
+Signing policies define the rules and permissions for signing and the certificate that will be used. Each signing request must use a specific signing policy. The signing request will then be processed according to this policy.
+
+Typically, a project contains these two singing policies:
+
+* **test-signing** is used for internal builds that will be used for testing. It usually uses a self-signed certificate that is installed on test systems. Since this certificate is typically unknown on customer systems, test-signing often has wide permissions and few restrictions, if any.
+* **release-signing** is used for release builds that are shipped to customers and used on production systems. It typically uses a certificate purchased from a public Certificate Authority (CA). Software releases are sensitive and must be done in a secure, controlled and reproducible manner. Therefore, release-signing is often configured with few permissions and additional restrictions.
+
+Both types of policies may alternatively use certificates that are issued by an in-house CA.
+
+<div class="panel tipp" markdown="1">
+<div class="panel-header">Why sign test builds?</div>
+It's important that test builds are signed, so they will behave like release builds *on test systems*. Several platform mechanisms may be used or inadvertently encountered that behave differently for signed and unsigned software.
+
+Test-signing can also provide protection for test systems, if these systems are configured in a way that prevents installation or execution of unsigned software, or produces warnings for users.
+</div>
 
 ### General Properties
 
