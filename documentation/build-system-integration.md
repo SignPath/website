@@ -260,8 +260,12 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
     <td>Add an AppVeyor integration to a SignPath project</td>
     <td markdown="1">
 
-1. On [ci.appveyor.com](https://ci.appveyor.com), select *My Profile* and *API Keys*, then remember the **Bearer token** for the next step
-2. On SignPath.io, add an *AppVeyor integration* to your *project* and enter the **API key** you just acquired
+1. On [ci.appveyor.com](https://ci.appveyor.com)
+   * Select *My Profile* and *API Keys*
+   * Remember the **Bearer token** for the next step
+2. On [SignPath.io](https://app.signpath.io)
+   * Navigate to your *project*, go to *Trusted Build Systems* and add a link to *AppVeyor*
+   * In the dialog, enter the **API key** you just acquired
 
 </td>
     <td>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</td>
@@ -269,11 +273,13 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
     <td>Encrypt the SignPath API token in AppVeyor</td>
     <td markdown="1">
 
-1. On SignPath.io, choose the Users menu and create a new *CI User* or open an existing one
-2. Remember the **SignPath API token** for the next step
-3. On [ci.appveyor.com](https://ci.appveyor.com), open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
-4. Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
-5. Remember the **encrypted SignPath API token** for the next step
+1. On [SignPath.io](https://app.signpath.io)
+   * Choose the Users menu and create a new *CI User* or open an existing one
+   * Remember the **SignPath API token** for the next step
+3. On [ci.appveyor.com](https://ci.appveyor.com)
+   * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
+   * Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
+   * Remember the **encrypted SignPath API token** for the next step
 
 </td>
     <td>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</td>
