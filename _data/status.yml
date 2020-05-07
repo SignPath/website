@@ -1,0 +1,22 @@
+# possible types are good, warning, critical
+current:
+    type: good
+    title: All systems are operational
+    # type: warning
+    # Planned maintenance
+incidents:
+  - date: 'May, 09, 2020'
+    range: 'May, 09, 2020 21:30 UTC - May, 10, 2020 05:00 UTC'
+    type: warning
+    title: 'Planned maintenance'
+    description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
+  - date: 'Feb, 24, 2020'
+    range: 'Feb, 24, 2020 02:00 - 04:00 UTC'
+    type: warning
+    title: 'Planned maintenance'
+    description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
+  - date: 'Nov, 07, 2019'
+    range: 'Nov, 07, 2019 02:30 - 04:00 UTC'
+    type: critical
+    title: 'Azure outage'
+    description: 'Due to a Storage incident in the Azure datacenter in the West Europe regions, our services had several outages.'

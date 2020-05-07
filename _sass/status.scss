@@ -1,0 +1,48 @@
+section.status-section > div {
+	h2 {
+		color: #fff;
+		border-radius: $border-radius;
+		box-shadow: $shadow;
+		width: 100%;
+		padding: 0.5em 0.5em;
+		box-sizing: border-box;
+		font-size: 1.4em;
+
+		&.good     { background-color: $success-background-color; }
+		&.warning  { background-color: $warning-background-color; }
+		&.critical { background-color: $error-background-color; }
+
+		i {
+			margin-right: 0.5em;
+		}
+	}
+
+	ul {
+		list-style-type: none;
+		margin-top: 4em;
+
+		li {
+			border-left: 4px solid $grey-border-color;
+			display: block;
+			padding-left: 2em;
+			margin-bottom: 2em;
+
+			&.warning  { border-left-color: $warning-background-color; }
+			&.critical { border-left-color: $error-background-color; }
+
+			h3 {
+				margin: 0px;
+			}
+
+			label {
+				font-size: 0.8em;
+				color: $dark-grey-font-color;
+			}
+
+			h4 {
+				margin: 0px;
+				font-weight: bold;
+			}
+		}
+	}
+}

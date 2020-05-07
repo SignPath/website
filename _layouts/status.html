@@ -1,0 +1,30 @@
+{% include header.html %}
+
+<section class="bg-black font-white top-section">
+	<div>
+		<h1>{{ page.header }}</h1>
+	</div>
+</section>
+<section class="status-section">
+	<div>
+		<h2 class='{{ site.data.status.current.type }}'>
+			{% if     site.data.status.current.type == "good" %}<i class='la la-check'></i>
+			{% elsif site.data.status.current.type == "info" %}<i class='la la-info-circle'></i>
+			{% elsif site.data.status.current.type == "warning" %}<i class='la la-exclamation-triangle'></i>
+			{% else %}<i class='la la-exclamation-triangle'></i>
+			{% endif %}
+			{{ site.data.status.current.title }}
+		</h2>
+		<ul>
+			{% for incident in site.data.status.incidents %}
+				<li class="{{ incident.type }}">
+					<h3>{{ incident.date}}</h3>
+					<label>{{ incident.range }}</label>
+					<h4>{{ incident.title }}</h4>
+					<div>{{ incident.description }}</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</section>
+{% include footer.html %}
