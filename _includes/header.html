@@ -26,6 +26,18 @@ as a service and on-premise" />
   <link rel='stylesheet' href='/assets/css/line-awesome.min.css'>
   <link rel="stylesheet" href="/assets/css/index.css">  
   <script src='/assets/index.js'></script>
+  {% if page.redirhack != null %}
+  <!-- 404 redirect -->
+  <script>
+    if (document.location.pathname.endsWith("/"))
+    {
+      loc = document.location;
+      path = loc.pathname.substring(0, loc.pathname.length-1);
+      newUrl = loc.origin + path + loc.search + loc.hash;
+      loc.replace (newUrl);
+    }
+  </script>
+  {% endif %}
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
