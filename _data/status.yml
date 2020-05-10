@@ -1,7 +1,7 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    title: Planned maintenance - restricted availability
+    type: good
+    title: All systems are operational
     # type: warning
     # Planned maintenance
 incidents:
