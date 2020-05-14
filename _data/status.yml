@@ -9,7 +9,7 @@ incidents:
     range: 'May, 14, 2020 07:30 - 12:45 UTC'
     type: critical
     title: 'Infrastructure problems during the deployment'
-    description: 'During the deployment of a new version of SignPath, infrastructure problems arised. We rolled back the release, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.'
+    description: 'During the deployment of a new version of SignPath, infrastructure problems arised. The release was rolled back, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.'
   - date: 'May, 09, 2020'
     range: 'May, 09, 2020 21:30 UTC - May, 10, 2020 05:00 UTC'
     type: warning
