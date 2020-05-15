@@ -4,24 +4,27 @@ header: Open positions
 layout: default
 ---
 
-* [System Architect for Azure, Windows Server and container technologies](system-architect)
-  {: style="background-image:url(/assets/jobs/system-architect_small.jpg)"}
-
-  Take responsibility for infrastructure and operations.
-
-  [Apply now](system-architect){: class="btn btn-secondary"}
-* [Infrastructure engineer for Azure, Windows Server and container technologies](infrastructure-engineer)
+* [Infrastructure engineer](infrastructure-engineer)
   {: style="background-image:url(/assets/jobs/infrastructure-engineer_small.jpg)"}
 
   Help us operate our service and improve our deployment process.
 
   [Apply now](infrastructure-engineer){: class="btn btn-secondary"}
-* [Junior DevOps engineer for Azure and (Windows) containers](junior-devops-engineer)	
-  {: style="background-image:url(/assets/jobs/junior-devops-engineer_small.jpg)"}	
 
-  Learn how to operate a scalabe secure Web platform.	
 
-  [Apply now](junior-devops-engineer){: class="btn btn-secondary"}
+* [Senior .NET developer for applied cryptography](senior-dev-cryptography)
+  {: style="background-image:url(/assets/jobs/senior-dev-cryptography_small.jpg)"}
+
+  Support the development team and bring in your expertise in applied cryptography.
+
+  [Apply now](senior-dev-cryptography){: class="btn btn-secondary"}
+
+* [Senior .NET developer for DevOps and DevSecOps](senior-dev-devsecops)	
+  {: style="background-image:url(/assets/jobs/senior-dev-devsecops_small.jpg)"}	
+
+  Drive our DevSecOps processes and help us to continuosly improve.
+
+  [Apply now](senior-dev-devsecops){: class="btn btn-secondary"}
 {: class="card-container"}
 
 All open positions are for Vienna, Austria.
