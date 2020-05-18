@@ -7,15 +7,21 @@ toc: true
 
 ## Overview
 
-Once your artifact configuration and project is set up, you can submit a signing request by either
+Once your project is set up, you can submit a signing request by either
 
-* uploading an artifact on the web interface or
-* integrating a call to SignPath in your build process
+* Upload an artifact on the web interface
+* Integrate a call to SignPath in your build process
 
 ## Direct upload
 
-For testing purposes or when you have very infrequent releases, you can chose to simply upload the binary artifact via the web interface. This, however, prevents SignPath from verifying the origin of the artifact.
+For testing purposes or when you have very infrequent releases, you can choose to simply upload the binary artifact via the web interface.
 
-## Build integration
+## Build process integration
 
-SignPath provides multiple ways to be integrated into your pipeline. See the [documentation](/documentation/build-system-integration) for details.
+We recommend that you integrate SignPath in your automatic CI pipeline. This has several advantages besides just saving tedious work:
+
+* Elimination of error-prone routine activities provides additional security
+* Automatic propagation of metadata, such as version numbers, source code version and build
+* Origin verification ensures that the signed binary conforms to a specific source code version
+
+SignPath provides multiple ways to be integrated into your pipeline. See the [documentation](/documentation/build-system-integration) for details including information about origin verification.
