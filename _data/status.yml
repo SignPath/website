@@ -1,12 +1,12 @@
 # possible types are good, warning, critical
 current:
+    type: good
+    title: All systems are operational
     #type: warning
-    #title: All systems are operational
-    type: warning
-    title: 'Planned maintenance - limited availability'
+    #title: 'Planned maintenance - limited availability'
 incidents:
   - date: 'May, 23, 2020'
-    range: 'May, 23, 2020 20:30 UTC - May, 24, 2020 04:00 UTC'
+    range: 'May, 23, 2020 20:30 UTC - May, 24, 2020 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
