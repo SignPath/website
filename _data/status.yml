@@ -5,6 +5,11 @@ current:
     #type: warning
     #title: 'Planned maintenance - limited availability'
 incidents:
+  - date: 'Jun, 04, 2020'
+    range: 'Jun, 04, 2020, 21:30 UTC - Jun, 05, 2020, 04:00 UTC'
+    type: warning
+    title: 'Planned maintenance'
+    description: 'Due to a reconfiguration of our internet provider, the processing of signing requests and creating/deleting certificates may be temporarily unavailable.'
   - date: 'May, 23, 2020'
     range: 'May, 23, 2020 20:30 UTC - May, 24, 2020 11:00 UTC'
     type: warning
