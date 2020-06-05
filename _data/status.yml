@@ -1,9 +1,9 @@
 # possible types are good, warning, critical
 current:
-    #type: good
-    #title: All systems are operational
-    type: warning
-    title: 'Planned maintenance - limited availability'
+    type: good
+    title: All systems are operational
+    #type: warning
+    #title: 'Planned maintenance - limited availability'
 incidents:
   - date: 'Jun, 04, 2020'
     range: 'Jun, 04, 2020, 21:30 UTC - Jun, 05, 2020, 04:00 UTC'
