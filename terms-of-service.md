@@ -142,7 +142,7 @@ Effective date: 02.04.2019
 * This Agreement is licensed under the [Creative Commons Zero license](https://creativecommons.org/share-your-work/public-domain/cc0/). 
 <!-- The Creative Commons Zero license requires no attribution, however, we would like to thank GitHub for sharing their licenses and policies with everyone. -->
 
-### 8. Communication
+## 8. Communication
 
 ### 8.1 Electronic Communication Required
 
