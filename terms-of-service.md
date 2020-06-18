@@ -5,7 +5,7 @@ layout: default
 redirect_from: /terms-of-services
 ---
 
-Effective date: 02.04.2019
+Effective date: 2 April 2019
 
 ## 1. Definitions
 
