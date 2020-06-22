@@ -1,6 +1,6 @@
 - name: Single
-  base_per_year_1yr: 216
-  base_per_year_3yrs: 162
+  base_per_year_1yr: 288
+  base_per_year_3yrs: 216
   num_users: 2
   num_certs_on_hsm: 1
   add_cert_per_year: 144
@@ -22,8 +22,8 @@
       docker: dev-single-three-years
 
 - name: Team
-  base_per_year_1yr: 882
-  base_per_year_3yrs: 662
+  base_per_year_1yr: 1176
+  base_per_year_3yrs: 882
   num_users: 5
   add_user_per_year: 144
   num_certs_on_hsm: 1
@@ -46,8 +46,8 @@
       docker: dev-team-three-years
 
 - name: Business
-  base_per_year_1yr: 2700
-  base_per_year_3yrs: 2025
+  base_per_year_1yr: 3600
+  base_per_year_3yrs: 2700
   num_users: 20
   add_user_per_year: 48
   num_certs_on_hsm: 2
