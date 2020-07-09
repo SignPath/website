@@ -1,5 +1,4 @@
 {% include header.html %}
-{% assign reduced_price_factor = 0.75 %}
 
 <section class='bg-blue font-white pricing-start top-section bg-image'>
 	<div>
@@ -75,14 +74,9 @@
 				<div class='product'>
 					<div class='header'>
 						<h2>{{ product.name }}</h2>
-						<h3 class='outdated'>
+						<h3>
 							<span class='price' data-price1yr='{{ product.base_per_year_1yr }}' data-price3yrs='{{ product.base_per_year_3yrs }}'>
 								${{ product.base_per_year_1yr | divided_by: 12 | round }}
-							</span>
-						</h3>
-						<h3>
-							<span class='price' data-price1yr='{{ product.base_per_year_1yr | times: reduced_price_factor }}' data-price3yrs='{{ product.base_per_year_3yrs | times: reduced_price_factor }}'>
-								${{ product.base_per_year_1yr | divided_by: 12 | times: reduced_price_factor | round }}
 							</span>
 							<span class='period' data-period='month'>per month</span>
 						</h3>
