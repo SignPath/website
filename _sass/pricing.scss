@@ -126,7 +126,7 @@ section.pricing-main {
 		font-size: 0.5em;
 	}
 
-	span.period {
+	span.period, span.sub {
 		font-size: .7em;
 		display: block;
 	}
@@ -318,6 +318,10 @@ div.toggle {
 
 						&.label {
 							display: inline-block;
+
+							& > span.period {
+								display: none;
+							}
 						}
 
 						&:nth-child(odd) {

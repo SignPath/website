@@ -64,7 +64,7 @@
 					<li>-<span class='period'>&nbsp;</span></li>
 					<li>0</li>
 					<li>-<span class='period'>&nbsp;</span></li>
-					<li>3</li>
+					<li>3<span class='sub'>&nbsp;</span> </li>
 					<li>100 MB</li>
 					<li>-<span class='period'>&nbsp;</span></li>
 				</ul>
@@ -97,7 +97,10 @@
 							<span class='price' data-price='{{ product.add_cert_per_year }}'>${{ product.add_cert_per_year | divided_by: 12 | round }}</span>
 							<span class='period' data-period='month'>per month</span>
 						</li>
-						<li>{{ product.num_test_certs }}</li>
+						<li>
+							<span>{{ product.num_test_certs }}</span>
+							<span class='sub'>per release certificate</span> 
+						</li>
 						<li>{{ product.processed_data_per_month_in_gb }} GB</li>
 						<li>
 							<span class='price' data-price='{{ product.add_100gb_per_year }}'>${{ product.add_100gb_per_year | divided_by: 12 | round }}</span>
