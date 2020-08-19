@@ -41,8 +41,8 @@ Create signing requests by calling the following commands via PowerShell:
   $signingRequestID = Submit-SigningRequest
       -CIUserToken $CI_USER_TOKEN
       -OrganizationId $YOUR_ORGANIZATION_ID
-      -ProjectKey $YOUR_PROJECT_KEY
-      -SigningPolicyKey $YOUR_SIGNING_POLICY_KEY
+      -ProjectSlug $YOUR_PROJECT_SLUG
+      -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
       -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
   ~~~ 
 * ... and download the signed artifact later
@@ -58,8 +58,8 @@ Create signing requests by calling the following commands via PowerShell:
   Submit-SigningRequest
       -CIUserToken $CI_USER_TOKEN
       -OrganizationId $YOUR_ORGANIZATION_ID
-      -ProjectKey $YOUR_PROJECT_KEY
-      -SigningPolicyKey $YOUR_SIGNING_POLICY_KEY
+      -ProjectSlug $YOUR_PROJECT_SLUG
+      -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
       -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
       -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
       -WaitForCompletion
@@ -83,22 +83,22 @@ You need to provide these values for every single API request.
 
 ### Submit a signing request
 
-| Synopsis           |      |
-| ------------------ | ---- |
-| URL                | `/SigningRequests`
-| Method             | `POST`
-| Encoding           | `multipart/form-data`
-| `ProjectKey`       | The project for which you want to create the signing request
-| `SigningPolicyKey` | Signing policy for which you want to create the signing request
-| `Artifact`         | Artifact file
-| `Description`      | Optional description for your signing request (e.g. version number)
+| Synopsis            |      |
+| ------------------- | ---- |
+| URL                 | `/SigningRequests`
+| Method              | `POST`
+| Encoding            | `multipart/form-data`
+| `ProjectSlug`       | The project for which you want to create the signing request
+| `SigningPolicySlug` | Signing policy for which you want to create the signing request
+| `Artifact`          | Artifact file
+| `Description`       | Optional description for your signing request (e.g. version number)
 
 **Example:**
 
 ~~~ bash
 curl -H "Authorization: Bearer $CI_USER_TOKEN" \
-     -F "ProjectKey=$YOUR_PROJECT_KEY" \
-     -F "SigningPolicyKey=test-signing" \
+     -F "ProjectSlug=$YOUR_PROJECT_SLUG" \
+     -F "SigningPolicySlug=test-signing" \
      -F "Artifact=@$PATH_TO_ARTIFACT" \
      -F "Description=$DESCRIPTION" \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests
@@ -128,13 +128,13 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
   "status":"Completed",
   "description":"Called by curl",
   "projectId":"c90eb2c7-d34e-49fc-9e90-c00235ecaf1a",
-  "projectKey":"test-project",
+  "projectSlug":"test-project",
   "projectName":"Test project",
   "artifactConfigurationId":"24b767a6-092f-4104-869d-25f0da159576",
-  "artifactConfigurationKey":"Default",
+  "artifactConfigurationSlug":"Default",
   "artifactConfigurationName":"Default",
   "signingPolicyId":"137ada35-fc11-4719-a3a4-269983692197",
-  "signingPolicyKey":"test-signing",
+  "signingPolicySlug":"test-signing",
   "signingPolicyName":"test-signing",
   "unsignedArtifactLink":"https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/UnsignedArtifact",
   "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact"
@@ -293,13 +293,13 @@ Append this to your appveyor.yaml file:
 ~~~ yaml
 deploy:
 - provider: Webhook
-  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectKey=<PROJECT_KEY>&SigningPolicyKey=<SIGNING_POLICY_KEY>
+  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>
   authorization:
      secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
 ~~~
 
 Replace the parameters:
-* `<ORGANIZATION_ID>`, `<PROJECT_KEY>` and `<SIGNING_POLICY_KEY>` values can be retrieved from the signing policy page
+* `<ORGANIZATION_ID>`, `<PROJECT_SLUG>` and `<SIGNING_POLICY_SLUG>` values can be retrieved from the signing policy page
 * `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
 
 </td> </tr> </tbody> </table>
