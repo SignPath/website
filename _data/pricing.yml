@@ -28,7 +28,7 @@
   add_user_per_year: 144
   num_certs_on_hsm: 1
   add_cert_per_year: 144
-  num_test_certs: 5
+  num_test_certs: 3
   processed_data_per_month_in_gb: 200
   add_100gb_per_year: 120
   product_id:
@@ -52,7 +52,7 @@
   add_user_per_year: 48
   num_certs_on_hsm: 2
   add_cert_per_year: 120
-  num_test_certs: 10
+  num_test_certs: 3
   processed_data_per_month_in_gb: 500
   add_100gb_per_year: 96
   product_id:
