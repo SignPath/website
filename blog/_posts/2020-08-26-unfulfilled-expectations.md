@@ -7,9 +7,9 @@ author: Daniel Ostovary
 summary: "In April we became aware of a conceptual security issue in the JarSigner. The fix will be shipped with the release of JDK 15"
 ---
 
-In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extend.
+In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.
 
-In this blog post we are going to talk about this issue. The blog post is written in cooperation with Marc Nimmerichter from [Impidio](https://www.impidio.com/). We have reported this issue to Oracle shortly after its discovery. We will talk about our experiences with reporting this issue in a future blog post. To understand this issue, one has to understand Certificate Revocation Lists (CRLs) first.
+In this blog post we are going to talk about this issue. The blog post is written in cooperation with Marc Nimmerichter from [Impidio](https://www.impidio.com/blog/unfulfilled-expectations-revoked-certificates-in-jar-signing). We have reported this issue to Oracle shortly after its discovery. We will talk about our experiences with reporting this issue in a future blog post. To understand this issue, one has to understand Certificate Revocation Lists (CRLs) first.
 
 # Certificate Revocation Lists
 If the owner of a certificate wishes to revoke their certificate (i.e. invalidate it, for example, because of compromise), they can request the issuing Certificate Authority (CA) to put the certificate on a CRL (e.g. see [[5]](#5)). The CRL distribution point is indicated in the CA's certificate [[5]](#5). Often, a verifier of a signature checks the certificate's CRL to see if it is revoked [[6]](#6) (e.g. the Windows signature verification of an executable). 
