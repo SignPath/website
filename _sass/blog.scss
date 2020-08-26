@@ -21,3 +21,21 @@ section.blog-section {
 		}
 	}
 }
+
+section.post-section {
+	div.sources {
+		& > ul {
+			list-style-type: none;
+			padding: 0px;
+		}
+
+		& > ul > li {
+			margin-top: -$header-height;
+			padding-top: $header-height;
+		}
+
+		& > ul > li > a {
+			word-wrap: break-word;
+		}
+	}
+}
