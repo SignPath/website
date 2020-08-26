@@ -1,0 +1,149 @@
+{% include header.html %}
+{% assign reduced_price_factor = 1.00 %}
+
+<section class='bg-blue font-white pricing-start top-section bg-image'>
+	<div>
+		<h1>From small teams to enterprises</h1>
+		<h3>Let's secure your code signing processes</h3>
+	</div>
+</section>
+
+<section class='bg-grey pricing-main'>
+	<div>
+		<div class='products-table'>
+			<div class='top'>
+				<div class='header features'>
+					<h2>Included features</h2>
+				</div>
+				<ul class='body'>
+					<li class='label'>Projects</li>
+					<li class='label'>Malware detection</li>
+					<li class='label'>HSM key storage</li>
+					<li class='label'>EV certificates <sup>1)</sup></li>
+					<li class='label'>Policy enforcement</li>
+					<li class='label'>Manual approval</li>
+					<li class='label'>Deep signing</li>
+					<li class='label'>CI integration</li>
+					<li class='label secondary'>Web APIs and Webhooks</li>
+					<li class='label secondary'>Origin verification</li>
+					<li class='label'>On-Premise installation</li>
+					<li class='label'>Support</li>
+					<li class='label'>Code signing consulting</li>
+				</ul>
+			</div>
+			<div class='product'>
+				<div class='header edition'>
+					<h2>Starter</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li>Email</li>
+					<li><i class='la la-times'></i></li>
+				</ul>
+				<a class='btn btn-primary footer' href='/product/pricing/'>Purchase now</a>
+			</div>
+			<div class='product'>
+				<div class='header edition'>
+					<h2>Basic</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li>Email</li>
+					<li><i class='la la-times'></i></li>
+				</ul>
+				<a class='btn btn-primary footer' href='/product/pricing/'>Purchase now</a>
+			</div>
+			<div class='product'>
+				<div class='header edition'>
+					<h2>Premium</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li>Priority email</li>
+					<li>Available</li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
+			</div>
+			<div class='product'>
+				<div class='header edition'>
+					<h2>Enterprise</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li>Phone / Email</li>
+					<li>Included</li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
+			</div>
+			<div class='product oss'>
+				<div class='header edition'>
+					<h2>Open source<br>Edition</h2>
+				</div>
+				<ul class='body'>
+					<li>Unlimited</li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-check'></i></li>
+					<li><i class='la la-times'></i></li>
+					<li>required</li>
+					<li>required</li>
+					<li><i class='la la-check'></i></li>
+					<li>required</li>
+					<li>required</li>
+					<li><i class='la la-times'></i></li>
+					<li>Email</li>
+					<li><i class='la la-times'></i></li>
+				</ul>
+				<a class='btn btn-primary footer' href='mailto:{{ site.email_oss }}'>Contact us</a>
+			</div>
+		</div>
+
+		<div class='info'>
+			<p>
+				1) Code Signing certificates need to be purchased separately.<br> 
+			</p>
+		</div>
+	</div>
+</section>
+
+{% include footer.html %}

@@ -10,7 +10,7 @@ section.pricing-start {
 	}
 }
 
-section.pricing-main {
+section.pricing {
 	& > div {
 		padding: 40px;
 	}
@@ -97,11 +97,6 @@ section.pricing-main {
 					padding: 0px 10px;
 					line-height: 1.8em;
 
-					& > span.period {
-						font-size: .5em;
-						line-height: .8em;
-					}
-
 					&.outdated {
 						color: $light-grey-font-color;
 						text-decoration: line-through;
@@ -146,11 +141,6 @@ section.pricing-main {
 
 	sup {
 		font-size: 0.5em;
-	}
-
-	span.period, span.sub {
-		font-size: .7em;
-		display: block;
 	}
 
 	& > div > div.additional-product {
@@ -302,7 +292,7 @@ div.toggle {
 }
 
 @media only screen and (max-width: 1000px) {
-	section.pricing-main > div {
+	section.pricing > div {
 		padding: 20px;
 
 		& > div.products-table {

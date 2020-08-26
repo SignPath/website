@@ -1,0 +1,57 @@
+- name: Starter
+  base_price: 500
+  num_users_included: 1
+  num_users_max: 2
+  price_additional_user: 150
+  num_projects_included: 1
+  num_projects_max: 3
+  price_additional_project: 150
+  product_id:
+    one_year:
+      production: 31340460
+      fqa: 31140837
+      iqa: undefined
+      development: dev-starter-one-year
+    three_years:
+      production: 31340372
+      fqa: undefined
+      iqa: undefined
+      development: dev-starter-three-years
+- name: Basic Single
+  base_price: 1000
+  num_users_included: 1
+  num_users_max: 3
+  price_additional_user: 100
+  num_projects_included: 1
+  num_projects_max: 5
+  price_additional_project: 200
+  product_id:
+    one_year:
+      production: 31339891
+      fqa: undefined
+      iqa: undefined
+      development: dev-basic_single-one-year
+    three_years:
+      production: 31339834
+      fqa: undefined
+      iqa: undefined
+      development: dev-basic_single-three-years
+- name: Basic Team
+  base_price: 2000
+  num_users_included: 5
+  num_users_max: 15
+  price_additional_user: 100
+  num_projects_included: 3
+  num_projects_max: 10
+  price_additional_project: 200
+  product_id:
+    one_year:
+      production: 31339624
+      fqa: undefined
+      iqa: undefined
+      development: dev-basic_team-one-year
+    three_years:
+      production: 31217467
+      fqa: undefined
+      iqa: undefined
+      development: dev-basic_team-three-years

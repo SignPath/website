@@ -2,123 +2,89 @@
 
 <section class='bg-blue font-white pricing-start top-section bg-image'>
 	<div>
-		<h1>From small teams to enterprises</h1>
-		<h3>Let's secure your code signing processes</h3>
+		<h1>Security does not have to be expensive</h1>
+		<h3>Subscription models for different needs</h3>
 	</div>
 </section>
 
-<section class='bg-grey pricing-main'>
+<section class='bg-grey pricing'>
 	<div>
 		<div class='products-table'>
 			<div class='top'>
-				<div class='header features'>
-					<h2>Included features</h2>
+				<div class='header selectors'>
+					View Editions for features and quotas
+					<div class='toggle'>
+						<label>
+							<input type='checkbox' id='currency-toggle'>
+							<span></span>
+							<div data-before='$ USD' data-after='EUR €'></div>
+						</label>
+					</div>
+					<div class='toggle'>
+						<label>
+							<input type='checkbox' id='duration-toggle'>
+							<span></span>
+							<div data-before='1 year' data-after='3 years'></div>
+						</label>
+					</div>
 				</div>
 				<ul class='body'>
+					<li class='label'>EV certificate</li>
+					<li class='label'>User accounts</li>
+					<li class='label secondary'>Additional user</li>
 					<li class='label'>Projects</li>
-					<li class='label'>Malware detection</li>
-					<li class='label'>HSM key storage</li>
-					<li class='label'>EV certificates <sup>1)</sup></li>
-					<li class='label'>Policy enforcement</li>
-					<li class='label'>Manual approval</li>
-					<li class='label'>Deep signing</li>
-					<li class='label'>CI integration</li>
-					<li class='label secondary'>Web APIs and Webhooks</li>
-					<li class='label secondary'>Origin verification</li>
-					<li class='label'>On-Premise installation</li>
-					<li class='label'>Support</li>
-					<li class='label'>Code signing consulting</li>
+					<li class='label secondary'>Additional project</li>
 				</ul>
 			</div>
-			<div class='product'>
-				<div class='header edition'>
-					<h2>Standard<br>Edition</h2>
+			{% for product in site.data['pricing'] %}
+				<div class='product'>
+					<div class='header'>
+						<h2>{{ product.name }}</h2>
+						<h3>
+							<span class='price' data-price='{{ product.base_price }}'>
+								${{ product.base_price }}
+							</span>
+						</h3>
+					</div>
+					<ul class='body'>
+						<li><i class='la la-check'></i></li>
+						<li>{{ product.num_users_included }} &dash; {{ product.num_users_max }}</li>
+						<li class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_user }}</li>
+						<li>{{ product.num_projects_included }} &dash; {{ product.num_projects_max }}</li>
+						<li class='price' data-price='{{ product.price_additional_project }}'>${{ product.price_additional_project }}</li>
+					</ul>
+					<a class='btn btn-primary footer' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
+				</div>
+			{% endfor %}
+			<!--<div class='product'>
+				<div class='header'>
+					<h2>Basic Business</h2>
+					<h3>Free</h3>
 				</div>
 				<ul class='body'>
 					<li>Unlimited</li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-times'></i></li>
-					<li><i class='la la-times'></i></li>
-					<li>Email</li>
-					<li><i class='la la-times'></i></li>
+					<li>2<sup>2)</sup></li>
+					<li>-<span class='period'>&nbsp;</span></li>
+					<li>0</li>
+					<li>-<span class='period'>&nbsp;</span></li>
+					<li>3</li>
+					<li>100 MB</li>
+					<li>-<span class='period'>&nbsp;</span></li>
 				</ul>
-				<a class='btn btn-primary footer' href='/product/pricing/'>Purchase now</a>
-			</div>
-			<div class='product'>
-				<div class='header edition'>
-					<h2>Premium<br>Edition</h2>
-				</div>
-				<ul class='body'>
-					<li>Unlimited</li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-times'></i></li>
-					<li>Priority email</li>
-					<li>Available</li>
-				</ul>
-				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
-			</div>
-			<div class='product'>
-				<div class='header edition'>
-					<h2>Enterprise<br>Edition</h2>
-				</div>
-				<ul class='body'>
-					<li>Unlimited</li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li>Phone / Email</li>
-					<li>Included</li>
-				</ul>
-				<a class='btn btn-primary footer' href='mailto:{{ site.email_sales }}'>Contact us</a>
-			</div>
-			<div class='product oss'>
-				<div class='header edition'>
-					<h2>Open source<br>Edition</h2>
-				</div>
-				<ul class='body'>
-					<li>Unlimited</li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-check'></i></li>
-					<li><i class='la la-times'></i></li>
-					<li>required</li>
-					<li>required</li>
-					<li><i class='la la-check'></i></li>
-					<li>required</li>
-					<li>required</li>
-					<li><i class='la la-times'></i></li>
-					<li>Email</li>
-					<li><i class='la la-times'></i></li>
-				</ul>
-				<a class='btn btn-primary footer' href='mailto:{{ site.email_oss }}'>Contact us</a>
-			</div>
+				<a class='btn btn-primary footer' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
+			</div>-->
 		</div>
 
 		<div class='info'>
 			<p>
-				1) Code Signing certificates need to be purchased separately.<br> 
+				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
+				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>.</strong><br>
+				<strong><i class='la la-info-circle'></i> Code Signing certificates need to be purchased separately.</strong>
+			</p>
+			<p>
+				Footnotes:<br>
+				1) In the free trial version, you need to <a href='/code-signing/test-certificates'>install</a> our timestamp server certificate..<br> 
+				2) In addition to your own user account, you can create one for build automation.
 			</p>
 		</div>
 	</div>

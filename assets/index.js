@@ -109,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // on the pricing page, add the data-labels to all product rows
-  var productRows = document.body.querySelectorAll('section.pricing-main div.top > ul > li');
+  var productRows = document.body.querySelectorAll('section.pricing div.top > ul > li');
   if (productRows.length) {
-    var productLists = document.body.querySelectorAll('section.pricing-main div.product > ul');
+    var productLists = document.body.querySelectorAll('section.pricing div.product > ul');
     for (var i = 0; i < productLists.length; i++) {
       var rows = productLists[i].querySelectorAll('li');
       for (var r = 0; r < rows.length; r++) {
@@ -124,31 +124,19 @@ document.addEventListener('DOMContentLoaded', function() {
     // calculate prices correctly
     function recalculatePrices() {
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
-      var period   = document.getElementById('period-toggle'  ).checked ? 'year' : 'month';
-      var duration = document.getElementById('duration-toggle').checked ? '3yrs' : '1yr';
+      var factor = document.getElementById('duration-toggle').checked ? 3 : 1;
 
       function format(price) {
-        var n = Math.round(parseFloat(price) / (period == 'month' ? 12.0 : 1.0));
+        var n = Math.round(parseFloat(price));
         return currency == '€' ? ( n + ' €') : ( '$' + n );
       }
 
-      document.querySelectorAll('section.pricing-main div.product').forEach(function(productCtn) {
+      document.querySelectorAll('section.pricing div.product').forEach(function(productCtn) {
 
-        // set base prices
-        productCtn.querySelectorAll('div.header span.price').forEach(function(span) {
-          span.innerText = format(span.dataset['price' + duration]);
-        });
-
-        // set additional prices
-        productCtn.querySelectorAll('ul.body span.price').forEach(function(span) {
-          span.innerText = format(span.dataset.price);
-        })
-        
-        // update period
-        document.querySelectorAll('section.pricing-main span.period').forEach(function(span) {
-          if (span.innerText.length > 1) {
-            span.innerText = 'per ' + period;
-          }
+        // set prices
+        productCtn.querySelectorAll('*.price').forEach(function(span) {
+          console.log(span.innerText);
+          span.innerText = format(span.dataset.price * factor);
         });
       })
       
@@ -156,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function recreateLinks() {
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
-      var period   = document.getElementById('period-toggle'  ).checked ? 'year' : 'month';
       var duration = document.getElementById('duration-toggle').checked ? '3yrs' : '1yr';
 
       // deal with links on the pricing page correctly - unfortunately, URL is not supported by IE
@@ -183,7 +170,7 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    document.querySelectorAll('section.pricing-main div.toggle input').forEach(function(input) {
+    document.querySelectorAll('section.pricing div.toggle input').forEach(function(input) {
       input.addEventListener('change', recalculatePrices);
       input.addEventListener('change', recreateLinks);
     });
