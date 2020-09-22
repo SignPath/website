@@ -27,5 +27,13 @@ layout: default
   [Apply now](senior-dev-devsecops){: class="btn btn-secondary"}
 {: class="card-container"}
 
+* [Scrum Master](scrum-master)	
+  {: style="background-image:url(/assets/jobs/scrum-master_small.jpg)"}	
+
+  Support the team and drive the process.
+
+  [Apply now](scrum-master){: class="btn btn-secondary"}
+{: class="card-container"}
+
 All open positions are for Vienna, Austria.
 {: class="center"}
