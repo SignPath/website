@@ -109,13 +109,20 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // on the pricing page, add the data-labels to all product rows
-  var productRows = document.body.querySelectorAll('section.pricing div.top > ul > li');
-  if (productRows.length) {
-    var productLists = document.body.querySelectorAll('section.pricing div.product > ul');
-    for (var i = 0; i < productLists.length; i++) {
-      var rows = productLists[i].querySelectorAll('li');
+  var editionRows = document.body.querySelectorAll('section.editions div.features > ul > li');
+  if (editionRows.length) {
+    var editionLists = document.body.querySelectorAll('section.editions div.edition > ul');
+    for (var i = 0; i < editionLists.length; i++) {
+      var rows = editionLists[i].querySelectorAll('li');
+      var editionRowCounter = 0;
       for (var r = 0; r < rows.length; r++) {
-        productLists[i].insertBefore(productRows[r].cloneNode(true), rows[r]);
+        editionLists[i].insertBefore(editionRows[editionRowCounter].cloneNode(true), rows[r]);
+        editionRowCounter++;
+        if (editionRows[editionRowCounter-1].classList.contains('head') ||
+            editionRows[editionRowCounter-1].classList.contains('sub-head')) {
+          editionLists[i].insertBefore(editionRows[editionRowCounter].cloneNode(true), rows[r]);
+          editionRowCounter++;
+        }
       }
     }
   }

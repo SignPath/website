@@ -9,33 +9,24 @@
 
 <section class='bg-grey pricing'>
 	<div>
-		<div class='products-table'>
-			<div class='top'>
-				<div class='header selectors'>
-					View Editions for features and quotas
-					<div class='toggle'>
-						<label>
-							<input type='checkbox' id='currency-toggle'>
-							<span></span>
-							<div data-before='$ USD' data-after='EUR €'></div>
-						</label>
-					</div>
-					<div class='toggle'>
-						<label>
-							<input type='checkbox' id='duration-toggle'>
-							<span></span>
-							<div data-before='1 year' data-after='3 years'></div>
-						</label>
-					</div>
-				</div>
-				<ul class='body'>
-					<li class='label'>EV certificate</li>
-					<li class='label'>User accounts</li>
-					<li class='label secondary'>Additional user</li>
-					<li class='label'>Projects</li>
-					<li class='label secondary'>Additional project</li>
-				</ul>
+		<div class='selector'>
+			<div class='toggle'>
+				<label>
+					<input type='checkbox' id='currency-toggle'>
+					<span></span>
+					<div data-before='$ USD' data-after='EUR €'></div>
+				</label>
 			</div>
+			<div class='toggle'>
+				<label>
+					<input type='checkbox' id='duration-toggle'>
+					<span></span>
+					<div data-before='1 year' data-after='3 years'></div>
+				</label>
+			</div>
+			<a href='../editions'>Compare features</a>
+		</div>
+		<div class='products-table'>
 			{% for product in site.data['pricing'] %}
 				<div class='product'>
 					<div class='header'>
@@ -47,11 +38,19 @@
 						</h3>
 					</div>
 					<ul class='body'>
-						<li><i class='la la-check'></i></li>
-						<li>{{ product.num_users_included }} &dash; {{ product.num_users_max }}</li>
-						<li class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_user }}</li>
-						<li>{{ product.num_projects_included }} &dash; {{ product.num_projects_max }}</li>
-						<li class='price' data-price='{{ product.price_additional_project }}'>${{ product.price_additional_project }}</li>
+						<li>1 EV certificate included</li>
+						<li>
+							<div>{{ product.num_projects_included }} {%if product.num_projects_included==1 %}project{%else%}projects{%endif%} included</div>
+							<div class='sub'>
+								<span class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_project }}</span> per additional project ({{ product.num_projects_max }} max)
+							</div>
+						</li>
+						<li>
+							<div>{{ product.num_users_included }} {%if product.num_users_included==1 %}user{%else%}users{%endif%} included</div>
+							<div class='sub'>
+								<span class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_user }}</span> per additional user ({{ product.num_users_max }} max)
+							</div>
+						</li>
 					</ul>
 					<a class='btn btn-primary footer' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>
@@ -79,7 +78,6 @@
 			<p>
 				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
 				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>.</strong><br>
-				<strong><i class='la la-info-circle'></i> Code Signing certificates need to be purchased separately.</strong>
 			</p>
 			<p>
 				Footnotes:<br>

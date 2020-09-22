@@ -15,18 +15,49 @@ section.pricing {
 		padding: 40px;
 	}
 
+	& > div > div.selector {
+		background-color: $medium-grey-background-color;
+		color: $white-font-color;
+		box-shadow: $shadow;
+		margin: auto;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+		align-items: stretch;
+		max-width: 600px;
+		
+		a {
+			color: $white-font-color;
+			line-height: 100%;
+			padding: 1em 1em;
+			display: block;
+			border-left: 1px solid $light-grey-border-color;
+			white-space: nowrap;
+			width: 60%;
+			max-width: 200px;
+			text-align: center;
+			box-sizing: border-box;
+			margin-left: 2em;
+		}
+
+		a:hover {
+			background-color: $dark-grey-background-color;
+		}
+
+		& > div.toggle {
+			margin: 10px 0px;
+		}
+	}
+
 	& > div > div.products-table {
 		display: flex;
 		align-items: flex-start;
+		margin-top: 20px;
 
 		& > div {
 			background-color: $white-background-color;
 			border-radius: 6px;
 			box-shadow: $shadow;
-
-			& > div.header {
-				height: 160px;
-			}
 
 			& > ul.body {
 				list-style-type: none;
@@ -45,32 +76,6 @@ section.pricing {
 			}
 		}
 
-		& > div.top {
-			flex-grow: 2;
-			margin-right: 10px;
-
-			& > div.selectors, & > div.features {
-				border-top-left-radius: inherit;
-				border-top-right-radius: inherit;
-				background-color: $medium-grey-background-color;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				color: $white-font-color;
-				text-align: center;
-			}
-
-			& > ul > li {
-				text-align: left;
-				font-weight: bold;
-
-				&.secondary {
-					text-align: right;
-					font-weight: normal;
-				}
-			}
-		}
-
 		& > div.product {
 			flex-grow: 1;
 			flex-basis: 15%;
@@ -80,29 +85,26 @@ section.pricing {
 				color: #fff;
 				border-top-left-radius: inherit;
 				border-top-right-radius: inherit;
+				position: relative;
 
 				& > h2 {
 					margin: 0px;
 					text-transform: uppercase;
-					font-size: 1.4em;
+					font-size: 1.2em;
 					line-height: 2em;
-					padding: 6px;
+					padding: 4px;
+					margin: 0em 3em;
 					padding-top: 12px;
 					text-align: center;
+					border-bottom: 1px solid $light-grey-border-color;
 				}
 
 				& > h3 {
 					margin: 0px;
 					font-size: 1.8em;
-					padding: 0px 10px;
+					padding: 10px 10px;
 					line-height: 1.8em;
-
-					&.outdated {
-						color: $light-grey-font-color;
-						text-decoration: line-through;
-						font-size: 1em;
-						line-height: 1em;
-					}
+					text-align: center;
 				}
 
 				&.edition > h2 {
@@ -111,18 +113,9 @@ section.pricing {
 				}
 			}
 
-			& > ul > li.label {
-				display: none;
-			}
-
-			& > ul > li {
-				i.la-check {
-					color: $green-line-color;
-				}
-
-				i.la-times {
-					color: $red-line-color;
-				}
+			& > ul > li > div.sub {
+				color: $dark-grey-font-color;
+				font-size: 0.8em;
 			}
 
 			& > a.footer {
@@ -131,62 +124,10 @@ section.pricing {
 				font-size: 1.2em;
 			}
 
-			&:nth-child(2) > div.header { background-color: $pricing1-background-color; } // start with 2nd, because top is first child
+			&:nth-child(1) > div.header { background-color: $pricing4-background-color; } // start with 2nd, because top is first child
+			&:nth-child(2) > div.header { background-color: $pricing3-background-color; }
 			&:nth-child(3) > div.header { background-color: $pricing2-background-color; }
-			&:nth-child(4) > div.header { background-color: $pricing3-background-color; }
-			&:nth-child(5) > div.header { background-color: $pricing4-background-color; }
-			&.oss > div.header { background-color: $dark-grey-background-color; }
-		}
-	}
-
-	sup {
-		font-size: 0.5em;
-	}
-
-	& > div > div.additional-product {
-		display: flex;
-		align-items: stretch;
-		margin: 40px 0px;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-		border-radius: 6px;
-
-		& > div:first-child {
-			background-color: $dark-grey-background-color;
-			display: flex;
-			align-items: center;
-			border-top-left-radius: inherit;
-			border-bottom-left-radius: inherit;
-			min-width: 200px;
-
-			& > h2 {
-				color: $white-font-color;
-				padding: 20px;
-				margin: 0px;
-				text-align: center;
-				flex-grow: 1;
-			}
-		}
-
-		& > div:last-child {
-			display: flex;
-			align-items: center;
-			background-color: $white-background-color;
-			border-top-right-radius: inherit;
-			border-bottom-right-radius: inherit;
-			flex-grow: 1;
-
-			& > p {
-				padding: 20px;
-				flex-shrink: 1;
-				flex-grow: 1;
-			}
-
-			& > a {
-				margin: 20px;
-				font-size: 1.2em;
-				text-align: center;
-				flex-shrink: 0;
-			}
+			&:nth-child(4) > div.header { background-color: $pricing1-background-color; }
 		}
 	}
 }
@@ -194,13 +135,14 @@ section.pricing {
 div.toggle {
 	display: block;
 	width: 100%;
+	max-width: 300px;
 	text-align: center;
 
 	& > label {
 		position: relative;
 		display: inline-block;
 		width: 100%;
-		height: 30px;
+		height: 1em;
 
 		& > input {
 			position: absolute;
@@ -295,83 +237,27 @@ div.toggle {
 	section.pricing > div {
 		padding: 20px;
 
+		& > div.selector {
+			flex-direction: column;		
+
+			a {
+				border-left: 0px solid transparent;
+				border-top: 1px solid $light-grey-border-color;
+				margin-left: 0px;
+				width: 100%;
+				max-width: none;
+			}
+		}
+
 		& > div.products-table {
 			flex-direction: column;
-
-			& > div.top {
-				width: 100%;
-				margin-right: 0px;
-
-				div.selectors {
-					border-radius: inherit;
-				}
-
-				& > ul.body {
-					display: none;
-				}
-			}
-
+		
 			& > div.product {
 				margin-top: 20px;
 				margin-left: 0px;
 				width: 100%;
 
 				& > a {
-					border-bottom-right-radius: inherit;
-					border-bottom-left-radius: inherit;
-				}
-
-				& > ul.body {
-					display: flex;
-					flex-wrap: wrap;
-
-					& > li {
-						width: calc(50% - 20px);
-
-						&.label {
-							display: inline-block;
-
-							& > span.period {
-								display: none;
-							}
-						}
-
-						&:nth-child(odd) {
-							text-align: left;
-						}
-
-						&:nth-child(even) {
-							text-align: right;
-						}
-
-						&:nth-last-child(2) {
-							border-bottom: 0px solid transparent;
-						}
-					}
-				}
-			}
-		}
-
-		& > div.additional-product {
-			flex-direction: column;
-
-			& > div:first-child {
-				border-bottom-left-radius: 0px;
-				border-top-right-radius: inherit;
-				
-				& > h2 {
-					text-align: center;
-				}
-			}
-
-			& > div:last-child {
-				flex-direction: column;
-				align-items: stretch;
-				border-bottom-right-radius: inherit;
-				border-bottom-left-radius: inherit;
-
-				& > a {
-					margin: 0px;
 					border-bottom-right-radius: inherit;
 					border-bottom-left-radius: inherit;
 				}
