@@ -1,7 +1,7 @@
 ---
 title: Jobs - Scrum Master
-header: Scrum Master
-sub-header: Als Scrum Master kümmerst du dich um den Entwicklungsprozess unseres agilen Produktteams bei der Entwicklung einer SaaS-Plattform für Code Signing.
+header: Scrum Master (Teilzeit)
+sub-header: Als Scrum Master kümmerst du dich um den Entwicklungsprozess unseres agilen Produktteams.
 job_id: ue65k7pm
 salary: 42.672
 layout: job
@@ -26,7 +26,8 @@ Bring deine Expertise in unser Team ein und unterstütze uns dabei, unsere SaaS-
 
 ## Dein Profil
 
-* Du hast die Grundideen agiler Softwareentwicklung verinnerlicht, findest dich im Scrum-Prozess gut zurecht und kennst idealerweise auch andere agile Ansätze.
+* Du hast bereits als Teil eines agilen Softwareentwicklungsteams gearbeitet, z.B. als Scrum Master, Coach oder auch Developer, findest dich im Scrum-Prozess gut zurecht und kennst idealerweise auch andere agile Ansätze.
+* Du interessierst dich leidenschaftlich für alles was mit agiler Softwareentwicklung zu tun hast - liest Bücher, hörst Podcasts und hast dir den Termin der nächsten Agile Tour Vienna schon lange im Voraus im Kalender angestrichen
 * Du ergreifst gerne die Initiative. Gleichzeitig kannst du gut beobachten und zuhören.
 * Du bist
 	* strukturiert und organisiert, verfolgst verlässlich und hartnäckig deine Aufgaben,

@@ -27,7 +27,7 @@ layout: default
   [Apply now](senior-dev-devsecops){: class="btn btn-secondary"}
 {: class="card-container"}
 
-* [Scrum Master](scrum-master)	
+* [Scrum Master (Part-time)](scrum-master)	
   {: style="background-image:url(/assets/jobs/scrum-master_small.jpg)"}	
 
   Support the team and drive the process.
