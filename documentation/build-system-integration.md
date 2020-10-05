@@ -43,6 +43,7 @@ Create signing requests by calling the following commands via PowerShell:
       -OrganizationId $YOUR_ORGANIZATION_ID
       -ProjectSlug $YOUR_PROJECT_SLUG
       -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
+      -ArtifactConfigurationSlug $YOUR_ARTIFACT_CONFIG_SLUG
       -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
   ~~~ 
 * ... and download the signed artifact later
@@ -60,6 +61,7 @@ Create signing requests by calling the following commands via PowerShell:
       -OrganizationId $YOUR_ORGANIZATION_ID
       -ProjectSlug $YOUR_PROJECT_SLUG
       -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
+      -ArtifactConfigurationSlug $YOUR_ARTIFACT_CONFIG_SLUG
       -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
       -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
       -WaitForCompletion
@@ -83,15 +85,16 @@ You need to provide these values for every single API request.
 
 ### Submit a signing request
 
-| Synopsis            |      |
-| ------------------- | ---- |
-| URL                 | `/SigningRequests`
-| Method              | `POST`
-| Encoding            | `multipart/form-data`
-| `ProjectSlug`       | The project for which you want to create the signing request
-| `SigningPolicySlug` | Signing policy for which you want to create the signing request
-| `Artifact`          | Artifact file
-| `Description`       | Optional description for your signing request (e.g. version number)
+| Synopsis                    |      |
+| --------------------------- | ---- |
+| URL                         | `/SigningRequests`
+| Method                      | `POST`
+| Encoding                    | `multipart/form-data`
+| `ProjectSlug`               | The project for which you want to create the signing request
+| `SigningPolicySlug`         | Signing policy for which you want to create the signing request
+| `ArtifactConfigurationSlug` | Artifact configuration to use for the signing request
+| `Artifact`                  | Artifact file
+| `Description`               | Optional description for your signing request (e.g. version number)
 
 **Example:**
 
@@ -99,6 +102,7 @@ You need to provide these values for every single API request.
 curl -H "Authorization: Bearer $CI_USER_TOKEN" \
      -F "ProjectSlug=$YOUR_PROJECT_SLUG" \
      -F "SigningPolicySlug=test-signing" \
+     -F "ArtifactConfigurationSlug=v2.4" \
      -F "Artifact=@$PATH_TO_ARTIFACT" \
      -F "Description=$DESCRIPTION" \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests
