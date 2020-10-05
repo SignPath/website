@@ -38,32 +38,32 @@ Create signing requests by calling the following commands via PowerShell:
   ~~~
 * Submit a signing request and get a signing request ID without waiting for completion ...
   ~~~ powershell
-  $signingRequestID = Submit-SigningRequest
-      -CIUserToken $CI_USER_TOKEN
-      -OrganizationId $YOUR_ORGANIZATION_ID
-      -ProjectSlug $YOUR_PROJECT_SLUG
-      -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
-      -ArtifactConfigurationSlug $YOUR_ARTIFACT_CONFIG_SLUG
+  $signingRequestID = Submit-SigningRequest `
+      -CIUserToken $CI_USER_TOKEN `
+      -OrganizationId $ORGANIZATION_ID `
+      -ProjectSlug $PROJECT `
+      -SigningPolicySlug $SIGNING_POLICY `
+      -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
       -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
   ~~~ 
 * ... and download the signed artifact later
   ~~~ powershell
-  Get-SignedArtifact
-      -CIUserToken $CI_USER_TOKEN
-      -OrganizationId $YOUR_ORGANIZATION_ID
-      -SigningRequestId $signingRequestID
+  Get-SignedArtifact `
+      -CIUserToken $CI_USER_TOKEN `
+      -OrganizationId $ORGANIZATION_ID `
+      -SigningRequestId $signingRequestID `
       -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
   ~~~ 
 * Or submit a signing request and wait for completion
   ~~~ powershell
-  Submit-SigningRequest
-      -CIUserToken $CI_USER_TOKEN
-      -OrganizationId $YOUR_ORGANIZATION_ID
-      -ProjectSlug $YOUR_PROJECT_SLUG
-      -SigningPolicySlug $YOUR_SIGNING_POLICY_SLUG
-      -ArtifactConfigurationSlug $YOUR_ARTIFACT_CONFIG_SLUG
-      -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
-      -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
+  Submit-SigningRequest `
+      -CIUserToken $CI_USER_TOKEN `
+      -OrganizationId $ORGANIZATION_ID `
+      -ProjectSlug $PROJECT `
+      -SigningPolicySlug $SIGNING_POLICY `
+      -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+      -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
+      -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
       -WaitForCompletion
   ~~~
 
@@ -92,15 +92,15 @@ You need to provide these values for every single API request.
 | Encoding                    | `multipart/form-data`
 | `ProjectSlug`               | The project for which you want to create the signing request
 | `SigningPolicySlug`         | Signing policy for which you want to create the signing request
-| `ArtifactConfigurationSlug` | Artifact configuration to use for the signing request
+| `ArtifactConfigurationSlug` | Optional: artifact configuration to use for the signing request (default if not specified)
 | `Artifact`                  | Artifact file
-| `Description`               | Optional description for your signing request (e.g. version number)
+| `Description`               | Optional: description for your signing request (e.g. version number)
 
 **Example:**
 
 ~~~ bash
 curl -H "Authorization: Bearer $CI_USER_TOKEN" \
-     -F "ProjectSlug=$YOUR_PROJECT_SLUG" \
+     -F "ProjectSlug=$PROJECT" \
      -F "SigningPolicySlug=test-signing" \
      -F "ArtifactConfigurationSlug=v2.4" \
      -F "Artifact=@$PATH_TO_ARTIFACT" \
@@ -297,13 +297,13 @@ Append this to your appveyor.yaml file:
 ~~~ yaml
 deploy:
 - provider: Webhook
-  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>
+  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT>&SigningPolicySlug=<SIGNING_POLICY>
   authorization:
      secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
 ~~~
 
 Replace the parameters:
-* `<ORGANIZATION_ID>`, `<PROJECT_SLUG>` and `<SIGNING_POLICY_SLUG>` values can be retrieved from the signing policy page
+* `<ORGANIZATION_ID>`, `<PROJECT>` and `<SIGNING_POLICY>` values can be retrieved from the signing policy page
 * `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
 
 </td> </tr> </tbody> </table>
