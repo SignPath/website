@@ -2,7 +2,7 @@
 current:
     type: good
     title: All systems are operational
-    #type: warning
+    #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
   - date: 'Nov, 18, 2020'
