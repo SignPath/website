@@ -5,38 +5,42 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
-  - date: 'Nov, 18, 2020'
-    range: 'Nov, 18, 2020, 06:00 UTC - Nov, 18, 2020, 08:00 UTC'
+  - date: 'Nov. 18, 2020'
+    range: 'Nov. 18, 2020, 06:00 UTC - Nov. 18, 2020, 08:00 UTC'
     type: warning
     title: 'Payment provider: Planned maintenance'
     description: 'Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath.io will not be affected.'
-  - date: 'Jun, 04, 2020'
-    range: 'Jun, 04, 2020, 21:30 UTC - Jun, 05, 2020, 04:00 UTC'
+  - date: 'Nov. 04, 2020'
+    range: 'Nov. 04, 2020, 23:00 UTC - Nov. 05, 2020, 05:00 UTC'
+    type: warning
+    description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
+  - date: 'Jun. 04, 2020'
+    range: 'Jun. 04, 2020, 21:30 UTC - Jun. 05, 2020, 04:00 UTC'
     type: warning
     title: 'Planned maintenance'
-    description: 'Due to a reconfiguration of our internet provider, the processing of signing requests and creating/deleting certificates may be temporarily unavailable.'
-  - date: 'May, 23, 2020'
-    range: 'May, 23, 2020 20:30 UTC - May, 24, 2020 11:00 UTC'
+    description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
+  - date: 'May. 23, 2020'
+    range: 'May. 23, 2020 20:30 UTC - May. 24, 2020 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
-  - date: 'May, 14, 2020'
-    range: 'May, 14, 2020 07:30 - 12:45 UTC'
+  - date: 'May. 14, 2020'
+    range: 'May. 14, 2020 07:30 - 12:45 UTC'
     type: critical
     title: 'Infrastructure problems during deployment'
     description: 'During the deployment of a new version of SignPath, infrastructure problems arose. The release was rolled back, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.'
-  - date: 'May, 09, 2020'
-    range: 'May, 09, 2020 21:30 UTC - May, 10, 2020 05:00 UTC'
+  - date: 'May. 09, 2020'
+    range: 'May. 09, 2020 21:30 UTC - May. 10, 2020 05:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
-  - date: 'Feb, 24, 2020'
-    range: 'Feb, 24, 2020 02:00 - 04:00 UTC'
+  - date: 'Feb. 24, 2020'
+    range: 'Feb. 24, 2020 02:00 - 04:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
-  - date: 'Nov, 07, 2019'
-    range: 'Nov, 07, 2019 02:30 - 04:00 UTC'
+  - date: 'Nov. 07, 2019'
+    range: 'Nov. 07, 2019 02:30 - 04:00 UTC'
     type: critical
     title: 'Azure outage'
     description: 'Due to a Storage incident in the Azure datacenter in the West Europe regions, our services had several outages.'
