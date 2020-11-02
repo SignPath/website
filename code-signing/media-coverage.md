@@ -45,7 +45,7 @@ The incident has been widely reported then and since. The [Stuxnet Wikipedia art
 
 In 2012, hackers **compromised code signing certificates** from security software vendor Bit9 (later renamed to [Carbon Black](https://www.carbonblack.com/)). These certificates were then used to sign malware in order to **attack defense industry customers of Bit9**.
 
-The attack was analyzed in detail by **[SANS institute](https://www.sans.org/)** in their 2015 report [The Scary and Terrible Code Signing Problem You Don't Know You Have](https://uk.sans.org/reading-room/whitepapers/certificates/paper/36382). As a conclusion, this report also includes a list of **recommendations for hardening code signing** infrastructure.
+The attack was analyzed in detail by **[SANS institute](https://www.sans.org/)** in their 2015 report [The Scary and Terrible Code Signing Problem You Don't Know You Have](https://www.sans.org/reading-room/whitepapers/critical/scary-terrible-code-signing-problem-you-36382). As a conclusion, this report also includes a list of **recommendations for hardening code signing** infrastructure.
 
 The attack started with a **SQL injection** attack on a public-facing web server by an **Advanced Persistent Threat group**. When an archived virtual machine for code signing was reactivated in 2013, it was taken over and the **private key** for an old code signing certificate was **stolen**.
 
