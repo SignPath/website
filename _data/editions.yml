@@ -3,9 +3,9 @@
     projects: '1 &dash; 3'
     users: '1 &dash; 2'
     signing_requests_release_signing: 20
-    signing_requests_release_signing_with_cd: '1,000'
+    signing_requests_release_signing_with_cd: null
     signing_requests_test_signing: 100
-    signing_requests_test_signing_with_cd: '5,000'
+    signing_requests_test_signing_with_cd: null
     ci_pipelines: '1'
     signing_request_retention_release_signing: '2 weeks'
     signing_request_retention_test_signing: '1 week'
@@ -18,6 +18,7 @@
     android: true
     java: false
     docker: false
+    hash: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: false
@@ -58,6 +59,7 @@
     android: true
     java: true
     docker: false
+    hash: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true
@@ -67,7 +69,7 @@
     quorum_approval: false
     arbitrary_signing_policies: false
     policies_for_certs: false
-    double_verification: true
+    double_verification: false
     origin_verification: true
   other:
     malware_detection: true
@@ -77,46 +79,6 @@
     support: 'Email'
     code_signing_consulting: false
   link_type: 'pricing_page'
-
-- name: Premium
-  quotas:
-    projects: 'Unlimited'
-    users: 'Unlimited'
-    signing_requests_release_signing: 'Unlimited'
-    signing_requests_release_signing_with_cd: null
-    signing_requests_test_signing: 'Unlimited'
-    signing_requests_test_signing_with_cd: null
-    ci_pipelines: 'Unlimited'
-    signing_request_retention_release_signing: '2 years'
-    signing_request_retention_test_signing: '2 months'
-  signing_methods:
-    authenticode: true
-    device_drivers: true
-    office_add_ins: true
-    opc: true
-    nuget: true
-    android: true
-    java: true
-    docker: true
-  artifact_configuration:
-    deep_signing: true
-    multiple_configurations_per_projects: true
-    metadata_constraints: true
-  policy_enforcement:
-    manual_approval: true
-    quorum_approval: true
-    arbitrary_signing_policies: true
-    policies_for_certs: true
-    double_verification: true
-    origin_verification: true
-  other:
-    malware_detection: true
-    hsm_key_storage: true
-    groups: true
-    available_on_premises: false
-    support: 'Priority email'
-    code_signing_consulting: 'available'
-  link_type: 'sales_email'
 
 - name: Enterprise
   quotas:
@@ -138,6 +100,7 @@
     android: true
     java: true
     docker: true
+    hash: true
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true
@@ -154,8 +117,8 @@
     hsm_key_storage: true
     groups: true
     available_on_premises: true
-    support: 'Live sessions'
-    code_signing_consulting: 'included'
+    support: 'Priority email'
+    code_signing_consulting: 'available'
   link_type: 'sales_email'
 
 - name: Open source
@@ -178,6 +141,7 @@
     android: true
     java: true
     docker: true
+    hash: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true
