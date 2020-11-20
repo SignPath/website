@@ -136,9 +136,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
       function determinePrice(options) {
         var r = 
-          (options.basePrice
-          + Math.max(0, options.numProjects - options.numProjectsIncluded) * options.pricePerProject * (options.threeYears ? 3 : 1)
-          + Math.max(0, options.numUsers    - options.numUsersIncluded   ) * options.pricePerUser    * (options.threeYears ? 3 : 1)) 
+          (
+            options.basePrice
+            + Math.max(0, options.numProjects - options.numProjectsIncluded) * options.pricePerProject
+            + Math.max(0, options.numUsers    - options.numUsersIncluded   ) * options.pricePerUser
+          )
           * (options.threeYears ? 3 * THREE_YEARS_FACTOR : 1);
         return r
       }
