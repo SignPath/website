@@ -10,30 +10,30 @@
 
 <section class='bg-grey editions'>
 	<div>
-		<div class='editions'>
+		<div class='column-layout'>
 			<div class='features col'>
 				<ul>
 					<li class='head f'>Quotas</li>
+					<li class='f'>Certificates</li>
 					<li class='f'>Projects</li>
 					<li class='f'>Users</li>
-					<li class='sub-head f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span><span class='sub'>per project</span></li>
-					<li class='sub set-height91 f'>release-signing</li>
-					<li class='sub set-height91 f'>test-signing</li>
-					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
+					<li class='f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
 					<li class='sub-head f'>Signing request retention <span class='hint--top-right hint--medium' aria-label='Your artifacts and signing request information is deleted after the specified time range'><i class='las la-info-circle'></i></span></li>
 					<li class='sub f'>release-signing</li>
 					<li class='sub f'>test-signing</li>
-					<li class='head f'>Signing methods</li>
-					<li class='f'>Authenticode<span class='sub'>.exe, .dll, .msi, &hellip;</span></li>
-					<li class='f'>Windows device drivers</li>
+					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
+					<li class='head f'>Signing methods and file types</li>
+					<li class='f'>Windows Authenticode <span class='hint--top-right hint--medium' aria-label='Programs and installers. The following file types are supported: .acm, .ax, .cpl, .dll, .drv, .efi, .exe, .mui, .ocx, .scr, .sys, .tsp'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>Office Add-ins</li>
-					<li class='f'>OPC<span class='sub'>.vsix, .hlk</span></li>
+					<li class='f'>Visual Studio Extensions<span class='sub'>.vsix</span></li>
 					<li class='f'>NuGet</li>
+					<li class='f'>PowerShell scripts<span class='sub'>.ps1, .psm1, .psd1</span></li>
+					<li class='f'>Clickonce</li>
 					<li class='f'>Android apps <span class='hint--top-right hint--medium' aria-label='APK signing scheme v1'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>Java</li>
-					<li class='f'>Docker images <span class='hint--top-right hint--medium' aria-label='Currently in preview!'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Hashes via CSP/KSP/PKCS#11 <span class='hint--top-right hint--medium' aria-label='Coming soon!'><i class='las la-info-circle'></i></span></li>
-					<li class='head f'>Artifact configuration</li>
+					<li class='f'>Windows device drivers <span class='hint--top-right hint--medium' aria-label='Cross-signing and EV signing'><i class='las la-info-circle'></i></span><span class='sub'>.hlk, .drv</span></li>
+					<li class='f'>Docker images</li>
+					<li class='head f'>Artifact configuration<span class='sub'><a href='/documentation/artifact-configuration'>Documentation</a></span></li>
 					<li class='f'>Deep signing <span class='hint--top-right hint--medium' aria-label='Signs the installer/package and contained files'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>Multiple configurations <span class='hint--top-right hint--medium' aria-label='Allows different configurations for e.g. different versions of the artifacts'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>Metadata constraints <span class='hint--top-right hint--medium' aria-label='Restrict the allowed artifacts based on metadata information'><i class='las la-info-circle'></i></span></li>
@@ -42,8 +42,8 @@
 					<li class='f'>Quorum approval (k-out-of-n)</li>
 					<li class='f'>Policies for certificates</li>
 					<li class='f'>Arbitrary signing policies <span class='hint--top-right hint--medium' aria-label='One release- and test-signing policy are available in all editions. Coming soon!'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Double verification <span class='hint--top-right hint--medium' aria-label='Increases the security by requiring two independent factors for API authentication'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>Origin verification <span class='hint--top-right hint--medium' aria-label='Provides information about commit and repository the artifact was built from'><i class='las la-info-circle'></i></span></li>
+					<li class='f'>Double verification <span class='hint--top-right hint--medium' aria-label='Increases the security by requiring two independent factors for API authentication'><i class='las la-info-circle'></i></span></li>
 					<li class='head f'>Other</li>
 					<li class='f'>Malware detection</li>
 					<li class='f'>HSM key storage</li>
@@ -54,35 +54,25 @@
 				</ul>
 			</div>
 			{% for edition in site.data['editions'] %}
-				<div class='edition col'>
+				<div class='content col'>
 					<h3>{{ edition.name }}</h3>
 					<ul>
-						<li class='first-after-header first-after-main-header'>{{ edition.quotas.projects }}</li>
+						<li class='first-after-header first-after-main-header'>{{ edition.quotas.certificates }}</li>
+						<li>{{ edition.quotas.projects }}</li>
 						<li>{{ edition.quotas.users }}</li>
-						<li class='first-after-header set-height91'>
-							{{ edition.quotas.signing_requests_release_signing }}{% if edition.quotas.signing_requests_test_signing != 'Unlimited' %} per year{% endif %}
-							{% if edition.quotas.signing_requests_release_signing_with_cd %}
-								<span class='sub'>{{ edition.quotas.signing_requests_release_signing_with_cd }} with CD package<sup>1</sup></span>
-							{% endif %}
-						</li>
-						<li class='set-height91'>
-							{{ edition.quotas.signing_requests_test_signing }}{% if edition.quotas.signing_requests_test_signing != 'Unlimited' %} per year{% endif %}
-							{% if edition.quotas.signing_requests_test_signing_with_cd %}
-								<span class='sub'>{{ edition.quotas.signing_requests_test_signing_with_cd }} with CD package<sup>1</sup></span>
-							{% endif %}
-						</li>
-						<li>{{ edition.quotas.ci_pipelines }}</li>
+						<li>{{ edition.quotas.signing_requests }}</li>
 						<li class='first-after-header'>{{ edition.quotas.signing_request_retention_release_signing }}</li>
 						<li>{{ edition.quotas.signing_request_retention_test_signing }}</li>
+						<li>{{ edition.quotas.ci_pipelines }}</li>
 						{% assign groups = 'signing_methods,artifact_configuration,policy_enforcement,other' | split: ',' %}
-						{% assign group_features = 'authenticode,device_drivers,office_add_ins,opc,nuget,android,java,docker,hash;deep_signing,multiple_configurations_per_projects,metadata_constraints;manual_approval,quorum_approval,arbitrary_signing_policies,policies_for_certs,double_verification,origin_verification;malware_detection,hsm_key_storage,groups,available_on_premises,support,code_signing_consulting' | split: ';' %}
+						{% assign group_features = 'authenticode,office_add_ins,opc,nuget,powershell,clickonce,android,java,device_drivers,docker;deep_signing,multiple_configurations_per_projects,metadata_constraints;manual_approval,quorum_approval,arbitrary_signing_policies,policies_for_certs,origin_verification,double_verification;malware_detection,hsm_key_storage,groups,available_on_premises,support,code_signing_consulting' | split: ';' %}
 						{% for group_index in (0..4) %}
 							{% assign group = groups[group_index] %}
 							{% assign features = group_features[group_index] | split: ',' %}
 							{% for feature in features %}
 								<li {% if feature == features[0] %}class='first-after-header'{% endif %}>
-									{% if edition[group][feature] == true %}<i class='la la-check'></i>
-									{% elsif edition[group][feature] == false %}<i class='la la-times'></i>
+									{% if edition[group][feature] == true %}<i class='la la-check bold'></i>
+									{% elsif edition[group][feature] == false %}<span>&nbsp;</span>
 									{% else %}{{ edition[group][feature] }}{% endif %}
 								</li>
 							{% endfor %}
@@ -90,20 +80,19 @@
 					</ul>
 					{% case edition.link_type %}
 						{% when 'pricing_page' %}
-							<a href='/product/pricing'>Buy now</a>
-							<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial</a>
+							<a class='btn' href='/product/pricing'>Buy now</a>
+							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-right hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
 						{% when 'sales_email' %}
-							<a href='mailto:sales@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact sales</a>
+							<a class='btn' href='mailto:sales@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact sales</a>
 						{% when 'support_email' %}
-							<a href='mailto:support@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact support</a>
+							<a class='btn' href='mailto:support@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact support</a>
 					{% endcase %}
 				</div>
 			{% endfor %}
 		</div>
 		<div class='info'>
-	      <p>
-	        Footnotes:<br>
-	        1) Available upon request<br> 
+	      <p class='center'>
+	      	<a href='/code-signing/test-certificates'>Download</a> timestamp server certificate used in free trials.
 	      </p>
 	    </div>
 	</div>

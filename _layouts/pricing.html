@@ -9,80 +9,100 @@
 
 <section class='bg-grey pricing'>
 	<div>
-		<div class='selector'>
-			<div class='toggle'>
-				<label>
-					<input type='checkbox' id='currency-toggle'>
-					<span></span>
-					<div data-before='$ USD' data-after='EUR €'></div>
-				</label>
+		<div class='header'>
+			<div class='calculator'>
+				<div class='main'>
+					<div class='column'>
+						<div class='row'>
+							<span class='label'>Projects</span>
+							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-projects-input' type='number' min='1' max='100' value='1' /><i class='la la-plus-circle'></i></div>
+						</div>
+						<div class='row'>
+							<span class='label'>Users</span>
+							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-users-input' type='number' min='1' max='100' value='1' /><i class='la la-plus-circle'></i></div>
+						</div>
+					</div>
+					<div class='column'>
+						<div class='row'>
+							<span class='label'>Duration</span>
+							<div class='toggle'>
+								<label>
+									<input type='checkbox' id='duration-toggle'>
+									<span></span>
+									<div data-before='1 year' data-after='3 years'></div>
+								</label>
+							</div>
+						</div>
+						<div class='row'>
+							<span class='label'>Currency</span>
+							<div class='toggle'>
+								<label>
+									<input type='checkbox' id='currency-toggle'>
+									<span></span>
+									<div data-before='$ USD' data-after='EUR €'></div>
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class='link'>
+					<a href='../editions'>Compare features</a>
+				</div>
 			</div>
-			<div class='toggle'>
-				<label>
-					<input type='checkbox' id='duration-toggle'>
-					<span></span>
-					<div data-before='1 year' data-after='3 years'></div>
-				</label>
+			<div class='ev-included'>
+				<i class='la la-certificate'></i>
+				<span>EV certificate included</span>
 			</div>
-			<a href='../editions'>Compare features</a>
 		</div>
-		<div class='products-table'>
+
+		<div class='column-layout'>
+			<div class='features col'>
+				<ul>
+					<li class='head f'>Quotas</li>
+					<li class='f'>Projects</li>
+					<li class='f'>Users</li>
+					<li class='sub-head f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
+					<li class='sub f'>release-signing</li>
+					<li class='sub f'>test-signing</li>
+					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
+				</ul>
+			</div>
 			{% for product in site.data['pricing'] %}
-				<div class='product'>
-					<div class='header'>
+				<div class='content col'>
+					<div class='product-header'>
 						<h2>{{ product.name }}</h2>
 						<h3>
-							<span class='price' data-price='{{ product.base_price }}'>
+							<span class='price' data-base_price='{{ product.base_price }}'>
 								${{ product.base_price }}
 							</span>
 						</h3>
 					</div>
-					<ul class='body'>
-						<li>1 EV certificate included</li>
-						<li>
-							<div>{{ product.num_projects_included }} {%if product.num_projects_included==1 %}project{%else%}projects{%endif%} included</div>
-							<div class='sub'>
-								<span class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_project }}</span> per additional project ({{ product.num_projects_max }} max)
-							</div>
+					<ul>
+						<li class='first-after-header first-after-main-header'>
+							<span class='num-projects' data-num_projects_included='{{ product.num_projects_included }}' data-num_projects_max='{{ product.num_projects_max }}' data-price_per_project='{{ product.price_per_project }}'>{{ product.num_projects_included }}</span>
+							<span class='sub'><span class='currency-amount' data-value='{{ product.price_per_project }}'>${{ product.price_per_project }}</span> per additional project ({{ product.num_projects_max }} max)</span>
 						</li>
 						<li>
-							<div>{{ product.num_users_included }} {%if product.num_users_included==1 %}user{%else%}users{%endif%} included</div>
-							<div class='sub'>
-								<span class='price' data-price='{{ product.price_additional_user }}'>${{ product.price_additional_user }}</span> per additional user ({{ product.num_users_max }} max)
-							</div>
+							<span class='num-users' data-num_users_included='{{ product.num_users_included }}' data-num_users_max='{{ product.num_users_max }}' data-price_per_user='{{ product.price_per_user }}'>{{ product.num_users_included }}</span>
+							<span class='sub'><span class='currency-amount' data-value='{{ product.price_per_user }}'>${{ product.price_per_user }}</span> per additional user ({{ product.num_users_max }} max)</span>
 						</li>
+						<li class='first-after-header'>
+							<span class='num-release-signings' data-value='{{ product.num_releases_signings_per_project }}'>{{ product.num_releases_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
+						</li>
+						<li>
+							<span class='num-test-signings' data-value='{{ product.num_test_signings_per_project }}'>{{ product.num_test_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
+						</li>
+						<li><span class='num-ci-pipelines' data-value='{{ product.num_ci_pipelines }}' data-ci_pipelines_per_project='{{ product.ci_pipelines_per_project }}'>{{ product.num_ci_pipelines | times: product.num_projects_included }}</span></li>
 					</ul>
 					<a class='btn btn-primary footer' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>
 			{% endfor %}
-			<!--<div class='product'>
-				<div class='header'>
-					<h2>Basic Business</h2>
-					<h3>Free</h3>
-				</div>
-				<ul class='body'>
-					<li>Unlimited</li>
-					<li>2<sup>2)</sup></li>
-					<li>-<span class='period'>&nbsp;</span></li>
-					<li>0</li>
-					<li>-<span class='period'>&nbsp;</span></li>
-					<li>3</li>
-					<li>100 MB</li>
-					<li>-<span class='period'>&nbsp;</span></li>
-				</ul>
-				<a class='btn btn-primary footer' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' id='free-trial-button'>Register now</a>
-			</div>-->
 		</div>
-
 		<div class='info'>
 			<p>
 				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
 				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>.</strong><br>
-			</p>
-			<p>
-				Footnotes:<br>
-				1) In the free trial version, you need to <a href='/code-signing/test-certificates'>install</a> our timestamp server certificate..<br> 
-				2) In addition to your own user account, you can create one for build automation.
+				<strong><i class='la la-info-circle'></i> For special inquiries or more information, please <a href='mailto:sales@signpath.io'>contact us</a>.</strong><br>
 			</p>
 		</div>
 	</div>
