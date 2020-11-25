@@ -17,10 +17,6 @@
 					<li class='f'>Certificates</li>
 					<li class='f'>Projects</li>
 					<li class='f'>Users</li>
-					<li class='f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
-					<li class='sub-head f'>Signing request retention <span class='hint--top-right hint--medium' aria-label='Your artifacts and signing request information is deleted after the specified time range'><i class='las la-info-circle'></i></span></li>
-					<li class='sub f'>release-signing</li>
-					<li class='sub f'>test-signing</li>
 					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
 					<li class='head f'>Signing methods and file types</li>
 					<li class='f'>Windows Authenticode <span class='hint--top-right hint--medium' aria-label='Programs and installers. The following file types are supported: .acm, .ax, .cpl, .dll, .drv, .efi, .exe, .mui, .ocx, .scr, .sys, .tsp'><i class='las la-info-circle'></i></span></li>
@@ -60,9 +56,6 @@
 						<li class='first-after-header first-after-main-header'>{{ edition.quotas.certificates }}</li>
 						<li>{{ edition.quotas.projects }}</li>
 						<li>{{ edition.quotas.users }}</li>
-						<li>{{ edition.quotas.signing_requests }}</li>
-						<li class='first-after-header'>{{ edition.quotas.signing_request_retention_release_signing }}</li>
-						<li>{{ edition.quotas.signing_request_retention_test_signing }}</li>
 						<li>{{ edition.quotas.ci_pipelines }}</li>
 						{% assign groups = 'signing_methods,artifact_configuration,policy_enforcement,other' | split: ',' %}
 						{% assign group_features = 'authenticode,office_add_ins,opc,nuget,powershell,clickonce,android,java,device_drivers,docker;deep_signing,multiple_configurations_per_projects,metadata_constraints;manual_approval,quorum_approval,arbitrary_signing_policies,policies_for_certs,origin_verification,double_verification;malware_detection,hsm_key_storage,groups,available_on_premises,support,code_signing_consulting' | split: ';' %}
@@ -81,9 +74,10 @@
 					{% case edition.link_type %}
 						{% when 'pricing_page' %}
 							<a class='btn' href='/product/pricing'>Buy now</a>
-							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-right hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
+							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
 						{% when 'sales_email' %}
 							<a class='btn' href='mailto:sales@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact sales</a>
+							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20{{ edition.name | urlencode }}%20subscription'>Request trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
 						{% when 'support_email' %}
 							<a class='btn' href='mailto:support@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact support</a>
 					{% endcase %}

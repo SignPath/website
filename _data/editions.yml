@@ -3,10 +3,7 @@
     certificates: '1 EV included'
     projects: 'up to 3'
     users: 'up to 2'
-    signing_requests: 'Limited'
     ci_pipelines: '1'
-    signing_request_retention_release_signing: '2 weeks'
-    signing_request_retention_test_signing: '1 week'
   signing_methods:
     authenticode: true
     powershell: true
@@ -43,10 +40,7 @@
     certificates: '1 EV included'
     projects: 'up to 10'
     users: 'up to 15'
-    signing_requests: 'Limited'
     ci_pipelines: '1 per project'
-    signing_request_retention_release_signing: '2 months'
-    signing_request_retention_test_signing: '2 weeks'
   signing_methods:
     authenticode: true
     powershell: true
@@ -83,10 +77,7 @@
     certificates: 'Unlimited'
     projects: 'Unlimited'
     users: 'Unlimited'
-    signing_requests: 'Unlimited'
     ci_pipelines: 'Unlimited'
-    signing_request_retention_release_signing: '2 years'
-    signing_request_retention_test_signing: '2 months'
   signing_methods:
     authenticode: true
     powershell: true
@@ -123,10 +114,7 @@
     certificates: '1 included'
     projects: '1'
     users: 'Unlimited'
-    signing_requests: 'Fair use'
     ci_pipelines: '1'
-    signing_request_retention_release_signing: '2 months'
-    signing_request_retention_test_signing: '2 weeks'
   signing_methods:
     authenticode: true
     powershell: true
