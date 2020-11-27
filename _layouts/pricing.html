@@ -59,11 +59,15 @@
 			<div class='features col'>
 				<ul>
 					<li class='head f'>Quotas</li>
-					<li class='f'>Projects</li>
-					<li class='f'>Users</li>
+					<li class='f include-sub'>Projects</li>
+					<li class='f include-sub'>Users</li>
 					<li class='sub-head f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
+					<li class='sub f include-sub'>release-signing</li>
+					<li class='sub f include-sub'>test-signing</li>
+					<li class='sub-head f'>Signing Request retention <span class='hint--top-right hint--medium' aria-label='Your artifacts and signing request information is deleted after the specified time range'><i class='las la-info-circle'></i></span></li>
 					<li class='sub f'>release-signing</li>
 					<li class='sub f'>test-signing</li>
+					<li class='f'>Artifact volume <span class='hint--top-right hint--medium' aria-label='Annual allowance of uploaded artifacts'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
 				</ul>
 			</div>
@@ -75,6 +79,7 @@
 							<span class='price' data-base_price='{{ product.base_price }}'>
 								${{ product.base_price }}
 							</span>
+							<span class='price-sub'>per year</span>
 						</h3>
 					</div>
 					<ul>
@@ -92,11 +97,26 @@
 						<li>
 							<span class='num-test-signings' data-value='{{ product.num_test_signings_per_project }}'>{{ product.num_test_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
 						</li>
+						<li class='first-after-header'>
+							<span>{{ product.release_signing_retention }}</span>
+						</li>
+						<li>
+							<span>{{ product.test_signing_retention }}</span>
+						</li>
+						<li><span class='num-gb-per-project' data-value='{{ product.num_gb_per_project }}'>{{ product.num_gb_per_project | times: product.num_projects_included }} GB</span></li>
 						<li><span class='num-ci-pipelines' data-value='{{ product.num_ci_pipelines }}' data-ci_pipelines_per_project='{{ product.ci_pipelines_per_project }}'>{{ product.num_ci_pipelines | times: product.num_projects_included }}</span></li>
 					</ul>
 					<a class='btn btn-primary footer' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>
 			{% endfor %}
+			<div class='editions-dialog'>
+				<div>
+					<span>Contact us for information about other available editions.</span>
+					<div>
+						<a class='btn btn-primary' href='mailto:sales@signpath.io?Subject=Enterprise%20subscription'>Contact us</a>
+					</div>
+				</div>
+			</div>
 		</div>
 		<div class='info'>
 			<p>

@@ -138,10 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
         var r = 
           (
             options.basePrice
-            + Math.max(0, options.numProjects - options.numProjectsIncluded) * options.pricePerProject
-            + Math.max(0, options.numUsers    - options.numUsersIncluded   ) * options.pricePerUser
+            + Math.max(0, Math.min(options.numProjects, options.numProjectsMax) - options.numProjectsIncluded) * options.pricePerProject
+            + Math.max(0, Math.min(options.numUsers,    options.numUsersMax)    - options.numUsersIncluded   ) * options.pricePerUser
           )
-          * (options.threeYears ? 3 * THREE_YEARS_FACTOR : 1);
+          * (options.threeYears ? THREE_YEARS_FACTOR : 1);
         return r
       }
 
@@ -163,6 +163,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
       });
 
+      var numSubscriptionsAvailable = 0;
+
       document.querySelectorAll('section.pricing div.content').forEach(function(productCtn) {
 
         var basePrice           = parseInt(productCtn.querySelector('.price').dataset.base_price, 10);
@@ -174,62 +176,70 @@ document.addEventListener('DOMContentLoaded', function() {
         var pricePerUser        = parseInt(productCtn.querySelector('.num-users').dataset.price_per_user, 10);
         var numReleaseSignings  = parseInt(productCtn.querySelector('.num-release-signings').dataset.value, 10);
         var numTestSignings     = parseInt(productCtn.querySelector('.num-test-signings').dataset.value, 10);
+        var numGBPerProject     = parseInt(productCtn.querySelector('.num-gb-per-project').dataset.value, 10);
         var numCIPipelines      = parseInt(productCtn.querySelector('.num-ci-pipelines').dataset.value, 10);
         var ciPipelinesPerProject = productCtn.querySelector('.num-ci-pipelines').dataset.ci_pipelines_per_project == 'true';
 
         if (numProjects > numProjectsMax || numUsers > numUsersMax) {
-          productCtn.classList.add('match-failed')
+          productCtn.classList.add('match-failed');
         } else {
-          productCtn.classList.remove('match-failed')
-          productCtn.querySelector('.num-projects').innerHTML = Math.max(numProjectsIncluded, numProjects);
-          productCtn.querySelector('.num-users').innerHTML    = Math.max(numUsersIncluded,    numUsers);
+          productCtn.classList.remove('match-failed');
+          numSubscriptionsAvailable++;
+        }
+        productCtn.querySelector('.num-projects').innerHTML = Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-users').innerHTML    = Math.min(Math.max(numUsersIncluded,    numUsers), numUsersMax);
 
-          var options = {
-            basePrice: basePrice,
-            threeYears: threeYears,
-            numProjects: numProjects,
-            numProjectsIncluded: numProjectsIncluded,
-            pricePerProject: pricePerProject,
-            numUsers: numUsers,
-            numUsersIncluded: numUsersIncluded,
-            pricePerUser: pricePerUser
-          }
+        var options = {
+          basePrice: basePrice,
+          threeYears: threeYears,
+          numProjects: numProjects,
+          numProjectsIncluded: numProjectsIncluded,
+          numProjectsMax: numProjectsMax,
+          pricePerProject: pricePerProject,
+          numUsers: numUsers,
+          numUsersIncluded: numUsersIncluded,
+          numUsersMax: numUsersMax,
+          pricePerUser: pricePerUser
+        }
 
-          productCtn.querySelector('.price').innerText = format(determinePrice(options), currency);
-          productCtn.querySelector('.num-release-signings').innerHTML = numReleaseSignings * Math.max(numProjectsIncluded, numProjects);
-          productCtn.querySelector('.num-test-signings').innerHTML    = numTestSignings    * Math.max(numProjectsIncluded, numProjects);
-          if (ciPipelinesPerProject) {
-            productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines     * Math.max(numProjectsIncluded, numProjects);
-          }
-          productCtn.querySelectorAll('.currency-amount').forEach(function(ctn) {
-            ctn.innerText = format(parseFloat(ctn.dataset.value) * (threeYears ? 3 * THREE_YEARS_FACTOR : 1), currency);
-          });
+        productCtn.querySelector('.price').innerText = format(determinePrice(options), currency);
+        productCtn.querySelector('.price-sub').style.visibility = threeYears ? 'visible' : 'hidden';
+        productCtn.querySelector('.num-release-signings').innerHTML = numReleaseSignings * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-test-signings').innerHTML    = numTestSignings    * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-gb-per-project').innerHTML  =  (numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) + ' GB';
+        if (ciPipelinesPerProject) {
+          productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        }
+        productCtn.querySelectorAll('.currency-amount').forEach(function(ctn) {
+          ctn.innerText = format(parseFloat(ctn.dataset.value) * (threeYears ? THREE_YEARS_FACTOR : 1), currency);
+        });
 
-          var productid = productCtn.querySelector('a.footer').dataset[threeYears ? 'productid_three_years' : 'productid_one_year']
-          if (params.currentProductId) { // update links
-            productCtn.querySelector('a.footer').innerText = 'Change';
-            productCtn.querySelector('a.footer').href = document.documentElement.dataset.appurl 
-              + '/Web/' 
-              + params.organizationId 
-              + '/Subscription/CompleteChange?productId=' 
-              + productid 
-              + '&paymentToken=' 
-              + encodeURIComponent(params.paymentToken)
-              + '&OPTIONS' + productid + '='
-              + 'num_projects_' + productid + encodeURIComponent('=' + Math.max(numProjects, numProjectsIncluded))
-              + ',num_users_' + productid + encodeURIComponent('=' + Math.max(numUsers, numUsersIncluded));
-          } else {
-            productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
-              + productid 
-              + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' 
-              + (currency == '$' ? 'USD' : 'EUR') 
-              + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
-              + '&OPTIONS' + productid + '='
-              + 'num_projects_' + productid + encodeURIComponent('=' + Math.max(numProjects, numProjectsIncluded))
-              + ',num_users_' + productid + encodeURIComponent('=' + Math.max(numUsers, numUsersIncluded));
-          }
+        var productid = productCtn.querySelector('a.footer').dataset[threeYears ? 'productid_three_years' : 'productid_one_year']
+        if (params.currentProductId) { // update links
+          productCtn.querySelector('a.footer').innerText = 'Change';
+          productCtn.querySelector('a.footer').href = document.documentElement.dataset.appurl 
+            + '/Web/' 
+            + params.organizationId 
+            + '/Subscription/CompleteChange?productId=' 
+            + productid 
+            + '&paymentToken=' 
+            + encodeURIComponent(params.paymentToken)
+            + '&OPTIONS' + productid + '='
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
+        } else {
+          productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
+            + productid 
+            + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' 
+            + (currency == '$' ? 'USD' : 'EUR') 
+            + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
+            + '&OPTIONS' + productid + '='
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
         }
       })
+
+      document.querySelector('.editions-dialog').style.display = numSubscriptionsAvailable > 0 ? 'none' : 'block';
     }
 
     document.querySelectorAll('section.pricing div.toggle input').forEach(function(input) {

@@ -64,9 +64,10 @@
 					{% case edition.link_type %}
 						{% when 'pricing_page' %}
 							<a class='btn' href='/product/pricing'>Buy now</a>
-							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span aria-label='Uses a non-trusted timestamping server' class='hint--top-right hint--medium'><i class='las la-info-circle'></i></a>
+							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
 						{% when 'sales_email' %}
 							<a class='btn' href='mailto:sales@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact sales</a>
+							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20{{ edition.name | urlencode }}%20subscription'>Request trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
 						{% when 'support_email' %}
 							<a class='btn' href='mailto:support@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact support</a>
 					{% endcase %}
