@@ -1,12 +1,11 @@
 - name: Starter
   quotas:
-    certificates: '1 EV included'
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
     projects: 'up to 3'
     users: 'up to 2'
-    signing_requests: 'Limited'
+    signing_requests: 'yearly quota'
     ci_pipelines: '1'
-    signing_request_retention_release_signing: '2 weeks'
-    signing_request_retention_test_signing: '1 week'
   signing_methods:
     authenticode: true
     powershell: true
@@ -25,7 +24,8 @@
   policy_enforcement:
     manual_approval: false
     quorum_approval: false
-    arbitrary_signing_policies: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
     double_verification: false
     origin_verification: false
@@ -34,19 +34,19 @@
     hsm_key_storage: true
     groups: false
     available_on_premises: false
-    support: 'Email'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'pricing_page'
 
 - name: Basic
   quotas:
-    certificates: '1 EV included'
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
     projects: 'up to 10'
+    projects-hint: 'You may use several artifact configurations per project, e.g. for different components. They will share the same policies.'
     users: 'up to 15'
-    signing_requests: 'Limited'
+    signing_requests: 'yearly quota'
     ci_pipelines: '1 per project'
-    signing_request_retention_release_signing: '2 months'
-    signing_request_retention_test_signing: '2 weeks'
   signing_methods:
     authenticode: true
     powershell: true
@@ -65,7 +65,8 @@
   policy_enforcement:
     manual_approval: true
     quorum_approval: false
-    arbitrary_signing_policies: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
     double_verification: false
     origin_verification: false
@@ -74,19 +75,17 @@
     hsm_key_storage: true
     groups: false
     available_on_premises: false
-    support: 'Email'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'pricing_page'
 
 - name: Enterprise
   quotas:
-    certificates: 'Unlimited'
-    projects: 'Unlimited'
-    users: 'Unlimited'
-    signing_requests: 'Unlimited'
-    ci_pipelines: 'Unlimited'
-    signing_request_retention_release_signing: '2 years'
-    signing_request_retention_test_signing: '2 months'
+    certificates: 'unlimited'
+    projects: 'unlimited'
+    users: 'unlimited'
+    signing_requests: 'unlimited'
+    ci_pipelines: 'unlimited'
   signing_methods:
     authenticode: true
     powershell: true
@@ -105,7 +104,7 @@
   policy_enforcement:
     manual_approval: true
     quorum_approval: true
-    arbitrary_signing_policies: true
+    signing_policies_per_project: 'unlimited'
     policies_for_certs: true
     double_verification: true
     origin_verification: true
@@ -114,19 +113,18 @@
     hsm_key_storage: true
     groups: true
     available_on_premises: true
-    support: 'Email / phone'
+    support: 'email, phone'
     code_signing_consulting: 'available'
   link_type: 'sales_email'
 
 - name: Open source
   quotas:
-    certificates: '1 included'
+    certificates: '1 standard'
+    certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
     projects: '1'
-    users: 'Unlimited'
-    signing_requests: 'Fair use'
+    users: 'unlimited'
+    signing_requests: 'fair use'
     ci_pipelines: '1'
-    signing_request_retention_release_signing: '2 months'
-    signing_request_retention_test_signing: '2 weeks'
   signing_methods:
     authenticode: true
     powershell: true
@@ -144,16 +142,16 @@
     metadata_constraints: 'required'
   policy_enforcement:
     manual_approval: 'required'
-    quorum_approval: false
-    arbitrary_signing_policies: false
+    quorum_approval: true
+    signing_policies_per_project: 'unlimited'
     policies_for_certs: 'required'
-    double_verification: true
+    double_verification: false
     origin_verification: 'required'
   other:
     malware_detection: true
     hsm_key_storage: true
     groups: false
     available_on_premises: false
-    support: 'Web'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'support_email'

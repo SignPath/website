@@ -1,5 +1,6 @@
 {% include header.html %}
 {% assign reduced_price_factor = 1.00 %}
+{% assign groups = site.data['featuregroups'] %}
 
 <section class='bg-blue font-white pricing-start top-section bg-image'>
 	<div>
@@ -13,67 +14,49 @@
 		<div class='column-layout'>
 			<div class='features col'>
 				<ul>
-					<li class='head f'>Quotas</li>
-					<li class='f'>Certificates</li>
-					<li class='f'>Projects</li>
-					<li class='f'>Users</li>
-					<li class='f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
-					<li class='sub-head f'>Signing request retention <span class='hint--top-right hint--medium' aria-label='Your artifacts and signing request information is deleted after the specified time range'><i class='las la-info-circle'></i></span></li>
-					<li class='sub f'>release-signing</li>
-					<li class='sub f'>test-signing</li>
-					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
-					<li class='head f'>Signing methods and file types</li>
-					<li class='f'>Windows Authenticode <span class='hint--top-right hint--medium' aria-label='Programs and installers. The following file types are supported: .acm, .ax, .cpl, .dll, .drv, .efi, .exe, .mui, .ocx, .scr, .sys, .tsp'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Office Add-ins</li>
-					<li class='f'>Visual Studio Extensions<span class='sub'>.vsix</span></li>
-					<li class='f'>NuGet</li>
-					<li class='f'>PowerShell scripts<span class='sub'>.ps1, .psm1, .psd1</span></li>
-					<li class='f'>Clickonce</li>
-					<li class='f'>Android apps <span class='hint--top-right hint--medium' aria-label='APK signing scheme v1'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Java</li>
-					<li class='f'>Windows device drivers <span class='hint--top-right hint--medium' aria-label='Cross-signing and EV signing'><i class='las la-info-circle'></i></span><span class='sub'>.hlk, .drv</span></li>
-					<li class='f'>Docker images</li>
-					<li class='head f'>Artifact configuration<span class='sub'><a href='/documentation/artifact-configuration'>Documentation</a></span></li>
-					<li class='f'>Deep signing <span class='hint--top-right hint--medium' aria-label='Signs the installer/package and contained files'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Multiple configurations <span class='hint--top-right hint--medium' aria-label='Allows different configurations for e.g. different versions of the artifacts'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Metadata constraints <span class='hint--top-right hint--medium' aria-label='Restrict the allowed artifacts based on metadata information'><i class='las la-info-circle'></i></span></li>
-					<li class='head f'>Policy enforcement</li>
-					<li class='f'>Manual approval</li>
-					<li class='f'>Quorum approval (k-out-of-n)</li>
-					<li class='f'>Policies for certificates</li>
-					<li class='f'>Arbitrary signing policies <span class='hint--top-right hint--medium' aria-label='One release- and test-signing policy are available in all editions. Coming soon!'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Origin verification <span class='hint--top-right hint--medium' aria-label='Provides information about commit and repository the artifact was built from'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Double verification <span class='hint--top-right hint--medium' aria-label='Increases the security by requiring two independent factors for API authentication'><i class='las la-info-circle'></i></span></li>
-					<li class='head f'>Other</li>
-					<li class='f'>Malware detection</li>
-					<li class='f'>HSM key storage</li>
-					<li class='f'>User groups</li>
-					<li class='f'>Available on-premises</li>
-					<li class='f'>Support</li>
-					<li class='f'>Code signing consulting</li>
+					{% for group in groups %}
+						<li class='head f'>
+							{{ group.title }}
+							{% if group.sub-href != null %}
+								<span class='sub'><a href='{{ group.sub-href}}'>{{ group.sub }}</a></span>
+							{% endif %}
+						</li>
+
+						{% for feature in group.features %}
+							<li class= {% if feature.class == null%} 'f' {% else %} '{{ feature.class }}' {% endif %} > 
+								{{ feature.title }}
+								{% if feature.hint != null %}
+									<span aria-label='{{ feature.hint }}' class='hint--top-right hint--medium'><i class='las la-info-circle'></i></span>
+								{% endif %}
+								{% if feature.sub != null %}
+									<span class='sub'>{{ feature.sub }}</span>
+								{% endif %}
+							</li>
+						{% endfor %}
+					{% endfor %}
 				</ul>
 			</div>
 			{% for edition in site.data['editions'] %}
 				<div class='content col'>
 					<h3>{{ edition.name }}</h3>
 					<ul>
-						<li class='first-after-header first-after-main-header'>{{ edition.quotas.certificates }}</li>
-						<li>{{ edition.quotas.projects }}</li>
-						<li>{{ edition.quotas.users }}</li>
-						<li>{{ edition.quotas.signing_requests }}</li>
-						<li class='first-after-header'>{{ edition.quotas.signing_request_retention_release_signing }}</li>
-						<li>{{ edition.quotas.signing_request_retention_test_signing }}</li>
-						<li>{{ edition.quotas.ci_pipelines }}</li>
-						{% assign groups = 'signing_methods,artifact_configuration,policy_enforcement,other' | split: ',' %}
-						{% assign group_features = 'authenticode,office_add_ins,opc,nuget,powershell,clickonce,android,java,device_drivers,docker;deep_signing,multiple_configurations_per_projects,metadata_constraints;manual_approval,quorum_approval,arbitrary_signing_policies,policies_for_certs,origin_verification,double_verification;malware_detection,hsm_key_storage,groups,available_on_premises,support,code_signing_consulting' | split: ';' %}
-						{% for group_index in (0..4) %}
-							{% assign group = groups[group_index] %}
-							{% assign features = group_features[group_index] | split: ',' %}
-							{% for feature in features %}
-								<li {% if feature == features[0] %}class='first-after-header'{% endif %}>
-									{% if edition[group][feature] == true %}<i class='la la-check bold'></i>
-									{% elsif edition[group][feature] == false %}<span>&nbsp;</span>
-									{% else %}{{ edition[group][feature] }}{% endif %}
+
+						{% for group in groups %}
+							{% for feature in group.features %}
+								<li {% if group == groups[0] and feature == group.features[0] %} class='first-after-header first-after-main-header'
+								    {% elsif feature == group.features[0] %} class='first-after-header'
+									{% endif %}> 
+
+									{% assign value = edition[group.name][feature.name] %}
+									{% if value == true %}<i class='la la-check bold'></i>
+									{% elsif value == false %}<span>&nbsp;</span>
+									{% else %}{{ value }}{% endif %}
+
+									{% assign feature_hint_name = feature.name | append: '-hint' %}
+									{% assign feature_hint = edition[group.name][feature_hint_name] %}
+									{% if feature_hint != null %}
+										<span aria-label='{{ feature_hint }}' class='hint--top-right hint--medium'><i class='las la-info-circle'></i></span>
+									{% endif %}
 								</li>
 							{% endfor %}
 						{% endfor %}
@@ -81,7 +64,7 @@
 					{% case edition.link_type %}
 						{% when 'pricing_page' %}
 							<a class='btn' href='/product/pricing'>Buy now</a>
-							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-right hint--medium' aria-label='Uses a non-trusted timestamping server'><i class='las la-info-circle'></i></a>
+							<a class='btn' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial'>Start free trial <span aria-label='Uses a non-trusted timestamping server' class='hint--top-right hint--medium'><i class='las la-info-circle'></i></a>
 						{% when 'sales_email' %}
 							<a class='btn' href='mailto:sales@signpath.io?Subject={{ edition.name | urlencode }}%20subscription'>Contact sales</a>
 						{% when 'support_email' %}
