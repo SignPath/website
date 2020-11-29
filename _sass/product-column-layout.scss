@@ -213,6 +213,11 @@ div.column-layout {
 					display: block;
 				}
 
+				&.f.sub {
+					text-align: right;
+					font-style: italic;
+				}
+
 				&.head, &.sub-head {
 					width: 100%;
 				}

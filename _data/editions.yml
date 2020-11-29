@@ -128,10 +128,10 @@
   quotas:
     certificates: '1 standard'
     certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
-    projects: '1'
+    projects: 'apply'
     users: 'unlimited'
     signing_requests: 'fair use'
-    ci_pipelines: '1'
+    ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true
     powershell: true
