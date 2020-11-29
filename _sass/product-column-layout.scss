@@ -52,6 +52,9 @@ div.column-layout {
 					a {
 						color: $light-blue-font-color;
 					}
+					a:hover {
+						text-decoration: underline;
+					}
 				}
 
 				span.sub {
@@ -110,6 +113,10 @@ div.column-layout {
 				text-align: right;
 				font-style: italic;
 			}
+
+			a:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 
@@ -144,7 +151,7 @@ div.column-layout {
 		ul > li {
 			text-align: center;
 
-			&.f {
+			&.f, &.sub {
 				display: none;
 			}
 
@@ -197,8 +204,7 @@ div.column-layout {
 
 			li {
 				width: 50%;
-				display: flex;
-				flex-direction: column;
+				list-style: none;
 				justify-content: center;
 				align-items: center;
 

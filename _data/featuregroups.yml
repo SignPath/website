@@ -4,21 +4,27 @@
     - name: certificates
       title: 'Code signing certificates'
       hint: 'Number and type of code signing certificates included with each subscription.'
+      href: '/product/editions-explained#code-signing-certificates'
     - name: projects
-      title: 'Projects'
-      hint: 'Number of projects availabe for each subscription. Projects define which artifacts to sign, which certificate to use, permissions, policies and more. Note that a project&apos;s artifact configuration may include several artifacts, e.g. as a ZIP archive.'
+      title: 'Max. projects'
+      hint: 'Max. number of projects availabe for each subscription. Projects define which artifacts to sign, which certificate to use, permissions, policies and more.'
+      href: '/product/editions-explained#max-projects'
     - name: users
-      title: 'Users'
-      hint: 'Number of human users that interact with SignPath. No licenses required for CI user accounts or build agents.'
+      title: 'Max. users'
+      hint: 'Max. number of named users that interact with SignPath. No licenses required for CI user accounts or build agents.'
+      href: '/product/editions-explained#max-users'
     - name: signing_requests
       title: 'Signing requests'
-      hint: 'Click "buy now" to configure subscription and see quotas'
+      hint: 'Click "buy now" to configure subscription and see quotas.'
+      href: '/product/editions-explained#signing-requests'
     - name: ci_pipelines
       title: 'CI pipelines'
-      hint: 'Limits the number of parallel signing requests'
+      hint: 'Limits the number of parallel signing requests.'
+      href: '/product/editions-explained#ci-pipelines'
 
 - name: signing_methods
   title: 'Signing methods and file types'
+  href: '/product/editions-explained#signing-methods-and-file-types'
   features:
     - name: authenticode
       title: 'Windows Authenticode'
@@ -56,18 +62,19 @@
 
 - name: artifact_configuration
   title: 'Artifact configuration'
-  sub: Documentation
-  sub-href: '/documentation/artifact-configuration'
   features:
     - name: deep_signing
       title: 'Deep signing'
-      hint: 'Signs both installers/packages the files they contain'
+      hint: 'Sign files contained in installers, packages, add-ins etc.'
+      href: '/product/editions-explained#deep-signing'
     - name: multiple_configurations_per_projects
       title: 'Multiple versions'
-      hint: 'Projects can have multiple named artifact configurations (e.g. for versioning)'
+      hint: 'Projects can have multiple named artifact configurations (e.g. for versioning).'
+      href: '/product/editions-explained#multiple-versions'
     - name: metadata_constraints
       title: 'Metadata constraints'
-      hint: 'Verify that artifacts comply with specified metadata'
+      hint: 'Verify that artifacts comply with specified metadata.'
+      href: '/product/editions-explained#metadata-constraints'
 
 - name: policy_enforcement
   title: 'Policy Enforcement'
@@ -75,35 +82,53 @@
     - name: manual_approval
       title: 'Manual approval'
       hint: 'Require manual approval for certain signing policies.'
+      href: '/product/editions-explained#manual-approval'
     - name: quorum_approval
       title: 'Quorum approval'
-      hint: 'Require a certain number of approvals from a list of possible approvers (a.k.a. k-out-of-n approval)'
-    - name: policies_for_certs
-      title: 'Certificate policies'
-      hint: 'Specify minimum requirements e.g. for release certificates'
+      hint: 'Require a certain number of approvals from a list of possible approvers (a.k.a. k-out-of-n approval).'
+      class: f sub
     - name: signing_policies_per_project
       title: 'Signing policies per project'
       hint: 'For each project, signing policies define signing permissions and policies for a specific certificate.'
+      href: '/product/editions-explained#signing-policies-per-project'
     - name: origin_verification
       title: 'Origin verification'
-      hint: 'Security and policy control through reliable repository and build metadata.'
-    - name: double_verification
-      title: 'Double authentication'
-      hint: 'Both the CI build node and project-specific credentials are authenticated. This adds security for CI systems without Origin Verification support.'
+      hint: 'Source code repository and build metadata are automatically collected and verified.'
+      href: '/product/editions-explained#origin-verification'
+    - name: origin_policies
+      title: 'Origin-based policies'
+      hint: 'Base approval decisions and policy automation on origin metadata.'
+      class: f sub
+    - name: build_validation
+      title: 'Build validation'
+      hint: 'Automatically checks build configurations for security weaknesses.'
+      class: f sub
+    - name: policies_for_certs
+      title: 'Certificate policies'
+      hint: 'Specify minimum requirements e.g. for release certificates.'
+      href: '/product/editions-explained#certificate-policies'
 
 - name: other
   title: 'Other'
   features:
     - name: malware_detection
       title: 'Malware detection'
+      hint: 'Artifacts are scanned for viruses and other threats before signing.'
     - name: hsm_key_storage
       title: 'HSM key storage'
+      hint: 'Private keys are created and stored on a Hardware Security Module (HSM). Signatures are created by the HSM, private keys cannot be exported.'
+    - name: sso
+      title: 'Single sign-on'
+      hint: 'Connect to your organization&apo;s directory and authentication provider using SAML or OpenID Connect.'
     - name: groups
       title: 'User groups'
+      hint: 'Arrange your users into groups for easier assignment of permissions in signing policies.'
     - name: available_on_premises
       title: 'On-premises option'
+      hint: 'Deploy SignPath in your own organization for full control, unlimited processing and reduced bandwith consumption.'
     - name: support
       title: 'Support'
     - name: code_signing_consulting
-      title: 'Code signing consulting'
+      title: 'Professional services'
+      hint: 'Training and consulting for SignPath, CI integration, code signing technologies and security.'
 

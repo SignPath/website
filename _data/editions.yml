@@ -2,8 +2,8 @@
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
-    projects: 'up to 3'
-    users: 'up to 2'
+    projects: '3'
+    users: '2'
     signing_requests: 'yearly quota'
     ci_pipelines: '1'
   signing_methods:
@@ -27,11 +27,13 @@
     signing_policies_per_project: 'test & release'
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
-    double_verification: false
     origin_verification: false
+    origin_policies: false
+    build_validation: false
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: false
     groups: false
     available_on_premises: false
     support: 'email'
@@ -42,9 +44,9 @@
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
-    projects: 'up to 10'
+    projects: '10'
     projects-hint: 'You may use several artifact configurations per project, e.g. for different components. They will share the same policies.'
-    users: 'up to 15'
+    users: '15'
     signing_requests: 'yearly quota'
     ci_pipelines: '1 per project'
   signing_methods:
@@ -68,11 +70,13 @@
     signing_policies_per_project: 'test & release'
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
-    double_verification: false
     origin_verification: false
+    origin_policies: false
+    build_validation: false
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: false
     groups: false
     available_on_premises: false
     support: 'email'
@@ -106,14 +110,17 @@
     quorum_approval: true
     signing_policies_per_project: 'unlimited'
     policies_for_certs: true
-    double_verification: true
     origin_verification: true
+    origin_policies: true
+    build_validation: true
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: true
     groups: true
     available_on_premises: true
-    support: 'email, phone'
+    support: 'priority'
+    support-hint: 'Priority support using email, phone and screen sharing'
     code_signing_consulting: 'available'
   link_type: 'sales_email'
 
@@ -145,12 +152,14 @@
     quorum_approval: true
     signing_policies_per_project: 'unlimited'
     policies_for_certs: 'required'
-    double_verification: false
     origin_verification: 'required'
+    origin_policies: 'required'
+    build_validation: 'required'
   other:
     malware_detection: true
     hsm_key_storage: true
-    groups: false
+    sso: false
+    groups: true
     available_on_premises: false
     support: 'email'
     code_signing_consulting: false

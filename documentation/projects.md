@@ -31,7 +31,7 @@ An artifact configuration may contain instructions to sign multiple files in a s
 
 ### Signing nested artifacts (deep-signing)
 
-An artifact may need to be signed *and* contain files that must be signed. In this case you want to specify an artifact configuration for deep-signing. SignPath will extract the files and sign them from the inside out, then re-package everything and sign the containing file.
+It is commonly necessary to sign files *and* files within those files. In this case you want to specify an artifact configuration for deep-signing. SignPath will extract the files and sign them from the inside out, then re-package everything and sign the containing file.
 
 **Examples:** 
 
@@ -42,7 +42,17 @@ An artifact may need to be signed *and* contain files that must be signed. In th
 
 ### Keeping versions of artifact configurations
 
-Specify multiple artifact configurations to allow different versions of your software to be signed (e.g. in case the structure of your artifact changes).
+Create [multiple artifact configurations](/documentation/projects#keeping-versions-of-artifact-configurations) for
+
+* projects that create different artifact at different times, but you want to use the same signing policies
+* artifact configurations that change significantly over time (versioning)
+
+Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or resign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration#number-of-matches) (`min-occurs="0"`).
+
+If you want to use versioned artifact configurations with CI
+
+* be sure to check the artifact configuration slug into your source code repository, so you can always access the correct version
+* when calling SignPath from a build script or CI configuration, specify the artifact configuration slug instead of using the default
 
 ### Defining artifact configurations
 
