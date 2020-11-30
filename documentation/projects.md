@@ -42,7 +42,7 @@ It is commonly necessary to sign files *and* files within those files. In this c
 
 ### Keeping versions of artifact configurations
 
-Create [multiple artifact configurations](/documentation/projects#keeping-versions-of-artifact-configurations) for
+Create multiple artifact configurations for
 
 * projects that create different artifact at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)

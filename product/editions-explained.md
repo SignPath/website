@@ -7,7 +7,7 @@ toc: true
 show_toc: 3
 ---
 
-This page explains how the quotas and features of all [SignPath Editions](/editions).
+This page explains how the quotas and features of all [SignPath Editions](/product/editions).
 
 ## Quotas
 
@@ -90,7 +90,7 @@ Additional signing requests submitted from CI pipelines may be rejected and have
 
 ## Signing methods and file types
 
-See [artifact configurations](/documentation/artifact-configuration) for details about available signing methods and file types.
+See [artifact configurations](/documentation/artifact-configuration#file-elements) for details about available signing methods and file types.
 
 ## Artifact configuration
 
@@ -152,7 +152,7 @@ Example:
 * *exception release* signing with origin verification, no branch constraints, but manual approval instead
 * *emergency signing* without origin verification, but manual approval with 3 required approvals
 
-See [code signing certificates](code-signing-certificates).
+See [code signing certificates](#code-signing-certificates).
 
 ### Origin verification
 
