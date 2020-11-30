@@ -222,36 +222,6 @@ Enable additional restrictions for signing policies that use release certificate
 * If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
 </div>
 
-### Generic CI System integration (Preview)
-
-Every CI System integration provides additional security by adding another layer of authentication in form of a trusted build system token which should be set on the build agent only (or via a proxy service verifying e.g. SSL client certificates). To enable a trusted build system, the following steps have to be performed:
-
-1. In the trusted build system section, a build system (e.g. your local TeamCity) has to be added. Similarly to creating a CI user, a build system token will be generated. This token must be stored on the physical machine of the build system agent (or a proxy).
-2. The trusted build system has to be linked to a project. If you set up a proxy, you can enter the information necessary to authenticate with the CI server.
-3. The trusted build system (or proxy) must authenticate using a combined authentication token `Bearer $CI_USER_TOKEN:$TRUSTED_BUILD_SYSTEM_TOKEN`
-4. Optionally, the proxy can query the information specified in step 2. from SignPath by calling following URL: `/Projects/$PROJECT_KEY/TrustedBuildSystemLink`, which will return a JSON response
-~~~json
-{
-  "username": "my-teamcity-user",
-  "secret": "my-teamcity-password",
-  "artifactPath": "*.exe"
-}
-~~~
-5. The trusted build system or proxy can submit the signing request and specify additional origin parameters:
-~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN:$TRUSTED_BUILD_SYSTEM_TOKEN" \
-     -F "ProjectKey=$YOUR_PROJECT_KEY" \
-     -F "SigningPolicyKey=test-signing" \
-     -F "Artifact=@$PATH_TO_ARTIFACT" \
-     -F "Description=$DESCRIPTION" \
-     -F "Origin.BuildUrl=https://teamcity.internal.myorganization.com/buildConfiguration/myProject/1234567" \
-     -F "Origin.RepositoryMetadata.CommitId=f738d691065e4201be33de05d6284313bfcfb470" \
-     -F "Origin.RepositoryMetadata.BranchName=master" \
-     -F "Origin.RepositoryMetadata.RepositoryUrl=https://git.internal.myorganization.com/myProject" \
-     -F "Origin.RepositoryMetadata.SourceControlManagementType=git" \
-     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests
-~~~
-
 ### AppVeyor
 
 #### Prerequisites and restrictions
