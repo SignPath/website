@@ -109,86 +109,158 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // on the pricing page, add the data-labels to all product rows
-  var productRows = document.body.querySelectorAll('section.pricing-main div.top > ul > li');
-  if (productRows.length) {
-    var productLists = document.body.querySelectorAll('section.pricing-main div.product > ul');
-    for (var i = 0; i < productLists.length; i++) {
-      var rows = productLists[i].querySelectorAll('li');
+  var columnLayoutRows = document.body.querySelectorAll('div.column-layout div.features > ul > li');
+  if (columnLayoutRows.length) {
+    var columnLayoutContentColumnList = document.body.querySelectorAll('div.column-layout div.content > ul');
+    for (var i = 0; i < columnLayoutContentColumnList.length; i++) {
+      var rows = columnLayoutContentColumnList[i].querySelectorAll('li');
+      var columnLayoutRowCounter = 0;
       for (var r = 0; r < rows.length; r++) {
-        productLists[i].insertBefore(productRows[r].cloneNode(true), rows[r]);
+        columnLayoutContentColumnList[i].insertBefore(columnLayoutRows[columnLayoutRowCounter].cloneNode(true), rows[r]);
+        columnLayoutRowCounter++;
+        if (columnLayoutRows[columnLayoutRowCounter-1].classList.contains('head') ||
+            columnLayoutRows[columnLayoutRowCounter-1].classList.contains('sub-head')) {
+          columnLayoutContentColumnList[i].insertBefore(columnLayoutRows[columnLayoutRowCounter].cloneNode(true), rows[r]);
+          columnLayoutRowCounter++;
+        }
       }
     }
   }
 
   if (window.location.pathname.endsWith('/pricing/') || window.location.pathname.endsWith('/pricing') || window.location.pathname.endsWith('/pricing.html/') || window.location.pathname.endsWith('/pricing.html')) {
+
+    var THREE_YEARS_FACTOR = 0.75;
+
     // calculate prices correctly
     function recalculatePrices() {
-      var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
-      var period   = document.getElementById('period-toggle'  ).checked ? 'year' : 'month';
-      var duration = document.getElementById('duration-toggle').checked ? '3yrs' : '1yr';
 
-      function format(price) {
-        var n = Math.round(parseFloat(price) / (period == 'month' ? 12.0 : 1.0));
-        return currency == '€' ? ( n + ' €') : ( '$' + n );
+      function determinePrice(options) {
+        var r = 
+          (
+            options.basePrice
+            + Math.max(0, Math.min(options.numProjects, options.numProjectsMax) - options.numProjectsIncluded) * options.pricePerProject
+            + Math.max(0, Math.min(options.numUsers,    options.numUsersMax)    - options.numUsersIncluded   ) * options.pricePerUser
+          )
+          * (options.threeYears ? THREE_YEARS_FACTOR : 1);
+        return r
       }
 
-      document.querySelectorAll('section.pricing-main div.product').forEach(function(productCtn) {
-
-        // set base prices
-        productCtn.querySelectorAll('div.header span.price').forEach(function(span) {
-          span.innerText = format(span.dataset['price' + duration]);
-        });
-
-        // set additional prices
-        productCtn.querySelectorAll('ul.body span.price').forEach(function(span) {
-          span.innerText = format(span.dataset.price);
-        })
-        
-        // update period
-        document.querySelectorAll('section.pricing-main span.period').forEach(function(span) {
-          if (span.innerText.length > 1) {
-            span.innerText = 'per ' + period;
-          }
-        });
-      })
+      function format(price, currency) {
+        var n = Math.round(parseFloat(price));
+        return currency == '€' ? ( n + ' €') : ( '$' + n );
+      }
       
-    }
-
-    function recreateLinks() {
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
-      var period   = document.getElementById('period-toggle'  ).checked ? 'year' : 'month';
-      var duration = document.getElementById('duration-toggle').checked ? '3yrs' : '1yr';
+      var threeYears = document.getElementById('duration-toggle').checked;
+      var numProjects = parseInt(document.getElementById('num-projects-input').value, 10);
+      var numUsers = parseInt(document.getElementById('num-users-input').value, 10);
 
-      // deal with links on the pricing page correctly - unfortunately, URL is not supported by IE
       let params = {};
       window.location.search.substr(1).split('&').forEach(function(part) {
         var parts = part.split('=');
         if (parts.length > 1) {
           params[parts[0]] = decodeURIComponent(parts[1])
         }
-      })
-      if (params.currentProductId) {
-        document.getElementById('free-trial-button').style.display = 'none';
-      }
-
-      document.querySelectorAll('div.product a.footer').forEach(function(a) {
-        var productid = a.dataset[duration == '1yr' ? 'productid_one_year' : 'productid_three_years']
-
-        if (params.currentProductId) { // update links
-          a.innerText = 'Change';
-          a.href = document.documentElement.dataset.appurl + '/Web/' + params.organizationId + '/Subscription/CompleteChange?productId=' + productid + '&paymentToken=' + encodeURIComponent(params.paymentToken);
-        } else {
-          a.href = 'https://secure.avangate.com/order/checkout.php?PRODS=' + productid + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' + (currency == '$' ? 'USD' : 'EUR') + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
-        }
       });
+
+      var numSubscriptionsAvailable = 0;
+
+      document.querySelectorAll('section.pricing div.content').forEach(function(productCtn) {
+
+        var basePrice           = parseInt(productCtn.querySelector('.price').dataset.base_price, 10);
+        var numProjectsIncluded = parseInt(productCtn.querySelector('.num-projects').dataset.num_projects_included, 10);
+        var numProjectsMax      = parseInt(productCtn.querySelector('.num-projects').dataset.num_projects_max, 10);
+        var pricePerProject     = parseInt(productCtn.querySelector('.num-projects').dataset.price_per_project, 10);
+        var numUsersIncluded    = parseInt(productCtn.querySelector('.num-users').dataset.num_users_included, 10);
+        var numUsersMax         = parseInt(productCtn.querySelector('.num-users').dataset.num_users_max, 10);
+        var pricePerUser        = parseInt(productCtn.querySelector('.num-users').dataset.price_per_user, 10);
+        var numReleaseSignings  = parseInt(productCtn.querySelector('.num-release-signings').dataset.value, 10);
+        var numTestSignings     = parseInt(productCtn.querySelector('.num-test-signings').dataset.value, 10);
+        var numGBPerProject     = parseInt(productCtn.querySelector('.num-gb-per-project').dataset.value, 10);
+        var numCIPipelines      = parseInt(productCtn.querySelector('.num-ci-pipelines').dataset.value, 10);
+        var ciPipelinesPerProject = productCtn.querySelector('.num-ci-pipelines').dataset.ci_pipelines_per_project == 'true';
+
+        if (numProjects > numProjectsMax || numUsers > numUsersMax) {
+          productCtn.classList.add('match-failed');
+        } else {
+          productCtn.classList.remove('match-failed');
+          numSubscriptionsAvailable++;
+        }
+        productCtn.querySelector('.num-projects').innerHTML = Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-users').innerHTML    = Math.min(Math.max(numUsersIncluded,    numUsers), numUsersMax);
+
+        var options = {
+          basePrice: basePrice,
+          threeYears: threeYears,
+          numProjects: numProjects,
+          numProjectsIncluded: numProjectsIncluded,
+          numProjectsMax: numProjectsMax,
+          pricePerProject: pricePerProject,
+          numUsers: numUsers,
+          numUsersIncluded: numUsersIncluded,
+          numUsersMax: numUsersMax,
+          pricePerUser: pricePerUser
+        }
+
+        productCtn.querySelector('.price').innerText = format(determinePrice(options), currency);
+        productCtn.querySelector('.price-sub').style.visibility = threeYears ? 'visible' : 'hidden';
+        productCtn.querySelector('.num-release-signings').innerHTML = numReleaseSignings * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-test-signings').innerHTML    = numTestSignings    * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        productCtn.querySelector('.num-gb-per-project').innerHTML  =  (numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) + ' GB';
+        if (ciPipelinesPerProject) {
+          productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+        }
+        productCtn.querySelectorAll('.currency-amount').forEach(function(ctn) {
+          ctn.innerText = format(parseFloat(ctn.dataset.value) * (threeYears ? THREE_YEARS_FACTOR : 1), currency);
+        });
+
+        var productid = productCtn.querySelector('a.footer').dataset[threeYears ? 'productid_three_years' : 'productid_one_year']
+        if (params.currentProductId) { // update links
+          productCtn.querySelector('a.footer').innerText = 'Change';
+          productCtn.querySelector('a.footer').href = document.documentElement.dataset.appurl 
+            + '/Web/' 
+            + params.organizationId 
+            + '/Subscription/CompleteChange?productId=' 
+            + productid 
+            + '&paymentToken=' 
+            + encodeURIComponent(params.paymentToken)
+            + '&OPTIONS' + productid + '='
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
+        } else {
+          productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
+            + productid 
+            + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' 
+            + (currency == '$' ? 'USD' : 'EUR') 
+            + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
+            + '&OPTIONS' + productid + '='
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
+        }
+      })
+
+      document.querySelector('.editions-dialog').style.display = numSubscriptionsAvailable > 0 ? 'none' : 'block';
     }
 
-    document.querySelectorAll('section.pricing-main div.toggle input').forEach(function(input) {
+    document.querySelectorAll('section.pricing div.toggle input').forEach(function(input) {
       input.addEventListener('change', recalculatePrices);
-      input.addEventListener('change', recreateLinks);
     });
 
-    recreateLinks();
+    document.querySelectorAll('section.pricing div.number-select > input').forEach(function(input) {
+      input.addEventListener('change', recalculatePrices);
+    })
+
+    document.querySelectorAll('section.pricing div.number-select > i').forEach(function(i) {
+      function changeCounter(e) {
+        var input = e.target.parentNode.querySelector('input');
+        input.value = i.classList.contains('la-plus-circle') ? parseInt(input.value, 10) + 1 : Math.max(1, parseInt(input.value, 10) -1);
+        recalculatePrices();
+      }
+
+      i.addEventListener('click', changeCounter);
+    })
+
+    recalculatePrices();
   }
 
   // set cookie acknowledgement

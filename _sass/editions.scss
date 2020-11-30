@@ -1,0 +1,13 @@
+// see product-column-layout.scss
+
+section.editions {
+	li.set-height91 {
+		height: 91px;
+	}
+
+	div.column-layout {
+		div.features {
+			margin-top: calc(3.65em /* h3 */ - 1em - 20px);
+		}
+	}
+}

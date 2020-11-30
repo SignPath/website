@@ -1,0 +1,166 @@
+- name: Starter
+  quotas:
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
+    projects: '3'
+    users: '2'
+    signing_requests: 'yearly quota'
+    ci_pipelines: '1'
+  signing_methods:
+    authenticode: true
+    powershell: true
+    clickonce: true
+    device_drivers: false
+    office_add_ins: true
+    opc: true
+    nuget: true
+    android: true
+    java: false
+    docker: false
+  artifact_configuration:
+    deep_signing: true
+    multiple_configurations_per_projects: false
+    metadata_constraints: false
+  policy_enforcement:
+    manual_approval: false
+    quorum_approval: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
+    policies_for_certs: false
+    origin_verification: false
+    origin_policies: false
+    build_validation: false
+  other:
+    malware_detection: true
+    hsm_key_storage: true
+    sso: false
+    groups: false
+    available_on_premises: false
+    support: 'email'
+    code_signing_consulting: false
+  link_type: 'pricing_page'
+
+- name: Basic
+  quotas:
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
+    projects: '10'
+    projects-hint: 'You may use several artifact configurations per project, e.g. for different components. They will share the same policies.'
+    users: '15'
+    signing_requests: 'yearly quota'
+    ci_pipelines: '1 per project'
+  signing_methods:
+    authenticode: true
+    powershell: true
+    clickonce: true
+    device_drivers: true
+    office_add_ins: true
+    opc: true
+    nuget: true
+    android: true
+    java: true
+    docker: false
+  artifact_configuration:
+    deep_signing: true
+    multiple_configurations_per_projects: true
+    metadata_constraints: false
+  policy_enforcement:
+    manual_approval: true
+    quorum_approval: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
+    policies_for_certs: false
+    origin_verification: false
+    origin_policies: false
+    build_validation: false
+  other:
+    malware_detection: true
+    hsm_key_storage: true
+    sso: false
+    groups: false
+    available_on_premises: false
+    support: 'email'
+    code_signing_consulting: false
+  link_type: 'pricing_page'
+
+- name: Enterprise
+  quotas:
+    certificates: 'unlimited'
+    projects: 'unlimited'
+    users: 'unlimited'
+    signing_requests: 'unlimited'
+    ci_pipelines: 'unlimited'
+  signing_methods:
+    authenticode: true
+    powershell: true
+    clickonce: true
+    device_drivers: true
+    office_add_ins: true
+    opc: true
+    nuget: true
+    android: true
+    java: true
+    docker: true
+  artifact_configuration:
+    deep_signing: true
+    multiple_configurations_per_projects: true
+    metadata_constraints: true
+  policy_enforcement:
+    manual_approval: true
+    quorum_approval: true
+    signing_policies_per_project: 'unlimited'
+    policies_for_certs: true
+    origin_verification: true
+    origin_policies: true
+    build_validation: true
+  other:
+    malware_detection: true
+    hsm_key_storage: true
+    sso: true
+    groups: true
+    available_on_premises: true
+    support: 'priority'
+    support-hint: 'Priority support using email, phone and screen sharing'
+    code_signing_consulting: 'available'
+  link_type: 'sales_email'
+
+- name: Open source
+  quotas:
+    certificates: '1 standard'
+    certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
+    projects: 'apply'
+    users: 'unlimited'
+    signing_requests: 'fair use'
+    ci_pipelines: '1 per project'
+  signing_methods:
+    authenticode: true
+    powershell: true
+    clickonce: true
+    device_drivers: true
+    office_add_ins: true
+    opc: true
+    nuget: true
+    android: true
+    java: true
+    docker: true
+  artifact_configuration:
+    deep_signing: true
+    multiple_configurations_per_projects: true
+    metadata_constraints: 'required'
+  policy_enforcement:
+    manual_approval: 'required'
+    quorum_approval: true
+    signing_policies_per_project: 'unlimited'
+    policies_for_certs: 'required'
+    origin_verification: 'required'
+    origin_policies: 'required'
+    build_validation: 'required'
+  other:
+    malware_detection: true
+    hsm_key_storage: true
+    sso: false
+    groups: true
+    available_on_premises: false
+    support: 'email'
+    code_signing_consulting: false
+  link_type: 'support_email'

@@ -1,70 +1,78 @@
-- name: Single
-  base_per_year_1yr: 288
-  base_per_year_3yrs: 216
-  num_users: 2
-  num_certs_on_hsm: 1
-  add_cert_per_year: 144
-  num_test_certs: 3
-  processed_data_per_month_in_gb: 100
-  add_100gb_per_year: 60
+- name: Starter
+  base_price: 500
+  num_users_included: 1
+  num_users_max: 2
+  price_per_user: 150
+  num_projects_included: 1
+  num_projects_max: 3
+  price_per_project: 150
+  num_releases_signings_per_project: 20
+  num_test_signings_per_project: 100
+  release_signing_retention: '2 weeks'
+  test_signing_retention: '1 week'
+  num_gb_per_project: 13
+  num_ci_pipelines: 1
+  ci_pipelines_per_project: false
   product_id:
     one_year:
-      production: 19784257
-      fqa: 20051804
-      iqa: 24573359
-      development: dev-single-one-year
-      docker: dev-single-one-year
+      production: 31340460
+      fqa: 31140837
+      iqa: undefined
+      development: dev-starter-one-year
     three_years:
-      production: 19868454
-      fqa: 20051806
-      iqa: 24573359
-      development: dev-single-three-years
-      docker: dev-single-three-years
-
-- name: Team
-  base_per_year_1yr: 1176
-  base_per_year_3yrs: 882
-  num_users: 5
-  add_user_per_year: 144
-  num_certs_on_hsm: 1
-  add_cert_per_year: 144
-  num_test_certs: 3
-  processed_data_per_month_in_gb: 200
-  add_100gb_per_year: 120
+      production: 31340372
+      fqa: 32819194
+      iqa: undefined
+      development: dev-starter-three-years
+- name: Basic Single
+  base_price: 1000
+  num_users_included: 1
+  num_users_max: 3
+  price_per_user: 100
+  num_projects_included: 1
+  num_projects_max: 5
+  price_per_project: 200
+  num_releases_signings_per_project: 50
+  num_test_signings_per_project: 250
+  release_signing_retention: '2 months'
+  test_signing_retention: '2 weeks'
+  num_gb_per_project: 50
+  num_ci_pipelines: 1
+  ci_pipelines_per_project: true
   product_id:
     one_year:
-      production: 19784407
-      fqa: 20051809
-      iqa: 24574076
-      development: dev-team-one-year
-      docker: dev-team-one-year
+      production: 31339891
+      fqa: 32819195
+      iqa: undefined
+      development: dev-basic_single-one-year
     three_years:
-      production: 19896251
-      fqa: 20051810
-      iqa: 24574076
-      development: dev-team-three-years
-      docker: dev-team-three-years
-
-- name: Business
-  base_per_year_1yr: 3600
-  base_per_year_3yrs: 2700
-  num_users: 20
-  add_user_per_year: 48
-  num_certs_on_hsm: 2
-  add_cert_per_year: 120
-  num_test_certs: 3
-  processed_data_per_month_in_gb: 500
-  add_100gb_per_year: 96
+      production: 31339834
+      fqa: 32819196
+      iqa: undefined
+      development: dev-basic_single-three-years
+- name: Basic Team
+  base_price: 2000
+  num_users_included: 5
+  num_users_max: 15
+  price_per_user: 100
+  num_projects_included: 3
+  num_projects_max: 10
+  price_per_project: 200
+  num_releases_signings_per_project: 50
+  num_test_signings_per_project: 250
+  release_signing_retention: '2 months'
+  test_signing_retention: '2 weeks'
+  num_gb_per_project: 50
+  num_ci_pipelines: 1
+  ci_pipelines_per_project: true
   product_id:
     one_year:
-      production: 19784688
-      fqa: fqa-business
-      iqa: iqa-business
-      development: dev-business-one-year
-      docker: dev-business-one-year
+      production: 31339624
+      fqa: 32819197
+      iqa: undefined
+      development: dev-basic_team-one-year
     three_years:
-      production: 19910233
-      fqa: fqa-business
-      iqa: iqa-business
-      development: dev-business-three-years
-      docker: dev-business-three-years
+      production: 31217467
+      fqa: 32819198
+      iqa: undefined
+      development: dev-basic_team-three-years

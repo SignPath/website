@@ -4,191 +4,237 @@ section.pricing-start {
 	& > div > h1 {
 			text-align: center;
 	}
+
+	& > div > h3 {
+		text-align: center;
+	}
 }
 
-section.pricing-main {
+section.pricing {
 	& > div {
 		padding: 40px;
 	}
 
-	& > div > div.products-table {
+	& > div > div.header {
 		display: flex;
-		align-items: flex-start;
-
-		& > div {
-			background-color: $white-background-color;
-			border-radius: 6px;
-			box-shadow: $shadow;
-
-			& > div.header {
-				height: 160px;
-			}
-
-			& > ul.body {
-				list-style-type: none;
-				margin: 0px;
-				padding: 0px 20px;
-
-				& > li {
-					padding: 10px;
-					text-align: center;
-					border-bottom: 1px solid $light-grey-border-color;
-
-					&:last-child {
-						border-bottom: 0px solid transparent;
-					}
-				}
-			}
-		}
-
-		& > div.top {
-			flex-grow: 2;
-			margin-right: 10px;
-
-			& > div.selectors {
-				border-top-left-radius: inherit;
-				border-top-right-radius: inherit;
-				background-color: $medium-grey-background-color;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-			}
-
-			& > ul > li {
-				text-align: left;
-				font-weight: bold;
-
-				&.secondary {
-					text-align: right;
-					font-weight: normal;
-				}
-			}
-		}
-
-		& > div.product {
-			flex-grow: 1;
-			flex-basis: 15%;
-			margin-left: 10px;
-
-			& > div.header {
-				color: #fff;
-				border-top-left-radius: inherit;
-				border-top-right-radius: inherit;
-
-				& > h2 {
-					margin: 0px;
-					text-transform: uppercase;
-					font-size: 1.4em;
-					line-height: 2em;
-					padding: 6px;
-					padding-top: 12px;
-					text-align: center;
-				}
-
-				& > h3 {
-					margin: 0px;
-					font-size: 1.8em;
-					padding: 0px 10px;
-					line-height: 1.8em;
-
-					& > span.period {
-						font-size: .5em;
-						line-height: .8em;
-					}
-
-					&.outdated {
-						color: $light-grey-font-color;
-						text-decoration: line-through;
-						font-size: 1em;
-						line-height: 1em;
-					}
-				}
-			}
-
-			& > ul > li.label {
-				display: none;
-			}
-
-			& > a.footer {
-				display: block;
-				text-align: center;
-				font-size: 1.2em;
-			}
-
-			&:nth-child(2) > div.header { background-color: $pricing1-background-color; } // start with 2nd, because top is first child
-			&:nth-child(3) > div.header { background-color: $pricing2-background-color; }
-			&:nth-child(4) > div.header { background-color: $pricing3-background-color; }
-			&:nth-child(5) > div.header { background-color: $pricing4-background-color; }
-		}
+		flex-direction: column-reverse;
+		margin-bottom: 2rem;
 	}
 
-	sup {
-		font-size: 0.5em;
-	}
-
-	span.period, span.sub {
-		font-size: .7em;
-		display: block;
-	}
-
-	& > div > div.additional-product {
-		display: flex;
-		align-items: stretch;
-		margin: 40px 0px;
-		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+	& > div > div.header > div.calculator {
+		max-width: 600px;
+		padding: 20px;
+		background-color: $white-background-color;
 		border-radius: 6px;
+		box-shadow: $shadow;
 
-		& > div:first-child {
-			background-color: $dark-grey-background-color;
+		div.column {
+			display: flex;
+			flex-direction: column;
+
+			&:after {
+				height: 0px;
+			}
+		}
+
+		div.row {
+			display: flex;
+			padding: 12px 0px;
+			justify-content: space-between;
+			position: relative;
+
+			&:after {
+				content: '';
+				position: absolute;
+				bottom: 0px;
+				left: 20px;
+				right: 20px;
+				height: 1px;
+				background-color: $light-grey-border-color;
+			}
+		}
+
+		div.link {
+			text-align: center;
+			padding-top: 12px;
+		}
+
+		span.label {
+			font-size: 0.8rem;
 			display: flex;
 			align-items: center;
+		
+			i {
+				margin-left: 0.2rem;
+				font-size: 1rem;
+			}
+		}
+
+		input[type=number] { 
+		  -moz-appearance: textfield;
+		  appearance: textfield;
+		  margin: 0;
+		  text-align: center;
+		  font-size: 1em;
+		  border: 0px solid transparent;
+		  width: 3em;
+		}
+
+		input[type=number]::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		}
+
+		i.la-plus-circle, i.la-minus-circle {
+			color: $secondary-color;
+			font-size: 1.6em;
+			margin: 0px 0.2em;
+			line-height: 1rem;
+		}
+
+	}
+
+	& > div > div.header > div.ev-included {
+		border-radius: 6px;
+		box-shadow: $shadow;
+		background-color: $primary-color;
+		color: $white-font-color;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-bottom: 20px;
+		
+		& > i {
+			font-size: 2rem;
+			margin: 10px;
+		}
+
+		& > span {
+			font-size: 1.2rem;
+			display: inline-block;
+			margin: 10px;
+		}
+	}
+
+	div.column-layout {
+		position: relative;
+
+		div.features {
+			margin-top: calc(2em * 1.2 + 12px + 4px + 1px /* h2 */ + 1.8em * 1.8 + 2rem + 10px /* h3 */ - 1.65em - 20px);
+			max-width: 250px;
+
+			li {
+				&.include-sub {
+					padding-bottom: calc(0.8em * 1.65 + 10px);
+				}
+
+				&.sub-head {
+					padding-bottom: 10px;
+				}
+
+				&:first-child, &:last-child {
+					padding-bottom: 10px;
+				}
+			}
+		}
+
+		div.product-header {
 			border-top-left-radius: inherit;
-			border-bottom-left-radius: inherit;
-			min-width: 200px;
+			border-top-right-radius: inherit;
 
 			& > h2 {
-				color: $white-font-color;
-				padding: 20px;
-				margin: 0px;
+				font-size: 1.2em;
+				line-height: 2em;
+				padding: 4px;
+				margin: 0em 1em;
+				padding-top: 12px;
 				text-align: center;
-				flex-grow: 1;
+				border-bottom: 1px solid $light-grey-border-color;
+			}
+
+			& > h3 {
+				font-size: 1.8em;
+				padding: 10px 10px;
+				line-height: 1.8em;
+				text-align: center;
+				padding-top: 1rem;
+
+				& > span.price-sub {
+					display: block;
+					font-size: .8rem;
+					line-height: 1rem;
+					text-transform: none;
+					visibility: hidden;
+				
+					&.visible {
+						visibility: visible;
+					}
+				}
 			}
 		}
+	
+		div.content.match-failed {
+			display: none;
 
-		& > div:last-child {
-			display: flex;
-			align-items: center;
-			background-color: $white-background-color;
-			border-top-right-radius: inherit;
-			border-bottom-right-radius: inherit;
-			flex-grow: 1;
+			color: $light-grey-font-color; 
 
-			& > p {
-				padding: 20px;
-				flex-shrink: 1;
-				flex-grow: 1;
+			span.sub {
+				color: $light-grey-font-color; 
 			}
 
-			& > a {
-				margin: 20px;
-				font-size: 1.2em;
-				text-align: center;
-				flex-shrink: 0;
+			& > *:first-child { 
+				background-color: $light-medium-grey-background-color; 
+
+				h2,h3 {
+					color: $light-grey-font-color;
+					border-bottom-color: $light-grey-font-color; 
+				}
+			}
+
+			a {
+				display: none;
 			}
 		}
 	}
+}
+
+div.editions-dialog {
+	display: none;
+	position: absolute;
+	top: 30px;
+	left: 50%;
+	
+	& > div {
+		position: relative; 
+		left: -50%;
+		padding: 20px;
+		background-color: $white-background-color;
+		box-shadow: $shadow;
+		border-radius: 6px;
+		text-align: center;
+		min-width: 220px;
+
+		& > div {
+			margin-top: 1em;
+		}
+	}
+}
+
+div.number-select {
+	display: flex;
+	align-items: center;
 }
 
 div.toggle {
 	display: block;
 	width: 100%;
+	max-width: 300px;
 	text-align: center;
 
 	& > label {
 		position: relative;
 		display: inline-block;
 		width: 100%;
-		height: 30px;
+		height: 1em;
 
 		& > input {
 			position: absolute;
@@ -198,7 +244,6 @@ div.toggle {
 			height: 0;
 			font-size: 1em;
 			margin: 0px;
-			color: $white-font-color;
 			opacity: 0;
 
 			&:checked {
@@ -208,7 +253,7 @@ div.toggle {
 				}
 
 				& ~ div:before {
-					color: $blue-font-color;
+					color: $grey-font-color;
 				}
 
 				& ~ div:after {
@@ -225,29 +270,28 @@ div.toggle {
 			height: 0px;
 			font-size: 1em;
 			line-height: 1em;
-			color: $white-font-color;
 
 			&:before {
 				position: absolute;
 				right: 35px;
-				left: -160px;
+				left: -100px;
 				width: auto;
 				top: calc( (1.4em - 1em) / 2);
 				text-align: right;
 				content: attr(data-before);
-				font-weight: bold;
+				font-weight: normal;
 			}
 
 			&:after {
-				color: $blue-font-color;
+				color: $grey-font-color;
 				position: absolute;
 				text-align: left;
 				left: 35px;
-				right: -160px;
+				right: -100px;
 				top: calc( (1.4em - 1em) / 2);
 				content: attr(data-after);
 				opacity: 1;
-				font-weight: bold;
+				font-weight: normal;
 			}
 		}
 		
@@ -279,87 +323,75 @@ div.toggle {
 	}
 }
 
+@media only screen and (min-width: 800px) {
+	section.pricing > div {
+		& > div.header {
+			flex-direction: row;
+			justify-content: center;
+		}
+
+		& > div.header > div.ev-included {
+			flex-direction: column;
+			max-width: 140px;
+			align-self: stretch;
+			margin-left: 20px;
+			margin-bottom: 0px;
+
+			& > i {
+				font-size: 4rem;
+			}
+
+			& > span {
+				text-align: center;
+			}
+		}
+
+		& > div.header > div.calculator {
+			min-width: 600px;
+
+			div.main {
+				display: flex;
+			}
+
+			div.column {
+				flex-direction: column;
+				width: 50%;
+
+				&:first-child {
+					margin-right: 25px;
+				}
+
+				&:last-child {
+					margin-left: 25px;
+				}
+			}
+
+			span.label {
+				font-size: 1rem;
+			}
+		}
+	}
+
+	section.pricing {
+		div.column-layout div.content.match-failed {
+			display: block;
+		}
+	}
+}
+
 @media only screen and (max-width: 1000px) {
-	section.pricing-main > div {
+	section.pricing > div {
 		padding: 20px;
 
 		& > div.products-table {
 			flex-direction: column;
-
-			& > div.top {
-				width: 100%;
-				margin-right: 0px;
-
-				div.selectors {
-					border-radius: inherit;
-				}
-
-				& > ul.body {
-					display: none;
-				}
-			}
-
+		
 			& > div.product {
 				margin-top: 20px;
 				margin-left: 0px;
 				width: 100%;
 
 				& > a {
-					border-bottom-right-radius: inherit;
-					border-bottom-left-radius: inherit;
-				}
-
-				& > ul.body {
-					display: flex;
-					flex-wrap: wrap;
-
-					& > li {
-						width: calc(50% - 20px);
-
-						&.label {
-							display: inline-block;
-
-							& > span.period {
-								display: none;
-							}
-						}
-
-						&:nth-child(odd) {
-							text-align: left;
-						}
-
-						&:nth-child(even) {
-							text-align: right;
-						}
-
-						&:nth-last-child(2) {
-							border-bottom: 0px solid transparent;
-						}
-					}
-				}
-			}
-		}
-
-		& > div.additional-product {
-			flex-direction: column;
-
-			& > div:first-child {
-				border-bottom-left-radius: 0px;
-				border-top-right-radius: inherit;
-				
-				& > h2 {
-					text-align: center;
-				}
-			}
-
-			& > div:last-child {
-				flex-direction: column;
-				align-items: stretch;
-				border-bottom-right-radius: inherit;
-				border-bottom-left-radius: inherit;
-
-				& > a {
-					margin: 0px;
 					border-bottom-right-radius: inherit;
 					border-bottom-left-radius: inherit;
 				}
