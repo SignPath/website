@@ -12,7 +12,7 @@
 		<div class='header'>
 			<div class='calculator'>
 				<div class='main'>
-					<div class='column'>
+					<div class='column'>						
 						<div class='row'>
 							<span class='label'>Projects</span>
 							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-projects-input' type='number' min='1' max='100' value='1' /><i class='la la-plus-circle'></i></div>
@@ -46,7 +46,7 @@
 					</div>
 				</div>
 				<div class='link'>
-					<a href='../editions'>Compare features</a>
+					<a href='/product/editions'>Compare features</a>
 				</div>
 			</div>
 			<div class='ev-included'>
@@ -61,13 +61,13 @@
 					<li class='head f'>Quotas</li>
 					<li class='f include-sub'>Projects</li>
 					<li class='f include-sub'>Users</li>
-					<li class='sub-head f'>Signing Requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
+					<li class='sub-head f'>Signing requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
 					<li class='sub f include-sub'>release-signing</li>
 					<li class='sub f include-sub'>test-signing</li>
-					<li class='sub-head f'>Signing Request retention <span class='hint--top-right hint--medium' aria-label='Your artifacts and signing request information is deleted after the specified time range'><i class='las la-info-circle'></i></span></li>
+					<li class='sub-head f'>Artifact retention <span class='hint--top-right hint--medium' aria-label='Articafts will be deleted after the specified retention time'><i class='las la-info-circle'></i></span></li>
 					<li class='sub f'>release-signing</li>
 					<li class='sub f'>test-signing</li>
-					<li class='f'>Artifact volume <span class='hint--top-right hint--medium' aria-label='Annual allowance of uploaded artifacts'><i class='las la-info-circle'></i></span></li>
+					<li class='f'>Artifact volume <span class='hint--top-right hint--medium' aria-label='Annual upload quota'><i class='las la-info-circle'></i></span></li>
 					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
 				</ul>
 			</div>
@@ -119,12 +119,21 @@
 			</div>
 		</div>
 		<div class='info'>
+			<h3>Certificates</h3>
+			<ul>
+				<li> <strong>EV certificates</strong> provided by <a href="https://shop.globalsign.com/en/code-signing">GlobalSign</a>.</li>
+				<li> <strong>GlobalSign code signing certificates can be issued in the name of a legally registered organization only.</strong> </li>
+				<li> Your authority to get an EV certificate on behalf of your organization will be verified by GlobalSign. This might take a few days. </li>
+				<li> You can immediately <strong>install and use your test certificate</strong>. See <a href='/code-signing/test-certificates'>Managing Test Certificates</a> for instructions.</li>
+			</ul>
+			<h3>Billing</h3>
+			<ul>
+				<li> All plans are <strong>billed up-front</strong> for the entire period. </li>
+				<li> <strong>Prices are without taxes.</strong> If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>. (For some regions, sales tax may still be charged.) </li>
+			</ul>
 			<p>
-				<strong><i class='la la-info-circle'></i> All plans are billed up-front for the entire period.</strong><br>
-				<strong><i class='la la-info-circle'></i> Prices are without taxes. If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>.</strong><br>
-				<strong><i class='la la-info-circle'></i> For special inquiries or more information, please <a href='mailto:sales@signpath.io'>contact us</a>.</strong><br>
+				<i class='la la-info-circle'></i> For special inquiries or more information, please <strong><a href='mailto:sales@signpath.io'>contact us</a></strong>.
 			</p>
-		</div>
 	</div>
 </section>
 

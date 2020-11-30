@@ -52,6 +52,9 @@ div.column-layout {
 					a {
 						color: $light-blue-font-color;
 					}
+					a:hover {
+						text-decoration: underline;
+					}
 				}
 
 				span.sub {
@@ -82,10 +85,13 @@ div.column-layout {
 		min-width: 250px;
 		
 		span.sub {
-			display: inline-block;
+			display: flex;
 			float: right;
 			margin-left: 1em;
-			padding-top: 0.2em;
+			margin-top: -0.5em;
+			text-align: right;
+			height: 2.65em;
+			align-items: center;
 		}
 
 		ul {
@@ -106,6 +112,10 @@ div.column-layout {
 			&.sub {
 				text-align: right;
 				font-style: italic;
+			}
+
+			a:hover {
+				text-decoration: underline;
 			}
 		}
 	}
@@ -141,7 +151,7 @@ div.column-layout {
 		ul > li {
 			text-align: center;
 
-			&.f {
+			&.f, &.sub {
 				display: none;
 			}
 
@@ -179,7 +189,7 @@ div.column-layout {
 	}
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1120px) {
 	div.column-layout {
 		flex-direction: column;
 	
@@ -194,14 +204,18 @@ div.column-layout {
 
 			li {
 				width: 50%;
-				display: flex;
-				flex-direction: column;
+				list-style: none;
 				justify-content: center;
 				align-items: center;
 
 				&.f {
 					text-align: left;
 					display: block;
+				}
+
+				&.f.sub {
+					text-align: right;
+					font-style: italic;
 				}
 
 				&.head, &.sub-head {

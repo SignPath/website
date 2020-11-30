@@ -1,8 +1,10 @@
 - name: Starter
   quotas:
-    certificates: '1 EV included'
-    projects: 'up to 3'
-    users: 'up to 2'
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
+    projects: '3'
+    users: '2'
+    signing_requests: 'yearly quota'
     ci_pipelines: '1'
   signing_methods:
     authenticode: true
@@ -22,24 +24,30 @@
   policy_enforcement:
     manual_approval: false
     quorum_approval: false
-    arbitrary_signing_policies: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
-    double_verification: false
     origin_verification: false
+    origin_policies: false
+    build_validation: false
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: false
     groups: false
     available_on_premises: false
-    support: 'Email'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'pricing_page'
 
 - name: Basic
   quotas:
-    certificates: '1 EV included'
-    projects: 'up to 10'
-    users: 'up to 15'
+    certificates: '1 EV'
+    certificates-hint: 'Includes a single Extended Validation (EV) certificate'
+    projects: '10'
+    projects-hint: 'You may use several artifact configurations per project, e.g. for different components. They will share the same policies.'
+    users: '15'
+    signing_requests: 'yearly quota'
     ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true
@@ -59,25 +67,29 @@
   policy_enforcement:
     manual_approval: true
     quorum_approval: false
-    arbitrary_signing_policies: false
+    signing_policies_per_project: 'test & release'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
-    double_verification: false
     origin_verification: false
+    origin_policies: false
+    build_validation: false
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: false
     groups: false
     available_on_premises: false
-    support: 'Email'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'pricing_page'
 
 - name: Enterprise
   quotas:
-    certificates: 'Unlimited'
-    projects: 'Unlimited'
-    users: 'Unlimited'
-    ci_pipelines: 'Unlimited'
+    certificates: 'unlimited'
+    projects: 'unlimited'
+    users: 'unlimited'
+    signing_requests: 'unlimited'
+    ci_pipelines: 'unlimited'
   signing_methods:
     authenticode: true
     powershell: true
@@ -96,25 +108,30 @@
   policy_enforcement:
     manual_approval: true
     quorum_approval: true
-    arbitrary_signing_policies: true
+    signing_policies_per_project: 'unlimited'
     policies_for_certs: true
-    double_verification: true
     origin_verification: true
+    origin_policies: true
+    build_validation: true
   other:
     malware_detection: true
     hsm_key_storage: true
+    sso: true
     groups: true
     available_on_premises: true
-    support: 'Email / phone'
+    support: 'priority'
+    support-hint: 'Priority support using email, phone and screen sharing'
     code_signing_consulting: 'available'
   link_type: 'sales_email'
 
 - name: Open source
   quotas:
-    certificates: '1 included'
-    projects: '1'
-    users: 'Unlimited'
-    ci_pipelines: '1'
+    certificates: '1 standard'
+    certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
+    projects: 'apply'
+    users: 'unlimited'
+    signing_requests: 'fair use'
+    ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true
     powershell: true
@@ -132,16 +149,18 @@
     metadata_constraints: 'required'
   policy_enforcement:
     manual_approval: 'required'
-    quorum_approval: false
-    arbitrary_signing_policies: false
+    quorum_approval: true
+    signing_policies_per_project: 'unlimited'
     policies_for_certs: 'required'
-    double_verification: true
     origin_verification: 'required'
+    origin_policies: 'required'
+    build_validation: 'required'
   other:
     malware_detection: true
     hsm_key_storage: true
-    groups: false
+    sso: false
+    groups: true
     available_on_premises: false
-    support: 'Web'
+    support: 'email'
     code_signing_consulting: false
   link_type: 'support_email'
