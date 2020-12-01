@@ -10,7 +10,7 @@
   num_test_signings_per_project: 100
   release_signing_retention: '2 weeks'
   test_signing_retention: '1 week'
-  num_gb_per_project: 13
+  num_gb_per_project: 15
   num_ci_pipelines: 1
   ci_pipelines_per_project: false
   product_id:
