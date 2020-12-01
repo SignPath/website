@@ -225,7 +225,7 @@ document.addEventListener('DOMContentLoaded', function() {
             + '&paymentToken=' 
             + encodeURIComponent(params.paymentToken)
             + '&OPTIONS' + productid + '='
-            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax))
             + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
         } else {
           productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
@@ -234,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             + (currency == '$' ? 'USD' : 'EUR') 
             + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
             + '&OPTIONS' + productid + '='
-            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax));
+            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax))
             + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
         }
       })
@@ -261,6 +261,11 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     recalculatePrices();
+
+    window.addEventListener("pageshow", () => {
+      document.getElementById('num-users-input').value = 1;
+      document.getElementById('num-projects-input').value = 1;
+    });
   }
 
   // set cookie acknowledgement

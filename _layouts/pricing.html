@@ -15,11 +15,11 @@
 					<div class='column'>						
 						<div class='row'>
 							<span class='label'>Projects</span>
-							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-projects-input' type='number' min='1' max='100' value='1' /><i class='la la-plus-circle'></i></div>
+							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-projects-input' type='number' min='1' max='100' value='1' oninput="this.value = Math.abs(this.value)" /><i class='la la-plus-circle'></i></div>
 						</div>
 						<div class='row'>
 							<span class='label'>Users</span>
-							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-users-input' type='number' min='1' max='100' value='1' /><i class='la la-plus-circle'></i></div>
+							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-users-input' type='number' min='1' max='100' value='1' oninput="this.value = Math.abs(this.value)" /><i class='la la-plus-circle'></i></div>
 						</div>
 					</div>
 					<div class='column'>
