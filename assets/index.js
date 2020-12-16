@@ -207,6 +207,7 @@ document.addEventListener('DOMContentLoaded', function() {
         productCtn.querySelector('.num-release-signings').innerHTML = numReleaseSignings * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
         productCtn.querySelector('.num-test-signings').innerHTML    = numTestSignings    * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
         productCtn.querySelector('.num-gb-per-project').innerHTML  =  (numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) + ' GB';
+        productCtn.querySelector('.num-individual-signatures-per-project').innerHTML = new Intl.NumberFormat().format((numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) * 1024 * 1024);
         if (ciPipelinesPerProject) {
           productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
         }
