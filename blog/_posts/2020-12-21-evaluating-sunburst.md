@@ -2,7 +2,7 @@
 layout: post
 title: "Evaluating the Sunburst Hack: Causes and Future Prevention"
 image: '2020-12-21-bg'
-date: 2020-12-20 10:00:00 +0000
+date: 2020-12-21 10:00:00 +0000
 author: Stefan Wenig
 summary: "How hackers exploited one ISV's software to reach political targets - and how software industry practices need to improve"
 ---
@@ -57,7 +57,7 @@ Analyzing entire build pipelines for possible attacks from within the network is
 
 And there's a reason for this too: CI systems are used for so many things to day, some of them rather resource-intensive too. Think about executing Web test suites, for instance. Or DAST tests. They require a lot of analysis and trouble shooting, so there's a big incentive for handing out access permissions for components of the CI system too.
 
-To be sure, it's easy to come to the conclusion that a process is safe. There is this token or password that you need for code signing, and we're only using it in this specific way, right? Probably not: relying on a single secret and it's proper handling will almost always leave some room for attacks ([involuntary mistakes too](risks-from-errors)). But who has the time and budget to do a full security audit for every project?
+To be sure, it's easy to come to the conclusion that a process is safe. There is this token or password that you need for code signing, and we're only using it in this specific way, right? Probably not: relying on a single secret and it's proper handling will almost always leave some room for attacks. But who has the time and budget to do a full security audit for every project?
 
 **At SignPath, this was our mission from the start:** Storing keys on HSMs is not the solution for all code signing risks. Neither is a code signing gateway that simply provides HSM access using some finer-grained access control and auditing.
 
