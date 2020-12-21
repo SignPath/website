@@ -39,7 +39,7 @@ Those were clever measures for sure, but they would not go undetected in a task-
 
 It's easy to see how these hacks could avoid accidental detection. But to work around a carefully implemented review policy, the hackers would have to hack the issue tracking system too (quite possible), create plausible tasks for creating a new background process thread (hm, what for?) and string obfuscation - now that should trigger some alarms!
 
-Also, make sure that your review guidelines container clear rules for triggering security reviews. A very fine example can be found [here](https://docs.gitlab.com/ee/development/code_review.html).
+Also, make sure that your review guidelines contain clear rules for triggering security reviews. A very fine example can be found [here](https://docs.gitlab.com/ee/development/code_review.html).
 
 Thorough source code reviews require some effort. But you don't do it just for security, you do it for quality. Like most reasonable quality measures, they will pay off with reduced cost for support, troubleshooting and bug fixing. In 2020, there's hardly any excuse left for not doing them, so why not go all the way and enforce them?
 
@@ -55,7 +55,7 @@ Having done this for some years for a living, we can now safely say one thing: *
 
 Analyzing entire build pipelines for possible attacks from within the network is rarely done, and it's a daunting task. There is little know-how around, and still too little vendor support: CI systems are built for speed, scalability and flexibility first.
 
-And there's a reason for this too: CI systems are used for so many things to day, some of them rather resource-intensive too. Think about executing Web test suites, for instance. Or DAST tests. They require a lot of analysis and trouble shooting, so there's a big incentive for handing out access permissions for components of the CI system too.
+And there's a reason for this too: CI systems are used for so many things today, some of them rather resource-intensive too. Think about executing Web test suites, for instance. Or DAST tests. They require a lot of analysis and troubleshooting, so there's a big incentive for handing out access permissions for components of the CI system too.
 
 To be sure, it's easy to come to the conclusion that a process is safe. There is this token or password that you need for code signing, and we're only using it in this specific way, right? Probably not: relying on a single secret and it's proper handling will almost always leave some room for attacks. But who has the time and budget to do a full security audit for every project?
 
