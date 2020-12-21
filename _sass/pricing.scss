@@ -120,7 +120,8 @@ section.pricing {
 
 		div.features {
 			margin-top: calc(2em * 1.2 + 12px + 4px + 1px /* h2 */ + 1.8em * 1.8 + 2rem + 10px /* h3 */ - 1.65em - 20px);
-			max-width: 250px;
+			max-width: 200px;
+			min-width: 200px;
 
 			li {
 				&.include-sub {
