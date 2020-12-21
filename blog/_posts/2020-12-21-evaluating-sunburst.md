@@ -2,7 +2,7 @@
 layout: post
 title: "Evaluating the Sunburst Hack: Causes and Future Prevention"
 image: '2020-12-21-bg'
-date: 2020-12-21 10:00:00 +0000
+date: 2020-12-21 08:00:00 +0000
 author: Stefan Wenig
 summary: "How hackers exploited one ISV's software to reach political targets - and how software industry practices need to improve"
 ---
@@ -16,6 +16,10 @@ Tomislav Peričin of ReversingLabs did an [exhaustive analysis](https://blog.rev
 ## Two possible attack vectors
 
 What's not so clear though is whether these changes were committed to the source code repository, where every developer could see them, or injected on the build system.
+
+> **Update:** This article is based on the research by ReverseLabs. SolarWinds has published a [statement](https://sec.report/Document/0001628280-20-017451/) that says that the code "was introduced as a result of a compromise of the Orion software build system and **was not present in the source code repository** of the Orion products."
+>
+> So it wasn't attack vector 1. But considering the careful way the code was inserted incrementally, it's still a vector every development organization has to watch out for.
 
 Looking forward, this does not really matter. Both ways are possible attack vectors, so we must consider them all.
 
@@ -68,3 +72,6 @@ Our customers need a simple way to make sure that **every signed and published r
 * was built on **secure infrastructure**, without direct or indirect developer access
 
 To find out more about code signing with SignPath, please [contact us](mailto:sales@signpath.io). 
+
+### Updates
+* 2020-12-21 8:00 UTC: Added SolarWind's statement that the modified code was *not* in their repository.
