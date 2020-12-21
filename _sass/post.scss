@@ -2,4 +2,43 @@ section.post-section {
 	img {
 		max-width: 100%;
 	}
+
+	& > div {
+		a:hover {
+			text-decoration: underline;
+		}
+
+		table {
+			border-collapse: collapse;
+
+			thead {
+				background-color: $light-grey-background-color;
+			}
+
+			td, th {
+				border: 1px solid $grey-border-color;
+				padding: 5px 10px;
+				vertical-align: top;
+			}
+
+			td {
+				font-size: 0.9em;
+
+				& > *:only-child {
+					margin: 0;
+				}
+
+				& > ol:only-child, & > ul:only-child
+				{
+					padding-left: 1em;
+				}
+			}
+		}
+
+		table.noborder {
+			td, th {
+				border: none;
+			}
+		}
+	}
 }
