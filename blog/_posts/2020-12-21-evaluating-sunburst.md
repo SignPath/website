@@ -7,7 +7,7 @@ author: Stefan Wenig
 summary: "How hackers exploited one ISV's software to reach political targets - and how software industry practices need to improve"
 ---
 
-Sunburst is already the most discussed hacker attack in living memory, maybe back to when Iran's nuclear program was pushed back years by Stuxnet. But what do we really know?
+Sunburst/Solorigate is already the most discussed hacker attack in living memory, maybe back to when Iran's nuclear program was pushed back years by Stuxnet. But what do we really know?
 
 Several U.S. agencies were infiltrated using versions of SolarWind's Orion software that carried a backdoor payload. Given the scope of this software, it's not surprising that a successful attack on Orion would also pave the way for hacking customers. So rather than examining the exact nature of these backdoors and how they were exploited, let's look at how the software was hacked in the first place.
 
