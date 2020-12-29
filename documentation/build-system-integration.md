@@ -175,7 +175,7 @@ Once the signing request is successfully completed, the status response contains
 ~~~ bash
 curl -H "Authorization: Bearer $CI_USER_TOKEN" \
      -o $LOCAL_PATH_TO_DOWNLOADED_ARTIFACT \
-     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequest/$SIGNING_REQUEST_ID/SignedArtifact
+     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID/SignedArtifact
 ~~~
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
