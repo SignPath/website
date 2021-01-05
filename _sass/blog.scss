@@ -4,6 +4,12 @@ section.blog-section {
 
 		h2 {
 			margin-top: 20px;
+			text-align: left;
+
+			& > a {
+				float: right;
+				font-size: 1rem;
+			}
 		}
 
 		ul {
