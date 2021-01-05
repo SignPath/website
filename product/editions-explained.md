@@ -111,7 +111,7 @@ Create [multiple artifact configurations](/documentation/projects#keeping-versio
 
 ### Metadata constraints
 
-Some [file attributes](http://localhost:4000/documentation/artifact-configuration#file-attribute-restrictions) can be restricted. 
+Some [file attributes](/documentation/artifact-configuration#file-attribute-restrictions) can be restricted. 
 
 This is useful if you want to 
 
