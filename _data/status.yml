@@ -5,8 +5,8 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
-  - date: 'Jan. 4, 2020'
-    range: 'Jan. 4, 2020, 12:00 UTC - Jan. 4, 2020, 13:00 UTC'
+  - date: 'Jan. 4, 2021'
+    range: 'Jan. 4, 2021, 12:00 UTC - Jan. 4, 2021, 13:00 UTC'
     type: warning
     title: 'Planned maintenance to change authentication provider'
     description: 'We are changing our authentication provider to Okta. This is the first of two migration steps.'
