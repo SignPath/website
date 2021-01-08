@@ -398,7 +398,7 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
     <pe-file-set productName="YourProductName" productVersion="1.0.0.0"> 
       <include path="main.exe" />
       <!-- overrides the value of the parent pe-file-set -->
-      <include path="resources*.resource.dll" max-occurs="unbounded" productVersion="1.0.1.0" />
+      <include path="resources*.resource.dll" max-matches="unbounded" productVersion="1.0.1.0" />
       <for-each>
         <authenticode-sign />
       </for-each>
