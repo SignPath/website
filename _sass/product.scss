@@ -16,6 +16,7 @@ main > section.feature {
 	padding: 40px 0px;
 	max-width: $content-width;
 	margin: auto;
+	flex-direction: row;
 
 	&.grey {
 		background-color: $light-grey-background-color;
