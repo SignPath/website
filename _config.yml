@@ -35,6 +35,8 @@ toc:
   max_level: 2
 permalink: /blog/:year/:month/:day/:title.html
 
+include: [".well-known"]
+
 exclude:
     - Gemfile
     - Gemfile.lock
