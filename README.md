@@ -54,7 +54,7 @@ In order to add or remove a job, directly edit the `jobs/index.md` file and chan
 
 ### Changing icon set
 
-The general icons used on the website come from [Line Awesome](https://icons8.com/line-awesome) and a set of them are self-created / from various sources. The latter are collected in `assets/icons/single` and are then combined into the `fontello` font using (fontello.com)[http://fontello.com/].
+The general icons used on the website come from [Line Awesome](https://icons8.com/line-awesome) and a set of them are self-created / from various sources. The latter are collected in `assets/icons/single` and are then combined into the `fontello` font using [fontello.com](http://fontello.com/).
 
 ## Deploying
 
