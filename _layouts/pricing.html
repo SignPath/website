@@ -61,15 +61,29 @@
 					<li class='head f'>Quotas</li>
 					<li class='f include-sub'>Projects</li>
 					<li class='f include-sub'>Users</li>
-					<li class='sub-head f'>Signing requests <span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'><i class='las la-info-circle'></i></span></li>
-					<li class='sub f include-sub'>release-signing</li>
-					<li class='sub f include-sub'>test-signing</li>
-					<li class='sub-head f'>Artifact retention <span class='hint--top-right hint--medium' aria-label='Articafts will be deleted after the specified retention time'><i class='las la-info-circle'></i></span></li>
+					<li class='sub-head f'>Signing requests 
+						<span class='hint--top-right hint--medium' aria-label='One signing request can contain multiple artifacts'>
+							<i class='las la-info-circle'></i></span></li>
+					<li class='sub f include-sub'>release-signing
+						<span class='hint--top-right hint--medium' aria-label='Signing requests using your EV certificate'>
+							<i class='las la-info-circle'></i></span></li>
+					<li class='sub f include-sub'>test-signing
+						<span class='hint--top-right hint--medium' aria-label='Signing request using a test certificate that must be installed on target machines (e.g. testing the signing configuration, signing internal builds, release candidates etc.)'>
+							<i class='las la-info-circle'></i></span></li>
+					<li class='sub-head f'>Artifact retention 
+						<span class='hint--top-right hint--medium' aria-label='Articafts will be deleted after the specified retention time'>
+							<i class='las la-info-circle'></i></span></li>
 					<li class='sub f'>release-signing</li>
 					<li class='sub f'>test-signing</li>
-					<li class='f'>Artifact volume <span class='hint--top-right hint--medium' aria-label='Annual upload quota'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>Individual signatures <span class='hint--top-right hint--medium' aria-label='Fair use quota of actual annual signatures'><i class='las la-info-circle'></i></span></li>
-					<li class='f'>CI pipelines <span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'><i class='las la-info-circle'></i></span></li>
+					<li class='f'>Artifact volume 
+						<span class='hint--top-right hint--medium' aria-label='Annual upload quota'>
+							<i class='las la-info-circle'></i></span></li>
+					<li class='f'>Individual signatures 
+						<span class='hint--top-right hint--medium' aria-label='Fair use quota of actual annual signatures'>
+							<i class='las la-info-circle'></i></span></li>
+					<li class='f'>CI pipelines 
+						<span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'>
+							<i class='las la-info-circle'></i></span></li>
 				</ul>
 			</div>
 			{% for product in site.data['pricing'] %}
