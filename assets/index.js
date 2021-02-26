@@ -129,6 +129,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (window.location.pathname.endsWith('/pricing/') || window.location.pathname.endsWith('/pricing') || window.location.pathname.endsWith('/pricing.html/') || window.location.pathname.endsWith('/pricing.html')) {
 
+    let params = {};
+    window.location.search.substr(1).split('&').forEach(function(part) {
+      var parts = part.split('=');
+      if (parts.length > 1) {
+        params[parts[0]] = decodeURIComponent(parts[1])
+      }
+    });
+
     var THREE_YEARS_FACTOR = 0.75;
 
     // calculate prices correctly
@@ -154,14 +162,6 @@ document.addEventListener('DOMContentLoaded', function() {
       var threeYears = document.getElementById('duration-toggle').checked;
       var numProjects = parseInt(document.getElementById('num-projects-input').value, 10);
       var numUsers = parseInt(document.getElementById('num-users-input').value, 10);
-
-      let params = {};
-      window.location.search.substr(1).split('&').forEach(function(part) {
-        var parts = part.split('=');
-        if (parts.length > 1) {
-          params[parts[0]] = decodeURIComponent(parts[1])
-        }
-      });
 
       var numSubscriptionsAvailable = 0;
 
@@ -225,9 +225,11 @@ document.addEventListener('DOMContentLoaded', function() {
             + productid 
             + '&paymentToken=' 
             + encodeURIComponent(params.paymentToken)
-            + '&OPTIONS' + productid + '='
-            + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax))
-            + ',num_users_' + productid + encodeURIComponent('=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax));
+            + '&AdditionalCheckoutParameters='
+            + encodeURIComponent('&OPTIONS=' + encodeURIComponent(
+                'num_projects_' + productid + '=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax)
+              + ',num_users_'   + productid + '=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax)
+            ));
         } else {
           productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
             + productid 
@@ -264,8 +266,9 @@ document.addEventListener('DOMContentLoaded', function() {
     recalculatePrices();
 
     window.addEventListener("pageshow", () => {
-      document.getElementById('num-users-input').value = 1;
-      document.getElementById('num-projects-input').value = 1;
+      document.getElementById('num-users-input').value = params['num_users'] || 1;
+      document.getElementById('num-projects-input').value = params['num_projects'] || 1;
+      recalculatePrices();
     });
   }
 
