@@ -36,6 +36,10 @@ Create signing requests by calling the following commands via PowerShell:
   ~~~ powershell
   Install-Module -Name SignPath
   ~~~
+  <div class="panel tipp" markdown="1">
+  <div class="panel-header">Specify an an acceptable version range</div>
+  The releases of the SignPath module follow [semantic versioning](https://semver.org/) principles. In automated scenarios, we recommend to fix the major version by specifying a lower and upper bound, e.g. `-MinimumVersion 2.1.0 -MaximumVersion 2.999.999` to ensure that a compatible version is installed.
+  </div>
 * Submit a signing request and get a signing request ID without waiting for completion ...
   ~~~ powershell
   $signingRequestID = Submit-SigningRequest `
