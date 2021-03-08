@@ -134,6 +134,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 ~~~ json
 {
   "status":"Completed",
+  "isFinalStatus": true,
   "description":"Called by curl",
   "projectId":"c90eb2c7-d34e-49fc-9e90-c00235ecaf1a",
   "projectSlug":"test-project",
@@ -161,7 +162,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 }
 ~~~
 
-* **Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed`, `Failed`, `Denied`, `Canceled`, `RetrievingArtifact`, `ArtifactRetrievalFailed`
+* **Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed` (final), `Failed` (final), `Denied` (final), `Canceled` (final), `RetrievingArtifact`, `ArtifactRetrievalFailed` (final)
 * `origin` is only available for signing requests with origin verification
 
 ### Download the signed artifact
