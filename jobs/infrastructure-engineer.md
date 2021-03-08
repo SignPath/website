@@ -11,10 +11,10 @@ Bring deine Expertise in unser Team ein und unterstütze uns dabei, unsere SaaS-
 
 ## Deine Aufgaben
 
-* Du bist Teil des Development-Teams, steuerst Infrastruktur- und Betriebs-Know-how bei und arbeitest mit Kolleg&ast;innen der Betriebs- und Infrastrukturteams zusammen.
+* Du bist Teil des Development-Teams, steuerst Infrastruktur- und Betriebs-Know-how bei und arbeitest mit Kolleg\*innen der Betriebs- und Infrastrukturteams zusammen.
 * Du bringst deine Expertise in unsere bestehenden Betriebs- und Deploymentprozesse ein und hilfst uns, diese zu verbessern und immer mehr zu automatisieren. Dabei beeinflusst du selbstverständlich den benutzten Infrastruktur-Technologiestack und die für das Deployment verwendeten Tools mit.
 * Du beschäftigst dich mit Azure- bzw. Cloud-, Windows-Server- und Container-Technologien und bildest dich stetig bezüglich neuester Technologien weiter. So bringst du immer neue Ideen ein, wie wir den Betrieb unserer Anwendung und unsere Betriebsprozesse stärken können.
-* Du wertest Monitoring-Informationen aus und generierst daraus Vorschläge für einen robusten und kosteneffizienten Betrieb. Außerdem erarbeitest du auf Basis deiner Erfahrungen Richtlinien für Monitoring und Supportmitarbeiter&ast;innen.
+* Du wertest Monitoring-Informationen aus und generierst daraus Vorschläge für einen robusten und kosteneffizienten Betrieb. Außerdem erarbeitest du auf Basis deiner Erfahrungen Richtlinien für Monitoring und Supportmitarbeiter\*innen.
 
 ## Dein Profil
 
