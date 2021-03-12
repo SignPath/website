@@ -136,7 +136,8 @@
     authenticode: true
     powershell: true
     clickonce: true
-    device_drivers: true
+    device_drivers: false
+    device_drivers-hint: Due to changes in Microsoft&apos;s policies, device driver signing now requires EV certificates and attestation signing. Currently we cannot provide EV certificates to OSS projects.
     office_add_ins: true
     opc: true
     nuget: true
