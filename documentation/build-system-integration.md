@@ -119,7 +119,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 Values for [user-defined parameters](/documentation/artifact-configuration#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameter.`
 
-Example: `-F "Parameter.productVersion=1.2.0"`
+Example: `-F "Parameters[productVersion]=1.2.0"`
 
 ### Get signing request data
 
