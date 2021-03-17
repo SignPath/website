@@ -412,11 +412,11 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
-Parameters can be used to define placeholders for values that may differ from one signing request to another. They allow for the artifact configuration to be more restrictive and consider build-time parameters. 
+You can define parameters that can be specified for each signing request. Use this to make the artifact configuration more restrictive and include build-time values. 
 
-The actual values are displayed on the signing request details page. The values can be set when submitting a signing request via the user interface or API (see [documentation](/documentation/build-system-integration#submit-a-signing-request))
+Parameter values can be set when submitting a signing request via the user interface or API (see [documentation](/documentation/build-system-integration#submit-a-signing-request)). Actual values are displayed on the signing request details page. 
 
-Parameters are defined in an <code>parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code>${parameterName}</code> syntax in any XML attribute.
+Parameters are defined in an optional <code>parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code>${parameterName}</code> syntax in any XML attribute.
 
 ~~~xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
