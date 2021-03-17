@@ -408,11 +408,11 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 </artifact-configuration>
 ~~~
 
-## Parameters
+## User-defined parameters
 
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
-You can define parameters that can be specified for each signing request. Use this to make the artifact configuration more restrictive and include build-time values. 
+You can define parameters for each signing request. Use this to create a more restrictive artifact configuration, track values, or include build-time values.
 
 Parameter values can be set when submitting a signing request via the user interface or API (see [documentation](/documentation/build-system-integration#submit-a-signing-request)). Actual values are displayed on the signing request details page. 
 

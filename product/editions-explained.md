@@ -121,6 +121,15 @@ This is useful if you want to
 
 Metadata constraints are only available for *Enterprise* subscriptions.
 
+### User-defined parameters
+
+You can define [parameters](/documentation/artifact-configuration#user-defined-parameters) for each signing request. 
+
+Use this to
+* create more restrictive artifact configurations
+* track arbitrary values across signing requests
+* include build-time values 
+
 ## Policy enforcement
 
 ### Manual approval
