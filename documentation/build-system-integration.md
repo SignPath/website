@@ -114,14 +114,12 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Parameters</div>
+#### User-defined parameters
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
 Values for [user-defined parameters](/documentation/artifact-configuration#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameter.`
 
-For example `-F "Parameter.productVersion=1.2.0"`
-</div>
+Example: `-F "Parameter.productVersion=1.2.0"`
 
 ### Get signing request data
 
