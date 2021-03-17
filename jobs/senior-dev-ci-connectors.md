@@ -11,7 +11,7 @@ Du bist in mehr als einer Programmiersprache zu Hause und hast Erfahrung mit Bui
 
 ## Deine Aufgaben
 
-Als Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Senior-Entwickler&ast;in schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen
+Als Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Senior-Entwickler\*in schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen
 
 * Du arbeitest an technisch anspruchsvollen Problemen - von der Konzeption über die Entwicklung bis zum Deployment
 * In Abstimmung mit dem restlichen Team und dem Produktmanagement entwickelst du Anbindungen an CI-Systeme und trägst damit zu einem einfacheren und sichereren Umgang von Code Signing in Development Teams unserer Kunden bei
