@@ -118,7 +118,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 <div class="panel-header">Parameters</div>
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
-Values for [parameters in the artifact configuration](/documentation/artifact-configuration#parameters) can be provided by adding another multipart/form-data field prefixed with `Parameter.`
+Values for [user-defined parameters](/documentation/artifact-configuration#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameter.`
 
 For example `-F "Parameter.productVersion=1.2.0"`
 </div>
