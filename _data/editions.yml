@@ -21,6 +21,7 @@
     deep_signing: true
     multiple_configurations_per_projects: false
     metadata_constraints: false
+    user_defined_parameters: false
   policy_enforcement:
     manual_approval: false
     quorum_approval: false
@@ -64,6 +65,7 @@
     deep_signing: true
     multiple_configurations_per_projects: true
     metadata_constraints: false
+    user_defined_parameters: false
   policy_enforcement:
     manual_approval: true
     quorum_approval: false
@@ -105,6 +107,7 @@
     deep_signing: true
     multiple_configurations_per_projects: true
     metadata_constraints: true
+    user_defined_parameters: true
   policy_enforcement:
     manual_approval: true
     quorum_approval: true
@@ -148,6 +151,7 @@
     deep_signing: true
     multiple_configurations_per_projects: true
     metadata_constraints: 'required'
+    user_defined_parameters: true
   policy_enforcement:
     manual_approval: 'required'
     quorum_approval: true

@@ -114,6 +114,13 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
+#### User-defined parameters
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+Values for [user-defined parameters](/documentation/artifact-configuration#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameter.`
+
+Example: `-F "Parameter.productVersion=1.2.0"`
+
 ### Get signing request data
 
 | Synopsis   |      |
@@ -146,7 +153,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
   "signingPolicySlug":"test-signing",
   "signingPolicyName":"test-signing",
   "unsignedArtifactLink":"https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/UnsignedArtifact",
-  "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact"
+  "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact",
   "origin": {
     "repositoryMetadata": {
       "repositoryUrl": "https://github.com/name/project",
@@ -158,6 +165,10 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
       "fileName": "AppVeyorSettings.json",
       "downloadLink": "https://fqa.test.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/137ada35-fc11-4719-a3a4-269983692197/BuildSettingsFile"
     }
+  },
+  "parameters": {
+    "param1": "value1",
+    "param2": "value2"
   }
 }
 ~~~

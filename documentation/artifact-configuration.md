@@ -408,6 +408,25 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 </artifact-configuration>
 ~~~
 
+## User-defined parameters
+
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+You can define parameters for each signing request. Use this to create a more restrictive artifact configuration, track values, or include build-time values.
+
+Parameter values can be set when submitting a signing request via the user interface or API (see [documentation](/documentation/build-system-integration#submit-a-signing-request)). Actual values are displayed on the signing request details page. 
+
+Parameters are defined in an optional <code>parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code>${parameterName}</code> syntax in any XML attribute.
+
+~~~xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <parameters>
+    <parameter name="productVersion" default-value="1.0.0" required="true" />
+  </parameters>
+  <pe-file name="my-installer-${productVersion}.exe" productVersion="${productVersion}">
+</artifact-configuration>
+~~~
+
 [Examples]: #examples
 
 ## Examples
