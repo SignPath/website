@@ -155,15 +155,18 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
   "unsignedArtifactLink":"https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/UnsignedArtifact",
   "signedArtifactLink":"https://app.signpath.io1/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/a4559e13-9e95-480a-9567-5b8a3252bb27/SignedArtifact",
   "origin": {
-    "repositoryMetadata": {
-      "repositoryUrl": "https://github.com/name/project",
-      "branchName": "master",
-      "commitId": "efe8bbc00c5484bfd38ce13a749ea2103a8ea713"
+    "buildData": {
+      "buildSettingsFile": {
+        "downloadLink": "https://app.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests//a4559e13-9e95-480a-9567-5b8a3252bb27/BuildSettingsFile",
+        "fileName": "AppVeyorSettings.json"
+      },
+      "url": "https://ci.appveyor.com/project/TestUser/Test-Project/builds/12345678/job/03rba4p8tlr2t4f7"
     },
-    "buildUrl": "https://ci.appveyor.com/project/user/project/builds/30003889/job/x6mlmxrctauro5nb",
-    "buildSettingsFile": {
-      "fileName": "AppVeyorSettings.json",
-      "downloadLink": "https://fqa.test.signpath.io/API/v1/c2099ac1-b4b5-4b30-934e-3933c2d9922d/SigningRequests/137ada35-fc11-4719-a3a4-269983692197/BuildSettingsFile"
+    "repositoryData": {
+      "url": "https://github.com/name/project",
+      "branchName": "master",
+      "commitId": "efe8bbc00c5484bfd38ce13a749ea2103a8ea713",
+      "sourceControlManagementType": "git"
     }
   },
   "parameters": {
