@@ -16,18 +16,18 @@ SignPath provides the following advantages when signing for DCT:
 
 * **You don't need to keep the target key** (a powerful key without hardware protection option that you would otherwise need for every new developer)
 * **Developers don't need to keep their own delegation keys**
-* You can use the full power of SignPath **signing policies**, including permission, approval and origin verification
+* You can use the full power of SignPath **signing policies**, including permission, approval, and origin verification
 * You can use all **CI integration** features of SignPath
 * Configuration and policy management is **aligned with other signing methods**, such as Authenticode or Java signing
 * SignPath maintains a **full audit log** of all signing activities
-* SignPath controls **signing on a semantic level**, where DCT would just verify signatures on manifest files (i.e. with SignPath,  a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)
+* SignPath controls **signing on a semantic level**, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)
 
-DCT is based on Notary, which uses a system of private keys. 
+DCT is based on Notary, which uses a system of keys:
 
 | Key type        | Handled by       | Used to                                             | Usage frequency                     | Recommendation
 |-----------------|------------------|-----------------------------------------------------|-------------------------------------|------------------------------------------
-| **Root**        | Repository admin | issue all other keys (except delegation keys)       | Initializatiion + each key rotation | Use a Yubkey USB token
-| **Target**      | Repository admin | issue delegation keys                               | Initializatiion + each key rotation | Delete after initialization/key rotation
+| **Root**        | Repository admin | issue all other keys (except delegation keys)       | Initialization + each key rotation | Use a Yubkey USB token
+| **Target**      | Repository admin | issue delegation keys                               | Initialization + each key rotation | Delete after initialization/key rotation
 | **Delegation**  | **SignPath**     | individual images and labels                        | Each image build                    | Use one delegation key for all developers
 | **Snapshot**    | Notary signer    | sign matching collections to prove consistency      | Each image build                    | (Registry/Notary take care of this)
 | **Timestamp**   | Notary signer    | sign current collections to prove "freshness"       | Constantly                          | (Registry/Notary take care of this)
