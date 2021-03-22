@@ -60,6 +60,9 @@ section.resources-section {
 
 			h2, h3, h4, h5, h6
 			{
+				font-weight: bold;
+				margin-left: 0;
+				text-align: left;
 				&:target::before { /* anchor margin on top */
 					content: "";
 					display: block;
@@ -70,12 +73,13 @@ section.resources-section {
 
 			& > h2 {
 				margin-bottom: 0px;
+				font-size: 1.5em;
 				padding-bottom: 5px;
 				border-bottom: 1px solid $grey-border-color;
 			}
 
 			& > h3 {
-				font-size: 1.3em;
+				font-size: 1.4em;
 				margin-top: 1.5em;
 				margin-bottom: 0.5em;
 				margin-left: 0;
@@ -83,12 +87,18 @@ section.resources-section {
 			}
 
 			& > h4 {
-				font-size: 1.05em;
+				font-size: 1.2em;
 				font-weight: bold;
 				margin-top: 1em;
 				margin-bottom: 0.3em;
-				margin-left: 0;
+			}
+
+			& > h5 {
+				font-size: 1.0em;
+				margin-top: 0.8em;
+				margin-bottom: 0.2em;
 				text-align: left;
+				font-style: italic;
 			}
 
 			p {
@@ -151,6 +161,7 @@ section.resources-section {
 				background-color: $grey-border-color;
 				margin: 0px;
 				padding: 5px 10px;
+				font-weight: bold;
 				font-size: 1em;
 				margin-left: -20px;
 				margin-right: -20px;
@@ -167,13 +178,15 @@ section.resources-section {
 
 		table {
 			border-collapse: collapse;
+			margin-bottom: 1.5em;
 
 			thead {
-				background-color: $light-grey-background-color;
+				background-color: #F6F6F6;
 			}
 
 			td, th {
-				border: 1px solid $grey-border-color;
+				border-top: 1px solid $grey-border-color;
+				border-bottom: 1px solid $grey-border-color;
 				padding: 5px 10px;
 				vertical-align: top;
 			}
