@@ -13,6 +13,9 @@
 - text: Signing Code
   path: signing-code
 
+- text: Signing Docker images
+  path: docker-signing
+
 - separator: true
 
 - text: Artifact Configuration
