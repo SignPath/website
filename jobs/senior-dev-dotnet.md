@@ -1,7 +1,7 @@
 ---
 title: Jobs - System Architect
 header: Senior .NET Developer
-sub-header: Senior .NET Developer\*in für CQRS/ES-Produkt
+sub-header: Senior .NET Developer*in für CQRS/ES-Produkt
 job_id: eez6hsrs41zoo6abtyx245cqu0l8xgl
 salary: 43.316
 layout: job
