@@ -158,9 +158,6 @@ Initialize-DockerSigning -Repository $FQN `
   -NotaryUsername $NOTARY_USERNAME -NotaryPassword $NOTARY_PASSWORD [-NotaryUrl $NOTARY_URL]
 ~~~
 
-<div class="panel info" markdown="1">
-<div class="panel-header">PowerShell parameters and FQN</div>
-
 Executing this command will  
 
 * create all necessary keys, prompting for passphrases during execution
@@ -170,7 +167,6 @@ Executing this command will
 * rotate the snapshot key (new key issued and maintained by Notary signer)
 * publish the _trust data_ to the Notary server 
 * extract the public part of the root key as a certificate file
-</div>
 
 The command prints the path of the certificate you need to upload in step 4.
 
