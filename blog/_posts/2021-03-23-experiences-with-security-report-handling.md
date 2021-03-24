@@ -23,7 +23,7 @@ While we agree with the first argument, the second remains a mystery:
 * It's unclear to us how Microsoft would know about all stolen private keys, as it is not obligatory to report stolen keys to Microsoft
 * There are no specific code-signing certificates for VSIX, so this vulnerability could not be exploited with private keys that were stolen any software publisher, not only "popular package publishers" (see [On the Importance of Trust Validation: Microsoft's Dangerous Mistake](https://about.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html))
 
-Furthermore, there is no reason to assume that CVEs should only be issued for vulnerabilities rated higher than moderate. If that were the case, users would be restricted in their ability to protect themselves from moderate vulnerabilities. It should be noted that CVEs are frequently issued for vulnerabilities with medium/moderate severity (e.g. [CVE-2019-1020019](https://nvd.nist.gov/vuln/detail/CVE-2019-1020019), [CVE-2020-128809](https://nvd.nist.gov/vuln/detail/CVE-2020-12880), or [CVE-2020-10643](https://nvd.nist.gov/vuln/detail/CVE-2020-10643)). 
+Furthermore, there is no reason to assume that CVEs should only be issued for vulnerabilities rated higher than moderate. If that were the case, users would be restricted in their ability to protect themselves from moderate vulnerabilities. It should be noted that CVEs are frequently issued for vulnerabilities with moderate severity (e.g. [CVE-2019-1020019](https://nvd.nist.gov/vuln/detail/CVE-2019-1020019), [CVE-2020-128809](https://nvd.nist.gov/vuln/detail/CVE-2020-12880), or [CVE-2020-10643](https://nvd.nist.gov/vuln/detail/CVE-2020-10643)). 
 
 Unfortunately, Microsoft's decision on issuing a CVE was not up for discussion, so we contacted MITRE to obtain a CVE. MITRE is a root CNA and is responsible for all CVEs that are not covered by other CNAs [[1]](#1). After a short exchange of emails, MITRE stopped responding to us, even after another follow up on our behalf. Almost a year later, in late April 2020, we unexpectedly received a message by MITRE, asking us if we would still like to have a CVE number assigned. Despite confirming that we suggest to assign a CVE, MITRE has not assigned this vulnerability a CVE number yet.
 
@@ -43,7 +43,7 @@ Microsoft has informed us that they were planning to fix this vulnerability with
 	23/09/2019: Release of Visual Studio 16.3 (supposedly fixed version)
 	28/04/2020: MITRE asks if we still want a CVE
 	11/05/2020: Confirming to MITRE that we still want a CVE
-	11/05/2020 - 28/07/2020: After further requests to MITRE no CVE was assigned
+	11/05/2020 - 23/03/2021: After further requests to MITRE no CVE was assigned
 
 ## Reporting the JarSigner Security Issue
 
@@ -59,7 +59,7 @@ Shortly after discovery of the missing revocation check in the JarSigner, we inf
 
 The security report handling between Microsoft and Oracle could hardly be more different.
 
-While discussing the vulnerability with Microsoft, they tried to disregard the vulnerability - seemingly without fully understanding it at first. After a more thorough explanation, Microsoft agreed to issue a fix for this vulnerability, but, in our opinion, downplayed the severity of the vulnerability with at least partially invaliud arguments (see above). Based on this arguments, they argued medium severity and that no CVE was warranted. This lack of a CVE and the absence of a mention of this vulnerability in the Visual Studio 16.3 release notes casts some doubts on their priorities: would they rather keep a vulnerability under cover, and produce a silent fix after a long delay, or would they keep their users informed to help them be secure? Such a behavior is commonly considered bad practice. 
+While discussing the vulnerability with Microsoft, they tried to disregard the vulnerability - seemingly without fully understanding it at first. After a more thorough explanation, Microsoft agreed to issue a fix for this vulnerability, but, in our opinion, downplayed the severity of the vulnerability with at least partially invalid arguments (see above). Based on this arguments, they argued moderate severity and that no CVE was warranted. The unwillingness to asign a CVE and the absence of a mention of this vulnerability in the Visual Studio 16.3 release notes casts some doubts on their priorities: would they rather keep a vulnerability under cover, and produce a silent fix after a long delay, or would they keep their users informed to help them be secure? The former approach is commonly considered bad practice. 
 
 In contrast to Microsoft's security report handling, Oracle has acknowledged the security issue, without trying to avoid to take action or unreasonably downplaying it, and is transparently fixing it through a public ticket system. Although we wished Oracle had made automatic CRL checks a default in the JarSigner, in our opinion, Oracle handled this security report very well overall.
 
