@@ -71,6 +71,13 @@ Create signing requests by calling the following commands via PowerShell:
       -WaitForCompletion
   ~~~
 
+#### User-defined parameters
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided adding a `Parameters` argument.
+
+Example: `-Parameters @{ productVersion="1.2.0" }`
+
 ## HTTP REST API
 
 In case the PowerShell module is not sufficient, you can communicate directly with our API by calling our public HTTP REST endpoints.
@@ -117,7 +124,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 #### User-defined parameters
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
-Values for [user-defined parameters](/documentation/artifact-configuration#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
+Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
 
 Example: `-F "Parameters[productVersion]=1.2.0"`
 

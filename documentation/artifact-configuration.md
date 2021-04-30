@@ -423,7 +423,7 @@ Parameters are defined in an optional <code>parameters</code> block at the begin
   <parameters>
     <parameter name="productVersion" default-value="1.0.0" required="true" />
   </parameters>
-  <pe-file name="my-installer-${productVersion}.exe" productVersion="${productVersion}">
+  <pe-file path="my-installer-${productVersion}.exe" productVersion="${productVersion}">
 </artifact-configuration>
 ~~~
 
