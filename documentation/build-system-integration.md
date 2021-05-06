@@ -262,7 +262,7 @@ The following checks are performed:
 
 * No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.
 * The build settings may not be modified between starting the AppVeyor build and calling SignPath.io
-* The build configuration must be stored in the root directory under the name `appveyor.yml` or `.appveyor.yml` (no custom name is allowed)
+* The build configuration must be stored in the root directory under the name `appveyor.yml` or `.appveyor.yml` (no custom name is allowed to be set under *Project settings* and *Custom configuration .yml file name*)
 
 This is to ensure that the binary artifacts result purely from the specified source code.
 
@@ -292,9 +292,12 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
     <td markdown="1">
 
 1. On [ci.appveyor.com](https://ci.appveyor.com)
+   * Select *Accuont* and *Security*
+   * Make sure the checkboxes for both *API v1* and *API v2* are checked
+2. On [ci.appveyor.com](https://ci.appveyor.com)
    * Select *My Profile* and *API Keys*
    * Remember the **Bearer token** for the next step
-2. On [SignPath.io](https://app.signpath.io)
+3. On [SignPath.io](https://app.signpath.io)
    * Navigate to your *project*, go to *Trusted Build Systems* and add a link to *AppVeyor*
    * In the dialog, enter the **API key** you just acquired
 
@@ -307,7 +310,7 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
 1. On [SignPath.io](https://app.signpath.io)
    * Choose the Users menu and create a new *CI User* or open an existing one
    * Remember the **SignPath API token** for the next step
-3. On [ci.appveyor.com](https://ci.appveyor.com)
+2. On [ci.appveyor.com](https://ci.appveyor.com)
    * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
    * Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
    * Remember the **encrypted SignPath API token** for the next step
