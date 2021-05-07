@@ -1,7 +1,7 @@
 ---
 title: Jobs - Systems Engineer and DevOps Specialist
 header: Systems Engineer and DevOps Specialist
-sub-header: Systems Engineer und DevOps Specialist im Dev-Team für Kubernetes, Azure und SaaS-Betrieb
+sub-header: Systems Engineer und DevOps Specialist im Dev-Team für Kubernetes, Azure und SaaS-Betrieb - Vollzeit/Teilzeit
 job_id: cd8xffkeq6wg5hoy4npp2of9xel7h69
 salary: 43.316
 layout: job
