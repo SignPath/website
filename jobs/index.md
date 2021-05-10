@@ -18,12 +18,12 @@ layout: default
 
   [Apply now](senior-dev-dotnet){: class="btn btn-secondary"}
 
-* [Infrastructure engineer](infrastructure-engineer)
-  {: style="background-image:url(/assets/jobs/infrastructure-engineer_small.jpg)"}
+* [Systems Engineer and DevOps Specialist](systems-engineer)
+  {: style="background-image:url(/assets/jobs/systems-engineer_small.jpg)"}
 
   Help us operate our service and improve our deployment process.
 
-  [Apply now](infrastructure-engineer){: class="btn btn-secondary"}
+  [Apply now](systems-engineer){: class="btn btn-secondary"}
 
 * [Product Owner and Product Manager](product-owner)
   {: style="background-image:url(/assets/jobs/product-owner_small.jpg)"}
