@@ -129,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
   if (window.location.pathname.endsWith('/pricing/') || window.location.pathname.endsWith('/pricing') || window.location.pathname.endsWith('/pricing.html/') || window.location.pathname.endsWith('/pricing.html')) {
 
+    // read params
     let params = {};
     window.location.search.substr(1).split('&').forEach(function(part) {
       var parts = part.split('=');
@@ -136,6 +137,19 @@ document.addEventListener('DOMContentLoaded', function() {
         params[parts[0]] = decodeURIComponent(parts[1])
       }
     });
+
+    // read all product codes and set toggle to 3 years if selected is already 3 years
+    if (params.currentProductId) {
+      var isThreeYearsProduct = false;
+      document.querySelectorAll('section.pricing div.content a.footer').forEach(function(productFooter) {
+        if (productFooter.dataset['productid_three_years'] == params.currentProductId) {
+          isThreeYearsProduct = true;
+        }
+      })
+      if (isThreeYearsProduct) {
+        document.getElementById('duration-toggle').checked = true;
+      }
+    }
 
     var THREE_YEARS_FACTOR = 0.75;
 
