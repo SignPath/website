@@ -22,7 +22,7 @@ Als Produktmanager\*in & Product Owner\*in übernimmst du die Verantwortung für
 
 ## Dein Profil
 
-* Du hast eine schnelle Auffassungsgabe und die Fähigkeit, dich rasch in eine sehr technische Businessdomäne einzuarbeiten (Integration in CI-Systeme; Event-basierte, verteilte Architektur; On-Premise Deployment auf Basis von Windows Docker Containern)
+* Du hast eine schnelle Auffassungsgabe und die Fähigkeit, dich rasch in eine sehr technische Businessdomäne einzuarbeiten (Integration in CI-Systeme; Event-basierte, verteilte Architektur; On-Premises Deployment auf Basis von Windows Docker Containern)
 * Dein Hintergrund (z.B. in einer technischen Softwareentwicklungsrolle) ermöglicht es dir, die Anforderungen an unser Produkt nachzuvollziehen, das sich an Softwarehersteller richtet: Du traust dir zu, nach Anleitung einen CI/CD-Server aufzusetzen, beim Design eines REST-APIs mitzureden, gemeinsam ein Konzept für OAuth-Integration zu entwickeln und zu reflektieren, wie Software in einer containerisierten Umgebung betrieben werden kann
 * Du kannst Ideen und Visionen verinnerlichen und sie präzise kommunizieren
 * Du hast Erfahrung mit der Erarbeitung, Strukturierung und Kommunikation von Kundenanforderungen, idealerweise im Rahmen eines agilen Prozesses wie XP oder Scrum

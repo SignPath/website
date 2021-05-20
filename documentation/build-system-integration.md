@@ -270,7 +270,7 @@ This is to ensure that the binary artifacts result purely from the specified sou
 <div class="panel-header">TODO</div>
 
 Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml
-> At the moment those supported are: GitHub (hosted and on-premise), Bitbucket (hosted and on-premise), GitLab (hosted and on-premise), Azure DevOps, Kiln and Gitea. 
+> At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea. 
 </div>
 
 
