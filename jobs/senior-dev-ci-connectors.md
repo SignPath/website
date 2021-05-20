@@ -15,6 +15,7 @@ Als Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Archi
 
 * Du arbeitest an technisch anspruchsvollen Problemen - von der Konzeption über die Entwicklung bis zum Deployment
 * In Abstimmung mit dem restlichen Team und dem Produktmanagement entwickelst du Anbindungen an CI-Systeme und trägst damit zu einem einfacheren und sichereren Umgang von Code Signing in Development Teams unserer Kunden bei
+* Du schreibst Code in mehreren Programmiersprache, Teile davon in C# (Einarbeitung on-the-job möglich)
 * Im TDD-Modus erstellst du hochqualitativen, automatisiert getesteten, sicheren und wartbaren Code
 * Durch Peer-Reviews, Pair-Programming und offenes Feedback entwickelst du dich gemeinsam mit dem Team weiter und nimmst dabei die Rolle des/der CI-Experten\*in ein
 * In Research-Tasks kannst du dich tief und selbständig in eine Materie einarbeiten, danach qualifizierte Antworten auf Detailfragen geben und die Ergebnisse kurz und prägnant zusammenfassen
