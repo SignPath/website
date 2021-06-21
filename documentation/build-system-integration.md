@@ -149,7 +149,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 {
   "status":"Completed",
   "isFinalStatus": true,
-  "description":"Called by curl",
+  "description":"Called by cURL",
   "projectId":"c90eb2c7-d34e-49fc-9e90-c00235ecaf1a",
   "projectSlug":"test-project",
   "projectName":"Test project",
