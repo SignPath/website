@@ -281,7 +281,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener("pageshow", () => {
       document.getElementById('num-users-input').value = params['num_users'] || 1;
-      document.getElementById('num-projects-input').value = params['num_projects'] || 1;
+      // '9223372036854775807' is added as a fix because old subscriptions, which don't have a num_projects quota yet will have int64 max value set
+      document.getElementById('num-projects-input').value = params['num_projects'] !== '9223372036854775807' ? (params['num_projects'] || 1) : 1;
       recalculatePrices();
     });
   }
