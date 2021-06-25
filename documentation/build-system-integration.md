@@ -183,7 +183,7 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 }
 ~~~
 
-* **Possible `status` values:** `WaitingForApproval`, `QueuedForProcessing`, `Processing`, `Completed` (final), `Failed` (final), `Denied` (final), `Canceled` (final), `RetrievingArtifact`, `ArtifactRetrievalFailed` (final)
+* **Possible `status` values:** `WaitingForApproval`, `QueuedForMalwareScanning`, `ScanningForMalware`, `QueuedForProcessing`, `Processing`, `Completed` (final), `Failed` (final), `Denied` (final), `Canceled` (final), `RetrievingArtifact`, `ArtifactRetrievalFailed` (final)
 * `origin` is only available for signing requests with origin verification
 
 ### Download the signed artifact
