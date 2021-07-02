@@ -88,6 +88,8 @@ The following table lists
 
 **TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.**
 
+**Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation.
+
 Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned. A frequent cause of confusion is that the Notary documentation is hosted on [docs.docker.com/notary](https://docs.docker.com/notary), which easily leads to the assumption that everything there also applies to DCT. This is not always true.
 
 Notary has a well-defined [threat model](https://docs.docker.com/notary/service_architecture/#threat-model) which states the following about compromised delegation keys:
@@ -110,7 +112,7 @@ Note that developers usually own a single delegation key that is trusted by many
 Required components: 
 * PowerShell 6 or higher
 * [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module
-* [Notary client](https://github.com/theupdateframework/notary/releases) version 0.6.1 or greater (installed with Docker Desktop)
+* [Notary client](https://github.com/theupdateframework/notary/releases) version 0.6.1 or greater (installed with Docker Desktop until v3.3.3)
 
 Optional components:
 * Attached [Yubikey](https://docs.docker.com/notary/advanced_usage/#use-a-yubikey) USB token (strongly recommended)
