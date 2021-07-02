@@ -88,7 +88,7 @@ The following table lists
 
 **TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.**
 
-**Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation. The Notary documentation is currently not published but available at https://github.com/theupdateframework/notary/tree/master/docs.
+**Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation. The Notary documentation is currently not published but available at [GitHub](https://github.com/theupdateframework/notary/tree/master/docs).
 
 Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned. A frequent cause of confusion is that the Notary documentation is hosted on [docs.docker.com/notary](https://docs.docker.com/notary), which easily leads to the assumption that everything there also applies to DCT. This is not always true.
 
