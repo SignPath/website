@@ -10,7 +10,7 @@ show_toc: 4
 
 ## Overview
 
-Docker Conent Trust (DCT) is the system used for signing and verifying container images in Docker registries. 
+Docker Content Trust (DCT) is the system used for signing and verifying container images in Docker registries. 
 
 SignPath provides the following advantages when signing for DCT:
 
