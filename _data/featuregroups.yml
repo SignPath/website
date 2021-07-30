@@ -75,7 +75,7 @@
       title: 'Metadata constraints'
       hint: 'Verify that artifacts comply with specified metadata.'
       href: '/product/editions-explained#metadata-constraints'
-    - name: parameters
+    - name: user_defined_parameters
       title: 'User-defined parameters'
       hint: 'Pass user-defined parameters to signing requests.'
       href: '/product/editions-explained#user-defined-parameters'
