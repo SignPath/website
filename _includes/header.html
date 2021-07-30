@@ -22,11 +22,25 @@ as a service and on-premises" />
   <meta property="og:url" content="{{ site.data.hosts.web[jekyll.environment] }}" />
   <meta property="og:site_name" content="SignPath - Code Signing - Simple and Secure" />
   <!-- End Jekyll SEO tag -->
-  <link rel='stylesheet' href='/assets/css/line-awesome.min.css'>
-  <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css">  
+
+  <link rel="preload" href="/assets/css/line-awesome.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/line-awesome.min.css"></noscript>
+
+  <link rel="preload" href="/assets/css/hint.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/assets/css/hint.min.css"></noscript>
+
+  <link rel="stylesheet" href="/assets/css/index.css">
+
+  <link rel="preload" href="https://fonts.googleapis.com/css?family=Roboto&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto&display=swap"></noscript>
+
+  <link rel="preload" href="/assets/fonts/la-brands-400.woff2" as="font" crossorigin="anonymous" />
+  <link rel="preload" href="/assets/fonts/la-regular-400.woff2" as="font" crossorigin="anonymous" />
+  <link rel="preload" href="/assets/fonts/la-solid-900.woff2" as="font" crossorigin="anonymous" />
+  <link rel="preload" href="/assets/fonts/fontello.woff2?43904364" as="font" crossorigin="anonymous" />
+
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
-  <script src='/assets/index.js'></script>
+  <script defer src='/assets/index.js'></script>
   {% if page.redirhack != null %}
   <!-- 404 redirect -->
   <script>
@@ -60,7 +74,7 @@ as a service and on-premises" />
 <body>
   <header>
     <div>
-      <a href='/'><img src='/assets/logo.svg' width='181' alt='SignPath'></a>
+      <a href='/'><img src='/assets/logo.svg' width="181" height="36" alt='SignPath'></a>
       <nav>
         <ul>
           <li>
