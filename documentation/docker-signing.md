@@ -102,7 +102,7 @@ When verifying signatures, Docker only looks at this shared manifest, and thereb
 
 Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys. 
 
-(Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usaully the same as their Docker registry credentials.)
+(Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
 </div>
 
 ## Setup phase
