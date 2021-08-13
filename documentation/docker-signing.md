@@ -26,7 +26,7 @@ DCT is based on Notary, which uses a system of keys:
 
 | Key type        | Handled by       | Used to                                             | Usage frequency                     | Recommendation
 |-----------------|------------------|-----------------------------------------------------|-------------------------------------|------------------------------------------
-| **Root**        | Repository admin | issue all other keys (except delegation keys)       | Initialization + each key rotation | Use a Yubkey USB token
+| **Root**        | Repository admin | issue all other keys (except delegation keys)       | Initialization + each key rotation | Use a Yubikey USB token
 | **Target**      | Repository admin | issue delegation keys                               | Initialization + each key rotation | Delete after initialization/key rotation
 | **Delegation**  | **SignPath**     | individual images and labels                        | Each image build                    | Use one delegation key for all developers
 | **Snapshot**    | Notary signer    | sign matching collections to prove consistency      | Each image build                    | (Registry/Notary take care of this)
