@@ -24,6 +24,22 @@ If you aim for the highest security, we recommend assigning the administrator ro
 
 Note that all information is accessible to all users within an organization.
 
+### Notifications
+
+SignPath will inform you and your team about signing requests. Every user can select the notification level for each signing policy separately. The following options are available:
+
+* *All*: You receive all notifications for the signing request
+* *Default:* See below
+* *None*: You don't receive any notifications
+
+#### Default notifications
+
+By default, only users who participate in the signing request as either a submitter or an approver will receive notifications.
+
+* *Approvers* are informed when a signing request needs to be approved, when the number of required approvals has been reached or when the signing request has been denied. The person who performed the final approval is also notified when the signing request has completed or failed or when it is retried.
+* *Submitters* receive notifications for all status changes of the signing request.
+
+
 ## CI users
 
 CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system's build settings as secret values.
@@ -36,11 +52,6 @@ If you require assistance from our support team, please select *Authorize suppor
 
 The support user account has administrative privileges. If you disable it after your issue is resolved, please remember to enable it for your next support request.
 
-## Notifications and audit logs
+## Audit logs
 
-Signpath will inform you and your team about signing requests:
-
-* Administrators will be notified about completed and re-submitted signing requests
-* Users will be notified about the status of a signing request they created, or when their approval is required
-
-The web application has a full activity audit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
+udit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
