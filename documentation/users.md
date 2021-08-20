@@ -54,4 +54,4 @@ The support user account has administrative privileges. If you disable it after 
 
 ## Audit logs
 
-udit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
+The web application has a full activity audit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
