@@ -5,44 +5,79 @@ layout: default
 description: SignPath privacy policy
 ---
 
-Your privacy and the security of your personal data lies within the center of our concerns. This Privacy Policy applies to the data we process as part of the provided Service as well as to the data of our website visitors. The policy informs you about the personal data we collect and how we process it.
+We consider your privacy and the security of your personal data of great importance. This Privacy Policy applies to the data we process when you use SignPath as well as to the data of our website visitors and informs you about the personal data we collect and how we process it.
 
-## User data
-We process only the personal data that you explicitly provide us or our subprocessors (Avangate BV, Microsoft Ireland Operations Ltd, SendGrid Inc) with. The processing of this data is necessary for the performance of the Contract between you and us. After the termination of your account the data will be stored for a retention period of 7 years as required by the applicable tax law provisions.
+# Who is responsible for the processing of your personal data?
+When you visit our website, your data is processed by:
 
-## Security and integrity
-To guarantee the integrity of our website and thus the security of your account we log and store the IP addresses visiting this website. The data is used to monitor security incidents and help us evaluate preventative security measures guaranteeing the integrity of the website, Your account and data.
+SignPath GmbH <br>
+Werdertorgasse 14 <br>
+1010 Vienna <br>
+AUSTRIA <br>
+office@signpath.io  <br>
+Commercial register ID: 475506z <br>
+
+
+# Data we process when you use SignPath
+
+## Registration Data
+If you create a SignPath account, you are required to provide us with some basic information:
+
+•	Your name <br>
+•	Your business email address <br>
+•	Your job title (only for administrators) <br>
+
+This data is only processed because it is necessary for the performance of the contract between you and us. After the termination of your account, your registration data will be stored for a retention period of 6 months. 
+
+## Usage Data
+When you use SignPath, we collect some basic information that most services collect based on our legitimate interests. This includes information about how you use SignPath, such as your IP address, session information and the date and time of each request.
+
+## Sub-processors and third country notice
+We share your data with a limited number of third party service providers who process it on our behalf to provide or improve our service, and who have agreed to privacy restrictions by signing data protection agreements. In case of data transfers outside of the European Economic Area, we make sure to implement appropriate safeguards with our sub-processors, including Standard Contractual Clauses.
+
+| **Sub-processor** | **Description of data processing** | **Location** |
+| :---: | :---: | :---: |
+| RUBICON IT GmbH | Application management, administration, support | Europe |
+| Microsoft Ireland Operations Limited | Hosting Platform Microsoft Azure | Europe |
+| Twilio Inc. | Email delivery service SendGrid | United States |
+| Okta Inc. | Account management | Europe|
+
+# Data we process when you visit our Website
+
+## Contact form
+If you use the contact form on our website to ask more about our products, we process the data you submit in the contact form in order to process your inquiry. If your inquiry also concerns our partner products, your data may be forwarded to these partners. The processing is based on Art 6 para 1 lit b and f GDPR, because it serves to initiate a contract with us and is in our legitimate interest. Your data will be stored for as long as necessary to process your request.
+
+## Newsletter
+You have the possibility to subscribe to our newsletter on our website. We will process the personal data you provide in order to send you our newsletter. The processing of this data is only possible with your consent. You are free to revoke your consent and unsubscribe from our newsletter at any time. To do so, just click on the unsubscribe-Link that is included in every newsletter mail you receive from us.
 
 ## Cookies
-Cookies are files with small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and stored on your computer’s hard drive.
 
-Like many sites, we use “cookies” to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
+Our website uses so-called “cookies”. Cookies are small text files which are stored on a visitor’s computer or device. There are two main types of cookies: Essential cookies, which are necessary to make a website operational and non-essential cookies, which collect e.g. browsing and usage statistics. While essential cookies are stored automatically on your computer or device based on our legitimate interests, non-essential cookies require your consent.
+
+Some of the cookies used on our website originate from service providers outside the EU (primarily the US). It is therefore possible that some of your data (e.g. IP address, usage behavior, technical data) may be transmitted to the US. According to Court of Justice of the European Union, there is currently no adequate level of data protection in the US. When using cookies from service providers from third countries, we therefore ask for your express consent through our cookie banner.
+
+You are free to revoke your given consent for the use of non-essential cookies and/or cookies from third countries at any time here:
 
 <a class="cursor-pointer revoke-cookie-consent"> Revoke consent </a>
 
-## Services used on the Web site
-
-We use the following external services on our Web site to track usage for internal marketing purposes and service improvement. 
 
 ### Google Analytics
+In order to evaluate and improve our website, we use website analysis software Google Analytics provided by Google Ireland Limited. Google Analytics enables us to create statistical reports on visitor activity and to improve our content and website performance. For this purpose, your IP address is transmitted to Google and usually stored for 26 months. The use of Google Analytics requires a non-essential cookie, which is only set with your express consent. For more information, please refer to the privacy policies of [Google](https://policies.google.com/privacy?hl=en) and [Google Analytics](https://support.google.com/analytics/answer/6004245).
 
-Google Analytics is a tracking service that collects usage data and builds statistics from it. See [Google privacy policies](https://policies.google.com/privacy) and [Google Analytics data privacy and security principles](https://support.google.com/analytics/answer/6004245).
+### Google Ads
+In order to make our website more attractive, we use Google Ads, a service provided by Google Ireland Limited. Google Ads enables us to make advertisements for our website in the Google search engine or on external websites and to evaluate how effective our advertising measures are. If you access our website via a Google ad, Google Ads will store a non-essential cookie on your PC or device. Google Ireland Limited is the responsible data controller when using Google Ads. We ourselves do not collect and process any personal data when using Google Ads. We only receive statistical evaluations from Google. For more information, please refer to the privacy policies of [Google](https://policies.google.com/privacy?hl=en) and [Google Ads](https://policies.google.com/technologies/ads?hl=en).
 
 ### Leadfeeder
+Leadfeeder is a web analytics service and evaluation tool provided by Liidio Oy / Leadfeeder (Mikonkatu 17 C, 00100 Helsinki). For this purpose, Leadfeeder collects the IP address of visitors. Leadfeeder uses a cookie called "_lfa", which has an expiry date of two years from when it was first set. The cookie can only be set for this website domain and requires your consent.
 
-Leadfeeder is an analysis service for Web sites. It provides information on companies that access Web sites and offers sales leads. See [Leadfeeder Privacy Notice](https://www.leadfeeder.com/privacy/).
+# Your rights
+When we process your personal data, you have the following rights under applicable European and Austrian data protection laws:
 
-## Your rights
-According to the applicable data protection laws you may have the right to request access to, the rectification or erasure of your personal data or restriction of processing and the right to object to the processing of your personal data as well as the right to data portability;
+•	Information <br>
+•	Correction <br>
+•	Deletion <br>
+•	Restriction <br>
+•	Data portability<br>
+•	Object<br>
 
-You can address the abovementioned inquiries to privacy@signpath.io.
-
-## Data Protection Authority
-In case you are under the impression that we do not process your personal data in accordance with the applicable data protection laws, you may file a complaint with the Austrian Data Protection Authority:
-
-Österreichische Datenschutzbehörde <br>
-Wickenburggasse 8 <br>
-1080 Vienna <br>
-Austria <br>
-Telephone: +43 1 52152-0 <br>
-E-Mail: dsb@dsb.gv.at
+If you believe that the processing of your data constitutes a violation of data protection laws, you are free to contact the Austrian data protection authority (Barichgasse 40-42, 1030 Vienna, telephone: +43 1 52 152-0, email: dsb@dsb.gv.at).
