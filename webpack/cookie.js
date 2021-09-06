@@ -5,6 +5,7 @@ import leadfeeder from "./leadfeeder.js";
 import {setGoogleAdGroup} from "./adGroup";
 
 export function setCookie(cname, cvalue, exdays) {
+
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = "expires=" + d.toUTCString();
@@ -76,7 +77,6 @@ export function showCookieBanner() {
                 toggleMobile()
             })
         });
-        
     } else {
         document.querySelectorAll('.revoke-cookie-consent').forEach(c => {
             c.addEventListener('click', function () {

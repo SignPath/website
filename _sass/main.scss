@@ -351,7 +351,7 @@ div#cookie-info {
 	.show-more, .show-less{ 
 		display: none;
 	}
-
+	
 	.container{
 		max-width: 1200px;
 	}
@@ -363,13 +363,11 @@ div#cookie-info {
 			position: relative;
 			background-color: $medium-grey-background-color;
 		}
-
 	}
 
 	&.show {
 		display: block;
 	}
-
 }
 
 .cursor-pointer{
@@ -444,9 +442,9 @@ span.badge {
 }
 
 @media only screen and (max-width: 320px) {
-	div#cookie-info{
-		.actions{
-			.btn-grey{
+	div#cookie-info {
+		.actions {
+			.btn-grey {
 				margin: 10px 0;
 			}
 		}

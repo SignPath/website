@@ -7,7 +7,7 @@ export function GoogleAnalytics() {
         let analytics = document.createElement("script");
         analytics.setAttribute("src", "https://www.googletagmanager.com/gtag/js?id=UA-119338300-1");
         document.getElementsByTagName('head')[0].appendChild(analytics);
-        
+
         window.dataLayer = window.dataLayer || [];
 
         function gtag() {
