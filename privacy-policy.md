@@ -1,7 +1,8 @@
 ---
-title: Privacy Policy - SignPath.io
+title: Privacy Policy
 header: Privacy Policy
 layout: default
+description: SignPath privacy policy
 ---
 
 Your privacy and the security of your personal data lies within the center of our concerns. This Privacy Policy applies to the data we process as part of the provided Service as well as to the data of our website visitors. The policy informs you about the personal data we collect and how we process it.
@@ -16,6 +17,8 @@ To guarantee the integrity of our website and thus the security of your account 
 Cookies are files with small amount of data, which may include an anonymous unique identifier. Cookies are sent to your browser from a web site and stored on your computer’s hard drive.
 
 Like many sites, we use “cookies” to collect information. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. However, if you do not accept cookies, you may not be able to use some portions of our Site.
+
+<a class="cursor-pointer revoke-cookie-consent"> Revoke consent </a>
 
 ## Services used on the Web site
 

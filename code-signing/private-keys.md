@@ -3,6 +3,7 @@ main_header: Code Signing
 sub_header: Storage of Private Keys
 layout: resources
 toc: true
+description: How do key storage and management practices affect the security of your code signing process?
 ---
 
 ## Overview

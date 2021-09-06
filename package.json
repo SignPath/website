@@ -1,0 +1,31 @@
+{
+  "name": "website-private",
+  "version": "1.0.0",
+  "description": "SignPath Website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental",
+    "build": "./node_modules/.bin/webpack | bundle exec jekyll build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SignPath/website-private.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SignPath/website-private/issues"
+  },
+  "homepage": "https://github.com/SignPath/website-private#readme",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.2.2",
+    "babel-preset-env": "^1.7.0",
+    "webpack": "^5.45.1",
+    "webpack-cli": "^4.7.2"
+  },
+  "dependencies": {
+    "@babel/core": "^7.14.8"
+  }
+}

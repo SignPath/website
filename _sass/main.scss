@@ -63,7 +63,7 @@ a.btn-flat {
 
 	&:hover {
 		color: $black-font-color;
-		background-color: $white-background-color;	
+		background-color: $white-background-color;
 	}
 }
 
@@ -328,25 +328,46 @@ form {
  */
 div#cookie-info {
 	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	right: 0px;
+	bottom: 0;
+	left: 0;
+	right: 0;
 	background-color: $dark-grey-background-color;
 	color: $white-font-color;
-	padding: 2em;
+	padding: 20px 40px;
 	box-shadow: $shadow-top;
 	display: none;
 	align-items: center;
 	justify-content: center;
 	transition: opacity 2s ease-in;
 
+	h3 {
+		font-weight: bold;
+	}
+
+	h3, p{
+		margin-bottom: 0.5rem;
+		max-width: 1200px;
+	}
+
+	.actions{
+		padding: 1rem 0;
+
+		.btn-grey {
+			margin: 0 0.5rem;
+			position: relative;
+			background-color: $medium-grey-background-color;
+		}
+
+	}
+
 	&.show {
-		display: flex;
+		display: block;
 	}
-	
-	& > * {
-		margin: 0em 1em;
-	}
+
+}
+
+.cursor-pointer{
+	cursor: pointer;
 }
 
 span.badge {

@@ -5,6 +5,7 @@ image: '2020-08-26-02-bg'
 date:   2020-08-26 00:00:00 +0000
 author: Daniel Ostovary
 summary: "In April we became aware of a conceptual security issue in the JarSigner. The fix will be shipped with the release of JDK 15"
+description:
 ---
 
 In April 2020 we became aware of a conceptual security issue in the Java JarSigner. The JarSigner does not check certificate revocations, which breaks JAR signing to some extent.

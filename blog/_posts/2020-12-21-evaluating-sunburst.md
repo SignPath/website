@@ -5,6 +5,7 @@ image: '2020-12-21-bg'
 date: 2020-12-21 08:00:00 +0000
 author: Stefan Wenig
 summary: "How hackers exploited one ISV's software to reach political targets - and how software industry practices need to improve"
+description:
 ---
 
 Sunburst/Solorigate is already the most discussed hacker attack in living memory, maybe back to when Iran's nuclear program was pushed back years by Stuxnet. But what do we really know?

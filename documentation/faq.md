@@ -5,6 +5,7 @@ sub_header: Frequently asked Questions
 layout: resources
 toc: true
 show_toc: 3
+description: Frequently Asked Questions about SignPath
 ---
 
 ## Troubleshooting

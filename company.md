@@ -1,7 +1,8 @@
 ---
-title: Company - SignPath.io
+title: Company
 header: SignPath GmbH
 layout: default
+description: About SignPath GmbH
 ---
 
 <div class="columns">

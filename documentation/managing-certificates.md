@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Managing Certificates
 layout: resources
 toc: true
+description: How to manage code signing certificates in SignPath
 ---
 
 ## Overview

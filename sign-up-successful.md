@@ -1,7 +1,8 @@
 ---
-title: Sign up successful - SignPath.io
+title: Sign up successful
 header: Sign up successful
 layout: thankyou
+description: Sign-up success confirmation
 ---
 
 <h2>You successfully signed up</h2>

@@ -5,6 +5,7 @@ sub-header: Senior .NET Developer*in für CQRS/ES-Produkt
 job_id: eez6hsrs41zoo6abtyx245cqu0l8xgl
 salary: 43.316
 layout: job
+description:
 ---
 
 Du bist leidenschaftliche/r C#-Developer\*in und begeisterst dich für CQRS/EventSourcing? async/await und LINQ sind dein Fachvokabular und TDD und Clean Code deine Wohlfühlzone? Dann unterstütze uns dabei, unser Produkt SignPath zu entwickeln!

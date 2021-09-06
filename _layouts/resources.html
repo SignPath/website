@@ -1,7 +1,7 @@
 {% if main_header != null %}
-	{% assign title = "SignPath - " | append: page.main_header | append: " - " | append: page.sub_header %}
+	{% assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' %}
 {% else %}
-	{% assign title = "SignPath - " | append: page.sub_header %}
+	{% assign title = page.sub_header | append: ' | SignPath' %}
 {% endif %}
 {% include header.html %}
 
@@ -37,7 +37,7 @@
 							{% endif %}
 						</li>
 						{% endif %}
-					{% endfor %}	
+					{% endfor %}
 				</ul>
 			</aside>
 		{% endif %}
@@ -47,7 +47,7 @@
 			{% else %}
 				{% include toc.html class="article-toc.mobile-only" html=content h_max=2 %}
 			{% endif %}
-				
+
 			{{ content }}
 		</article>
 	</div>

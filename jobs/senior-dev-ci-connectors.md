@@ -5,6 +5,7 @@ sub-header: Senior Multi-Language Developer*in für CI-Anbindungen
 job_id: wv582yx8ae8l83np1vsrfl3s22xxpf7
 salary: 43.316
 layout: job
+description:
 ---
 
 Du bist in mehr als einer Programmiersprache zu Hause und hast Erfahrung mit Build Servern und CI-Systemen? Du interessierst dich für automatisierte und sichere DevOps-Pipelines? Dann unterstütze uns dabei, unser Produkt SignPath zu entwickeln!

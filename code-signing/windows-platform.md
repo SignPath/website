@@ -4,6 +4,7 @@ sub_header: Windows Platform
 layout: resources
 toc: true
 show_toc: 5
+description: An in-depth look into the code signing technologies and procedures for Microsoft Windows
 ---
 
 ## Signing methods

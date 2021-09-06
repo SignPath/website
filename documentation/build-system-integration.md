@@ -5,6 +5,7 @@ layout: resources
 toc: true
 show_toc: 3
 redirect_from: /documentation/integrations
+description: Documentation for integrating SignPath with Continuous Integration (CI) platforms and pipelines
 ---
 
 ## Abstract

@@ -1,7 +1,8 @@
 ---
-title: Newsletter - SignPath.io
+title: Newsletter
 header: Newsletter
 layout: default
+description: Subscribe to the SignPath newsletter
 ---
 
 ## Get news about new product features, services and special offers

@@ -4,6 +4,7 @@ sub_header: Media Coverage of Breaches
 layout: resources
 toc: true
 show_toc: 3
+description: A summary of recent media reports about breaches related to insecure code signing practices
 ---
 
 ## Overview

@@ -1,7 +1,8 @@
 ---
-title: Jobs - SignPath.io
+title: Jobs
 header: Open positions
 layout: default
+description: Open jobs and positions for SignPath GmbH
 ---
 
 * [Senior Developer for CI-Connectors](senior-dev-ci-connectors)

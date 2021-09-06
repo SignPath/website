@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Managing Users
 layout: resources
 toc: true
+description: Documentation for SignPath user management
 ---
 
 ## Overview

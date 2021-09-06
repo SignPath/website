@@ -3,3 +3,5 @@ _site
 .jekyll-metadata
 set-environment.ps1
 TODO.txt
+node_modules
+.idea

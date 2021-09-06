@@ -2,6 +2,7 @@
 sub_header: CA Security Council best practices for code signing
 layout: resources
 toc: true
+description: Mapping SignPath features to the code signing recommendations of the CA Security Council
 ---
 
 The [CA Security Council](https://casecurity.org/) is an organization of several Certification Authorities. One of its goals is to advance code signing practices in the industry. The CASC has released a [white paper](https://casecurity.org/wp-content/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.

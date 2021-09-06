@@ -4,6 +4,7 @@ sub_header: Managing Test Certificates
 layout: resources
 toc: true
 show_toc: 3
+description: How to enroll test certificates with an intentionally limited scope.
 ---
 
 <div class="panel product" markdown="1">

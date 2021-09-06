@@ -1,8 +1,9 @@
 ---
-title: Terms of service - SignPath.io
+title: Terms of service
 header: Terms of service
 layout: default
 redirect_from: /terms-of-services
+description: SignPath SaaS application legal terms of service
 ---
 
 Effective date: 2 April 2019

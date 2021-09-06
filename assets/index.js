@@ -6,20 +6,20 @@ const debounce = (fn) => {
 
   // The debounce function returns a new function that can receive a variable number of arguments
   return (...params) => {
-    
+
     // If the frame variable has been defined, clear it now, and queue for next frame
-    if (frame) { 
+    if (frame) {
       cancelAnimationFrame(frame);
     }
 
     // Queue our function call for the next frame
     frame = requestAnimationFrame(() => {
-      
+
       // Call our function and pass any params we received
       fn(...params);
     });
 
-  } 
+  }
 };
 
 
@@ -43,13 +43,13 @@ function debounce(fn) {
 
   function myfunc() {
     // If the frame variable has been defined, clear it now, and queue for next frame
-    if (frame) { 
+    if (frame) {
       cancelAnimationFrame(frame);
     }
 
     // Queue our function call for the next frame
     frame = requestAnimationFrame(function() {
-      
+
       // Call our function and pass any params we received
       fn();
     });
@@ -157,7 +157,7 @@ document.addEventListener('DOMContentLoaded', function() {
     function recalculatePrices() {
 
       function determinePrice(options) {
-        var r = 
+        var r =
           (
             options.basePrice
             + Math.max(0, Math.min(options.numProjects, options.numProjectsMax) - options.numProjectsIncluded) * options.pricePerProject
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', function() {
         var n = Math.round(parseFloat(price));
         return currency == '€' ? ( n + ' €') : ( '$' + n );
       }
-      
+
       var currency = document.getElementById('currency-toggle').checked ? '€' : '$';
       var threeYears = document.getElementById('duration-toggle').checked;
       var numProjects = parseInt(document.getElementById('num-projects-input').value, 10);
@@ -232,12 +232,12 @@ document.addEventListener('DOMContentLoaded', function() {
         var productid = productCtn.querySelector('a.footer').dataset[threeYears ? 'productid_three_years' : 'productid_one_year']
         if (params.currentProductId) { // update links
           productCtn.querySelector('a.footer').innerText = 'Change';
-          productCtn.querySelector('a.footer').href = document.documentElement.dataset.appurl 
-            + '/Web/' 
-            + params.organizationId 
-            + '/Subscription/CompleteChange?productId=' 
-            + productid 
-            + '&paymentToken=' 
+          productCtn.querySelector('a.footer').href = document.documentElement.dataset.appurl
+            + '/Web/'
+            + params.organizationId
+            + '/Subscription/CompleteChange?productId='
+            + productid
+            + '&paymentToken='
             + encodeURIComponent(params.paymentToken)
             + '&AdditionalCheckoutParameters='
             + encodeURIComponent('&OPTIONS=' + encodeURIComponent(
@@ -245,10 +245,10 @@ document.addEventListener('DOMContentLoaded', function() {
               + ',num_users_'   + productid + '=' + Math.min(Math.max(numUsers, numUsersIncluded), numUsersMax)
             ));
         } else {
-          productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS=' 
-            + productid 
-            + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=' 
-            + (currency == '$' ? 'USD' : 'EUR') 
+          productCtn.querySelector('a.footer').href = 'https://secure.avangate.com/order/checkout.php?PRODS='
+            + productid
+            + '&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY='
+            + (currency == '$' ? 'USD' : 'EUR')
             + '&DCURRENCY=' + (currency == '$' ? 'USD' : 'EUR')
             + '&OPTIONS' + productid + '='
             + 'num_projects_' + productid + encodeURIComponent('=' + Math.min(Math.max(numProjects, numProjectsIncluded), numProjectsMax))
@@ -287,38 +287,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // set cookie acknowledgement
-  // functions taken from https://www.w3schools.com/js/js_cookies.asp
-  function setCookie(cname, cvalue, exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires="+ d.toUTCString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-  }
-
-  function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
-    }
-    return "";
-  }
-
-  var cookieConsentCookieName = 'acknowledged-cookies';
-  if (getCookie(cookieConsentCookieName) != 'true') {
-    document.getElementById('cookie-info').classList.add('show');
-    document.getElementById('acknowledge-cookies-btn').addEventListener('click', function() {
-      setCookie(cookieConsentCookieName, 'true', 356 * 20); // expires in 20 years
-      document.getElementById('cookie-info').classList.remove('show');
-    })
-  }
 
   /** DEVOPS PAGE **/
   document.querySelectorAll('section.devops-section div.tabs > ul > li > a').forEach(function(a) {

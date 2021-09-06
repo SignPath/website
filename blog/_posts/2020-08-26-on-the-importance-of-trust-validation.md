@@ -5,6 +5,7 @@ image: '2020-08-26-bg'
 date:   2020-08-26 00:00:00 +0000
 author: Daniel Ostovary
 summary: "Our discovery of how Microsoft didn't verify the validity of timestamping certificates on VSIX packages"
+description:
 ---
 
 Last year we discovered a vulnerability in the Visual Studio Extension (VSIX) installer, which comes with Microsoft Visual Studio. When verifying the signature of a VSIX package, the VSIX installer failed to check the trust of the timestamp under certain circumstances. This vulnerability allowed an attacker to apply a non-trustworthy timestamp without users being warned about it. 

@@ -22,6 +22,18 @@ If you want to include drafts into the blog, add the `--drafts` flag.
 
 Depending on the value of the environment variable `JEKYLL_ENV`, different links will be used on the website. The supported values are `production` (default on Github), `fqa`, `iqa` and `development` (default otherwise)
 
+### Webpack
+For JS development:
+
+	yarn install
+
+	yarn watch~~~~
+	(./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental)
+
+	yarn build
+	(./node_modules/.bin/webpack | bundle exec jekyll build)
+
+
 ### Running it using Docker
 You need to have Docker installed.
 Then, run the following comand (in PowerShell):

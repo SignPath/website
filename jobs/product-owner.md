@@ -5,6 +5,7 @@ sub-header:
 job_id: 160s0u3ep0zhcwph004w4ni3u8jtbqu
 salary: 43.316
 layout: job
+description:
 ---
 
 SignPath hat sich als klares Ziel gesetzt, die Marktführerschaft im Bereich Code Signing einzunehmen und damit die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen. In der Position als Product Owner\*in &amp; Produktmanager\*in trägst du maßgeblich dazu bei, diese Vision in die Realität umzusetzen. Dafür verbindest du deine Erfahrung als Softwareentwickler\*in oder DevOps-Engineer mit dem Produktmanagement und übernimmst die Verantwortung für die Gestaltung unserer Code Signing Plattform. 

@@ -4,6 +4,7 @@ sub_header: Signing Docker images
 layout: resources
 toc: true
 show_toc: 4
+description: Documentation for signing Docker containers with SignPath using Docker Content Trust (DCT)
 ---
 
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise and Open Source subscriptions</span>

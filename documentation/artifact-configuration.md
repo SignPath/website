@@ -4,6 +4,7 @@ sub_header: Artifact Configuration
 layout: resources
 toc: true
 show_toc: 3
+description:
 ---
 
 ## Abstract

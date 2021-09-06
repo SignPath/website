@@ -4,6 +4,7 @@ sub_header: Theory
 layout: resources
 toc: true
 show_toc: 4
+description: An in-depth look into general code signing technologies and procedures
 ---
 
 ## Overview

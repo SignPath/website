@@ -1,10 +1,11 @@
 ---
-title: Editions - SignPath.io
+title: Editions
 main_header: Product
 sub_header: Editions and Pricing explained
 layout: resources
 toc: true
 show_toc: 3
+description: Detailed description of SignPath editions: features and quotas
 ---
 
 This page explains how the quotas and features of all [SignPath Editions](/product/editions).

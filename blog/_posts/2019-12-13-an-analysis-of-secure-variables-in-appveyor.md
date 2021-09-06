@@ -5,6 +5,7 @@ image: '2019-12-13-bg'
 date:   2019-12-13 11:38:20 +0200
 author: Daniel Ostovary
 summary: 'We discovered that the encryption of AppVeyor secret variables is susceptible to Padding Oracle attacks.'
+description: 
 ---
 
 SignPath integrates with other systems, so we have to understand how they work and what the security attributes of certain features are. Any over-reliance on implicit or explicit security guarantees might effect the entire code signing process. 

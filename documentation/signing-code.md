@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Signing Code
 layout: resources
 toc: true
+description: How to sign your code using SignPath
 ---
 
 ## Overview

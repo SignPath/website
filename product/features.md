@@ -1,5 +1,6 @@
 ---
-title: Features - SignPath.io
+title: Features
 layout: features
+description: SignPath product features described
 ---
 

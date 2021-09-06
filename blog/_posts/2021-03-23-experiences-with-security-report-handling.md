@@ -5,6 +5,7 @@ image: '2021-03-23_01-bg'
 date: 2021-03-23 08:00:00 +0000
 author: Daniel Ostovary
 summary: "On the stark differences of reporting security vulnerabilities between major software vendors"
+description:
 ---
 
 When reporting the vulnerability/security issue described in [On the Importance of Trust Validation: Microsoft's Dangerous Mistake](https://about.signpath.io/blog/2020/08/26/on-the-importance-of-trust-validation.html) and [Unfulfilled Exceptations: Revoked Certificates in JAR Signing](https://about.signpath.io/blog/2020/08/26/unfulfilled-expectations.html) we noticed big differences in security report handling between the contacted vendors. In this blog post we are talking about our experiences with these security reports. The blog post is written in cooperation with Marc Nimmerichter from [Certitude](https://certitude.consulting/en).

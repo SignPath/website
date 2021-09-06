@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Getting Started
 layout: resources
 toc: true
+description: A quick introduction into setting up SignPath
 ---
 
 This guide provides a quick introduction into setting up SignPath and using it to sign your code. 

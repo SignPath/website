@@ -4,6 +4,7 @@ sub_header: Setting up Projects
 layout: resources
 toc: true
 redirect_from: /documentation/key-concepts#projects
+description: How to set up development projects for repeated signing with SignPath
 ---
 
 ## Overview

@@ -5,6 +5,7 @@ image: '2021-03-23_02-bg'
 date: 2021-03-23 08:00:01 +0000
 author: Marc Nimmerrichter
 summary: "We discovered that DP API encryption in Windows containers is not secure"
+description:
 ---
 
 We recently discovered a vulnerability in the key management of Windows containers. Windows containers used publicly available cryptographic keys when encrypting with the Windows Data Protection API (DP API). Furthermore, keys used in different containers by different organizations were the same. This vulnerability allowed attackers to decrypt any data that was encrypted with DP API keys in Windows containers. The vulnerability was confirmed by Microsoft and assigned [CVE-2021-1645](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-1645).

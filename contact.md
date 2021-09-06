@@ -1,7 +1,8 @@
 ---
-title: Contact - SignPath.io
+title: Contact
 header: Contact us
 layout: default
+description: Contact the SignPath team
 ---
 
 <script type="text/javascript" src="https://s3.amazonaws.com/assets.freshdesk.com/widget/freshwidget.js"></script>

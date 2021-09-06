@@ -3,6 +3,7 @@ main_header: Code Signing
 sub_header: Introduction
 layout: resources
 toc: true
+description: General introduction to code signing
 ---
 
 ## Purpose
