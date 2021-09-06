@@ -344,11 +344,17 @@ div#cookie-info {
 		font-weight: bold;
 	}
 
-	h3, p{
-		margin-bottom: 0.5rem;
-		max-width: 1200px;
+	h3, p, span{
+		margin: 0.5rem 0;
+	}
+	
+	.show-more, .show-less{ 
+		display: none;
 	}
 
+	.container{
+		max-width: 1200px;
+	}
 	.actions{
 		padding: 1rem 0;
 
@@ -410,13 +416,39 @@ span.badge {
 	}
 
 	div#cookie-info {
-
 		&.show {
 			flex-direction: column;
 		}
+	}
+}
 
-		& > * {
-			margin: 0.5em 0.5em;
+@media only screen and (max-width: 760px) {
+	div#cookie-info{
+		padding: 10px 20px 0 20px;
+		height: 230px;
+		overflow-y: scroll;
+		.show-more, .show-less{
+			display: none;
+			&.active{
+				display: block;
+			}
+		}
+		
+		.information{
+			display: none;
+			&.active{
+				display: block;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	div#cookie-info{
+		.actions{
+			.btn-grey{
+				margin: 10px 0;
+			}
 		}
 	}
 }

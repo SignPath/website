@@ -2,8 +2,9 @@
 // functions taken from https://www.w3schools.com/js/js_cookies.asp
 import analytics from "./analytics.js";
 import leadfeeder from "./leadfeeder.js";
+import {setGoogleAdGroup} from "./adGroup";
 
-function setCookie(cname, cvalue, exdays) {
+export function setCookie(cname, cvalue, exdays) {
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = "expires=" + d.toUTCString();
@@ -37,6 +38,18 @@ export function isCookieConsent(cookieName) {
     return getCookie(cookieName) === 'true';
 }
 
+function toggleMobile(){
+    document.querySelectorAll('.information').forEach(info => {
+        info.classList.toggle('active')
+    })
+    document.querySelectorAll('.show-less').forEach(showless => {
+        showless.classList.toggle('active')
+    })
+    document.querySelectorAll('.show-more').forEach(showmore => {
+        showmore.classList.toggle('active')
+    })
+}
+
 export const cookieConsentCookieName = 'acknowledged-cookies';
 
 export function showCookieBanner() {
@@ -45,6 +58,7 @@ export function showCookieBanner() {
         document.getElementById('acknowledge-cookies-btn').addEventListener('click', function () {
             setCookie(cookieConsentCookieName, 'true', 365 * 20); // expires in 20 years
             document.getElementById('cookie-info').classList.remove('show');
+            setGoogleAdGroup()
             analytics()
             leadfeeder()
         })
@@ -52,6 +66,17 @@ export function showCookieBanner() {
             setCookie(cookieConsentCookieName, 'false', 365 * 20); // expires in 20 years
             document.getElementById('cookie-info').classList.remove('show');
         })
+        document.querySelectorAll('.show-more').forEach(btn => {
+           btn.addEventListener('click', function () {
+               toggleMobile()
+           })
+        });
+        document.querySelectorAll('.show-less').forEach(btn => {
+            btn.addEventListener('click', function () {
+                toggleMobile()
+            })
+        });
+        
     } else {
         document.querySelectorAll('.revoke-cookie-consent').forEach(c => {
             c.addEventListener('click', function () {
