@@ -16,6 +16,7 @@ An interactive user account is required for people who administer your SignPath 
 
 * **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies.
 * **Regular users** are allowed to submit and/or signing requests according to the signing policies (see [Signing code](/documentation/signing-code)).
+* **Project configurators** are granted edit permissions for artifact configurations and webhooks on a project level.
 
 ### Permissions
 
