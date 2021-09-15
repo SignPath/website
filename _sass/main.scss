@@ -163,12 +163,18 @@ section.top-section > div {
 		margin: 0px;
 		text-align: left;
 
+
 		span {
 			display: inline-block;
 		}
 
 		span.no-break {
 			white-space: nowrap;
+			
+			svg{
+				position: relative;
+				top: 10px;
+			}
 		}
 	}
 
@@ -269,6 +275,13 @@ i.la {
 		color: $blue-font-color;
 	}
 }
+
+.icon {
+		& ~ h3 {
+			margin-top: 0px;
+		}
+}
+
 
 /**
  * Forms
