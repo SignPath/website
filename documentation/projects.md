@@ -21,6 +21,8 @@ Projects consist of these settings:
 
 * [**Webhooks**](#webhooks) provide notifications for build automation.
 
+* [**Project configurators**](#project-configurators) define who is allowed to configure artifact configurations and webhooks.
+
 ## Artifact configurations
 
 At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed 
@@ -144,3 +146,7 @@ From your project configuration, you can link any trusted build system that your
 ## Webhooks
 
 Configure Webhooks to notify other systems in your build chain about successful signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).
+
+## Project configurators
+
+Select the users that are allowed to modify the artifact configurations and webhooks.
