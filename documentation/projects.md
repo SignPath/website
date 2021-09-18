@@ -17,11 +17,11 @@ Projects consist of these settings:
 
 * [**Signing policies**](#signing-policies) are used to declare the **rules and permissions** for signing with a specific **certificate**. A typical project has signing policies for **test-signing** and **release-signing**.
 
-* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification-restriction) to your signing requests.
+* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification-restriction) to your signing requests. <span class="subscription-type">[Enterprise subscriptions]</span>
 
 * [**Webhooks**](#webhooks) provide notifications for build automation.
 
-* [**Project configurators**](#project-configurators) define who is allowed to configure artifact configurations and webhooks.
+* [**Project configurators**](#project-configurators) define who is allowed to configure artifact configurations and webhooks. <span class="subscription-type">[Enterprise subscriptions]</span>
 
 ## Artifact configurations
 
@@ -44,6 +44,8 @@ It is commonly necessary to sign files *and* files within those files. In this c
   * the Office add-in has a ClickOnce manifest that requires manifest signing
 
 ### Keeping versions of artifact configurations
+
+<span class='badge'><i class='icon-signpath'></i>Available for Basic and Enterprise subscriptions</span>
 
 Create multiple artifact configurations for
 
@@ -97,9 +99,11 @@ Select **Use approval process** if you want to require manual approval for each 
 | Property               | Value |
 |------------------------|-------|
 | **Approvers**          | Select the users that are allowed to approve signing requests. They will receive e-mail notifications for each request. |
-| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) |
+| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) <span class="subscription-type">[Enterprise subscriptions]</span> |
 
 ### Origin verification restriction
+
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
 Select **Verify origin** if you want to accept only signing requests with positive origin verification.
 
@@ -137,6 +141,8 @@ In some situations, it might even be necessary to sign any old release, e.g. via
 
 ## Trusted build systems
 
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
 Trusted build systems are used to provide [origin verification](#origin-verification-restriction) in your build pipeline.
 
 This requires a [CI integration with origin verification support](/documentation/build-system-integration#ci-integrations-with-origin-verification). Currently only AppVeyor is supported.
@@ -148,5 +154,7 @@ From your project configuration, you can link any trusted build system that your
 Configure Webhooks to notify other systems in your build chain about successful signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).
 
 ## Project configurators
+
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
 Select the users that are allowed to modify the artifact configurations and webhooks.

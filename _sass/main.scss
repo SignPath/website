@@ -389,6 +389,11 @@ span.badge {
 	}
 }
 
+span.subscription-type {
+	color: $primary-color;
+	font-weight: bold;
+}
+
 
 @media only screen and (max-width: 1000px) {
 	section.top-section > div {
