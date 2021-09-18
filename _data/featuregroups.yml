@@ -112,6 +112,19 @@
       hint: 'Specify minimum requirements e.g. for release certificates.'
       href: '/product/editions-explained#certificate-policies'
 
+- name: user_management
+  title: 'User Management'
+  features:
+    - name: sso
+      title: 'Single sign-on'
+      hint: 'Connect to your organization&apo;s directory and authentication provider using SAML or OpenID Connect.'
+    - name: groups
+      title: 'User groups'
+      hint: 'Arrange your users into groups for easier assignment of permissions in signing policies.'
+    - name: admin_delegation
+      title: 'Delegation of administration'
+      hint: 'Administration of projects can be delegated to project configurators'
+
 - name: other
   title: 'Other'
   features:
@@ -121,12 +134,6 @@
     - name: hsm_key_storage
       title: 'HSM key storage'
       hint: 'Private keys are created and stored on a Hardware Security Module (HSM). Signatures are created by the HSM, private keys cannot be exported.'
-    - name: sso
-      title: 'Single sign-on'
-      hint: 'Connect to your organization&apo;s directory and authentication provider using SAML or OpenID Connect.'
-    - name: groups
-      title: 'User groups'
-      hint: 'Arrange your users into groups for easier assignment of permissions in signing policies.'
     - name: available_on_premises
       title: 'On-premises option'
       hint: 'Deploy SignPath in your own organization for full control, unlimited processing and reduced bandwith consumption.'

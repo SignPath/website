@@ -31,11 +31,13 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+  user_management:
+    sso: false
+    groups: false
+    admin_delegation: false
   other:
     malware_detection: true
     hsm_key_storage: true
-    sso: false
-    groups: false
     available_on_premises: false
     support: 'email'
     code_signing_consulting: false
@@ -75,11 +77,13 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+  user_management:
+    sso: false
+    groups: false
+    admin_delegation: false
   other:
     malware_detection: true
     hsm_key_storage: true
-    sso: false
-    groups: false
     available_on_premises: false
     support: 'email'
     code_signing_consulting: false
@@ -116,11 +120,13 @@
     origin_verification: true
     origin_policies: true
     build_validation: true
+  user_management:
+    sso: true
+    groups: true
+    admin_delegation: true
   other:
     malware_detection: true
     hsm_key_storage: true
-    sso: true
-    groups: true
     available_on_premises: true
     support: 'priority'
     support-hint: 'Priority support using email, phone and screen sharing'
@@ -160,11 +166,13 @@
     origin_verification: 'required'
     origin_policies: 'required'
     build_validation: 'required'
+  user_management:
+    sso: false
+    groups: true
+    admin_delegation: true
   other:
     malware_detection: true
     hsm_key_storage: true
-    sso: false
-    groups: true
     available_on_premises: false
     support: 'email'
     code_signing_consulting: false
