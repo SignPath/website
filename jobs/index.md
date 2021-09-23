@@ -18,13 +18,6 @@ description: Open jobs and positions for SignPath GmbH
   Become part of our development team and strive for excellence.
 
   [Apply now](senior-dev-dotnet){: class="btn btn-secondary"}
-
-* [Product Owner and Product Manager](product-owner)
-  {: style="background-image:url(/assets/jobs/product-owner_small.jpg)"}
-
-  Take responsibility and help shape the future of our product.
-
-  [Apply now](product-owner){: class="btn btn-secondary"}
 {: class="card-container"}
 
 All open positions are for Vienna, Austria.
