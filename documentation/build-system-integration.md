@@ -293,7 +293,7 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
     <td markdown="1">
 
 1. On [ci.appveyor.com](https://ci.appveyor.com)
-   * Select *Accuont* and *Security*
+   * Select *Account* and *Security*
    * Make sure the checkboxes for both *API v1* and *API v2* are checked
 2. On [ci.appveyor.com](https://ci.appveyor.com)
    * Select *My Profile* and *API Keys*
