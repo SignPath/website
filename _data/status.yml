@@ -6,10 +6,10 @@ current:
     #title: 'Planned maintenance - limited availability'
 incidents:
   - date: 'Oct. 16, 2021'
-    range: 'Oct 16, 2021 - Oct 17, 2021'
+    range: 'Oct 16, 2021 08:00 UTC - Oct 16, 2021, 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
-    description: 'Due to network configuration changes, HSM-based signing will experience intermittent problems. All signing requests will continue processing when network connectivity is restored.'
+    description: 'Due to network configuration changes, HSM-based signing will experience problems. All signing requests will continue processing when network connectivity is restored.'
   - date: 'Aug. 28, 2021'
     range: 'Aug. 28, 2021 21:30 UTC - Aug. 29, 2021, 01:30 UTC'
     type: warning
