@@ -211,11 +211,9 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 Origin verification ensures that a signed artifact is the result of building a specific source code version.
 
-In order to achieve this, you cannot submit a signing request from an unfinished build. Instead, you have to finish the build job without signing, and then trigger a signing request with origin verification. 
+Origin verification results in additional confidence for information in signing reqeusts, whether used for inspection or for policies. The feature is designed for use in enterprise scenarios, where policies and security controls need to be administered, enforced and audited centrally, while development teams still maintain full control over their projects. The ultimate goal of origin verification is to enable signing policies based on source code reviews.
 
-When signing is completed, you can use a Webhook handler for further processing, such as uploading the signed artifact to a repository. 
-
-Origin verification results in additional confidence. It provides the foundation for restricted Open Source signing.
+The same principles are applied for Open Source signing, where the [SignPath Foundation](https://signpath.org) ensures that its signing policies are observed while leaving full control over repositories and build configurations with the OSS teams.
 
 Origin verification verifies the following information:
 
@@ -231,122 +229,23 @@ Verification of reproducability depends on the CI system used. Typical verificat
 * No manual overrides of critical build settings in CI system's build job
 * Prevent caching from previous (unverified) builds
 
-The final goal of origin verification is enable signing policies based on source code reviews. 
-
-<div class="panel warning" markdown="1">
-<div class="panel-header">Source code reviews must include build scripts</div>
-Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
-
-Make sure that your source code review policy includes build scripts and makefiles.
-</div>
+In order to use origin verification, a [Trusted Build System](trusted-build-systems) must be configured and linked to the project.
 
 <div class="panel tipp" markdown="1">
 <div class="panel-header">Use origin verification restrictions</div>
 Enable additional restrictions for signing policies that use release certificates:
 
 * Select **Verify origin** to make sure that only verified builds can be signed
-* Define source code review policies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for those branches. Typical settings include `master` or `release/*`.
+* Define source code review policies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for specified branches. Typical settings include `master` or `release/*`.
 * If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
 </div>
 
-### AppVeyor
+<div class="panel warning" markdown="1">
+<div class="panel-header">Source code reviews must include build scripts</div>
+Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
 
-#### Prerequisites and restrictions
-
-This feature is currently dedicated to Open Source projects. Future versions will allow disabling certain limitations in paid subscriptions.
-
-Current limitations:
-
-* The AppVeyor project and the Git repository must be public 
-
-The following checks are performed:
-
-* No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.
-* The build settings may not be modified between starting the AppVeyor build and calling SignPath.io
-* The build configuration must be stored in the root directory under the name `appveyor.yml` or `.appveyor.yml` (no custom name is allowed to be set under *Project settings* and *Custom configuration .yml file name*)
-
-This is to ensure that the binary artifacts result purely from the specified source code.
-
-<div class="panel todo" markdown="1">
-<div class="panel-header">TODO</div>
-
-Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml
-> At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea. 
+Make sure that your source code review policy includes CI configuration, build scripts, and makefiles. External content should not be accepted in reviews.
 </div>
-
-
-#### Setup
-This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
-![AppVeyor Setup flow](/assets/img/resources/documentation_build-integration_appveyor.png)
-
-<table style="table-layout: auto;">
-<thead>
-  <tr>
-    <th style="width: 20%;">Action</th>
-    <th style="width: 60%;">Steps</th>
-    <th style="width: 20%;">Remarks</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td>Add an AppVeyor integration to a SignPath project</td>
-    <td markdown="1">
-
-1. On [ci.appveyor.com](https://ci.appveyor.com)
-   * Select *Account* and *Security*
-   * Make sure the checkboxes for both *API v1* and *API v2* are checked
-2. On [ci.appveyor.com](https://ci.appveyor.com)
-   * Select *My Profile* and *API Keys*
-   * Remember the **Bearer token** for the next step
-3. On [SignPath.io](https://app.signpath.io)
-   * Navigate to your *project*, go to *Trusted Build Systems* and add a link to *AppVeyor*
-   * In the dialog, enter the **API key** you just acquired
-
-</td>
-    <td>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</td>
-  </tr> <tr>
-    <td>Encrypt the SignPath API token in AppVeyor</td>
-    <td markdown="1">
-
-1. On [SignPath.io](https://app.signpath.io)
-   * Choose the Users menu and create a new *CI User* or open an existing one
-   * Remember the **SignPath API token** for the next step
-2. On [ci.appveyor.com](https://ci.appveyor.com)
-   * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
-   * Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
-   * Remember the **encrypted SignPath API token** for the next step
-
-</td>
-    <td>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</td>
-  </tr> <tr>
-    <td>Add a deploy Webhook</td>
-    <td colspan="2" markdown="1">
-
-Append this to your appveyor.yaml file:
-
-~~~ yaml
-deploy:
-- provider: Webhook
-  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT>&SigningPolicySlug=<SIGNING_POLICY>
-  authorization:
-     secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
-~~~
-
-Replace the parameters:
-* `<ORGANIZATION_ID>`, `<PROJECT>` and `<SIGNING_POLICY>` values can be retrieved from the signing policy page
-* `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
-
-</td> </tr> </tbody> </table>
-
-#### Attached build documentation
-
-SignPath adds the following information to packages:
-
-* For NuGet packages:
-  1. The build settings are stored in an AppVeyorSettings.json file in the root of the NuGet package
-  2. The commit hash and repository URL are written to the metadata of the NuGet package
-
-These steps allow consumers of the signed artifact to verify source code version and build settings.
 
 ## Other CI integrations
 
