@@ -1,18 +1,18 @@
 ---
-title: Jobs - System Architect
-header: Senior .NET Developer
-sub-header: Senior .NET Developer*in für CQRS/ES-Produkt
+title: Jobs - Full Stack Senior .NET Developer*in für CQRS/ES-Produkt m/w/d (Vollzeit oder Teilzeit ab 30h)
+header: Full Stack Senior .NET Developer*in
+sub-header: Full Stack Senior .NET Developer*in für CQRS/ES-Produkt m/w/d (Vollzeit oder Teilzeit ab 30h)
 job_id: eez6hsrs41zoo6abtyx245cqu0l8xgl
 salary: 43.316
 layout: job
 description:
 ---
 
-Du bist leidenschaftliche/r C#-Developer\*in und begeisterst dich für CQRS/EventSourcing? async/await und LINQ sind dein Fachvokabular und TDD und Clean Code deine Wohlfühlzone? Dann unterstütze uns dabei, unser Produkt SignPath zu entwickeln!
+Du bist leidenschaftliche/r C#-Developer\*in, async/await und LINQ sind dein Fachvokabular, TDD und Clean Code deine Wohlfühlzone? Dann unterstütze uns dabei, unser CQRS/EventSourcing-basiertes Produkt SignPath zu entwickeln!
 
 ## Deine Aufgaben
 
-Als Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Senior-Entwickler\*in schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
+Als Full Stack Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Senior-Entwickler\*in schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
 
 * Du arbeitest an technisch anspruchsvollen Problemen - von der Konzeption über die Entwicklung bis zum Deployment
 * Eingebettet in das Development-Team entwickelst du in Sprints unsere Code-Signing-Plattform SignPath.io weiter
