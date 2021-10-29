@@ -15,7 +15,10 @@ An interactive user account is required for people who administer your SignPath 
 ### User roles
 
 * **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies.
-* **Regular users** are allowed to submit and/or signing requests according to the signing policies (see [Signing code](/documentation/signing-code)).
+* **Global readers** have the same permissions as Regular users, but can additionally download all artifacts from all projects.
+* **Regular users** are allowed to submit and/or signing requests according to the signing policies (see [Signing code](/documentation/signing-code)). They can only download artifacts of signing requests that
+  * are from projects where they have _Project reader_ or _Project configurator_ roles or
+  * are from signing policies where they have _Submitter_ or _Approver_ roles
 
 ### Permissions
 

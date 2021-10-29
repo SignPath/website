@@ -23,6 +23,8 @@ Projects consist of these settings:
 
 * [**Project configurators**](#project-configurators) define who is allowed to configure artifact configurations and webhooks. <span class="subscription-type">[Enterprise subscriptions]</span>
 
+* [**Project readers**](#project-readers) define who is allowed to download artifacts for signing requests of the project, regardless of their _Submitter_ or _Approver_ roles. <span class="subscription-type">[Enterprise subscriptions]</span>
+
 ## Artifact configurations
 
 At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed 
@@ -158,3 +160,9 @@ Configure Webhooks to notify other systems in your build chain about successful 
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
 
 Select the users that are allowed to modify the artifact configurations and webhooks.
+
+## Project readers
+
+<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+Select the users that are allowed to download artifacts for all signing requests of the project, regardless of their _Submitter_ or _Approver_ roles.
