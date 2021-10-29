@@ -71,6 +71,16 @@ Create signing requests by calling the following commands via PowerShell:
       -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
       -WaitForCompletion
   ~~~
+* Instead of uploading an artifact, you can also reference an existing signing request and re-submit it (with e.g. a different signing policy). See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
+~~~ powershell
+  Submit-SigningRequestResubmit `
+    -CIUserToken $CI_USER_TOKEN `
+      -OrganizationId $ORGANIZATION_ID `
+      -OriginalSigningRequestId $ORIGINAL_SIGNING_REQUEST_ID `
+      -SigningPolicySlug $SIGNING_POLICY `
+      [-OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT] `
+      [-WaitForCompletion]
+~~~
 
 #### User-defined parameters
 <span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
@@ -206,6 +216,31 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 ~~~
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
+
+### Re-submit a signing request
+
+See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
+
+| Synopsis                    |      |
+| --------------------------- | ---- |
+| URL                         | `/SigningRequests/Resubmit`
+| Method                      | `POST`
+| Encoding                    | `multipart/form-data`
+| `OriginalSigningRequestId`  | The ID of the signing request which you want to re-submit
+| `SigningPolicySlug`         | Signing policy for which you want to create the signing request
+| `Description`               | Optional: description for your signing request (e.g. version number)
+
+**Example:**
+
+~~~ bash
+curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+     -F "OriginalSigningRequestId=$ORIGINAL_SIGNING_REQUEST_ID" \
+     -F "SigningPolicySlug=release-signing" \
+     -F "Description=$DESCRIPTION" \
+     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/Resubmit
+~~~
+
+**Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
 ## CI integrations with origin verification
 
