@@ -6,7 +6,7 @@
   num_projects_included: 1
   num_projects_max: 3
   price_per_project: 150
-  num_releases_signings_per_project: 20
+  num_release_signings_per_project: 20
   num_test_signings_per_project: 100
   release_signing_retention: '2 weeks'
   test_signing_retention: '1 week'
@@ -32,7 +32,7 @@
   num_projects_included: 1
   num_projects_max: 5
   price_per_project: 200
-  num_releases_signings_per_project: 50
+  num_release_signings_per_project: 50
   num_test_signings_per_project: 250
   release_signing_retention: '2 months'
   test_signing_retention: '2 weeks'
@@ -58,7 +58,7 @@
   num_projects_included: 3
   num_projects_max: 10
   price_per_project: 200
-  num_releases_signings_per_project: 50
+  num_release_signings_per_project: 50
   num_test_signings_per_project: 250
   release_signing_retention: '2 months'
   test_signing_retention: '2 weeks'

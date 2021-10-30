@@ -6,16 +6,17 @@
       hint: 'Number and type of code signing certificates included with each subscription.'
       href: '/product/editions-explained#code-signing-certificates'
     - name: projects
-      title: 'Max. projects'
-      hint: 'Max. number of projects availabe for each subscription. Projects define which artifacts to sign, which certificate to use, permissions, policies and more.'
+      title: 'Projects'
+      hint: 'Projects availabe for each subscription. Projects define artifacts and policies, and assign certificates and permissions.'
       href: '/product/editions-explained#max-projects'
     - name: users
-      title: 'Max. users'
-      hint: 'Max. number of named users that interact with SignPath. No licenses required for CI user accounts or build agents.'
+      title: 'Users'
+      hint: 'Named users that interact with SignPath. No licenses required for CI user accounts or build agents.'
       href: '/product/editions-explained#max-users'
     - name: signing_requests
       title: 'Signing requests'
-      hint: 'Click "buy now" to configure subscription and see quotas.'
+      sub: 'Releases per year'
+      hint: 'Signing requests (think software packages or releases) signed per year. Additional quotas available for test signatures.'
       href: '/product/editions-explained#signing-requests'
     - name: ci_pipelines
       title: 'CI pipelines'

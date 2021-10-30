@@ -2,9 +2,12 @@
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
-    projects: '3'
-    users: '2'
-    signing_requests: 'yearly quota'
+    projects: 'up to 3'
+    projects-hint: 'Click "buy now" and add projects to adjust quota.'
+    users: 'up to 2'
+    users-hint: 'Click "buy now" and add users to adjust quota.'
+    signing_requests: 'up to 60'
+    signing_requests-hint: 'Click "buy now" and add projects to adjust quota.'
     ci_pipelines: '1'
   signing_methods:
     authenticode: true
@@ -47,10 +50,13 @@
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
-    projects: '10'
-    projects-hint: 'You may use several artifact configurations per project, e.g. for different components. They will share the same policies.'
-    users: '15'
-    signing_requests: 'yearly quota'
+    projects: 'up to 10'
+    projects-hint: 'You may use several artifact configurations per project, e.g. for different components. Click "buy now" and add projects to adjust quota.'
+    users: 'up to 15'
+    users-hint: 'Click "buy now" and add users to adjust quota.'
+    signing_requests: 'up to 500'
+    signing_requests-hint: 'Click "buy now" and add projects to adjust quota.'
+  
     ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true
@@ -137,7 +143,8 @@
   quotas:
     certificates: '1 standard'
     certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
-    projects: 'apply'
+    projects: 'unlimited'
+    projects-hint: 'OSS teams must apply for each project individually.'
     users: 'unlimited'
     signing_requests: 'fair use'
     ci_pipelines: '1 per project'
