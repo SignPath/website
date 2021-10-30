@@ -73,7 +73,9 @@ Create signing requests by calling the following commands via PowerShell:
   ~~~
 
 #### User-defined parameters
-<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
 
 Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided adding a `Parameters` argument.
 
@@ -123,7 +125,9 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 **Success result:** HTTP status code `201`. A HTTP `Location` response-header field is returned with the URL of the created entity.
 
 #### User-defined parameters
-<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
 
 Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
 

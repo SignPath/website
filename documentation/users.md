@@ -14,19 +14,27 @@ An interactive user account is required for people who administer your SignPath 
 
 ### User roles
 
-* **Administrators** have control over your SignPath organization, including the management of certificates and definition of policies.
-* **Global readers** have the same permissions as Regular users, but can additionally download all artifacts from all projects.
-* **Regular users** are allowed to submit and/or signing requests according to the signing policies (see [Signing code](/documentation/signing-code)). They can only download artifacts of signing requests that
-  * are from projects where they have _Project reader_ or _Project configurator_ roles or
-  * are from signing policies where they have _Submitter_ or _Approver_ roles
+| Role               | Global Permissions                                                                                              | Only available for       | Consider assigning to  |
+|--------------------|-----------------------------------------------------------------------------------------------------------------|--------------------------|------------------------|
+| **Administrator**  | Control the SignPath organization, including certificate management, user management, and projects and policies |                          | InfoSec, PKI, user management staff
+| **Global readers** | Read all information, including signing requests artifacts for all projects and signing policies                | Enterprise subscriptions | Auditors
+| **Regular users**  | No specific permissions                                                                                         |                          | Team administrators and members
+{: .subscription-type-3}
 
 ### Permissions
 
-SignPath is designed to make sure that people in charge of security have full control over code signing. Therefore, it makes sense to assign the role of *organization administrator* to security persons, such as InfoSec officers. It is also possible to assign administrative privileges to people in the development team. This can be on a permanent basis, or only temporarily to speed up initial setup. You can go with a model where every change has to be implemented by a dedicated administrator, or you can decentralize administration and have InfoSec review change audit logs regularly. Use the model that works best for your organization.
+In addition to these global user roles, the following permissions are assigned per project or signing policy:
 
-If you aim for the highest security, we recommend assigning the administrator role only to InfoSec staff and have them working directly with the development teams.
+* Projects: [*Readers* and *Configurators* permissions](projects#project-settings)
+* Signing policies: [*Submitters* and *Approvers* permissions](projects#signing-policies)
 
-Note that all information is accessible to all users within an organization.
+Read permissions:
+* All users can view configuration information and metadata
+* Access to artifacts is restricted to users with read permissions for the signing request
+* Users have read permissions for a Signing Request if they have
+  * an appropriate global role: *Administrator*, *Global Reader*
+  * a role for the Project: *Reader*, *Configurator*
+  * a role for the Signing Policy: *Submitter*, *Approver*
 
 ### Notifications
 

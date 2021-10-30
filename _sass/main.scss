@@ -374,7 +374,8 @@ div#cookie-info {
 	cursor: pointer;
 }
 
-span.badge {
+span.badge, 
+p.badge {
 	background-color: $primary-color;
 	border-radius: $border-radius;
 
@@ -383,17 +384,18 @@ span.badge {
 	font-weight: bold;
 	box-shadow: $shadow;
 	font-size: 1rem;
-
-	& > i {
-		margin-right: 0.5em;
-	}
 }
 
-span.subscription-type {
+span.badge > i,
+p.badge::before  {
+	margin-right: 0.5em;
+}
+
+span.subscription-type,
+table.subscription-type-3 tr td:nth-child(3) {
 	color: $primary-color;
 	font-weight: bold;
 }
-
 
 @media only screen and (max-width: 1000px) {
 	section.top-section > div {
@@ -455,3 +457,4 @@ span.subscription-type {
 		}
 	}
 }
+
