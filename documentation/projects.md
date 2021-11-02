@@ -15,8 +15,8 @@ Projects consist of these configuration sections:
 
 * [**Project settings**](#project-settings)
 * [**Signing policies**](#signing-policies) are used to declare the **rules and permissions** for signing with a specific **certificate**. A typical project has signing policies for **test-signing** and **release-signing**.
-* [**Artifact configurations**](#artifact-configurations) define the **structure** of an artifact is structured, which parts should be signed, and the respective **signing methods**.
-* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification-restriction) to your signing requests. 
+* [**Artifact configurations**](#artifact-configurations) define the **structure** of an artifact, which parts should be signed, and the respective **signing methods**.
+* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification) to your signing requests. 
 * [**Webhooks**](#webhooks) provide notifications for build automation.
 
 ## Project settings 
@@ -113,11 +113,11 @@ In some situations, it might even be necessary to sign any old release, e.g. via
 {: #artifact-configurations}
 
 At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed 
-with Authenticode). 
+with Authenticode).
 
 ### Signing multiple files in one step
 
-An artifact configuration may contain instructions to sign multiple files in a single step. Just put them in a single ZIP archive and specify how each file should b be signed.
+An artifact configuration may contain instructions to sign multiple files in a single step. Just put them in a single ZIP archive and specify how each file should be signed.
 
 ### Signing nested artifacts (deep-signing)
 
@@ -137,7 +137,7 @@ Available for Basic and Enterprise subscriptions
 
 Create multiple artifact configurations for
 
-* projects that create different artifact at different times, but you want to use the same signing policies
+* projects that create different artifacts at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)
 
 Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or resign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration#number-of-matches) (`min-matches="0"`).
@@ -161,7 +161,7 @@ For details on how to create, generate or edit an artifact configuration, see [a
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Trusted build systems are used to provide [origin verification](#origin-verification-restriction) in your build pipeline.
+Trusted build systems are used to provide [origin verification](#origin-verification) in your build pipeline.
 
 This requires a [CI integration with origin verification support](/documentation/build-system-integration#ci-integrations-with-origin-verification). Currently only AppVeyor is supported.
 
