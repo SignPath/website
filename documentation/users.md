@@ -19,7 +19,6 @@ An interactive user account is required for people who administer your SignPath 
 | **Administrator**  | Control the SignPath organization, including certificate management, user management, and projects and policies | InfoSec, PKI, user management staff
 | **Global readers** | Read all information, including signing requests artifacts for all projects and signing policies                | Auditors
 | **Regular users**  | No specific permissions                                                                                         | Team administrators and members
-{: .subscription-type-3}
 
 ### Permissions
 
