@@ -28,7 +28,7 @@ The signed and infected software will then be distributed to high-level attack t
 
 Starting in 2013 and still active, Winnti umbrella is a collective of Chinese advanced persistent threat (APT) groups that attack software companies and game studios **primarily in order to obtain code signing certificates**. These certificates are then passed on to other APT groups that **attack high-level political and economic targets**.
 
-The original Winnti group was detected by **Kaspersky** and detailed in their 2013 APT report [Winnti. More than just a game](https://securelist.com/winnti-more-than-just-a-game/37029/). In 2018, **401TRG** published a report about the wider Winnti umbrella: [Burning Umbrella: An Intelligence Report on the Winnti Umbrella and Associated State-Sponsored Attackers](https://401trg.com/burning-umbrella).
+The original Winnti group was detected by **Kaspersky** and detailed in their 2013 APT report [Winnti. More than just a game](https://securelist.com/winnti-more-than-just-a-game/37029/). In 2018, **401TRG** published a report about the wider Winnti umbrella: [Burning Umbrella: An Intelligence Report on the Winnti Umbrella and Associated State-Sponsored Attackers](https://cyber-peace.org/wp-content/uploads/2018/07/20180503_Burning_Umbrella.pdf).
 
 Media coverage includes [Infosecurity Magazine (2018)](https://www.infosecurity-magazine.com/news/chinese-spy-groups-linked-under/) and [ZDNet (2019)](https://www.zdnet.com/article/chinese-hacking-group-backdoors-products-from-three-asian-gaming-companies/).
 
@@ -62,7 +62,7 @@ Some interesting **takeaways** from this incident:
 
 ### Kingslayer supply chain attack
 
-From 2015 to 2017, the tool **[EvLog](http://www.eventid.net/)** by cyber security vendor **Altair Technologies** was hijacked by hackers and used against high-profile targets.
+From 2015 to 2017, the tool **EvLog** by cyber security vendor **Altair Technologies** was hijacked by hackers and used against high-profile targets.
 
 * The vendor's **code signing certificate key was stolen**
 * A **modified version** of the tool was created with a **backdoor Trojan**
@@ -93,7 +93,7 @@ As a Kaspersky researcher concluded:
 
 *"ShadowPad is an example of how dangerous and wide-scale a successful supply-chain attack can be. Given the opportunities for reach and data collection it gives to the attackers, most likely it will be reproduced again and again with some other widely used software component.*"
 
-Media coverage was provided by [The Register](https://www.theregister.co.uk/2017/08/15/netsarang_software_backdoor/) and [The Inquirer](https://www.theinquirer.net/inquirer/news/3015829/shadowpad-backdoor-uncovered-in-netsarang-server-management-software) among others.
+Media coverage was provided by [The Register](https://www.theregister.co.uk/2017/08/15/netsarang_software_backdoor/) among others.
 
 ### CCleaner supply chain attack
 

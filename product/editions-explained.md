@@ -33,7 +33,7 @@ Test-signing is used to avoid the security implications of release-signing with 
 
 * to test your signing configuration (especially artifact configurations) without the  (which would be )
 
-### Max. projects
+### Projects
 
 *Starter* and *Basic* subscriptions are priced based on the number of projects you can create in SignPath. Choose the number of projects you need when you buy your subscription, or upgrade later. If you need more than *max. projects*, you need to upgrade to another the subscription type.
 
@@ -45,7 +45,7 @@ If your project produces several artifacts, you have these options to handle the
 * Package your artifacts into a ZIP archive: Sign all artifacts that result from a single build job in one step
 * Use multiple artifact configurations within one project (not available for *Starter* subscriptions)
 
-### Max. users
+### Users
 
 *Starter* and *Basic* subscriptions are priced based on the number of active user accounts. Choose the number of users you need when you buy your subscription, or upgrade later. If you need more than *max. users*, you need to upgrade to another subscription type.
 
@@ -63,21 +63,19 @@ This quota does not limit the number of CI user accounts or build agents you can
 
 *Starter* and *Basic* subscriptions have an upper limit for the number of signing requests per year and project.
 
-| Signing policy                                      | Starter | Basic |
-|-----------------------------------------------------|--------:|------:|
-| release-signing (using the EV release certificate)  |      20 |    50 |
-| test-signing (using a self-signed test certificate) |     100 |   250 |
+| Signing policy  | Certificate                                   | Starter | Basic |
+|-----------------|-----------------------------------------------|--------:|------:|
+| release-signing | Extended Validation (EV) release certificate  |      20 |    50 |
+| test-signing    | Self-signed test certificate                  |     100 |   250 |
 
-So for instance, a *Basic* subscription with 3 *max. projects* allows you to complete 
+So for instance, a *Basic* subscription with 3 *projects* allows you to complete 
 
 * 150 release-signing requests per year (50 &times; 3) 
 * 750 test-signing requests per year (250 &times; 3)
 
-Signing requests can be used freely between projects. You may upgrade to a subscription with a higher *max. projects' limit to get more signing requests per year.
+The signing requests quota can be used freely between projects. You may upgrade the available projects of your subscription to get more signing requests per year.
 
-#### Total signed files
-
-Depending on your artifact configuration, each signing request may contain any number of files for signing. 
+Depending on your artifact configuration, each signing request may contain multiple files for signing. 
 
 **Fair use quota:** You may sign up to 100 files per *available* signing request (i.e. the sum of release- and test-signing requests ). In the example above, that would be (150 + 750) &times; 100 = 90,000 files per year.
 

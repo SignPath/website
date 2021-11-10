@@ -7,7 +7,8 @@ show_toc: 4
 description: Documentation for signing Docker containers with SignPath using Docker Content Trust (DCT)
 ---
 
-<span class='badge'><i class='icon-signpath'></i>Available for Enterprise and Open Source subscriptions</span>
+Available for Enterprise and Open Source subscriptions
+{: .badge.icon-signpath}
 
 ## Overview
 
@@ -44,7 +45,7 @@ The process to set up SignPath for DCT is as follows:
      * creates a target key 
      * adds the delegation key to the target key
      * registers the root key with Notary (results in new snapshot and timestamp keys created on Notary signer)
-  2. delete the target key's private key (recommended; no need to add more delegates later, but you can always perform a [key rotation](https://docs.docker.com/notary/advanced_usage/#rotate-keys))
+  2. delete the target key's private key (recommended; no need to add more delegates later, but you can always perform a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/best_practices.md#key-rotations))
   3. lock the token with the root key in a safe (you will not need it again unless you need to do a key rotation)
   4. set up repository, project and signing policy in SignPath
 
@@ -73,7 +74,7 @@ The following table lists
 * the potential security impact in case a key is compromised (i.e. an adversary managed to retrieve or use the private key)
 * the recovery procedure in case a key is compromised or simply lost
 
-(Some of the impact scenarios also require access to Notary/Registry credentials. See [Notary threat model](https://docs.docker.com/notary/service_architecture/#threat-model) for a full breakdown.)
+(Some of the impact scenarios also require access to Notary/Registry credentials. See [Notary threat model](https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model) for a full breakdown.)
 
 | Key type      | Security impact                                               | Recovery procedure 
 |---------------|---------------------------------------------------------------|--------------------
@@ -91,9 +92,9 @@ The following table lists
 
 **Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation. The Notary documentation is currently not published but available at [GitHub](https://github.com/theupdateframework/notary/tree/master/docs).
 
-Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned. A frequent cause of confusion is that the Notary documentation is hosted on [docs.docker.com/notary](https://docs.docker.com/notary), which easily leads to the assumption that everything there also applies to DCT. This is not always true.
+Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned.
 
-Notary has a well-defined [threat model](https://docs.docker.com/notary/service_architecture/#threat-model) which states the following about compromised delegation keys:
+Notary has a well-defined [threat model](https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model) which states the following about compromised delegation keys:
 
 > An attacker can add malicious content, remove legitimate content from a collection, and mix up the targets in a collection, but only within the particular delegation roles that the key can sign for. **Depending on the restrictions on that role, they may be restricted** in what type of content they can modify. *[Our emphasis]*
 
@@ -116,7 +117,7 @@ Required components:
 * [Notary client](https://github.com/theupdateframework/notary/releases) version 0.6.1 or greater (installed with Docker Desktop until v3.3.3)
 
 Optional components:
-* Attached [Yubikey](https://docs.docker.com/notary/advanced_usage/#use-a-yubikey) USB token (strongly recommended)
+* Attached [Yubikey](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#use-a-ubikey) USB token (strongly recommended)
 
 ### Steps
 
@@ -186,7 +187,7 @@ Get-RootCertificate -Repository $FQN `
 
 The command prints the path of the certificate you need to upload in step 4.
 
-We recommend that you remove existing delegation keys as soon as you have verified that your SignPath setup works. Use the `notary delegation remove` [command](https://docs.docker.com/notary/advanced_usage/#work-with-delegation-roles) or perform a [key rotation](https://docs.docker.com/notary/advanced_usage/#rotate-keys).
+We recommend that you remove existing delegation keys as soon as you have verified that your SignPath setup works. Use the `notary delegation remove` [command](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#work-with-delegation-roles) or perform a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys).
 
 #### 3. Add the delegation certificate to your repository's delegation keys
 
@@ -212,7 +213,7 @@ This adds a delegation (default name `signpath`) with the key from the specified
 
 #### 5. When everything works, delete the target key
 
-Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit key of the target key you created in step 2. See the [Notary documenation](https://docs.docker.com/notary/advanced_usage/#files-and-state-on-disk).
+Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit key of the target key you created in step 2. See the [Notary documenation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#files-and-state-on-disk).
 
 We recommend to perform a test signing before deleting the target key.
 
@@ -221,7 +222,7 @@ We recommend to perform a test signing before deleting the target key.
 
 DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.
 
-If you run into unexpected problems later that require a target key, you can always create a new one by performing a [key rotation](https://docs.docker.com/notary/advanced_usage/#rotate-keys). Don't forget to add existing delegation keys you want to keep after a key rotation.
+If you run into unexpected problems later that require a target key, you can always create a new one by performing a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys). Don't forget to add existing delegation keys you want to keep after a key rotation.
 
 The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
 </div>
@@ -308,7 +309,7 @@ $SECURE_PASSWORD = ConvertTo-SecureString $PLAINTEXT_PASSWORD -AsPlainText
 
 **Using environment variables for authentication**
 
-If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable respectively. See the [Notary documentation](https://docs.docker.com/notary/reference/client-config/#environment-variables-optional).
+If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable respectively. See the [Notary documentation](https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
 
 **WaitForCompletion option**
 

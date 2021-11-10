@@ -98,6 +98,7 @@
 						</h3>
 					</div>
 					<ul>
+						<!-- TODO what are data-* values for? they should probably be removed or updated from javascript too -->
 						<li class='first-after-header first-after-main-header'>
 							<span class='num-projects' data-num_projects_included='{{ product.num_projects_included }}' data-num_projects_max='{{ product.num_projects_max }}' data-price_per_project='{{ product.price_per_project }}'>{{ product.num_projects_included }}</span>
 							<span class='sub'><span class='currency-amount' data-value='{{ product.price_per_project }}'>${{ product.price_per_project }}</span> per additional project ({{ product.num_projects_max }} max)</span>
@@ -107,7 +108,7 @@
 							<span class='sub'><span class='currency-amount' data-value='{{ product.price_per_user }}'>${{ product.price_per_user }}</span> per additional user ({{ product.num_users_max }} max)</span>
 						</li>
 						<li class='first-after-header'>
-							<span class='num-release-signings' data-value='{{ product.num_releases_signings_per_project }}'>{{ product.num_releases_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
+							<span class='num-release-signings' data-value='{{ product.num_release_signings_per_project }}'>{{ product.num_release_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
 						</li>
 						<li>
 							<span class='num-test-signings' data-value='{{ product.num_test_signings_per_project }}'>{{ product.num_test_signings_per_project | times: product.num_projects_included }}</span><span class='sub'>per year</span>
@@ -118,9 +119,12 @@
 						<li>
 							<span>{{ product.test_signing_retention }}</span>
 						</li>
-						<li><span class='num-gb-per-project' data-value='{{ product.num_gb_per_project }}'>{{ product.num_gb_per_project | times: product.num_projects_included }} GB</span></li>
-						<li><span class='num-individual-signatures-per-project' data-value='{{ product.num_gb_per_project }}'>{{ product.num_gb_per_project | times: product.num_projects_included | times: 1048576 }}</span></li>
-						<li><span class='num-ci-pipelines' data-value='{{ product.num_ci_pipelines }}' data-ci_pipelines_per_project='{{ product.ci_pipelines_per_project }}'>{{ product.num_ci_pipelines | times: product.num_projects_included }}</span></li>
+						<li><span class='num-gb-per-project' data-value='{{ product.num_gb_per_project }}'>
+							{{ product.num_gb_per_project | times: product.num_projects_included }} </span> GB</li>
+						<li><span class='num-individual-signatures-per-project' data-value='{{ product.num_release_signings_per_project | plus: product.num_test_signings_per_project | times: product.num_projects_included | times: 100 }}'>
+							{{ product.num_release_signings_per_project | plus: product.num_test_signings_per_project | times: product.num_projects_included | times: 100}}</span></li>
+						<li><span class='num-ci-pipelines' data-value='{{ product.num_ci_pipelines }}' data-ci_pipelines_per_project='{{ product.ci_pipelines_per_project }}'>
+							{{ product.num_ci_pipelines | times: product.num_projects_included }}</span></li>
 					</ul>
 					<a class='btn btn-primary footer' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>
 				</div>

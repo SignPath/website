@@ -7,7 +7,8 @@ show_toc: 3
 description: Documentation for providing Trusted Build Systems to SignPath
 ---
 
-<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
 
 ## Abstract
 

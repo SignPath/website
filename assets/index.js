@@ -200,7 +200,10 @@ document.addEventListener('DOMContentLoaded', function() {
           productCtn.classList.remove('match-failed');
           numSubscriptionsAvailable++;
         }
-        productCtn.querySelector('.num-projects').innerHTML = Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+
+        var actualProjects = Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+
+        productCtn.querySelector('.num-projects').innerHTML = actualProjects;
         productCtn.querySelector('.num-users').innerHTML    = Math.min(Math.max(numUsersIncluded,    numUsers), numUsersMax);
 
         var options = {
@@ -215,15 +218,18 @@ document.addEventListener('DOMContentLoaded', function() {
           numUsersMax: numUsersMax,
           pricePerUser: pricePerUser
         }
+        
+        var actualReleaseSignings = numReleaseSignings * actualProjects;
+        var actualTestSignings = numTestSignings * actualProjects;
 
         productCtn.querySelector('.price').innerText = format(determinePrice(options), currency);
         productCtn.querySelector('.price-sub').style.visibility = threeYears ? 'visible' : 'hidden';
-        productCtn.querySelector('.num-release-signings').innerHTML = numReleaseSignings * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
-        productCtn.querySelector('.num-test-signings').innerHTML    = numTestSignings    * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
-        productCtn.querySelector('.num-gb-per-project').innerHTML  =  (numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) + ' GB';
-        productCtn.querySelector('.num-individual-signatures-per-project').innerHTML = new Intl.NumberFormat().format((numGBPerProject     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax)) * 1024 * 1024);
+        productCtn.querySelector('.num-release-signings').innerHTML = actualReleaseSignings;
+        productCtn.querySelector('.num-test-signings').innerHTML = actualTestSignings;
+        productCtn.querySelector('.num-gb-per-project').innerHTML = numGBPerProject * actualProjects;
+        productCtn.querySelector('.num-individual-signatures-per-project').innerHTML = new Intl.NumberFormat().format( (actualReleaseSignings + actualTestSignings) * 100); 
         if (ciPipelinesPerProject) {
-          productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines     * Math.min(Math.max(numProjectsIncluded, numProjects), numProjectsMax);
+          productCtn.querySelector('.num-ci-pipelines').innerHTML  = numCIPipelines      * actualProjects;
         }
         productCtn.querySelectorAll('.currency-amount').forEach(function(ctn) {
           ctn.innerText = format(parseFloat(ctn.dataset.value) * (threeYears ? THREE_YEARS_FACTOR : 1), currency);

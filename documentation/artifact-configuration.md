@@ -411,7 +411,8 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 
 ## User-defined parameters
 
-<span class='badge'><i class='icon-signpath'></i>Available for Enterprise subscriptions</span>
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
 
 You can define parameters for each signing request. Use this to create a more restrictive artifact configuration, track values, or include build-time values.
 
