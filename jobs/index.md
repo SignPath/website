@@ -18,6 +18,13 @@ description: Open jobs and positions for SignPath GmbH
   Become part of our development team and strive for excellence.
 
   [Apply now](senior-dev-dotnet){: class="btn btn-secondary"}
+  
+* [Software Engineer C#/.NET Core (Full-time or Part-time, Internship)](software-engineer-dotnet)
+  {: style="background-image:url(/assets/jobs/senior-dev-dotnet_small.jpg)"}
+
+  Are you a student or a beginner enthusiastic about C# and .NET Core?
+
+  [Apply now](software-engineer-dotnet){: class="btn btn-secondary"}
 {: class="card-container"}
 
 All open positions are for Vienna, Austria.
