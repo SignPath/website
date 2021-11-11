@@ -48,9 +48,15 @@
 			Jetzt bewerben
 		</a>
 
+		{% if page.salary == 0 %}
+		<p style="font-style: italic">
+			Die exzellente Arbeit unserer Mitarbeiter*innen ist die Basis für unseren Erfolg. Um das zu honorieren, bieten wir neben umfangreichen Sozialleistungen und Goodies auch eine sehr gute Entlohnung. Bei entsprechendem Skill-Set und Erfahrung bieten wir eine deutliche Überzahlung, daher vereinbaren wir dein tatsächliches Gehalt individuell im Gespräch.
+		</p>
+		{% else %}
 		<p style="font-style: italic">
 			Die exzellente Arbeit unserer Mitarbeiter&ast;innen ist die Basis für unseren Erfolg. Um das zu honorieren, bieten wir neben umfangreichen Sozialleistungen und Goodies auch eine sehr gute Entlohnung. Aus gesetzlichen Gründen sind wir verpflichtet darauf hinzuweisen, dass das kollektivvertragliche Mindestgehalt für diese Stelle aktuell € {{page.salary}} brutto/Jahr (bei Vollzeitbeschäftigung) beträgt. Bei entsprechendem Skill-Set und Erfahrung bieten wir eine deutliche Überzahlung, daher vereinbaren wir dein tatsächliches Gehalt individuell im Gespräch.
 		</p>
+		{% endif %}
 	</div>
 </section>
 {% include footer.html %}
