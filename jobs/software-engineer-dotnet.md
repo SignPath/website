@@ -6,6 +6,7 @@ job_id: xa35xvx0
 salary: 0
 layout: job
 description:
+include-dev-stack: true
 ---
 
 Du bist leidenschaftliche*r Software Engineer mit einem Faible für .NET und möchtest als Teil eines jungen Teams gemeinsam produktive und qualitativ hochwertige Software bauen? Dann unterstütze uns dabei, unser Produkt SignPath zu entwickeln!
@@ -23,23 +24,6 @@ Als Software Engineer bist du in unserem Entwicklungsteam von der Feature-Idee �
 * Im Test-Driven-Development-Modus erstellst du hochwertigen, automatisiert getesteten Code, den du regelmäßig refactorst, um ihn möglichst sauber und wartbar zu halten.
 * Du entwickelst ein tiefgehendes Verständnis deiner Lösungen; verstehst, warum sie so funktionieren, wie sie es tun.
 * Durch gemeinsame Vorbereitung, Peer Reviews, Pair Programming und offenes Feedback entwickelst du dich gemeinsam mit dem Team ständig weiter.
-
-### Unser Dev-Stack
-
-* C#, .NET Core, ASP.NET Core
-* Azure
-* Docker, Kubernetes, Helm
-* HTML 5, CSS, JavaScript, Bootstrap
-
-### Unsere wichtigsten Dev-Tools
-
-* Visual Studio 2019 mit JetBrains ReSharper (und Rider)
-* Visual Studio Code
-* Git, GitExtensions
-* Slack
-* Docker Desktop
-* LinqPad
-* TeamCity
 
 ## Dein Profil
 
