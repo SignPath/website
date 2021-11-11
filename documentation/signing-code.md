@@ -33,15 +33,44 @@ SignPath provides multiple ways to be integrated into your pipeline. See the [do
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Depending on your process, you can decide to either 
+You can re-submit an existing signing request and specify a different signing policy. This is especially useful when you build a release candidate, and want to postpone the release decision until later.
 
-1. sign the release candidate with a release certificate, then validate and publish it
-2. sign the release candidate with a test certificate, then perform additional tests and only when the tests pass, apply the release certificate
+When compared to just submitting the same artifact again, the new re-submit feature has the following advantages:
 
-For the second option, you want to ensure that
+* The exact same artifact is being signed that was used for testing
+* Any verified [origin information](/documentation/build-system-integration#ci-integrations-with-origin-verification) is still available 
+* The original signing request is referenced
 
-* the release certificate is applied to the exact same artifact that was used for testing
-* the [origin information](/documentation/build-system-integration#ci-integrations-with-origin-verification) is still available for the release signing request
+### Re-submit parameters
 
-In SignPath, this use case is supported by allowing a signing request to be re-submitted with a different signing policy. The artifact is then re-used and the origin information is included in the new signing request. 
-_Note: This feature is currently only available via the API and PowerShell module._
+| Parameter      | Value 
+|----------------|----------
+| Signing Policy | required 
+| Description    | optional 
+| _all other_    | copied from original signing request
+
+### Permissions and policies
+
+* Permissions and origin verfication are evaluated according to the new signing policy.
+* Origin verifcation is evaluated based on the original signing request's origin data. 
+
+This ensures that the integrity of the signing request and artifact are preserved even when fully detached from the actual build process.
+
+### Usage scenario
+
+A typical release scenarios would look like this:
+
+| Step | Actor                              | Condition              | Action
+|-----:|------------------------------------|------------------------|---------------------------------------------------------
+| 1    | CI system                          |                        | The software is built and submitted for test-signing
+| 2    | SignPath                           | test-signing policy    | The software is signed using the test certificate
+| 3    | CI system or automatic test runner | tests passing          | A re-submit request is created for release-signing
+| 5    | SignPath                           | release-signing policy | Project manager is notified about pending approval
+| 4    | Project manager                    | arbitrary              | Approves or denies
+| 5    | SignPath                           | approval               | The software is signed using the release certificate
+
+<div class="panel info" markdown="1">
+<div class="panel-header">Note</div>
+
+This feature is currently only available via the [REST API](/documentation/build-system-integration#re-submit-a-signing-request) and [PowerShell module](/documentation/build-system-integration#powershell).
+</div>
