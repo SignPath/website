@@ -10,6 +10,8 @@ description:
 
 Du bist leidenschaftliche/r C#-Developer\*in, async/await und LINQ sind dein Fachvokabular, TDD und Clean Code deine Wohlfühlzone? Dann unterstütze uns dabei, unser CQRS/EventSourcing-basiertes Produkt SignPath zu entwickeln!
 
+**Home Office:** Permanent bis zu 80 % Remote Work. (An einen Tag pro Woche ist das gesamte Team in unserem Büro in der Wiener Innenstadt.)
+
 ## Deine Aufgaben
 
 Als Full Stack Software-Entwickler\*in bist Du von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Senior-Entwickler\*in schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
