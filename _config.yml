@@ -41,14 +41,14 @@ include:
 # used for Microsoft OpenID Connect App
 
 exclude:
-    - Gemfile
-    - Gemfile.lock
-    - assets/icons/single
-    - README.md
-    - TODO.txt
-    - set-environment.ps1
-    - deploy-to-fq1.ps1
-    - CNAME
+  - Gemfile
+  - Gemfile.lock
+  - assets/icons/single
+  - README.md
+  - TODO.txt
+  - set-environment.ps1
+  - deploy-to-fq1.ps1
+  - CNAME
 
 sass:
     style: compressed
