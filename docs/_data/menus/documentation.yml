@@ -23,3 +23,6 @@
 
 - text: Build System Integration
   path: build-system-integration
+
+- text: Trusted Build Systems
+  path: trusted-build-systems
