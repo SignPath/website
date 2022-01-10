@@ -17,14 +17,24 @@ description: SignPath product pricing described
 		<div class='header'>
 			<div class='calculator'>
 				<div class='main'>
-					<div class='column'>						
+					<div class='column'>
 						<div class='row'>
 							<span class='label'>Projects</span>
-							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-projects-input' type='number' min='1' max='100' value='1' oninput="this.value = Math.abs(this.value)" /><i class='la la-plus-circle'></i></div>
+							<div class='number-select'>
+								{% include minus.svg %}
+								<input id='num-projects-input' max='100' min='1' oninput="this.value = Math.abs(this.value)" type='number'
+									   value='1'/>
+								{% include plus.svg %}
+							</div>
 						</div>
 						<div class='row'>
 							<span class='label'>Users</span>
-							<div class='number-select'><i class='la la-minus-circle'></i><input id='num-users-input' type='number' min='1' max='100' value='1' oninput="this.value = Math.abs(this.value)" /><i class='la la-plus-circle'></i></div>
+							<div class='number-select'>
+								{% include minus.svg %}
+								<input id='num-users-input' max='100' min='1' oninput="this.value = Math.abs(this.value)" type='number'
+									   value='1'/>
+								{% include plus.svg %}
+							</div>
 						</div>
 					</div>
 					<div class='column'>
@@ -55,7 +65,7 @@ description: SignPath product pricing described
 				</div>
 			</div>
 			<div class='ev-included'>
-				<i class='la la-certificate'></i>
+				{% include badge.svg %}
 				<span>EV certificate included</span>
 			</div>
 		</div>
@@ -66,29 +76,42 @@ description: SignPath product pricing described
 					<li class='head f'>Quotas</li>
 					<li class='f include-sub'>Projects</li>
 					<li class='f include-sub'>Users</li>
-					<li class='sub-head f'>Signing requests 
-						<span class='hint--top-right hint--medium' aria-label='Annual quota for signing requests. Note that each signing request can contain multiple files (see individual signatures quota below).'>
-							<i class='las la-info-circle'></i></span></li>
+					<li class='sub-head f'>Signing requests
+						<span aria-label='Annual quota for signing requests. Note that each signing request can contain multiple files (see individual signatures quota below).'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
 					<li class='sub f include-sub'>release-signing
-						<span class='hint--top-right hint--medium' aria-label='Signing requests using your EV certificate'>
-							<i class='las la-info-circle'></i></span></li>
+						<span aria-label='Signing requests using your EV certificate'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
 					<li class='sub f include-sub'>test-signing
-						<span class='hint--top-right hint--medium' aria-label='Signing request using a test certificate that must be installed on target machines (e.g. testing the signing configuration, signing internal builds, release candidates etc.)'>
-							<i class='las la-info-circle'></i></span></li>
-					<li class='sub-head f'>Artifact retention 
-						<span class='hint--top-right hint--medium' aria-label='Articafts will be deleted after the specified retention time'>
-							<i class='las la-info-circle'></i></span></li>
+						<span aria-label='Signing request using a test certificate that must be installed on target machines (e.g. testing the signing configuration, signing internal builds, release candidates etc.)'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
+					<li class='sub-head f'>Artifact retention
+						<span aria-label='Articafts will be deleted after the specified retention time'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
 					<li class='sub f'>release-signing</li>
 					<li class='sub f'>test-signing</li>
-					<li class='f'>Artifact volume 
-						<span class='hint--top-right hint--medium' aria-label='Annual upload quota'>
-							<i class='las la-info-circle'></i></span></li>
-					<li class='f'>Individual signatures 
-						<span class='hint--top-right hint--medium' aria-label='Fair-use annual quota of individual files signed as part of signing requests (see signing request quota above).'>
-							<i class='las la-info-circle'></i></span></li>
-					<li class='f'>CI pipelines 
-						<span class='hint--top-right hint--medium' aria-label='Limits the number of parallel signing requests'>
-							<i class='las la-info-circle'></i></span></li>
+					<li class='f'>Artifact volume
+						<span aria-label='Annual upload quota' class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
+					<li class='f'>Individual signatures
+						<span aria-label='Fair-use annual quota of individual files signed as part of signing requests (see signing request quota above).'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
+					<li class='f'>CI pipelines
+						<span aria-label='Limits the number of parallel signing requests'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
 				</ul>
 			</div>
 			{% for product in site.data['pricing'] %}
@@ -157,7 +180,8 @@ description: SignPath product pricing described
 				<li> <strong>Prices are without taxes.</strong> If local taxes are added when you click buy, switch <em>billing information</em> to <em>company</em> and enter your <em>VAT ID</em></i>. (For some regions, sales tax may still be charged.) </li>
 			</ul>
 			<p>
-				<i class='la la-info-circle'></i> For special inquiries or more information, please <strong><a href='mailto:sales@signpath.io'>contact us</a></strong>.
+				{% include info.svg %}
+				For special inquiries or more information, please <strong><a href='mailto:sales@signpath.io'>contact us</a></strong>.
 			</p>
 	</div>
 </section>

@@ -68,12 +68,9 @@ ul.home-feature-list {
 	& > li {
 		font-size: 1.3em;
 		margin-bottom: 0.5em;
-		padding-left: 1.7em;
-
-		& > i {
-			margin-right: 0.5em;
-			margin-left: -1.7em;
-		}
+		display: flex;
+		align-items: center;
+		gap: 15px;
 	}
 }
 
@@ -85,12 +82,9 @@ ul.home-method-list {
 	& > li {
 		font-size: 1.3em;
 		margin-bottom: 0.5em;
-		padding-left: 1.7em;
-
-		& > i {
-			margin-right: 0.5em;
-			margin-left: -1.7em;
-		}
+		display: flex;
+		align-items: center;
+		gap: 15px;
 	}
 }
 

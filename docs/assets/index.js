@@ -155,7 +155,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // calculate prices correctly
     function recalculatePrices() {
-
       function determinePrice(options) {
         var r =
           (
@@ -273,10 +272,10 @@ document.addEventListener('DOMContentLoaded', function() {
       input.addEventListener('change', recalculatePrices);
     })
 
-    document.querySelectorAll('section.pricing div.number-select > i').forEach(function(i) {
+    document.querySelectorAll('section.pricing div.number-select > svg').forEach(function(i) {
       function changeCounter(e) {
         var input = e.target.parentNode.querySelector('input');
-        input.value = i.classList.contains('la-plus-circle') ? parseInt(input.value, 10) + 1 : Math.max(1, parseInt(input.value, 10) -1);
+        input.value = i.classList.contains('plus-circle') ? parseInt(input.value, 10) + 1 : Math.max(1, parseInt(input.value, 10) -1);
         recalculatePrices();
       }
 
