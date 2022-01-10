@@ -33,12 +33,12 @@
 	<div>
 		<h2>Staying secure and agile</h2>
 		<p>
-			Frequent software releases and updates, the popularity of microservices as well as a stricter enforcement of internal security measures have increased the complexity for code signing. SignPath is made for developers from one of the leading European software development companies for government institutions. We automate security best practices to keep your development process agile. 
+			Frequent software releases and updates, the popularity of microservices as well as a stricter enforcement of internal security measures have increased the complexity for code signing. SignPath is made for developers from one of the leading European software development companies for government institutions. We automate security best practices to keep your development process agile.
 		</p>
 		<div class='columns'>
 			<div class='column-stretched'>
 				<div>
-					<i class='la la-laptop header blue'></i>
+					{% include laptop.svg %}
 					<h3>DevOps teams</h3>
 					<p>
 						SignPath provides secure code signing processes that directly integrate into existing continuous deployment (CD) pipelines. No hassle with installing cryptographic service providers (CSPs) or connecting USB tokens, just simple command line or API calls.
@@ -48,7 +48,7 @@
 			</div>
 			<div class='column-stretched'>
 				<div>
-					<i class='la la-shield header blue'></i>
+					{% include shield.svg %}
 					<h3>InfoSec teams</h3>
 					<p>
 						Do you know where all the private keys are stored in your organization that are used to sign executables and scripts? With SignPath, you can stay on top of managing your certificates, define strict policies, monitor private key usage and delegate responsibilities for signing releases.
@@ -58,7 +58,7 @@
 			</div>
 			<div class='column-stretched'>
 				<div>
-					<i class='la la-code header blue'></i>
+					{% include code.svg %}
 					<h3>Open source projects</h3>
 					<p>
 						Open source software has become the backbone of the entire IT industry, with commercial software building on the foundation of thousands of open source libraries. SignPath values the community and provides special offers to open source projects to enable a secure build chain all the way to the end user.
@@ -75,14 +75,14 @@
 		<h2>Code Signing is more than a certificate</h2>
 		<div class='columns'>
 			<div>
-				<i class='la la-key header'></i>
+				{% include key.svg %}
 				<h3>Secure private keys</h3>
 				<p>
 					When your private keys are compromised, your reputation is at risk. Software vendors are an increasingly attractive target for hackers and cyber criminals as they can be used as an entrance point to gain access to the IT infrastructure of the consumer's organizations, often unnoticed.
 				</p>
 			</div>
 			<div>
-				<i class='la la-check-circle-o header'></i>
+				{% include check_circle.svg %}
 				<h3>Transparent processes</h3>
 				<p>
 					Securing your private key on a USB token or on a Hardware Security Module (HSM) is not enough. You need to restrict and monitor private key usage and ensure that only legitimate code is being signed.
@@ -100,30 +100,30 @@
 		<h2>Increase your security with ease</h2>
 		<div class='columns'>
 			<div>
-				<i class='la la-rotate-right header'></i>
+				{% include arrow_right.svg %}
 				<h3>Establish a process</h3>
 				<p>
 					Don’t assume that code signing processes are followed by your team. Monitor and automate the execution. Adapt workflows for different software products and development teams.
 				</p>
 			</div>
 			<div>
-				<i class='la la-map-signs header'></i>
+				{% include sign.svg %}
 				<h3>Align InfoSec and development teams</h3>
 				<p>
-					Development teams need to own the code signing process in order to stay agile. InfoSec teams need to enforce their security policies. With SignPath both teams get the necessary freedom and guarantee for an effective and secure code signing process. 
+					Development teams need to own the code signing process in order to stay agile. InfoSec teams need to enforce their security policies. With SignPath both teams get the necessary freedom and guarantee for an effective and secure code signing process.
 				</p>
 			</div>
 		</div>
 		<div class='columns'>
 			<div>
-				<i class='la la-briefcase header'></i>
+				{% include case.svg %}
 				<h3>Meet customer expectations</h3>
 				<p>
-					Your customers demand high security in their IT infrastructure. Meet their expectations by providing them with signed software and a process that excels at every security audit. 
+					Your customers demand high security in their IT infrastructure. Meet their expectations by providing them with signed software and a process that excels at every security audit.
 				</p>
 			</div>
 			<div>
-				<i class='la la-money header'></i>
+				{% include dollar.svg %}
 				<h3>Save costs</h3>
 				<p>
 					Get started in minutes with our code signing solution. No need for complicated setups and installation of CSPs, timestamping servers or integration of Hardware Security Modules (HSMs).
@@ -144,14 +144,27 @@
 				<div>
 					<h3>Secure your processes&hellip;</h3>
 					<ul class='home-feature-list'>
-						<li><i class='la la-group'></i> Roles and permissions</li>
-						<li><i class='la la-check-square'></i> Approvals</li>
-						<li><i class='icon-nested'></i> Deep signing of nested files</li>
-						<li><i class='la la-shield'></i> Virus scanning</li>
-						<li><i class='icon-origin-verification'></i> Origin verification</li>
-						<li><i class='la la-lock'></i> Policy enforcement</li>
-						<li><i class='icon-cicd'></i> CI integration</li>
-						<li><i class='la la-eye'></i> Audit logs</li>
+						<li>
+							{% include user_group.svg %}
+							Roles and permissions</li>
+						<li>
+							{% include check_box.svg %}
+							Approvals</li>
+						<li><i class='icon-nested'></i>
+							Deep signing of nested files</li>
+						<li>
+							{% include virus.svg %}
+							Virus scanning</li>
+						<li><i class='icon-origin-verification'></i>
+							Origin verification</li>
+						<li>
+							{% include lock.svg %}
+							Policy enforcement</li>
+						<li><i class='icon-cicd'></i>
+							CI integration</li>
+						<li>
+							{% include eye.svg %}
+							Audit logs</li>
 					</ul>
 				</div>
 				<p><a href='/product' class='btn btn-flat'>Discover more</a></p>
@@ -160,15 +173,26 @@
 				<div>
 					<h3 id='signing-methods'>&hellip;and sign all your code</h3>
 					<ul class='home-method-list'>
-						<li><i class='icon-windows'></i> Authenticode: applications, installers, drivers</li>
-						<li><i class='icon-powershell'></i> PowerShell scripts</li>
-						<li><i class='icon-clickonce'></i> Clickonce applications</li>
-						<li><i class='icon-office'></i> Office Add-ins</li>
-						<li><i class='icon-nuget'></i> NuGet packages</li>
-						<li><i class='icon-visual-studio'></i> Visual Studio extensions</li>
-						<li><i class='icon-java'></i> Java archives</li>
-						<li><i class='icon-android'></i> Android apps</li>
-						<li><i class='lab la-docker'></i> Docker images</li>
+						<li>
+							{% include windows.svg %}
+							Authenticode: applications, installers, drivers</li>
+						<li><i class='icon-powershell'></i>
+							PowerShell scripts</li>
+						<li><i class='icon-clickonce'></i>
+							Clickonce applications</li>
+						<li><i class='icon-office'></i>
+							Office Add-ins</li>
+						<li><i class='icon-nuget'></i>
+							NuGet packages</li>
+						<li><i class='icon-visual-studio'></i>
+							Visual Studio extensions</li>
+						<li><i class='icon-java'></i>
+							Java archives</li>
+						<li><i class='icon-android'></i>
+							Android apps</li>
+						<li>
+							{% include docker.svg %}
+							Docker images</li>
 					</ul>
 					<p>All signatures include a timestamp and use cryptographically secure algorithms.</p>
 				</div>

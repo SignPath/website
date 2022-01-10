@@ -8,10 +8,14 @@
 <section class="status-section">
 	<div>
 		<h2 class='{{ site.data.status.current.type }}'>
-			{% if     site.data.status.current.type == "good" %}<i class='la la-check'></i>
-			{% elsif site.data.status.current.type == "info" %}<i class='la la-info-circle'></i>
-			{% elsif site.data.status.current.type == "warning" %}<i class='la la-exclamation-triangle'></i>
-			{% else %}<i class='la la-exclamation-triangle'></i>
+			{% if     site.data.status.current.type == "good" %}
+			{% include status_good.svg %}
+			{% elsif site.data.status.current.type == "info" %}
+			{% include status_info.svg %}
+			{% elsif site.data.status.current.type == "warning" %}
+			{% include status_warning.svg %}
+			{% else %}
+			{% include status_bad.svg %}
 			{% endif %}
 			{{ site.data.status.current.title }}
 		</h2>
@@ -26,7 +30,7 @@
 			{% endfor %}
 		</ul>
 		<p>
-			Note that system updates and SignPath software updates are not listed here unless they may result in more than 5 minutes of downtime. 
+			Note that system updates and SignPath software updates are not listed here unless they may result in more than 5 minutes of downtime.
 			We recommend that you set a retry limit for <i>unavailable service</i> errors of 10 minutes. This is also the default for our <a href="/documentation/build-system-integration#powershell">PowerShell scripts</a>.
 		</p>
 	</div>

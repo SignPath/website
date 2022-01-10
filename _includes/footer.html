@@ -9,12 +9,11 @@
 			</svg>
 	  		<div>
 				<a target="_blank" href="https://twitter.com/SignPathIO/" rel="noopener noreferrer">
-					<i class="la la-twitter"></i>
+					{% include twitter.svg %}
 				</a>
 				&nbsp;&nbsp;
 				<a target="_blank" href="mailto:info@signpath.io" rel="noopener noreferrer">
-					<i class="la la-envelope"></i>
-				</a>
+					{% include mail.svg %}
 			</div>
 	  	</div>
 	  	<div>
@@ -43,11 +42,11 @@
 				const queryString = window.location.search;
 				const urlParams = new URLSearchParams(queryString);
 				const adgroupid = urlParams.get('adgroupid') ? urlParams.get('adgroupid') : document.cookie.match('(^|;)\\s*' + 'adgroupid' + '\\s*=\\s*([^;]+)')?.pop() || ''
-				
+
 				if (adgroupid) {
 					const els_trial = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Subscription/StartFreeTrial' + "']")
 					const els_login = document.querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']");
-										
+
 					for (let child of els_trial) {
 						if (child.tagName === 'A') {
 							child.href = child.href + '?websiteCorrelationId=' + adgroupid

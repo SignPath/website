@@ -4,9 +4,12 @@
 	<div>
 		<h1>{{ page.title }}</h1>
 		<div class='info'>
-          <div><i class='la la-user'></i> {{ page.author }}</div>
-          <div><i class='la la-calendar'></i> {{ page.date | date: '%B %d, %Y' }}</div>
-        </div>
+                  <span>
+{% include user.svg %}
+                    {{ page.author }}</span>
+			<span>
+                    {% include calendar.svg %}                     {{ page.date | date: '%B %d, %Y' }}</span>
+		</div>
 	</div>
 </section>
 <section class="default-section post-section">

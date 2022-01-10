@@ -19,8 +19,12 @@
               </a>
               <div>
                 <div class='info'>
-                  <span><i class='la la-user'></i> {{ post.author }}</span>
-                  <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
+                  <span>
+                    {% include user.svg %}
+                    {{ post.author }}</span>
+                  <span>
+                    {% include user.svg %}
+                    {{ post.date | date: '%B %d, %Y' }}</span>
                 </div>
                 <p>
                   {% if post.summary %}
@@ -37,7 +41,9 @@
       </ul>
     {% endif %}
 
-    <h2>Recent Posts<a href='/feed.xml'>Feed <i class='la la-rss'></i></a></h2>
+    <h2>Recent Posts<a href='/feed.xml'>Feed
+      {% include rss.svg %}
+    </a></h2>
     <ul class='card-container'>
       {% for post in site.posts %}
         <li>
@@ -46,8 +52,12 @@
           </a>
           <div>
             <div class='info'>
-              <span><i class='la la-user'></i> {{ post.author }}</span>
-              <span><i class='la la-calendar'></i> {{ post.date | date: '%B %d, %Y' }}</span>
+                  <span>
+                    {% include user.svg %}
+                    {{ post.author }}</span>
+              <span>
+                    {% include user.svg %}
+                    {{ post.date | date: '%B %d, %Y' }}</span>
             </div>
             <p>
               {% if post.summary %}
