@@ -6,7 +6,7 @@ module.exports = {
     entry: path.join(__dirname, "webpack", "main"),
     output: {
         filename: "[name]-bundle.js",
-        path: path.resolve(__dirname, "assets/js"),
+        path: path.resolve(__dirname, "docs/assets/js"),
     },
     module: {
         rules: [
