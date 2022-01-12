@@ -25,6 +25,13 @@ description: Open jobs and positions for SignPath GmbH
   Are you a student or a beginner enthusiastic about C# and .NET Core?
 
   [Apply now](software-engineer-dotnet){: class="btn btn-secondary"}
+  
+* [Scrum Master<br>(Maternity Leave Replacement; Part-time, Employed or Freelancer)](scrum-master-karenzvertretung)
+  {: style="background-image:url(/assets/jobs/scrum-master_small.jpg)"}
+
+  Support the team and drive the process.
+
+  [Apply now](scrum-master-karenzvertretung){: class="btn btn-secondary"}
 {: class="card-container"}
 
 All open positions are for Vienna, Austria.
