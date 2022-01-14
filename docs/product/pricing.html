@@ -70,12 +70,24 @@ description: SignPath product pricing described
 			</div>
 		</div>
 
+		{% assign quotas = site.data.featuregroups | where: 'name', 'quotas' | first %}
+		{% assign projects = quotas.features | where: 'name', 'projects' | first %}
+		{% assign users = quotas.features | where: 'name', 'users' | first %}
+
 		<div class='column-layout'>
 			<div class='features col'>
 				<ul>
 					<li class='head f'>Quotas</li>
-					<li class='f include-sub'>Projects</li>
-					<li class='f include-sub'>Users</li>
+					<li class='f include-sub'>Projects
+						<span aria-label='{{ projects.hint }}'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
+					<li class='f include-sub'>Users
+						<span aria-label='{{ users.hint }}'
+							  class='hint--top-right hint--medium'>
+						{% include info.svg %}
+						</span></li>
 					<li class='sub-head f'>Signing requests
 						<span aria-label='Annual quota for signing requests. Note that each signing request can contain multiple files (see individual signatures quota below).'
 							  class='hint--top-right hint--medium'>
@@ -114,7 +126,7 @@ description: SignPath product pricing described
 						</span></li>
 				</ul>
 			</div>
-			{% for product in site.data['pricing'] %}
+			{% for product in site.data.pricing %}
 				<div class='content col'>
 					<div class='product-header'>
 						<h2>{{ product.name }}</h2>
