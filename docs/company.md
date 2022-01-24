@@ -20,7 +20,7 @@ SignPath was founded in 2017 as a subsidiary of RUBICON IT GmbH - a leading Euro
 
 At SignPath, we believe that signing code is crucial for secure distribution of software artifacts. Increased frequency of releases make it even more important that the origin of every shipped code is verifiable. Therefore we are developing the world's leading code signing solution to allow organizations of all sizes to reliably and securely sign their code - without compromising on their agility.
 
-[See open positions](/jobs){: class="btn btn-primary"}
+[See open positions](https://www.karriere.at/jobs/signpath/){: class="btn btn-primary"}
 
 </div> </div>
 
