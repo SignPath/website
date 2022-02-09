@@ -26,7 +26,7 @@ export function GoogleAnalytics() {
 }
 
 const events = {
-    1: {eventCategory: "free_trail_link", eventAction: "click", eventLabel: "\"Start free trial\" link clicked"}, // Every time a user clicks on any of the "Start free trial" links
+    1: {eventCategory: "free_trial_link", eventAction: "click", eventLabel: "\"Start free trial\" link clicked"}, // Every time a user clicks on any of the "Start free trial" links
     2: {eventCategory: "buy_link", eventAction: "click", eventLabel: "\"Buy\" link clicked"}, // Every time a user clicks on one of the "Buy" links on https://about.signpath.io/product/pricing
     3: {eventCategory: "contact_form", eventAction: "submitted", eventLabel: "\"Contact Form\" submitted"}, // Every time a user submits the contact form
     4: {eventCategory: "subscribe_newsletter_link", eventAction: "click", eventLabel: "\"Subscribe Newsletter\" link clicked"}, // Every time a user clicks on the "Subscribe" link for the newsletter
