@@ -27,7 +27,7 @@ For JS development:
 
 	yarn install
 
-	yarn watch~~~~
+	yarn watch
 	(./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental)
 
 	yarn build
