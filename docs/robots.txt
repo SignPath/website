@@ -1,0 +1,9 @@
+---
+layout: none
+---
+User-agent: *
+Disallow: /contact-done
+Disallow: /sign-up-successful
+Disallow: /newsletter-subscribed
+
+Sitemap: {{ site.url }}/sitemap.xml
