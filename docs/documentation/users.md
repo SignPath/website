@@ -12,6 +12,39 @@ description: Documentation for SignPath user management
 
 An interactive user account is required for people who administer your SignPath organization or interact with the application, such as submitters or approvers. Typically, most software developers will not directly use SignPath on a regular basis, but rather interact with the SCM and CI systems that integrate with SignPath.
 
+### User accounts and SignPath organizations
+
+Note that user accounts are not the same as users in an organization.
+
+* Use the [login page] to create a user account or sign in.
+* Users must be invited to SignPath organizations in order to use them.
+* A user account may be used for one or more SignPath organizations. 
+
+| User account type         | Provider                              | How to use                            | Available for            |
+|---------------------------|---------------------------------------|---------------------------------------|--------------------------|
+| Social account            | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
+| Username and password     | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
+| Enterprise single sing-on | Your Organization's identity provider | Enter email address as _Username_     | Enterprise subscriptions |
+{: .subscription-type-4 }
+
+<div class="panel info" markdown="1">
+<div class="panel-header">Account unification</div>
+
+All social accounts and username/password accounts using the same email address are considered the same account.
+</div>
+
+### Invitation
+
+In order to add a user to a SignPath organization, an invitation email is sent to the user. 
+
+* On the _Users and Groups_ page, click _Invite user_.
+* Enter the name and email address.
+
+Accepting invitations:
+
+* Users must use the invitation within 14 days. After that, a new invitation must be sent for security reasons (click _Reinvite_ on the user's page).
+* Users must sign in to accept an invitation. If they are already signed in, they have the option to sign out and use another account to login first. Accepting the invitation will link the organization's user to the active user account.
+
 ### User roles
 
 | Role               | Global Permissions                                                                                              | Consider assigning to         |
@@ -28,6 +61,7 @@ In addition to these global user roles, the following permissions are assigned p
 * Signing policies: [*Submitters* and *Approvers* permissions](projects#signing-policies)
 
 Read permissions:
+
 * All users can view configuration information and metadata
 * Access to artifacts is restricted to users with read permissions for the signing request
 * Users have read permissions for a Signing Request if they have
@@ -66,3 +100,6 @@ The support user account has administrative privileges. If you disable it after 
 ## Audit logs
 
 The web application has a full activity audit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
+
+[Okta]: https://www.okta.com/
+[login page]: https://login.signpath.io/
