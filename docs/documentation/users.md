@@ -42,7 +42,7 @@ In order to add a user to a SignPath organization, an invitation email is sent t
 
 Accepting invitations:
 
-* Users must use the invitation within 14 days. After that, a new invitation must be sent for security reasons (click _Reinvite_ on the user's page).
+* Users must use the invitation within {{ site.data.settings.TokenValidityOptions.InvitationEmailTokenValidityDuration }} days. After that, a new invitation must be sent for security reasons (click _Reinvite_ on the user's page).
 * Users must sign in to accept an invitation. If they are already signed in, they have the option to sign out and use another account to login first. Accepting the invitation will link the organization's user to the active user account.
 
 ### User roles
