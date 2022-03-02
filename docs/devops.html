@@ -54,13 +54,13 @@ description: Using SignPath in a DevOps pipeline
           <span>    <span class='parameter'>-WaitForCompletion</span></span>
         </code>
         <code data-tabcontent='curl'>
-          <span><span class="variable">result</span>=(<span class='command'>curl</span> <span class='string'>"https://app.signpath.io/api/v1/</span><span class='variable'>${SIGNPATH_ORGANIZATION_ID}</span><span class='string'>/SigningRequests"</span> \</span>
+          <span><span class="variable">result</span>=$(<span class='command'>curl</span> <span class='string'>"https://app.signpath.io/api/v1/</span><span class='variable'>${SIGNPATH_ORGANIZATION_ID}</span><span class='string'>/SigningRequests"</span> \</span>
           <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_CI_USER_TOKEN}</span><span class='string'>"</span> \</span>
-          <span>  <span class='parameter'>-F</span> <span class='string'>"ProjectKey=</span>my_software<span class='string'>"</span> \</span>
-          <span>  <span class='parameter'>-F</span> <span class='string'>"SigningPolicyKey=</span>release-signing<span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-F</span> <span class='string'>"ProjectSlug=</span>my_software<span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-F</span> <span class='string'>"SigningPolicySlug=</span>release-signing<span class='string'>"</span> \</span>
           <span>  <span class='parameter'>-F</span> <span class='string'>"Artifact=</span>@./my-release.msi<span class='string'>"</span> \</span>
           <span>  <span class='parameter'>--retry</span> 20 <span class='parameter'>--retry-delay</span> 30 <span class='parameter'>--silent --verbose</span>)</span>
-          <span><span class='variable'>url</span>=$( echo <span class='variable'>$result</span> | grep -i <span class='string'>'^&lt; Location: .*$'</span> | grep -io <span class='string'>'https://.*'</span> | tr -d <span class='string'>'\r'</span> )</span>
+          <span><span class='variable'>url</span>=$( echo <span class='string'>"<span class='variable'>$result</span>"</span> | grep -i <span class='string'>'^&lt; Location: '</span> | grep -io <span class='string'>'https://.*'</span> | tr -d <span class='string'>'\r'</span> )</span>
           <span><span class='command'>curl</span> <span class='string'>"<span class='variable'>$url</span>/SignedArtifact"</span> <span class='parameter'>--output</span> <span class='string'>"my-release-signed.msi"</span> <span class='parameter'>--silent </span> \</span>
           <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_CI_USER_TOKEN}</span><span class='string'>"</span> </span>
         </code>
