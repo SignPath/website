@@ -5,6 +5,11 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
+  - date: 'Mar. 4, 2022'
+    range: 'Mar. 4, 2022 03:30 UTC - Mar. 4, 2022, 10:00 UTC'
+    type: warning
+    title: 'Intermittent infrastructure issues'
+    description: 'The Azure Application Gateway was temporarily unavailable, but self-healed immediately'
   - date: 'Oct. 16, 2021'
     range: 'Oct 16, 2021 08:00 UTC - Oct 16, 2021, 11:00 UTC'
     type: warning
