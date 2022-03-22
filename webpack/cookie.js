@@ -5,7 +5,6 @@ import leadfeeder from "./leadfeeder.js";
 import {setGoogleAdGroup} from "./adGroup";
 
 export function setCookie(cname, cvalue, exdays) {
-
     const d = new Date();
     d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
     const expires = "expires=" + d.toUTCString();
@@ -39,7 +38,7 @@ export function isCookieConsent(cookieName) {
     return getCookie(cookieName) === 'true';
 }
 
-function toggleMobile(){
+function toggleMobile() {
     document.querySelectorAll('.information').forEach(info => {
         info.classList.toggle('active')
     })
@@ -53,24 +52,52 @@ function toggleMobile(){
 
 export const cookieConsentCookieName = 'acknowledged-cookies';
 
-export function showCookieBanner() {
+export function cookieBanner() {
+    if (!isCookieSet(cookieConsentCookieName)) {
+        isUserFromEu()
+    } else {
+        loadResources()
+    }
+}
+
+function isUserFromEu() {
+    // WIP: HTTPS & API KEY MISSING
+    const endpoint = 'http://ip-api.com/json?fields=status,continentCode';
+    const xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+            var response = JSON.parse(this.responseText);
+            if (response.status !== 'success') {
+                console.log('query failed: ' + response.message);
+                return
+            }
+            if (response.continentCode === 'EU') {
+                showCookieBanner()
+            } else {
+                loadResources()
+            }
+        }
+    };
+    xhr.open('GET', endpoint, true);
+    xhr.send();
+}
+
+function showCookieBanner() {
     if (!isCookieSet(cookieConsentCookieName)) {
         document.getElementById('cookie-info').classList.add('show');
         document.getElementById('acknowledge-cookies-btn').addEventListener('click', function () {
             setCookie(cookieConsentCookieName, 'true', 365 * 20); // expires in 20 years
             document.getElementById('cookie-info').classList.remove('show');
-            setGoogleAdGroup()
-            analytics()
-            leadfeeder()
+            loadResources()
         })
         document.getElementById('refuse-cookies-btn').addEventListener('click', function () {
             setCookie(cookieConsentCookieName, 'false', 365 * 20); // expires in 20 years
             document.getElementById('cookie-info').classList.remove('show');
         })
         document.querySelectorAll('.show-more').forEach(btn => {
-           btn.addEventListener('click', function () {
-               toggleMobile()
-           })
+            btn.addEventListener('click', function () {
+                toggleMobile()
+            })
         });
         document.querySelectorAll('.show-less').forEach(btn => {
             btn.addEventListener('click', function () {
@@ -87,4 +114,10 @@ export function showCookieBanner() {
             })
         });
     }
+}
+
+function loadResources() {
+    setGoogleAdGroup()
+    analytics()
+    leadfeeder()
 }

@@ -28,10 +28,10 @@ For JS development:
 	yarn install
 
 	yarn watch
-	(./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental)
+	(./node_modules/.bin/webpack --watch | (cd docs/ && bundle exec jekyll serve --livereload --incremental))
 
 	yarn build
-	(./node_modules/.bin/webpack | bundle exec jekyll build)
+	(./node_modules/.bin/webpack | (cd docs/ && bundle exec jekyll build))
 
 
 ### Running it using Docker

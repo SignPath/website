@@ -1,11 +1,5 @@
-import {showCookieBanner} from "./cookie.js";
-import analytics from "./analytics.js";
-import leadfeeder from "./leadfeeder.js";
-import {setGoogleAdGroup} from "./adGroup";
+import {cookieBanner} from "./cookie.js";
 
 document.addEventListener('DOMContentLoaded', function () {
-    setGoogleAdGroup();
-    showCookieBanner();
-    analytics();
-    leadfeeder();
+    cookieBanner();
 });
