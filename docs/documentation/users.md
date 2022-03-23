@@ -93,9 +93,14 @@ CI user accounts are used to integrate SignPath into your build automation. They
 
 By default, the SignPath support team does not have access to your data. 
 
-If you require assistance from our support team, please select *Authorize support user* in the *More* menu on your organization page. 
+If you require assistance from our support team, please 
+
+* go to your *organization* page (click the organization name in the upper right corner)
+* select *Authorize support user* in the *More* menu on your organization page
 
 The support user account has administrative privileges. If you disable it after your issue is resolved, please remember to enable it for your next support request.
+
+Please always mention your *Organization ID* in support requests.
 
 ## Audit logs
 
