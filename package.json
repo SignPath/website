@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "./node_modules/.bin/webpack --watch | bundle exec jekyll serve --livereload --incremental",
-    "build": "./node_modules/.bin/webpack | bundle exec jekyll build"
+    "watch": "./node_modules/.bin/webpack --watch | (cd docs/ && bundle exec jekyll serve --livereload --incremental)",
+    "build": "./node_modules/.bin/webpack | (cd docs/ && bundle exec jekyll build)"
   },
   "repository": {
     "type": "git",
