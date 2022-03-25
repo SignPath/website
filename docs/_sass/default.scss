@@ -3,8 +3,20 @@ section.default-section {
 		padding-top: 30px;
 
 		& > article {
+
+			& > table > thead > tr > th,  
+			& > table > tbody > tr > td {
+				text-align: left;
+				padding-right: 1em;
+			}
+
+			& > h1 {
+				font-size: 2em;
+			}
+
 			& > h2 {
-				margin-top: 0px;
+				//margin-top: 0px;
+				font-size: 1.5em;
 			}
 
 			& > h3 {

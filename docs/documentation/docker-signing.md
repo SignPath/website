@@ -140,7 +140,7 @@ In order for SignPath to ensure that only valid tags can be signed, you need to 
 | ------------------------------------- | --------------- |
 | `Repository`                          | The FQN provided when creating the Docker repository in SignPath
 | `NotaryUsername` and `NotaryPassword` | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry.
-| `NotaryUrl`                           | Optional parameter to specify the URL of your internal notary server. Defaults to `notary.docker.io` which is the Notary server used by Docker Hub.
+| `NotaryUrl`                           | Optional parameter to specify the URL of your internal notary server. Defaults to `https://notary.docker.io` which is the Notary server used by Docker Hub.
 
 <a name="fqn"/> 
 **Fully qualified name (FQN)**

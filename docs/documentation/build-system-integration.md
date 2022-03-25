@@ -163,7 +163,8 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 ~~~ json
 {
   "status":"Completed",
-  "isFinalStatus": true,
+  "isFinalStatus":true,
+  "workflowStatus":"Completed",
   "description":"Called by cURL",
   "projectId":"c90eb2c7-d34e-49fc-9e90-c00235ecaf1a",
   "projectSlug":"test-project",
@@ -198,7 +199,8 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 }
 ~~~
 
-* **Possible `status` values:** `WaitingForApproval`, `QueuedForMalwareScanning`, `ScanningForMalware`, `QueuedForProcessing`, `Processing`, `Completed` (final), `Failed` (final), `Denied` (final), `Canceled` (final), `RetrievingArtifact`, `ArtifactRetrievalFailed` (final)
+* **Available `status` values:** `InProgress`, `WaitingForApproval`, `Completed`, `Failed`, `Denied`, `Canceled`
+* **Available `workflowStatus` values:** `Submitted`, `RetrievingArtifact`, `WaitingForApproval`, `QueuedForMalwareScanning`, `ScanningForMalware`, `QueuedForProcessing`, `Processing`, `Completed`, `ProcessingFailed`, `MalwareScanFailed`, `MalwareDetected`, `ArtifactRetrievalFailed`, `Denied`, `Canceled` 
 * `origin` is only available for signing requests with origin verification
 
 ### Download the signed artifact

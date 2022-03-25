@@ -405,8 +405,9 @@ p.badge::before  {
 }
 
 span.subscription-type,
-table.subscription-type-3 tr td:nth-child(3) {
-	color: $primary-color;
+table.subscription-type-3 tr td:nth-child(3),
+table.subscription-type-4 tr td:nth-child(4) {
+		color: $primary-color;
 	font-weight: bold;
 }
 

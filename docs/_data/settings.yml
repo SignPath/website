@@ -1,0 +1,2 @@
+TokenValidityOptions:
+  InvitationEmailTokenValidityDuration: 14
