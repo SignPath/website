@@ -62,7 +62,7 @@ export function cookieBanner() {
 
 function isUserFromEu() {
     // WIP: HTTPS & API KEY MISSING
-    const endpoint = 'http://ip-api.com/json?fields=status,continentCode';
+    const endpoint = 'https://pro.ip-api.com/json?fields=status,continentCode&key=eJ1eA5qDeyPkvao';
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
