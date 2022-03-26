@@ -32,3 +32,10 @@
     height: 26px;
   }
 }
+
+// workaround for uneven row heights
+section.editions .icon.small,
+section.pricing .icon.small {
+  width: 19px;
+  height: 19px;
+}
