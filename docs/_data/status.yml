@@ -5,6 +5,11 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
+  - date: 'Mar. 31, 2022'
+    range: 'Mar. 31, 2022 14:45 UTC - Mar. 31, 2022, 15:00 UTC'
+    type: warning
+    title: 'Intermittent infrastructure issues'
+    description: 'The proxy used for calling web requests and downlaoding artifacts was temporarily out-of-service'
   - date: 'Mar. 4, 2022'
     range: 'Mar. 4, 2022 03:30 UTC - Mar. 4, 2022, 10:00 UTC'
     type: warning
