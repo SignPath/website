@@ -5,68 +5,80 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
+  - date: 'Apr. 6, 2022'
+    range: 'Apr. 6, 2022 6:45 - 7:40 UTC'
+    type: warning
+    title: 'Processing delays'
+    description: 'Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.'
+    link: https://status.digicert.com/incidents/4rrjfq4fvb91
+  - date: 'Apr. 4, 2022'
+    range: 'Apr. 4, 2022 19:10 - Apr. 5, 8:25 UTC'
+    type: warning
+    title: 'Processing delays'
+    description: 'Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.'
+    link: https://status.digicert.com/incidents/64vmbtb8m91x
   - date: 'Mar. 31, 2022'
-    range: 'Mar. 31, 2022 14:45 UTC - Mar. 31, 2022, 15:00 UTC'
+    range: 'Mar. 31, 2022 14:45 - 15:00 UTC'
     type: warning
-    title: 'Intermittent infrastructure issues'
-    description: 'The proxy used for calling web requests and downlaoding artifacts was temporarily out-of-service'
+    title: 'Infrastructure issue'
+    description: 'Our outbound proxy was temporarily out of service. This resulted in delays for Webhook notifications and signing requests that retrieve artifacts via URL.'
   - date: 'Mar. 4, 2022'
-    range: 'Mar. 4, 2022 03:30 UTC - Mar. 4, 2022, 10:00 UTC'
+    range: 'Mar. 4, 2022 3:30 - 10:00 UTC'
     type: warning
     title: 'Intermittent infrastructure issues'
-    description: 'The Azure Application Gateway was temporarily unavailable, but self-healed immediately'
+    description: 'The Azure Application Gateway was temporarily unavailable several times, but self-healed immediately each time'
   - date: 'Oct. 16, 2021'
-    range: 'Oct 16, 2021 08:00 UTC - Oct 16, 2021, 11:00 UTC'
+    range: 'Oct 16, 2021 8:00 - 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to network configuration changes, HSM-based signing will experience problems. All signing requests will continue processing when network connectivity is restored.'
   - date: 'Aug. 28, 2021'
-    range: 'Aug. 28, 2021 21:30 UTC - Aug. 29, 2021, 01:30 UTC'
+    range: 'Aug. 28, 2021 21:30 - Aug. 29, 2021, 1:30 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to network configuration changes, HSM-based signing will experience intermittent problems. All signing requests will continue processing when network connectivity is restored.'
   - date: 'Jan. 4, 2021'
-    range: 'Jan. 4, 2021, 12:00 UTC - Jan. 4, 2021, 13:00 UTC'
+    range: 'Jan. 4, 2021, 12:00 - 13:00 UTC'
     type: warning
     title: 'Planned maintenance to change authentication provider'
     description: 'We are changing our authentication provider to Okta. This is the first of two migration steps.'
   - date: 'Nov. 18, 2020'
-    range: 'Nov. 18, 2020, 06:00 UTC - Nov. 18, 2020, 08:00 UTC'
+    range: 'Nov. 18, 2020, 6:00 - 8:00 UTC'
     type: warning
     title: 'Payment provider: Planned maintenance'
     description: 'Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath.io will not be affected.'
-  - date: 'Nov. 04, 2020'
-    range: 'Nov. 04, 2020, 23:00 UTC - Nov. 05, 2020, 05:00 UTC'
+  - date: 'Nov. 4, 2020'
+    range: 'Nov. 4, 2020, 23:00 - Nov. 5, 2020, 5:00 UTC'
     title: 'Planned maintenance'
     type: warning
     description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
-  - date: 'Jun. 04, 2020'
-    range: 'Jun. 04, 2020, 21:30 UTC - Jun. 05, 2020, 04:00 UTC'
+  - date: 'Jun. 4, 2020'
+    range: 'Jun. 4, 2020, 21:30 - Jun. 5, 2020, 4:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
   - date: 'May. 23, 2020'
-    range: 'May. 23, 2020 20:30 UTC - May. 24, 2020 11:00 UTC'
+    range: 'May. 23, 2020 20:30 - May. 24, 2020 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
   - date: 'May. 14, 2020'
-    range: 'May. 14, 2020 07:30 - 12:45 UTC'
+    range: 'May. 14, 2020 7:30 - 12:45 UTC'
     type: critical
     title: 'Infrastructure problems during deployment'
     description: 'During the deployment of a new version of SignPath, infrastructure problems arose. The release was rolled back, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.'
-  - date: 'May. 09, 2020'
-    range: 'May. 09, 2020 21:30 UTC - May. 10, 2020 05:00 UTC'
+  - date: 'May. 9, 2020'
+    range: 'May. 9, 2020 21:30 - May. 10, 2020 5:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
   - date: 'Feb. 24, 2020'
-    range: 'Feb. 24, 2020 02:00 - 04:00 UTC'
+    range: 'Feb. 24, 2020 2:00 - 4:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
-  - date: 'Nov. 07, 2019'
-    range: 'Nov. 07, 2019 02:30 - 04:00 UTC'
+  - date: 'Nov. 7, 2019'
+    range: 'Nov. 7, 2019 2:30 - 4:00 UTC'
     type: critical
     title: 'Azure outage'
     description: 'Due to a Storage incident in the Azure datacenter in the West Europe regions, our services had several outages.'

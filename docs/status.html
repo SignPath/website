@@ -31,7 +31,11 @@ description: SignPath SaaS environment operational status
 					<h3>{{ incident.date}}</h3>
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
-					<div>{{ incident.description }}</div>
+					<div>
+						{{ incident.description }}
+						{% if incident.link %} <a href="{{ incident.link }}"> (Read more)</a> {% endif %}
+
+					</div>
 				</li>
 			{% endfor %}
 		</ul>
