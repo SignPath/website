@@ -61,7 +61,7 @@ Contact support@signpath.io for the connector and documentation.
 A connector is available that connects Jenkins CI as a Trusted Build System. 
 
 This connector ensures that 
-* A build was actually performed by a specific Jenkins CI instance, not by some other entity in posession of the CI User token
+* A build was actually performed by a specific Jenkins CI instance, not by some other entity in possession of the CI User token
 * Origin metadata is provided by Jenkins CI, not the build script, and can therefore not be forged
 * The artifact is stored as an immutable Jenkins artifact before it is submitted for signing
 
