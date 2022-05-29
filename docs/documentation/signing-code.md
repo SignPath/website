@@ -12,7 +12,7 @@ Once your project is set up, you can submit a signing request by either
 
 * Uploading an artifact on the web interface
 * Integrating a call to SignPath in your build process
-* Re-submitting an existing signing request
+* Resubmitting an existing signing request
 
 ## Direct upload
 
@@ -28,20 +28,20 @@ We recommend that you integrate SignPath in your automatic CI pipeline. This has
 
 SignPath provides multiple ways to be integrated into your pipeline. See the [documentation](/documentation/build-system-integration) for details including information about origin verification.
 
-## Re-submitting an existing signing request
+## Resubmitting an existing signing request {#resubmit}
 
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-You can re-submit an existing signing request and specify a different signing policy. This is especially useful when you build a release candidate, and want to postpone the release decision until later.
+You can resubmit an existing signing request and specify a different signing policy. This is especially useful when you build a release candidate, and want to postpone the release decision until later.
 
-When compared to just submitting the same artifact again, the new re-submit feature has the following advantages:
+When compared to just submitting the same artifact again, the new resubmit feature has the following advantages:
 
 * The exact same artifact is being signed that was used for testing
 * Any verified [origin information](/documentation/build-system-integration#ci-integrations-with-origin-verification) is still available 
 * The original signing request is referenced
 
-### Re-submit parameters
+### Resubmit parameters
 
 | Parameter      | Value 
 |----------------|----------
@@ -64,7 +64,7 @@ A typical release scenarios would look like this:
 |-----:|------------------------------------|------------------------|---------------------------------------------------------
 | 1    | CI system                          |                        | The software is built and submitted for test-signing
 | 2    | SignPath                           | test-signing policy    | The software is signed using the test certificate
-| 3    | CI system or automatic test runner | tests passing          | A re-submit request is created for release-signing
+| 3    | CI system or automatic test runner | tests passing          | A resubmit request is created for release-signing
 | 5    | SignPath                           | release-signing policy | Project manager is notified about pending approval
 | 4    | Project manager                    | arbitrary              | Approves or denies
 | 5    | SignPath                           | approval               | The software is signed using the release certificate
@@ -72,5 +72,5 @@ A typical release scenarios would look like this:
 <div class="panel info" markdown="1">
 <div class="panel-header">Note</div>
 
-This feature is currently only available via the [REST API](/documentation/build-system-integration#re-submit-a-signing-request) and [PowerShell module](/documentation/build-system-integration#powershell).
+This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/build-system-integration#powershell).
 </div>

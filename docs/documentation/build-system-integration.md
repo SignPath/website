@@ -71,7 +71,7 @@ Create signing requests by calling the following commands via PowerShell:
       -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
       -WaitForCompletion
   ~~~
-* Instead of uploading an artifact, you can also reference an existing signing request and re-submit it (with e.g. a different signing policy). See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
+* Instead of uploading an artifact, you can also reference an existing signing request and resubmit it (with e.g. a different signing policy). See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
 ~~~ powershell
   Submit-SigningRequestResubmit `
     -CIUserToken $CI_USER_TOKEN `
@@ -223,16 +223,16 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
 
-### Re-submit a signing request
+### Resubmit a signing request
 
-See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
+See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
 
 | Synopsis                    |      |
 | --------------------------- | ---- |
 | URL                         | `/SigningRequests/Resubmit`
 | Method                      | `POST`
 | Encoding                    | `multipart/form-data`
-| `OriginalSigningRequestId`  | The ID of the signing request which you want to re-submit
+| `OriginalSigningRequestId`  | The ID of the signing request which you want to resubmit
 | `SigningPolicySlug`         | Signing policy for which you want to create the signing request
 | `Description`               | Optional: description for your signing request (e.g. version number)
 
