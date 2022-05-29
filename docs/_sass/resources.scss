@@ -317,3 +317,15 @@ ul.article-toc.mobile-only {
 table#signing-file-elements tr td code {
 	word-break: normal;
 }
+
+
+div.pssyntax span.err {
+	background-color: inherit;
+}
+
+div.pssyntax {
+	& span.nf, span.nx, span.kt {
+		color: #990000;
+		font-weight: bold;
+	}
+}

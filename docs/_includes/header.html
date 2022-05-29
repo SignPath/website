@@ -60,48 +60,25 @@
       <a href='/'><img src='/assets/logo.svg' width="181" height="36" alt='SignPath'></a>
       <nav>
         <ul>
-          <li>
-            <a href='/product'>Product</a>
-            <ul>
-              <li><a href='/product/features'>Features</a></li>
-              <li><a href='/product/casc'>CASC best practices</a></li>
-              <li><a href='/product/editions'>Editions</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href='/code-signing'>Code Signing</a>
-            <ul>
-              <li><a href='/code-signing/introduction'>Introduction</a></li>
-              <li><a href='/code-signing/theory'>Theory</a></li>
-              <li><a href='/code-signing/windows-platform'>Windows Platform</a></li>
-              <li><a href='/code-signing/test-certificates'>Managing Test Certificates</a></li>
-              <li><a href='/code-signing/private-keys'>Storage of Private Keys</a></li>
-              <li><a href='/code-signing/media-coverage'>Media Coverage</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href='/documentation'>Documentation</a>
-            <ul>
-              <li><a href='/documentation/getting-started'>Getting Started</a></li>
-              <li><a href='/documentation/managing-certificates'>Managing Certificates</a></li>
-              <li><a href='/documentation/users'>Managing Users</a></li>
-              <li><a href='/documentation/projects'>Setting up Projects</a></li>
-              <li><a href='/documentation/signing-code'>Signing Code</a></li>
-              <li><a href='/documentation/docker-signing'>Signing Docker images</a></li>
-              <li><a href='/documentation/artifact-configuration'>Artifact Configuration</a></li>
-              <li><a href='/documentation/build-system-integration'>Build System Integration</a></li>
-              <li><a href='/documentation/trusted-build-systems'>Trusted Build Systems</a></li>
-            </ul>
-          </li>
-          <li>
-            <a href='/company'>About us</a>
-            <ul>
-              <li><a href='/company'>Company</a></li>
-              <li><a href='/blog'>Blog</a></li>
-              <li><a href='https://www.karriere.at/jobs/signpath/'>Jobs</a></li>
-              <li><a href='/contact'>Contact</a></li>
-            </ul>
-          </li>
+          {% for entry in site.data.menus.menus %}
+            <li>
+              <a href='/{{entry.path}}'> {{entry.text}} </a>
+              <ul>
+                {% for subentry in site.data.menus[entry.path] %}
+                  {% if subentry.separator %}
+                    <li class='separator' />
+                  {% else %}
+                    {% if entry.subdir %}
+                      <li> <a href='/{{entry.path}}/{{subentry.path}}'> {{subentry.text}} </a> </li>
+                    {% else %}
+                    <li> <a href='/{{subentry.path}}'> {{subentry.text}} </a> </li>
+                    {% endif %}
+                  {% endif %}
+                {% endfor %}
+              </ul>
+            </li>
+          {% endfor %}
+
           <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Home/Login'>Login</a>
           <li class='login'><a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>

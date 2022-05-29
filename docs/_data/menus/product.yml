@@ -1,0 +1,19 @@
+- text: Features
+  path: features
+
+- text: CASC best practices
+  path: casc
+
+- text: Editions
+  path: editions
+
+- separator: true
+
+- text: DevOps teams
+  path: devops
+
+- text: InfoSec teams
+  path: infosec
+
+- text: Open Source projects
+  path: open-source

@@ -62,12 +62,15 @@ A typical release scenarios would look like this:
 
 | Step | Actor                              | Condition              | Action
 |-----:|------------------------------------|------------------------|---------------------------------------------------------
-| 1    | CI system                          |                        | The software is built and submitted for test-signing
-| 2    | SignPath                           | test-signing policy    | The software is signed using the test certificate
-| 3    | CI system or automatic test runner | tests passing          | A resubmit request is created for release-signing
-| 5    | SignPath                           | release-signing policy | Project manager is notified about pending approval
-| 4    | Project manager                    | arbitrary              | Approves or denies
-| 5    | SignPath                           | approval               | The software is signed using the release certificate
+|    1 | CI system                          |                        | A release candidate is built and submitted for test-signing.
+|    2 | SignPath                           | test-signing policy    | The release candidate is signed using the test certificate.
+|    3 | CI system or test tool             |                        | The release candidate is tested. Consider [trusting the test certificate](/code-signing/test-certificates) on test systems.
+|    4 | CI system or test tool             | tests passing          | A resubmit request is created for release-signing.
+|    5 | SignPath                           | release-signing policy | Project manager is notified about pending approval.
+|    6 | Project manager                    | arbitrary              | Approves or denies based on test results and verified origin data from step 2.
+|    7 | SignPath                           | approval               | The release candidate is signed using the release certificate.
+
+Instead of manual approval using SigmPath (steps 5 and 6), a release management or workflow system might be used to submit the re-signing request and/or provide the approval using SignPath REST APIs. 
 
 <div class="panel info" markdown="1">
 <div class="panel-header">Note</div>

@@ -15,7 +15,9 @@
 <section class="resources-section">
 	<div>
 		{% assign parts = page.path | split:"/" %}
+		{% assign pathlen = parts | size | minus: 1 %}
 		{% assign parent = parts[-2] %}
+		{% assign parentpath = parts | slice: 0, pathlen | join: "/" %}
 		{% if site.data.menus contains parts[-2] %}
 			<aside>
 				<ul>
@@ -31,7 +33,7 @@
 						<li class='separator' />
 						{% else %}
 						<li class='{{ className }}'>
-							<a href='/{{parent}}/{{entry.path}}#'>{{ entry.text }}</a>
+							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
 								<div class="no-mobile" >
 									{% include toc.html html=content h_max=2 %}

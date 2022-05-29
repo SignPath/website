@@ -1,0 +1,11 @@
+- text: Company
+  path: company
+
+- text: Blog
+  path: blog
+
+- text: Jobs
+  path: jobs
+
+- text: Contact
+  path: contact
