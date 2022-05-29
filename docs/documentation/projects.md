@@ -22,16 +22,15 @@ Projects consist of these configuration sections:
 ## Project settings 
 {: #project-settings}
 
-| Property                   | Value                                                                                                                     | Available only for
+| Property                   | Value                                                                                                                     | Editions
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------|-----
 | **Name**                   | Display name
 | **Slug**                   | Project name/identfier used for URLs, APIs etc.
 | **Status**                 | *Valid*, *inactive*, or *invalid*
-| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise subscriptions
-| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise subscriptions
+| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise
+| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise
 | **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#origin-verification) 
 | **Description**            | Free text description of the project
-{: .subscription-type-3 }
 
 ## Signing policies 
 {: #signing-policies}
@@ -63,11 +62,10 @@ Test-signing can also provide protection for test systems, if these systems are 
 
 Select **Use approval process** if you want to require manual approval for each signing request. This is recommended for release-signing.
 
-| Property               | Value                                                                                                                                     | Available only for
+| Property               | Value                                                                                                                                     | Editions
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Approvers**          | Select the users that are allowed to approve signing requests. They will receive e-mail notifications for each request. 
-| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise subscriptions
-{: .subscription-type-3 }
+| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise 
 
 ### Origin verification restriction 
 {: #origin-verification}
