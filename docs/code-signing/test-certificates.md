@@ -37,7 +37,7 @@ To use an in-house CA, you can create a certificate signing request (CSR) in Sig
 
 Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the `Trusted Root Certification Authorities` certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.
 
-<div class='panel tipp' markdown='1' >
+<div class='panel tip' markdown='1' >
 <div class='panel-header'>Trusted publishers</div>
 You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses to always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
 

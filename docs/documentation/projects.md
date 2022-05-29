@@ -44,7 +44,7 @@ Typically, a project contains these two singing policies:
 
 Both types of policies may alternatively use certificates that are issued by an in-house CA.
 
-<div class="panel tipp" markdown="1">
+<div class="panel tip" markdown="1">
 <div class="panel-header">Why sign test builds?</div>
 It's important that test builds are signed, so they will behave like release builds *on test systems*. Several platform mechanisms may be used or inadvertently encountered that behave differently for signed and unsigned software.
 
@@ -85,7 +85,7 @@ Requirements:
 | **Project repository URL** | Must be configured in the project settings (applies to all signing policies) |
 | **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds. |
 
-<div class="panel tipp" markdown='1'>
+<div class="panel tip" markdown='1'>
 <div class="panel-header">Create differentiated signing policies</div>
 
 You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.

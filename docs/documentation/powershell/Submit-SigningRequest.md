@@ -72,6 +72,12 @@ Processing a signing request may take several minutes, or even longer if manual 
 
 ## Parameters
 
+<div class="panel tip" markdown="1">
+<div class="panel-header">Tip</div>
+
+Signing policies in the SignPath Web application show basic `Submit-SigningRequest` calls with essential parameters.
+</div>
+
 ### Common parameters
 
 | Parameter                                 | Type              | Description                                                   | Default value | Editions

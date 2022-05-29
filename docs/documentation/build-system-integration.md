@@ -212,7 +212,7 @@ Verification of reproducability depends on the CI system used. Typical verificat
 
 In order to use origin verification, a [Trusted Build System](trusted-build-systems) must be configured and linked to the project.
 
-<div class="panel tipp" markdown="1">
+<div class="panel tip" markdown="1">
 <div class="panel-header">Use origin verification restrictions</div>
 Enable additional restrictions for signing policies that use release certificates:
 

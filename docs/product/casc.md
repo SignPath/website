@@ -116,7 +116,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > SignPath allows you to configure any number of certificates at any given time. (Available HSM key storage capacity depends on your subscription type.)
 
-<div class='panel tipp' markdown='1' data-title='Do a cost/benefit analysis'>
+<div class='panel tip' markdown='1' data-title='Do a cost/benefit analysis'>
 <div class='panel-header'>Do a cost/benefit analysis</div>
 Buying multiple EV certificates can be costly. On the other hand, non-EV certificates will always start with zero [SmartScreen](https://en.wikipedia.org/wiki/Microsoft_SmartScreen) reputation.
 
