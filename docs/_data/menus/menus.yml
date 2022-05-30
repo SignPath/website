@@ -11,5 +11,5 @@
   subdir: true
 
 - text: About us
-  path: company
+  path: about-us
   subdir: false
