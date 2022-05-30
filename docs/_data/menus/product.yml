@@ -1,19 +1,22 @@
 - text: Features
   path: features
 
-- text: CASC best practices
-  path: casc
-
 - text: Editions
   path: editions
 
 - separator: true
 
-- text: DevOps teams
+- text: For DevOps teamss
   path: devops
 
-- text: InfoSec teams
+- text: For InfoSec teamss
   path: infosec
 
-- text: Open Source projects
+- text: For Open Source projects
   path: open-source
+
+- separator: true
+
+- text: PKI Consortium best practices
+  path: pkic-best-practices
+
