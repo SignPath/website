@@ -5,7 +5,7 @@ toc: true
 description: Mapping SignPath features to the code signing recommendations of the PKI Consortium
 ---
 
-The [PKI Consortium](https://pkic.org/) (formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The XXX has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.
+The [PKI Consortium](https://pkic.org/) (formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.
 
 This is good and valuable advice, and SignPath.io supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)
 
