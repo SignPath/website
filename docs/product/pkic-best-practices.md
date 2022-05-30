@@ -5,7 +5,7 @@ toc: true
 description: Mapping SignPath features to the code signing recommendations of the PKI Consortium
 ---
 
-The [PKI Consortium](https://pkic.org/) (formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.
+The [PKI Consortium](https://pkic.org/) (PKI-C, formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.
 
 This is good and valuable advice, and SignPath.io supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)
 
@@ -13,7 +13,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 ## Overview
 
-| CASC recommendation                                                   | SignPath compliance |
+| PKI-C recommendation                                                  | SignPath compliance |
 | --------------------------------------------------------------------- | ------------------- |
 | 1. Minimize access to private keys                                    | **[Automatic][1]**  |
 | 2. Protect private keys with cryptographic hardware products          | **[Automatic][2]**  |
@@ -33,7 +33,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > SignPath stores keys on hardware security modules (HSMs) and strictly limits access to those based on authentication, rules, permissions and approvals.
 
-| CASC recommendation details                                         | Compliance    | Remarks |
+| PKI-C recommendation details                                        | Compliance    | Remarks |
 | ------------------------------------------------------------------- | ------------- | ------- |
 | Allow minimal connections to computers with keys                    | **Automatic** | No computers (including SignPath.io servers) can read HSM-based keys. Authorized build agents are authenticated before submitting signing requests.
 | Minimize the number of users who have key access                    | **Automatic** | No users (including SignPath.io administrators) can read HSM-based keys. Authorized users are authenticated before submitting signing requests.
@@ -47,7 +47,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Keys for release signing are stored on a hardware security module (HSM) by default.
 
-| CASC recommendation details                                                                              | Compliance    | Remarks |
+| PKI-C recommendation details                                                                             | Compliance    | Remarks |
 | -------------------------------------------------------------------------------------------------------- | ------------- | ------- |
 | Cryptographic hardware does not allow export of the private key to software where it could be attacked   | **Automatic** | SignPath always creates HSM-based keys as *non-exportable*.
 | Use a FIPS 140 Level 2-certified product (or better)                                                     | **Automatic** | SignPath.io uses SafeNet Luna Network HSMs [validated][luna fips] for FIPS 140-1 and FIPS 140-2 Level 3, and certified for Common Criteria (ISO/IEC15408).
@@ -61,7 +61,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > All signatures will be counter-signed with SHA256 time stamps by a reliable time stamping server.
 
-| CASC recommendation details                                                                | Compliance    | Remarks |
+| PKI-C recommendation details                                                               | Compliance    | Remarks |
 | ------------------------------------------------------------------------------------------ | ------------- | ------- |
 | Time-stamping allows code to be verified after the certificate has expired or been revoked | **n/a**       | *(informational)*
 
@@ -75,7 +75,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 >
 > SignPath advises you to create at least one signing policy for test-signing and one for release-signing.
 
-| CASC recommendation details                                                                             | Compliance    | Remarks |
+| PKI-C recommendation details                                                                            | Compliance    | Remarks |
 | ------------------------------------------------------------------------------------------------------- | ------------- | ------- |
 | Test-signing private keys and certificates requires less security access controls than production code signing private keys and certificates | **Automatic** | Signing policies for test-signing and release-signing have different permissions and approval requirements.
 | Test-signing certificates can be self-signed or come from an internal test CA                           | **Guidance**  | Create a self-signed certificate from the setup wizard, or create a CSR for an in-house CA.
@@ -89,7 +89,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Signing requires a signing policy and authenticated signing requests. Release-signing additionally requires authenticated approvals.
 
-| CASC recommendation details                                                                                     | Compliance    | Remarks |
+| PKI-C recommendation details                                                                                    | Compliance    | Remarks |
 | --------------------------------------------------------------------------------------------------------------- | ------------- | ------- |
 | Any code that is submitted for signing should be strongly authenticated before it is signed and released        | **Automatic** | Signing request must be submitted from authenticated users or build agents.
 | Implement a code signing submission and approval process to prevent the signing of unapproved or malicious code | **Automatic** | Define submission and approval permissions per signing configuration.
@@ -103,7 +103,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Every signing request will be scanned for malware first.
 
-| CASC recommendation details                                               | Compliance    | Remarks |
+| PKI-C recommendation details                                              | Compliance    | Remarks |
 | ------------------------------------------------------------------------- | ------------- | ------- |
 | Code Signing does not confirm the safety or quality of the code; it confirms the publisher and whether or not the code has been changed | **n/a** | *(informational)*
 | Implement virus-scanning to help improve the quality of the released code | **Automatic** | *See above*
@@ -123,7 +123,7 @@ Buying multiple EV certificates can be costly. On the other hand, non-EV certifi
 We recommend that you consider buying separate certificates for major product lines, teams or customers. However, you can have a perfectly secure code signing process with a single release certificate.
 </div>
 
-| CASC recommendation details | Remarks |
+| PKI-C recommendation details| Remarks |
 | --------------------------- | ------- |
 | If code is found with a security flaw, then publishers may want to prompt a User Account Control dialog box to appear when the code is installed in the future; this can be done by revoking the code signing certificate so a revoked prompt will occur | SignPath puts you in a good position in case you have to revoke a certificate: All signatures have a valid time stamp, so only signatures from *after* the revocation date will be invalid.
 | If the code with the security flaw was issued before more good code was issued, then revoking the certificate will impact the good code as well | SignPath lets you re-sign individual releases that were involuntarily affected by revocations.
