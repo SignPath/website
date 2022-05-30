@@ -127,7 +127,7 @@ Available for Enterprise subscriptions
 | `RepositoryMetadata.BranchName`                   | Branch name for the build, must match signing policy settings for origin verification
 | `RepositoryMetadata.CommitId`                     | Commit ID for the build
 | `BuildData.Url`                                   | URL of the CI system
-| `BuildData.BuildSettingsFile`                     | File containing build configuration settings not accessible through SCM/VCS
+| `BuildData.BuildSettingsFile`                     | File containing build configuration settings not accessible through SCM/VCS. Use `@` prefix to reference a local file, e.g. `@build/settings.json`
 
 Parameters can either be passed as named above, or using nested hashtables (see [example](#example-params-origin)).
 
