@@ -6,10 +6,10 @@
 
 - separator: true
 
-- text: For DevOps teamss
+- text: For DevOps teams
   path: devops
 
-- text: For InfoSec teamss
+- text: For InfoSec teams
   path: infosec
 
 - text: For Open Source projects
