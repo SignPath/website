@@ -117,6 +117,9 @@ nav > ul { /** main navigation **/
 
 				&.separator {
 					height: 10px;
+					&:hover {
+						background-color: $white-background-color;
+					}
 				}
 			}
 		}
