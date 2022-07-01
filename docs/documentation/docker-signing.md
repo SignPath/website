@@ -267,6 +267,7 @@ Alternatively, you perform each step separately. Reasons to do this include
 # Create a Docker signing data file containing all metadata required for signing
 New-DockerSigningData -Repository $FQN -Tags $TAGS `
   [-RegistryUrl $REGISTRY_URL] [-RegistryUsername $REGISTRY_USERNAME] [-RegistryPassword $REGISTRY_PASSWORD] `
+  [-NotaryUrl $NOTARY_URL] [-NotaryUsername $NOTARY_USERNAME] [-NotaryPassword $NOTARY_PASSWORD] `
   -OutputArtifactPath $ZIP_FILE
 
 # Submit a new signing request to SignPath.
