@@ -10,7 +10,6 @@ incidents:
     type: warning
     title: 'Infrastructure issues'
     description: 'Due to outages of Azure SQL in the West Europe region, the web application and REST API were temporarily unavailable.'
-incidents:
   - date: 'Apr. 6, 2022'
     range: 'Apr. 6, 2022 6:45 - 7:40 UTC'
     type: warning
