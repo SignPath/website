@@ -61,7 +61,7 @@ The `Submit-SigningRequest` cmdlet creates a new _signing request_. The signing 
 
 When using the `-InputArtifact` parameter, the specified file will be uploaded for processing. 
 
-When using the `-Resubmit` paramter, the specified signing request will be processed again using the specified _signing policy_. This is especially useful for conditional signing of release candidates. See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
+When using the `-Resubmit` parameter, the specified signing request will be processed again using the specified _signing policy_. This is especially useful for conditional signing of release candidates. See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
 
 ### Downloading the signed artifact 
 
@@ -152,7 +152,7 @@ Submit-SigningRequest `
     -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY `
     -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
-    -WaitForCompletion
+    -WaitForCompletion `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~
 
