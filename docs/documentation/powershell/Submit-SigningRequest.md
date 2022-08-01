@@ -153,7 +153,7 @@ Submit-SigningRequest `
     -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
     -WaitForCompletion
-    -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
+    -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~
 
 ### Example 2: Separate calls for submission and retrieval 
