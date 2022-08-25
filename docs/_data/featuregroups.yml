@@ -108,6 +108,10 @@
       title: 'Build validation'
       hint: 'Automatically checks build configurations for security weaknesses.'
       class: f sub
+    - name: resubmit
+      title: 'Resubmit'
+      hint: 'Resubmit signing requests for signing using different policies and/or certificates, e.g. for final signing of release candidates'
+      href: '/product/editions-explained#resubmit'
     - name: policies_for_certs
       title: 'Certificate policies'
       hint: 'Specify minimum requirements e.g. for release certificates.'

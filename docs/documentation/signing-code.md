@@ -75,5 +75,5 @@ Instead of manual approval using SigmPath (steps 5 and 6), a release management 
 <div class="panel info" markdown="1">
 <div class="panel-header">Note</div>
 
-This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/build-system-integration#powershell).
+This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/powershell/Submit-SigningRequest#resubmit).
 </div>

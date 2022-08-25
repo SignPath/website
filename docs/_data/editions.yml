@@ -34,6 +34,7 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+    resubmit: false
   user_management:
     sso: false
     groups: false
@@ -83,6 +84,7 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+    resubmit: false
   user_management:
     sso: false
     groups: false
@@ -126,6 +128,7 @@
     origin_verification: true
     origin_policies: true
     build_validation: true
+    resubmit: true
   user_management:
     sso: true
     groups: true
@@ -173,6 +176,7 @@
     origin_verification: 'required'
     origin_policies: 'required'
     build_validation: 'required'
+    resubmit: true
   user_management:
     sso: false
     groups: true

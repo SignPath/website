@@ -11,10 +11,9 @@ Submits a new signing request or resubmits an existing one via the SignPath REST
 
 ## Syntax
 
-Provide an input artifact:
+### Provide an input artifact {#input-artifact}
 
-<div class="pssyntax" markdown="1">
-
+{:.pssyntax}
 ~~~ powershell
 Submit-SigningRequest 
     -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
@@ -33,8 +32,12 @@ Submit-SigningRequest
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
 ~~~
 
-Resubmit an existing singing request:
+### Resubmit an existing singing request {#resubmit}
 
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+{:.pssyntax}
 ~~~ powershell
 Submit-SigningRequest 
     -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
@@ -51,7 +54,6 @@ Submit-SigningRequest
     ]
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
 ~~~ 
-</div>
 
 ## Description
 

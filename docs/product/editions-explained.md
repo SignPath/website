@@ -197,6 +197,12 @@ When using manual approval on top of origin verification, approvers will have re
 
 For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.
 
+### Resubmit
+
+Resubmit signing requests for signing using different policies and/or certificates.
+
+This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. See [signing code](/documentation/signing-code#resubmit).
+
 ### Certificate policies
 
 Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.
