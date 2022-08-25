@@ -201,7 +201,9 @@ For some CI systems, SignPath offers connectors that can validate software build
 
 Resubmit signing requests for signing using different policies and/or certificates.
 
-This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. See [signing code](/documentation/signing-code#resubmit).
+This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. 
+
+Available for *Enterprise* subscriptions. See [signing code](/documentation/signing-code#resubmit).
 
 ### Certificate policies
 
