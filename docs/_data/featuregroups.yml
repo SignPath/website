@@ -118,7 +118,7 @@
   features:
     - name: sso
       title: 'Single sign-on'
-      hint: 'Connect to your organization&apo;s directory and authentication provider using SAML or OpenID Connect.'
+      hint: "Connect to your organization's directory and authentication provider using SAML or OpenID Connect."
     - name: groups
       title: 'User groups'
       hint: 'Arrange your users into groups for easier assignment of permissions in signing policies.'
