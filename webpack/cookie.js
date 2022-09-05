@@ -53,9 +53,7 @@ function toggleMobile() {
 export const cookieConsentCookieName = 'acknowledged-cookies2';
 
 export function cookieBanner() {
-    console.log('checking consent cookie');
     if (!isCookieSet(cookieConsentCookieName)) {
-        console.log('cookie is set')
         isUserFromEu()
     } else {
         loadResources()
@@ -63,7 +61,6 @@ export function cookieBanner() {
 }
 
 function isUserFromEu() {
-    console.log("checking user continent");
     const endpoint = 'https://pro.ip-api.com/json?fields=status,continentCode&key=eJ1eA5qDeyPkvao';
     const xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function () {
@@ -74,10 +71,8 @@ function isUserFromEu() {
                 return
             }
             if (response.continentCode === 'EU') {
-                console.log('user is from EU')
                 showCookieBanner()
             } else {
-                console.log('user is from elsewhere')
                 loadResources()
             }
         }
@@ -121,7 +116,6 @@ function showCookieBanner() {
 }
 
 function loadResources() {
-    console.log('loading resources');
     setGoogleAdGroup()
     analytics()
     leadfeeder()
