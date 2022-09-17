@@ -5,6 +5,11 @@ current:
     #type: warning 
     #title: 'Planned maintenance - limited availability'
 incidents:
+  - date: 'Sep. 14, 2022'
+    range: 'Sep. 14, 2022 16:01 - 16:44 UTC'
+    type: warning
+    title: 'Processing delays'
+    description: 'Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.'
   - date: 'Jul. 21, 2022'
     range: 'Jul. 21, 2022 4:30 - 6:15 UTC'
     type: warning
