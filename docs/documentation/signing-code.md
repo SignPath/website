@@ -41,7 +41,17 @@ When compared to just submitting the same artifact again, the new resubmit featu
 * Any verified [origin information](/documentation/build-system-integration#ci-integrations-with-origin-verification) is still available 
 * The original signing request is referenced
 
-### Resubmit parameters
+## Resubmit via user interface
+
+To resubmit a completed signing request, click the _Resubmit signing request_ button on its details page.
+
+Required permissions: This button is only visible for users with permission to submit a signing request for any of the project's signing policies.
+
+## Resubmit via API
+
+This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/powershell/Submit-SigningRequest#resubmit).
+
+### Parameters
 
 | Parameter      | Value 
 |----------------|----------
@@ -71,9 +81,3 @@ A typical release scenarios would look like this:
 |    7 | SignPath                           | approval               | The release candidate is signed using the release certificate.
 
 Instead of manual approval using SigmPath (steps 5 and 6), a release management or workflow system might be used to submit the re-signing request and/or provide the approval using SignPath REST APIs. 
-
-<div class="panel info" markdown="1">
-<div class="panel-header">Note</div>
-
-This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/powershell/Submit-SigningRequest#resubmit).
-</div>
