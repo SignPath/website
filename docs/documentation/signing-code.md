@@ -41,13 +41,13 @@ When compared to just submitting the same artifact again, the new resubmit featu
 * Any verified [origin information](/documentation/build-system-integration#ci-integrations-with-origin-verification) is still available 
 * The original signing request is referenced
 
-## Resubmit via user interface
+### Resubmit via user interface
 
 To resubmit a completed signing request, click the _Resubmit signing request_ button on its details page.
 
 Required permissions: This button is only visible for users with permission to submit a signing request for any of the project's signing policies.
 
-## Resubmit via API
+### Resubmit via API
 
 This feature is available via the [REST API](/documentation/build-system-integration#resubmit-a-signing-request) and [PowerShell module](/documentation/powershell/Submit-SigningRequest#resubmit).
 
