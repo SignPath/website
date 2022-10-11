@@ -1,4 +1,4 @@
-{% if main_header != null %}
+{% if page.main_header != null %}
 	{% assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' %}
 {% else %}
 	{% assign title = page.sub_header | append: ' | SignPath' %}
