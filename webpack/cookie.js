@@ -58,23 +58,26 @@ export function cookieBanner() {
     } else {
         loadResources()
     }
+    addRevokeHandler()
 }
 
 function isUserFromEu() {
     // WIP: HTTPS & API KEY MISSING
     const endpoint = 'https://pro.ip-api.com/json?fields=status,continentCode&key=eJ1eA5qDeyPkvao';
     const xhr = new XMLHttpRequest();
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-            var response = JSON.parse(this.responseText);
-            if (response.status !== 'success') {
-                console.log('query failed: ' + response.message);
-                return
-            }
-            if (response.continentCode === 'EU') {
+
+    xhr.onreadystatechange = () => {
+        if (xhr.readyState == 4) {
+            if(xhr.status == 200){
+                var response = JSON.parse(xhr.responseText);
+                if (response.continentCode === 'EU') {
                 showCookieBanner()
             } else {
                 loadResources()
+            }
+            }else{
+                console.error('query failed');
+                showCookieBanner()
             }
         }
     };
@@ -104,16 +107,19 @@ function showCookieBanner() {
                 toggleMobile()
             })
         });
-    } else {
-        document.querySelectorAll('.revoke-cookie-consent').forEach(c => {
-            c.addEventListener('click', function () {
-                document.cookie.split(";").forEach(function (c) {
-                    document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
-                });
-                showCookieBanner()
-            })
-        });
     }
+}
+
+
+function addRevokeHandler() {
+    document.querySelectorAll('.revoke-cookie-consent').forEach(c => {
+        c.addEventListener('click', function () {
+            document.cookie.split(";").forEach(function (c) {
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/");
+            });
+            showCookieBanner()
+        })
+    });
 }
 
 function loadResources() {
