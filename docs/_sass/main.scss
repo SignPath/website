@@ -3,12 +3,26 @@
 * GENERAL STYLES
 *
 */
+/* roboto-regular - latin */
+@font-face {
+	font-family: 'Roboto';
+	font-style: normal;
+	font-weight: 400;
+	src: url('../fonts/roboto-v30-latin-regular.eot'); /* IE9 Compat Modes */
+	src: local(''),
+	url('../fonts/roboto-v30-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+	url('../fonts/roboto-v30-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+	url('../fonts/roboto-v30-latin-regular.woff') format('woff'), /* Modern Browsers */
+	url('../fonts/roboto-v30-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+	url('../fonts/roboto-v30-latin-regular.svg#Roboto') format('svg'); /* Legacy iOS */
+}
+
 html {
 	font-size: 100%;
 }
 
 body, input {
-	font-family: 'Segoe UI', SegoeUI, 'Roboto', Helvetica, Arial, sans-serif;
+	font-family: 'Roboto', 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
 }
 
 body {
@@ -170,7 +184,7 @@ section.top-section > div {
 
 		span.no-break {
 			white-space: nowrap;
-			
+
 			svg{
 				position: relative;
 				top: 10px;
@@ -360,11 +374,11 @@ div#cookie-info {
 	h3, p, span{
 		margin: 0.5rem 0;
 	}
-	
-	.show-more, .show-less{ 
+
+	.show-more, .show-less{
 		display: none;
 	}
-	
+
 	.container{
 		max-width: 1200px;
 	}
@@ -387,7 +401,7 @@ div#cookie-info {
 	cursor: pointer;
 }
 
-span.badge, 
+span.badge,
 p.badge {
 	background-color: $primary-color;
 	border-radius: $border-radius;
@@ -452,7 +466,7 @@ table.subscription-type-4 tr td:nth-child(4) {
 				display: block;
 			}
 		}
-		
+
 		.information{
 			display: none;
 			&.active{
