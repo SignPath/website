@@ -50,7 +50,7 @@ function toggleMobile() {
     })
 }
 
-export const cookieConsentCookieName = 'acknowledged-cookies';
+export const cookieConsentCookieName = 'acknowledged-cookies2';
 
 export function cookieBanner() {
     if (!isCookieSet(cookieConsentCookieName)) {
@@ -62,7 +62,6 @@ export function cookieBanner() {
 }
 
 function isUserFromEu() {
-    // WIP: HTTPS & API KEY MISSING
     const endpoint = 'https://pro.ip-api.com/json?fields=status,continentCode&key=eJ1eA5qDeyPkvao';
     const xhr = new XMLHttpRequest();
 

@@ -22,16 +22,15 @@ Projects consist of these configuration sections:
 ## Project settings 
 {: #project-settings}
 
-| Property                   | Value                                                                                                                     | Available only for
+| Property                   | Value                                                                                                                     | Editions
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------|-----
 | **Name**                   | Display name
 | **Slug**                   | Project name/identfier used for URLs, APIs etc.
 | **Status**                 | *Valid*, *inactive*, or *invalid*
-| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise subscriptions
-| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise subscriptions
+| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise
+| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise
 | **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#origin-verification) 
 | **Description**            | Free text description of the project
-{: .subscription-type-3 }
 
 ## Signing policies 
 {: #signing-policies}
@@ -45,7 +44,7 @@ Typically, a project contains these two singing policies:
 
 Both types of policies may alternatively use certificates that are issued by an in-house CA.
 
-<div class="panel tipp" markdown="1">
+<div class="panel tip" markdown="1">
 <div class="panel-header">Why sign test builds?</div>
 It's important that test builds are signed, so they will behave like release builds *on test systems*. Several platform mechanisms may be used or inadvertently encountered that behave differently for signed and unsigned software.
 
@@ -63,11 +62,10 @@ Test-signing can also provide protection for test systems, if these systems are 
 
 Select **Use approval process** if you want to require manual approval for each signing request. This is recommended for release-signing.
 
-| Property               | Value                                                                                                                                     | Available only for
+| Property               | Value                                                                                                                                     | Editions
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Approvers**          | Select the users that are allowed to approve signing requests. They will receive e-mail notifications for each request. 
-| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise subscriptions
-{: .subscription-type-3 }
+| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise 
 
 ### Origin verification restriction 
 {: #origin-verification}
@@ -87,7 +85,7 @@ Requirements:
 | **Project repository URL** | Must be configured in the project settings (applies to all signing policies) |
 | **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds. |
 
-<div class="panel tipp" markdown='1'>
+<div class="panel tip" markdown='1'>
 <div class="panel-header">Create differentiated signing policies</div>
 
 You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.
@@ -140,7 +138,7 @@ Create multiple artifact configurations for
 * projects that create different artifacts at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)
 
-Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or resign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration#number-of-matches) (`min-matches="0"`).
+Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or re-sign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration#number-of-matches) (`min-matches="0"`).
 
 If you want to use versioned artifact configurations with CI
 

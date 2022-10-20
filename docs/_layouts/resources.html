@@ -1,4 +1,4 @@
-{% if main_header != null %}
+{% if page.main_header != null %}
 	{% assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' %}
 {% else %}
 	{% assign title = page.sub_header | append: ' | SignPath' %}
@@ -7,15 +7,15 @@
 
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1>{% if page.main_header %}<span class='no-break'>{{ page.main_header }}
-{% include chevron_right.svg %}
-		</span>{% endif %} {{ page.sub_header }}</h1>
+		<h1>{% if page.main_header %}<span class='no-break'>{{ page.main_header }} &nbsp;❯&nbsp; </span>{% endif %} {{ page.sub_header }}</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div>
 		{% assign parts = page.path | split:"/" %}
+		{% assign pathlen = parts | size | minus: 1 %}
 		{% assign parent = parts[-2] %}
+		{% assign parentpath = parts | slice: 0, pathlen | join: "/" %}
 		{% if site.data.menus contains parts[-2] %}
 			<aside>
 				<ul>
@@ -31,7 +31,7 @@
 						<li class='separator' />
 						{% else %}
 						<li class='{{ className }}'>
-							<a href='/{{parent}}/{{entry.path}}#'>{{ entry.text }}</a>
+							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
 							{% if tail[0] == entry.path %}
 								<div class="no-mobile" >
 									{% include toc.html html=content h_max=2 %}

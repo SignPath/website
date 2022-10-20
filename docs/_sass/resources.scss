@@ -122,7 +122,7 @@ section.resources-section {
 				display: inline-block;
 			}
 
-			&.info, &.warning, &.tipp {
+			&.info, &.warning, &.tip {
 				& > div.panel-header::before {
 					font-family: "Line Awesome Free";
 					font-weight: 800;
@@ -135,7 +135,7 @@ section.resources-section {
 					content: "\f05a";
 				}
 			}
-			&.tipp {
+			&.tip {
 				background-color: $light-grey-background-color;
 				& > div.panel-header::before {
 					content: "\f0eb";
@@ -316,4 +316,30 @@ ul.article-toc.mobile-only {
 
 table#signing-file-elements tr td code {
 	word-break: normal;
+}
+
+
+table td[data-label="Parameter"] code {
+	white-space: nowrap; // prevent hypen line breaks in -Parametername 
+}
+
+table.break-column-1 {
+	tr td:nth-child(1) {
+		word-break: break-all;
+		min-width: 10em;
+		code {
+			white-space: inherit;
+		}
+	}
+}
+
+div.pssyntax span.err {
+	background-color: inherit;
+}
+
+div.pssyntax {
+	& span.nf, span.nx, span.kt {
+		color: #990000;
+		font-weight: bold;
+	}
 }

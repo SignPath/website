@@ -1,0 +1,15 @@
+- text: Product
+  path: product
+  subdir: true
+
+- text: Code Signing
+  path: code-signing
+  subdir: true
+
+- text: Documentation
+  path: documentation
+  subdir: true
+
+- text: About us
+  path: about-us
+  subdir: false

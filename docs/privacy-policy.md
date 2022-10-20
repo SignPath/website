@@ -38,12 +38,12 @@ When you use SignPath, we collect some basic information that most services coll
 
 We share your data with a limited number of third party service providers who process it on our behalf to provide or improve our service, and who have agreed to privacy restrictions by signing data protection agreements. In case of data transfers outside of the European Economic Area, we make sure to implement appropriate safeguards with our sub-processors, including Standard Contractual Clauses.
 
-| Sub-processor                        | Description of data processing                  | Location |
-|--------------------------------------|-------------------------------------------------|----------|
-| RUBICON IT GmbH                      | Application management, administration, support | Europe 
-| Microsoft Ireland Operations Limited | Hosting Platform Microsoft Azure                | Europe 
-| Twilio Inc.                          | Email delivery service SendGrid                 | United States 
-| Okta Inc.                            | Account management                              | Europe
+| Sub-processor                        | Description of data processing                  | Location      | Security measures documentation |
+|--------------------------------------|-------------------------------------------------|---------------|---------------------------------|
+| RUBICON IT GmbH                      | Application management, administration, support | Europe        | [RUBICON Managed Services](https://www.rubicon.eu/en/services/managed-services/)
+| Microsoft Ireland Operations Limited | Hosting Platform Microsoft Azure                | Europe        | [Azure security documentation](https://docs.microsoft.com/azure/security)
+| Twilio Inc.                          | Email delivery service SendGrid                 | United States | [Twilio Security Overview](https://www.twilio.com/legal/security-overview)
+| Okta Inc.                            | Account management                              | Europe        | [Okta Security & Privacy Documentation](https://www.okta.com/sites/default/files/OKTA%20Security%20and%20Privacy%20Documentation%20May%202019.pdf)
 
 # Data we process when you visit our Website
 

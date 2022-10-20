@@ -29,67 +29,7 @@ Make sure to keep the access token in a secure location. Most Continuous Integra
 
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/SignPath.svg?style=flat-square&label=PowerShell%20Gallery)](https://www.powershellgallery.com/packages/SignPath/)
 
-To integrate SignPath in your build chain, you can use the [official SignPath module from PowerShell Gallery](https://www.powershellgallery.com/packages/SignPath).
-
-Create signing requests by calling the following commands via PowerShell:
-
-* Install the SignPath module
-  ~~~ powershell
-  Install-Module -Name SignPath
-  ~~~
-  <div class="panel tipp" markdown="1">
-  <div class="panel-header">Specify an an acceptable version range</div>
-  The releases of the SignPath module follow [semantic versioning](https://semver.org/) principles. In automated scenarios, we recommend to fix the major version by specifying a lower and upper bound, e.g. `-MinimumVersion 2.1.0 -MaximumVersion 2.999.999` to ensure that a compatible version is installed.
-  </div>
-* Submit a signing request and get a signing request ID without waiting for completion ...
-  ~~~ powershell
-  $signingRequestID = Submit-SigningRequest `
-      -CIUserToken $CI_USER_TOKEN `
-      -OrganizationId $ORGANIZATION_ID `
-      -ProjectSlug $PROJECT `
-      -SigningPolicySlug $SIGNING_POLICY `
-      -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
-      -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
-  ~~~ 
-* ... and download the signed artifact later
-  ~~~ powershell
-  Get-SignedArtifact `
-      -CIUserToken $CI_USER_TOKEN `
-      -OrganizationId $ORGANIZATION_ID `
-      -SigningRequestId $signingRequestID `
-      -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
-  ~~~ 
-* Or submit a signing request and wait for completion
-  ~~~ powershell
-  Submit-SigningRequest `
-      -CIUserToken $CI_USER_TOKEN `
-      -OrganizationId $ORGANIZATION_ID `
-      -ProjectSlug $PROJECT `
-      -SigningPolicySlug $SIGNING_POLICY `
-      -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
-      -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
-      -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
-      -WaitForCompletion
-  ~~~
-* Instead of uploading an artifact, you can also reference an existing signing request and re-submit it (with e.g. a different signing policy). See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
-~~~ powershell
-  Submit-SigningRequestResubmit `
-    -CIUserToken $CI_USER_TOKEN `
-      -OrganizationId $ORGANIZATION_ID `
-      -OriginalSigningRequestId $ORIGINAL_SIGNING_REQUEST_ID `
-      -SigningPolicySlug $SIGNING_POLICY `
-      [-OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT] `
-      [-WaitForCompletion]
-~~~
-
-#### User-defined parameters
-
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
-
-Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided adding a `Parameters` argument.
-
-Example: `-Parameters @{ productVersion="1.2.0" }`
+See the [SignPath PowerShell reference](powershell).
 
 ## HTTP REST API
 
@@ -223,16 +163,16 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 **Success result:** HTTP status code `200`. Returns the binary content of the signed artifact.
 
-### Re-submit a signing request
+### Resubmit a signing request
 
-See [Re-submit an existing signing request](/documentation/signing-code#re-submit-an-existing-signing-request) for more information.
+See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
 
 | Synopsis                    |      |
 | --------------------------- | ---- |
 | URL                         | `/SigningRequests/Resubmit`
 | Method                      | `POST`
 | Encoding                    | `multipart/form-data`
-| `OriginalSigningRequestId`  | The ID of the signing request which you want to re-submit
+| `OriginalSigningRequestId`  | The ID of the signing request which you want to resubmit
 | `SigningPolicySlug`         | Signing policy for which you want to create the signing request
 | `Description`               | Optional: description for your signing request (e.g. version number)
 
@@ -272,7 +212,7 @@ Verification of reproducability depends on the CI system used. Typical verificat
 
 In order to use origin verification, a [Trusted Build System](trusted-build-systems) must be configured and linked to the project.
 
-<div class="panel tipp" markdown="1">
+<div class="panel tip" markdown="1">
 <div class="panel-header">Use origin verification restrictions</div>
 Enable additional restrictions for signing policies that use release certificates:
 

@@ -26,3 +26,9 @@
 
 - text: Trusted Build Systems
   path: trusted-build-systems
+
+- separator: true
+
+- text: PowerShell cmdlets
+  path: powershell
+

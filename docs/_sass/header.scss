@@ -112,7 +112,14 @@ nav > ul { /** main navigation **/
 
 				& > a {
 					display: block;
-					padding: 10px 20px;
+					padding: 5px 20px;
+				}
+
+				&.separator {
+					height: 10px;
+					&:hover {
+						background-color: $white-background-color;
+					}
 				}
 			}
 		}

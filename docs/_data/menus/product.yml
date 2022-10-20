@@ -1,0 +1,22 @@
+- text: Features
+  path: features
+
+- text: Editions
+  path: editions
+
+- separator: true
+
+- text: For DevOps teams
+  path: devops
+
+- text: For InfoSec teams
+  path: infosec
+
+- text: For Open Source projects
+  path: open-source
+
+- separator: true
+
+- text: PKI Consortium best practices
+  path: pkic-best-practices
+
