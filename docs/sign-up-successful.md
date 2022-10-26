@@ -3,6 +3,7 @@ title: Sign up successful
 header: Sign up successful
 layout: thankyou
 description: Sign-up success confirmation
+sitemap: false
 ---
 
 <h2>You successfully signed up</h2>
