@@ -11,7 +11,7 @@ Submits a new signing request or resubmits an existing one via the SignPath REST
 
 ## Syntax
 
-### Provide an input artifact {#input-artifact}
+### Provide an input artifact (via file upload or artifact retrieval link) {#input-artifact}
 
 {:.pssyntax}
 ~~~ powershell
@@ -20,10 +20,17 @@ Submit-SigningRequest
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
-    -InputArtifactPath <String>
-        (-ProjectSlug <String> -SigningPolicySlug <String> [-ArtifactConfigurationId <String>] )
-        | (-SigningPolicyId <String> [-ArtifactConfigurationSlug <String>] )
-        [-Origin <Hashtable>]
+    (
+        -InputArtifactPath <String>
+            (-ProjectSlug <String> -SigningPolicySlug <String> [-ArtifactConfigurationId <String>] )
+            | (-SigningPolicyId <String> [-ArtifactConfigurationSlug <String>] )
+            [-Origin <Hashtable>]
+    ) | (
+        -ArtifactRetrievalLink <String> 
+            -ArtifactRetrievalLinkFileName <String> 
+            [-ArtifactRetrievalLinkSha256Hash <String (Hex)>]
+            [-ArtifactRetrievalLinkHttpHeaders <Hashtable>]
+    )
     [-WaitForCompletion 
         -OutputArtifactPath <String>
         [-Force]
@@ -61,7 +68,7 @@ The `Submit-SigningRequest` cmdlet creates a new _signing request_. The signing 
 
 ### Creating a new signing request vs. re-signing
 
-When using the `-InputArtifact` parameter, the specified file will be uploaded for processing. 
+When using the `-InputArtifactPath` or `-ArtifactRetrievalLink` parameter, the specified file will be used for processing. 
 
 When using the `-Resubmit` parameter, the specified signing request will be processed again using the specified _signing policy_. This is especially useful for conditional signing of release candidates. See [Resubmit an existing signing request](/documentation/signing-code#resubmit) for more information.
 
@@ -103,11 +110,9 @@ Signing policies in the SignPath Web application show basic `Submit-SigningReque
 | `-Force`                                  | Switch            | Allows the cmdlet to overwrite the file at OutputArtifactPath | `false`
 | `-WaitForCompletionTimeoutInSeconds`      | `Int32`           | Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts) | 600 seconds
 
-### Parameters with `-InputArtifactPath`
-
+### Parameters shared between `-InputArtifactPath` and `-ArtifactRetrievalLink`
 | Parameter                                 | Type              | Description                                                   | Default value | Editions
 |-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|-----------
-| `-InputArtifactPath`                      | `String`          | Path of the artifact that you want to be signed
 | `-ProjectSlug`                            | `String`          | Slug of the project 
 | `-SigningPolicySlug`                      | `String`          | Slug of one of the project's signing policies
 | `-ArtifactConfigurationSlug`              | `String`          | Slug of one of the project's artifact configurations          | Project's default artifact configuration
@@ -116,6 +121,21 @@ Signing policies in the SignPath Web application show basic `Submit-SigningReque
 | `-Origin`                                 | `Hashtable`       | Information about the origin of the artifact, see below       |               | Enterprise
 
 Note: Use either slugs _or_ IDs, don't mix.
+
+### Parameters with `-InputArtifactPath`
+
+| Parameter                                 | Type              | Description                                                   | Default value | Editions
+|-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|-----------
+| `-InputArtifactPath`                      | `String`          | Path of the artifact that you want to be signed
+
+### Parameters with `-ArtifactRetrievalLink`
+
+| Parameter                                 | Type              | Description                                                   | Default value | Editions
+|-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|-----------
+| `-ArtifactRetrievalLink`                  | `String`          | URL where the artifact that you want to be signed will be downloaded from
+| `-ArtifactRetrievalLinkFileName`          | `String`          | File name of the artifact to be signed
+| `-ArtifactRetrievalLinkSha256Hash`        | `String` (Hex)    | Optional file hash (in hex string format) of the artifact to sign (used to verify the artifact download).
+| `-ArtifactRetrievalLinkHttpHeaders`       | `Hashtable`       | Optional HTTP headers that will be used when downloading the artifact to sign
 
 #### `-Origin` values
 
@@ -158,7 +178,24 @@ Submit-SigningRequest `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~
 
-### Example 2: Separate calls for submission and retrieval 
+## Example 2: Submit a signing request with an artifact retrieval link and wait for completion
+~~~ powershell
+Submit-SigningRequest `
+    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN `
+    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY `
+    -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+    -ArtifactRetrievalLink $URL_TO_INPUT_ARTIFACT `
+    -ArtifactRetrievalLinkFileName $FILE_NAME_OF_INPUT_ARTIFACT `
+    -ArtifactRetrievalLinkSha256Hash $SHA256_HASH_OF_INPUT_ARTIFACT_IN_HEX_STRING_FORMAT `
+    -ArtifactRetrievalLinkHttpHeaders @{
+      "$ARTIFACT_RETRIEVAL_LINK_HTTP_HEADER_KEY1" = "$ARTIFACT_RETRIEVAL_LINK_HTTP_HEADER_VALUE1"
+      "$ARTIFACT_RETRIEVAL_LINK_HTTP_HEADER_KEY2" = "$ARTIFACT_RETRIEVAL_LINK_HTTP_HEADER_VALUE2"
+    } `
+    -WaitForCompletion `
+    -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
+~~~
+
+### Example 3: Separate calls for submission and retrieval 
 
 Submit a signing request and get a signing request ID without waiting for completion ...
 
@@ -179,7 +216,7 @@ Get-SignedArtifact `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~ 
 
-### Example 3: Resubmit an existing signing request with a different signing policy
+### Example 4: Resubmit an existing signing request with a different signing policy
 
 ~~~ powershell
   Submit-SigningRequestResubmit `
@@ -190,7 +227,7 @@ Get-SignedArtifact `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~
 
-### Example 4: Provide user-defined parameters and origin verification {#example-params-origin}
+### Example 5: Provide user-defined parameters and origin verification {#example-params-origin}
 
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
