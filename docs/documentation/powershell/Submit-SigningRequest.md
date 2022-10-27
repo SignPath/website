@@ -178,7 +178,7 @@ Submit-SigningRequest `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~
 
-## Example 2: Submit a signing request with an artifact retrieval link and wait for completion
+### Example 2: Submit a signing request with an artifact retrieval link and wait for completion
 ~~~ powershell
 Submit-SigningRequest `
     -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN `
