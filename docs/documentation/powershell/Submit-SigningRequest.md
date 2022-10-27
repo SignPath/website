@@ -20,17 +20,16 @@ Submit-SigningRequest
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
-    (
-        -InputArtifactPath <String>
-            (-ProjectSlug <String> -SigningPolicySlug <String> [-ArtifactConfigurationId <String>] )
-            | (-SigningPolicyId <String> [-ArtifactConfigurationSlug <String>] )
-            [-Origin <Hashtable>]
-    ) | (
+    -InputArtifactPath <String>
+    | (
         -ArtifactRetrievalLink <String> 
-            -ArtifactRetrievalLinkFileName <String> 
-            [-ArtifactRetrievalLinkSha256Hash <String (Hex)>]
-            [-ArtifactRetrievalLinkHttpHeaders <Hashtable>]
+        -ArtifactRetrievalLinkFileName <String> 
+        [-ArtifactRetrievalLinkSha256Hash <String (Hex)>] 
+        [-ArtifactRetrievalLinkHttpHeaders <Hashtable>]
     )
+    (-ProjectSlug <String> -SigningPolicySlug <String> [-ArtifactConfigurationSlug <String>] )
+    | (-SigningPolicyId <String> [-ArtifactConfigurationId <String>] )
+    [-Origin <Hashtable>]
     [-WaitForCompletion 
         -OutputArtifactPath <String>
         [-Force]
