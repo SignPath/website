@@ -18,6 +18,10 @@ AUSTRIA <br>
 office@signpath.io <br>
 Commercial register ID: 475506z
 
+# Data protection officer
+
+You can reach our data protection officer at privacy@signpath.io.
+
 # Data we process when you use SignPath
 
 ## Registration Data
