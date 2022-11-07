@@ -157,14 +157,18 @@ Append this to your appveyor.yaml file:
 ~~~ yaml
 deploy:
 - provider: Webhook
-  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT>&SigningPolicySlug=<SIGNING_POLICY>
+  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>
   authorization:
      secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
 ~~~
 
-Replace the parameters:
-* `<ORGANIZATION_ID>`, `<PROJECT>` and `<SIGNING_POLICY>` values can be retrieved from the signing policy page
-* `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
+| Parameter                                                 | Description                                                            |
+| --------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `<ORGANIZATION_ID>`                                       | SignPath organization ID (can be retrieved from the organization page)
+| `ProjectSlug=<PROJECT_SLUG>`                              | Project slug
+| `SigningPolicySlug=<SIGNING_POLICY_SLUG>`                 | Signing policy slug
+| `ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>` | _Optional_ artifact configuration slug (default artifact configuration if not specified)
+| `<ENCRYPTED_SIGNPATH_API_TOKEN>`                          | The encrypted value from the previous step
 
 </td> </tr> </tbody> </table>
 

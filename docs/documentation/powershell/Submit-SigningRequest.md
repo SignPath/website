@@ -84,7 +84,7 @@ Signing policies in the SignPath Web application show basic `Submit-SigningReque
 
 | Parameter                                 | Type              | Description                                                   | Default value | Editions
 |-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
-| `-OrganizationId`                         | `String`          | ID of your SignPath organization
+| `-OrganizationId`                         | `String`          | SignPath organization ID (can be retrieved from the organization page)
 | `-CIUserToken`                            | `String`          | API token you receive when adding a new CI user
 | `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
 | `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
