@@ -166,6 +166,10 @@ Replace the parameters:
 * `<ORGANIZATION_ID>`, `<PROJECT>` and `<SIGNING_POLICY>` values can be retrieved from the signing policy page
 * `<ENCRYPTED_SIGNPATH_API_TOKEN>` is the value from the previous step
 
+Optional parameters:
+
+* `&ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>` to use a non-default artifact configuration
+
 </td> </tr> </tbody> </table>
 
 #### Attached build documentation
