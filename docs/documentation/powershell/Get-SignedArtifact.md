@@ -27,9 +27,9 @@ Get-SignedArtifact
 
 ## Description
 
-The `Get-SignedArtifact` cmdlet waits for a given signing request to finish and downloads the resultiung artifact.
+The `Get-SignedArtifact` cmdlet waits for the specified signing request to finish and downloads the resulting artifact.
 
-If the request couldn't be downloaded in time, because the processing took to long or the request is invalid, this cmdlet will throw exceptions.
+This cmdlet throws an exception if the signing request does not successfully complete time.
 
 ## Parameters
 
