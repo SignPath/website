@@ -1,4 +1,4 @@
-[![SignPath logo](./assets/logo_signpath_500.png)](https://about.signpath.io)
+[![SignPath logo](./docs/assets/logo_signpath_500.png)](https://about.signpath.io)
 
 # SignPath Website
 
