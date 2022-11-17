@@ -115,7 +115,21 @@ Signing policies in the SignPath Web application show basic `Submit-SigningReque
 | `-ArtifactConfigurationId`                | `String`          | ID of one of the project's artifact configurations            | Project's default artifact configuration
 | `-Origin`                                 | `Hashtable`       | Information about the origin of the artifact, see below       |               | Enterprise
 
-Note: Use either slugs _or_ IDs, don't mix.
+<div class="panel note" markdown="1">
+<div class="panel-header">Slugs or IDs</div>
+
+Use either slugs _or_ IDs, don't mix them.
+</div>
+
+<div class="panel tip" markdown="1">
+<div class="panel-header">Automated builds version control</div>
+
+Consider using these sources if you are using automated builds:
+
+* **Artifact configuration: version management**. Create new versions of your artifact configuration for breaking changes and let your code determine the version to use. This ensures that signing will continue to work for older versions of your application while the artifact configuration evolves. If the script that invokes this cmdlet is under version control, it might be a better idea to have the artifact configuration slug hard coded in the script than to get it from a CI variable.
+* **Signing policy: CI parameter**. If you take the signing policy from a Continuous Integration/Build Automation parameter, you can use the same script and cmdlet invocation for different build configurations, such as test and release.
+
+</div>
 
 #### `-Origin` values
 

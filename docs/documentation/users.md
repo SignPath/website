@@ -20,7 +20,7 @@ Note that user accounts are not the same as users in an organization.
 * Users must be invited to SignPath organizations in order to use them.
 * A user account may be used for one or more SignPath organizations. 
 
-| User account type         | Provider                              | How to use                            |Editions    |
+| User account type         | Provider                              | How to use                            | Editions   |
 |---------------------------|---------------------------------------|---------------------------------------|------------|
 | Social account            | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
 | Username and password     | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
