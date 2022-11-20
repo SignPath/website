@@ -203,7 +203,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 ~~~ powershell
 Submit-SigningRequest `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
-    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -WaitForCompletion -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
     -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
 ~~~
@@ -217,7 +217,7 @@ Submit-SigningRequest `
     -ArtifactRetrievalLinkHttpHeaders @{
       "Authorization" = "$RETRIEVAL_AUTHORIZATION"
     } `
-    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -WaitForCompletion -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
     -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
 ~~~
@@ -229,7 +229,7 @@ Submit a signing request and get a signing request ID without waiting for comple
 ~~~ powershell
 $signingRequestID = Submit-SigningRequest `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT ` 
-    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN
 ~~~ 
 
@@ -261,7 +261,7 @@ Available for Enterprise subscriptions
 ~~~ powershell
 $signingRequestID = Submit-SigningRequest `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
-    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
+    -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -Parameters @{ 
         productVersion="1.2.0" 
         } `
