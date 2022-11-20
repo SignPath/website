@@ -29,7 +29,7 @@ Get-SignedArtifact
 
 The `Get-SignedArtifact` cmdlet waits for the specified signing request to finish and downloads the resulting artifact.
 
-This cmdlet throws an exception if the signing request does not successfully complete time.
+This cmdlet throws an exception if the signing request does not successfully complete in time.
 
 ## Parameters
 
