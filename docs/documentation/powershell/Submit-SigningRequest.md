@@ -213,7 +213,7 @@ Submit-SigningRequest `
 Submit-SigningRequest `
     -ArtifactRetrievalLink "https://files.acme.com/my+program.exe" `
     -ArtifactRetrievalLinkFileName "my program.exe" `
-    -ArtifactRetrievalLinkSha256Hash (Get-FileHash "./my program.exe" -Algorithm SHA256).Hash
+    -ArtifactRetrievalLinkSha256Hash (Get-FileHash "./my program.exe" -Algorithm SHA256).Hash `
     -ArtifactRetrievalLinkHttpHeaders @{
       "Authorization" = "$RETRIEVAL_AUTHORIZATION"
     } `
