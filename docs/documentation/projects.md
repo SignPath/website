@@ -168,4 +168,4 @@ From your project configuration, you can link any trusted build system that your
 ## Webhooks 
 {: #webhooks}
 
-Configure Webhooks to notify other systems in your build chain about successful signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).
+Configure Webhooks to notify other systems in your build chain about completed signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).

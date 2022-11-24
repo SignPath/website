@@ -250,6 +250,12 @@ For each completed signing request, SignPath will post the following JSON inform
 }
 ~~~
 
+<div class="panel info" markdown="1">
+<div class="panel-header">Notification triggers</div>
+
+Currently, notifications are only sent for successfully completed signing requests. This may change in the future, so be sure to consider the `Status` field when implementing Webhooks.
+</div>
+
 A handler for this Webhook can use the Web API for further activities, such as pushing the signed artifact to a repository. Use the Web API to get signing request data including build information.
 
 <div class="panel info" markdown="1">
