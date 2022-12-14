@@ -77,7 +77,7 @@ export function initEvents() {
         await new Promise((r) =>
           setTimeout(function () {
             window.location.href = href;
-          }, 500)
+          }, 50)
         );
       });
     }
