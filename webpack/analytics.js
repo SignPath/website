@@ -66,9 +66,9 @@ export function initEvents() {
       }
     });
   });
-  document
-    .querySelectorAll("a[href='" + window.location.protocol + '//' + window.location.hostname + '/Web/Home/Login' + "']")
-    .forEach((item) => {
+
+  document.querySelectorAll('a').forEach(item => {
+    if (item.href.includes('/Web/Home/Login')) {
       const href = item.href;
       item.href = '#';
 
@@ -80,7 +80,8 @@ export function initEvents() {
           }, 500)
         );
       });
-    });
+    }
+  });
 }
 
 function trackUserPageVisits() {
