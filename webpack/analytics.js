@@ -2,6 +2,8 @@ import { cookieConsentCookieName, isCookieConsent, isCookieSet } from './cookie.
 import Cookies from 'js-cookie';
 let gtag_ref = undefined;
 
+const CLICK_TIMEOUT_FOR_ANALYTICS_EVENT = 50; // in ms
+
 export function GoogleAnalytics() {
   let analytics = document.createElement('script');
   analytics.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-119338300-1');
@@ -77,7 +79,7 @@ export function initEvents() {
         await new Promise((r) =>
           setTimeout(function () {
             window.location.href = href;
-          }, 50)
+          }, CLICK_TIMEOUT_FOR_ANALYTICS_EVENT)
         );
       });
     }
