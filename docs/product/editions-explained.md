@@ -75,7 +75,14 @@ So for instance, a *Basic* subscription with 3 *projects* allows you to complete
 
 The signing requests quota can be used freely between projects. You may upgrade the available projects of your subscription to get more signing requests per year.
 
-Depending on your artifact configuration, each signing request may contain multiple files for signing. 
+#### How many signing requests will I need?
+
+We recommend that you create one signing request per release of your software. This makes it easier to integrate with CI systems, use security-enhancing artifact configurations, and track your signining requests.
+
+* Consider packing your artifacts into a single ZIP archive for signing
+  * if your software consist of multiple artifacts (e.g. several EXE and DLL files)
+  * if you produce several variants of your software for each release (e.g. runtime environments, processor architectures, customer variants)
+* Consider using [deep signing](#deep-signing) if you produce packages in supported formats such as MSI installers
 
 **Fair use quota:** You may sign up to 100 files per *available* signing request (i.e. the sum of release- and test-signing requests ). In the example above, that would be (150 + 750) &times; 100 = 90,000 files per year.
 
