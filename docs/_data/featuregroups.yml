@@ -8,11 +8,11 @@
     - name: projects
       title: 'Projects'
       hint: 'Projects availabe for each subscription. Projects define artifacts and policies, and assign certificates and permissions.'
-      href: '/product/editions-explained#max-projects'
+      href: '/product/editions-explained#projects'
     - name: users
       title: 'Users'
       hint: 'Named users that interact with SignPath. No licenses required for CI user accounts or build agents.'
-      href: '/product/editions-explained#max-users'
+      href: '/product/editions-explained#users'
     - name: signing_requests
       title: 'Signing requests'
       sub: 'Releases per year'
