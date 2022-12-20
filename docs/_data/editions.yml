@@ -3,11 +3,13 @@
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
     projects: 'up to 3'
-    projects-hint: 'Click "buy now" and add projects to adjust quota.'
+    projects-hint: quota-hint
     users: 'up to 2'
-    users-hint: 'Click "buy now" and add users to adjust quota.'
-    signing_requests: 'up to 60'
-    signing_requests-hint: 'Click "buy now" and add projects to adjust quota.'
+    users-hint: quota-hint
+    signign_requests_release: 'up to 60'
+    signign_requests_release-hint: quota-hint
+    signign_requests_test: 'up to 300'
+    signign_requests_test-hint: quota-hint
     ci_pipelines: '1'
   signing_methods:
     authenticode: true
@@ -54,10 +56,11 @@
     projects: 'up to 10'
     projects-hint: 'You may use several artifact configurations per project, e.g. for different components. Click "buy now" and add projects to adjust quota.'
     users: 'up to 15'
-    users-hint: 'Click "buy now" and add users to adjust quota.'
-    signing_requests: 'up to 500'
-    signing_requests-hint: 'Click "buy now" and add projects to adjust quota.'
-  
+    users-hint: quota-hint
+    signign_requests_release: 'up to 500'
+    signign_requests_release-hint: quota-hint
+    signign_requests_test: 'up to 2500'
+    signign_requests_test-hint: quota-hint
     ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true
@@ -102,7 +105,8 @@
     certificates: 'unlimited'
     projects: 'unlimited'
     users: 'unlimited'
-    signing_requests: 'unlimited'
+    signign_requests_release: 'unlimited'
+    signign_requests_test: 'unlimited'
     ci_pipelines: 'unlimited'
   signing_methods:
     authenticode: true
@@ -149,7 +153,8 @@
     projects: 'unlimited'
     projects-hint: 'OSS teams must apply for each project individually.'
     users: 'unlimited'
-    signing_requests: 'fair use'
+    signign_requests_release: 'fair use'
+    signign_requests_test: 'fair use'
     ci_pipelines: '1 per project'
   signing_methods:
     authenticode: true

@@ -15,9 +15,16 @@
       href: '/product/editions-explained#users'
     - name: signing_requests
       title: 'Signing requests'
-      sub: 'Releases per year'
-      hint: 'Signing requests (think software packages or releases) signed per year. Additional quotas available for test signatures.'
+      hint: 'Signing requests (think software packages or releases) per year. Each signing request may contain multiple files.'
       href: '/product/editions-explained#signing-requests'
+    - name: signign_requests_release
+      title: 'release-signing'
+      hint: 'Signing requests using your EV certificate'
+      class: f sub
+    - name: signign_requests_test
+      title: 'test-signing'
+      hint: 'Signing request using a test certificate that must be installed on target machines. Used for testing the signing configuration, signing internal builds, release candidates etc.'
+      class: f sub
     - name: ci_pipelines
       title: 'CI pipelines'
       hint: 'Limits the number of parallel signing requests.'

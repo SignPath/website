@@ -195,6 +195,10 @@ div.column-layout {
 	}
 }
 
+li.f.sub span {
+	text-align: left; /* prevent right-align inherit by hint tooltip */
+}
+
 @media only screen and (max-width: 1024px) {
 	div.column-layout {
 		flex-direction: column;

@@ -60,14 +60,13 @@ description: Comparison chart of SignPath editions
 									{%- assign value = edition[group.name][feature.name] -%}
 									{%- if value == true -%}
 									{% include check.svg %}
-									{%- comment -%}
-										{%- elsif value == null -%}<span style="color:red; font-weight: bold;">?</span>
-									{%- endcomment -%}
+									{%- comment -%} {%- elsif value == null -%}<span style="color:red; font-weight: bold;">?</span> {%- endcomment -%}
 									{%- elsif value == false or value == null -%}<span>&nbsp;</span>
 									{%- else -%}{{- value -}}{%- endif -%}
 
 									{%- assign feature_hint_name = feature.name | append: '-hint' -%}
 									{%- assign feature_hint = edition[group.name][feature_hint_name] -%}
+									{%- if feature_hint == 'quota-hint' -%} {%- assign feature_hint = 'Click "buy now" and add projects to adjust quota.' -%} {%- endif -%}
 									{% if feature_hint != null %}
 										<span aria-label='{{- feature_hint -}}' class='hint--top-right hint--medium'>
 											{% include info.svg %}

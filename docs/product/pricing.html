@@ -73,6 +73,7 @@ description: SignPath product pricing described
 		{% assign quotas = site.data.featuregroups | where: 'name', 'quotas' | first %}
 		{% assign projects = quotas.features | where: 'name', 'projects' | first %}
 		{% assign users = quotas.features | where: 'name', 'users' | first %}
+		{% assign signing_requests = quotas.features | where: 'name', 'signing_requests' | first %}
 
 		<div class='column-layout'>
 			<div class='features col'>
@@ -92,7 +93,7 @@ description: SignPath product pricing described
 						</span></li>
 					<li class='sub-head f'>
 						<a href="editions-explained#signing-requests">Signing requests</a>
-						<span aria-label='Annual quota for signing requests. Note that each signing request can contain multiple files (see individual signatures quota below).'
+						<span aria-label='{{ signing_requests.hint }} (See individual signatures quota below.)'
 							  class='hint--top-right hint--medium'>
 						{% include info.svg %}
 						</span></li>

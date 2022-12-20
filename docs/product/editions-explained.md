@@ -61,7 +61,9 @@ This quota does not limit the number of CI user accounts or build agents you can
 
 ### Signing requests
 
-*Starter* and *Basic* subscriptions have an upper limit for the number of signing requests per year and project.
+*Starter* and *Basic* subscriptions have an upper limit for the number of signing requests.
+
+Included signing requests per year and project:
 
 | Signing policy  | Certificate                                   | Starter | Basic |
 |-----------------|-----------------------------------------------|--------:|------:|
