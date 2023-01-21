@@ -1,9 +1,9 @@
-{% if page.main_header != null %}
-	{% assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' %}
-{% else %}
-	{% assign title = page.sub_header | append: ' | SignPath' %}
-{% endif %}
-{% include header.html %}
+{%- if page.main_header != null -%}
+	{%- assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' -%}
+{%- else -%}
+	{%- assign title = page.sub_header | append: ' | SignPath' -%}
+{%- endif -%}
+{%- include header.html -%}
 
 <section class="bg-blue font-white top-section">
 	<div>
@@ -12,46 +12,46 @@
 </section>
 <section class="resources-section">
 	<div>
-		{% assign parts = page.path | split:"/" %}
-		{% assign pathlen = parts | size | minus: 1 %}
-		{% assign parent = parts[-2] %}
-		{% assign parentpath = parts | slice: 0, pathlen | join: "/" %}
-		{% if site.data.menus contains parts[-2] %}
+		{%- assign parts = page.path | split:"/" -%}
+		{%- assign pathlen = parts | size | minus: 1 -%}
+		{%- assign parent = parts[-2] -%}
+		{%- assign parentpath = parts | slice: 0, pathlen | join: "/" -%}
+		{%- if site.data.menus contains parts[-2] -%}
 			<aside>
 				<ul>
-					{% for entry in site.data.menus[parent] %}
-						{% assign className = nil %}
-						{% if parts.size > 1 %}
-							{% assign tail = parts[-1] | split:"." %}
-							{% if tail[0] == entry.path %}
-								{% assign className = 'active' %}
-							{% endif %}
-						{% endif %}
-						{% if entry.separator %}
+					{%- for entry in site.data.menus[parent] -%}
+						{%- assign className = nil -%}
+						{%- if parts.size > 1 -%}
+							{%- assign tail = parts[-1] | split:"." -%}
+							{%- if tail[0] == entry.path -%}
+								{%- assign className = 'active' -%}
+							{%- endif -%}
+						{%- endif -%}
+						{%- if entry.separator -%}
 						<li class='separator' />
-						{% else %}
+						{%- else -%}
 						<li class='{{ className }}'>
 							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{% if tail[0] == entry.path %}
+							{%- if tail[0] == entry.path -%}
 								<div class="no-mobile" >
-									{% include toc.html html=content h_max=2 %}
+									{%- include toc.html html=content h_max=2 -%}
 								</div>
-							{% endif %}
+							{%- endif -%}
 						</li>
-						{% endif %}
-					{% endfor %}
+						{%- endif -%}
+					{%- endfor -%}
 				</ul>
 			</aside>
-		{% endif %}
+		{%- endif -%}
 		<article>
-			{% if page.show_toc %}
-				{% include toc.html class="article-toc" html=content h_max=page.show_toc %}
-			{% else %}
-				{% include toc.html class="article-toc.mobile-only" html=content h_max=2 %}
-			{% endif %}
+			{%- if page.show_toc -%}
+				{%- include toc.html class="article-toc" html=content h_max=page.show_toc -%}
+			{%- else -%}
+				{%- include toc.html class="article-toc.mobile-only" html=content h_max=2 -%}
+			{%- endif -%}
 
 			{{ content }}
 		</article>
 	</div>
 </section>
-{% include footer.html %}
+{%- include footer.html -%}

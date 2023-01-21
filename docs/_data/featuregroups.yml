@@ -41,6 +41,10 @@
     - name: powershell
       title: 'PowerShell scripts' 
       sub: '.ps1 .psm1 ...'
+    - name: windows_scripting_host
+      title: 'Windows Scripting'
+      hint: 'VBScript and JScript files for Windows Scripting Host'
+      sub: '.wsh .vbs .js'
     - name: clickonce
       title: 'ClickOnce applications'
       sub: '.manifest'
@@ -64,6 +68,10 @@
     - name: java
       title: 'Java archives'
       sub: '.jar .war .ear'
+    - name: office_macros
+      title: 'Microsoft Office Macros'
+      hint: 'Sign VBA macros in Microsoft Office files: Excel, Word, Powerpoint, Visio, Project, Publisher'
+      sub: '.xlsm .xlst<br> .docm ...'
     - name: docker
       title: 'Docker images'
       sub: 'Notary'

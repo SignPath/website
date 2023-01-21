@@ -1,5 +1,5 @@
 {
     "markdown.styles": [
-        "_sass/preview.css"
+        "docs/_sass/preview.css"
     ]
 }

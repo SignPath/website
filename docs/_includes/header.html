@@ -1,18 +1,18 @@
 <!-- last_modified_at:  -->
-{% if title == null %}
-  {% if page.title != null %}
-    {% assign title = page.title | append: ' | SignPath' %}
-  {% else %}
-    {% assign title = "SignPath - Code Signing Simple and Secure" %}
-  {% endif %}
-{% endif %}
+{%- if title == null -%}
+  {%- if page.title != null -%}
+    {%- assign title = page.title | append: ' | SignPath' -%}
+  {%- else -%}
+    {%- assign title = "SignPath - Code Signing Simple and Secure" -%}
+  {%- endif -%}
+{%- endif -%}
 
-{% if page.description != null %}
-  {% assign description = page.description %}
-{% else %}
-  {% assign description = "SignPath.io - Automated, repeatable and secure code signing processes
-  in the cloud and on-premises" %}
-{% endif %}
+{%- if page.description != null -%}
+  {%- assign description = page.description -%}
+{%- else -%}
+  {%- assign description = "SignPath.io - Automated, repeatable and secure code signing processes
+  in the cloud and on-premises" -%}
+{%- endif -%}
 
 <!DOCTYPE html>
 <html lang="en" data-appurl='{{ site.data.hosts.app[jekyll.environment] }}'>
@@ -37,7 +37,7 @@
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
   <script src='/assets/index.js'></script>
   <script src='/assets/js/main-bundle.js'></script>
-  {% if page.redirhack != null %}
+  {%- if page.redirhack != null -%}
   <!-- 404 redirect -->
   <script>
     if (document.location.pathname.endsWith("/"))
@@ -48,7 +48,7 @@
       loc.replace (newUrl);
     }
   </script>
-  {% endif %}
+  {%- endif -%}
   <link rel="icon" href="/assets/favicon-50x50.png" sizes="32x32">
   <link rel="icon" href="/assets/favicon.png" sizes="192x192">
   <link rel="apple-touch-icon-precomposed" href="/assets/favicon.png">
@@ -60,25 +60,24 @@
       <a href='/'><img src='/assets/logo.svg' width="181" height="36" alt='SignPath'></a>
       <nav>
         <ul>
-          {% for entry in site.data.menus.menus %}
+          {%- for entry in site.data.menus.menus -%}
             <li>
               <a href='/{{entry.path}}'> {{entry.text}} </a>
               <ul>
-                {% for subentry in site.data.menus[entry.path] %}
-                  {% if subentry.separator %}
+                {%- for subentry in site.data.menus[entry.path] -%}
+                  {%- if subentry.separator -%}
                     <li class='separator' />
-                  {% else %}
-                    {% if entry.subdir %}
+                  {%- else -%}
+                    {%- if entry.subdir -%}
                       <li> <a href='/{{entry.path}}/{{subentry.path}}'> {{subentry.text}} </a> </li>
-                    {% else %}
+                    {%- else -%}
                       <li> <a href='/{{subentry.path}}'> {{subentry.text}} </a> </li>
-                    {% endif %}
-                  {% endif %}
-                {% endfor %}
+                    {%- endif -%}
+                  {%- endif -%}
+                {%- endfor -%}
               </ul>
             </li>
-          {% endfor %}
-
+          {%- endfor -%}
           <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Home/Login'>Login</a>
           <li class='login'><a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>

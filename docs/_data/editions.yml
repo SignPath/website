@@ -14,6 +14,7 @@
   signing_methods:
     authenticode: true
     powershell: true
+    windows_scripting_host: false
     clickonce: true
     device_drivers: false
     office_add_ins: true
@@ -21,6 +22,7 @@
     nuget: true
     android: true
     java: false
+    office_macros: false
     docker: false
   artifact_configuration:
     deep_signing: true
@@ -65,6 +67,7 @@
   signing_methods:
     authenticode: true
     powershell: true
+    windows_scripting_host: false
     clickonce: true
     device_drivers: true
     office_add_ins: true
@@ -72,6 +75,7 @@
     nuget: true
     android: true
     java: true
+    office_macros: false
     docker: false
   artifact_configuration:
     deep_signing: true
@@ -111,6 +115,7 @@
   signing_methods:
     authenticode: true
     powershell: true
+    windows_scripting_host: true
     clickonce: true
     device_drivers: true
     office_add_ins: true
@@ -118,6 +123,7 @@
     nuget: true
     android: true
     java: true
+    office_macros: true
     docker: true
   artifact_configuration:
     deep_signing: true
@@ -159,6 +165,7 @@
   signing_methods:
     authenticode: true
     powershell: true
+    windows_scripting_host: true
     clickonce: true
     device_drivers: false
     device_drivers-hint: Due to changes in Microsoft&apos;s policies, device driver signing now requires EV certificates and attestation signing. Currently we cannot provide EV certificates to OSS projects.
@@ -167,6 +174,7 @@
     nuget: true
     android: true
     java: true
+    office_macros: false
     docker: true
   artifact_configuration:
     deep_signing: true

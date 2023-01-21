@@ -45,17 +45,15 @@ When you edit XML content in place, a graphical representation will be rendered 
 
 Read more about projects and artifact configurations in [Setting up Projects](/documentation/projects).
 
-## Deep signing
-
-In case you have more complex, nested artifacts, you might want to not only sign the container itself (for instance, an MSI installer package), but also all files that are shipped within the container (e.g., .exe and .dll files within the MSI installer). 
-
-Therefore, every *container* format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container file during the signing process. All inner elements need a `path` attribute.
-
-## Defining file and directory structure
+## Containers: defining file and directory structure {#containers}
 
 Every XML description is wrapped in an `<artifact-configuration>` root element which contains exactly one file element. This file element specifies the type of artifact and signing method. Optionally, you can restrict the name of the file using the `path` attribute.
 
-Container-format elements may contain other file elements for deep signing.
+Container-format elements may contain other file elements for deep signing. Every *container* format can contain multiple other *file* or *directory* elements to be signed. Each of those will be extracted, signed, and then put back into the container during the signing process. All inner elements need a `path` attribute.
+
+## Deep signing containers
+
+Sometimes you need to sign both the container and its contents. For instance, an MSI installer package needs to be signed, but you also want the files it installs to be signed. SignPath can sign both the container and its contents in a single pass if you specify an appropriate artifact configuration. See [here](#msi-sample) for an example.
 
 ### Platform considerations
 
@@ -69,7 +67,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
 <thead>
   <tr>
     <th style="width: 9em;">Element</th>
-    <th>Container format</th>
+    <th><a href="#containers">Container format</a></th>
     <th style="width: 10em;">Signing directive</th>
     <th>Extensions</th>
     <th>Description</th>
@@ -80,7 +78,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td><code>&lt;pe-file&gt;</code></td>
     <td>No</td>
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.acm, .ax, .cpl, .dll, .drv, .efi, .exe, .mui, .ocx, .scr, .sys, .tsp</td>
+    <td>.exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp</td>
     <td>Portable Executable (PE) files: EXE, DLL, and other executable files</td>
   </tr>
   <tr>
@@ -89,6 +87,15 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.ps1, .psm1, psd1, .psdc1, .ps1xml</td>
     <td>PowerShell scripts and modules</td>
+  </tr>
+  <tr>
+    <td><code>&lt;windows-script-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
+    <td>.wsf, ,vbs, .js</td>
+    <td markdown="1">Windows scripts for Windows Scripting Host, typically VBScript and JScript[^jscript]. (Not available for Starter subscriptions.)
+
+</td>
   </tr>
   <tr>
     <td><code>&lt;msi-file&gt;</code></td>
@@ -113,23 +120,34 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   </tr>
   <tr>
     <td><code>&lt;appx-file&gt;</code></td>
-    <td>Yes</td>
+    <td markdown="1">Yes[^no_deepsigning_yet]
+
+</td>
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.appx, .appxbundle</td>
     <td>
       App packages for Microsoft Store/Universal Windows Platform<br>
-      <svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
-       Deep signing is not yet supported.<br>
-      <svg class="icon blog" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><path fill="currentColor" d="M 16 3 C 8.832031 3 3 8.832031 3 16 C 3 23.167969 8.832031 29 16 29 C 23.167969 29 29 23.167969 29 16 C 29 8.832031 23.167969 3 16 3 Z M 16 5 C 22.085938 5 27 9.914063 27 16 C 27 22.085938 22.085938 27 16 27 C 9.914063 27 5 22.085938 5 16 C 5 9.914063 9.914063 5 16 5 Z M 15 10 L 15 12 L 17 12 L 17 10 Z M 15 14 L 15 22 L 17 22 L 17 14 Z"/></svg>
-       The Common Name of the code signing certificate must match the PublisherDisplayName in the AppxManifest.xml file.
+      <span style="font-family: 'Line Awesome Free'; font-weight: 800;">&#61530;</span> 
+      The Common Name of the code signing certificate must match the PublisherDisplayName in the AppxManifest.xml file.
+  </td>
+  </tr>
+  <tr>
+    <td><code>&lt;msix-file&gt;</code></td>
+    <td markdown="1">Yes[^no_deepsigning_yet]
+
+</td>
+    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
+    <td>.msix, .msixbundle</td>
+    <td>
+      MSIX installer app packages for Microsoft Windows
   </td>
   </tr>
   <tr>
     <td><code>&lt;opc-file&gt;</code></td>
     <td>Yes</td>
     <td><code><a href="#opc-sign">&lt;opc-sign&gt;</a></code></td>
-    <td>.vsix, .xps, ...</td>
-    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX)</td>
+    <td>.vsix, .xps, hlkx, ...</td>
+    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. (Driver signing not available for Starter subscriptions.)</td>
   </tr>
   <tr>
     <td><code>&lt;nupkg-file&gt;</code></td>
@@ -142,7 +160,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>Yes</td>
     <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
     <td>.jar, .war, .ear, .apk, .aab</td>
-    <td>Java archives and Android apps.</td>
+    <td>Java archives and Android apps. (Not available for Starter subscriptions.)</td>
   </tr>
   </tr>
     <tr>
@@ -150,14 +168,29 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>Yes</td>
     <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
     <td>.zip</td>
-    <td>Use ZIP archives to sign multiple files at once</td>
+    <td>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a>.    
+</td>
   </tr>
   <tr>
-    <td><code>&lt;directory&gt;</code></td>
+    <td><code>&lt;office-oxml-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
+    <td>.xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, ... </td>
+    <td>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
+  </tr>  
+  <tr>
+    <td><code>&lt;office-binary-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
+    <td>xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
+    <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
+  </tr> 
+  <tr>
+    <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
     <td>Yes</td>
     <td><code><a href="#clickonce-sign">&lt;clickonce-sign&gt;</a></code></td>
     <td></td>
-    <td>Directories within container files (e.g. ZIP, MSI)</td>
+    <td>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</td>
   </tr>
 </tbody>
 </table>
@@ -269,6 +302,31 @@ Although the NuGet Package format is based on OPC (see next section), it uses it
 
 Using `<nuget-sign>` is equivalent to using Microsoft's `nuget` `sign` command.
 
+### &lt;office-macro-sign&gt;
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Use this directive to sign Visual Basic for Applications (VBA) macros in Microsoft Office files.
+	
+Use `<office-oxml-file>` for Microsoft Office Open XML files:
+
+* **Excel:** .xlam, .xlsb, .xlsm, .xltm
+* **PowerPoint:** .potm, .ppam, .ppsm, .pptm
+* **Visio:** .vsdm, .vssm, .vstm
+* **Word:** .docm, .dotm
+
+Use `<office-binary-file>` for binary Microsoft Office files:
+
+* **Excel:** .xla, .xls, .xlt
+* **PowerPoint:** .pot, .ppa, .pps, .ppt
+* **Project:** .mpp, .mpt
+* **Publisher:** .pub
+* **Visio:** .vdw, .vdx, .vsd, .vss, .vst, .vsx, .vtx
+* **Word:** .doc, .dot, .wiz
+
+Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files. 
+
 ### &lt;opc-sign&gt;
 
 The [Open Packaging Conventions](https://en.wikipedia.org/wiki/Open_Packaging_Conventions) (OPC) specification has its own signature format. Since OPC is the foundation for several file formats, it is not strictly a code signing format. However, code signing is used for Visual Studio Extensions (VSIX).
@@ -285,6 +343,9 @@ Using `<opc-sign>` for Visual Studio Extensions is equivalent to using Microsoft
 <!-- markdownlint-enable MD026 no trailing punctuation -->
 
 ### &lt;jar-sign&gt;
+
+Available for Basic and Enterprise subscriptions
+{: .badge.icon-signpath}
 
 This signing method can be used to sign the following file formats:
 
@@ -336,11 +397,19 @@ If multiple files or directories should be handled in the same way, you can enum
 
 * `<directory-set>`
 * `<pe-file-set>`
-* `<zip-file-set>`
+* `<powershell-file-set>`
+* `<windows-script-file-set>`
 * `<msi-file-set>`
 * `<cab-file-set>`
+* `<catalog-file-set>`
+* `<appx-file-set>`
+* `<msix-file-set>`
 * `<opc-file-set>`
 * `<nupkg-file-set>`
+* `<jar-file-set>`
+* `<zip-file-set>`
+* `<office-oxml-file-set>`
+* `<office-binary-file-set>`
 
 Each set element contains:
 
@@ -477,7 +546,7 @@ You can sign multiple unrelated artifacts by packing them into a single ZIP file
 </artifact-configuration>
 ~~~
 
-### Deep-signing an MSI installer
+### Deep-signing an MSI installer {#msi-sample}
 
 This will sign the PE files `libs/common.dll` and `main.exe`, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.
 
@@ -556,3 +625,7 @@ Example of a directory structure that would match this configuration:
 ![graphical resolved artifacts](/assets/img/resources/documentation_artifact-configuration_similar-resolved.png)
 
 </td></tr></table>
+
+[^no_deepsigning_yet]: Deep signing is not yet supported for AppX and MSIX.
+
+[^jscript]: Note that [JScript](https://en.wikipedia.org/wiki/JScript) is not the same as JavaScript. While it is possible to use this option to sign JavaScript files, JavaScript engines will not be able to use this signature.
