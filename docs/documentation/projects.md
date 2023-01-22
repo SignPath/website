@@ -16,11 +16,10 @@ Projects consist of these configuration sections:
 * [**Project settings**](#project-settings)
 * [**Signing policies**](#signing-policies) are used to declare the **rules and permissions** for signing with a specific **certificate**. A typical project has signing policies for **test-signing** and **release-signing**.
 * [**Artifact configurations**](#artifact-configurations) define the **structure** of an artifact, which parts should be signed, and the respective **signing methods**.
-* [**Trusted build systems**](#trusted-build-systems) are specified to add [**origin verification**](#origin-verification) to your signing requests. 
+* [**Trusted build systems**](#trusted-build-systems) are added to projects for build agent restrictions and [**origin verification**](#signing-policy-origin-verification) in signing policies. 
 * [**Webhooks**](#webhooks) provide notifications for build automation.
 
-## Project settings 
-{: #project-settings}
+## Project settings {#project-settings}
 
 | Property                   | Value                                                                                                                     | Editions
 |----------------------------|---------------------------------------------------------------------------------------------------------------------------|-----
@@ -29,11 +28,10 @@ Projects consist of these configuration sections:
 | **Status**                 | *Valid*, *inactive*, or *invalid*
 | **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise
 | **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise
-| **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#origin-verification) 
+| **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#signing-policy-origin-verification) 
 | **Description**            | Free text description of the project
 
 ## Signing policies 
-{: #signing-policies}
 
 Signing policies define the rules and permissions for signing and the certificate that will be used. Each signing request must use a specific signing policy. The signing request will then be processed according to this policy.
 
@@ -67,23 +65,28 @@ Select **Use approval process** if you want to require manual approval for each 
 | **Approvers**          | Select the users that are allowed to approve signing requests. They will receive e-mail notifications for each request. 
 | **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise 
 
-### Origin verification restriction 
-{: #origin-verification}
+### Trusted build system verification {#signing-policy-trusted-build-system}
 
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Select **Verify origin** if you want to accept only signing requests with positive origin verification.
+Define that this signing policy can only be used from the trusted build systems [defined for the project](#trusted-build-systems).
 
-Requirements: 
+When trusted build system verification is enabled, interactive users cannot be declared as Submitters.
 
-* Only CI users may be declared as submitters
-* A [trusted build system](#trusted-build-systems) must be configured in the project settings.
+### Origin verification restriction {#signing-policy-origin-verification}
 
-| Property                   | Value |
-|----------------------------|-------|
-| **Project repository URL** | Must be configured in the project settings (applies to all signing policies) |
-| **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds. |
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Select **Verify origin** if you want to accept only signing requests with positive [origin verification](/documentation/origin-verification).
+
+[Trusted build system verification](#signing-policy-trusted-build-system) must be enabled for origin verfication.
+
+| Property                   | Value 
+|----------------------------|-------
+| **Project repository URL** | Must be configured in the project settings (applies to all signing policies)
+| **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds.
 
 <div class="panel tip" markdown='1'>
 <div class="panel-header">Create differentiated signing policies</div>
@@ -107,8 +110,7 @@ In some situations, it might even be necessary to sign any old release, e.g. via
 
 </div>
 
-## Artifact configurations 
-{: #artifact-configurations}
+## Artifact configurations {#artifact-configurations}
 
 At the core of each SignPath project is an artifact configuration. It describes the file type of your artifact and a corresponding code signing method (e.g. an EXE file signed 
 with Authenticode).
@@ -153,19 +155,17 @@ In the latter case, you need to manually review the resulting artifact configura
 
 For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration).
 
-## Trusted build systems 
-{: #trusted-build-systems}
+## Trusted build systems {#trusted-build-systems}
 
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Trusted build systems are used to provide [origin verification](#origin-verification) in your build pipeline.
+Define which [trusted build systems](/documentation/trusted-build-systems) may be used for this project. From your project configuration, you can link any trusted build system that your SignPath administrator has defined.
 
-This requires a [CI integration with origin verification support](/documentation/build-system-integration#ci-integrations-with-origin-verification). Currently only AppVeyor is supported.
+Using a trusted build systems is required for signing policies that have the [_trusted build system verification_](#signing-policy-trusted-build-system) option enabled.
 
-From your project configuration, you can link any trusted build system that your SignPath administrator has added.
+Trusted build systems are used to make sure that only builds from reliable sources can be signed using certain policies and certificates. They are also the foundation of [origin verification](#signing-policy-origin-verification).
 
 ## Webhooks 
-{: #webhooks}
 
 Configure Webhooks to notify other systems in your build chain about completed signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).

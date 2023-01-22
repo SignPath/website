@@ -27,6 +27,9 @@
 - text: Trusted Build Systems
   path: trusted-build-systems
 
+- text: Origin Verification
+  path: origin-verification
+
 - separator: true
 
 - text: PowerShell cmdlets
