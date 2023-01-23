@@ -80,9 +80,9 @@ This is a very straightforward way to authorize specific groups of build nodes f
 * Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/submit-signingrequest). Use the template ID to select the correct certificate client certificate.
 </div>
 
-Here's an overview of how machine certificates, Double Authentication Proxy and SignPath work together:
+This diagram shows how machine certificates, Double Authentication Proxy and SignPath work together:
 
-![Double Authentication Proxy architecture diagram](/assets/img/resources/double-authentication-proxy.png)
+![Double Authentication Proxy architecture diagram](/assets/img/resources/double-authentication-proxy.png){:width="500px"}
 
 Contact support@signpath.io for installable container images and documentation.
 

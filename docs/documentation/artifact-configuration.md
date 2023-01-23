@@ -182,7 +182,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td><code>&lt;office-binary-file&gt;</code></td>
     <td>No</td>
     <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
-    <td>xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
+    <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
     <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
   </tr> 
   <tr>
