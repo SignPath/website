@@ -31,7 +31,7 @@ Projects consist of these configuration sections:
 | **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#signing-policy-origin-verification) 
 | **Description**            | Free text description of the project
 
-## Signing policies 
+## Signing policies {#signing-policies}
 
 Signing policies define the rules and permissions for signing and the certificate that will be used. Each signing request must use a specific signing policy. The signing request will then be processed according to this policy.
 

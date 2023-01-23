@@ -71,7 +71,7 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 **Automatically fulfilled when using SignPath.**
 
-> This is what SignPath [signing policies] are all about. While projects contain all information required for signing a specific artifact, only signing configurations will allow your projects to be signed using any given certificate.
+> This is what SignPath [signing policies](/documentation/projects#signing-policies) are all about. While projects contain all information required for signing a specific artifact, only signing configurations will allow your projects to be signed using any given certificate.
 >
 > SignPath advises you to create at least one signing policy for test-signing and one for release-signing.
 
