@@ -51,9 +51,9 @@ This table shows how readily available policies provide **inadequate security** 
 |--------------------------------------------------------------|-----------------|-----------------|-----------------|
 | **Without SignPath**                                                                                               |
 | Enable macro execution                                       | 🔴             | 🟢              | 🟢             | This should never be enabled
-| Let users decide whether to execute macros                   | 🟠             | 🟢              | 🟢             | You cannot rely on users making _always_ making the right decision
+| Let users decide whether to execute macros                   | 🟠             | 🟢              | 🟢             | You cannot rely on users _always_ making the right decision
 | Disable macro execution except for digitally signed macros   | 🟡             | 🟠              | 🟢             | Adequate private key security requires dedicated hardware, plus you need a reliable and auditable process
-| Disable macro execution except for users the require them    | 🟡             | 🔴              | 🟠             | Each of these users still poses a risk, and they often add up
+| Disable macro execution except for users who require them    | 🟡             | 🔴              | 🟠             | Each of these users still poses a risk, and they often add up
 | Disable macro execution except for certain storage locations | 🟡             | 🟡              | 🟡             | This will mitigate direct internet/email attacks, but still any user can drop a malicious document in a trusted location
 | Disable macro execution for everyone                         | 🟢             | 🟢              | 🔴             | Very safe but often unrealistic 
 | **Using SignPath**                                                                                                 |
@@ -63,9 +63,9 @@ This table shows how readily available policies provide **inadequate security** 
 
 Macros signing is easy to set up using the policy framework provided by SignPath:
 
-* VBA developers create and edit macros in office documents and document template 
+* VBA developers create and edit macros in office documents and document templates 
 * Macros are signed manually or automatically using SignPath
-* Administratory set up signing permissions and approval rules
+* Administrators set up signing permissions and approval rules
 
 For approved macros, this process has no impact on business units using Office documents:
 
