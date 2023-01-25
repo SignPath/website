@@ -9,7 +9,7 @@ incidents:
     range: 'Jan 25, 2023 07:05 UTC (ongoing)'
     type: warning
     title: 'Intermittent network problems'
-    description: 'Due to ongoing multi-region network problems in Microsoft Azure, a small percentage of signing request is currently failing. In most situations, this is mitigated by automated retries.'
+    description: 'Due to ongoing multi-region network problems in Microsoft Azure, a small percentage of signing requests is currently failing. In most situations, this is mitigated by automated retries.'
     link: 'https://status.azure.com/en-us/status'
   - date: 'Dec. 12, 2022'
     range: 'Dec. 12, 2022 21:20 - Dec. 13, 9:50 UTC'
