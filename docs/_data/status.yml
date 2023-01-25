@@ -1,16 +1,16 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    title: 'Intermittent network problems'
-    #title: 'All systems are operational'
+    type: good
+    title: 'All systems are operational'
+    #title: 'Intermittent network problems'
     #title: 'Planned maintenance - limited availability'
 incidents:
   - date: 'Jan. 25, 20223'
-    range: 'Jan 25, 2023 07:05 UTC (ongoing)'
+    range: 'Jan 25, 2023 07:05 - 9:45 UTC'
     type: warning
     title: 'Intermittent network problems'
-    description: 'Due to ongoing multi-region network problems in Microsoft Azure, a small percentage of signing requests is currently failing. In most situations, this is mitigated by automated retries.'
-    link: 'https://status.azure.com/en-us/status'
+    description: 'Due to multi-region network problems in Microsoft Azure (Tracking ID VSG1-B90), a small percentage of signing requests was failing. In most situations, this was mitigated by automated retries.'
+    link: 'https://azure.status.microsoft/en-us/status/history/'
   - date: 'Dec. 12, 2022'
     range: 'Dec. 12, 2022 21:20 - Dec. 13, 9:50 UTC'
     type: critical
