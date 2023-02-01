@@ -134,7 +134,7 @@ SHA-1 is no longer considered secure by the crypto community or Microsoft. Hacke
 
 For some time, it was recommended that files should be dual-signed with both SHA-1 and SHA-2 signatures for backwards compatibility, but this seems no longer necessary: SHA-2 has been in Windows starting with Windows 8 and Server 2012. Also, Windows 7 and Server 2008 have been updated in 2015 to support SHA-2.
 
-## Hardware Security Modules (HSMs)
+## Hardware Security Modules (HSMs) {#hsm}
 
 ### What is an HSM?
 
