@@ -20,7 +20,7 @@ Also unlike normal programs, administrators find it **almost impossible to provi
 * Use group policies to allow execution only for macros signed with trusted certificates
 * Assign trusted certificates to users and groups
 
-![Supported applications: Excel, PowerPoint, Project, Publisher, Visio, Word](/assets/img/features/office-supported-apps.png){:width=800}
+![Supported applications: Excel, PowerPoint, Project, Publisher, Visio, Word](/assets/img/product/office-macros/office-supported-apps.png){:width=800}
 
 <div class="panel tip" markdown="1">
 <div class="panel-header">Global certificate vs. assigning certificates to teams</div>
@@ -72,4 +72,4 @@ For approved macros, this process has no impact on business units using Office d
 * Users can create new documents and view, edit and save data in existing documents without affecting signed macros
 * Documents can be stored in any location and shared via email
 
-![Macro signing process](/assets/img/features/macro-signing-process.png){:width=800}
+![Macro signing process](/assets/img/product/office-macros/macro-signing-process.png){:width=800}
