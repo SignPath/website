@@ -5,9 +5,11 @@ toc: true
 description: Keep your keys on a dedicated Thales Data Protection on Demand (DPoD) Cloud HSM
 ---
 
-## Hybrid models and DPoD Cloud HSM
+## Hybrid deployment models with DPoD Cloud HSM
 
 At the core of every SignPath deployment, a [Hardware Security Module (HSM)](/code-signing/windows-platform/#hsm) keeps your keys safe.
+
+With [Thales Data Protection on Demand][DPoD] (DPoD), you can get your own dedicated Cloud HSM instances to store and manage your keys.
 
 Between the pure managed SaaS environment and a fully self-hosted environment with a dedicated HSM, SignPath offers two **hybrid deployment options**:
 
@@ -62,3 +64,5 @@ For easier comparison, this sections shows the pure SaaS and on-premises deploym
 DPoD Cloud HSM can be procured with SignPath, or you can bring an existing DPoD instance. In either case we recommend using one or more dedicated Cloud HSM instances for code signing.
 
 Please [contact our sales team](mailto:sales@signpath.io?subject=Using SignPath with DPoD) for more information.
+
+[DPoD]: https://cpl.thalesgroup.com/encryption/data-protection-on-demand
