@@ -27,10 +27,6 @@ Advantages of using DPoD Cloud HSM with SignPath Cloud:
 
 ![Hybrid SaaS deployment model](/assets/img/product/thales-dpod/deployment-hybrid-saas.png)
 
-The Cloud HSM can be purchased via SignPath, or you can bring an existing DPoD instance. In either case we recommend using one or more dedicated Cloud HSM instances for code signing.
-
-Please [contact our sales team](mailto:sales@signpath.io) for more information.
-
 ## Self-hosted SignPath with DPoD Cloud HSM
 
 If you are **deploying SignPath in a Private Cloud** environment, it is obvious that you would also use a Cloude-based HSM. Thales DPoD provides just that.
