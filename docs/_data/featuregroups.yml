@@ -155,8 +155,11 @@
       title: 'HSM key storage'
       hint: 'Private keys are created and stored on a Hardware Security Module (HSM). Signatures are created by the HSM, private keys cannot be exported.'
     - name: available_on_premises
-      title: 'On-premises option'
-      hint: 'Deploy SignPath in your own organization for full control, unlimited processing and reduced bandwith consumption.'
+      title: 'Self-hosted option'
+      hint: 'Deploy SignPath in your own organization on-premises or in a Private Cloud for full control, unlimited processing and reduced bandwith consumption.'
+    - name: cert_enrollment
+      title: 'Automatic certificate enrollment'
+      hint: 'Integrate with your Certificate Authority via EST (Enrollment over Secure Transport, RFC 7030)'
     - name: support
       title: 'Support'
     - name: code_signing_consulting
