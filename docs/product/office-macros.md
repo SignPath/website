@@ -47,17 +47,15 @@ Your business partners will be informed that macros have been signed by your org
 
 This table shows how readily available policies provide **inadequate security** and/or **impact the business** to an unacceptable degree:
 
-| Method                                                       | Security level  | Implementation  | Business impact |
-|--------------------------------------------------------------|-----------------|-----------------|-----------------|
-| **Without SignPath**                                                                                               |
+| Method                                                       | Security level  | Implementation  | Business impact | Remarks
+|--------------------------------------------------------------|-----------------|-----------------|-----------------|----------------------------------------
 | Enable macro execution                                       | 🔴             | 🟢              | 🟢             | This should never be enabled
 | Let users decide whether to execute macros                   | 🟠             | 🟢              | 🟢             | You cannot rely on users _always_ making the right decision
 | Disable macro execution except for digitally signed macros   | 🟡             | 🟠              | 🟢             | Adequate private key security requires dedicated hardware, plus you need a reliable and auditable process
 | Disable macro execution except for users who require them    | 🟡             | 🔴              | 🟠             | Each of these users still poses a risk, and they often add up
 | Disable macro execution except for certain storage locations | 🟡             | 🟡              | 🟡             | This will mitigate direct internet/email attacks, but still any user can drop a malicious document in a trusted location
 | Disable macro execution for everyone                         | 🟢             | 🟢              | 🔴             | Very safe but often unrealistic 
-| **Using SignPath**                                                                                                 |
-| Disable macro execution except for digitally signed macros   | 🟢             | 🟢              | 🟢             | Easily implement a secure signing process using an authorization and approval framework, and never worry about bad user choices again!
+| **Using SignPath:** <br> Disable macro execution except for digitally signed macros   | 🟢 | 🟢 | 🟢             | Provide a secure process that aligns signing authorization and approval policies with macro execution policies.
 
 ## End-to-End Security for Office Macros
 
