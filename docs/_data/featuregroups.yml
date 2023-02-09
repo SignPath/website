@@ -32,7 +32,7 @@
 
 - name: signing_methods
   title: 'Signing methods and file types'
-  href: '/product/editions-explained#signing-methods-and-file-types'
+  href: '/product/editions-explained#signing-methods'
   features:
     - name: authenticode
       title: 'Windows Authenticode'
@@ -75,6 +75,12 @@
     - name: docker
       title: 'Docker images'
       sub: 'Notary'
+      href: '/product/editions-explained#container-signing'
+    - name: hash_based
+      title: 'Hash-based signing'
+      hint: 'Sign files using various tools with SignPath cryptographic providers for Windows and Linux'
+      sub: 'KSP, CSP, <br> PKCS#11'
+      href: '/product/editions-explained#hash-signing'
 
 - name: artifact_configuration
   title: 'Artifact configuration'

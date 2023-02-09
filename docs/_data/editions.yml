@@ -24,6 +24,7 @@
     java: false
     office_macros: false
     docker: false
+    hash_based: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: false
@@ -78,6 +79,7 @@
     java: true
     office_macros: false
     docker: false
+    hash_based: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true
@@ -127,6 +129,7 @@
     java: true
     office_macros: true
     docker: true
+    hash_based: true
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true
@@ -179,6 +182,7 @@
     java: true
     office_macros: false
     docker: true
+    hash_based: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_projects: true

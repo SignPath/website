@@ -96,9 +96,36 @@ We recommend that you create one signing request per release of your software. T
 
 Additional signing requests submitted from CI pipelines may be rejected and have to be repeated later.
 
-## Signing methods and file types
+## Signing methods and file types {#signing-methods}
 
-See [artifact configurations](/documentation/artifact-configuration#file-elements) for details about available signing methods and file types.
+### File-based signing {#file-signing}
+
+SignPath directly supports signing various file formats. See [artifact configurations](/documentation/artifact-configuration#file-elements) for details about available signing methods and file types.
+
+### Docker/container signing {#container-signing}
+
+SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.
+
+### Hash-based signing {#hash-signing}
+
+Use any code signing tool that supports either of these interfaces:
+
+| Interface                                | Technology                         | Supported Platforms | Signing Tools
+|------------------------------------------|------------------------------------|---------------------|-----------------
+| **KSP** (Key Storage Provider)           | CNG (Cryptography Next Generation) | Windows             | `SignTool.exe`, `Mage.exe`, `nuget sign`, ...
+| **CSP** (Cryptographic Storage Provider) | CAPI (Cryptographic API)           | Windows             | Same as KSP, legacy tools
+| **Cryptoki** library                     | PKCS#11                            | Windows, Linux      | `jarsigner`, OpenSSL, GPG, RPM, DEB, Maven ...
+
+Note that with hash-based signing, artifacts are note transfered to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.
+
+The following features are therefore not available for hash-based signing:
+
+* [Deep signing](#deep-signing)
+* [Metadata constraints](#metadata-constraints)
+* [User-defined parameters](#user-defined-parameters)
+* [Manual approval](#manual-approval)
+* [Origin verification](#origin-verification)
+* [Resubmit](#resubmit)
 
 ## Artifact configuration
 
