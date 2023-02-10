@@ -116,7 +116,7 @@ Use any code signing tool that supports either of these interfaces:
 | **CSP** (Cryptographic Storage Provider) | CAPI (Cryptographic API)           | Windows             | Same as KSP, legacy tools
 | **Cryptoki** library                     | PKCS#11                            | Windows, Linux      | `jarsigner`, OpenSSL, GPG, RPM, DEB, Maven ...
 
-Note that with hash-based signing, artifacts are note transfered to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.
+Note that with hash-based signing, artifacts are not transferred to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.
 
 The following features are therefore not available for hash-based signing:
 
