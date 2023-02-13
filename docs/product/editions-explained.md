@@ -106,6 +106,8 @@ SignPath directly supports signing various file formats. See [artifact configura
 
 SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.
 
+**Available for** _{{ site.data.editions | where: "signing_methods.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ### Hash-based signing {#hash-signing}
 
 Use any code signing tool that supports either of these interfaces:
@@ -127,6 +129,8 @@ The following features are therefore not available for hash-based signing:
 * [Origin verification](#origin-verification)
 * [Resubmit](#resubmit)
 
+**Available for** _{{ site.data.editions | where: "signing_methods.hash_based", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ## Artifact configuration
 
 Artifact configurations define what artifacts to sign and how. They can either simply define the file type, or they can be detailed specifications of complex artifacts that contain other (nested) artifacts. See [setting up projects](/documentation/projects#artifact-configurations) for details.
@@ -142,7 +146,7 @@ Create [multiple artifact configurations](/documentation/projects#keeping-versio
 * projects that create different artifact at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)
 
-*Starter* subscriptions can only have one artifact configuration per project.
+**Available for** _{{ site.data.editions | where: "artifact_configuration.multiple_configurations_per_project", "true" | map: "name" | join: ", " }}_ subscriptions.
 
 ### Metadata constraints
 
@@ -154,7 +158,7 @@ This is useful if you want to
 * avoid unintentional signing of third-party components
 * defend against unauthorized signing (while this can be circumvented by aware parties, the attempt is reported and can be investigated)
 
-Metadata constraints are only available for *Enterprise* subscriptions.
+**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions.
 
 ### User-defined parameters
 
@@ -165,6 +169,8 @@ Use this to
 * track arbitrary values across signing requests
 * include build-time values 
 
+**Available for** _{{ site.data.editions | where: "artifact_configuration.user_defined_parameters", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ## Policy enforcement
 
 ### Manual approval
@@ -173,11 +179,15 @@ Specify that one or more approvals are required before a signing request is proc
 
 This is typically used for release-signing. Note that [origin verification](#origin-verification) allows to create secure signing policies without manual approval. 
 
-* *Starter* subscriptions do not provide manual approval. 
-* With *Basic* subscriptions, you can specify a list of approvers, and any of them may approve.
-* With *Enterprise* subscriptions, you mal also specify that at least *k* approvals are required (quorum or k-out-of-n approval).
+**Available for** _{{ site.data.editions | where: "policy_enforcement.manual_approval", "true" | map: "name" | join: ", " }}_ subscriptions. Required for _Open Source_ subscriptions.
 
-See [approval process](/documentation/projects#approval-process) for more information.
+#### Quorum approval
+
+You may also specify that a certain number approvals is required (a.k.a. _k-out-of-n_ approval).
+
+**Available for** _{{ site.data.editions | where: "policy_enforcement.quorum_approval", "true" | map: "name" | join: ", " }}_ subscriptions.
+
+See [approval process](/documentation/projects#approval-process) for more information about manual approval.
 
 ### Signing policies per project
 
@@ -219,7 +229,9 @@ For full security, make sure
 * that all upstream components are signed by their publishers, and signatures are verified
 * that your repository and CI infrastructure is secure
 
-Available for *Enterprise* subscriptions.
+See [origin verfication](/documentation/origin-verification) for more information.
+
+**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions.
 
 #### Origin-based policies
 
@@ -239,10 +251,14 @@ Resubmit signing requests for signing using different policies and/or certificat
 
 This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. 
 
-Available for *Enterprise* subscriptions. See [signing code](/documentation/signing-code#resubmit).
+See [signing code](/documentation/signing-code#resubmit).
+
+**Available for** _{{ site.data.editions | where: "policy_enforcement.resubmit", "true" | map: "name" | join: ", " }}_ subscriptions.
 
 ### Certificate policies
 
 Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.
 
-Available for *Enterprise* subscriptions. See [managing certificates](/documentation/managing-certificates).
+See [managing certificates](/documentation/managing-certificates).
+
+**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions. 

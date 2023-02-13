@@ -89,7 +89,7 @@
       title: 'Deep signing'
       hint: 'Sign files contained in installers, packages, add-ins etc.'
       href: '/product/editions-explained#deep-signing'
-    - name: multiple_configurations_per_projects
+    - name: multiple_configurations_per_project
       title: 'Multiple versions'
       hint: 'Projects can have multiple named artifact configurations (e.g. for versioning).'
       href: '/product/editions-explained#multiple-versions'
