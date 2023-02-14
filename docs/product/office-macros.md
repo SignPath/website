@@ -43,7 +43,7 @@ Your business partners will be informed that macros have been signed by your org
 
 **Using SignPath, you can keep your signing keys safe and easily create well-defined signing processes for each of these certificates.**
 
-## Inadequacy of Other Approaces
+## Inadequacy of Other Approaches
 
 This table shows how readily available policies provide **inadequate security** and/or **impact the business** to an unacceptable degree:
 
