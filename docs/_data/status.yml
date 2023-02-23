@@ -9,7 +9,7 @@ planned:
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
     type: critical
     title: 'HSM network reconfiguration'
-    description: 'We are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are be affected.'
+    description: 'We are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are not affected.'
 incidents:
   - date: 'Jan. 25, 2023'
     range: 'Jan 25, 2023 07:05 - 9:45 UTC'
