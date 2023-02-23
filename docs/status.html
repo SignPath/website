@@ -14,30 +14,49 @@ description: SignPath SaaS environment operational status
 <section class="status-section">
 	<div>
 		<h2 class='{{ site.data.status.current.type }}'>
-			{% if     site.data.status.current.type == "good" %}
-			{% include status_good.svg %}
-			{% elsif site.data.status.current.type == "info" %}
-			{% include status_info.svg %}
-			{% elsif site.data.status.current.type == "warning" %}
-			{% include status_warning.svg %}
-			{% else %}
-			{% include status_bad.svg %}
-			{% endif %}
+			{%- if site.data.status.current.type == "good" -%}
+				{%- include status_good.svg -%}
+			{%- elsif site.data.status.current.type == "info" -%}
+				{%- include status_info.svg -%}
+			{%- elsif site.data.status.current.type == "warning" -%}
+				{%- include status_warning.svg -%}
+			{%- else -%}
+				{%- include status_bad.svg -%}
+			{%- endif -%}
 			{{ site.data.status.current.title }}
 		</h2>
+		<h3>Planned maintenance</h3>
+		{%- unless site.data.status.planned -%}
+			<div>No maintenance planned.</div>
+		{%- endunless -%}
 		<ul>
-			{% for incident in site.data.status.incidents %}
+			{%- for incident in site.data.status.planned -%}
 				<li class="{{ incident.type }}">
 					<h3>{{ incident.date}}</h3>
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
 					<div>
 						{{ incident.description }}
-						{% if incident.link %} <a href="{{ incident.link }}"> (Read more)</a> {% endif %}
+						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
 
 					</div>
 				</li>
-			{% endfor %}
+			{%- endfor -%}
+		</ul>
+		<h3>Past incidents and maintenance</h3>
+		<ul>
+			{%- for incident in site.data.status.incidents -%}
+				<li class="{{ incident.type }}">
+					<h3>{{ incident.date}}</h3>
+					<label>{{ incident.range }}</label>
+					<h4>{{ incident.title }}</h4>
+					<div>
+						{{ incident.description }}
+						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
+
+					</div>
+				</li>
+			{%- endfor -%}
 		</ul>
 		<p>
 			Note that system updates and SignPath software updates are not listed here unless they may result in more than 5 minutes of downtime.
