@@ -22,9 +22,11 @@ description: SignPath team blog
         {% for post in site.posts %}
           {% if page.featured_slugs contains post.slug %}
             <li>
-              <a style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
-                {{ post.title }}
-              </a>
+              <div class="header" style="background-image:url(/assets/posts/{{post.image}}_small.jpg);">
+                <a href='{{ post.url }}'>
+                  {{ post.title }}
+                </a>
+              </div>
               <div>
                 <div class='info'>
                   <span>
@@ -55,9 +57,11 @@ description: SignPath team blog
     <ul class='card-container'>
       {% for post in site.posts %}
         <li>
-          <a style='background-image:url(/assets/posts/{{ post.image }}_small.jpg);' href='{{ post.url }}'>
-            {{ post.title }}
-          </a>
+          <div class="header" style="background-image:url(/assets/posts/{{post.image}}_small.jpg);">
+              <a href='{{ post.url }}'>
+              {{ post.title }}
+            </a>
+          </div>
           <div>
             <div class='info'>
               <span>
