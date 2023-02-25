@@ -8,7 +8,13 @@ description: Documentation for SignPath user management
 
 ## Overview
 
-## Interactive users
+SignPath supports the following type of users:
+
+* [Interactive users](#interactive) can log into the web application to perform various activities depending on their [role](#roles)
+* [CI users](#ci) are used to integrate with CI systems and other applications through SignPath's REST APIs
+* The [*support user*](#support) account is used to grant (and revoke) access for SignPath support staff
+
+## Interactive users {#interactive}
 
 An interactive user account is required for people who administer your SignPath organization or interact with the application, such as submitters or approvers. Typically, most software developers will not directly use SignPath on a regular basis, but rather interact with the SCM and CI systems that integrate with SignPath.
 
@@ -32,7 +38,7 @@ Note that user accounts are not the same as users in an organization.
 All social accounts and username/password accounts using the same email address are considered the same account.
 </div>
 
-### Invitation
+### Invitations
 
 In order to add a user to a SignPath organization, an invitation email is sent to the user. 
 
@@ -44,7 +50,24 @@ Accepting invitations:
 * Users must use the invitation within {{ site.data.settings.TokenValidityOptions.InvitationEmailTokenValidityDuration }} days. After that, a new invitation must be sent for security reasons (click _Reinvite_ on the user's page).
 * Users must sign in to accept an invitation. If they are already signed in, they have the option to sign out and use another account to login first. Accepting the invitation will link the organization's user to the active user account.
 
-### User roles
+## CI users {#ci}
+
+CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system's build settings as secret values.
+
+## Support users {#support}
+
+By default, the SignPath support team does not have access to your data. 
+
+If you require assistance from our support team, please 
+
+* go to your *organization* page (click the organization name in the upper right corner)
+* select *Authorize support user* in the *More* menu on your organization page
+
+The support user account has administrative privileges. If you disable it after your issue is resolved, please remember to enable it for your next support request.
+
+Please always mention your *Organization ID* in support requests.
+
+## User roles {#roles}
 
 | Role               | Global Permissions                                                                                              | Consider assigning to         |
 |--------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------|
@@ -52,7 +75,7 @@ Accepting invitations:
 | **Global readers** | Read all information, including signing requests artifacts for all projects and signing policies                | Auditors
 | **Regular users**  | No specific permissions                                                                                         | Team administrators and members
 
-### Permissions
+## Permissions {#permissions}
 
 In addition to these global user roles, the following permissions are assigned per project or signing policy:
 
@@ -68,7 +91,7 @@ Read permissions:
   * a role for the Project: *Reader*, *Configurator*
   * a role for the Signing Policy: *Submitter*, *Approver*
 
-### Notifications
+## Notifications {#notifications}
 
 SignPath will inform you and your team about signing requests. Every user can select the notification level for each signing policy separately. The following options are available:
 
@@ -76,34 +99,16 @@ SignPath will inform you and your team about signing requests. Every user can se
 * *Default:* See below
 * *None*: You don't receive any notifications
 
-#### Default notifications
+### Default notifications
 
 By default, only users who participate in the signing request as either a submitter or an approver will receive notifications.
 
 * *Approvers* are informed when a signing request needs to be approved, when the number of required approvals has been reached or when the signing request has been denied. The person who performed the final approval is also notified when the signing request has completed or failed or when it is retried.
 * *Submitters* receive notifications for all status changes of the signing request.
 
+## Audit logs {#audit}
 
-## CI users
-
-CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system's build settings as secret values.
-
-## Support users
-
-By default, the SignPath support team does not have access to your data. 
-
-If you require assistance from our support team, please 
-
-* go to your *organization* page (click the organization name in the upper right corner)
-* select *Authorize support user* in the *More* menu on your organization page
-
-The support user account has administrative privileges. If you disable it after your issue is resolved, please remember to enable it for your next support request.
-
-Please always mention your *Organization ID* in support requests.
-
-## Audit logs
-
-The web application has a full activity audit for each signing request, but also for administrative objects (users, certificates, projects, signing policies and artifact configurations).
+SignPath maintains a full audit log for each signing request, but also for administrative changes (users, certificates, projects, signing policies and artifact configurations).
 
 [Okta]: https://www.okta.com/
 [login page]: https://login.signpath.io/
