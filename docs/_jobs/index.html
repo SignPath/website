@@ -1,0 +1,30 @@
+---
+title: Jobs
+header: Open positions
+layout: default
+description: Open jobs and positions for SignPath GmbH
+---
+
+<ul class="card-container">
+  {%- assign jobs = site.jobs | sort: "header" -%}
+	{%- for job in jobs -%}
+    {%- if job.layout == 'job' -%}
+	    <li> 
+        <div class="header" style="background-image:url(/assets/img/jobs/{{job.image}}.jpg)">
+          <a href="{{job.url}}">
+            {{job.header}} 
+          </a>
+        </div>
+        <div> {{job.tagline}} </div>
+        <div>
+          <h3>Locations:</h3>
+          <ul class="locations">
+            {%- for location in job.locations -%}
+              <li> {{location}} </li>
+            {%- endfor -%}
+          </ul>
+        </div>
+      </li>  
+    {%- endif -%}
+	{%- endfor -%}
+</ul>

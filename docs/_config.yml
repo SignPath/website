@@ -52,4 +52,8 @@ exclude:
   - CNAME
 
 sass:
-    style: compressed
+  style: compressed
+
+collections:
+  jobs:
+    output: true

@@ -1,4 +1,4 @@
-*.card-container {
+ul.card-container {
 	display: flex;
 	flex-wrap: wrap;
 	list-style-type: none;
@@ -6,7 +6,7 @@
 	padding: 0px;
 	justify-content: center;
 
-	& > * {
+	& > li {
 		border: 1px solid $grey-border-color;
 		border-radius: $border-radius;
 		max-width: 340px;
@@ -16,11 +16,12 @@
 		margin-left: 20px;
 		margin-bottom: 20px;
 
+
 		&:first-child {
 			margin-left: 0px;
 		}
 
-		& > *:first-child { /* was: *.header */
+		& > div.header {
 			display: block;
 			color: $white-font-color;
 			background-size: cover;
@@ -41,9 +42,13 @@
 			}
 		}
 
-		& > *:not(:first-child) { /* was: div.body */
-			padding: 20px;
+		& h3 {
+			margin: 0;
 		}
+
+		& > * {
+			padding: 15px 20px;
+		}		
 	}
 }
 

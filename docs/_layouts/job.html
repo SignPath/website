@@ -1,0 +1,42 @@
+{% include header.html %}
+
+<section class="bg-black font-white top-section">
+	<div>
+		<h1>{{ page.header }}</h1>
+	</div>
+</section>
+<section class="job-section">
+	<div>
+		<article>
+			<h1>{{ page.sub-header }}</h1>			
+			<ul>
+				<li>All genders</li>
+				{%- for item in page.sub-header-items -%}
+					<li>{{item}}</li>
+				{%- endfor -%}
+			</ul>
+
+			<h2>Locations</h2>
+			<ul class="locations">
+				{%- for location in page.locations -%}
+					<li> {{location}} </li>
+				{%- endfor -%}
+			</ul>
+
+			<h2>{{page.header}}</h2>
+			{{ content }}
+		</article>
+
+		{%- if page.job_id -%}
+			<a class="btn btn-secondary" href="https://www.karriere.at/jobs/signpath#{{page.job_id}}">
+				View and apply on <i>karriere.at</i>
+			</a>
+			(German language portal) 
+			<br><br>
+		{%- endif -%}
+		<a class="btn btn-secondary" href="mailto:jobs@signpath.io?subject=Job application: {{page.header}}">
+			Apply at <i>jobs@signpath.io</i>
+		</a>
+	</div>
+</section>
+{% include footer.html %}    

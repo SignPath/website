@@ -29,6 +29,10 @@ h1, h2, h3 {
 	font-family: 'Roboto', 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
 }
 
+h1 {
+	font-size: 2em;
+}
+
 
 body {
 	font-weight: 400;
@@ -267,7 +271,7 @@ div.columns {
 	}
 
 	ul {
-		display: inline-block;
+		// display: inline-block; - not sure why that was here, but prevents margin collaps in a strange and inconsistent way
 	}
 
 	& > .column-stretched {
@@ -427,6 +431,14 @@ span.subscription-type,
 table td[data-label="Editions"]  {
 		color: $primary-color;
 	font-weight: bold;
+}
+
+ul.locations {
+	& > li {
+		list-style-type: '🌐';
+		margin-left: -0.7em;
+		padding-left: 0.7em;
+	}
 }
 
 @media only screen and (max-width: 1000px) {
