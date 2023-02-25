@@ -33,6 +33,10 @@ h1 {
 	font-size: 2em;
 }
 
+:target {
+	color: $blue-font-color;
+}
+
 
 body {
 	font-weight: 400;
