@@ -437,11 +437,19 @@ table td[data-label="Editions"]  {
 	font-weight: bold;
 }
 
+ul.checkmarks {
+	& > li {
+		list-style-type: '✔';
+		margin-left: -0.7em;
+		padding-left: 0.7em;
+	}
+}
+
 ul.locations {
 	& > li {
 		list-style-type: '🌐';
-		margin-left: -0.7em;
-		padding-left: 0.7em;
+		margin-left: -0.5em;
+		padding-left: 0.5em;
 	}
 }
 
