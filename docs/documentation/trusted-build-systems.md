@@ -14,13 +14,13 @@ Available for Enterprise subscriptions
 
 Trusted build systems create a trust relationship between SignPath and certain systems used in your build pipeline. They are typically implemented as connectors and configured in SignPath. 
 
-### Origin verification
+### Origin verification {#abstract-origin-verification}
 
 The primary function of trusted build systems is to serve as the foundation of origin verifcation. This feature allows build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information. See [origin verification] for more information.(build-system-integration#ci-integrations-with-origin-verification).
 
 See [origin verifcation](/documentation/origin-verification) for details.
 
-### Direct use
+### Direct use {#abstract-direct-use}
 
 Trusted build systems can also be used to simply restrict signing to certain build systems. Use them to make sure that certain signing policies and certificates can only be used from build agents with specific properties.
 

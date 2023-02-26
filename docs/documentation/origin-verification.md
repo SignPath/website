@@ -21,9 +21,7 @@ Origin metadata includes:
 
 See the [signing policy](/documentation/projects#signing-policy-origin-verification) documentation for some ideas on how to secure your build pipelines using origin verification.
 
-## Available connectors
-
-### Jenkins CI
+## Jenkins CI
 
 A connector is available that connects Jenkins CI as a Trusted Build System. 
 
@@ -34,7 +32,7 @@ This connector ensures that
 
 Contact support@signpath.io for the connector and documentation.
 
-### AppVeyor
+## AppVeyor
 
 <div class="panel info" markdown="1">
 <div class="panel-header">Pre-configured connector</div>
@@ -46,7 +44,7 @@ The AppVeyor connector is built into SignPath and connects to appveyor.com.
 A customizable connector for AppVeyor Server will be provided in the future.
 </div>
 
-#### Prerequisites and restrictions
+### Prerequisites and restrictions
 
 In order to ensure Origin Verification, you cannot submit a signing request from an unfinished build. Instead, you have to finish the build job without signing, and then trigger a signing request with origin verification. When signing is completed, you can use a Webhook handler for further processing, such as uploading the signed artifact to a repository. 
 
@@ -66,7 +64,7 @@ Is the following list complete? see https://www.appveyor.com/docs/build-configur
 > At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea. 
 </div>
 
-#### Setup
+### Setup
 This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
 ![AppVeyor Setup flow](/assets/img/resources/documentation_build-integration_appveyor.png)
 
@@ -133,7 +131,7 @@ deploy:
 
 </td> </tr> </tbody> </table>
 
-#### Attached build documentation
+### Attached build documentation
 
 SignPath adds the following information to packages:
 
@@ -143,6 +141,6 @@ SignPath adds the following information to packages:
 
 These steps allow consumers of the signed artifact to verify source code version and build settings.
 
-### Azure DevOps
+## Azure DevOps
 
 Contact support@signpath.io for a preview version of our Azure DevOps connector with origin verification support.
