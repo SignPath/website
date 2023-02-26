@@ -112,6 +112,13 @@ a.btn-secondary, button.btn-secondary {
 	}
 }
 
+div.horizontal-top {
+	text-align: center;
+    display: inline-block;
+    margin: 10px 20px;
+    vertical-align: top;
+}
+
 /*
 *
 * SECTIONS
@@ -480,6 +487,10 @@ ul.locations {
 		&.show {
 			flex-direction: column;
 		}
+	}
+
+	header {
+		max-width: 100vw; // dirty fix? (even invisible) extra width in the body made hamburger menu disapper (horizontral scroll)
 	}
 }
 

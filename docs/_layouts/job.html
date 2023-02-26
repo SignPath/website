@@ -27,16 +27,25 @@
 			{{ content }}
 		</article>
 
-		{%- if page.job_id -%}
-			<a class="btn btn-secondary" href="https://www.karriere.at/jobs/signpath#{{page.job_id}}">
-				View and apply on <i>karriere.at</i>
-			</a>
-			(German language portal) 
-			<br><br>
-		{%- endif -%}
-		<a class="btn btn-secondary" href="mailto:jobs@signpath.io?subject=Job application: {{page.header}}">
-			Apply at <i>jobs@signpath.io</i>
-		</a>
+		<div>
+			{%- if page.job_id -%}
+				<div class="horizontal-top">
+					<div>
+						<a class="btn btn-secondary" href="https://www.karriere.at/jobs/signpath#{{page.job_id}}">
+							View and apply on <i>karriere.at</i>
+						</a> 
+					</div>
+					<div>
+						(German language portal) 
+					</div>
+				</div>
+			{%- endif -%}
+			<div class="horizontal-top">
+				<a class="btn btn-secondary" href="mailto:jobs@signpath.io?subject=Job application: {{page.header}}">
+					Apply at <i>jobs@signpath.io</i>
+				</a>
+			</div>
+		</div>
 	</div>
 </section>
 {% include footer.html %}    
