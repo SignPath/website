@@ -192,41 +192,18 @@ curl -H "Authorization: Bearer $CI_USER_TOKEN" \
 
 Origin verification ensures that a signed artifact is the result of building a specific source code version.
 
-Origin verification results in additional confidence for information in signing reqeusts, whether used for inspection or for policies. The feature is designed for use in enterprise scenarios, where policies and security controls need to be administered, enforced and audited centrally, while development teams still maintain full control over their projects. The ultimate goal of origin verification is to enable signing policies based on source code reviews.
+It provides verified origin metadata including:
 
-The same principles are applied for Open Source signing, where the [SignPath Foundation](https://signpath.org) ensures that its signing policies are observed while leaving full control over repositories and build configurations with the OSS teams.
+* The repository, branch and commit ID of the source code that was built
+* The URL and configuration of the build that created the signing request
 
-Origin verification verifies the following information:
+SignPath provides CI connectors with origin verification for these CI systems:
 
-* **Source code repository URL** as specified in the SignPath **project**
-* **Branch** as specified in the **signing policy**
-* **Commit version**
-* **Build job URL** as provided by the CI system
-* **Reproducability** checks that the build process is completely determined by the source code repository
+* [Jenkins](origin-verification#jenkins-ci)
+* [AppVeyor](origin-verification#appveyor)
+* [Azure DevOps](origin-verification#azure-devops)
 
-Verification of reproducability depends on the CI system used. Typical verifications include:
-
-* Build settings are fully determined by a configuration file under source control
-* No manual overrides of critical build settings in CI system's build job
-* Prevent caching from previous (unverified) builds
-
-In order to use origin verification, a [Trusted Build System](trusted-build-systems) must be configured and linked to the project.
-
-<div class="panel tip" markdown="1">
-<div class="panel-header">Use origin verification restrictions</div>
-Enable additional restrictions for signing policies that use release certificates:
-
-* Select **Verify origin** to make sure that only verified builds can be signed
-* Define source code review policies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for specified branches. Typical settings include `master` or `release/*`.
-* If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
-</div>
-
-<div class="panel warning" markdown="1">
-<div class="panel-header">Source code reviews must include build scripts</div>
-Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
-
-Make sure that your source code review policy includes CI configuration, build scripts, and makefiles. External content should not be accepted in reviews.
-</div>
+See [Origin Verification](origin-verification) for more information.
 
 ## Other CI integrations
 
