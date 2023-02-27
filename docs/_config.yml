@@ -17,11 +17,10 @@ title: SignPath - Code Signing simple and secure
 url: "https://about.signpath.io"
 email_sales: sales@signpath.io?subject=Enterprise%20subscription
 email_oss: support@signpath.io?subject=OSS%20subscription
-#description: >- # this means to ignore newlines until "baseurl:"
-#  Write an awesome description for your new site here. You can edit this
-#  line in _config.yml. It will appear in your document head meta (for
-#  Google search results) and in your feed.xml site description.
+description: >- # this means to ignore newlines until "baseurl:"
+  SignPath product home page: secure code signing
 baseurl: "" # the subpath of your site, e.g. /blog
+repository: SignPath/website
 
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
