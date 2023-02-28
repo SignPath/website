@@ -13,17 +13,15 @@ layout: job
 description:
 ---
 
-SignPath provides a platform for secure code signing to organizations developing software. Our mission is delivering verifiable trust in software production and supply chains. SignPath customers include software vendors of various sizes and enterprises with inhouse software development.
+SignPath offers a platform for secure code signing. Our customers are tech companies as well as enterprises developing their own software, scripts and macros. 
 
-We are looking for a support professional to extend our sales team. The position requires experience with systems management (Kubernetes) and/or application development tools and processes.
+We are looking for an experienced support professional who helps IT professionals use and operate our platform. The position requires experience with systems management (Kubernetes) and/or application development tools and processes.
 
 ## About us
 
 SignPath is a pure play code signing scale-up. We provide a SaaS service and enterprise software for code signing. SignPath is constantly exploring new options to deeply integrate with development and DevOps processes and infrastructure, to build secure software release processes for our customers, and to bring transparency and accountability to supply chains.
 
 Our low- to mid-end customers appreciate the ease of use our SaaS service brings, with a high level of security even at the entry stage. Enterprise customers benefit from additional integration, management and security features. Security sensitive organizations rely on our experience with secure build chains in zero-trust environments. Recent security incidents and increasing regulation drive interest in our unique technologies from customers and partners alike.
-
-We are looking for an experienced support professional who helps IT professionals use and operate our platform.
 
 ## Your responsibilities
 

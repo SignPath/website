@@ -14,17 +14,15 @@ layout: job
 description:
 ---
 
-SignPath offers a platform for secure code signing. Our customers are tech companies as well as enterprises developing their own software, including scripts and macros. Our mission is to deliver verifiable trust in software production and supply chains. 
+SignPath offers a platform for secure code signing. Our customers are tech companies as well as enterprises developing their own software, scripts and macros. 
 
-We are looking for a presales consultant to support our sales team. The position requires experience with application development tools and processes, and security technologies.
+We are looking for an experienced presales consultant to support our sales team. The position requires experience with application development tools and processes, and security technologies.
 
 ## About us
 
 SignPath is a pure play code signing scale-up. We are providing a SaaS service and enterprise software for code signing. SignPath is constantly exploring new options to deeply integrate with development as well as DevOps processes and infrastructure. It facilitates building secure software release processes for our customers and brings transparency and accountability to supply chains.
 
 Our low- to mid-end customers appreciate the ease of use our SaaS service brings, with a high level of security even at the entry stage. Enterprise customers benefit from additional integration, management and security features. Security sensitive organizations rely on our experience with secure build chains in zero-trust environments. Recent security incidents and increasing regulation drive interest in our unique technologies from customers and partners alike.
-
-We are looking for an experienced presales consultant who engages both prospective and current customers.
 
 ## Your responsibilities
 
