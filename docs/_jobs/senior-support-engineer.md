@@ -15,7 +15,7 @@ description:
 
 SignPath provides a platform for secure code signing to organizations developing software. Our mission is delivering verifiable trust in software production and supply chains. SignPath customers include software vendors of various sizes and enterprises with inhouse software development.
 
-We are looking for a support professional to extend our sales team. The position requires experience with sytems management (Kubernetes) and/or application development tools and processes.
+We are looking for a support professional to extend our sales team. The position requires experience with systems management (Kubernetes) and/or application development tools and processes.
 
 ## About us
 
@@ -32,8 +32,8 @@ You will be working with professionals from customers as well as our own develop
 Your primary tasks will eventually include:
 
 * Product support for SignPath
-* Application administration (project setup, permissions, keys and certificates)
-* CI integration, client-side tools and cryptographic providers
+* Application administration (project setup, permissions, keys, and certificates)
+* CI integration, client-side tools, and cryptographic providers
 * General code signing support (platforms, formats)
 * For the following scenarios
 * First level support for small and medium customers (developers, DevOps)
@@ -63,8 +63,8 @@ You will work with customers using the following technologies:
 * Developer PCs and CI Windows, Linux, and soon MacOS
 * CI platforms from various vendors (Cloud and self-hosted) with build nodes using various platforms
 * Software tools used for signing executable files, scripts, macros, packages, containers, etc.
-* Technologies used by SignPath include Microsoft SQL Server (Azure SQL) and Hardware Security Modules (HSMs) from Thales, Fortanix and Entrust.
+* Technologies used by SignPath include Microsoft SQL Server (Azure SQL) and Hardware Security Modules (HSMs) from Thales, Fortanix and Entrust
 
 Besides the support team, you will regularly work with sales and product management. 
 
-Our offices are in Vienna. Remote working is an option for this position, as is providing remote office space. Customer support is carried out over tickets, emails and video calls.
+Our offices are in Vienna. Remote working is an option for this position, as is providing remote office space. Customer support is carried out over tickets, emails, and video calls.
