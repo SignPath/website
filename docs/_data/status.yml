@@ -11,8 +11,13 @@ planned:
     title: 'HSM network reconfiguration'
     description: 'We are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are not affected.'
 incidents:
+  - date: Mar. 2, 2023
+    range: Mar. 2, 2023 09:15 - 11:30 UTC
+    type: critical
+    title: 'Performance degradation, failed signing requests'
+    description: 'A configuration error caused a processing queue buildup from 9:15. The error was resolved by 11:00. By 11:30, the queue was processed completely and operations back to normal. Hash-based signing requests were not affected.'    
   - date: 'Jan. 25, 2023'
-    range: 'Jan 25, 2023 07:05 - 9:45 UTC'
+    range: 'Jan. 25, 2023 07:05 - 9:45 UTC'
     type: warning
     title: 'Intermittent network problems'
     description: 'Due to multi-region network problems in Microsoft Azure (Tracking ID VSG1-B90), a small percentage of signing requests was failing. In most situations, this was mitigated by automated retries.'
