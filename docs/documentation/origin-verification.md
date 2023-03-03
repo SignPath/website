@@ -121,10 +121,10 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
    * Make sure the checkboxes for both *API v1* and *API v2* are checked
 2. On [ci.appveyor.com](https://ci.appveyor.com)
    * Select *My Profile* and *API Keys*
-   * Remember the **Bearer token** for the next step
+   * Remember the ① **Bearer token** for the next step
 3. On [SignPath.io](https://app.signpath.io)
    * Navigate to your *project*, go to *Trusted Build Systems* and add a link to *AppVeyor*
-   * In the dialog, enter the **API key** you just acquired
+   * In the dialog, enter the ① **API key** you just acquired
 
 </td>
     <td>SignPath.io must authenticate against Appveyor to retrieve the build artifacts</td>
@@ -134,11 +134,11 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
 
 1. On [SignPath.io](https://app.signpath.io)
    * Choose the Users menu and create a new *CI User* or open an existing one
-   * Remember the **SignPath API token** for the next step
+   * Remember the ② **SignPath API token** for the next step
 2. On [ci.appveyor.com](https://ci.appveyor.com)
    * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
-   * Enter **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
-   * Remember the **encrypted SignPath API token** for the next step
+   * Enter ② **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
+   * Remember the ③ **encrypted SignPath API token** for the next step
 
 </td>
     <td>AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file</td>
@@ -151,7 +151,7 @@ Append this to your appveyor.yaml file:
 ~~~ yaml
 deploy:
 - provider: Webhook
-  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>
+  url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>&ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>
   authorization:
      secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
 ~~~
@@ -159,10 +159,10 @@ deploy:
 | Parameter                                                 | Description                                                            |
 | --------------------------------------------------------- | ---------------------------------------------------------------------- |
 | `<ORGANIZATION_ID>`                                       | SignPath organization ID (can be retrieved from the organization page)
-| `ProjectSlug=<PROJECT_SLUG>`                              | Project slug
-| `SigningPolicySlug=<SIGNING_POLICY_SLUG>`                 | Signing policy slug
-| `ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>` | _Optional_ artifact configuration slug (default artifact configuration if not specified)
-| `<ENCRYPTED_SIGNPATH_API_TOKEN>`                          | The encrypted value from the previous step
+| `<PROJECT_SLUG>`                                          | Project slug
+| `<SIGNING_POLICY_SLUG>`                                   | Signing policy slug
+| `<ARTIFACT_CONFIGURATION_SLUG>`                           | _Optional_ artifact configuration slug (default artifact configuration if not specified)
+| `<ENCRYPTED_SIGNPATH_API_TOKEN>`                          | ③ The encrypted value from the previous step
 
 </td> </tr> </tbody> </table>
 
