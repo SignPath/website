@@ -10,11 +10,11 @@ description: Open jobs and positions for SignPath GmbH
 	{%- for job in jobs -%}
     {%- if job.layout == 'job' -%}
 	    <li> 
-        <div class="header" style="background-image:url(/assets/img/jobs/{{job.image}}.jpg)">
-          <a href="{{job.url}}">
+        <a href="{{job.url}}">
+          <div class="header" style="background-image:url(/assets/img/jobs/{{job.image}}.jpg)">
             {{job.header}} 
-          </a>
-        </div>
+          </div>
+        </a>
         <div> {{job.tagline}} </div>
         <div>
           <h3>Locations:</h3>

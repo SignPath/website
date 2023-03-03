@@ -21,7 +21,7 @@ ul.card-container {
 			margin-left: 0px;
 		}
 
-		& > div.header {
+		& div.header {
 			display: block;
 			color: $white-font-color;
 			background-size: cover;
@@ -39,6 +39,14 @@ ul.card-container {
 
 			& > a {
 				color: inherit;
+			}
+		}
+
+		& > a {
+			padding: 0;
+			&:hover {
+				text-decoration: underline;
+				text-decoration-color: white;
 			}
 		}
 
