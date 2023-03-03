@@ -25,6 +25,13 @@ description: SignPath SaaS environment operational status
 			{%- endif -%}
 			{{ site.data.status.current.title }}
 		</h2>
+
+		<div>
+			{{ site.data.status.current.description }}
+			{%- if site.data.status.current.link -%} <a href="{{ site.data.status.current.link }}"> (Read more)</a> {%- endif -%}
+		</div>
+
+
 		<h3>Planned maintenance</h3>
 		{%- unless site.data.status.planned -%}
 			<div>No maintenance planned.</div>
@@ -38,11 +45,11 @@ description: SignPath SaaS environment operational status
 					<div>
 						{{ incident.description }}
 						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
-
 					</div>
 				</li>
 			{%- endfor -%}
 		</ul>
+
 		<h3>Past incidents and maintenance</h3>
 		<ul>
 			{%- for incident in site.data.status.incidents -%}
@@ -53,7 +60,6 @@ description: SignPath SaaS environment operational status
 					<div>
 						{{ incident.description }}
 						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
-
 					</div>
 				</li>
 			{%- endfor -%}
