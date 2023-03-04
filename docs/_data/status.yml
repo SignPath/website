@@ -1,12 +1,12 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    title: 'Potential login workflow problems'
-    #title: 'All systems are operational'
+    type: good
+    #title: 'Potential login workflow problems'
+    title: 'All systems are operational'
     #title: 'Intermittent network problems'
     #title: 'Planned maintenance - limited availability'
-    description: According to Okta, there might be some problems with login workflows at this time. Okta keeps investigating the situation. No incidents have been reported to SignPath so far.
-    link: https://status.okta.com/#incident/a9C4z000000YznUEAS
+    #description: According to Okta, there might be some problems with login workflows at this time. Okta keeps investigating the situation. No incidents have been reported to SignPath so far.
+    #link: https://status.okta.com/#incident/a9C4z000000YznUEAS
 planned:
   - date: 'Mar. 12, 2023'
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
