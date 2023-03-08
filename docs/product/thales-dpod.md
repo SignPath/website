@@ -29,7 +29,7 @@ Advantages of using DPoD Cloud HSM with SignPath Cloud:
 
 ## Self-hosted SignPath with DPoD Cloud HSM
 
-If you are **deploying SignPath in a Private Cloud** environment, it is obvious that you would also use a Cloude-based HSM. Thales DPoD provides just that.
+If you are **deploying SignPath in a Private Cloud** environment, it is obvious that you would also use a Cloud-based HSM. Thales DPoD provides just that.
 
 ![Private Cloud deployment model](/assets/img/product/thales-dpod/deployment-private-cloud.png)
 
