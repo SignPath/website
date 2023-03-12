@@ -1,21 +1,17 @@
 # possible types are good, warning, critical
 current:
-    type: critical
-    title: 'HSM network reconfiguration'
-    description: 'Starting at 10:00 UTC, we are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are not affected.'
-    #title: 'Potential login workflow problems'
-    #title: 'All systems are operational'
+    type: good
+    title: 'All systems are operational'
     #title: 'Intermittent network problems'
-    #title: 'Planned maintenance - limited availability'
-    #description: According to Okta, there might be some problems with login workflows at this time. Okta keeps investigating the situation. No incidents have been reported to SignPath so far.
-    #link: https://status.okta.com/#incident/a9C4z000000YznUEAS
+    #description: 
+    #link:
 planned:
+incidents:
   - date: 'Mar. 12, 2023'
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
     type: critical
-    title: 'HSM network reconfiguration'
+    title: 'Planned maintenance: HSM network reconfiguration'
     description: 'We are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are not affected.'
-incidents:
   - date: Mar. 2, 2023
     range: Mar. 2, 2023 09:15 - 11:30 UTC
     type: critical
