@@ -1,8 +1,10 @@
 # possible types are good, warning, critical
 current:
-    type: good
+    type: critical
+    title: 'HSM network reconfiguration'
+    description: 'Starting at 10:00 UTC, we are reconfiguring the network connection to our HSM cluster for better availability. Operations using HSM keys will fail during this period. Software keys and customers using dedicated DPoD HSM instances are not affected.'
     #title: 'Potential login workflow problems'
-    title: 'All systems are operational'
+    #title: 'All systems are operational'
     #title: 'Intermittent network problems'
     #title: 'Planned maintenance - limited availability'
     #description: According to Okta, there might be some problems with login workflows at this time. Okta keeps investigating the situation. No incidents have been reported to SignPath so far.
