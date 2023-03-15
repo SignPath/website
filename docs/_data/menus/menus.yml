@@ -2,6 +2,10 @@
   path: product
   subdir: true
 
+- text: Solutions
+  path: solutions
+  subdir: true
+
 - text: Code Signing
   path: code-signing
   subdir: true

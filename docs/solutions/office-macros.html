@@ -1,0 +1,154 @@
+---
+title: SignPath for Microsoft Office Macros
+description: TBD
+---
+
+{% include header.html %}
+
+<section class='bg-blue font-white top-section product-start bg-image'>
+  <div>
+		<h1>SignPath for Microsoft Office Macros</h1>
+		<h3>
+			Office Macros - Magical Tool for Some, Immense Pain for Others
+		</h3>
+	</div>
+</section>
+
+<section class='bg-grey'>
+	<div>
+		<div class='columns'>
+			<div>
+				<h2>Magical Tool</h2>
+				<p>
+					Microsoft Office Macros are a very usefull tool to automate workflows in your documents and do boring repetetive tasks very quickly. <br/>
+					<br/>
+					You also can interconnect the different Microsoft Office applications together and create unique user experiences for you and your collegues. 
+				</p>
+			</div>
+			<div>
+				<h2>Immense Pain</h2>
+				<p>
+					Macros are programs within Office documents that <b>execute with the same permissions as the user</b> opening the document. <br/>
+					That makes Office macros a preferred way for hackers to get into organizations, with attacks ranging from <b>ransomware</b> to <b>spear phishing</b>.<br/>
+					Administrators find it <b>almost impossible to provide policy settings</b> that define which macros may be executed
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="bg-white">
+	<div>
+		<h2>Use Macro Signing to Control which Macros are allowed to run!</h2>
+		<p>
+			<ol>
+				<li>Use group policies to allow execution only for macros signed with trusted certificates</li>	
+				<li>Assign trusted certificates to users and groups</li>
+				<li>Use SignPath to sign your reviews Office Macros</li>
+				<li>Get a good night sleep</li>
+			</ol>
+		</p>
+	</div>
+</section>
+
+<section class='feature'>
+	<div class='img'><div><img src='/assets/img/product/features/certificate-management.png' title='Certificate management' /></div></div>
+	<div class='description'>
+		<h2>Use Macro Signing to Con</h2>
+		<h3></h3>
+		<p>
+			In SignPath all your organization's code signing certificates are centrally managed. The InfoSec teams have full control over what code is signed and which certificate was used. They can view the entire history in case of an incident and define clear policies to restrict how each certificate may be used. SignPath allows you to import your own certificates or create a certificate signing request (CSR) for your certificate authority (CA). You are also notified on time before your certificate expires.
+		</p>
+	</div>
+</section>
+
+<section class="feature right">
+	<div class='description'>
+		<h2>Other Approaches don't work!</h2>
+		<p>
+			This table shows how readily available policies provide inadequate security and/or impact the business to an unacceptable degree
+		</p>
+	</div>
+	<div class="img">
+		<table>
+			<thead>
+			  <tr>
+				<th>Method</th>
+				<th>Security level</th>
+				<th>Difficulty</th>
+				<th>Business impact</th>
+				<th>Remarks</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  <tr>
+				<td data-label="Method">Enable macro execution</td>
+				<td data-label="Security level">🔴</td>
+				<td data-label="Implementation">🟢</td>
+				<td data-label="Business impact">🟢</td>
+				<td data-label="Remarks">This should never be enabled</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method">Let users decide whether to execute macros</td>
+				<td data-label="Security level">🟠</td>
+				<td data-label="Implementation">🟢</td>
+				<td data-label="Business impact">🟢</td>
+				<td data-label="Remarks">You cannot rely on users <em>always</em> making the right decision</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method">Disable macro execution except for digitally signed macros</td>
+				<td data-label="Security level">🟡</td>
+				<td data-label="Implementation">🟠</td>
+				<td data-label="Business impact">🟢</td>
+				<td data-label="Remarks">Adequate private key security requires dedicated hardware, plus you need a reliable and auditable process</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method">Disable macro execution except for users who require them</td>
+				<td data-label="Security level">🟡</td>
+				<td data-label="Implementation">🔴</td>
+				<td data-label="Business impact">🟠</td>
+				<td data-label="Remarks">Each of these users still poses a risk, and they often add up</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method">Disable macro execution except for certain storage locations</td>
+				<td data-label="Security level">🟡</td>
+				<td data-label="Implementation">🟡</td>
+				<td data-label="Business impact">🟡</td>
+				<td data-label="Remarks">This will mitigate direct internet/email attacks, but still any user can drop a malicious document in a trusted location</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method">Disable macro execution for everyone</td>
+				<td data-label="Security level">🟢</td>
+				<td data-label="Implementation">🟢</td>
+				<td data-label="Business impact">🔴</td>
+				<td data-label="Remarks">Very safe but often unrealistic</td>
+			  </tr>
+			  <tr>
+				<td data-label="Method"><strong>Using SignPath:</strong> <br> Disable macro execution except for digitally signed macros</td>
+				<td data-label="Security level">🟢</td>
+				<td data-label="Implementation">🟢</td>
+				<td data-label="Business impact">🟢</td>
+				<td data-label="Remarks">Provide a secure process that aligns signing authorization and approval policies with macro execution policies.</td>
+			  </tr>
+			</tbody>
+		  </table>
+	</div>
+
+</section>
+
+<section class='feature'>
+	<div class='img'><div><img src='/assets/img/product/office-macros/office-apps.png' title='Policy enforcement' /></div></div>
+	<div class='description'>
+		<h2>Works with</h2>
+		<p>
+			<ul>
+				<li>Microsoft Excel</li>
+				<li>Microsoft Word</li>
+				<li>Microsoft PowerPoint</li>
+				<li>Microsoft Project</li>
+				<li>Microsoft Publisher</li>
+				<li>Microsoft Visio</li>
+			</ul>			
+		</p>
+	</div>
+</section>
