@@ -141,10 +141,13 @@ main {
 			width: 100%;
 			box-sizing: border-box;
 
-			h2 {
-				font-size: 2em;
+			& > h2 {
 				margin-top: 0px;
 				text-align: center;
+			}
+
+			h2 {
+				font-size: 2em;
 			}
 
 			& > p {
