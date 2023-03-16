@@ -1,5 +1,9 @@
 <!-- last_modified_at:  -->
-{%- include newsletter.html -%}
+
+{% if page.show_newsletter or page.show_newsletter == nil %}
+  {%- include newsletter.html -%}
+{% endif %}
+
   </main>
   <footer>
   	<div>
