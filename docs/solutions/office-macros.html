@@ -1,15 +1,16 @@
 ---
-title: SignPath for Microsoft Office Macros
-description: TBD
+title: SignPath + Microsoft Office Macros
+description: Sign your Office Macros with SignPath to control which Macros are allowed to run in your organization
+show_newsletter: false
 ---
 
 {% include header.html %}
 
 <section class='bg-blue font-white top-section product-start bg-image'>
   <div>
-		<h1>SignPath for Microsoft Office Macros</h1>
+		<h1>SignPath + Microsoft Office Macros</h1>
 		<h3>
-			Office Macros - Magical Tool for Some, Immense Pain for Others
+			Office Macros - Magical Helper for Many, Immense Pain for Others
 		</h3>
 	</div>
 </section>
@@ -28,9 +29,9 @@ description: TBD
 			<div>
 				<h2>Immense Pain</h2>
 				<p>
-					Macros are programs within Office documents that <b>execute with the same permissions as the user</b> opening the document. <br/>
-					That makes Office macros a preferred way for hackers to get into organizations, with attacks ranging from <b>ransomware</b> to <b>spear phishing</b>.<br/>
-					Administrators find it <b>almost impossible to provide policy settings</b> that define which macros may be executed
+					Macros are programs within Office documents that execute as the user opening the document. <br/><br/>
+					That makes Office macros a preferred way for hackers to get into organizations, with attacks ranging from <b>ransomware</b> to <b>phishing</b>.<br/><br/>
+					Administrators find it <b>almost impossible to provide policy settings</b> that define which macros may be executed.
 				</p>
 			</div>
 		</div>
@@ -40,42 +41,43 @@ description: TBD
 <section class="bg-white">
 	<div>
 		<h2>Use Macro Signing to Control which Macros are allowed to run!</h2>
-		<p>
-			<ol>
-				<li>Use group policies to allow execution only for macros signed with trusted certificates</li>	
-				<li>Assign trusted certificates to users and groups</li>
-				<li>Use SignPath to sign your reviews Office Macros</li>
-				<li>Get a good night sleep</li>
-			</ol>
-		</p>
+		<div class="columns4">
+			<div>
+				<h3>Step 1</h3>
+				<!-- <div>{% include lock.svg %}</div> -->
+				Use <a href='https://learn.microsoft.com/en-us/DeployOffice/security/trusted-publisher'>Group Policies</a> to allow execution only for macros signed with trusted certificates
+			</div>	
+			<div>
+				<h3>Step 2</h3>
+				<!-- <div>{% include key.svg %}</div> -->
+				Assign trusted certificates to users and groups
+			</div>
+			<div>
+				<h3>Step 3</h3>
+				<!-- <div>{% include sign.svg %}</div> -->
+				Use SignPath to sign your reviewed Office Macros
+			</div>
+			<div>
+				<h3>Step 4</h3>
+				<!-- <div>{% include check.svg %}</div> -->
+				Only reviewed and signed macros will be executed in your whole organization
+			</div>
+		</div>
 	</div>
 </section>
 
-<section class='feature'>
-	<div class='img'><div><img src='/assets/img/product/features/certificate-management.png' title='Certificate management' /></div></div>
-	<div class='description'>
-		<h2>Use Macro Signing to Con</h2>
-		<h3></h3>
-		<p>
-			In SignPath all your organization's code signing certificates are centrally managed. The InfoSec teams have full control over what code is signed and which certificate was used. They can view the entire history in case of an incident and define clear policies to restrict how each certificate may be used. SignPath allows you to import your own certificates or create a certificate signing request (CSR) for your certificate authority (CA). You are also notified on time before your certificate expires.
-		</p>
-	</div>
-</section>
-
-<section class="feature right">
-	<div class='description'>
+<section class="font-white bg-blue">
+	<div>
 		<h2>Other Approaches don't work!</h2>
 		<p>
 			This table shows how readily available policies provide inadequate security and/or impact the business to an unacceptable degree
 		</p>
-	</div>
-	<div class="img">
 		<table>
 			<thead>
 			  <tr>
 				<th>Method</th>
 				<th>Security level</th>
-				<th>Difficulty</th>
+				<th>Implementation</th>
 				<th>Business impact</th>
 				<th>Remarks</th>
 			  </tr>
@@ -123,32 +125,34 @@ description: TBD
 				<td data-label="Business impact">🔴</td>
 				<td data-label="Remarks">Very safe but often unrealistic</td>
 			  </tr>
-			  <tr>
+			  <!-- <tr>
 				<td data-label="Method"><strong>Using SignPath:</strong> <br> Disable macro execution except for digitally signed macros</td>
 				<td data-label="Security level">🟢</td>
 				<td data-label="Implementation">🟢</td>
 				<td data-label="Business impact">🟢</td>
 				<td data-label="Remarks">Provide a secure process that aligns signing authorization and approval policies with macro execution policies.</td>
-			  </tr>
+			  </tr> -->
 			</tbody>
 		  </table>
 	</div>
 
 </section>
 
-<section class='feature'>
-	<div class='img'><div><img src='/assets/img/product/office-macros/office-apps.png' title='Policy enforcement' /></div></div>
-	<div class='description'>
+<section >
+	<div >
 		<h2>Works with</h2>
-		<p>
-			<ul>
-				<li>Microsoft Excel</li>
-				<li>Microsoft Word</li>
-				<li>Microsoft PowerPoint</li>
-				<li>Microsoft Project</li>
-				<li>Microsoft Publisher</li>
-				<li>Microsoft Visio</li>
-			</ul>			
-		</p>
+		<img src='/assets/img/product/office-macros/office-supported-apps.png' title='Excel, Word, PowerPoint, Project, Publisher,Visio' />
 	</div>
 </section>
+
+<section class="bg-blue font-white">
+	<div>
+		<h2>Do you want to secure your Office Macros?</h2>
+		<div>
+			<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial trial-button'>Get Started Now!</a>
+		</div>
+	</div>
+</section>
+
+
+{% include footer.html %}

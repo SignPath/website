@@ -176,40 +176,7 @@ section.resources-section {
 			}
 		}
 
-		table {
-			border-collapse: collapse;
-			margin-bottom: 1.5em;
-
-			thead {
-				background-color: #F6F6F6;
-			}
-
-			td, th {
-				border-top: 1px solid $grey-border-color;
-				border-bottom: 1px solid $grey-border-color;
-				padding: 5px 10px;
-				vertical-align: top;
-			}
-
-			td {
-				font-size: 0.9em;
-
-				& > *:only-child {
-					margin: 0;
-				}
-
-				& > ol:only-child, & > ul:only-child
-				{
-					padding-left: 1em;
-				}
-			}
-		}
-
-		table.noborder {
-			td, th {
-				border: none;
-			}
-		}
+		
 	}
 
 	ul.article-toc {
@@ -252,65 +219,7 @@ ul.article-toc.mobile-only {
 			top: 0px;
 		}
 
-		table, tr, tbody, td {
-			display: block;
-		}
-
-		table {
-
-			thead {
-				display: none;
-			}
-
-			&.header-small-mobile {
-				td {
-					margin-left: 100px;
-
-					&:before {
-						left: -90px;
-						width: 80px;
-					}
-				}
-			}
-
-			tr {
-				margin-bottom: 1em;
-				border: 1px solid $grey-border-color;
-				background-color: $light-grey-background-color;
-
-				td {
-					position: relative;
-					margin-left: 140px;
-					border: 0px solid transparent;
-					padding-left: 0px;
-					border-bottom: 1px solid $grey-border-color;
-					min-height: calc(1em + 10px); /* to deal with empty cells */
-
-
-					&:before {
-						position: absolute;
-						width: 130px;
-						left: -140px;
-						top: 0px;
-						bottom: -1px;
-						content: attr(data-label);
-						padding-left: 10px;
-						padding-top: 5px;
-						padding-bottom: 5px;
-						font-weight: 800;
-						border-bottom: 1px solid $grey-border-color;
-					}
-
-					&:last-child {
-						border-bottom: 0px solid transparent;
-						
-						&:before {
-							border-bottom: 0px solid transparent;
-						}
-					}
-				}
-			}
-		}
+		
 	}
 }
 

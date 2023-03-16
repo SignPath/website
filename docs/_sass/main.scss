@@ -141,7 +141,7 @@ main {
 			width: 100%;
 			box-sizing: border-box;
 
-			& > h2 {
+			h2 {
 				font-size: 2em;
 				margin-top: 0px;
 				text-align: center;
@@ -156,12 +156,140 @@ main {
 				text-align: center;
 			}
 
-			& > h3 {
+			h3 {
 				font-size: 1.5em;
+			}
+
+			table {
+				border-collapse: collapse;
+				margin-bottom: 1.5em;
+			
+				thead {
+					background-color: $table-light-background-color;
+				}
+			
+				td, th {
+					border-top: 1px solid $grey-border-color;
+					border-bottom: 1px solid $grey-border-color;
+					padding: 5px 10px;
+					vertical-align: top;
+				}
+			
+				td {
+					font-size: 0.9em;
+			
+					& > *:only-child {
+						margin: 0;
+					}
+			
+					& > ol:only-child, & > ul:only-child
+					{
+						padding-left: 1em;
+					}
+				}
+			}
+			
+			table.noborder {
+				td, th {
+					border: none;
+				}
+			}
+
+			img {
+				max-width: 100%;
+			}
+		}
+	}
+
+	& > section.bg-blue {
+		& > div {
+			table {
+				thead {
+					background-color: $dark-blue-background-color;
+				}
 			}
 		}
 	}
 }
+
+@media only screen and (max-width: 1000px) {
+	
+	section {
+	
+		& > div {
+			table, tr, tbody, td {
+				display: block;
+			}
+	
+			table {
+	
+				thead {
+					display: none;
+				}
+	
+				&.header-small-mobile {
+					td {
+						margin-left: 100px;
+	
+						&:before {
+							left: -90px;
+							width: 80px;
+						}
+					}
+				}
+	
+				tr {
+					margin-bottom: 1em;
+					border: 1px solid $grey-border-color;
+					background-color: $table-light-background-color;
+	
+					td {
+						position: relative;
+						margin-left: 140px;
+						border: 0px solid transparent;
+						padding-left: 0px;
+						border-bottom: 1px solid $grey-border-color;
+						min-height: calc(1em + 10px); /* to deal with empty cells */
+	
+	
+						&:before {
+							position: absolute;
+							width: 130px;
+							left: -140px;
+							top: 0px;
+							bottom: -1px;
+							content: attr(data-label);
+							padding-left: 10px;
+							padding-top: 5px;
+							padding-bottom: 5px;
+							font-weight: 800;
+							border-bottom: 1px solid $grey-border-color;
+						}
+	
+						&:last-child {
+							border-bottom: 0px solid transparent;
+							
+							&:before {
+								border-bottom: 0px solid transparent;
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	section.bg-blue {
+		& > div {
+			table {
+				tr {
+					background-color: $dark-blue-background-color;
+				}
+			}
+		}
+	}
+}
+
 
 section.bg-image {
 	background-position: 50% 50%;
@@ -217,6 +345,27 @@ section.top-section > div {
 	}
 }
 
+section {
+	& > div {
+		& > div {
+			text-align: center;		
+
+			a.trial-button {
+				padding: 1em 2em;
+				font-size: 2em;
+				background-color: $orange-font-color;
+				color: $white-font-color;
+				border-radius: 10px;
+				text-decoration: none;
+				text-align: center;
+			}
+		}
+	}
+}
+
+
+
+
 /**
  *
  * newsletter
@@ -267,7 +416,7 @@ section.error404 {
 }
 
 /**
- * COLUMNS
+ * 3 COLUMNS 
  */
 div.columns {
 	display: flex;
@@ -278,6 +427,33 @@ div.columns {
 	& > * {
 		flex: 1 1 0;
 		min-width: 240px;
+		margin: 1em 20px;
+	}
+
+	ul {
+		// display: inline-block; - not sure why that was here, but prevents margin collaps in a strange and inconsistent way
+	}
+
+	& > .column-stretched {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+/**
+ * 4 COLUMNS
+ */
+ div.columns4 {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	text-align: center;
+
+	& > * {
+		flex: 1 1 1 0;
+		width: 232px;
 		margin: 1em 20px;
 	}
 
