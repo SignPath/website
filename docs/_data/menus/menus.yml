@@ -2,8 +2,8 @@
   path: product
   subdir: true
 
-- text: Solutions
-  path: solutions
+- text: Use Cases
+  path: usecase
   subdir: true
 
 - text: Code Signing
