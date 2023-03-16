@@ -39,6 +39,8 @@ Or you might have a more complex certificate policy that assigns **specific macr
 
 Your business partners will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through the same policy framework.
 
+Documentation for configuring Group Policies can be found [here](https://learn.microsoft.com/en-us/DeployOffice/security/trusted-publisher).
+
 </div>
 
 **Using SignPath, you can keep your signing keys safe and easily create well-defined signing processes for each of these certificates.**
