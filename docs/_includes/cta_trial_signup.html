@@ -1,0 +1,14 @@
+
+
+<section class="bg-blue font-white">
+	<div>
+        {% if page.cta_text != nil %}
+			<h2>{{ page.cta_text }}</h2>
+        {% else %}
+			<h2>Are you curious?</h2>
+        {% endif %}
+		<div>
+			<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial trial-button'>Get Started Now!</a>
+		</div>
+	</div>
+</section>
