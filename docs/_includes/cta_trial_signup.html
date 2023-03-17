@@ -8,7 +8,13 @@
 			<h2>Are you curious?</h2>
         {% endif %}
 		<div>
-			<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial trial-button'>Get Started Now!</a>
+			{% if page.cta_only_for_enterprise %}
+				<a class="btn btn-primary trial trial-button" href="mailto:sales@signpath.io?Subject=Request%20trial%20for%20Enterprise%20subscription">Request an Enterprise Trial
+					<span class="hint--top-left hint--medium" aria-label="Uses a non-trusted timestamping server">{% include check_white.svg %}</span>
+				</a>
+			{% else %}
+				<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial trial-button'>Get Started Now!</a>
+			{% endif %}
 		</div>
 	</div>
 </section>
