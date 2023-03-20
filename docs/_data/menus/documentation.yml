@@ -35,3 +35,8 @@
 - text: PowerShell cmdlets
   path: powershell
 
+- separator: true
+
+- text: Microsoft Office Macros
+  path: office-macros
+
