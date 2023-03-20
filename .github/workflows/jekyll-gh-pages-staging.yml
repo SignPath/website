@@ -20,15 +20,20 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build:    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - name: Change Jekyll Config
+        run: sed -i 's/https://about.signpath.io/https://staging.about.signpath.io/' docs/_config.yml
+        shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
+        env:
+          JEKYLL_ENV: 'fqa'
         with:
           source: ./docs
           destination: ./_site
