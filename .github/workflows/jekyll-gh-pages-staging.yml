@@ -28,7 +28,8 @@ jobs:
       - name: Change Jekyll Config
         run: >
           sed -i 's/https:\/\/about.signpath.io/https:\/\/staging.about.signpath.io/' docs/_config.yml && 
-          sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
+          sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml &&
+          sed -i -E '/s/base_url:.*/base_url: \/website-staging/' docs/_config.yml
         shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
