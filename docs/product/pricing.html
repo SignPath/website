@@ -173,7 +173,7 @@ description: SignPath product pricing described
 						<li><span class='num-ci-pipelines' data-value='{{ product.num_ci_pipelines }}' data-ci_pipelines_per_project='{{ product.ci_pipelines_per_project }}'>
 							{{ product.num_ci_pipelines | times: product.num_projects_included }}</span></li>
 					</ul>
-					<a class='btn btn-primary footer buy' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[jekyll.environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[jekyll.environment] }}' data-productid_three_years='{{ product.product_id.three_years[jekyll.environment] }}'>Buy</a>				</div>
+					<a class='btn btn-primary footer buy' href='https://secure.2checkout.com/order/checkout.php?PRODS={{ product.product_id.one_year[site.target_environment] }}&QTY=1&CART=1&CARD=1&CLEAN_CART=1&CURRENCY=USD&DCURRENCY=USD' data-productid_one_year='{{ product.product_id.one_year[site.target_environment] }}' data-productid_three_years='{{ product.product_id.three_years[site.target_environment] }}'>Buy</a>				</div>
 			{% endfor %}
 			<div class='editions-dialog'>
 				<div>

@@ -15,20 +15,20 @@
 {%- endif -%}
 
 <!DOCTYPE html>
-<html lang="en" data-appurl='{{ site.data.hosts.app[jekyll.environment] }}'>
+<html lang="en" data-appurl='{{ site.data.hosts.app[site.target_environment] }}'>
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="canonical" href='{{ site.data.hosts.web[jekyll.environment] }}{{page.url}}' />
+  <link rel="canonical" href='{{ site.data.hosts.web[site.target_environment] }}{{page.url}}' />
   <!-- Begin Jekyll SEO tag v2.6.1 -->
   <link rel='preload' as='style' href='/assets/css/line-awesome.min.css' onload="this.rel='stylesheet'">
   <title>{{ title }}</title>
   <meta property="og:title" content="{{ title }}" />
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="{{description}}" />
-  <meta property="og:url" content="{{ site.data.hosts.web[jekyll.environment] }}{{page.url}}" />
+  <meta property="og:url" content="{{ site.data.hosts.web[site.target_environment] }}{{page.url}}" />
   <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
   <meta name="description" content="{{description}}"/>
   <!-- End Jekyll SEO tag -->
@@ -78,8 +78,8 @@
               </ul>
             </li>
           {%- endfor -%}
-          <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Home/Login'>Login</a>
-          <li class='login'><a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
+          <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Home/Login'>Login</a>
+          <li class='login'><a href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
         </ul>
         <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>

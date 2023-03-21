@@ -26,14 +26,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Change Jekyll Config
-        run: sed -i 's/https:\/\/about.signpath.io/https:\/\/staging.about.signpath.io/' docs/_config.yml
+        run: >
+          sed -i 's/https:\/\/about.signpath.io/https:\/\/staging.about.signpath.io/' docs/_config.yml && 
+          sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml &&
+          sed -i -E 's/baseurl:.*/baseurl: \/website-staging/' docs/_config.yml
         shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
         uses: actions/jekyll-build-pages@v1
-        env:
-          JEKYLL_ENV: 'fqa'
         with:
           source: ./docs
           destination: ./_site
