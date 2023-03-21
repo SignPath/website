@@ -79,7 +79,7 @@ description: Comparison chart of SignPath editions
 					{%- case edition.link_type -%}
 						{%- when 'pricing_page' -%}
 					<a class='btn pricing' href='/product/pricing'>Buy now</a>
-							<a class='btn trial' href='{{- site.data.hosts.app[jekyll.environment] -}}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'>
+							<a class='btn trial' href='{{- site.data.hosts.app[site.target_environment] -}}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'>
 							{% include check_white.svg %}
 							</a>
 						{%- when 'sales_email' -%}

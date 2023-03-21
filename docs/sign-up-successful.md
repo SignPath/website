@@ -12,6 +12,6 @@ sitemap: false
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <div>
-	<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Home/Login' class='btn btn-primary'>Login</a>
-	<a href='{{ site.data.hosts.app[jekyll.environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-flat trial'>Start free Trial</a>
+	<a href='{{ site.data.hosts.app[site.target_environment] }}/Web/Home/Login' class='btn btn-primary'>Login</a>
+	<a href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-flat trial'>Start free Trial</a>
 </div>
