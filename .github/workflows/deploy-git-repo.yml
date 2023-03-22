@@ -13,6 +13,11 @@ on:
         description: 'The target URL for this build'
         required: true
         type: string
+      target_branch:
+        description: 'The target branch in the target repository'
+        default: 'main'
+        required: false
+        type: string
     secrets:
       deploy_key:
         description: 'The private key of the SSH deployment key for the repository'
@@ -32,7 +37,7 @@ jobs:
           path: .
       - name: Extract build artifact
         run: mkdir _site && tar -xf *.tar -C _site
-      - name: Deploy to ${{ inputs.target_repository }} repository
+      - name: Deploy to git repository
         uses: cpina/github-action-push-to-another-repository@v1.6
         env:
           SSH_DEPLOY_KEY: ${{ secrets.deploy_key }}
@@ -41,4 +46,4 @@ jobs:
           destination-github-username: 'signpath'
           destination-repository-name: ${{ inputs.target_repository }}
           commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main
+          target-branch: ${{ inputs.target_branch }}
