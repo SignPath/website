@@ -1,0 +1,48 @@
+# Sub-Workflow that builds the page
+name: Build Page
+
+on:
+  # Allows this workflow to be called from another workflow
+  workflow_call:
+    inputs:
+      target_environment:
+        description: 'The target environment for which this build should run'
+        default: 'production'
+        required: false
+        type: string
+      target_host:
+        description: 'The target host for this build'
+        default: 'about.signpath.io'
+        required: false
+        type: string
+
+# Allow one concurrent deployment
+concurrency:
+  group: ${{ inputs.target_environment }}
+  cancel-in-progress: true
+
+jobs:
+  # Build job
+  build:    
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Change Jekyll Config
+        if: ${{ inputs.target_environment != "production" }}
+        run: >
+          sed -i 's/https:\/\/about.signpath.io/https:\/\/${{ inputs.target_host }}/' docs/_config.yml && 
+          sed -i -E 's/target_environment:.*/target_environment: ${{ inputs.target_environment }}/' docs/_config.yml
+        shell: bash
+      - name: Create Sitemap
+        run: python build_sitemap.py https://${{ inputs.target_host }}/
+        shell: bash
+      - name: Setup Pages
+        uses: actions/configure-pages@v2
+      - name: Build with Jekyll
+        uses: actions/jekyll-build-pages@v1
+        with:
+          source: ./docs
+          destination: ./_site
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1

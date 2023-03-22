@@ -19,40 +19,35 @@ concurrency:
 
 jobs:
   # Build job
-  build:    
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Change Jekyll Config
-        run: >
-          sed -i 's/https:\/\/about.signpath.io/https:\/\/about.fqa.test.signpath.io/' docs/_config.yml && 
-          sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
-        shell: bash
-      - name: Create Sitemap
-        run: python build_sitemap.py https://about.fqa.test.signpath.io/
-        shell: bash
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
-      - name: Build with Jekyll
-        uses: actions/jekyll-build-pages@v1
-        with:
-          source: ./docs
-          destination: ./_site
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
-        with:
-          name: 'staging-release'
-      #- name: Push to website-fqa repository
-      #  uses: cpina/github-action-push-to-another-repository@v1.6
-      #  env:
-      #    SSH_DEPLOY_KEY: ${{ secrets.STAGING_REPO_SSH_KEY }}
-      #  with:
-      #    source-directory: ./_site
-      #    destination-github-username: 'signpath'
-       #   destination-repository-name: 'website-fqa'
-       #   commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-      #    target-branch: main
+  build:
+    uses: ./build.yml
+    with:
+      target_environment: 'fqa'
+      target_host: 'about.fqa.test.signpath.io'
+#  build:    
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v3
+#      - name: Change Jekyll Config
+#        run: >
+#          sed -i 's/https:\/\/about.signpath.io/https:\/\/about.fqa.test.signpath.io/' docs/_config.yml && 
+#          sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
+#        shell: bash
+#      - name: Create Sitemap
+#        run: python build_sitemap.py https://about.fqa.test.signpath.io/
+#        shell: bash
+#      - name: Setup Pages
+#        uses: actions/configure-pages@v2
+#      - name: Build with Jekyll
+#        uses: actions/jekyll-build-pages@v1
+#        with:
+#          source: ./docs
+#          destination: ./_site
+#      - name: Upload artifact
+#        uses: actions/upload-pages-artifact@v1
+#        with:
+#          name: 'staging-release'
 
  # Deployment job
   deploy:
@@ -65,7 +60,7 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: 'staging-release'
+          name: 'github-pages'
           path: .
       - name: Extract artifact
         run: mkdir _site && tar -xf *.tar -C _site
