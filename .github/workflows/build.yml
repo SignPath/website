@@ -29,7 +29,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Change Jekyll Config
-        if: ${{ inputs.target_environment != "production" }}
+        if: ${{ inputs.target_environment != 'production' }}
         run: >
           sed -i 's/https:\/\/about.signpath.io/https:\/\/${{ inputs.target_host }}/' docs/_config.yml && 
           sed -i -E 's/target_environment:.*/target_environment: ${{ inputs.target_environment }}/' docs/_config.yml
