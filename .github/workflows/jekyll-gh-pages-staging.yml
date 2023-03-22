@@ -20,7 +20,7 @@ concurrency:
 jobs:
   # Build job
   build:
-    uses: ./build.yml
+    uses: ./.github/workflows/build.yml
     with:
       target_environment: 'fqa'
       target_host: 'about.fqa.test.signpath.io'
