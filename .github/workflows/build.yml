@@ -1,5 +1,5 @@
 # sub workflow that builds the page - behaves differently for production and non-production 
-name: Build Page
+name: _Helper Build Page
 
 on:
   workflow_call:

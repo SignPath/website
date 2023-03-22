@@ -1,4 +1,4 @@
-name: Deploy FQA
+name: Build & Deploy FQA
 
 on:
   push:

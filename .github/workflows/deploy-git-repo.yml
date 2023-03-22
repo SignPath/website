@@ -1,5 +1,5 @@
 # sub workflow that deploys the page to another git repository
-name: Deploy to git repository
+name: _Helper Deploy to git repository
 
 on:
   workflow_call:
