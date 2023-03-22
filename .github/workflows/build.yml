@@ -16,11 +16,6 @@ on:
         required: false
         type: string
 
-# Allow one concurrent deployment
-concurrency:
-  group: ${{ inputs.target_environment }}
-  cancel-in-progress: true
-
 jobs:
   # Build job
   build:    

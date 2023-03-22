@@ -7,10 +7,11 @@ name: Deploy Staging
 # DNS entry
 
 on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches: ["master"]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
-  # Allows this workflow to be called from another workflow
-  workflow_call:
 
 # Allow one concurrent deployment
 concurrency:
@@ -50,27 +51,38 @@ jobs:
 #          name: 'staging-release'
 
  # Deployment job
-  deploy:
-    environment:
-      name: FQA
-      url: https://about.fqa.test.signpath.io/
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: 'github-pages'
-          path: .
-      - name: Extract artifact
-        run: mkdir _site && tar -xf *.tar -C _site
-      - name: Push to website-fqa repository
-        uses: cpina/github-action-push-to-another-repository@v1.6
-        env:
-          SSH_DEPLOY_KEY: ${{ secrets.STAGING_REPO_SSH_KEY }}
-        with:
-          source-directory: ./_site
-          destination-github-username: 'signpath'
-          destination-repository-name: 'website-fqa'
-          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
-          target-branch: main
+ deploy:
+  environment:
+    name: 'FQA'
+    url: 'https://about.fqa.test.signpath.io'
+    uses: ./.github/workflows/deploy-git-repo.yml
+    with:
+      target_repository: 'website-fqa'
+      target_url: 'https://about.fqa.test.signpath.io'
+    secrets:
+      deploy_key: ${{ secrets.STAGING_REPO_SSH_KEY }}
+      # TODO: should rename to FQA key
+#  deploy:
+#    environment:
+#      name: FQA
+#      url: https://about.fqa.test.signpath.io/
+#    runs-on: ubuntu-latest
+#    needs: build
+#    steps:
+#      - name: Download build artifact
+#        uses: actions/download-artifact@v3
+#        with:
+#          name: 'github-pages'
+#          path: .
+#      - name: Extract artifact
+#        run: mkdir _site && tar -xf *.tar -C _site
+#      - name: Push to website-fqa repository
+#        uses: cpina/github-action-push-to-another-repository@v1.6
+#        env:
+#          SSH_DEPLOY_KEY: ${{ secrets.STAGING_REPO_SSH_KEY }}
+#        with:
+#          source-directory: ./_site
+#          destination-github-username: 'signpath'
+#          destination-repository-name: 'website-fqa'
+#          commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+#          target-branch: main
