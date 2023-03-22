@@ -26,7 +26,7 @@ on:
 jobs:
   deploy-git-repo:
     environment:
-      name: FQA
+      name: '${{ inputs.target_repository }}/${{ inputs.target_branch }}'
       url: ${{ inputs.target_url }}
     runs-on: ubuntu-latest
     steps:
