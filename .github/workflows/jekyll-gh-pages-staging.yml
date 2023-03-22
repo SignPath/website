@@ -30,7 +30,7 @@ jobs:
           sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
         shell: bash
       - name: Create Sitemap
-        run: python build_sitemap.py https://about.fqa.test.signpath.io
+        run: python build_sitemap.py https://about.fqa.test.signpath.io/
         shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
@@ -39,7 +39,35 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
-      - name: Push to fqa repository
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          name: 'staging-release'
+      #- name: Push to website-fqa repository
+      #  uses: cpina/github-action-push-to-another-repository@v1.6
+      #  env:
+      #    SSH_DEPLOY_KEY: ${{ secrets.STAGING_REPO_SSH_KEY }}
+      #  with:
+      #    source-directory: ./_site
+      #    destination-github-username: 'signpath'
+       #   destination-repository-name: 'website-fqa'
+       #   commit-message: See ORIGIN_COMMIT from $GITHUB_REF
+      #    target-branch: main
+
+ # Deployment job
+  deploy:
+    environment:
+      name: FQA
+      url: https://about.fqa.test.signpath.io/
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Download a single artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: 'staging-release'
+          path: ./_site
+      - name: Push to website-fqa repository
         uses: cpina/github-action-push-to-another-repository@v1.6
         env:
           SSH_DEPLOY_KEY: ${{ secrets.STAGING_REPO_SSH_KEY }}
