@@ -1,0 +1,26 @@
+name: Deploy FQA
+
+on:
+  push:
+    branches: ["master"]
+  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+
+# Allow one concurrent deployment
+concurrency:
+  group: "website-fqa"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    with:
+      target_environment: 'fqa'
+      target_host: 'about.fqa.test.signpath.io'
+  deploy:
+    needs: build
+    uses: ./.github/workflows/deploy-git-repo.yml
+    with:
+      target_repository: 'website-fqa'
+      target_url: 'https://about.fqa.test.signpath.io'
+    secrets:
+      deploy_key: ${{ secrets.WEBSITE_FQA_REPO_SSH_KEY }}
