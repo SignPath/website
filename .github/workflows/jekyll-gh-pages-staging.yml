@@ -68,7 +68,7 @@ jobs:
           name: 'staging-release'
           path: .
       - name: Extract artifact
-        run: tar -xf *.tar -C _site
+        run: mkdir _site && tar -xf *.tar -C _site
       - name: Push to website-fqa repository
         uses: cpina/github-action-push-to-another-repository@v1.6
         env:
