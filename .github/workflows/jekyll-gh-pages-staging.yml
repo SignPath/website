@@ -1,11 +1,6 @@
 # Workflow to push compiled version of website to staging repo
 name: Deploy Staging
 
-# TODO
-# Sitemap generation (in other workflow also - unify with parameters?)
-# Call from main workflow
-# DNS entry
-
 on:
   # Runs on pushes targeting the default branch
   push:
