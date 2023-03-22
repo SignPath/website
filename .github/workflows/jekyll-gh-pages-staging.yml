@@ -30,7 +30,7 @@ jobs:
           sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
         shell: bash
       - name: Create Sitemap
-        run: python build_sitemap.py
+        run: python build_sitemap.py https://about.fqa.test.signpath.io
         shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
