@@ -29,6 +29,9 @@ jobs:
           sed -i 's/https:\/\/about.signpath.io/https:\/\/about.fqa.test.signpath.io/' docs/_config.yml && 
           sed -i -E 's/target_environment:.*/target_environment: fqa/' docs/_config.yml
         shell: bash
+      - name: Create Sitemap
+        run: python build_sitemap.py
+        shell: bash
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Build with Jekyll
