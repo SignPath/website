@@ -4,7 +4,7 @@
 
 This repository contains the SignPath website data. It runs on Github pages, which is built upon [Jekyll](https://jekyllrb.com).
 
-## Running it
+## Running it locally
 There are two ways of running the application locally: Either directly using a local Ruby installation or by using Docker. In both setups the website will be reachable on [http://localhost:4000](http://localhost:4000)
 
 ### Running it on local Ruby installation
@@ -23,7 +23,7 @@ If you want to include drafts into the blog, add the `--drafts` flag.
 Depending on the value of the environment variable `JEKYLL_ENV`, different links will be used on the website. The supported values are `production` (default on Github), `fqa`, `iqa` and `development` (default otherwise)
 
 ### Webpack
-For JS development:
+For JS development (compiled JS is currently checked in):
 
 	yarn install
 
@@ -70,10 +70,11 @@ The general icons used on the website come from [Line Awesome](https://icons8.co
 
 ## Deploying
 
-In order to deploy to the FQA environment, you need to install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) and connect it to your Azure account. Afterwards, set the environment variable `SubscriptionId`
+The page deploys to Github Pages using Github Actions. There are multiple environments:
 
-	$Env:SubscriptionId = "<subscription-id>" # Paid Dev
+* `production`: Uses github pages right from this repository:
+* `fqa`: Deploys to the `website-fqa` repository which in turn uses Github Pages to host the page. 
 
-and call the PowerShell script:
+Deployment happens automatically on pushes to `master` or manually from the Github Actions tab.
 
-	.\deploy-to-fqa.ps1
+_Note: For the deployments to another git repository, [cpina/github-action-push-to-another-repository](https://github.com/marketplace/actions/push-directory-to-another-repository) is used._
