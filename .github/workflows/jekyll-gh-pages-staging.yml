@@ -46,17 +46,17 @@ jobs:
 #          name: 'staging-release'
 
  # Deployment job
- deploy:
-  environment:
-    name: 'FQA'
-    url: 'https://about.fqa.test.signpath.io'
-    uses: ./.github/workflows/deploy-git-repo.yml
-    with:
-      target_repository: 'website-fqa'
-      target_url: 'https://about.fqa.test.signpath.io'
-    secrets:
-      deploy_key: ${{ secrets.STAGING_REPO_SSH_KEY }}
-      # TODO: should rename to FQA key
+  deploy:
+    environment:
+      name: 'FQA'
+      url: 'https://about.fqa.test.signpath.io'
+      uses: ./.github/workflows/deploy-git-repo.yml
+      with:
+        target_repository: 'website-fqa'
+        target_url: 'https://about.fqa.test.signpath.io'
+      secrets:
+        deploy_key: ${{ secrets.STAGING_REPO_SSH_KEY }}
+        # TODO: should rename to FQA key
 #  deploy:
 #    environment:
 #      name: FQA
