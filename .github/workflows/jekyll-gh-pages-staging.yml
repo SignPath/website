@@ -62,11 +62,13 @@ jobs:
     runs-on: ubuntu-latest
     needs: build
     steps:
-      - name: Download a single artifact
+      - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
           name: 'staging-release'
-          path: ./_site
+          path: .
+      - name: Extract artifact
+        run: tar -xf *.tar -C _site
       - name: Push to website-fqa repository
         uses: cpina/github-action-push-to-another-repository@v1.6
         env:
