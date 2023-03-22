@@ -1,8 +1,7 @@
-# Sub-Workflow that builds the page
+# sub workflow that builds the page - behaves differently for production and non-production 
 name: Build Page
 
 on:
-  # Allows this workflow to be called from another workflow
   workflow_call:
     inputs:
       target_environment:
@@ -17,7 +16,6 @@ on:
         type: string
 
 jobs:
-  # Build job
   build:    
     runs-on: ubuntu-latest
     steps:

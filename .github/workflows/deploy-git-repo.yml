@@ -1,22 +1,21 @@
-# Sub-Workflow that deploys the page to another git repository
+# sub workflow that deploys the page to another git repository
 name: Deploy to git repository
 
 on:
-  # Allows this workflow to be called from another workflow
   workflow_call:
     inputs:
       target_repository:
         description: 'The repository name in the signpath Github organization'
         required: true
         type: string
-      target_url:
-        description: 'The target URL for this build'
-        required: true
-        type: string
       target_branch:
         description: 'The target branch in the target repository'
         default: 'main'
         required: false
+        type: string
+      target_url:
+        description: 'The target URL for this build'
+        required: true
         type: string
     secrets:
       deploy_key:
@@ -33,7 +32,6 @@ jobs:
       - name: Download build artifact
         uses: actions/download-artifact@v3
         with:
-          name: 'github-pages'
           path: .
       - name: Extract build artifact
         run: mkdir _site && tar -xf *.tar -C _site
