@@ -37,5 +37,9 @@ jobs:
         with:
           source: ./docs
           destination: ./_site
+      - name: Create CNAME file
+        if: ${{ inputs.target_environment != 'production' }}
+        run: echo "${{ inputs.target_host }}" > ./_site/CNAME
+        shell: bash
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
