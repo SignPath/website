@@ -21,6 +21,6 @@ jobs:
     uses: ./.github/workflows/deploy-git-repo.yml
     with:
       target_repository: 'website-fqa'
-      target_url: 'https://about.fqa.test.signpath.io'
+      target_host: 'about.fqa.test.signpath.io'
     secrets:
       deploy_key: ${{ secrets.WEBSITE_FQA_REPO_SSH_KEY }}

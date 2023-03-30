@@ -13,8 +13,8 @@ on:
         default: 'main'
         required: false
         type: string
-      target_url:
-        description: 'The target URL for this build'
+      target_host:
+        description: 'The target host for this build'
         required: true
         type: string
     secrets:
@@ -26,7 +26,7 @@ jobs:
   deploy-git-repo:
     environment:
       name: '${{ inputs.target_repository }}/${{ inputs.target_branch }}'
-      url: ${{ inputs.target_url }}
+      url: 'https://${{ inputs.target_url }}'
     runs-on: ubuntu-latest
     steps:
       - name: Download build artifact
@@ -36,6 +36,9 @@ jobs:
           path: .
       - name: Extract build artifact
         run: mkdir _site && tar -xf *.tar -C _site
+      - name: Create CNAME file
+        run: echo "${{ inputs.target_host }}" > ./_site/CNAME
+        shell: bash
       - name: Deploy to git repository
         uses: cpina/github-action-push-to-another-repository@v1.6
         env:
