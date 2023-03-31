@@ -22,28 +22,9 @@ Also unlike normal programs, administrators find it **almost impossible to provi
 
 ![Supported applications: Excel, PowerPoint, Project, Publisher, Visio, Word](/assets/img/product/office-macros/office-supported-apps.png){:width=800}
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Global certificate vs. assigning certificates to teams</div>
-
-For instance, you can easily configure that some or all users of your organization may use macros signed using your **global macro signing certificate**.
-
-Or you might have a more complex certificate policy that assigns **specific macro signing certificates** to departments:
-
-| Department       | Trusted certificates
-|------------------|---------------------------------------------------------
-| Finance          | Global, Finance
-| Legal            | Legal
-| Engineering      | Global, Engineering, some subcontractors
-| Restricted users | none
-| Everyone else    | Global
-
-Your business partners will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through the same policy framework.
-
-</div>
-
 **Using SignPath, you can keep your signing keys safe and easily create well-defined signing processes for each of these certificates.**
 
-## Inadequacy of Other Approaches
+## Inadequacy of Existing Approaches
 
 This table shows how readily available policies provide **inadequate security** and/or **impact the business** to an unacceptable degree:
 
@@ -51,7 +32,7 @@ This table shows how readily available policies provide **inadequate security** 
 |--------------------------------------------------------------|-----------------|-----------------|-----------------|----------------------------------------
 | Enable macro execution                                       | 🔴             | 🟢              | 🟢             | This should never be enabled
 | Let users decide whether to execute macros                   | 🟠             | 🟢              | 🟢             | You cannot rely on users _always_ making the right decision
-| Disable macro execution except for digitally signed macros   | 🟡             | 🟠              | 🟢             | Adequate private key security requires dedicated hardware, plus you need a reliable and auditable process
+| Disable macro execution except for digitally signed macros   | 🟡             | 🟠              | 🟢             | Digital signing in Office is a manual activity and requires private key access for macro authors from their development PCs
 | Disable macro execution except for users who require them    | 🟡             | 🔴              | 🟠             | Each of these users still poses a risk, and they often add up
 | Disable macro execution except for certain storage locations | 🟡             | 🟡              | 🟡             | This will mitigate direct internet/email attacks, but still any user can drop a malicious document in a trusted location
 | Disable macro execution for everyone                         | 🟢             | 🟢              | 🔴             | Very safe but often unrealistic 
@@ -71,3 +52,25 @@ For approved macros, this process has no impact on business units using Office d
 * Documents can be stored in any location and shared via email
 
 ![Macro signing process](/assets/img/product/office-macros/macro-signing-process.png){:width=800}
+
+## Certificate scopes: global vs. departmental execution permissions
+
+Once you have set up a signing policy for your organization, you can disable execution of unsigned macros via Microsoft Office group policies.
+
+### Fine-tune signing and execution permissions
+
+Some organizations need more fine-grained control over macro execution. In this case you can assign **specific macro signing certificates** to departments.
+
+| Department       | Trusted certificates
+|------------------|---------------------------------------------------------
+| Finance          | Global, Finance
+| Legal            | Legal
+| Engineering      | Global, Engineering, some subcontractors
+| Restricted users | none
+| Everyone else    | Global
+
+Adjust your signing policies accordingly, e.g. provide signing permissions for the _Finance_ certificate only to macro authors supposed to create Office macros for the finance departement.
+
+### Business partners and customers 
+
+For documents that are used outside of your organization, you can use your EV code signing certificate. External users, such as business partners or customers, will be informed that macros have been signed by your organizations. They can then decide to trust these macros on a per-user basis or through their own policy framework.

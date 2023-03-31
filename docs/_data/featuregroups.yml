@@ -72,6 +72,7 @@
       title: 'Microsoft Office Macros'
       hint: 'Sign VBA macros in Microsoft Office files: Excel, Word, Powerpoint, Visio, Project, Publisher'
       sub: '.xlsm .xlst<br> .docm ...'
+      href: '/product/editions-explained#office-macros'
     - name: docker
       title: 'Docker images'
       sub: 'Notary'

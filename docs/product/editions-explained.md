@@ -102,6 +102,16 @@ Additional signing requests submitted from CI pipelines may be rejected and have
 
 SignPath directly supports signing various file formats. See [artifact configurations](/documentation/artifact-configuration#file-elements) for details about available signing methods and file types.
 
+### Microsoft Office macros {#office-macros}
+
+Sign Office macros to protect against macro malware.
+
+With a policy-based code signing process, you can sign your company's Office macros for internal and/or external use. As an immediate benefit, you can disable execution of unsigned macros, thus preventing macro viruses and other macro-based malware deterministically.
+
+See [Office macros](/product/office-macros) for more information.
+
+**Available for** _{{ site.data.editions | where: "signing_methods.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ### Docker/container signing {#container-signing}
 
 SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.
