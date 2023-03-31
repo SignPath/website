@@ -17,6 +17,9 @@
 
 - separator: true
 
+- text: Office macro signing
+  path: office-macros
+
 - text: PKI Consortium best practices
   path: pkic-best-practices
 
