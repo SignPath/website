@@ -6,7 +6,7 @@ const CLICK_TIMEOUT_FOR_ANALYTICS_EVENT = 50; // in ms
 
 export function GoogleAnalytics() {
   let analytics = document.createElement('script');
-  analytics.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=UA-119338300-1');
+  analytics.setAttribute('src', 'https://www.googletagmanager.com/gtag/js?id=G-CX618DRF59');
   document.getElementsByTagName('head')[0].appendChild(analytics);
   window.dataLayer = window.dataLayer || [];
 
@@ -19,6 +19,7 @@ export function GoogleAnalytics() {
     analytics_storage: 'granted',
   });
   gtag('js', new Date());
+  gtag('config', 'G-CX618DRF59', { anonymize_ip: true, domains: ['app.signpath.io', 'secure.avangate.com'] }); // Google Analytics
   gtag('config', 'UA-119338300-1', { anonymize_ip: true, domains: ['app.signpath.io', 'secure.avangate.com'] }); // Google Analytics
   gtag('config', 'AW-744401159', { anonymize_ip: true, domains: ['app.signpath.io', 'secure.avangate.com'] }); // Google Ads
   gtag_ref = gtag;
