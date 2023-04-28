@@ -10,7 +10,7 @@ Effective date: 2 April 2019
 
 ## 1. Definitions
 
-* **Agreement** refers, collectively, to all the terms, conditions, notices contained or referenced in this document (the “Terms of Service” or the "Terms") and all other operating rules, policies (including the SignPath Privacy Policy, available at https://about.signpath.io/privacy-policy/) and procedures that we may publish from time to time on the Website. 
+* **Agreement** refers, collectively, to all the terms, conditions, notices contained or referenced in this document (the “Terms of Service” or the "Terms") and all other operating rules, policies (including the SignPath Privacy Policy, available at [https://about.signpath.io/privacy-policy/]) and procedures that we may publish from time to time on the Website. 
 * **Service** refers to the applications, software, products, and services provided by SignPath.
 * **Website** refers to the SignPath website located at www.signpath.io, and all services, and products provided by SignPath at or through the Website. It also refers to SignPath-owned subdomains of signpath.io.
 * **SignPath, We, and Us** refer to SignPath GmbH, Werdertorgasse 14, 1010 Vienna, Austria, as well as its affiliates, directors, subsidiaries, contractors, licensors, officers, agents, and employees.
@@ -103,7 +103,7 @@ Effective date: 2 April 2019
 
 ### 5.1 Pricing
 
-* Our pricing and payment terms are available at about.signpath.io/pricing/. If you agree to a subscription price, that will remain your price for the duration of the payment term; however, prices are subject to change at the end of a payment term.
+* Our pricing and payment terms are available at [https://about.signpath.io/product/pricing/]. If you agree to a subscription price, that will remain your price for the duration of the payment term; however, prices are subject to change at the end of a payment term.
 
 ### 5.2 Billing and Changes
 
