@@ -6,3 +6,6 @@
 
 - text: Get-SignedArtifact
   path: Get-SignedArtifact
+
+- text: Get-CertificateByMicrosoftTemplateId
+  path: Get-CertificateByMicrosoftTemplateId

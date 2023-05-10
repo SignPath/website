@@ -29,3 +29,4 @@ To achieve this, specify a lower and upper bound, e.g. `-MinimumVersion 4.0.0 -M
 |--------------------------------------------------|-----------------------------------------------------------------------------------------------|
 | [Submit-SigningRequest](Submit-SigningRequest)   | Submit a new signing request, or resubmit an existing one
 | [Get-SignedArtifact](Get-SignedArtifact)         | Get the signed artifact from a finished signing request, or wait until processing is complete
+| [Get-CertificateByMicrosoftTemplateId](Get-CertificateByMicrosoftTemplateId) | Get a certificate from a Microsoft AD CS template ID.
