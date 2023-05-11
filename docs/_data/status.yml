@@ -27,7 +27,7 @@ incidents:
     range: 'Dec. 12, 2022 21:20 - Dec. 13, 9:50 UTC'
     type: critical
     title: 'Infrastructure problems'
-    description: 'One node experienced low-level infrastructure problems for signing operations. The issue could not be identified at runtime, so affected signing requests were not retried and failed immediately. We are currently analyzing the problem with our Cloud provider.'
+    description: 'One node experienced low-level infrastructure problems for signing operations. The issue could not be identified at runtime, so affected signing requests were not retried and failed immediately.'
   - date: 'Sep. 14, 2022'
     range: 'Sep. 14, 2022 16:01 - 16:44 UTC'
     type: warning
