@@ -185,6 +185,13 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
     <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
   </tr> 
+   <tr>
+    <td><code>&lt;xml-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
+    <td>.xml</td>
+    <td>Use this directive to sign XML files with <a href='https://www.w3.org/TR/xmldsig-core1/'>XMLDSIG</a>. Only a limited part of the configuration possibilities of XMLDSIG are supported. (available for Enterprise subscriptions)</td>
+  </tr> 
   <tr>
     <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
     <td>Yes</td>
@@ -369,6 +376,23 @@ jarsigner -verify -strict <file>.zip
 
 Add the `-verbose` option to see the certificate.
 
+### &lt;xml-sign&gt;
+
+Available for OpenSource and Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Use this directive to sign XML files with [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). Only a limited part of the configuration possibilities of XMLDSIG are supported.  
+
+**Options:**  
+
+| Option                       | Optional | Description |
+|------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
+| `key-info-x509-data`         | Yes      | `none`: Do not include any X.509 data in the signature<br/> `leaf` (Default): Include only the leaf certificate in the signature<br/> `whole-chain`: Include the whole certificate chain in the signature<br/> `exclude-root`: Include the whole certificate chain in the signature, but exclude the root certificate<br/>__Info__: `whole-chain` and `exclude-root` only works with pubic CA trusted certificates|
+
+**Usage:**
+
+* [CycloneDX](https://cyclonedx.org/use-cases/#authenticity) BOM files signing
+
 ## Using wildcards
 
 Every path attribute can contain the following wildcard patterns:
@@ -410,6 +434,7 @@ If multiple files or directories should be handled in the same way, you can enum
 * `<zip-file-set>`
 * `<office-oxml-file-set>`
 * `<office-binary-file-set>`
+* `<xml-file-set>`
 
 Each set element contains:
 
@@ -478,6 +503,34 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
     </pe-file-set>
     <authenticode-sign /> <!-- finally sign the MSI file -->
   </msi-file>
+</artifact-configuration>
+~~~
+
+## XML File attribute restriction
+
+For XML files, the existence of their root element namespace and root element name can be enforced by setting the `root-element-namespace` and `root-element-name` attributes on the `<xml-file>`, `<xml-file-set>` and including `<include>` elements. The value of the `<include>` overrides any value set on the `<xml-file-set>` element.
+
+### XML File attribute restriction example
+
+*Full Example*:
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <!-- requires that the root element is 'root' in the 'http://example.org' namespace> -->
+  <xml-file root-element-namespace="http://example.org/" root-element-name="root">
+    <xml-sign/>
+  </xml-file>
+</artifact-configuration>
+~~~
+
+*CycloneDX BOM Example*:
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <!-- with this restriction, only CylconeDX BOMs can be signed with this artifact configuration -->
+  <xml-file root-element-namespace="http://cyclonedx.org/schema/bom/1.4" root-element-name="bom">
+    <xml-sign/>
+  </xml-file>
 </artifact-configuration>
 ~~~
 
