@@ -112,6 +112,14 @@ See [Office macros](/product/office-macros) for more information.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
 
+### XML Signing {#xml-signing}
+
+SignPath supports signing XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). Only a limited part of the configuration possibilities of XMLDSIG are supported.
+
+See [xml-sign](/documentation/artifact-configuration#xml-sign) for details.
+
+**Available for** _{{ site.data.editions | where: "signing_methods.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ### Docker/container signing {#container-signing}
 
 SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.

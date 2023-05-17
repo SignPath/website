@@ -73,6 +73,11 @@
       hint: 'Sign VBA macros in Microsoft Office files: Excel, Word, Powerpoint, Visio, Project, Publisher'
       sub: '.xlsm .xlst<br> .docm ...'
       href: '/product/editions-explained#office-macros'
+    - name: xml
+      title: 'XML files'
+      hint: 'Usage Examples: CycloneDX BOMs'
+      sub: '.xml'
+      href: '/product/editions-explained#xml-signing'
     - name: docker
       title: 'Docker images'
       sub: 'Notary'
