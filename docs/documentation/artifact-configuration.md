@@ -387,7 +387,7 @@ Use this directive to sign XML files with [XMLDSIG](https://www.w3.org/TR/xmldsi
 
 | Option                       | Optional | Description |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------|
-| `key-info-x509-data`         | Yes      | `none`: Do not include any X.509 data in the signature<br/> `leaf` (Default): Include only the leaf certificate in the signature<br/> `whole-chain`: Include the whole certificate chain in the signature<br/> `exclude-root`: Include the whole certificate chain in the signature, but exclude the root certificate<br/>__Info__: `whole-chain` and `exclude-root` only works with pubic CA trusted certificates|
+| `key-info-x509-data`         | Yes      | `none`: Do not include any X.509 data in the signature<br/> `leaf` (Default): Include only the leaf certificate in the signature<br/> `whole-chain`: Include the whole certificate chain in the signature<br/> `exclude-root`: Include the whole certificate chain in the signature, but exclude the root certificate<br/>__Info__: `whole-chain` and `exclude-root` only works with public CA trusted certificates|
 
 **Usage:**
 
