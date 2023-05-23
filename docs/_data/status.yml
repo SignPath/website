@@ -7,15 +7,15 @@ current:
     #link:
 planned:
 incidents:
-  - date: 'May 05, 2023'
-    range: 'May 05, 2023 13:00 - May 06, 2003 09:22 UTC'
+  - date: 'May 11, 2023'
+    range: 'May 11, 2023 13:00 - May 12, 2003 09:22 UTC'
     type: warning
     title: 'Performance degradation'
     description: |
       Performance issues due to a regression caused by a dependency. We noticed performance degradation in queue processing during the following periods: 
-      (1) May 5 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect
-      (2) May 5 17:12 - 18:25 UTC: same processing time, no API errors
-      (3) May 6 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors
+      (1) May 11 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect
+      (2) May 11 17:12 - 18:25 UTC: same processing time, no API errors
+      (3) May 12 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors
       As an initial reaction to (1) and (2), we allocated additional computing resources. Once the root cause was identified, we reverted the system to an old version of the component that caused the issue and deployed it as a hotfix.
   - date: 'Mar. 12, 2023'
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
