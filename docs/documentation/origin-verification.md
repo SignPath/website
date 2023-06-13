@@ -123,7 +123,7 @@ This figure shows the secrets that must be shared between AppVeyor.com and SignP
    * Select *My Profile* and [*API Keys*](https://ci.appveyor.com/api-keys)
    * Remember the ① **Bearer token** for the next step
 3. On [SignPath.io](https://app.signpath.io)
-   * Navigate to your *project*, go to *Trusted Build Systems* and add a link to *AppVeyor*
+   * Navigate to your *project*, scroll down to the *Trusted Build Systems* section and add a link to *AppVeyor*
    * In the dialog, enter the ① **API key** you just acquired
 
 </td>
