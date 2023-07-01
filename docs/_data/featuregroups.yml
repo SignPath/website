@@ -75,7 +75,7 @@
       href: '/product/editions-explained#office-macros'
     - name: xml
       title: 'XML files'
-      hint: 'Usage Examples: CycloneDX BOMs'
+      hint: 'XMLDSIG signatures'
       sub: '.xml'
       href: '/product/editions-explained#xml-signing'
     - name: docker
