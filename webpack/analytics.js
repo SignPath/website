@@ -31,7 +31,7 @@ const events = {
   2: { eventCategory: 'buy_link', eventAction: 'click', eventLabel: '"Buy" link clicked' }, // Every time a user clicks on one of the "Buy" links on https://about.signpath.io/product/pricing
   3: { eventCategory: 'contact_form', eventAction: 'submitted', eventLabel: '"Contact Form" submitted' }, // Every time a user submits the contact form
   4: { eventCategory: 'subscribe_newsletter_link', eventAction: 'click', eventLabel: '"Subscribe Newsletter" link clicked' }, // Every time a user clicks on the "Subscribe" link for the newsletter
-  5: { eventCategory: 'page_visits', eventAction: 'visit', eventLabel: 'User visited more than one page' }, // Every time a user visits more than one page
+  5: { eventCategory: 'page_time', eventAction: 'more_than_2_mins', eventLabel: 'User stayed more than 2 mins' }, // Every time a user stays on the site for more than 2 mins
   6: { eventCategory: 'scroll_50', eventAction: 'scrolled', eventLabel: 'User scrolled more than 50%' }, // Every time a user scrolls further than 50% of the page height
   7: { eventCategory: 'scroll_80', eventAction: 'scrolled', eventLabel: 'User scrolled more than 80%' }, // Every time a user scrolls further than 80% of the page height
   8: { eventCategory: 'mail_link', eventAction: 'click', eventLabel: '"Mailto:" link clicked' }, // Every time a user clicks on any of the "email" links
@@ -59,7 +59,7 @@ export function initEvents() {
       triggerEvent(4);
     });
   });
-  trackUserPageVisits();
+  trackUserSiteTime();
   trackScroll(0.5);
   trackScroll(0.8);
   document.querySelectorAll('a[href*="mailto"]').forEach((item) => {
@@ -87,26 +87,38 @@ export function initEvents() {
   });
 }
 
-function trackUserPageVisits() {
+function trackUserSiteTime() {
   /*
-    The cookie 'vc' with a validity period of 12h tracks whether a user has opened more than one page.
-
-        Valid States:
-        0 = on first visit
-        1 = on the next call - a GA event is sent here
-        2 = after the GA event in order not to send further events
-
-     */
-  if (isCookieSet(cookieConsentCookieName) && isCookieConsent(cookieConsentCookieName)) {
-    if (Cookies.get('vc') && Cookies.get('vc') === '0') {
-      Cookies.set('vc', 1, { expires: 7 });
-    } else if (Cookies.get('vc') && Cookies.get('vc') === '1') {
-      triggerEvent(5);
-      Cookies.set('vc', 2, { expires: 7 });
-    } else if (Cookies.get('vc') !== '2') {
-      Cookies.set('vc', 0, { expires: 7 });
+   * The cookie 'sessionstart' holds the last time the user opened the session (reset every 12 hours)
+   */
+  if (Cookies.get('sessionstart')) {
+    var sessionstart = new Date(Date.parse(Cookies.get('sessionstart')));
+    if (sessionstart) {
+      var diffInSec = (Date.now() - sessionstart.getTime()) / 1000;
+      if (diffInSec > (3600 * 12)) { // 12 hours have elapsed since last visit -> start new session
+        resetSessionCookie()
+      } else { // an active session that's less than 12 hours old
+        if (diffInSec <= 120) {
+          trigger2MinSession(diffInSec);   
+        }
+      }
+    } else { // invalid cookie -> start new session
+      resetSessionCookie();
     }
+  } else { // no cookie set -> start new session
+    resetSessionCookie();
   }
+}
+
+function resetSessionCookie() {
+  Cookies.set('sessionstart', (new Date(Date.now())).toISOString(), { expires: 1 })
+  trigger2MinSession(0)
+}
+
+function trigger2MinSession(sessionAgeInSecs) {
+  setTimeout(function() {
+    triggerEvent(5);
+  }, (120 - sessionAgeInSecs) * 1000)
 }
 
 function trackScroll(percentage = 0.5) {

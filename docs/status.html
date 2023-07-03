@@ -27,7 +27,7 @@ description: SignPath SaaS environment operational status
 		</h2>
 
 		<div>
-			{{ site.data.status.current.description }}
+			{{ site.data.status.current.description | newline_to_br }}
 			{%- if site.data.status.current.link -%} <a href="{{ site.data.status.current.link }}"> (Read more)</a> {%- endif -%}
 		</div>
 
@@ -43,7 +43,7 @@ description: SignPath SaaS environment operational status
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
 					<div>
-						{{ incident.description }}
+						{{ incident.description | newline_to_br }}
 						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
 					</div>
 				</li>
@@ -58,7 +58,7 @@ description: SignPath SaaS environment operational status
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
 					<div>
-						{{ incident.description }}
+						{{ incident.description | newline_to_br }}
 						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
 					</div>
 				</li>

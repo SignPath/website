@@ -148,14 +148,14 @@ Consider using these sources if you are using automated builds:
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-| Parameter                                         | Description
-|---------------------------------------------------|--------------------------------------------------------------------------------------
-| `RepositoryMetadata.SourceControlManagementType`  | Type of source control management (SCM) or version control system (VCS), e.g. `git`
-| `RepositoryMetadata.RepositoryUrl`                | URL of the source code repository, must match project settings for origin verification
-| `RepositoryMetadata.BranchName`                   | Branch name for the build, must match signing policy settings for origin verification
-| `RepositoryMetadata.CommitId`                     | Commit ID for the build
-| `BuildData.Url`                                   | URL of the CI system
-| `BuildData.BuildSettingsFile`                     | File containing build configuration settings not accessible through SCM/VCS. Use `@` prefix to reference a local file, e.g. `@build/settings.json`
+| Parameter                                     | Description
+|-----------------------------------------------|--------------------------------------------------------------------------------------
+| `RepositoryData.SourceControlManagementType`  | Type of source control management (SCM) or version control system (VCS), e.g. `git`
+| `RepositoryData.RepositoryUrl`                | URL of the source code repository, must match project settings for origin verification
+| `RepositoryData.BranchName`                   | Branch name for the build, must match signing policy settings for origin verification
+| `RepositoryData.CommitId`                     | Commit ID for the build
+| `BuildData.Url`                               | URL of the CI system
+| `BuildData.BuildSettingsFile`                 | File containing build configuration settings not accessible through SCM/VCS. Use `@` prefix to reference a local file, e.g. `@build/settings.json`
 {: .break-column-1 }
 
 Parameters can either be passed as named above, or using nested hashtables (see [example](#example-params-origin)).
@@ -266,7 +266,7 @@ $signingRequestID = Submit-SigningRequest `
         productVersion="1.2.0" 
         } `
     -Origin @{
-        RepositoryMetadata=@{
+        RepositoryData=@{
             SourceControlManagementType="svn";
             RepositoryUrl="https://github.com/org/project";
             BranchName="release/v2.1";

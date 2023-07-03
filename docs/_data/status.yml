@@ -7,6 +7,16 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'May 11, 2023'
+    range: 'May 11, 2023 13:00 - May 12, 2003 09:22 UTC'
+    type: warning
+    title: 'Performance degradation'
+    description: |
+      Performance issues due to a regression caused by a dependency. We noticed performance degradation in queue processing during the following periods: 
+      (1) May 11 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect
+      (2) May 11 17:12 - 18:25 UTC: same processing time, no API errors
+      (3) May 12 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors
+      As an initial reaction to (1) and (2), we allocated additional computing resources. Once the root cause was identified, we reverted the system to an old version of the component that caused the issue and deployed it as a hotfix.
   - date: 'Mar. 12, 2023'
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
     type: critical
@@ -90,18 +100,18 @@ incidents:
     type: warning
     title: 'Planned maintenance'
     description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
-  - date: 'May. 23, 2020'
-    range: 'May. 23, 2020 20:30 - May. 24, 2020 11:00 UTC'
+  - date: 'May 23, 2020'
+    range: 'May 23, 2020 20:30 - May 24, 2020 11:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
-  - date: 'May. 14, 2020'
-    range: 'May. 14, 2020 7:30 - 12:45 UTC'
+  - date: 'May 14, 2020'
+    range: 'May 14, 2020 7:30 - 12:45 UTC'
     type: critical
     title: 'Infrastructure problems during deployment'
     description: 'During the deployment of a new version of SignPath, infrastructure problems arose. The release was rolled back, but some downtime could not be avoided. One of the servers did not start correctly in the process, causing the API to be unavailable for certain customers.'
-  - date: 'May. 9, 2020'
-    range: 'May. 9, 2020 21:30 - May. 10, 2020 5:00 UTC'
+  - date: 'May 9, 2020'
+    range: 'May 9, 2020 21:30 - May 10, 2020 5:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to an upgrade in our networking infrastructure, problems performing operations involving the Hardware Security Module (HSM), such as signing operations or creating new certificates might occur.'
