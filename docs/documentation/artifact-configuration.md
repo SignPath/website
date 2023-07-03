@@ -185,6 +185,13 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
     <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
   </tr> 
+   <tr>
+    <td><code>&lt;xml-file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
+    <td>.xml</td>
+    <td>Use this directive to sign XML files using <a href='https://www.w3.org/TR/xmldsig-core1/'>XMLDSIG</a> (available for Enterprise subscriptions)</td>
+  </tr> 
   <tr>
     <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
     <td>Yes</td>
@@ -273,6 +280,10 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 * PowerShell scripts and modules
 
 Using `<authenticode-sign>` is equivalent to using Microsoft's `SignTool.exe`.
+
+See also:
+
+* Use [metadata restrictions](#file-metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
 [ClickOnce signing]: #clickonce-sign
 
@@ -369,6 +380,22 @@ jarsigner -verify -strict <file>.zip
 
 Add the `-verbose` option to see the certificate.
 
+### &lt;xml-sign&gt;
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Sign XML files with [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
+
+**Supported options:**  
+
+| Option                       | Optional | Description
+|------------------------------|----------|------------------------------------------------------------------------------
+| `key-info-x509-data`         | Yes      | `none`: Do not include any X.509 data in the signature<br/> `leaf` (Default): Include only the leaf certificate in the signature<br/> `whole-chain`: Include the whole certificate chain in the signature<br/> `exclude-root`: Include the whole certificate chain in the signature, but exclude the root certificate<br/> **Note**: `whole-chain` and `exclude-root` only work with public CA trusted certificates|
+
+See also:
+* Use [metadata restrictions](#file-metadata-restrictions) for `<xml-file>` to restrict root element and namespace.
+
 ## Using wildcards
 
 Every path attribute can contain the following wildcard patterns:
@@ -393,23 +420,7 @@ If wildcards are used, optional `max-matches` and `min-matches` parameters can b
 
 ## File and directory sets
 
-If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements:
-
-* `<directory-set>`
-* `<pe-file-set>`
-* `<powershell-file-set>`
-* `<windows-script-file-set>`
-* `<msi-file-set>`
-* `<cab-file-set>`
-* `<catalog-file-set>`
-* `<appx-file-set>`
-* `<msix-file-set>`
-* `<opc-file-set>`
-* `<nupkg-file-set>`
-* `<jar-file-set>`
-* `<zip-file-set>`
-* `<office-oxml-file-set>`
-* `<office-binary-file-set>`
+If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: `<directory-set>`, `<pe-file-set>`, `<powershell-file-set>`, `<windows-script-file-set>`, `<msi-file-set>`, `<cab-file-set>`, `<catalog-file-set>`, `<appx-file-set>`, `<msix-file-set>`, `<opc-file-set>`, `<nupkg-file-set>`, `<jar-file-set>`, `<zip-file-set>`, `<office-oxml-file-set>`, `<office-binary-file-set>`, `<xml-file-set>`
 
 Each set element contains:
 
@@ -458,11 +469,18 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 </td> </tr> </tbody> </table>
 
-## File attribute restrictions
+## File metadata restrictions
 
-For Microsoft Portable Executable (PE) files, the existence of their Product Name / Product Version header attributes can be enforced by setting the <code>productName</code> and <code>productVersion</code> attributes on the <code>&lt;pe-file&gt;</code>, <code>&lt;pe-file-set&gt;</code> and including <code>&lt;include&gt;</code> elements. The value of the <code>&lt;include&gt;</code> overrides any value set on the <code>&lt;pe-file-set&gt;</code> element.
+Some element types support restricting certain metadata values. 
 
-### File attribute restriction example
+The restrictions can be applied to file elements, [file set elements](#file-and-directory-sets), or `<include>` elements. Attributes on `<include>` elements override those on file set elements.
+
+| File element | Supported restriction attributes
+|--------------|-------------------------------------------------------------------------
+| `<pe-file>`  | PE file headers: `productName`, `productVersion`
+| `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`
+
+### Example: PE file metadata restriction 
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
@@ -481,6 +499,17 @@ For Microsoft Portable Executable (PE) files, the existence of their Product Nam
 </artifact-configuration>
 ~~~
 
+### Example: XML file schema restriction for CycloneDX SBOM 
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration -->
+  <xml-file root-element-namespace="http://cyclonedx.org/schema/bom/1.4" root-element-name="bom">
+    <xml-sign/>
+  </xml-file>
+</artifact-configuration>
+~~~
+
 ## User-defined parameters
 
 Available for Enterprise subscriptions
@@ -490,14 +519,14 @@ You can define parameters for each signing request. Use this to create a more re
 
 Parameter values can be set when submitting a signing request via the user interface or API (see [documentation](/documentation/build-system-integration#submit-a-signing-request)). Actual values are displayed on the signing request details page. 
 
-Parameters are defined in an optional <code>parameters</code> block at the beginning of the artifact configuration and can be referenced using the <code>${parameterName}</code> syntax in any XML attribute.
+Parameters are defined in an optional `parameters` block at the beginning of the artifact configuration and can be referenced using the `${parameterName}` syntax in any XML attribute.
 
 ~~~xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <parameters>
-    <parameter name="productVersion" default-value="1.0.0" required="true" />
+    <parameter name="version" default-value="1.0.0" required="true" />
   </parameters>
-  <pe-file path="my-installer-${productVersion}.exe" productVersion="${productVersion}">
+  <pe-file path="my-installer-${version}.exe" productName="myproduct" productVersion="${version}">
 </artifact-configuration>
 ~~~
 
@@ -625,6 +654,8 @@ Example of a directory structure that would match this configuration:
 ![graphical resolved artifacts](/assets/img/resources/documentation_artifact-configuration_similar-resolved.png)
 
 </td></tr></table>
+
+**Footnotes:**
 
 [^no_deepsigning_yet]: Deep signing is not yet supported for AppX and MSIX.
 

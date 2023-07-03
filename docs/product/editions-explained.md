@@ -112,6 +112,14 @@ See [Office macros](/product/office-macros) for more information.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
 
+### XML Signing {#xml-signing}
+
+SignPath supports signing XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
+
+See [artifact configuration](/documentation/artifact-configuration#xml-sign) for details.
+
+**Available for** _{{ site.data.editions | where: "signing_methods.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ### Docker/container signing {#container-signing}
 
 SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.
@@ -160,7 +168,7 @@ Create [multiple artifact configurations](/documentation/projects#keeping-versio
 
 ### Metadata constraints
 
-Some [file attributes](/documentation/artifact-configuration#file-attribute-restrictions) can be restricted. 
+You can restrict some [file attributes](/documentation/artifact-configuration#file-attribute-restrictions) in the artifact configuration. 
 
 This is useful if you want to 
 

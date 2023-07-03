@@ -23,6 +23,7 @@
     android: true
     java: false
     office_macros: false
+    xml: false
     docker: false
     hash_based: false
   artifact_configuration:
@@ -78,6 +79,7 @@
     android: true
     java: true
     office_macros: false
+    xml: false
     docker: false
     hash_based: false
   artifact_configuration:
@@ -128,6 +130,7 @@
     android: true
     java: true
     office_macros: true
+    xml: true
     docker: true
     hash_based: true
   artifact_configuration:
@@ -181,6 +184,7 @@
     android: true
     java: true
     office_macros: false
+    xml: true
     docker: true
     hash_based: false
   artifact_configuration:
