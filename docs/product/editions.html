@@ -78,14 +78,12 @@ description: Comparison chart of SignPath editions
 					</ul>
 					{%- case edition.link_type -%}
 						{%- when 'pricing_page' -%}
-					<a class='btn pricing' href='/product/pricing'>Buy now</a>
-							<a class='btn trial' href='{{- site.data.hosts.app[site.target_environment] -}}/Web/Subscription/StartFreeTrial'>Start free trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'>
-							{% include check_white.svg %}
+							<a class='btn pricing' href='/product/pricing'>Buy now</a>
+							<a class='btn trial' href='{{- site.data.hosts.app[site.target_environment] -}}/Web/Subscription/StartFreeTrial'>Start free trial
 							</a>
 						{%- when 'sales_email' -%}
 							<a class='btn' href='mailto:sales@signpath.io?Subject={{- edition.name | urlencode -}}%20subscription'>Contact sales</a>
-							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20{{- edition.name | urlencode -}}%20subscription'>Request trial <span class='hint--top-left hint--medium' aria-label='Uses a non-trusted timestamping server'>
-							{% include check_white.svg %}
+							<a class='btn' href='mailto:sales@signpath.io?Subject=Request%20trial%20for%20{{- edition.name | urlencode -}}%20subscription'>Request free trial 
 							</a>
 						{%- when 'support_email' -%}
 							<a class='btn' href='mailto:support@signpath.io?Subject={{- edition.name | urlencode -}}%20subscription'>Contact support</a>
@@ -97,7 +95,9 @@ description: Comparison chart of SignPath editions
 	    	<p>
 				<strong>
 					{% include info.svg %}
-					Free trials:</strong> download and install your own <strong>test certificate</strong> and the <strong>free trial timestamp certificate</strong>. See <a href='/code-signing/test-certificates'>managing test certificates</a> for instructions.
+					Free trials:
+				</strong>
+				download and install your own <strong>test certificate</strong>. See <a href='/code-signing/test-certificates'>managing test certificates</a> for instructions.
 	      	</p>
 	    </div>
 	</div>

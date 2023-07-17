@@ -7,13 +7,6 @@ show_toc: 3
 description: How to enroll test certificates with an intentionally limited scope.
 ---
 
-<div class="panel product" markdown="1">
-<div class="panel-header"> SignPath.io free trial subscriptions </div>
-If you are using a free trial subscription, you also need to [download](/assets/FreeTrialTimestampingServer.cer) and [install](#manual-installation) our timestamp certificate for signature verification. Don't forget to uninstall the certificate after the trial period.
-
-For paid and Open Source subscriptions, this is not necessary. 
-</div>
-
 ## Overview
 
 Test certificates can be used to sign development builds that are not going to be distributed to your users or customers. You can read how to create test certificates in SignPath in the [user guide](/documentation/managing-certificates) In order to ensure your artifacts behave the same way during installation even though they are not signed by commercial CA you need to trust the certificate on the computers you use for testing. There are some options when managing test certificates:
