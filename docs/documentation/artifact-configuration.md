@@ -113,7 +113,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   </tr>
   <tr>
     <td><code>&lt;catalog-file&gt;</code></td>
-    <td>Yes</td>
+    <td>No</td>
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.cat</td>
     <td>Windows catalog files</td>
