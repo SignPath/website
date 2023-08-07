@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: 'fontello';
-  src: url('../fonts/fontello.eot?43904364');
-  src: url('../fonts/fontello.eot?43904364#iefix') format('embedded-opentype'),
-       url('../fonts/fontello.woff2?43904364') format('woff2'),
-       url('../fonts/fontello.woff?43904364') format('woff'),
+  src: url('../fonts/fontello.eot?96544650');
+  src: url('../fonts/fontello.eot?96544650#iefix') format('embedded-opentype'),
+       url('../fonts/fontello.woff2?96544650') format('woff2'),
+       url('../fonts/fontello.woff?96544650') format('woff'),
        url('../fonts/fontello.ttf?4390436$') format('truetype'),
-       url('../fonts/fontello.svg?43904364#fontello') format('svg');
+       url('../fonts/fontello.svg?96544650#fontello') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -57,20 +57,21 @@
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
 
-.icon-appveyor:before { content: '\e801'; } /* '' */
-.icon-azure-devops:before { content: '\e802'; } /* '' */
-.icon-cicd:before { content: '\e803'; } /* '' */
-.icon-clickonce:before { content: '\e804'; } /* '' */
-.icon-curl:before { content: '\e805'; } /* '' */
-.icon-fips-validation:before { content: '\e806'; } /* '' */
-.icon-java:before { content: '\e807'; } /* '' */
-.icon-nested:before { content: '\e808'; } /* '' */
-.icon-nuget:before { content: '\e809'; } /* '' */
-.icon-office:before { content: '\e80a'; } /* '' */
-.icon-origin-verification:before { content: '\e80b'; } /* '' */
-.icon-powershell:before { content: '\e80c'; } /* '' */
-.icon-signpath:before { content: '\e80d'; } /* '' */
-.icon-signpath-flag:before { content: '\e80e'; } /* '' */
-.icon-visual-studio:before { content: '\e80f'; } /* '' */
-.icon-windows:before { content: '\e810'; } /* '' */
-.icon-android:before { content: '\e811'; } /* '' */
+.icon-java:before { content: '\e800'; } /* '' */
+.icon-jenkins:before { content: '\e801'; } /* '' */
+.icon-nested:before { content: '\e802'; } /* '' */
+.icon-nuget:before { content: '\e803'; } /* '' */
+.icon-office:before { content: '\e804'; } /* '' */
+.icon-powershell:before { content: '\e805'; } /* '' */
+.icon-origin-verification:before { content: '\e806'; } /* '' */
+.icon-signpath:before { content: '\e807'; } /* '' */
+.icon-signpath-flag:before { content: '\e808'; } /* '' */
+.icon-visual-studio:before { content: '\e809'; } /* '' */
+.icon-windows:before { content: '\e80a'; } /* '' */
+.icon-android:before { content: '\e80b'; } /* '' */
+.icon-appveyor:before { content: '\e80c'; } /* '' */
+.icon-azure-devops:before { content: '\e80d'; } /* '' */
+.icon-cicd:before { content: '\e80e'; } /* '' */
+.icon-clickonce:before { content: '\e80f'; } /* '' */
+.icon-curl:before { content: '\e810'; } /* '' */
+.icon-fips-validation:before { content: '\e811'; } /* '' */
