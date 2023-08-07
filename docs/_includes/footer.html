@@ -20,7 +20,22 @@
 	  	<div>
 	  		<a href='/privacy-policy'>Privacy Policy</a>
 	  		<a href='/terms-of-service'>Terms of Service</a>
-	  		<a href='/status'>Status</a>
+	  		<a href='/status'>
+				{%- if site.data.status.current.type == "good" -%}
+					<span style="color: lightgreen;">
+						{%- include status_good.svg -%}
+					</span>
+				{%- elsif site.data.status.current.type == "warning" -%}
+					<span style="color: yellow;">
+						{%- include status_warning.svg -%}
+					</span>
+				{%- elsif site.data.status.current.type == "critical" -%}
+					<span style="color: red;">
+						{%- include status_critical.svg -%}
+					</span>
+				{%- endif -%}
+				Status
+			</a>
 	  	</div>
 	</div>
   </footer>

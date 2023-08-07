@@ -14,14 +14,14 @@ description: SignPath SaaS environment operational status
 <section class="status-section">
 	<div>
 		<h2 class='{{ site.data.status.current.type }}'>
-			{%- if site.data.status.current.type == "good" -%}
-				{%- include status_good.svg -%}
-			{%- elsif site.data.status.current.type == "info" -%}
-				{%- include status_info.svg -%}
+			{%- if site.data.status.current.type == "critical" -%}
+				{%- include status_critical.svg -%}
 			{%- elsif site.data.status.current.type == "warning" -%}
 				{%- include status_warning.svg -%}
+			{%- elsif site.data.status.current.type == "good" -%}
+				{%- include status_good.svg -%}
 			{%- else -%}
-				{%- include status_bad.svg -%}
+				[unknown status type]
 			{%- endif -%}
 			{{ site.data.status.current.title }}
 		</h2>
