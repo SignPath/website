@@ -68,6 +68,15 @@ In order to add or remove a job, directly edit the `jobs/index.md` file and chan
 
 The general icons used on the website come from [Line Awesome](https://icons8.com/line-awesome) and a set of them are self-created / from various sources. The latter are collected in `assets/icons/single` and are then combined into the `fontello` font using [fontello.com](http://fontello.com/).
 
+In order to extend the icon set, perform the following steps:
+
+1. Add the new SVG file to `assets/icons/single`
+2. Open [fontello.com](http://fontello.com/) and upload all .svg files from the folder
+3. Select them all and generate and download the webfont
+4. From the `font` folder in the webfont, copy all files to `assets/fonts`
+5. Open the `_sass/fontello.scss` file, a) make sure to add a new query parameter to all uris (in order to make sure caches are bypassed) and b) overwrite the block at the bottom with all the `.icon-XXX` CSS classes with the values from the `css/fontello.css` file in the webfont
+
+
 ## Deploying
 
 The page deploys to Github Pages using Github Actions. There are multiple environments:
