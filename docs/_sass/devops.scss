@@ -51,10 +51,18 @@ section.devops-section {
                     cursor: pointer;
                 }
 
+                a:focus{
+                    outline: none;
+                    text-decoration: underline;
+                }
+
                 &.active {
                     background-color: $dark-grey-background-color;
                     a:active, a:hover, a:visited, a {
                         color: $white-font-color;
+                    }
+                    a:focus {
+                        text-decoration: none;
                     }
                 }
             }
