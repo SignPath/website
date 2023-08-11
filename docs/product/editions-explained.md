@@ -70,7 +70,7 @@ Included signing requests per year and project:
 | release-signing | Extended Validation (EV) release certificate  |      20 |    50 |
 | test-signing    | Self-signed test certificate                  |     100 |   250 |
 
-So for instance, a *Basic* subscription with 3 *projects* allows you to complete 
+**Example:** a *Basic* subscription with 3 *projects* allows you to complete 
 
 * 150 release-signing requests per year (50 &times; 3) 
 * 750 test-signing requests per year (250 &times; 3)
@@ -86,7 +86,17 @@ We recommend that you create one signing request per release of your software. T
   * if you produce several variants of your software for each release (e.g. runtime environments, processor architectures, customer variants)
 * Consider using [deep signing](#deep-signing) if you produce packages in supported formats such as MSI installers
 
-**Fair use quota:** You may sign up to 100 files per *available* signing request (i.e. the sum of release- and test-signing requests ). In the example above, that would be (150 + 750) &times; 100 = 90,000 files per year.
+#### Individual signatures {#individual-signatures}
+
+Each signed file inside a signing request counts towards the individual signatures quota. 
+
+* **Example:** an MSI file containing 1 EXE and 2 DLL files would result in 4 individual signatures. 
+
+You may sign **up to 100 files per *available* signing request** (i.e. the sum of release- and test-signing requests). 
+
+* **Example:** 900 signing requests are available in the previous example (150 + 750). That would result in 900 &times; 100 = 90,000 individual signatures per year.
+
+You can adjust the [artifact configuration](/documentation/artifact-configuration) to specify which files should be signed.
 
 ### CI pipelines
 
