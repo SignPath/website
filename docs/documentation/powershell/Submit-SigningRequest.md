@@ -151,7 +151,7 @@ Available for Enterprise subscriptions
 | Parameter                                     | Description
 |-----------------------------------------------|--------------------------------------------------------------------------------------
 | `RepositoryData.SourceControlManagementType`  | Type of source control management (SCM) or version control system (VCS), e.g. `git`
-| `RepositoryData.RepositoryUrl`                | URL of the source code repository, must match project settings for origin verification
+| `RepositoryData.Url`                          | URL of the source code repository, must match project settings for origin verification
 | `RepositoryData.BranchName`                   | Branch name for the build, must match signing policy settings for origin verification
 | `RepositoryData.CommitId`                     | Commit ID for the build
 | `BuildData.Url`                               | URL of the CI system
@@ -268,7 +268,7 @@ $signingRequestID = Submit-SigningRequest `
     -Origin @{
         RepositoryData=@{
             SourceControlManagementType="svn";
-            RepositoryUrl="https://github.com/org/project";
+            Url="https://github.com/org/project";
             BranchName="release/v2.1";
             CommitId="bf458b27080c81eb1e316c63867a87fdb3b47211"
         };
