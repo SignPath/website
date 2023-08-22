@@ -148,6 +148,8 @@ Consider using these sources if you are using automated builds:
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
+This parameter should only be used from a [Trusted Build System](/documentation/trusted-build-systems).
+
 | Parameter                                     | Description
 |-----------------------------------------------|--------------------------------------------------------------------------------------
 | `RepositoryData.SourceControlManagementType`  | Type of source control management (SCM) or version control system (VCS), e.g. `git`
