@@ -63,7 +63,7 @@ You have the possibility to subscribe to our newsletter on our website. We will 
 
 Our website uses so-called “cookies”. Cookies are small text files which are stored on a visitor’s computer or device. There are two main types of cookies: Essential cookies, which are necessary to make a website operational and non-essential cookies, which collect e.g. browsing and usage statistics. While essential cookies are stored automatically on your computer or device based on our legitimate interests, non-essential cookies require your consent.
 
-Some of the cookies used on our website originate from service providers outside the EU (primarily the US). It is therefore possible that some of your data (e.g. IP address, usage behavior, technical data) may be transmitted to the US. According to Court of Justice of the European Union, there is currently no adequate level of data protection in the US. When using cookies from service providers from third countries, we therefore ask for your express consent through our cookie banner.
+Some of the cookies used on our website originate from service providers outside the EU (primarily the US). It is therefore possible that some of your data (e.g. IP address, usage behavior, technical data) may be transmitted to the US. We only work with companies that are part of the Data Privacy Framework between the EU and the USA or use standard contractual clauses for the transfer of personal data to third countries according to Art 46 para 2 lit c GDPR. The participating companies of the Data Privacy Framework fall under the adequacy decision for secure data traffic of the EU.
 
 You are free to revoke your given consent for the use of non-essential cookies and/or cookies from third countries at any time here:
 
@@ -73,13 +73,15 @@ You are free to revoke your given consent for the use of non-essential cookies a
 
 In order to evaluate and improve our website, we use website analysis software Google Analytics provided by Google Ireland Limited. Google Analytics enables us to create statistical reports on visitor activity and to improve our content and website performance. For this purpose, your IP address is transmitted to Google and usually stored for 26 months. The use of Google Analytics requires a non-essential cookie, which is only set with your express consent. For more information, please refer to the privacy policies of [Google] and [Google Analytics].
 
+We use Google Signals as an extension of Google Analytics. Signals is an alternative function to identify users on our website. Google Signals requires a Google account login and the activation of personalised advertising on your device.
+
 ### Google Ads
 
 In order to make our website more attractive, we use Google Ads, a service provided by Google Ireland Limited. Google Ads enables us to make advertisements for our website in the Google search engine or on external websites and to evaluate how effective our advertising measures are. If you access our website via a Google ad, Google Ads will store a non-essential cookie on your PC or device. Google Ireland Limited is the responsible data controller when using Google Ads. We ourselves do not collect and process any personal data when using Google Ads. We only receive statistical evaluations from Google. For more information, please refer to the privacy policies of [Google] and [Google Ads].
 
-### Leadfeeder
+### dealfront
 
-Leadfeeder is a web analytics service and evaluation tool provided by Liidio Oy / Leadfeeder (Mikonkatu 17 C, 00100 Helsinki). For this purpose, Leadfeeder collects the IP address of visitors. Leadfeeder uses a cookie called "_lfa", which has an expiry date of two years from when it was first set. The cookie can only be set for this website domain and requires your consent.
+dealfront is a web analytics service and evaluation tool operated by Liidio Oy / dealfront (Mikonkatu 17 C, 00100 Helsinki). For this purpose, dealfront collects the IP address of visitors. dealfront uses a cookie called "\_lfa" and has an expiry date of two years from when it was first set. The cookie can only be set for this website domain and requires your consent. For more information, please refer to the [privacy policy of dealfront].
 
 # Your rights
 
@@ -97,3 +99,4 @@ If you believe that the processing of your data constitutes a violation of data 
 [Google]: https://policies.google.com/privacy?hl=en
 [Google Ads]: https://policies.google.com/technologies/ads?hl=en
 [Google Analytics]: https://support.google.com/analytics/answer/6004245
+[privacy policy of dealfront]: https://www.dealfront.com/privacy-notice/
