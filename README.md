@@ -73,7 +73,7 @@ In order to extend the icon set, perform the following steps:
 1. Add the new SVG file to `assets/icons/single`
 2. Open [fontello.com](http://fontello.com/) and upload all .svg files from the folder
 3. Select them all and generate and download the webfont
-4. From the `font` folder in the webfont, copy all files to `assets/fonts`
+4. From the `font` folder in the webfont, copy all files to `docs/assets/fonts`
 5. Open the `_sass/fontello.scss` file, a) make sure to add a new query parameter to all uris (in order to make sure caches are bypassed) and b) overwrite the block at the bottom with all the `.icon-XXX` CSS classes with the values from the `css/fontello.css` file in the webfont
 
 
