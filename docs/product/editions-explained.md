@@ -140,12 +140,12 @@ SignPath supports signing Docker container images and tags using Docker Content 
 
 Use any code signing tool that supports either of these interfaces:
 
-| Provider                             | Technology/Interface               | Supported Platforms | Signing Tools
-|--------------------------------------|------------------------------------|---------------------|-----------------
-| Key Storage Provider (KSP)           | Cryptography Next Generation (CNG) | Windows             | `SignTool.exe`, `Mage.exe`, `nuget sign`, ...
-| Cryptographic Storage Provider (CSP) | Cryptographic API (CAPI)           | Windows             | Same as KSP, legacy tools
-| Cryptoki library                     | PKCS#11                            | Windows, Linux      | `jarsigner`, OpenSSL, GPG, RPM, DEB, Maven ...
-| Apple CryptoTokenKit                 | Code signigng for macOS, iOS, watchOS, tvOS | macOS      | Xcode, `xcodebuild`, `codesign`
+| SignPath Provider                    | Technology/Interface               | Supported Platforms  | Signing Tools
+|--------------------------------------|------------------------------------|----------------------|------------------------------------------------
+| Key Storage Provider (KSP)           | Cryptography Next Generation (CNG) | Windows              | `SignTool.exe`, `Mage.exe`, `nuget sign`, ...
+| Cryptographic Storage Provider (CSP) | Cryptographic API (CAPI)           | Windows              | Same as KSP, legacy tools
+| Cryptoki library                     | PKCS#11                            | Windows, Linux       | `jarsigner`, OpenSSL, GPG, RPM, DEB, Maven ...
+| CryptoTokenKit                       | Code signigng for Apple macOS, iOS, watchOS, tvOS | macOS | Xcode, `xcodebuild`, `codesign`
 
 Note that with hash-based signing, artifacts are not transferred to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.
 
