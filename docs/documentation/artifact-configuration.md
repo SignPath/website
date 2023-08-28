@@ -469,7 +469,7 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 </td> </tr> </tbody> </table>
 
-## File metadata restrictions
+## File metadata restrictions {#metadata-restrictions}
 
 Some element types support restricting certain metadata values. 
 

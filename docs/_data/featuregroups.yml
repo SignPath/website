@@ -84,8 +84,8 @@
       href: '/product/editions-explained#container-signing'
     - name: hash_based
       title: 'Hash-based signing'
-      hint: 'Sign files using various tools with SignPath cryptographic providers for Windows and Linux'
-      sub: 'KSP, CSP, <br> PKCS#11'
+      hint: 'Sign files using various tools with SignPath cryptographic providers'
+      sub: ' Windows, <br> Linux, macOS'
       href: '/product/editions-explained#hash-signing'
 
 - name: artifact_configuration
