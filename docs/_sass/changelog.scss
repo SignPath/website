@@ -1,0 +1,59 @@
+article.release {
+	margin-bottom: 3em;
+
+	& > h1 {
+		margin-bottom: 0px;
+		margin-top: 0px;
+		font-size: 1.5em;
+		padding-bottom: 5px;
+		border-bottom: 1px solid $grey-border-color;
+	
+		& > span {
+			display: inline-block;
+			float:right;
+			font-size: 0.8em;
+			color: $dark-grey-font-color;
+		}
+	}
+
+	h2 {
+		font-size: 1.2em;
+		padding-bottom: 0px;
+		margin-bottom: 5px;
+	}
+
+	h3 {
+		font-size: 1em;
+		font-weight: normal !important;
+		font-style: italic;
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	ul {
+		margin: 0px;
+	}
+
+	ul p {
+		margin: 0px !important;
+		display: inline;
+	}
+
+	span.enterprise-only {
+		font-style: italic;
+		color: $dark-grey-font-color;
+	}
+
+	p.no-updates {
+		text-align: center;
+		font-style: italic;
+	}
+}
+
+div#older-releases {
+	display: none;
+}
+
+p#show-older-releases {
+	text-align: center;
+}
