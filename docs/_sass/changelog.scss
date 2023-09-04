@@ -1,59 +1,94 @@
-article.release {
-	margin-bottom: 3em;
+section.changelog {
+	div.changelog-component-select-ctn {
+		background-color: $light-grey-background-color;
+		border-radius: 6px;
+		padding: 10px 10px;
+		margin-bottom: 1.5em;
 
-	& > h1 {
-		margin-bottom: 0px;
-		margin-top: 0px;
-		font-size: 1.5em;
-		padding-bottom: 5px;
-		border-bottom: 1px solid $grey-border-color;
-	
-		& > span {
-			display: inline-block;
-			float:right;
-			font-size: 0.8em;
-			color: $dark-grey-font-color;
+		select {
+			font-family: inherit;
+			font-size: inherit;
+			margin-left: 1em;
+			border: 0px solid transparent;
 		}
 	}
 
-	h2 {
-		font-size: 1.2em;
-		padding-bottom: 0px;
-		margin-bottom: 5px;
+	div.component-self_hosted_installations,
+	div.component-powershell_module,
+	div.component-powershell_module_docker,
+	div.component-crypto_providers {
+		display: none;
 	}
 
-	h3 {
-		font-size: 1em;
-		font-weight: normal !important;
-		font-style: italic;
-		margin-top: 5px;
-		margin-bottom: 5px;
+	code {
+		word-break: break-all;
 	}
 
-	ul {
-		margin: 0px;
+	article.release {
+		margin-bottom: 3em;
+
+		& > h1 {
+			margin-bottom: 0px;
+			margin-top: 0px;
+			font-size: 1.5em;
+			padding-bottom: 5px;
+			border-bottom: 1px solid $grey-border-color;
+		
+			& > span {
+				display: inline-block;
+				float:right;
+				font-size: 0.8em;
+				color: $dark-grey-font-color;
+			}
+		}
+
+		h2 {
+			font-size: 1.2em;
+			padding-bottom: 0px;
+			margin-bottom: 5px;
+		}
+
+		h3 {
+			font-size: 1em;
+			font-weight: normal !important;
+			font-style: italic;
+			margin-top: 5px;
+			margin-bottom: 5px;
+		}
+
+		ul {
+			margin: 0px;
+		}
+
+		ul p {
+			margin: 0px !important;
+			display: inline;
+		}
+
+		span.enterprise-only {
+			font-style: italic;
+			color: $dark-grey-font-color;
+		}
+
+		p.no-updates {
+			text-align: center;
+			font-style: italic;
+		}
 	}
 
-	ul p {
-		margin: 0px !important;
-		display: inline;
+	div#older-releases {
+		display: none;
 	}
 
-	span.enterprise-only {
-		font-style: italic;
-		color: $dark-grey-font-color;
-	}
-
-	p.no-updates {
+	p#show-older-releases {
 		text-align: center;
-		font-style: italic;
 	}
 }
 
-div#older-releases {
-	display: none;
-}
-
-p#show-older-releases {
-	text-align: center;
+@media only screen and (min-width: 1000px) {
+	section.changelog {
+		code {
+			word-break: normal;
+		}
+	}
 }

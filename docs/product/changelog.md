@@ -6,6 +6,18 @@ hide_sub_toc: true
 description: Product Changelog for all SignPath components.
 ---
 
+<section class='changelog'>
+
+<div class='changelog-component-select-ctn'>
+Component 
+<select id='changelog-component-select'>
+	<option value='application'>Application</option>
+	<option value='powershell_module'>PowerShell module</option>
+	<option value='crypto_providers'>Crypto Providers</option>
+	<option value='self_hosted_installations'>Self-hosted installations</option>
+</select>
+</div>
+
 {% assign today = site.time | date: '%s' %}
 {% assign one_year_ago = today | minus: 31536000 %}
 {% assign opened_old_container = false %}
@@ -22,13 +34,20 @@ description: Product Changelog for all SignPath components.
 	{% endif %}
 {% endif %}
 
-<article class='release'>
-	<h1>{% if release.release %}Release {{ release.release }}{% endif %}&nbsp;<span>{{ release.date | date: '%B %d, %Y'}}</span></h1>
+{% assign class_list = 'release' %}
+{% for update in release.updates %}
+	{% assign class_list = class_list | append: ' component-' | append: update[0] %}
+{% endfor %}
+
+<article class='{{ class_list }}'>
+	<h1>&nbsp;<span>{{ release.date | date: '%B %d, %Y'}}</span></h1>
 	{% if release.updates %}
 		{% for update in release.updates %}
+			<div class='component-{{ update[0] }}'>
 			<h2>
 				{% case update[0] %}
-					{% when "self_hosted_installations" %} Self-hosted installations
+					{% when "application" %} Application {{ update[1].version }}
+					{% when "self_hosted_installations" %} Installation package {{ update[1].version }}
 					{% when "powershell_module" %} SignPath PowerShell Module {{ update[1].version }}
 					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ update[1].version }}
 					{% when "crypto_providers" %} Crypto Providers {{ update[1].version }}
@@ -61,6 +80,7 @@ description: Product Changelog for all SignPath components.
 					{% endif %}
 				{% endif %}
 			{% endfor %}
+			</div>
 		{% endfor %}
 	{% else %}
 		<p class='no-updates'>No customer facing changes in this release.</p>
@@ -68,3 +88,5 @@ description: Product Changelog for all SignPath components.
 </article>
 {% endfor %}
 </div>
+
+</section>
