@@ -360,11 +360,11 @@ Available for Basic and Enterprise subscriptions
 
 This signing method can be used to sign the following file formats:
 
-| Format                       | Extensions       | Remarks |
-|------------------------------|------------------|---------|
-| Java archives                | .jar, .ear, .war | |
-| Android apps und app-bundles | .apk, .aab       | Only APK signing scheme v1 (v2 and v3 are not yet supported) |
-| ZIP files                    | .zip             | Only UTF-8 encoded ZIP files are supported |
+| Format                       | Extensions       | Remarks 
+|------------------------------|------------------|---------
+| Java archives                | .jar, .ear, .war | 
+| Android apps und app-bundles | .apk, .aab       | Only APK signing scheme v1 (v2 and v3 are not yet supported) 
+| ZIP files                    | .zip             | Only UTF-8 encoded ZIP files are supported 
 
 #### Verification
 
@@ -387,6 +387,20 @@ Available for Enterprise subscriptions
 
 Sign XML files with [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
 
+This will create an _enveloped signature_ for the entire document. 
+
+The result is a `Signature` element added to the root element (after all existing children) with the following properties:
+
+| Property          | Value                                                                         | XPath
+|-------------------|-------------------------------------------------------------------------------|--------------------------------------------------------------------
+| Canonicalization  | Exclusive XML Canonicalization: `http://www.w3.org/2001/10/xml-exc-c14n#`     | `/*/Signature/SignedInfo/CanonicalizationMethod/@Algorithm`
+| Method            | _Depends on signing key format_                                               | `/*/Signature/SignedInfo/SignatureMethod/@Algorithm`
+| ReferenceUri      | Whole document: `""`                                                          | `/*/Signature/SignedInfo/Reference/@URI`
+| Transformation    | Enveloped signature: `http://www.w3.org/2000/09/xmldsig#enveloped-signature"` | `/*/Signature/SignedInfo/Reference/Transforms/Transform/@Algorithm`
+| Transformation    | Exclusive XML Canonicalization: `http://www.w3.org/2001/10/xml-exc-c14n#`     | `/*/Signature/SignedInfo/Reference/Transforms/Transform/@Algorithm`
+| Digest method     | SHA-256: `http://www.w3.org/2001/04/xmlenc#sha256`                            | `/*/Signature/SignedInfo/Reference/DigestMethod/@Algorithm`
+| X.509 Certificate | _See `key-info-x509-data` option_                                             | `/*/Signature/KeyInfo/X509Data`
+
 **Supported options:**  
 
 | Option                       | Optional | Description
@@ -400,14 +414,14 @@ See also:
 
 Every path attribute can contain the following wildcard patterns:
 
-| Wildcard | Description | Example | Matches |
-| -------- | ----------- | ------- | ------- |
-| `*`      | Matches any number of any character (including none, excluding the directory separator) | `m*y` | `my`, `mary`, `my first pony`
-| `?`      | Matches  any single character                                              | `th?s`: `this`, `th$s`, but not `ths`
-| `[abc]`  | Matches one character given in the bracket                                 | `[fb]oo` | `foo` and `boo`
-| `[a-z]`  | Matches one character from the range given in the bracket                  | `[0-9]`  | all digits
-| `[!abc]` | Matches one character that is not given in the bracket                     | `[!f]oo` | `boo` and `$oo`, but not `foo`
-| `[!a-z]` | Matches one character that is not from the range given in the bracket      | `[!0-9]` | every character that is not a digit
+| Wildcard | Description                                                                                                        | Example    | Matches
+|----------|--------------------------------------------------------------------------------------------------------------------|------------|-------------------------
+| `*`      | Matches any number of any character (including none, excluding the directory separator).                           | `m*y`      | `my`, `mary`, `my first pony`
+| `?`      | Matches  any single character.                                                                                     | `th?s`     | `this`, `th$s`, but not `ths`
+| `[abc]`  | Matches one character given in the bracket.                                                                        | `[fb]oo`   | `foo` and `boo`
+| `[a-z]`  | Matches one character from the range given in the bracket.                                                         | `[0-9]`    | all digits
+| `[!abc]` | Matches one character that is not given in the bracket.                                                            | `[!f]oo`   | `boo` and `$oo`, but not `foo`
+| `[!a-z]` | Matches one character that is not from the range given in the bracket.                                             | `[!0-9]`   | every character that is not a digit
 | `**`     | Matches any number of path/directory segments. When used, they must be the only contents of the dedicated segment. | `**/*.dll` | `*.dll` files in all subdirectories (recursive)
 
 ### Number of matches
