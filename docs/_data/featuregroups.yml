@@ -84,7 +84,7 @@
       href: '/product/editions-explained#container-signing'
     - name: sbom
       title: 'SBOMs'
-      hint: 'Currently limited to CycloneDX XML'
+      hint: 'Currently supported are CycloneDX XML BOMs'
       sub: ' bom.xml'
     - name: hash_based
       title: 'Hash-based signing'
