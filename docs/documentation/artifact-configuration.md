@@ -499,7 +499,7 @@ The restrictions can be applied to file elements, [file set elements](#file-and-
 </artifact-configuration>
 ~~~
 
-### Example: XML file schema restriction for CycloneDX SBOM 
+### Example: XML file schema restriction for CycloneDX SBOM {#sbom-sample}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
