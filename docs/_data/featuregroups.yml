@@ -82,6 +82,11 @@
       title: 'Docker images'
       sub: 'Notary'
       href: '/product/editions-explained#container-signing'
+    - name: sbom
+      title: 'SBOMs'
+      hint: 'Software/SaaS/Hardware/... Bills of Material'
+      sub: 'CycloneDX XML'
+      href: '/product/editions-explained#sbom-signing'
     - name: hash_based
       title: 'Hash-based signing'
       hint: 'Sign files using various tools with SignPath cryptographic providers'

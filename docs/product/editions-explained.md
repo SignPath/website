@@ -136,6 +136,19 @@ SignPath supports signing Docker container images and tags using Docker Content 
 
 **Available for** _{{ site.data.editions | where: "signing_methods.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
 
+### Bills of Material {#sbom-signing}
+
+Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-cyclonedx/) XML format. This includes
+
+* Software Bill of Materials (SBOM)
+* Software-as-a-Service Bill of Materials (SaaSBOM)
+* Hardware Bill of Materials (HBOM)
+* and others
+
+See this [artifact configuration sample](/documentation/artifact-configuration#sbom-sample) for details.
+
+**Available for** _{{ site.data.editions | where: "signing_methods.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
+
 ### Hash-based signing {#hash-signing}
 
 Use any code signing tool that supports either of these interfaces:

@@ -26,6 +26,7 @@
     xml: false
     docker: false
     hash_based: false
+    sbom: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: false
@@ -82,6 +83,7 @@
     xml: false
     docker: false
     hash_based: false
+    sbom: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
@@ -133,6 +135,7 @@
     xml: true
     docker: true
     hash_based: true
+    sbom: true
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
@@ -187,6 +190,7 @@
     xml: true
     docker: true
     hash_based: false
+    sbom: true
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
