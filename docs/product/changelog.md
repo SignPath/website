@@ -11,6 +11,7 @@ description: Product Changelog for all SignPath components.
 <div class='changelog-component-select-ctn'>
 Component 
 <select id='changelog-component-select'>
+	<option value='all'>All components</option>
 	<option value='application'>Application</option>
 	<option value='powershell_module'>PowerShell module</option>
 	<option value='crypto_providers'>Crypto Providers</option>
@@ -71,8 +72,8 @@ Component
 							{% for note in update_type[1] %}
 								<li>
 									{{ note.text | markdownify }}
-									{% if note.enterprise_only %}
-										<span class='enterprise-only'>(Enterprise only)</span>
+									{% if note.enterprise_only or note.saas_only %}
+										<span class='enterprise-only'>({% if note.enterprise_only %}Enterprise only{% endif %}{% if note.enterprise_only and note.saas_only %}, {% endif %}{% if note.saas_only %}SaaS only{% endif %})</span>
 									{% endif %}
 								</li>
 							{% endfor %}

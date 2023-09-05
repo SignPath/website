@@ -17,12 +17,14 @@ export function changelog() {
 	if (select) {
 		select.addEventListener('change', function(e) {
 			document.querySelectorAll('section.changelog div[class^=component-], section.changelog article.release').forEach(function(componentDiv) {
-				console.log(componentDiv.classList);
-				console.log(`component-${select.value}`);
-				if (componentDiv.classList.contains(`component-${select.value}`)) {
+				if (select.value == 'all') {
 					componentDiv.style.display = 'block';
 				} else {
-					componentDiv.style.display = 'none';
+					if (componentDiv.classList.contains(`component-${select.value}`)) {
+						componentDiv.style.display = 'block';
+					} else {
+						componentDiv.style.display = 'none';
+					}
 				}
 			});
 		});

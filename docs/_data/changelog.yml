@@ -49,6 +49,7 @@
             Improved `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` responses:
             - Added `originalSigningRequestId` for resubmit events.
             - Added file name and hash fields for various submission event types.
+          enterprise_only: true
           issues: [SIGN-6106]
         - text: Improved the performance of the `/v1-pre/{organizationId}/AuditLog/Events` REST API
           enterprise_only: true
@@ -76,8 +77,10 @@
       version: 1.144.1
       improvements:
         - text: 'New REST API route: reinvite interactive users `/v1-pre/{organizationId}/InteractiveUsers/{id}/Reinvite`.'
+          enterprise_only: true
           issues: [SIGN-5940]
         - text: 'New REST API route: `/v1-pre/{organizationId}/Projects/{slug}/SetDefaultArtifactConfiguration`.'
+          enterprise_only: true
           issues: [SIGN-5941]
         - text: Improved performance of REST API and UI HTTP responses.
           issues: [SIGN-6144]
@@ -95,6 +98,7 @@
       version: 1.143.2
       breaking_changes:
         - text: 'Event Audit Log API (preview): The `TrustedBuildSystem.Added` event has been renamed to `TrustedBuildSystem.CustomAdded`.'
+          enterprise_only: true
           issues: [SIGN-5728]
     self_hosted_installations:
       version: 1.143.2
@@ -161,7 +165,8 @@
         - text: Support for using mutual TLS client certificates specified by a Microsoft template ID.
           issues: [SIGN-5710]
     self_hosted_installations:
-      upgrade_information: _After_ the upgrade the report model database will be automatically built up from scratch. This means that for a while (depending on the number of signing requests) the signing request list in the UI and the CSV report may contain outdated information until the report model building reached the latest signing requests.
+      breaking_changes:
+        - text: '_No change required:_ After the upgrade the report model database will be automatically built up from scratch. This means that for a while (depending on the number of signing requests) the signing request list in the UI and the CSV report may be incomplete until the report model building reached the latest signing requests.'
 - date: '2023-04-25'
   updates:
     application:
@@ -204,6 +209,7 @@
       version: 1.136.3
       improvements:
         - text: 'New REST API route `/v1-pre/{organizationId}/SigningRequests/{id}/ArtifactDescriptionXml` allows to retrieve the artifact _description_ XML content for signing requests including file details for all contained signed files.'
+          enterprise_only: true
           issues: [SIGN-5473]
         - text: Added a "Sign artifact" button in the artifact configuration list in the project page.
         - text: Added "Sign artifact" and "Show signing requests" buttons on the artifact configuration details page.
@@ -223,9 +229,10 @@
     self_hosted_installations:
       version: 1.136.3
       breaking_changes:
-        - text: The `signpath-application` configuration value `appSettings.shared.applicationInsights.connectionString` has been moved to `appSecrets.shared.applicationInsights.connectionString`.
-          issues: [SIGN-5812]
-        - text: The `signpath-signservice-<variant>` configuration value `appSettings.signService.applicationInsights.connectionString` has been moved to `appSecrets.signService.applicationInsights.connectionString`.
+        - text: |-
+            The following configuration values have been moved from `appSettings` to `appSecrets`:
+            * `signpath-application` value `appSettings.shared.applicationInsights.connectionString`
+            * `signpath-signservice-<variant>` value `appSettings.signService.applicationInsights.connectionString`
           issues: [SIGN-5812]
       new_features:
         - text:  Added support for automatic artifact deletion after a configurable retention time (disabled by default).
@@ -245,41 +252,42 @@
           issues: [SIGN-5822]
       improvements: 
         - text: 'Added new REST API for listing all projects as well as modifying projects, signing policies, and artifact configurations.'
+          enterprise_only: true
           issues: [SIGN-5601]
         - text: Improved dashboard loading performance.
           issues: [SIGN-5406]
     crypto_providers:
       version: 3.3.0
       new_features:
-        - text: Support using a HTTP web proxy via configuration (Linux and Windows).
+        - text: Added suppport for using a HTTP web proxy (Linux and Windows).
           issues: [SIGN-5647]
       improvements:
-        - text: Improve the error reporting for the `sp-register-ksp` command (Windows).
+        - text: Improved the error reporting for the `sp-register-ksp` command (Windows).
           issues: [SIGN-5648]
     self_hosted_installations:
       version: 1.135.0
       new_features:
-        - text: For Luna and DPoD HSMs it's now possible to delete certificate keys on the HSM storage 60 days after the "Delete private key" action (by default deleted keys are only recorded for manual deletion).
+        - text: 'For Luna and DPoD HSMs it''s now possible to delete certificate keys on the HSM storage 60 days after the "Delete private key" action (_Note: By default, deleted keys are only recorded for manual deletion._)'
           issues: [SIGN-5687]
       breaking_changes: 
         - text: The configuration parameters for NGINX proxy settings in the `signpath-application-ingress` chart have a new location.
           issues: [SIGN-5277]
-        - text: Custom malware scanning scripts must now be able to handle two new parameters (`-OriginalFileName` and `-ExecutionTimeout`).
+        - text: 'Custom malware scanning scripts must now be able to handle two new parameters: `-OriginalFileName` and `-ExecutionTimeout`.'
           issues: [SIGN-5669]
       improvements:
-        - text: Ingress chart allows to configure additional annotations on the ingress resource and allows to opt-out from the NGINX default annotations.
+        - text: Added support in the Ingress chart to configure additional annotations on the Ingress resource and to opt-out from the NGINX default annotations.
           issues: [SIGN-5564]
         - text: Changed recommended Kubernetes version from 1.23 to 1.24.
           issues: [SIGN-5716]
         - text: Updated the `signpathio/kubectl` container image to include kubectl 1.24.10 (the image is tagged with both `1.24` and `1.24.10`).
           issues: [SIGN-5716]
-        - text: Dropped NGINX session affinity annotations (reverse proxy session affinity isn't anymore a requirement since version 1.133).
+        - text: 'Dropped NGINX session affinity annotations (_Note: reverse proxy session affinity has not been a requirement since release 1.133._).'
           issues:  [SIGN-5746, SIGN-5564]
         - text: Improved signing request triggering latency.
           issues: []
         - text: Changed the default replica count for `hangfireDashboard` to 1.
           issues: []
-        - text: Cleaned up the Ingress chart (no more `tests` section).
+        - text: Cleaned up the Ingress chart (removed the `tests` section).
           issues: [SIGN-5564]
         - text: Cleaned the SignService Kubernetes Helm Charts (dropped unused sections).
           issues: [SIGN-5564]
@@ -294,16 +302,18 @@
           issues: [SIGN-5675]
       improvements:
         - text: New REST API `/v1-pre/{organizationId}/Certificates` allows to list all certificates.
+          enterprise_only: true
           issues: [SIGN-5667]
         - text: Added REST APIs to modify, activate and deactivate CI Users.
+          enterprise_only: true
           issues: [SIGN-5193]
-        - text: Automatically cancel HTTP requests where the TCP connection is dropped by the client.
+        - text: HTTP requests where the TCP connection is dropped by the client are now automatically canceled.
           issues: [SIGN-5522]
     self_hosted_installations:
       version: 1.133.0
       breaking_changes:
         - text: |-
-            New mandatory database connection string for application: `DataProtectionDatabase` and `DataProtectionDatabaseDdl`.
+            Added new mandatory database connection strings for the application: `DataProtectionDatabase` and `DataProtectionDatabaseDdl`.
             * We recommend to rename the `ReportModel` database to `ApplicationShared` and use this database in the connections strings `ReportModelDatabase`, `ReportModelDatabaseDdl` and the two new connection strings.
             * Alternatively also a new database named `DataProtection` can be created and used.
             * See also the "Create databases" and "Data protection keys" sections in the installation guide.
@@ -323,12 +333,13 @@
     application:
       version: 1.132.0
       breaking_changes:
-        - text: Within the preview AuditLog API response, the `metadata.user` property has been renamed to `.actor`.
+        - text: Within the AuditLog API (preview) response, the `metadata.user` property has been renamed to `metadata.actor`.
+          enterprise_only: true
           issues: [SIGN-5481]
       improvements:
         - text: Changed web hooks to be triggered for _all final_ signing request statuses, not only `Complete`.
           issues: [SIGN-5602]
-        - text: Improve error reporting when deep-signing MSI files with missing external files.
+        - text: Improved error reporting when deep-signing MSI files with missing external files.
           issues: [SIGN-5500]
       bug_fixes:
         - text: Fixed artifact configuration generation for file names containing special characters like square brackets.
@@ -349,6 +360,7 @@
       version: 1.130.0
       breaking_changes:
         - text: The Audit Log REST API (preview) `/v1-pre/{organizationId}/AuditLog/Events` doesn't include signing request events anymore, instead they can be retrieved via the the new `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` route.
+          enterprise_only: true
           issues: [SIGN-5380]
       new_features:
         - text: Added support for additional, organization-specific key stores.
@@ -363,6 +375,7 @@
       version: 1.129.0
       new_features:
         - text: Enabled Swagger UI for the REST API at `/Api/swagger`.
+          enterprise_only: true
           issues: [SIGN-5502]
       bug_fixes:
         - text: Fixed bug in elliptic curve certificate generation for the software key store.
@@ -372,10 +385,10 @@
       version: 1.129.0
       breaking_changes:
         - text: |-
-            Renamed `signServiceOptions` to `keyStoreOptions`:
-            * Configuration section `appSecrets/appSettings.shared.signServiceOptions` has been renamed to `.keyStoreOptions` and its internal structure has changed (compare against the new configuration structure).
-            * Configuration section `appSettings.deletionProcessorService.signServiceOptions` has been renamed to `.keyStoreOptions`.
-            * Configuration section `appSettings.signingProcessorService.signServiceOptions` has been renamed to `.keyStoreOptions`.
+            Renamed `signServiceOptions` to `keyStoreOptions` in the following places:
+            * `appSecrets/appSettings.shared.signServiceOptions` (also changed the structure)
+            * `appSettings.deletionProcessorService`
+            * `appSettings.signingProcessorService`
           issues: [SIGN-5442]
         - text: Configuration value `appSettings.notificationsProcessorService.smtpServerOptions.useSsl` has been renamed to `.secureSocketMode` and the former `false` value now corresponds to `'None'`, resp. `true` value now corresponds to `'Ssl'`.
           issues: [SIGN-5464]
@@ -389,21 +402,19 @@
     application:
       version: 1.128.0
       new_features:
-        - text: Added possibility to disable malware scanning in a signing. policy
+        - text: Added possibility to disable malware scanning for individual signing policies.
           enterprise_only: true
           issues: [SIGN-5350]
       improvements:
-        - text: Performance improvement for HSM signing requests.
+        - text: Performance improvement for signing requests using the HSM key store.
           issues: [SIGN-5394]
-        - text: New REST API routes to list all CI Users and regenerate CI User tokens.
+        - text: New REST API routes (preview) to list all CI Users and regenerate CI User tokens.
+          enterprise_only: true
           issues: [SIGN-5401]
-      bug_fixes:
-        - text: Fixed UI when accessing a signing request after enabling .malware scanning.
-          issues: [SIGN-5491]
     powershell_module:
       version: 4.2.0
       new_features:
-        - text: 'Artifact Retrieval: Instead of passing the artifact file, a HTTPS retrieval link can now be passed to SignPath.'
+        - text: 'Artifact Retrieval: Instead of uploading the artifact file, a HTTPS retrieval link including authentication headers can now be passed to SignPath.'
           enterprise_only: true
           issues: [SIGN-3957]
     crypto_providers:
@@ -430,10 +441,10 @@
     application:
       version: 1.126.0
       new_features:
-        - text: Trusted build system (TBS) verification is now possible without origin verification (new signing policy option).
+        - text: Verifying that a signing request was submitted from a trusted build system (TBS) is now possible without requiring the TBS to provide origin information.
           enterprise_only: true
           issues: [SIGN-5354]
-        - text: The certificate view now lists additional X.509 fields like "Issuer", "Thumbprint", etc.
+        - text: The certificate view now also lists the X509 Issuer, Serial Number, Thumbprint, Key Usage and Extended Key Usage flags for each certificate.
           issues: [SIGN-5393]
       improvements:
         - text: Changed the name of the initial artifact configuration when creating projects to "Initial version".
@@ -451,7 +462,7 @@
         - text: Luna HSM watchdog key IDs can now be configured.
           issues: [SIGN-5089]
       bug_fixes:
-        - text: Luna HSM watchdog keys aren't created multiple times on first startup (only concerns Kubernetes with multiple replicas).
+        - text: Fixed a bug where multiple Luna HSM watchdog keys were created on first startup (only relevant for Kubernetes installations with multiple replicas).
           issues: [SIGN-5089]
 - date: '2022-09-29'
   updates:
@@ -465,11 +476,11 @@
           issues: [SIGN-4499]
       improvements:
         - text: Added new API routes to change a user's `NotificationEmailAddress` and `Identity` fields.
-          issues: 8[SIGN-4987]
+          issues: [SIGN-4987]
     powershell_module:
       version: 4.1.3
       improvements:
-        - text: Added a proper return message when a operation is not allowed.
+        - text: Added a proper return message when an operation is not allowed.
           issues: [SIGN-4499]
         - text: Cleaned up the documentation.
           issues: [SIGN-5039, SIGN-5151]
@@ -486,7 +497,17 @@
         - text: Interactive users can now be created via the REST API.
           issues: [SIGN-5282]
       improvements:
-        - text: Various small UI improvements.
+        - text: |-
+            Various small UI/UX improvements:
+              * Used "email" instead of "e-mail" consistently.
+              * Entity names are only truncated when there is no more space available on the UI.
+              * It's not possible to send empty feedback messages any longer.
+              * When using the "Copy to clipboard" functionality, a confirmation message is shown.
+              * When submitting forms, a spinning icon was added to indicate that the request is being processed.
+              * On pages containing forms, the first input field is automatically focused on.
+              * The interative user field "Display Identity" was renamed to "Initial Login Email Address".
+              * The mouse cursor now indicates when an element can be interacted with.
+              * The date and time picker now does not open any more when the input field is focused, making it easier to enter a date using the keyboard.
           issues: [SIGN-1548, SIGN-1501, SIGN-1479, SIGN-1474, SIGN-3575, SIGN-3113, SIGN-4548, SIGN-5307, SIGN-5311, SIGN-5339]
     crypto_providers:
       version: 3.2.1
@@ -518,13 +539,13 @@
         - text: Compatibility with Internet Explorer 11 has been dropped.
           issues: [SIGN-5150]
       new_features:
-        - text: The file artifact description in signing requests now contains the full path inside container artifacts.
+        - text: The artifact description in signing requests now contains the full path of files inside container artifacts.
           issues: [SIGN-5258]
-        - text: Option to display the certificate's key store key ID
+        - text: The certificate's key store ID is now also shown on the certificate details page (needs to be enabled per organization).
           enterprise_only: true
           issues: [SIGN-4995]
       improvements:
-        - text: Modernization of the used UI framework including fixes of minor UI glitches.
+        - text: Modernization of the HTML UI framework including fixes of minor UI glitches.
           issues: [SIGN-5150]
         - text: Projects can now be configured to use multiple repository URLs for origin verification.
           enterprise_only: true
@@ -542,7 +563,7 @@
     crypto_providers:
       version: 3.1.0
       new_features:
-        - text: Collection of information about the invoking process (command line call and user account) is now also supported on Linux.
+        - text: Collecting information about the invoking process (command line call and user account) is now also supported on Linux.
           issues: [SIGN-5120]
       bug_fixes:
         - text: Fixed missing support for libp11 (OpenSSL engine) version 0.4.12.
@@ -556,10 +577,10 @@
       breaking_changes:
         - text: The `SIGNPATH_LOG_LEVEL` configuration was split into `SIGNPATH_LOG_CONSOLE_LEVEL` and `SIGNPATH_LOG_FILE_LEVEL`.
           issues: [SIGN-5154]
-        - text: The console logging is disabled by default (`SIGNPATH_LOG_CONSOLE_LEVEL=none`).
+        - text: The console logging was disabled by default (`SIGNPATH_LOG_CONSOLE_LEVEL=none`).
           issues: [SIGN-5154]
       new_features:
-        - text: 'Cryptoki: Adaptions to add compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP singing.'
+        - text: 'Cryptoki: Added compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP singing.'
           issues: [SIGN-5154]
     self_hosted_installations:
       version: 1.121.0
@@ -567,7 +588,7 @@
         - text: Improved error reporting for wrong configurations.
           issues: [SIGN-5132]
       bug_fixes:
-        - text: Fixed missing error reporting in the Administration Utility.
+        - text: Added missing error reporting in the Administration Utility.
           issues: [SIGN-5126]
 - date: '2022-07-29'
   updates:
@@ -618,7 +639,7 @@
     self_hosted_installations:
       version: 1.119.0
       bug_fixes:
-        - text: Fixed a bug that that required on-premise installations to configure a timestamping server URL for the FreeTrial subscriptions.
+        - text: Fixed a bug that that required self-hosted installations to configure a timestamping server URL for FreeTrial subscriptions.
           issues: [SIGN-4961]
 - date: '2022-06-08'
   updates:
@@ -634,12 +655,13 @@
   updates:
     application:
       improvements:
-        - text: 'New REST API route: `/v1-pre/{organizationId}/CIUsers/Me`.'
+        - text: 'New REST API route (preview): `/v1-pre/{organizationId}/CIUsers/Me` returns information about the authenticated CI user.'
+          enterprise_only: true
           issues: [SIGN-4928]
     self_hosted_installations:
       version: 1.117.0
       improvements:
-        - text: In Kubernetes installations, an improved migration mode ensures that all container images are ready before to the new version, ensuring a minimum downtime.
+        - text: In Kubernetes installations, an improved migration mode ensures that all container images are ready before to the new version starts, ensuring a minimum downtime.
           issues: [SIGN-4860]
 - date: '2022-05-02'
   updates:
@@ -651,7 +673,7 @@
     self_hosted_installations:
       version: 1.115.0
       breaking_changes:
-        - text: 'A new `ReportModel` database needs to be created.'
+        - text: A new `ReportModel` database needs to be created. See the installation guide for more details.
           issues: [SIGN-4859]
       improvements:
         - text: Administrators are now prevented from deploying to the wrong color.
@@ -692,7 +714,8 @@
     application:
       version: 1.112.0
       improvements:
-        - text: 'New REST API route: `/v1-pre/{organizationId}/Organization` to query organization and quota information.'
+        - text: 'New REST API route (preview): `/v1-pre/{organizationId}/Organization` to query organization and quota information.'
+          enterprise_only: true
           issues: [SIGN-4719]
     crypto_providers:
       version: 2.1.0
@@ -718,6 +741,8 @@
       version: 1.111.0
       improvements:
         - text: Limited the maximum file size for artifact retrieval to 4GB in SaaS.
+          saas_only: true
+          enterprise_only: true
           issues: [SIGN-3543]
     crypto_providers:
       version: 2.0.0
@@ -756,6 +781,7 @@
       version: 1.108.0
       new_features:
         - text: Audit Log REST API is now available in preview.
+          enterprise_only: true
           issues: [SIGN-4642]
       bug_fixes:
         - text: Expiration emails for already expired certificates are no longer sent out.
@@ -765,7 +791,7 @@
       new_features:
         - text: 'Windows only: Information about the invoking process (command line call and user account) is collected.'
           issues: [SIGN-4648]
-        - text: 'Windows only: Client certificates can be specified.'
+        - text: 'Windows only: Mutual TLS (mTLS) client certificates can be specified.'
           issues: [SIGN-4646]
     self_hosted_installations:
       version: 1.108.0
@@ -777,9 +803,9 @@
     application:
       version: 1.107.0
       improvements:
-        - text: The API now returns concrete error messages in cases of HTTP 401 Unauthorized.
+        - text: The API now returns concrete error messages in the body of HTTP 401 Unauthorized responses.
           issues: [SIGN-4603]
-        - text: The signing request ID of the created signing requests is now included in the HTTP response body of the submit API routes.
+        - text: The signing request ID is now included in the HTTP response body of the submit API routes.
           issues: [SIGN-4547]
         - text: Extended the build system integration for Appveyor to allow private projects for non-OSS subscriptions.
           issues: [SIGN-4675]
@@ -788,11 +814,11 @@
     application:
       version: 1.106.0
       improvements:
-        - text: For Hash-Signing, the metadata is now included in the signed artifact payload file.
+        - text: For Hash Signing, the metadata is now included in the signed artifact payload file.
           enterprise_only: true
           issues: [SIGN-4629]
       bug_fixes:
-        - text: Fixed a bug that caused expiration notifications to be sent out even if the certificate was re-imported.
+        - text: Fixed a bug that caused expiration notifications to be sent out even if a new certificate was re-imported.
           issues: [SIGN-4096]
     powershell_module:
       version: 4.0.0
@@ -814,6 +840,7 @@
         - text: 'Signing request filters: The signing request list can be filtered by status and artifact configuration (when viewing signing requests for a specific project or signing policy).'
           issues: [SIGN-4572]
         - text: User roles can also be configured for CI Users. Permissions will be applied to API calls accordingly.
+          enterprise_only: true
           issues: [SIGN-4545]
       bug_fixes:
         - text: Fixed a bug that prevented artifact names of signing requests submitted via the artifact retrieval workflow from being included in the signing request report.
@@ -867,16 +894,13 @@
     application:
       version: 1.102.0
       new_features:
-        - text: Resubmits of signing requests are possible via the API.
-          enterprise_only: true
-          issues: [SIGN-1717]
         - text: Support for Thales DPoD cloud HSMs are in pre-release status.
           enterprise_only: true
           issues: [SIGN-4391]
       improvements:
         - text: The signing request status values have been reduced. Multiple status are now combined as "In Progress".
           issues: [SIGN-4397]
-        - text: The artifact size in the hover field is now displayed in a human readable format.
+        - text: Artifact sizes are now displayed in a human readable format.
           issues: [SIGN-4413]
       bug_fixes:
         - text: Fixed a bug that prevented the artifact configuration XML from being downloaded if there were special characters in the configuration's name.
@@ -924,7 +948,7 @@
     application:
       version: 1.99.0
       improvements:
-        - text: Hardenend content-security-policy settings.
+        - text: Hardenend the content-security-policy settings.
           issues: [SIGN-4277]
     self_hosted_installations:
       version: 1.99.0
@@ -938,7 +962,7 @@
     application:
       version: 1.98.0
       new_features:
-        - text: 'Notification Levels: Users can now select a notification level for each signing policy separately. See our documentation for details. By default, administrators will stop receiving notifications for signing requests unless they are configured as submitters or approvers.'
+        - text: 'Notification Levels: Users can now select a notification level for each signing policy separately. By default, administrators will stop receiving notifications for signing requests unless they are configured as submitters or approvers.'
           issues: [SIGN-4071]
       improvements:
         - text: Improved performance when processing artifacts.
@@ -967,7 +991,7 @@
     application:
       version: 1.96.0
       improvements:
-        - text: Better error reporting for archives that contain multiple files of the same path/name.
+        - text: Better error reporting for archives that contain multiple files with the same name.
           issues: [SIGN-4184]
         - text: Performance improvements when loading signing request lists.
           issues: [SIGN-4214, SIGN-4263]
@@ -1007,7 +1031,7 @@
           issues: [SIGN-4124]
         - text: Authenticode signatures may contain a description field that is displayed by Windows User Account Controls (UAC) and possibly other mechanisms. If present, SignPath will now use the FileDescription value of the PE file `VERSIONINFO` resource (`VER_FILEDESCRIPTION_STR`). Otherwise the file name will be used as before.
           issues: [SIGN-4088]
-        - text: The malware scanning step is now displayed as a separate step in the processing log of each new signing request.
+        - text: The malware scanning step is now displayed as a separate entry in the processing log of each new signing request.
           issues: [SIGN-4094]
 - date: '2021-05-17'
   updates:
@@ -1024,10 +1048,14 @@
     application:
       version: 1.91.0
       improvements:
-        - text: Various small UX improvements
+        - text: |-
+            Various small UX improvements:
+            * Renamed "Build information" to "Build data".
+            * Improved the display of the file name of artifacts submitted using the artifact retrieval functionality
           issues: [SIGN-3917, SIGN-3965]
         - text: In the SaaS deployment, the login process has been improved and handles correlation errors more gracefully.
           issues: [SIGN-3690]
+          saas_only: true
       bug_fixes:
         - text: Fixed a bug where certain directory structures in clickonce application bundles resulted in unusable artifact configurations when created from a sample upload.
           issues: [SIGN-3994]
@@ -1040,7 +1068,7 @@
     self_hosted_installations:
       version: 1.91.0
       breaking_changes:
-        - text: Move all configuration values from the .env file to the respective section in the Configuration.yml file.
+        - text: Move all configuration values from the `.env` file to the respective section in the `Configuration.yml` file.
           issues: [SIGN-4012]
       new_features:
         - text: Added possibility to configure an external malware scanner.
@@ -1058,18 +1086,21 @@
         - text: Changed webhook URLs to only allow HTTPS.
           issues: [SIGN-3754]
         - text: Group memberships are also shown for user groups.
+          enterprise_only: true
           issues: [SIGN-3924]
         - text: The repository URL is also shown on the signing policy detail page (if origin verification is enabled).
+          enterprise_only: true
           issues: [SIGN-3969]
     powershell_module:
       version: 3.0.2
       improvements:
-        - text: Added more explicit error messages.
+        - text: Added more explicit error messages when a Trusted Build System Link is missing in the Project configuration.
+          enterprise_only: true
           issues: [SIGN-3971]
     self_hosted_installations:
       version: 1.90.0
       breaking_changes:
-        - text: Move all secrets from the .env file to the respective secrets files and remove them from the .env file.
+        - text: Move all secrets from the `.env` file to the respective secret files.
           issues: [SIGN-2857]
       new_features:
         - text: Switched to using Docker-Compose secrets.
