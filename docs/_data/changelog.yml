@@ -22,10 +22,8 @@
       new_features:
         - text: Added possibility to upload multiple files in signing request web client UI.
           issues: [SIGN-5936]
-          enterprise_only: true
         - text: Added "Multiple Office files with macros" default artifact configuration which allows to upload multiple Office files in the user interface.
           issues: [SIGN-5936]
-          enterprise_only: true
       improvements:
         - text: Improved resilience of system against temporary database outages.
           issues: [SIGN-6053]
@@ -49,10 +47,8 @@
             Improved `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` responses:
             - Added `originalSigningRequestId` for resubmit events.
             - Added file name and hash fields for various submission event types.
-          enterprise_only: true
           issues: [SIGN-6106]
         - text: Improved the performance of the `/v1-pre/{organizationId}/AuditLog/Events` REST API
-          enterprise_only: true
           issues: [SIGN-6115]
     self_hosted_installations:
       version: 1.145.1
@@ -77,10 +73,8 @@
       version: 1.144.1
       improvements:
         - text: 'New REST API route: reinvite interactive users `/v1-pre/{organizationId}/InteractiveUsers/{id}/Reinvite`.'
-          enterprise_only: true
           issues: [SIGN-5940]
         - text: 'New REST API route: `/v1-pre/{organizationId}/Projects/{slug}/SetDefaultArtifactConfiguration`.'
-          enterprise_only: true
           issues: [SIGN-5941]
         - text: Improved performance of REST API and UI HTTP responses.
           issues: [SIGN-6144]
@@ -98,7 +92,6 @@
       version: 1.143.2
       breaking_changes:
         - text: 'Event Audit Log API (preview): The `TrustedBuildSystem.Added` event has been renamed to `TrustedBuildSystem.CustomAdded`.'
-          enterprise_only: true
           issues: [SIGN-5728]
     self_hosted_installations:
       version: 1.143.2
@@ -127,7 +120,6 @@
       version: 1.141.1
       improvements:
         - text: Malformed hash values in hash signing are now gracefully reported to the API caller.
-          enterprise_only: true
           issues: [SIGN-5950]
       bug_fixes:
         - text: Fixed a problem that caused some signing requests to be stuck in the `Queued` state.
@@ -149,11 +141,9 @@
       version: 1.140.3
       new_features:
         - text: Added support for signing Cyclone DX SBOMs.
-          enterprise_only: true
           issues: [SIGN-5947]
         - text: Added support for XML file signing based on the W3C XMLDSig standard.
           issues: [SIGN-5947]
-          enterprise_only: true
       bug_fixes:
         - text: Fixed timeouts that occurred during the creation of signing request reports.
           issues: [SIGN-5961]
@@ -194,7 +184,6 @@
       version: 1.137.0
       improvements:
         - text: SignPath now explicitly drops any secrets exposed in the build settings by AppVeyor. All affected parties were informed.
-          enterprise_only: true
           issues: [SIGN-5874]
     self_hosted_installations:
       version: 1.137.0
@@ -209,7 +198,6 @@
       version: 1.136.3
       improvements:
         - text: 'New REST API route `/v1-pre/{organizationId}/SigningRequests/{id}/ArtifactDescriptionXml` allows to retrieve the artifact _description_ XML content for signing requests including file details for all contained signed files.'
-          enterprise_only: true
           issues: [SIGN-5473]
         - text: Added a "Sign artifact" button in the artifact configuration list in the project page.
         - text: Added "Sign artifact" and "Show signing requests" buttons on the artifact configuration details page.
@@ -248,11 +236,9 @@
       version: 1.135.0
       new_features:
         - text: Added support for ECDSA X.509 (key type `ecdsa-x509`) certificates for Docker Signing.
-          enterprise_only: true
           issues: [SIGN-5822]
       improvements: 
         - text: 'Added new REST API for listing all projects as well as modifying projects, signing policies, and artifact configurations.'
-          enterprise_only: true
           issues: [SIGN-5601]
         - text: Improved dashboard loading performance.
           issues: [SIGN-5406]
@@ -302,10 +288,8 @@
           issues: [SIGN-5675]
       improvements:
         - text: New REST API `/v1-pre/{organizationId}/Certificates` allows to list all certificates.
-          enterprise_only: true
           issues: [SIGN-5667]
         - text: Added REST APIs to modify, activate and deactivate CI Users.
-          enterprise_only: true
           issues: [SIGN-5193]
         - text: HTTP requests where the TCP connection is dropped by the client are now automatically canceled.
           issues: [SIGN-5522]
@@ -334,7 +318,6 @@
       version: 1.132.0
       breaking_changes:
         - text: Within the AuditLog API (preview) response, the `metadata.user` property has been renamed to `metadata.actor`.
-          enterprise_only: true
           issues: [SIGN-5481]
       improvements:
         - text: Changed web hooks to be triggered for _all final_ signing request statuses, not only `Complete`.
@@ -360,11 +343,9 @@
       version: 1.130.0
       breaking_changes:
         - text: The Audit Log REST API (preview) `/v1-pre/{organizationId}/AuditLog/Events` doesn't include signing request events anymore, instead they can be retrieved via the the new `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` route.
-          enterprise_only: true
           issues: [SIGN-5380]
       new_features:
         - text: Added support for additional, organization-specific key stores.
-          enterprise_only: true
           issues: [SIGN-5443]
       bug_fixes:
         - text: Signing requests with more than one signing policy are now properly returned in the REST API.
@@ -375,11 +356,9 @@
       version: 1.129.0
       new_features:
         - text: Enabled Swagger UI for the REST API at `/Api/swagger`.
-          enterprise_only: true
           issues: [SIGN-5502]
       bug_fixes:
         - text: Fixed bug in elliptic curve certificate generation for the software key store.
-          enterprise_only: true
           issues: [SIGN-5507]
     self_hosted_installations:
       version: 1.129.0
@@ -403,19 +382,16 @@
       version: 1.128.0
       new_features:
         - text: Added possibility to disable malware scanning for individual signing policies.
-          enterprise_only: true
           issues: [SIGN-5350]
       improvements:
         - text: Performance improvement for signing requests using the HSM key store.
           issues: [SIGN-5394]
         - text: New REST API routes (preview) to list all CI Users and regenerate CI User tokens.
-          enterprise_only: true
           issues: [SIGN-5401]
     powershell_module:
       version: 4.2.0
       new_features:
         - text: 'Artifact Retrieval: Instead of uploading the artifact file, a HTTPS retrieval link including authentication headers can now be passed to SignPath.'
-          enterprise_only: true
           issues: [SIGN-3957]
     crypto_providers:
       version: 3.2.2
@@ -442,7 +418,6 @@
       version: 1.126.0
       new_features:
         - text: Verifying that a signing request was submitted from a trusted build system (TBS) is now possible without requiring the TBS to provide origin information.
-          enterprise_only: true
           issues: [SIGN-5354]
         - text: The certificate view now also lists the X509 Issuer, Serial Number, Thumbprint, Key Usage and Extended Key Usage flags for each certificate.
           issues: [SIGN-5393]
@@ -472,7 +447,6 @@
         - text: Added support for MSIX (Windows app package) signing.
           issues: [SIGN-2830]
         - text: Added UI support for Re-submission of signing requests.
-          enterprise_only: true
           issues: [SIGN-4499]
       improvements:
         - text: Added new API routes to change a user's `NotificationEmailAddress` and `Identity` fields.
@@ -542,13 +516,11 @@
         - text: The artifact description in signing requests now contains the full path of files inside container artifacts.
           issues: [SIGN-5258]
         - text: The certificate's key store ID is now also shown on the certificate details page (needs to be enabled per organization).
-          enterprise_only: true
           issues: [SIGN-4995]
       improvements:
         - text: Modernization of the HTML UI framework including fixes of minor UI glitches.
           issues: [SIGN-5150]
         - text: Projects can now be configured to use multiple repository URLs for origin verification.
-          enterprise_only: true
           issues: [SIGN-5152]
       bug_fixes:
         - text: Fixed broken signing request notifications for denied signing requests in special scenarios.
@@ -603,7 +575,6 @@
       version: 1.120.0
       new_features:
         - text: Added support for Windows Script Signing.
-          enterprise_only: true
           issues: [SIGN-5102]
       improvements:
         - text: Improved error handling for invalid archives.
@@ -656,7 +627,6 @@
     application:
       improvements:
         - text: 'New REST API route (preview): `/v1-pre/{organizationId}/CIUsers/Me` returns information about the authenticated CI user.'
-          enterprise_only: true
           issues: [SIGN-4928]
     self_hosted_installations:
       version: 1.117.0
@@ -715,7 +685,6 @@
       version: 1.112.0
       improvements:
         - text: 'New REST API route (preview): `/v1-pre/{organizationId}/Organization` to query organization and quota information.'
-          enterprise_only: true
           issues: [SIGN-4719]
     crypto_providers:
       version: 2.1.0
@@ -742,7 +711,6 @@
       improvements:
         - text: Limited the maximum file size for artifact retrieval to 4GB in SaaS.
           saas_only: true
-          enterprise_only: true
           issues: [SIGN-3543]
     crypto_providers:
       version: 2.0.0
@@ -781,7 +749,6 @@
       version: 1.108.0
       new_features:
         - text: Audit Log REST API is now available in preview.
-          enterprise_only: true
           issues: [SIGN-4642]
       bug_fixes:
         - text: Expiration emails for already expired certificates are no longer sent out.
@@ -815,7 +782,6 @@
       version: 1.106.0
       improvements:
         - text: For Hash Signing, the metadata is now included in the signed artifact payload file.
-          enterprise_only: true
           issues: [SIGN-4629]
       bug_fixes:
         - text: Fixed a bug that caused expiration notifications to be sent out even if a new certificate was re-imported.
@@ -824,7 +790,6 @@
       version: 4.0.0
       breaking_changes:
         - text: The `Submit-SigningRequestResubmit` command has been removed. Resubmit is now possible using the `-Resubmit` flag of the regular `Submit-SigningRequest` command.
-          enterprise_only: true
           issues: [SIGN-4592]
     self_hosted_installations:
       version: 1.106.0
@@ -840,7 +805,6 @@
         - text: 'Signing request filters: The signing request list can be filtered by status and artifact configuration (when viewing signing requests for a specific project or signing policy).'
           issues: [SIGN-4572]
         - text: User roles can also be configured for CI Users. Permissions will be applied to API calls accordingly.
-          enterprise_only: true
           issues: [SIGN-4545]
       bug_fixes:
         - text: Fixed a bug that prevented artifact names of signing requests submitted via the artifact retrieval workflow from being included in the signing request report.
@@ -878,10 +842,8 @@
       version: 1.103.0
       new_features:
         - text: Added global reader and project reader roles.
-          enterprise_only: true
           issues: [SIGN-4396]
         - text: Signing requests can now be resubmitted via the PowerShell module or via the API.
-          enterprise_only: true
           issues: [SIGN-4192]
       improvements:
         - text: An additional certificate expiration notification is sent 10 days prior to the certificate expiration date.
@@ -895,7 +857,6 @@
       version: 1.102.0
       new_features:
         - text: Support for Thales DPoD cloud HSMs are in pre-release status.
-          enterprise_only: true
           issues: [SIGN-4391]
       improvements:
         - text: The signing request status values have been reduced. Multiple status are now combined as "In Progress".
@@ -930,7 +891,6 @@
       version: 1.100.0
       new_features:
         - text: 'Project configurators: Configurator permissions can be granted to users that allow them to edit the artifact configurations and webhooks for specific projects only.'
-          enterprise_only: true
           issues: [SIGN-4404]
       improvements:
         - text: The signing request report now includes a link to the web page of the respective signing request.
@@ -1015,7 +975,6 @@
       version: 1.95.0
       improvements:
         - text: Improved performance for hash-signing operations.
-          enterprise_only: true
           issues: [SIGN-256]
     self_hosted_installations:
       version: 1.95.0
@@ -1063,7 +1022,6 @@
       version: 3.1.0
       new_features:
         - text: Added support for user-defined parameters.
-          enterprise_only: true
           issues: [SIGN-3531]
     self_hosted_installations:
       version: 1.91.0
@@ -1086,16 +1044,13 @@
         - text: Changed webhook URLs to only allow HTTPS.
           issues: [SIGN-3754]
         - text: Group memberships are also shown for user groups.
-          enterprise_only: true
           issues: [SIGN-3924]
         - text: The repository URL is also shown on the signing policy detail page (if origin verification is enabled).
-          enterprise_only: true
           issues: [SIGN-3969]
     powershell_module:
       version: 3.0.2
       improvements:
         - text: Added more explicit error messages when a Trusted Build System Link is missing in the Project configuration.
-          enterprise_only: true
           issues: [SIGN-3971]
     self_hosted_installations:
       version: 1.90.0
@@ -1140,7 +1095,6 @@
       version: 1.88.0
       new_features:
         - text: Artifact configurations now support user-defined parameters.
-          enterprise_only: true
           issues: [SIGN-3670]
       bug_fixes:
         - text: Fixed a bug that did not show the organization name on the invitation page.

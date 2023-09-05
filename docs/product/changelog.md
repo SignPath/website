@@ -12,10 +12,10 @@ description: Product Changelog for all SignPath components.
 Component 
 <select id='changelog-component-select'>
 	<option value='all'>All components</option>
-	<option value='application'>Application</option>
+	<option value='application'>SignPath Application</option>
+	<option value='self_hosted_installations'>Self-hosted Installations</option>
 	<option value='powershell_module'>PowerShell module</option>
 	<option value='crypto_providers'>Crypto Providers</option>
-	<option value='self_hosted_installations'>Self-hosted installations</option>
 </select>
 </div>
 
@@ -31,7 +31,7 @@ Component
 	{% if opened_old_container == false %}
 		{% assign opened_old_container = true %}
 <p id='show-older-releases'><a id='show-older-releases-link' href='#'>Show older releases</a></p>
-<div id='older-releases'>
+<div id='older-releases'> 	
 	{% endif %}
 {% endif %}
 
@@ -47,8 +47,8 @@ Component
 			<div class='component-{{ update[0] }}'>
 			<h2>
 				{% case update[0] %}
-					{% when "application" %} Application {{ update[1].version }}
-					{% when "self_hosted_installations" %} Installation package {{ update[1].version }}
+					{% when "application" %} SignPath Application {{ update[1].version }}
+					{% when "self_hosted_installations" %} Self-hosted Installations {{ update[1].version }}
 					{% when "powershell_module" %} SignPath PowerShell Module {{ update[1].version }}
 					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ update[1].version }}
 					{% when "crypto_providers" %} Crypto Providers {{ update[1].version }}
@@ -72,8 +72,8 @@ Component
 							{% for note in update_type[1] %}
 								<li>
 									{{ note.text | markdownify }}
-									{% if note.enterprise_only or note.saas_only %}
-										<span class='enterprise-only'>({% if note.enterprise_only %}Enterprise only{% endif %}{% if note.enterprise_only and note.saas_only %}, {% endif %}{% if note.saas_only %}SaaS only{% endif %})</span>
+									{% if note.saas_only %}
+										<span class='enterprise-only'>(SaaS only)</span>
 									{% endif %}
 								</li>
 							{% endfor %}
