@@ -75,6 +75,7 @@ In order to extend the icon set, perform the following steps:
 3. Select them all and generate and download the webfont
 4. From the `font` folder in the webfont, copy all files to `docs/assets/fonts`
 5. Open the `_sass/fontello.scss` file, a) make sure to add a new query parameter to all uris (in order to make sure caches are bypassed) and b) overwrite the block at the bottom with all the `.icon-XXX` CSS classes with the values from the `css/fontello.css` file in the webfont
+6. Make sure that the `div.panel-header::before` style for `&.product` still references the `icon-signpath-flag` icon in the `_sass/resources.scss` file
 
 
 ## Deploying

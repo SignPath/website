@@ -32,7 +32,7 @@
 						{%- else -%}
 						<li class='{{ className }}'>
 							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{%- if tail[0] == entry.path -%}
+							{%- if tail[0] == entry.path and page.hide_sub_toc != true -%}
 								<div class="no-mobile" >
 									{%- include toc.html html=content h_max=2 -%}
 								</div>

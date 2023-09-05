@@ -23,3 +23,7 @@
 - text: PKI Consortium best practices
   path: pkic-best-practices
 
+- separator: true
+
+- text: Product updates
+  path: changelog
