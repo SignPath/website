@@ -63,7 +63,7 @@ You need to provide these values for every single API request.
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -F "ProjectSlug=$PROJECT" \
      -F "SigningPolicySlug=test-signing" \
      -F "ArtifactConfigurationSlug=v2.4" \
@@ -94,7 +94,7 @@ Example: `-F "Parameters[productVersion]=1.2.0"`
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID
 ~~~
 
@@ -156,7 +156,7 @@ Once the signing request is successfully completed, the status response contains
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -o $LOCAL_PATH_TO_DOWNLOADED_ARTIFACT \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID/SignedArtifact
 ~~~
@@ -179,7 +179,7 @@ See [Resubmit an existing signing request](/documentation/signing-code#resubmit)
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -F "OriginalSigningRequestId=$ORIGINAL_SIGNING_REQUEST_ID" \
      -F "SigningPolicySlug=release-signing" \
      -F "Description=$DESCRIPTION" \

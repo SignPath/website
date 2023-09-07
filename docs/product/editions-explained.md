@@ -259,7 +259,7 @@ When a CI build is submitted to SignPath, certain metadata will be retrieved and
 * source code commit
 * build information
 
-Verification ensures that a person or system with knowledge of the CI user token cannot simply submit an unauthorized signing request. 
+Verification ensures that a person or system with knowledge of the API token cannot simply submit an unauthorized signing request. 
 
 **Origin verification enables the most advanced level of code signing security.** Even without origin verification, SignPath prevents many attack vectors using a combination of authentication and permissions, artifact configurations and constraints, malware scanning, notifications, and auditing. However, as soon as somebody gets access to the CI user token, security cannot be guaranteed. 
 

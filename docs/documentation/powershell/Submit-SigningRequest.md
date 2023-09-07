@@ -27,7 +27,7 @@ Submit-SigningRequest
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
     ]
-    -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
+    -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
@@ -53,7 +53,7 @@ Submit-SigningRequest
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
     ]
-    -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
+    -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
@@ -78,7 +78,7 @@ Submit-SigningRequest
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
     ]
-    -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
+    -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
@@ -189,7 +189,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 | Parameter                                 | Type              | Description                                                   | Default value | Editions
 |-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
 | `-OrganizationId`                         | `String`          | ID of your SignPath organization
-| `-CIUserToken`                            | `String`          | API token you receive when adding a new CI user
+| `-ApiToken`                               | `String`          | API token you receive when adding a new CI user
 | `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
 | `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
 | `-Description`                            | `String`          | Optional description of the signing request
@@ -207,7 +207,7 @@ Submit-SigningRequest `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT `
     -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -WaitForCompletion -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
 ### Example 2: Submit a signing request with an artifact retrieval link and wait for completion
@@ -221,7 +221,7 @@ Submit-SigningRequest `
     } `
     -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
     -WaitForCompletion -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
 ### Example 3: Separate calls for submission and retrieval 
@@ -232,7 +232,7 @@ Submit a signing request and get a signing request ID without waiting for comple
 $signingRequestID = Submit-SigningRequest `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT ` 
     -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY -ArtifactConfigurationSlug $ARTIFACT_CONFIG `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN
 ~~~ 
 
 ... and download the signed artifact later
@@ -241,7 +241,7 @@ $signingRequestID = Submit-SigningRequest `
 Get-SignedArtifact `
     -SigningRequestId $signingRequestID `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~ 
 
 ### Example 4: Resubmit an existing signing request with a different signing policy
@@ -252,7 +252,7 @@ Get-SignedArtifact `
     -SigningPolicySlug $SIGNING_POLICY `
     -WaitForCompletion `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
 ### Example 5: Provide user-defined parameters and origin verification {#example-params-origin}
@@ -279,5 +279,5 @@ $signingRequestID = Submit-SigningRequest `
             BuildSettingsFile="@settings.json"
         }
     } `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN 
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~

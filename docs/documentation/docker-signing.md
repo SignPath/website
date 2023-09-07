@@ -249,7 +249,7 @@ For convenience, the `SignPathDocker` module provides a single command to sign a
 
 ~~~ powershell
 Invoke-DockerSigning -Repository $FQN -Tags $TAGS `
-  -CIUserToken $CI_USER_TOKEN -OrganizationId $ORGANIZATION_ID `
+  -ApiToken $API_TOKEN -OrganizationId $ORGANIZATION_ID `
   -ProjectSlug $PROJECT_SLUG -SigningPolicySlug $SIGNING_POLICY_SLUG `
   [-ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION_SLUG] [-Description $DESCRIPTION] `
   [-NotaryUrl $NOTARY_URL] [-NotaryUsername $NOTARY_USERNAME] [-NotaryPassword $NOTARY_PASSWORD] `
@@ -272,11 +272,11 @@ New-DockerSigningData -Repository $FQN -Tags $TAGS `
 
 # Submit a new signing request to SignPath.
 $signingRequestId = Submit-SigningRequest -InputArtifactPath $ZIP_FILE `
-  -CIUserToken $CI_USER_TOKEN -OrganizationId $ORGANIZATION_ID `
+  -ApiToken $API_TOKEN -OrganizationId $ORGANIZATION_ID `
   -ProjectSlug $PROJECT_SLUG -SigningPolicySlug $SIGNING_POLICY_SLUG 
 
 # Get the signed artifact
-Get-SignedArtifact $signingRequestId -CIUserToken $CI_USER_TOKEN -OrganizationId $ORGANIZATION_ID 
+Get-SignedArtifact $signingRequestId -ApiToken $API_TOKEN -OrganizationId $ORGANIZATION_ID 
 
 # Upload the signed metadata to the Notary server
 Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
@@ -292,7 +292,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 | ------------------------------------------------------------------ | --------------- |
 | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
 | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
-| `CIUserToken`                                                      | The API token of the CI user (see [build system integration](./build-system-integration#authorization))
+| `ApiToken`                                                         | The API token of the CI user (see [build system integration](./build-system-integration#authorization))
 | `OrganizationId`                                                   | ID of your SignPath organization
 | `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
 | `Description`                                                      | Optional description for your signing request (e.g. version number)
