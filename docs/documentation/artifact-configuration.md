@@ -491,7 +491,7 @@ The restrictions can be applied to file elements, [file set elements](#file-and-
 
 | File element | Supported restriction attributes
 |--------------|-------------------------------------------------------------------------
-| `<pe-file>`  | PE file headers: `productName`, `productVersion`
+| `<pe-file>`  | PE file headers: `product-name`, `product-version`
 | `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`
 
 ### Example: PE file metadata restriction 
@@ -500,10 +500,10 @@ The restrictions can be applied to file elements, [file set elements](#file-and-
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <!-- requires all pe-files to have the respective attributes set -->
-    <pe-file-set productName="YourProductName" productVersion="1.0.0.0"> 
+    <pe-file-set product-name="YourProductName" product-version="1.0.0.0"> 
       <include path="main.exe" />
       <!-- overrides the value of the parent pe-file-set -->
-      <include path="resources*.resource.dll" max-matches="unbounded" productVersion="1.0.1.0" />
+      <include path="resources*.resource.dll" max-matches="unbounded" product-version="1.0.1.0" />
       <for-each>
         <authenticode-sign />
       </for-each>
@@ -540,7 +540,7 @@ Parameters are defined in an optional `parameters` block at the beginning of the
   <parameters>
     <parameter name="version" default-value="1.0.0" required="true" />
   </parameters>
-  <pe-file path="my-installer-${version}.exe" productName="myproduct" productVersion="${version}">
+  <pe-file path="my-installer-${version}.exe" product-name="myproduct" product-version="${version}">
 </artifact-configuration>
 ~~~
 
