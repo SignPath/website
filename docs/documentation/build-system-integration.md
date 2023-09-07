@@ -19,7 +19,7 @@ All necessary IDs can be found on the signing policy details page, including a c
 
 ## Authorization
 
-Before accessing the API, you have to create a CI User in the User section of the SignPath application.
+In order to access the API, we recommend to create a dedicated CI User per project in the User section of the SignPath application.
 
 The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)
 

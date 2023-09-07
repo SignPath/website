@@ -52,7 +52,7 @@ Accepting invitations:
 
 ## CI users {#ci}
 
-CI user accounts are used to integrate SignPath into your build automation. They use API tokens instead of usernames and passwords. We recommend that you store these API tokens in your CI system's build settings as secret values.
+CI user accounts are used to integrate SignPath into your build automation. They can only authenticate with an API token. We recommend that you store these API tokens in your CI system's build settings as secret values.
 
 ## Support users {#support}
 

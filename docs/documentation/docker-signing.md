@@ -209,7 +209,7 @@ This adds a delegation (default name `signpath`) with the key from the specified
 * Create a project with an artifact configuration of type _Docker signing data_ for this repository
 * Add a signing policy to the project
   * choose the certificate you created in step 1
-  * add at least one CI user as a submitter
+  * add at least one (CI) user as a submitter
 
 #### 5. When everything works, delete the target key
 

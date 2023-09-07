@@ -36,7 +36,7 @@ This cmdlet throws an exception if the signing request does not successfully com
 | Parameter                                 | Type              | Description                                                   | Default value | Editions
 |-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
 | `-OrganizationId`                         | `String`          | ID of your SignPath organization
-| `-ApiToken`                               | `String`          | API token you receive when adding a new CI user
+| `-ApiToken`                               | `String`          | API token of an interactive or CI user
 | `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
 | `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
 | `-SigningRequestId`                       | `String`          | ID of the siging request
