@@ -187,10 +187,10 @@
     android: true
     java: true
     office_macros: false
-    xml: true
+    xml: false
     docker: true
     hash_based: false
-    sbom: true
+    sbom: false
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
