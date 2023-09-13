@@ -1,7 +1,7 @@
 - date: '2023-09-13'
   updates:
     application:
-      version: 1.148.0
+      version: 1.148.2
       new_features:
         - text: Added support for personal API Tokens for interactive users.
           issues: [SIGN-6246]
@@ -14,6 +14,9 @@
           issues: [SIGN-6271]
         - text: Renamed the "Initial Login Email Address" of interactive users to "Account email address" in the user interface and API.
           issues: [SIGN-6069]
+      bug_fixes:
+        - text: Fixed a bug that caused files to be submitted separately instead of being part of the `bundle.zip` when uploading multiple files for signing.
+          issues: [SIGN-6393]
     powershell_module:
       version: 4.3.1
       improvements:
