@@ -3,33 +3,41 @@
     application:
       version: 1.148.0
       new_features:
-        - text: Added support for personal API Tokens for interactive users.
+        - text: Added support for personal API tokens for interactive users. See [authentication](/documentation/build-system-integration#authentication).
           issues: [SIGN-6246]
       improvements:
-        - text: 'Changed the casing of the metadata restrictions in the artifact configuration XML: `productName` is now `product-name` and `productVersion` is now `product-version`. Existing artifact configurations with a different casing are still valid.'
-          issues: [SIGN-6000]
-        - text: The CIUserToken` has been renamed to `ApiToken` in the user interface and API.
+        - text: >-
+            Renamed "CI user token" to "Api token" in the user interface and one pre-release API (`RegenerateApiToken`).
           issues: [SIGN-6281]
-        - text: Renamed the zip archive created when uploading multiple files for signing to `bundle.zip`.
+        - text: >-
+            Renamed artifact configuration XML attributes `productName` and `productVersion` to `product-name` and `product-version`, respectively. 
+            (Existing spelling is still valid for the current schema version.)
+          issues: [SIGN-6000]
+        - text: >-
+            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file)
           issues: [SIGN-6271]
-        - text: Renamed the "Initial Login Email Address" of interactive users to "Account email address" in the user interface and API.
+        - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
     powershell_module:
       version: 4.3.1
       improvements:
-        - text: The `CIUserToken` parameter has been renamed to `ApiToken`. For backwards compatibility, the old name can still be used.
+        - text: Renamed `-CIUserToken` parameter to `-ApiToken`. The old name is still valid for this major version (4.x).
           issues: [SIGN-6281]
     crypto_providers:
       version: 4.0.0
       breaking_changes:
-        - text: 'Replaced `Timeouts.ServiceUnavailable` (and `SIGNPATH_TIMEOUTS_SERVICE_UNAVAILABLE`) configuration value with `Timeouts.FirstRetryDelay` and `Timeouts.RetryCount` (See "Setting configuration values" section for details).'
+        - text: >-
+            Replaced `Timeouts.ServiceUnavailable` (and `SIGNPATH_TIMEOUTS_SERVICE_UNAVAILABLE`) configuration value with `Timeouts.FirstRetryDelay` and `Timeouts.RetryCount` 
+            (See "Setting configuration values" section in the CryptoProviders documentation for details).
           issues: [SIGN-6272]
       improvements:
       - text: Changed the HTTP call error retry strategy to use an exponential back-off mechanism.
         issues: [SIGN-6272]
       - text: Added a warning logging for failed HTTP calls before retrying.
         issues: [SIGN-6272]
-      - text: Improved error return values codes for KSP/CSP/Cryptoki functions for HTTP call errors to better express the underlying problem (See the corresponding "Error return values" sections in the CryptoProviders documentation).
+      - text: >-
+          Improved error return values codes for KSP/CSP/Cryptoki functions for HTTP call errors to better express the underlying problem.
+          (See the corresponding "Error return values" sections in the CryptoProviders documentation).
         issues: [SIGN-6272]
       - text: Improved the debug logging output for Cryptoki function calls.
         issues: [SIGN-6272]
