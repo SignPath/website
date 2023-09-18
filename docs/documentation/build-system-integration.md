@@ -227,19 +227,11 @@ For each completed signing request, SignPath will post the following JSON inform
 }
 ~~~
 
+
 <div class="panel info" markdown="1">
 <div class="panel-header">Status changes triggers</div>
 
-Currently, notifications are only sent for successfully completed signing requests. This may change in the future, so be sure to consider the `Status` field when implementing Webhooks.
-
-| Status               | Current Trigger | Future Trigger |
-|----------------------|-----------------|----------------|
-| `WaitingForApproval` |                 | ✓              |
-| `InProgress`         |                 |                |
-| `Completed`          | ✓               | ✓              |
-| `Denied`             |                 | ✓              |
-| `Canceled`           |                 | ✓              |
-| `Failed`             |                 | ✓              |
+Notifications are sent for the following status changes: `Completed`, `Failed`, `Denied` and `Canceled`.
 
 </div>
 
