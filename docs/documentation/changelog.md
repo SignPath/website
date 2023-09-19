@@ -4,6 +4,8 @@ layout: resources
 show_toc: 0
 hide_sub_toc: true
 description: Product Changelog for all SignPath components.
+redirect_from:
+  - /product/changelog
 ---
 
 <section class='changelog'>
