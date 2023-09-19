@@ -14,7 +14,7 @@
             (Existing spelling is still valid for the current schema version.)
           issues: [SIGN-6000]
         - text: >-
-            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file)
+            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element)
           issues: [SIGN-6271]
         - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
