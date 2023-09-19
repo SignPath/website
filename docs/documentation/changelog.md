@@ -42,7 +42,7 @@ Component
 	{% assign class_list = class_list | append: ' component-' | append: update[0] %}
 {% endfor %}
 
-<article class='{{ class_list }}'>
+<article class='{{ class_list }}' id="{{ release.date | date: '%Y-%m-%d'}}">
 	<h1>&nbsp;<span>{{ release.date | date: '%B %d, %Y'}}</span></h1>
 	{% if release.updates %}
 		{% for update in release.updates %}

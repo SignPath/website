@@ -1,4 +1,16 @@
 section.changelog {
+
+	*:target {
+		color:inherit;
+	}
+
+	*:target::before { /* anchor margin on top */
+		content: "";
+		display: block;
+		margin-top: -80px;
+		height: 80px;
+	}
+
 	div.changelog-component-select-ctn {
 		background-color: $light-grey-background-color;
 		border-radius: 6px;
@@ -25,7 +37,6 @@ section.changelog {
 	}
 
 	article.release {
-		margin-bottom: 3em;
 
 		& > h1 {
 			margin-bottom: 0px;
