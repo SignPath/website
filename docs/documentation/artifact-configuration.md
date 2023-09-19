@@ -164,7 +164,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   </tr>
   </tr>
     <tr>
-    <td><code>&lt;zip-file&gt;</code></td>
+    <td><code><a href="#zip-file-element">&lt;zip-file&gt;</a></code></td>
     <td>Yes</td>
     <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
     <td>.zip</td>
@@ -218,9 +218,38 @@ See [Examples] for more complex artifact configurations.
 
 ### Signing multiple artifacts
 
-If you want to sign multiple independent artifacts in one step, you need to package them into a ZIP archive before processing.
+If you want to sign multiple independent artifacts in one step, you need to package them into an archive before processing.
 
 You can combine signing multiple artifacts with deep signing.
+
+#### &lt;zip-file&gt; {#zip-file-element}
+
+Use the `<zip-file>` element to specify a ZIP archive. SignPath will process archives inside this file. 
+
+You can also use the [`<jar-sign`](#jar-sign) directive to sign entire ZIP archives for verification with `jarsigner`.
+
+##### Select multiple files
+
+When used as a root element, you can set the `ui-multifile-upload` attribute to `on`. 
+
+In this case, the Web application will allow selection of multiple artifacts for the _submit signing request_ feature:
+
+* The user can select multiple files in the artifact browse dialog 
+* A ZIP archive will automatically be created (even if only a single file is selected)
+
+The result will still be provided as a ZIP archive dowload.
+
+Example:
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <zip-file ui-multifile-upload="on">
+    <office-oxml-file path="*.xlsm" max-matches="unbounded">
+      <office-macro-sign/>
+    </office-oxml-file>
+  </zip-file>
+</artifact-configuration>
+~~~
 
 ## &lt;directory&gt; element
 
