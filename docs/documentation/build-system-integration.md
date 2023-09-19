@@ -17,13 +17,14 @@ This section describes how SignPath can be integrated into automated builds usin
 All necessary IDs can be found on the signing policy details page, including a code snippet that calls the PowerShell module.
 </div>
 
-## Authorization
+## Authentication {#authentication}
 
-In order to access the API, we recommend to create a dedicated CI User per project in the User section of the SignPath application.
+You need an API token to access the API, whether directly or through any connector. 
 
-The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)
+The following options are available:
 
-Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provide a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.
+* Use a dedicated [CI user](/documentation/users#ci).
+* [Add an API token](/documentation/users#interactive-api-token) to your own user account for personal API access.
 
 ## PowerShell 
 
