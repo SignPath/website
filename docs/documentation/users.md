@@ -60,7 +60,7 @@ Accepting invitations:
 
 Users can add API tokens to their own user account:
 
-  * Click you user name (upper right corner) and choose _My profile_
+  * Click your user name (upper right corner) and choose _My profile_
   * Click _Generate token_ in the _API Token_ section
 
 <div class="panel warning" markdown="1">
@@ -96,7 +96,7 @@ If you don't use [origin verification](/documentation/origin-verification), you 
 
 Example: Assume _Team 1_ has two projects _A_ and _B_, each with _test-signing_ and _release-signing_ signing policies. Consider creating CI users as follows:
 
-| Using origin verification | CI user per project                                       | CU user per team
+| Using origin verification | CI user per project                                       | CI user per team
 |---------------------------|-----------------------------------------------------------|---------------------------------------
 | **Yes**                   | `PrjA`, `PrjB`                                            | `Team1`
 | **No**                    | `PrjA-test`, `PrjA-release`, `PrjB-test`, `PrjB-release`  | `Team1-test`, `Team1-release`
