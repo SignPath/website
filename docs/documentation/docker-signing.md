@@ -207,9 +207,7 @@ This adds a delegation (default name `signpath`) with the key from the specified
   * specify its fully qualified name ([FQN](#fqn))
   * upload the root certificate file from step 2
 * Create a project with an artifact configuration of type _Docker signing data_ for this repository
-* Add a signing policy to the project
-  * choose the certificate you created in step 1
-  * add at least one (CI) user as a submitter
+* Add a signing policy to the project and choose the certificate you created in step 1
 
 #### 5. When everything works, delete the target key
 
@@ -292,7 +290,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 | ------------------------------------------------------------------ | --------------- |
 | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
 | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
-| `ApiToken`                                                         | The API token of the CI user (see [build system integration](./build-system-integration#authorization))
+| `ApiToken`                                                         | The API token of the CI user (see [build system integration](./build-system-integration#authentication))
 | `OrganizationId`                                                   | ID of your SignPath organization
 | `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
 | `Description`                                                      | Optional description for your signing request (e.g. version number)
