@@ -15,7 +15,7 @@ Downloads a signed artifact based on a signing request ID.
 
 ~~~ powershell
 Get-SignedArtifact 
-    -OrganizationId <String> -CIUserToken <String> [-ClientCertificate <X509Certificate2>]
+    -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     -SigningRequestId <String> 
     -OutputArtifactPath <String>
@@ -36,7 +36,7 @@ This cmdlet throws an exception if the signing request does not successfully com
 | Parameter                                 | Type              | Description                                                   | Default value | Editions
 |-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
 | `-OrganizationId`                         | `String`          | ID of your SignPath organization
-| `-CIUserToken`                            | `String`          | API token you receive when adding a new CI user
+| `-ApiToken`                               | `String`          | API token of an interactive or CI user
 | `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
 | `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
 | `-SigningRequestId`                       | `String`          | ID of the siging request
@@ -54,13 +54,13 @@ This cmdlet throws an exception if the signing request does not successfully com
 
 ~~~ powershell
 $signingRequestID = Submit-SigningRequest `
-    -OrganizationId $ORGANIZATION_ID `-CIUserToken $CI_USER_TOKEN `
+    -OrganizationId $ORGANIZATION_ID `-ApiToken $API_TOKEN `
     -ProjectSlug $PROJECT -SigningPolicySlug $SIGNING_POLICY `
     -ArtifactConfigurationSlug $ARTIFACT_CONFIGURATION `
     -InputArtifactPath $PATH_TO_INPUT_ARTIFACT
 
 Get-SignedArtifact `
-    -OrganizationId $ORGANIZATION_ID -CIUserToken $CI_USER_TOKEN `
+    -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN `
     -SigningRequestId $signingRequestID `
     -OutputArtifactPath $PATH_TO_OUTPUT_ARTIFACT
 ~~~ 
