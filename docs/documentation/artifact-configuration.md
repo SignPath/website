@@ -226,7 +226,7 @@ You can combine signing multiple artifacts with deep signing.
 
 Use the `<zip-file>` element to specify a ZIP archive. SignPath will process archives inside this file. 
 
-You can also use the [`<jar-sign`](#jar-sign) directive to sign entire ZIP archives for verification with `jarsigner`.
+You can also use the [`<jar-sign>`](#jar-sign) directive to sign entire ZIP archives for verification with `jarsigner`.
 
 ##### Select multiple files
 
