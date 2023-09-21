@@ -1,3 +1,25 @@
+- date: '2023-09-xx'
+  updates:
+    application:
+      version: 1.149.0
+      new_features:
+        - text: >-
+            Added 3 new user roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/documentation/users#roles).
+          issues: [SIGN-6305]
+      improvements:
+        - text: Added support for deep signing of MSIX files
+          issues: [SIGN-6150]
+      bug_fixes:
+        - text: Fixes incorrect display of malware scanning status for old signing requests.
+          issues: [SIGN-6238]
+          saas_only: true
+        - text: Fixed a race condition that caused multiple signing requests to be created when uploading multiple files instead of bundling them correctly into a single artifact.
+          issues: [SIGN-6393]
+    powershell_module:
+      version: 4.3.2
+      improvements:
+        - text: Improved the inline documentation
+          issues: [SIGN-6405]
 - date: '2023-09-13'
   updates:
     application:
@@ -90,8 +112,7 @@
     application:
       version: 1.145.1
       improvements:
-        - enterprise_only: true
-          text: |-
+        - text: |-
             Improved `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` responses:
             - Added `originalSigningRequestId` for resubmit events.
             - Added file name and hash fields for various submission event types.
