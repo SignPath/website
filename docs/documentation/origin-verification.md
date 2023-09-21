@@ -178,4 +178,8 @@ These steps allow consumers of the signed artifact to verify source code version
 
 ## Azure DevOps
 
-Contact support@signpath.io for a preview version of our Azure DevOps connector with origin verification support.
+Contact support@signpath.io for our Azure DevOps connector with origin verification support.
+
+## GitHub Actions
+
+Contact support@signpath.io for a preview version of our GitHub Actions connector with origin verification support.
