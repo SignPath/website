@@ -35,3 +35,7 @@
 - text: PowerShell cmdlets
   path: powershell
 
+- separator: true
+
+- text: Product updates
+  path: changelog

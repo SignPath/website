@@ -17,13 +17,14 @@ This section describes how SignPath can be integrated into automated builds usin
 All necessary IDs can be found on the signing policy details page, including a code snippet that calls the PowerShell module.
 </div>
 
-## Authorization
+## Authentication {#authentication}
 
-Before accessing the API, you have to create a CI User in the User section of the SignPath application.
+You need an API token to access the API, whether directly or through any connector. 
 
-The API token is displayed when a new CI user is created. (If you lose the API key, you will need to generate a new one.)
+The following options are available:
 
-Make sure to keep the access token in a secure location. Most Continuous Integration (CI) systems provide a mechanism to store secrets, which is usually the best place to keep API tokens. If you use several distinct systems for API access, we recommend that you create individual CI User accounts in SignPath.
+* Use a dedicated [CI user](/documentation/users#ci).
+* [Add an API token](/documentation/users#interactive-api-token) to your own user account for personal API access.
 
 ## PowerShell 
 
@@ -63,7 +64,7 @@ You need to provide these values for every single API request.
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -F "ProjectSlug=$PROJECT" \
      -F "SigningPolicySlug=test-signing" \
      -F "ArtifactConfigurationSlug=v2.4" \
@@ -94,7 +95,7 @@ Example: `-F "Parameters[productVersion]=1.2.0"`
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID
 ~~~
 
@@ -156,7 +157,7 @@ Once the signing request is successfully completed, the status response contains
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -o $LOCAL_PATH_TO_DOWNLOADED_ARTIFACT \
      https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests/$SIGNING_REQUEST_ID/SignedArtifact
 ~~~
@@ -179,7 +180,7 @@ See [Resubmit an existing signing request](/documentation/signing-code#resubmit)
 **Example:**
 
 ~~~ bash
-curl -H "Authorization: Bearer $CI_USER_TOKEN" \
+curl -H "Authorization: Bearer $API_TOKEN" \
      -F "OriginalSigningRequestId=$ORIGINAL_SIGNING_REQUEST_ID" \
      -F "SigningPolicySlug=release-signing" \
      -F "Description=$DESCRIPTION" \
