@@ -231,7 +231,7 @@ When used as a root element, you can set the `ui-multifile-upload` attribute to 
 In this case, the Web application will allow selection of multiple artifacts for the _submit signing request_ feature:
 
 * The user can select multiple files in the artifact browse dialog 
-* A ZIP archive will automatically be created (even if only a single file is selected)
+* A ZIP archive named `bundle.zip` will automatically be created (even if only a single file is selected)
 
 The result will still be provided as a ZIP archive dowload.
 
