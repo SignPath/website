@@ -9,7 +9,7 @@
         - text: >-
             [Select multiple files](/documentation/artifact-configuration/#zip-file-element) is now generally available.
       improvements:
-        - text: Added support for deep signing of APPX and MSIX files.
+        - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/documentation/artifact-configuration#deep-signing-containers).
           issues: [SIGN-6150]
       bug_fixes:
         - text: Fixes incorrect display of malware scanning status for old signing requests.
