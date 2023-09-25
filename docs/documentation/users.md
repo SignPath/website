@@ -118,11 +118,14 @@ Please always mention your *Organization ID* in support requests.
 
 ## User roles {#roles}
 
-| Role               | Global Permissions                                                                                              | Consider assigning to         |
-|--------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------|
-| **Administrator**  | Control the SignPath organization, including certificate management, user management, and projects and policies | InfoSec, PKI, user management staff
-| **Global readers** | Read all information, including signing requests artifacts for all projects and signing policies                | Auditors
-| **Regular users**  | No specific permissions                                                                                         | Team administrators and members
+| Role                          | Global Permissions                                                                                              | Consider assigning to         |
+|-------------------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------|
+| **Global Administrator**      | Control the SignPath organization, including certificate management, user management, and projects and policies | Operations
+| **Certificate Administrator** | Certificate management                                                                                          | InfoSec, PKI
+| **User Administrator**        | User management                                                                                                 | User management staff
+| **Project Administrator**     | Project and policy configuration                                                                                | Development leads
+| **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies                | Auditors
+| **Regular User**              | No specific permissions                                                                                         | Team administrators and members
 
 ## Permissions {#permissions}
 
