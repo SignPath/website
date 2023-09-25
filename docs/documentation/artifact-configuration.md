@@ -120,9 +120,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   </tr>
   <tr>
     <td><code>&lt;appx-file&gt;</code></td>
-    <td markdown="1">Yes[^no_deepsigning_yet]
-
-</td>
+    <td>Yes</td>
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.appx, .appxbundle</td>
     <td>
@@ -133,9 +131,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   </tr>
   <tr>
     <td><code>&lt;msix-file&gt;</code></td>
-    <td markdown="1">Yes[^no_deepsigning_yet]
-
-</td>
+    <td>Yes</td>
     <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
     <td>.msix, .msixbundle</td>
     <td>
@@ -699,7 +695,5 @@ Example of a directory structure that would match this configuration:
 </td></tr></table>
 
 **Footnotes:**
-
-[^no_deepsigning_yet]: Deep signing is not yet supported for AppX and MSIX.
 
 [^jscript]: Note that [JScript](https://en.wikipedia.org/wiki/JScript) is not the same as JavaScript. While it is possible to use this option to sign JavaScript files, JavaScript engines will not be able to use this signature.
