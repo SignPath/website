@@ -137,7 +137,7 @@ Please always mention your *Organization ID* in support requests.
 <div class="panel tip" markdown="1">
 <div class="panel-header">Role distribution hints</div>
 
-* **User administration** may be performed in your organization's directory and syncronized to SignPath. SignPath Enterprise Edition providers a SCIM connector for Azure Active Directory (beta, contact [support](mailto:support@signpath.io)).
+* **User administration** may be performed in your organization's directory and syncronized to SignPath. SignPath Enterprise Edition provider a SCIM connector for Azure Active Directory (beta, contact [support](mailto:support@signpath.io)).
 * **Project administration** may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization's policies and approval processes. Day to day configuration changes may be delegated via each project's _configurators_ role.
 </div>
 
