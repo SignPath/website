@@ -17,6 +17,11 @@
           saas_only: true
         - text: Fixed a race condition that caused multiple signing requests to be created when uploading multiple files instead of bundling them correctly into a single artifact.
           issues: [SIGN-6393]
+    self_hosted_installations:
+      version: 1.149.2
+      breaking_changes:
+        - text: Configuration setting `appSettings.shared.signingOptions.timestampingServerUrl` has been renamed to `...timestampingServerUrlTemplate` in `signpath-application` values.
+          issues: [SIGN-6333]
     powershell_module:
       version: 4.3.2
       improvements:
@@ -42,6 +47,23 @@
           issues: [SIGN-6271]
         - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
+    self_hosted_installations:
+      version: 1.148.2
+      new_features:
+        - text: Added support for "nginx.org" Ingress Controller distribution (see `ingressAnnotations.nginx.ingressControllerDistribution` configuration value).
+          issues: [SIGN-6329]
+      improvements:
+        - text: Improved memory consumption of the Signing Processor Service pod (see `signingProcessorService.dotNetGCHeapHardLimit` configuration value).
+          issues: [SIGN-6302]
+        - text: Updated the default Ingress controller annotations to support 4 GB file uploads.
+          issues: [SIGN-6329]
+        - text: Removed unnecessary values in `signpath-application-ingress`.
+          issues: [SIGN-6329]
+        - text: Reduced logging noise in `webclient` and `api` containers.
+          issues: [SIGN-6234]
+      bug_fixes:
+        - text: Fixed disk space leak which affected `signpath-application` containers with large logging volume.
+          issues: [SIGN-6343]
     powershell_module:
       version: 4.3.1
       improvements:
