@@ -1,3 +1,29 @@
+- date: '2023-10-02'
+  updates:
+    application:
+      version: 1.149.0
+      new_features:
+        - text: >-
+            Added limited administrator roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/documentation/users#roles).
+          issues: [SIGN-6305]
+        - text: >-
+            [Select multiple files](/documentation/artifact-configuration/#zip-file-element) is now generally available.
+      improvements:
+        - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/documentation/artifact-configuration#deep-signing-containers).
+          issues: [SIGN-6150]
+      bug_fixes:
+        - text: Fixes incorrect display of malware scanning status for old signing requests.
+          issues: [SIGN-6238]
+          saas_only: true
+        - text: Fixed a race condition that caused multiple signing requests to be created when uploading multiple files instead of bundling them correctly into a single artifact.
+          issues: [SIGN-6393]
+        - text: Fixed a bug that led to failed signing requests for artifact configurations with a `<zip-file>` containing a `path` attribute as a root file element.
+          issues: [SIGN-6439]
+    powershell_module:
+      version: 4.3.2
+      improvements:
+        - text: Improved the inline documentation
+          issues: [SIGN-6405]
 - date: '2023-09-13'
   updates:
     application:
@@ -14,13 +40,10 @@
             (Existing spelling is still valid for the current schema version.)
           issues: [SIGN-6000]
         - text: >-
-            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element)
+            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element).
           issues: [SIGN-6271]
         - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
-      bug_fixes:
-        - text: Fixed a bug that caused files to be submitted separately instead of being part of the `bundle.zip` when uploading multiple files for signing.
-          issues: [SIGN-6393]
     powershell_module:
       version: 4.3.1
       improvements:
@@ -68,7 +91,7 @@
     application:
       version: 1.146.0
       new_features:
-        - text: Added possibility to upload multiple files in signing request web client UI.
+        - text: Added [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element) feature to upload multiple files in signing request web client UI (preview).
           issues: [SIGN-5936]
         - text: Added "Multiple Office files with macros" default artifact configuration which allows to upload multiple Office files in the user interface.
           issues: [SIGN-5936]
@@ -90,8 +113,7 @@
     application:
       version: 1.145.1
       improvements:
-        - enterprise_only: true
-          text: |-
+        - text: |-
             Improved `/v1-pre/{organizationId}/AuditLog/SigningRequestEvents` responses:
             - Added `originalSigningRequestId` for resubmit events.
             - Added file name and hash fields for various submission event types.

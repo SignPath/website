@@ -118,11 +118,28 @@ Please always mention your *Organization ID* in support requests.
 
 ## User roles {#roles}
 
-| Role               | Global Permissions                                                                                              | Consider assigning to         |
-|--------------------|-----------------------------------------------------------------------------------------------------------------|-------------------------------|
-| **Administrator**  | Control the SignPath organization, including certificate management, user management, and projects and policies | InfoSec, PKI, user management staff
-| **Global readers** | Read all information, including signing requests artifacts for all projects and signing policies                | Auditors
-| **Regular users**  | No specific permissions                                                                                         | Team administrators and members
+| Role                          | Global permissions                                                                               | Consider assigning to
+|-------------------------------|--------------------------------------------------------------------------------------------------|----------------------------
+| **Global Administrator**      | Control the entire SignPath organization                                                         | Subscription owner
+| **Certificate Administrator** | Certificate management                                                                           | PKI team
+| **User Administrator**        | User management                                                                                  | User management 
+| **Project Administrator**     | Project and policy configuration                                                                 | Dev/DevOps policy owners
+| **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies | Auditors
+| **Regular User**              | No global permissions                                                                            | Team members and administrators
+
+**Global Administrators** have the following permissions:
+
+* Combined permissions of the limited administrator roles (certificate, user and project)
+* Trusted build system management
+* Docker repository management
+* Delete the SignPath organization
+
+<div class="panel tip" markdown="1">
+<div class="panel-header">Role distribution hints</div>
+
+* **User administration** may be performed in your organization's directory and syncronized to SignPath. SignPath Enterprise Edition provider a SCIM connector for Azure Active Directory (beta, contact [support](mailto:support@signpath.io)).
+* **Project administration** may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization's policies and approval processes. Day to day configuration changes may be delegated via each project's _configurators_ role.
+</div>
 
 ## Permissions {#permissions}
 
