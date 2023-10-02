@@ -16,17 +16,41 @@ export function changelog() {
 	var select = document.getElementById('changelog-component-select');
 	if (select) {
 		select.addEventListener('change', function(e) {
-			document.querySelectorAll('section.changelog div[class^=component-], section.changelog article.release').forEach(function(componentDiv) {
-				if (select.value == 'all') {
+			// change url
+			const url = new URL(location);
+			if (select.value == 'all') {
+				url.searchParams.delete("component")
+			} else {
+				url.searchParams.set("component", select.value);
+			}
+			history.pushState({}, "", url);
+			
+
+			show_hide_components(select.value);
+			
+		});
+	}
+
+	// parse url to already show hide components on startup
+	const url = new URL(location);
+	if (url.searchParams.has('component')) {
+		let identifier = url.searchParams.get('component');
+		show_hide_components(identifier);
+		document.getElementById('changelog-component-select').value = identifier;
+	}
+
+	// show/hide <article>s on page
+	function show_hide_components(identifier) {
+		document.querySelectorAll('section.changelog div[class^=component-], section.changelog article.release').forEach(function(componentDiv) {
+			if (identifier == 'all') {
+				componentDiv.style.display = 'block';
+			} else {
+				if (componentDiv.classList.contains(`component-${identifier}`)) {
 					componentDiv.style.display = 'block';
 				} else {
-					if (componentDiv.classList.contains(`component-${select.value}`)) {
-						componentDiv.style.display = 'block';
-					} else {
-						componentDiv.style.display = 'none';
-					}
+					componentDiv.style.display = 'none';
 				}
-			});
+			}
 		});
 	}
 }

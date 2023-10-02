@@ -1,14 +1,14 @@
 - date: '2023-10-02'
   updates:
     application:
-      version: 1.149.0
+      version: 1.149.2
       new_features:
         - text: >-
             Added limited administrator roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/documentation/users#roles).
           issues: [SIGN-6305]
         - text: >-
             [Select multiple files](/documentation/artifact-configuration/#zip-file-element) is now generally available.
-      improvements:
+          issues: []
         - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/documentation/artifact-configuration#deep-signing-containers).
           issues: [SIGN-6150]
       bug_fixes:
@@ -17,6 +17,8 @@
           saas_only: true
         - text: Fixed a race condition that caused multiple signing requests to be created when uploading multiple files instead of bundling them correctly into a single artifact.
           issues: [SIGN-6393]
+        - text: Fixed a bug that led to failed signing requests for artifact configurations with a `<zip-file>` containing a `path` attribute as a root file element.
+          issues: [SIGN-6439]
     self_hosted_installations:
       version: 1.149.2
       breaking_changes:
