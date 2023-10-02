@@ -17,6 +17,8 @@
           saas_only: true
         - text: Fixed a race condition that caused multiple signing requests to be created when uploading multiple files instead of bundling them correctly into a single artifact.
           issues: [SIGN-6393]
+        - text: Fixed a bug that led to failed signing requests for artifact configurations with a `<zip-file>` containing a `path` attribute as a root file element.
+          issues: [SIGN-6439]
     powershell_module:
       version: 4.3.2
       improvements:
