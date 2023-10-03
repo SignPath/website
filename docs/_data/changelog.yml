@@ -72,7 +72,7 @@
         - text: Renamed `-CIUserToken` parameter to `-ApiToken`. The old name is still valid for this major version (4.x).
           issues: [SIGN-6281]
     crypto_providers:
-      version: 4.0.0
+      version: 4.0.1
       breaking_changes:
         - text: >-
             Replaced `Timeouts.ServiceUnavailable` (and `SIGNPATH_TIMEOUTS_SERVICE_UNAVAILABLE`) configuration value with `Timeouts.FirstRetryDelay` and `Timeouts.RetryCount` 
