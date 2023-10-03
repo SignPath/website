@@ -29,6 +29,13 @@
       improvements:
         - text: Improved the inline documentation
           issues: [SIGN-6405]
+- date: '2023-09-27'
+  updates:
+    crypto_providers:
+      version: 4.1.0
+      improvements:
+        - text: Added installation/uninstallation PowerShell script for Windows CSP and KSP. Note that the old installation method (involving `System32` file copying, `sp-register-ksp`, `regsvr32`) still works, but it's recommended to switch to the installation script. For details and usage see the "CSP/KSP installation (Windows)" section in the CryptoProviders documentation.
+          issues: [SIGN-6366]
 - date: '2023-09-13'
   updates:
     application:
