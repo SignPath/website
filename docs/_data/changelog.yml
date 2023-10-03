@@ -22,7 +22,7 @@
     self_hosted_installations:
       version: 1.149.2
       breaking_changes:
-        - text: Configuration setting `appSettings.shared.signingOptions.timestampingServerUrl` has been renamed to `...timestampingServerUrlTemplate` in `signpath-application` values.
+        - text: Configuration setting `appSettings.shared.signingOptions.timestampingServerUrl` has been renamed to `timestampingServerUrlTemplate` in `signpath-application` values.
           issues: [SIGN-6333]
     powershell_module:
       version: 4.3.2
