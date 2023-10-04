@@ -19,6 +19,8 @@
           issues: [SIGN-6393]
         - text: Fixed a bug that led to failed signing requests for artifact configurations with a `<zip-file>` containing a `path` attribute as a root file element.
           issues: [SIGN-6439]
+        - text: Fixed a bug that prevented signing with the Cryptoki/PKCS#11 library for interactive users and users that were added as submitters through group membership.
+          issues: [SIGN-6428]
     self_hosted_installations:
       version: 1.149.2
       breaking_changes:
