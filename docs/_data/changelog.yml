@@ -1,10 +1,10 @@
-- date: '2023-12-31' # TODO
+- date: '2023-10-12'
   updates:
     application:
-      version: 1.150.0
+      version: 1.150.2
       improvements:
         - text: >-
-            Renamed certificate field "Thumbprint" to "SHA-1 Thumbprint" in the user interface and one pre-release API.
+            Renamed certificate field "Thumbprint" to "SHA-1 Thumbprint" in the user interface and pre-release API.
           issues: [SIGN-5475]
         - text: >-
             Introduced a second layer defense mechanism against argument injection.
@@ -12,18 +12,16 @@
         - text: >-
             Added improved error messages for analyzing SSO-related configuration issues.
           issues: [SIGN-6279]
-        - text: >-
-            TODO: enable of TSS Proxy in PROD?
     self_hosted_installations:
       version: 1.150.0
-        improvements:
-          - text: Improved logging login/logout errors by providing more details on OIDC related errors.
-            issues: [SIGN-6279]
-        bug_fixes:
-          - text: Fixed issue of unnecessarily delay of automatic artifact deletion or archiving in content store of 23 days (affected versions 1.148 and 1.149).
-            issues: [SIGN-6470]
-          - text: Fixed incorrect logging of `PathBase` in HTTP request logging.
-            issues: [SIGN-6332]
+      improvements:
+        - text: Improved logging login/logout errors by providing more details on OIDC related errors.
+          issues: [SIGN-6279]
+      bug_fixes:
+        - text: Fixed issue of unnecessarily delay of automatic artifact deletion or archiving in content store of 23 days (affected versions 1.148 and 1.149).
+          issues: [SIGN-6470]
+        - text: Fixed incorrect logging of `PathBase` in HTTP request logging.
+          issues: [SIGN-6332]
 - date: '2023-10-02'
   updates:
     application:
