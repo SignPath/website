@@ -13,7 +13,7 @@
             Added improved error messages for analyzing SSO-related configuration issues.
           issues: [SIGN-6279]
     self_hosted_installations:
-      version: 1.150.0
+      version: 1.150.2
       improvements:
         - text: Improved logging login/logout errors by providing more details on OIDC related errors.
           issues: [SIGN-6279]
