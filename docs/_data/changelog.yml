@@ -7,9 +7,6 @@
             Renamed certificate field "Thumbprint" to "SHA-1 Thumbprint" in the user interface and pre-release API.
           issues: [SIGN-5475]
         - text: >-
-            Introduced a second layer defense mechanism against argument injection.
-          issues: [SIGN-6012]
-        - text: >-
             Added improved error messages for analyzing SSO-related configuration issues.
           issues: [SIGN-6279]
     self_hosted_installations:
