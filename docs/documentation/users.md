@@ -123,7 +123,7 @@ Please always mention your *Organization ID* in support requests.
 | **Global Administrator**      | Control the entire SignPath organization                                                         | Subscription owner
 | **Certificate Administrator** | Certificate management                                                                           | PKI team
 | **User Administrator**        | User management                                                                                  | User management 
-| **Project Administrator**     | Project and policy configuration                                                                 | Dev/DevOps policy owners
+| **Project Administrator**     | Project and policy configuration and Docker repository management                                | Dev/DevOps policy owners
 | **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies | Auditors
 | **Regular User**              | No global permissions                                                                            | Team members and administrators
 
@@ -131,7 +131,6 @@ Please always mention your *Organization ID* in support requests.
 
 * Combined permissions of the limited administrator roles (certificate, user and project)
 * Trusted build system management
-* Docker repository management
 * Delete the SignPath organization
 
 <div class="panel tip" markdown="1">
