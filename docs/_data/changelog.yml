@@ -2,10 +2,11 @@
   updates:
     application:
       version: 1.151.0
-      improvements:
+      new_features:
         - text: >-
             New REST API route: download the X509 certificate of a signing request `GET /v1-pre/{organizationId}/SigningRequests/{id}/X509Certificate`.
           issues: [SIGN-6397]
+      improvements:
         - text: >-
             Improved error messages for APPX and MSIX files where the publisher name does not match the one from the certificate.
           issues: [SIGN-1197, SIGN-6434]
