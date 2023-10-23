@@ -86,6 +86,8 @@
       breaking_changes:
         - text: Configuration setting `appSettings.shared.signingOptions.timestampingServerUrl` has been renamed to `timestampingServerUrlTemplate` in `signpath-application` values.
           issues: [SIGN-6333]
+        - text: The `SignPath.Application.AdministrationUtility.exe` tool in the _Administration Utility pod_ has been renamed to `SignPath.Application.Clients.AdministrationUtility.exe`.
+          issues: [SIGN-6327]
     powershell_module:
       version: 4.3.2
       improvements:
