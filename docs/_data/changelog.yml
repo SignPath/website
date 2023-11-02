@@ -1,7 +1,7 @@
-- date: '2023-11-01'
+- date: '2023-11-02'
   updates:
     application:
-      version: 1.151.0
+      version: 1.151.1
       new_features:
         - text: >-
             New REST API route: download the X509 certificate of a signing request `GET /v1-pre/{organizationId}/SigningRequests/{id}/X509Certificate`.
