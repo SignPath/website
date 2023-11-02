@@ -11,9 +11,14 @@ planned:
     type: warning
     title: 'HSM maintenance'
     description: |
-      Planned HSM maintenance with the following effects.
-      (1) At 15:30 UTC HSM (non-DPoD) certificate creation will be deactivated. No expected interruptions in signing request processing.
-      (2) Starting at 16:00 UTC the actual maintenance task begins which might lead to slightly longer signing request processing times resp. hash signing response times. This does not affect signing policies with DPoD HSM or software certificates.
+      Planned maintenance for SignPath's HSM farm.
+
+      Software certificates and Thales DPoD Cloud HSM certificates will not be affected.  
+      We don't expect this to cause failing signing requests.
+
+      Schedule:
+      (1) At 15:30 UTC HSM certificate creation will be deactivated. 
+      (2) Starting at 16:00 UTC maintenance may lead to slightly longer signing request processing times and hash signing response times.
 incidents:
   - date: 'Aug. 7, 2023'
     range: 'Aug. 7, 2023 14:00 - 16:10 UTC'
