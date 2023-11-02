@@ -123,7 +123,7 @@ Please always mention your *Organization ID* in support requests.
 | **Global Administrator**      | Control the entire SignPath organization                                                         | Subscription owner
 | **Certificate Administrator** | Certificate management                                                                           | PKI team
 | **User Administrator**        | User management                                                                                  | User management 
-| **Project Administrator**     | Project and policy configuration and Docker repository management                                | Dev/DevOps policy owners
+| **Project Administrator**     | Project and policy configuration, Docker repository management                                   | Dev/DevOps policy owners
 | **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies | Auditors
 | **Regular User**              | No global permissions                                                                            | Team members and administrators
 
