@@ -8,7 +8,7 @@
           issues: [SIGN-6397]
       improvements:
         - text: >-
-            Improved error messages for AppX and MSIX files when the publisher name does not match the certificate Common Name (CN).
+            Improved error messages for AppX and MSIX files when the publisher name does not match the certificate subject.
           issues: [SIGN-1197, SIGN-6434]
         - text: >-
             Timestamping now falls back to alternative timestamping servers when primary server is unavailable.
