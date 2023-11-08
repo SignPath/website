@@ -1,25 +1,19 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    title: 'HSM maintenance'
+    type: good
     #title: 'Intermittent network problems'
     #description: 
     #link:
 planned:
+incidents:
   - date: 'Nov. 8, 2023'
-    range: 'Nov. 8, 2023 15:30 - 19:00 UTC'
+    range: 'Nov. 8, 2023 15:30 - 16:40 UTC'
     type: warning
     title: 'HSM maintenance'
     description: |
       Planned maintenance for SignPath's HSM farm.
-
-      Software certificates and Thales DPoD Cloud HSM certificates will not be affected.  
-      We don't expect this to cause failing signing requests.
-
-      Schedule:
-      (1) At 15:30 UTC HSM certificate creation will be deactivated. 
-      (2) Starting at 16:00 UTC maintenance may lead to slightly longer signing request processing times and hash signing response times.
-incidents:
+      Limited certificate management, slightly longer signing request processing times and hash signing response times.
+      Software certificates and Thales DPoD Cloud HSM certificates were not affected.  
   - date: 'Aug. 7, 2023'
     range: 'Aug. 7, 2023 14:00 - 16:10 UTC'
     type: critical
