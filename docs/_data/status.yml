@@ -1,7 +1,7 @@
 # possible types are good, warning, critical
 current:
-    type: good
-    title: 'All systems are operational'
+    type: warning
+    title: 'HSM maintenance'
     #title: 'Intermittent network problems'
     #description: 
     #link:
