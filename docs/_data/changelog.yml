@@ -1,3 +1,17 @@
+- date: '2023-11-TODO'
+  updates:
+    self_hosted_installations:
+      version: 1.152.0
+      breaking_changes:
+        - text: Changed the recommended Kubernetes version to 1.26 and the `signpathio/kubectl` image tag to `1.26`.
+          issues: [SIGN-6478]
+      improvements:
+        - text: >-
+            Added `additionalApplicationInsightsOptions` section to `signpath-application` values which allows to configure Application Insights sampling options.
+          issues: [SIGN-6456]
+        - text: >-
+            Added a Helm chart check which fails the installation in case the pod disruption budget's `minAvailable` count is larger or equal to `replicaCount`.
+          issues: [SIGN-6219]
 - date: '2023-11-16'
   updates:
     crypto_providers:
