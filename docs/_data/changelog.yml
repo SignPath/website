@@ -1,3 +1,17 @@
+- date: '2023-11-16'
+  updates:
+    crypto_providers:
+      version: 4.2.0
+      improvements:
+        - text: >
+            Renamed the `CIUserToken` configuration file property to `ApiToken` and `SIGNPATH_CI_USER_TOKEN` environment variable to `SIGNPATH_API_TOKEN`).
+            Please adapt your configurations (you can use the same value for `ApiToken`).
+            Note that the old names are still accepted, but will be removed in a future version.
+          issues: [SIGN-6450]
+        - text: Added documentation and Linux integration tests for the _osslsigncode_ tool.
+          issues: [SIGN-6570]
+        - text: Implemented the Windows KSP `EnumKeys` function, which enables hash based Mage / ClickOnce signing.
+          issues: [SIGN-6522]
 - date: '2023-11-02'
   updates:
     application:
