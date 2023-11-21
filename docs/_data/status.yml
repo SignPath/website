@@ -1,12 +1,18 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    title: 'Problem importing PFX files into the HSM key store'
-    description: |
-      Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
+    type: good
+    #title: 'Problem importing PFX files into the HSM key store'
+    #description: |
+    #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
 planned:
 incidents:
+  - date: 'Nov. 8, 2023'
+    range: 'Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC'
+    type: warning
+    title: 'Problem importing PFX files into the HSM key store'
+    description: |
+      Importing private keys from PFX files into the HSM key store did not work and was fixed with release 1.152.
   - date: 'Nov. 8, 2023'
     range: 'Nov. 8, 2023 15:30 - 16:40 UTC'
     type: warning
