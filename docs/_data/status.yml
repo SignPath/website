@@ -12,7 +12,7 @@ incidents:
     type: warning
     title: 'Problem importing PFX files into the HSM key store'
     description: |
-      Importing private keys from PFX files into the HSM key store did not work and was fixed with release 1.152.
+      Importing private keys from PFX files into the HSM key store did not work (fixed in release 1.152).
   - date: 'Nov. 8, 2023'
     range: 'Nov. 8, 2023 15:30 - 16:40 UTC'
     type: warning

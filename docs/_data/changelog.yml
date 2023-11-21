@@ -3,23 +3,23 @@
     application:
       version: 1.152.0
       new_features:
-        - text: Restricted signing request access for regular users (preview). Available on request.
+        - text: Granular read-access authorization for signing requests. (Work in progress, available on request.)
           issues: [SIGN-6526]
-        - text: Added support for HTTP content compression when submitting signing requests with an artifact retrieval link.
-          issues: [SIGN-6587]
       improvements:
-        - text: Improved reliability of HSM key store.
+        - text: >-
+            Signing requests with artifact retrieval links: added support for HTTP content compression.
+          issues: [SIGN-6587]
+        - text: Improved reliability of HSM key store (additional retry conditions).
           saas_only: true
           issues: [SIGN-6482]
         - text: Improved performance of ClickOnce signing operations.
           issues: [SIGN-6465]
-        - text: Improved error messages for Office files with no included macros.
+        - text: Improved error messages for Office files without macros.
           issues: [SIGN-5848]
       bug_fixes:
-        - text: Fixed PFX import into the HSM key store.
-          saas_only: true
+        - text: Fixed PFX certificate import into certain HSM key stores (including SaaS HSM).
           issues: [SIGN-6578]
-        - text: Fixed a bug that prevented signing with the Crypto Providers for interactive users.
+        - text: Fixed a bug that prevented signing with Crypto Providers using the new API token feature for interactive users.
           issues: [SIGN-6428]
     self_hosted_installations:
       version: 1.152.0
