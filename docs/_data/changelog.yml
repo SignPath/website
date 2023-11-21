@@ -3,23 +3,23 @@
     application:
       version: 1.152.0
       new_features:
-        - text: Added support for compressed downloads when submitting signing requests with an artifact retrieval link.
-          issues: [SIGN-6587]
-        - text: Restricted access to signing requests for regular users (preview). Available on request.
+        - text: Restricted signing request access for regular users (preview). Available on request.
           issues: [SIGN-6526]
+        - text: Added support for HTTP content compression when submitting signing requests with an artifact retrieval link.
+          issues: [SIGN-6587]
       improvements:
         - text: Improved reliability of HSM key store.
           saas_only: true
           issues: [SIGN-6482]
+        - text: Improved performance of ClickOnce signing operations.
+          issues: [SIGN-6465]
         - text: Improved error messages for Office files with no included macros.
           issues: [SIGN-5848]
-        - text: Improved performance for ClickOnce signing.
-          issues: [SIGN-6465]
       bug_fixes:
-        - text: Fixed PFX import into the HSM key store
+        - text: Fixed PFX import into the HSM key store.
           saas_only: true
           issues: [SIGN-6578]
-        - text: Fixed a bug that prevented signing with the Crypto Providers for interactive users and users that were added as submitters through group membership.
+        - text: Fixed a bug that prevented signing with the Crypto Providers for interactive users.
           issues: [SIGN-6428]
     self_hosted_installations:
       version: 1.152.0
