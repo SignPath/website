@@ -131,6 +131,7 @@ If Entra ID users are in multiple groups with different role mappings, they will
 **Group mapping:**
 * Groups are mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
 * Groups in SignPath do not have a "role" and are usually used for assigning _Project_ or _Signing policy_ specific permissions to a group of users (such as _Approver_ or _Submitter_ permissions). When synchronizing such groups, you can define _RegularUser_ as a role. 
+* Currently, only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.
 
 </div>
 
