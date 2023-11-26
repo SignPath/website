@@ -13,7 +13,7 @@ Directory synchronization is supported via the SCIM protocol. This page describe
 ### Steps
 
 
-#### 1. Create a new enterprise application in Microsoft Entra ID
+#### 1. Create a new enterprise application in Microsoft Entra ID/Azure Active Directory
 
 In the _Azure Portal,_ go to _Microsoft Entra ID_ / _Enterprise Applications_ and create a new application. Select "Create your own application" on the top.
 

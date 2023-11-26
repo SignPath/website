@@ -154,7 +154,11 @@
   features:
     - name: sso
       title: 'Single sign-on'
-      hint: 'Connect to your organization directory and authentication provider using SAML or OpenID Connect.'
+      hint: 'Connect to your authentication provider using SAML or OpenID Connect.'
+    - name: scim
+      title: 'Entra ID/Azure AD synchronization'
+      hint: >
+        Synchronize users and groups from your organization´s Entra ID/Azure Active Directory using SCIM.
     - name: groups
       title: 'User groups'
       hint: 'Arrange your users into groups for easier assignment of permissions in signing policies.'
