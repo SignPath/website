@@ -6,14 +6,14 @@ toc: false
 description: Documentation for SignPath directory synchronization using Microsoft Entra ID
 ---
 
-## Directory synchronization with Microsoft Entra ID
+## Directory synchronization with Microsoft Entra ID/Azure Active Directory
 
 Directory synchronization is supported via the SCIM protocol. This page describes the configuration for Microsoft Entra ID (previously Azure Active Directory). 
 
 ### Steps
 
 
-#### 1. Create a new enterprise application in Microsoft Entra ID/Azure Active Directory
+#### 1. Create a new enterprise application in Microsoft Entra ID
 
 In the _Azure Portal,_ go to _Microsoft Entra ID_ / _Enterprise Applications_ and create a new application. Select "Create your own application" on the top.
 
