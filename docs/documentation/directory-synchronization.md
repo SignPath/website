@@ -48,18 +48,18 @@ In your SignPath organization, create a CI user, remember the _Api Token_ and ch
 
 Go back to the Microsoft Entra ID main page, select _Enterprise applications_ and select the application you have created in step 1. 
 
-![Microsoft Entra ID - select provisioning](/assets/img/resources/documentation_scim-04a-select-provisioning.png){:.margin-left}
-
-Click _Get started_, then enter the following settings:
+Under _Provisioning_, click _Get started_, then enter the following settings:
 
 * Use _Automatic_ for the _Provisioning mode_.
 * Enter `https://scim.connectors.signpath.io/scim/<your-organization-id>/dry-run` as a _Tenant URL_. 
 * Use the SignPath CI User _API token_ from step 3 as the _Secret Token_.
 
+![Microsoft Entra ID - select provisioning](/assets/img/resources/documentation_scim-04a-select-provisioning.png){:.margin-left}
+
 <div class="panel tip" markdown="1">
 <div class="panel-header">Dry-Run mode</div>
 
-By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when ready.
+By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when ready (see step 7).
 
 </div>
 
@@ -75,7 +75,7 @@ On the next page, check _Show advanced options_ and click on _Review your schema
 
 ![Microsoft Entra ID - select mapping](/assets/img/resources/documentation_scim-05b-mapping-part2.png){:.margin-left}
 
-Then, replace the existing JSON with the one from [this link](/assets/MicrosoftEntraIDScimConfiguration.json) and save the schema. After closing the dialog, you **need to refresh the Azure page**, then the _Attribute Mappings_ will be pre-filled for you. Click on row that maps to "externalId" in the _customappsso Attribute_ column.
+Then, replace the existing JSON with the one from [this link](/assets/MicrosoftEntraIDScimConfiguration.json) and save the schema. After closing the dialog, you **need to refresh the Azure page**, then the _Attribute Mappings_ will be pre-filled for you. Click on the row that maps to "externalId" in the _customappsso Attribute_ column.
 
 ![Microsoft Entra ID - replace mapping](/assets/img/resources/documentation_scim-05c-mapping-part3.png){:.margin-left}
 
@@ -104,7 +104,7 @@ Go back to the _Entra ID_ main page, select _Enterprise applications_ and select
 
 ![Microsoft Entra ID - add users and groups](/assets/img/resources/documentation_scim-06a-add-users-and-groups.png){:.margin-left}
 
-Select a test user that already exists in the SignPath organization and assign them a role. Then select _Provisioning_ on the left pane and _Provision on demand_ on the next screen. Select the user you just created and click "Provision".
+Select a test user that already exists in the SignPath organization and assign them a role. Then select _Provisioning_ on the left pane and _Provision on demand_ on the next screen. Select the user you just added and click "Provision".
 
 ![Microsoft Entra ID - test provisioning](/assets/img/resources/documentation_scim-06b-test-provisioning.png){:.margin-left}
 
@@ -122,15 +122,15 @@ You can now assign all users and groups that you want to synchronize.
 <div class="panel-header">Notes on the synchronization</div>
 
 **User mapping:**
-In the default mapping configuration, Entra ID users are mapped to SignPath users using 
-* first, the `externalId` attribute configured in step 5 first and 
-* second, their `displayName` attribute.
+In the default mapping configuration, Entra ID users are mapped to SignPath users by comparing the following attribute values: 
+* First, the `externalId` attribute configured in step 5
+* Second, the `displayName` attribute
 
 If Entra ID users are in multiple groups with different role mappings, they will end up with the least permissive of the assigned roles. (e.g. if a user is both in a group with a _CertificateAdministrator_ role and in another group with a _GlobalAdministrator_ role assigned, they will end up with a _GlobalAdministrator_ role in SignPath.)
 
 **Group mapping:**
 * Groups are mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
-* Groups in SignPath do not have a "role" and are usually used for assigning project- or signing-policy specific permissions to a set of users (such as Approver or Submitter permissions). When synchronizing such groups, you may define _RegularUser_ as a role. 
+* Groups in SignPath do not have a "role" and are usually used for assigning _Project_ or _Signing policy_ specific permissions to a group of users (such as _Approver_ or _Submitter_ permissions). When synchronizing such groups, you can define _RegularUser_ as a role. 
 
 </div>
 
