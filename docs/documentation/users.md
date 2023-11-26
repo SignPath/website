@@ -41,7 +41,7 @@ All social accounts and username/password accounts using the same email address 
 <div class="panel info" markdown="1">
 <div class="panel-header">Alternatives to invitations</div>
 
-If you use single sign-on, users can be added directly via the SignPath API (prerelease) or via SCIM directory synchronization (beta). (Enterprise subscriptions only.)
+If you use single sign-on, users can be added directly via the SignPath API (prerelease) or via [SCIM directory synchronization](/documentation/directory-synchronization). (Enterprise subscriptions only.)
 </div>
 
 ### Invitations
