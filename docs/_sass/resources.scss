@@ -109,7 +109,8 @@ section.resources-section {
 				max-width: 100%;
 
 				&.margin-left {
-					margin-left: 60px;
+					margin-left: 30px;
+					max-width: calc(100% - 30px);
 				}
 			}
 		}
@@ -345,5 +346,16 @@ div.pssyntax {
 	& span.nf, span.nx, span.kt {
 		color: #990000;
 		font-weight: bold;
+	}
+}
+
+@media only screen and (min-width: 1000px) {
+	section.resources-section {
+		& > div > article {
+			img.margin-left {
+				margin-left: 60px;
+				max-width: calc(100% - 60px);
+			}
+		}
 	}
 }

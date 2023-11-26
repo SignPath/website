@@ -27,8 +27,8 @@ Go back to the Microsoft Entra ID main page, select _App registrations_, change 
 
 Under _App roles_, create an entry for each role in SignPath using "Users/Groups" as allowed member types:
 
-| Display name                           | Value                                                                  
-|----------------------------------------|------------------------------
+| Display name                       | Value                                                                  
+|------------------------------------|------------------------------
 | SignPath Global Administrator      | `GlobalAdministrator` 
 | SignPath Certificate Administrator | `CertificateAdministrator` 
 | SignPath User Administrator        | `UserAdministrator` 
@@ -36,7 +36,7 @@ Under _App roles_, create an entry for each role in SignPath using "Users/Groups
 | SignPath Global Reader             | `GlobalReader`
 | SignPath Regular User              | `RegularUser`
 
-See the [user documentation](/documentation/users#roles) for the permissions assigned to each role.
+_Note: For more information about the permissions assigned to each role, see the [user documentation](/documentation/users#roles)._
 
 ![Microsoft Entra ID - create app roles](/assets/img/resources/documentation_scim-02b-create-app-roles.png){:.margin-left}
 
@@ -51,7 +51,7 @@ Go back to the Microsoft Entra ID main page, select _Enterprise applications_ an
 Under _Provisioning_, click _Get started_, then enter the following settings:
 
 * Use _Automatic_ for the _Provisioning mode_.
-* Enter `https://scim.connectors.signpath.io/scim/<your-organization-id>/dry-run` as a _Tenant URL_. 
+* Enter `https://scim.connectors.`<wbr>`signpath.io/scim/<your-organization-id>/dry-run` as a _Tenant URL_. 
 * Use the SignPath CI User _API token_ from step 3 as the _Secret Token_.
 
 ![Microsoft Entra ID - select provisioning](/assets/img/resources/documentation_scim-04a-select-provisioning.png){:.margin-left}
@@ -59,7 +59,7 @@ Under _Provisioning_, click _Get started_, then enter the following settings:
 <div class="panel tip" markdown="1">
 <div class="panel-header">Dry-Run mode</div>
 
-By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when ready (see step 7).
+By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when done (see step 7).
 
 </div>
 
@@ -86,13 +86,13 @@ Change the _Mapping type_ to "Expression" and enter the following expression: `A
 <div class="panel tip" markdown="1">
 <div class="panel-header">Mapping expression</div>
 
-To find out what `<your-sso-identifier>:` is, open an exising user on SignPath. In the _Identity_ field, everything before the first `:` is your sso identifier.
+To find out the value for `<your-sso-identifier>:`, open an exising user on SignPath. In the _Identity_ field, everything before the first `:` is your SSO identifier.
 
 ![SignPath - look up SSO identifier](/assets/img/resources/documentation_scim-05e-sso-identifier-on-signpath.png)
 
-In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the _SignPath Identity_ (after the `:`) should map to the respective field of the Microsoft Entra ID user. If you're mapping your Microsoft Entra ID users directly, you can use `[objectId]`. If you're forwarding your `sid` from your Active Directory, use `[onPremisesSecurityIdentifier]`.
+In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the _SignPath Identity_ (after the `:`) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use `[objectId]`. If you are forwarding your `sid` from your Active Directory, use `[onPremisesSecurityIdentifier]`.
 
-See the [Microsoft reference for writing expressions for attribute mappings] for details on how the expression systems works in Azure.
+_For details on how the expression system works in Azure, see the [Microsoft reference for writing expressions for attribute mappings]._
 
 </div>
 
@@ -108,7 +108,7 @@ Select a test user that already exists in the SignPath organization and assign t
 
 ![Microsoft Entra ID - test provisioning](/assets/img/resources/documentation_scim-06b-test-provisioning.png){:.margin-left}
 
-When the provisioning succeeded, click on "View details" in the section _3. Match user between source and target system_. The synchronization should have found an existing user on SignPath that matches. If it attempts to create a new user, there is an error in the configuration.
+When the provisioning succeeded, click on "View details" in section _3. Match user between source and target system_. The synchronization should have found an existing user on SignPath that matches. If it attempts to create a new user, there is an error in the configuration.
 
 ![Microsoft Entra ID - validate provisioning](/assets/img/resources/documentation_scim-06c-validate-provisioning.png){:.margin-left}
 
