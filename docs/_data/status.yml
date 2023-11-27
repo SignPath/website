@@ -12,7 +12,7 @@ incidents:
     type: warning
     title: 'Infrastructure problems'
     description: |
-      Problems in the database backend caused incomplete reports and in rare cases, failed signing requests. All customers with signing requests failed due to the outage have been informed.
+      Problems in the database backend caused temporarily outdated lists and reports.
   - date: 'Nov. 8, 2023'
     range: 'Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC'
     type: warning
