@@ -9,6 +9,12 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Nov. 26, 2023'
+    range: 'Nov. 26, 2023 02:50 - 22:05 UTC'
+    type: warning
+    title: 'Infrastructure problems'
+    description: |
+      Problems in the database backend caused temporarily outdated lists and reports.
   - date: 'Nov. 8, 2023'
     range: 'Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC'
     type: warning
