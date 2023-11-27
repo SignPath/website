@@ -121,16 +121,22 @@ You can now assign all users and groups that you want to synchronize.
 <div class="panel tip" markdown="1">
 <div class="panel-header">Notes on the synchronization</div>
 
-**User mapping:**
-In the default mapping configuration, Entra ID users are mapped to SignPath users by comparing the following attribute values: 
+**User synchronization:**
+
+In the default mapping configuration, Entra ID users are initially mapped to SignPath users by comparing the following attribute values: 
 * First, the `externalId` attribute configured in step 5
 * Second, the `displayName` attribute
 
-If Entra ID users are in multiple groups with different role mappings, they will end up with the least permissive of the assigned roles. (e.g. if a user is both in a group with a _CertificateAdministrator_ role and in another group with a _GlobalAdministrator_ role assigned, they will end up with a _GlobalAdministrator_ role in SignPath.)
+Every user must be assigned at most one role other than _Regular User_, otherwise the synchronization will fail.
 
-**Group mapping:**
-* Groups are mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
-* Groups in SignPath do not have a "role" and are usually used for assigning _Project_ or _Signing policy_ specific permissions to a group of users (such as _Approver_ or _Submitter_ permissions). When synchronizing such groups, you can define _RegularUser_ as a role.
+**Group synchronization:**
+
+* Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
+* We suggest creating two "types" of groups:
+	* _Role groups_ like "PKI Team" or "Auditors" where users are mapped to a specific role, e.g. _Certificate Administrator_ or _Global Reader_.
+	* _Project specific groups_ that can be assigned within SignPath, such as "Project 1 Submitters" or "Project 2 Configurators". You can assign these groups the role _Regular User_.
+
+After the first mapping is done, Azure will match users and groups using their unique IDs.
 
 </div>
 
