@@ -7,6 +7,12 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Nov. 26, 2023'
+    range: 'Nov. 26, 2023 02:50 - 22:05 UTC'
+    type: warning
+    title: 'Infrastructure problems'
+    description: |
+      Problems in the database backend caused incomplete reports and in rare cases, failed signing requests. All customers with signing requests failed due to the outage have been informed.
   - date: 'Nov. 8, 2023'
     range: 'Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC'
     type: warning
