@@ -40,7 +40,7 @@ All social accounts and username/password accounts using the same email address 
 
 ### Invitations {#invitations}
 
-Whan a user is added to a SignPath organization manually, an invitation email is sent to the user. 
+When a user is added to a SignPath organization manually, an invitation email is sent to the user. 
 
 * On the _Users and Groups_ page, click _Invite user_.
 * Enter the name and email address.
