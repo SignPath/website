@@ -132,6 +132,7 @@ Every user must be assigned at most one role other than _Regular User_, otherwis
 **Group synchronization:**
 
 * Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
+* Only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.
 * We suggest creating two "types" of groups:
 	* _Role groups_ like "PKI Team" or "Auditors" where users are mapped to a specific role, e.g. _Certificate Administrator_ or _Global Reader_.
 	* _Project specific groups_ that can be assigned within SignPath, such as "Project 1 Submitters" or "Project 2 Configurators". You can assign these groups the role _Regular User_.
