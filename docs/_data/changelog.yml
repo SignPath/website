@@ -1,3 +1,10 @@
+- date: '2023-11-28'
+  updates:
+    application:
+      version: 1.152.1
+      bug_fixes:
+        - text: Restricted user role assignment for OSS subscriptions.
+          issues: [SIGN-6608]
 - date: '2023-11-23'
   updates:
     application:
