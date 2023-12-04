@@ -112,9 +112,9 @@ When the provisioning succeeded, click on "View details" in section _3. Match us
 
 ![Microsoft Entra ID - validate provisioning](/assets/img/resources/documentation_scim-06c-validate-provisioning.png){:.margin-left}
 
-#### 7. Remove the `/dry-run` postfix and assign users and groups
+#### 7. Remove the `/dry-run` postfix, assign users and groups and start provisioning
 
-After you successfully tested the configuration, you can remove the `/dry-run` postfix of the _Tenant URL_ that was entered in step 4. Once the postfix has been removed, the assigned Entra ID users and groups will be synchronized to your SignPath organization.
+After you successfully tested the configuration, you can remove the `/dry-run` postfix of the _Tenant URL_ that was entered in step 4. Afterwards, you can start the provisioning on overview page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.
 
 You can now assign all users and groups that you want to synchronize.
 
