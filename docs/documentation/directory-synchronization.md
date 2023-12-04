@@ -114,7 +114,9 @@ When the provisioning succeeded, click on "View details" in section _3. Match us
 
 #### 7. Remove the `/dry-run` postfix, assign users and groups and start provisioning
 
-After you successfully tested the configuration, you can remove the `/dry-run` postfix of the _Tenant URL_ that was entered in step 4. Afterwards, you can start the provisioning on overview page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.
+After you successfully tested the configuration, you can remove the `/dry-run` postfix of the _Tenant URL_ that was entered in step 4. Afterwards, you can start the provisioning on the _Overview_ page of the provisioning settings The assigned Entra ID users and groups will then be synchronized to your SignPath organization.
+
+![Microsoft Entra ID - validate provisioning](/assets/img/resources/documentation_scim-07a-start-provisioning.png){:.margin-left}
 
 You can now assign all users and groups that you want to synchronize.
 
@@ -129,10 +131,12 @@ In the default mapping configuration, Entra ID users are initially mapped to Sig
 
 Every user must be assigned at most one role other than _Regular User_, otherwise the synchronization will fail.
 
+When an Entra ID user is removed from all groups that are synchronized, the SignPath user will be deactivated.
+
 **Group synchronization:**
 
 * Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
-* Only one level of group membership is supported. Users are only synchronized if they are direct members of the synchronized group.
+* Nested groups are not supported by Microsoft by Microsoft Entra. However, if a user is both in a first- and second-level group, their group assignment (but not role assignment) is correctly resolved. See the [official Microsoft documentation on scoping].
 * We suggest creating two "types" of groups:
 	* _Role groups_ like "PKI Team" or "Auditors" where users are mapped to a specific role, e.g. _Certificate Administrator_ or _Global Reader_.
 	* _Project specific groups_ that can be assigned within SignPath, such as "Project 1 Submitters" or "Project 2 Configurators". You can assign these groups the role _Regular User_.
@@ -141,5 +145,15 @@ After the first mapping is done, Azure will match users and groups using their u
 
 </div>
 
+<div class="panel tip" markdown="1">
+<div class="panel-header">Troubleshooting</div>
+
+All synchronization attempts can be viewed in the _Enterprise Application_ under _Provisioning logs_.
+
+Please note that some items may take a couple of hours to be synchronized.
+
+</div>
+
 
 [Microsoft reference for writing expressions for attribute mappings]: https://learn.microsoft.com/en-us/entra/identity/app-provisioning/functions-for-customizing-application-data
+[official Microsoft documentation on scoping]: https://learn.microsoft.com/en-us/entra/identity/app-provisioning/how-provisioning-works#scoping
