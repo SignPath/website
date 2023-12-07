@@ -3,8 +3,8 @@ main_header: Documentation
 sub_header: Signing Docker images
 layout: resources
 toc: true
-show_toc: 4
-description: Documentation for signing Docker containers with SignPath using Docker Content Trust (DCT)
+show_toc: 5
+description: Documentation for signing Docker containers with SignPath
 ---
 
 Available for Enterprise and Open Source subscriptions
@@ -12,17 +12,98 @@ Available for Enterprise and Open Source subscriptions
 
 ## Overview
 
-Docker Content Trust (DCT) is the system used for signing and verifying container images in Docker registries. 
+There are currently 3 competing technologies for signing Docker images:
 
-SignPath provides the following advantages when signing for DCT:
+* _[sigstore's cosign](https://docs.sigstore.dev/signing/quickstart/)_: A Linux foundation project, primarily developed for the open source community. See [below](#cosign) on how to use it with SignPath.
+* _[Notary v1 (Docker Content Trust)](https://github.com/theupdateframework/notary)_: Part of the standard docker CLI. See [below](#notary-v1) on how to use it with SignPath.
+* _[Notation](https://notaryproject.dev/)_: Previously known as Notary v2 it is the successor of Notary v1 (Docker Conten Trust). Not yet supported by SignPath.
 
-* **You don't need to keep the target key** (a powerful key without hardware protection option that you would otherwise need for every new developer)
-* **Developers don't need to keep their own delegation keys**
+
+### Why use SignPath for container signing?
+
+SignPath provides the following advantages when signing for Docker Content Trust (DCT):
+
 * You can use the full power of SignPath **signing policies**, including permission, approval, and origin verification
 * You can use all **CI integration** features of SignPath
 * Configuration and policy management is **aligned with other signing methods**, such as Authenticode or Java signing
 * SignPath maintains a **full audit log** of all signing activities
+
+For _Notary v1 / Docker Content Trust (DCT)_, there are additional specific advantages:
+
+* **You don't need to keep the target key** (a powerful key without hardware protection option that you would otherwise need for every new developer)
+* **Developers don't need to keep their own delegation keys**
 * SignPath controls **signing on a semantic level**, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)
+
+For _cosign_, there are additional specific advantages:
+
+* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
+* You can use your own key material and **keep your signature data private** without having to operate an own instance of Fulcio
+
+## Using cosign {#cosign}
+
+### Overview
+
+_cosign_ belongs to the [sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
+
+This approach is not practical for all organizations which
+* use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or
+* don't want their signatures to be logged in the public Rekor log and don't want to operate their own Fulcio CA
+
+For these organizations, signing with _cosign_ is only possible using public/private key pairs.
+
+<div class="panel info" markdown="1">
+<div class="panel-header">X.509 certificate chains in cosign</div>
+
+_cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The project is actively working on supporting custom certificates from traditional PKIs.
+
+</div>
+
+### Prerequisites
+
+Required components on the client: 
+* cosign in version 2.0.0 or higher
+
+In your SignPath organization, you need the following entities:
+* a project with an artifact configuration of type _Detached raw signatures_
+* a certificate (only the public/private key pair will be used)
+
+The Docker container image needs to be pushed to an OCI-compliant container registry.
+
+### Signing
+
+Signing container images with cosign using SignPath consists of 3 steps:
+
+#### 1. Create an unsigned `payload.json` file
+
+~~~ bash
+docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN | xargs -I IMAGE cosign generate IMAGE > payload.json
+~~~
+
+* `$FQN` contains the fully qualified name, see [FQN](#fqn)
+* The first part extracts the repository digest identifier for the given FQN
+* The second part tells cosign to generate a metadata file that can be signed
+
+#### 2. Create a detached signature for the `payload.json` file
+
+You can create a detached `payload.json.sig` signature for the `payload.json` file using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface.
+
+#### 3. Attach the signature to the image
+
+cosign expects the signature to be base64 encoded before it can be attached:
+
+~~~ bash
+cat payload.json.sig | base64 > payload.json.base64.sig
+~~~
+
+Then, the following command will upload the signature to the repository:
+
+~~~ bash
+cosign attach signature --payload payload.json --signature payload.json.base64.sig
+~~~
+
+## Using Notary v1 (Docker Content Trust) {#notary-v1}
+
+### Overview
 
 DCT is based on Notary, which uses a system of keys:
 
@@ -34,7 +115,7 @@ DCT is based on Notary, which uses a system of keys:
 | **Snapshot**    | Notary signer    | sign matching collections to prove consistency      | Each image build                    | (Registry/Notary take care of this)
 | **Timestamp**   | Notary signer    | sign current collections to prove "freshness"       | Constantly                          | (Registry/Notary take care of this)
 
-### Setup overview
+#### Setup overview
 
 The process to set up SignPath for DCT is as follows:
 
@@ -61,11 +142,11 @@ As a result of this procedure, all remaining keys will be on secure systems:
 | **Snapshot**    | (depends on Notary setup) | Notary/Registry credentials
 | **Timestamp**   | (depends on Notary setup) | Notary/Registry credentials
 
-### Signing overview
+#### Signing overview
 
 Execute `Invoke-DockerSigning` in your CI system, or call each step individually. See [signing phase](#signing-phase) for step-by-step instructions.
 
-### Security considerations
+#### Security considerations
 
 The following table lists 
 
@@ -105,9 +186,9 @@ Note that developers usually own a single delegation key that is trusted by many
 (Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
 </div>
 
-## Setup phase
+### Setup phase
 
-### Prerequisites
+#### Prerequisites
 
 Required components: 
 * PowerShell 6 or higher
@@ -117,15 +198,15 @@ Required components:
 Optional components:
 * Attached [Yubikey](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#use-a-ubikey) USB token (strongly recommended)
 
-### Steps
+#### Steps
 
-#### 1. Create a new self-signed X.509 certificate in SignPath
+##### 1. Create a new self-signed X.509 certificate in SignPath
 
 This certificate will be added as a **delegation key** to your Docker repository in a later step. 
 
 You only need one delegation key, it can be shared between repositories.
 
-#### 2. Get or create the root and target keys
+##### 2. Get or create the root and target keys
 
 In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository's root key (only the public key) to SignPath. Use the [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module. 
 
@@ -151,7 +232,7 @@ If you are using your own registry, specify the value you would use for Docker C
 
 Choose one of the following scenarios:
 
-##### Scenario 1: You are currently not signing your Docker images
+###### Scenario 1: You are currently not signing your Docker images
 
 Call the following command:
 
@@ -172,7 +253,7 @@ Executing this command will
 
 The command prints the path of the certificate you need to upload in step 4.
 
-##### Scenario 2: You are already signing your Docker images
+###### Scenario 2: You are already signing your Docker images
 
 If you already have an existing set of keys that you want to keep, you only need to export the public part of the root key for uploading to SignPath. 
 
@@ -187,7 +268,7 @@ The command prints the path of the certificate you need to upload in step 4.
 
 We recommend that you remove existing delegation keys as soon as you have verified that your SignPath setup works. Use the `notary delegation remove` [command](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#work-with-delegation-roles) or perform a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys).
 
-#### 3. Add the delegation certificate to your repository's delegation keys
+##### 3. Add the delegation certificate to your repository's delegation keys
 
 Download the delegation key certificate file from step 1. Add it using the following command:
 
@@ -199,7 +280,7 @@ Add-DelegationCertificate -Repository $FQN `
 
 This adds a delegation (default name `signpath`) with the key from the specified certificate and publishes the changes to the Notary server. You will be prompted for the password of your _targets key_.
 
-#### 4. Set up a Docker repository and project in SignPath
+##### 4. Set up a Docker repository and project in SignPath
 
 * Add a new Docker repository in SignPath
   * specify its fully qualified name ([FQN](#fqn))
@@ -207,7 +288,7 @@ This adds a delegation (default name `signpath`) with the key from the specified
 * Create a project with an artifact configuration of type _Docker signing data_ for this repository
 * Add a signing policy to the project and choose the certificate you created in step 1
 
-#### 5. When everything works, delete the target key
+##### 5. When everything works, delete the target key
 
 Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit key of the target key you created in step 2. See the [Notary documenation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#files-and-state-on-disk).
 
@@ -223,9 +304,9 @@ If you run into unexpected problems later that require a target key, you can alw
 The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
 </div>
 
-## Signing phase
+### Signing phase
 
-### Prerequisites
+#### Prerequisites
 
 Required components:
 
@@ -237,9 +318,9 @@ The unsigned image must be
   * available on the local computer (preferably right after building it) 
   * _and_ pushed to the registry (unsigned)
 
-### Execution
+#### Execution
 
-#### Single-step signing
+##### Single-step signing
 
 For convenience, the `SignPathDocker` module provides a single command to sign a Docker image:
 
@@ -252,7 +333,7 @@ Invoke-DockerSigning -Repository $FQN -Tags $TAGS `
   [-RegistryUrl $REGISTRY_URL] [-RegistryUsername $REGISTRY_USERNAME] [-RegistryPassword $REGISTRY_PASSWORD]
 ~~~
 
-#### Perform each step separately
+##### Perform each step separately
 
 Alternatively, you perform each step separately. Reasons to do this include
 
