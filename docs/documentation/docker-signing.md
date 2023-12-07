@@ -61,8 +61,6 @@ As a result of this procedure, all remaining keys will be on secure systems:
 | **Snapshot**    | (depends on Notary setup) | Notary/Registry credentials
 | **Timestamp**   | (depends on Notary setup) | Notary/Registry credentials
 
-Future versions of SignPath will include root key management.
-
 ### Signing overview
 
 Execute `Invoke-DockerSigning` in your CI system, or call each step individually. See [signing phase](#signing-phase) for step-by-step instructions.
