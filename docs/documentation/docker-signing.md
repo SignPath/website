@@ -76,7 +76,8 @@ Signing container images with cosign using SignPath consists of 3 steps:
 #### 1. Create an unsigned `payload.json` file
 
 ~~~ bash
-docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN | xargs -I IMAGE cosign generate IMAGE > payload.json
+export IMAGE_DIGEST=`docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN`
+cosign generate $IMAGE_DIGEST > payload.json
 ~~~
 
 * `$FQN` contains the fully qualified name, see [FQN](#fqn)
@@ -85,7 +86,7 @@ docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN | x
 
 #### 2. Create a detached signature for the `payload.json` file
 
-You can create a detached `payload.json.sig` signature for the `payload.json` file using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface.
+You can create a detached `payload.json.sig` signature using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface. Please note that you need to create a zip file containing the `payload.json` file before uploading it.
 
 #### 3. Attach the signature to the image
 
@@ -98,7 +99,7 @@ cat payload.json.sig | base64 > payload.json.base64.sig
 Then, the following command will upload the signature to the repository:
 
 ~~~ bash
-cosign attach signature --payload payload.json --signature payload.json.base64.sig
+cosign attach signature --payload payload.json --signature payload.json.base64.sig $IMAGE_DIGEST
 ~~~
 
 ## Using Notary v1 (Docker Content Trust) {#notary-v1}

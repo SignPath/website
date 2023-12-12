@@ -195,6 +195,13 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td></td>
     <td>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</td>
   </tr>
+  <tr>
+    <td><code>&lt;file&gt;</code></td>
+    <td>No</td>
+    <td><code><a href="#detached-raw-signatures-using-create-raw-signature">&lt;create-raw-signature&gt;</a></code></td>
+    <td></td>
+    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures-using-create-raw-signature">detached raw signature</a> file (available for Enterprise subscriptions)</td>
+  </tr>
 </tbody>
 </table>
 
@@ -435,6 +442,29 @@ The result is a `Signature` element added to the root element (after all existin
 See also:
 * Use [metadata restrictions](#file-metadata-restrictions) for `<xml-file>` to restrict root element and namespace.
 
+### Detached raw signatures using &lt;create-raw-signature&gt;
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Detached raw signatures can be used for arbitrary binary or text files. The `create-raw-signature` directive supports the following parameters:
+
+| Parameter          | Description                      
+|-----------         |---------------------------------- 
+| `hash-algorithm`   | The hash algorithm used to calculate the signature. Supported options are `sha256`, `sha384` and `sha512`.
+| `rsa-padding`      | Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are `pkcs1` and `pss`.
+| `file-name`        | Name of the output file for the detached signature.
+
+**Note: Due to the detached signature being placed in a separate file, `<file>` and `<file-set>` elements are only allowed inside a <a href="#zip-file-element">`<zip-file>`</code></a>.**
+
+#### Verification
+
+There are multiple tools and solutions that support handling of raw signature blocks. One popular option is `openssl dgst`. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:
+
+~~~ cmd
+openssl dgst -verify pubkey.pem -signature file.sig file
+~~~
+
 ## Using wildcards
 
 Every path attribute can contain the following wildcard patterns:
@@ -459,7 +489,7 @@ If wildcards are used, optional `max-matches` and `min-matches` parameters can b
 
 ## File and directory sets
 
-If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: `<directory-set>`, `<pe-file-set>`, `<powershell-file-set>`, `<windows-script-file-set>`, `<msi-file-set>`, `<cab-file-set>`, `<catalog-file-set>`, `<appx-file-set>`, `<msix-file-set>`, `<opc-file-set>`, `<nupkg-file-set>`, `<jar-file-set>`, `<zip-file-set>`, `<office-oxml-file-set>`, `<office-binary-file-set>`, `<xml-file-set>`
+If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: `<directory-set>`, `<pe-file-set>`, `<powershell-file-set>`, `<windows-script-file-set>`, `<msi-file-set>`, `<cab-file-set>`, `<catalog-file-set>`, `<appx-file-set>`, `<msix-file-set>`, `<opc-file-set>`, `<nupkg-file-set>`, `<jar-file-set>`, `<zip-file-set>`, `<office-oxml-file-set>`, `<office-binary-file-set>`, `<xml-file-set>`, `<file-set>`
 
 Each set element contains:
 
