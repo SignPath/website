@@ -461,7 +461,7 @@ Detached raw signatures can be used for arbitrary binary or text files or [signi
 
 There are multiple tools and solutions that support handling of raw signature blocks. One popular option is `openssl dgst`. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:
 
-~~~ cmd
+~~~ bash
 openssl dgst -verify pubkey.pem -signature file.sig file
 ~~~
 

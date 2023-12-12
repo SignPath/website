@@ -21,12 +21,18 @@ There are currently 3 competing technologies for signing Docker images:
 
 ### Why use SignPath for container signing?
 
-SignPath provides the following advantages when signing for Docker Content Trust (DCT):
+SignPath provides the following advantages:
 
 * You can use the full power of SignPath **signing policies**, including permission, approval, and origin verification
 * You can use all **CI integration** features of SignPath
 * Configuration and policy management is **aligned with other signing methods**, such as Authenticode or Java signing
-* SignPath maintains a **full audit log** of all signing activities
+* SignPath maintains a **full audit log** of all signing activities including metadata such as the registry URL and signed image tag
+* You can **sign multiple images in a single signing request**, making audits/reviews of multi-image releases a lot easier
+
+For _cosign_, there are additional specific advantages:
+
+* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
+* You can use your own key material and **keep your signature data private** without having to operate an own Fulcio certificate authority system
 
 For _Notary v1 / Docker Content Trust (DCT)_, there are additional specific advantages:
 
@@ -34,16 +40,12 @@ For _Notary v1 / Docker Content Trust (DCT)_, there are additional specific adva
 * **Developers don't need to keep their own delegation keys**
 * SignPath controls **signing on a semantic level**, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)
 
-For _cosign_, there are additional specific advantages:
-
-* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
-* You can use your own key material and **keep your signature data private** without having to operate an own instance of Fulcio
 
 ## Using cosign {#cosign}
 
 ### Overview
 
-_cosign_ belongs to the [sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
+_cosign_ belongs to the [sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
 
 This approach is not practical for all organizations which
 * use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or
@@ -54,7 +56,7 @@ For these organizations, signing with _cosign_ is only possible using public/pri
 <div class="panel info" markdown="1">
 <div class="panel-header">X.509 certificate chains in cosign</div>
 
-_cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The project is actively working on supporting custom certificates from traditional PKIs.
+_cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.
 
 </div>
 
@@ -86,7 +88,7 @@ cosign generate $IMAGE_DIGEST > payload.json
 
 #### 2. Create a detached signature for the `payload.json` file
 
-You can create a detached `payload.json.sig` signature using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface. Please note that you need to create a zip file containing the `payload.json` file before uploading it.
+You can create a <a href='/documentation/artifact-configuration#detached-raw-signatures'>detached raw signature</a> `payload.json.sig` file using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface. Please note that you need to create a zip file containing the `payload.json` file before uploading it. Use the artifact configuration "Detached raw signatures" for signing a single container image.
 
 #### 3. Attach the signature to the image
 
@@ -96,7 +98,7 @@ cosign expects the signature to be base64 encoded before it can be attached:
 cat payload.json.sig | base64 > payload.json.base64.sig
 ~~~
 
-Then, the following command will upload the signature to the repository:
+Finally, the following command will upload the signature to the repository:
 
 ~~~ bash
 cosign attach signature --payload payload.json --signature payload.json.base64.sig $IMAGE_DIGEST
