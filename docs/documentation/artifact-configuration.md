@@ -198,9 +198,9 @@ File and directory names in `path` attributes are case-insensitive. You may use 
   <tr>
     <td><code>&lt;file&gt;</code></td>
     <td>No</td>
-    <td><code><a href="#detached-raw-signatures-using-create-raw-signature">&lt;create-raw-signature&gt;</a></code></td>
+    <td><code><a href="#detached-raw-signatures">&lt;create-raw-signature&gt;</a></code></td>
     <td></td>
-    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures-using-create-raw-signature">detached raw signature</a> file (available for Enterprise subscriptions)</td>
+    <td>Arbitrary files. This directive will create a <a href="#detached-raw-signatures">detached raw signature</a> file (available for Enterprise subscriptions)</td>
   </tr>
 </tbody>
 </table>
@@ -442,12 +442,12 @@ The result is a `Signature` element added to the root element (after all existin
 See also:
 * Use [metadata restrictions](#file-metadata-restrictions) for `<xml-file>` to restrict root element and namespace.
 
-### Detached raw signatures using &lt;create-raw-signature&gt;
+### Detached raw signatures using &lt;create-raw-signature&gt; {#detached-raw-signatures}
 
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Detached raw signatures can be used for arbitrary binary or text files. The `create-raw-signature` directive supports the following parameters:
+Detached raw signatures can be used for arbitrary binary or text files or [signing Docker images using cosign](/documentation/docker-signing#cosign). The `create-raw-signature` directive supports the following parameters:
 
 | Parameter          | Description                      
 |-----------         |---------------------------------- 
@@ -455,7 +455,7 @@ Detached raw signatures can be used for arbitrary binary or text files. The `cre
 | `rsa-padding`      | Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are `pkcs1` and `pss`.
 | `file-name`        | Name of the output file for the detached signature.
 
-**Note: Due to the detached signature being placed in a separate file, `<file>` and `<file-set>` elements are only allowed inside a <a href="#zip-file-element">`<zip-file>`</code></a>.**
+**Note: Due to the detached signature being placed in a separate file, `<file>` and `<file-set>` elements are only allowed inside a <a href="#zip-file-element">`<zip-file>`</a>.**
 
 #### Verification
 
