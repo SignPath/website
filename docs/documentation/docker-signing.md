@@ -75,7 +75,7 @@ The Docker container image needs to be pushed to an OCI-compliant container regi
 
 Signing container images with cosign using SignPath consists of 3 steps:
 
-#### 1. Create an unsigned `payload.json.zip` file
+#### 1. Prepare the metadata for signing
 
 ~~~ bash
 # Extract the repository digest identifier for the given FQN
@@ -88,7 +88,7 @@ zip payload.json.zip payload.json
 
 Note: `$FQN` contains the fully qualified name, see [FQN](#fqn)
 
-#### 2. Create a detached signature
+#### 2. Create a signature for the metadata
 
 Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration#detached-raw-signatures') for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
 
