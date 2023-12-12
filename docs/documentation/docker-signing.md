@@ -75,32 +75,33 @@ The Docker container image needs to be pushed to an OCI-compliant container regi
 
 Signing container images with cosign using SignPath consists of 3 steps:
 
-#### 1. Create an unsigned `payload.json` file
+#### 1. Create an unsigned `payload.json.zip` file
 
 ~~~ bash
+# Extract the repository digest identifier for the given FQN
 export IMAGE_DIGEST=`docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN`
+# Generate a metadata file to be signed
 cosign generate $IMAGE_DIGEST > payload.json
+# Package the metadata file for SignPath
+zip payload.json.zip payload.json
 ~~~
 
-* `$FQN` contains the fully qualified name, see [FQN](#fqn)
-* The first part extracts the repository digest identifier for the given FQN
-* The second part tells cosign to generate a metadata file that can be signed
+Note: `$FQN` contains the fully qualified name, see [FQN](#fqn)
 
-#### 2. Create a detached signature for the `payload.json` file
+#### 2. Create a detached signature
 
-You can create a <a href='/documentation/artifact-configuration#detached-raw-signatures'>detached raw signature</a> `payload.json.sig` file using any of SignPath's [build system integrations](#/documentation/build-system-integrations) or via the user interface. Please note that you need to create a zip file containing the `payload.json` file before uploading it. Use the artifact configuration "Detached raw signatures" for signing a single container image.
+Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration#detached-raw-signatures') for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
 
 #### 3. Attach the signature to the image
 
-cosign expects the signature to be base64 encoded before it can be attached:
+Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for _cosign_ and upload the signature to the repository:
 
 ~~~ bash
+# Extract the detached signature
+unzip -n payload.json.signed.zip
+# Encode the signature using base64 for cosign
 cat payload.json.sig | base64 > payload.json.base64.sig
-~~~
-
-Finally, the following command will upload the signature to the repository:
-
-~~~ bash
+# Upload the signature to the registry
 cosign attach signature --payload payload.json --signature payload.json.base64.sig $IMAGE_DIGEST
 ~~~
 
