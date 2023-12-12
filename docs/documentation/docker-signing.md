@@ -79,14 +79,14 @@ Signing container images with cosign using SignPath consists of 3 steps:
 
 ~~~ bash
 # Extract the repository digest identifier for the given FQN
-export IMAGE_DIGEST=`docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' $FQN`
+export IMAGE_DIGEST=`docker inspect --format='{% raw %}{{index .RepoDigests 0}}{% endraw %}' "$FQN:$TAG"`
 # Generate a metadata file to be signed
 cosign generate $IMAGE_DIGEST > payload.json
 # Package the metadata file for SignPath
 zip payload.json.zip payload.json
 ~~~
 
-Note: `$FQN` contains the fully qualified name, see [FQN](#fqn)
+Note: `$FQN` contains the fully qualified name of the repository, see [FQN](#fqn) and `$TAG` is the specific tag (e.g. `latest`).
 
 #### 2. Create a signature for the metadata
 
