@@ -1,3 +1,21 @@
+- date: '2023-12-13'
+  updates:
+    crypto_providers:
+      version: 4.3.0
+      improvements:
+        - text: >
+            Improved GPG initialization and shadow key fetching in Linux container sample scripts (which also fixed a compatibility issue with GnuPG 2.3+).
+          issues: [SIGN-6625]
+        - text: >
+            Linux PKCS#11 CryptoProvider: Added support for Debian 11 and RedHat 9 distros incl. updated Linux container samples.
+          issues: [SIGN-6585, SIGN-6586]
+        - text: >
+            Added CryptoProvider version info to the user agent header for backend REST calls.
+          issues: [SIGN-6568]
+      bug_fixes:
+        - text: >
+            KSP CryptoProvider: Fixed a compatibility issue with ECDSA certificates.
+          issues: [SIGN-6602]
 - date: '2023-12-11'
   updates:
     application: 
