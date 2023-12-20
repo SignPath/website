@@ -3,7 +3,7 @@ main_header: Documentation
 sub_header: Signing Docker images with cosign
 layout: resources
 toc: true
-show_toc: 5
+show_toc: 0
 description: Documentation for signing Docker images with SignPath using cosign
 ---
 
@@ -52,7 +52,19 @@ cosign generate $IMAGE_DIGEST > payload.json
 zip payload.json.zip payload.json
 ~~~
 
-Note: `$FQN` contains the fully qualified name of the repository, see [FQN](#fqn) and `$TAG` is the specific tag (e.g. `latest`).
+<div class="panel info" markdown="1">
+<div class="panel-header">FQN and TAG</div>
+
+<a name="fqn"/> 
+**Fully qualified name (FQN)**
+
+For images hosted on Docker Hub, the FQN is `docker.io/<namespace>/<repository>`, e.g. `docker.io/jetbrains/teamcity-server`. 
+
+If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using `docker pull myreg.jfrog.io/myrepo/myimage:latest`, the FQN would be `myreg.jfrog.io/myrepo/myimage`.
+
+
+`$TAG` refers the specific image tag (e.g. `latest`)
+</div>
 
 #### 2. Create a signature for the metadata
 

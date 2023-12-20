@@ -3,7 +3,7 @@ main_header: Documentation
 sub_header: Signing Docker images
 layout: resources
 toc: true
-show_toc: 5
+show_toc: 0
 description: Documentation for signing Docker containers with SignPath
 ---
 

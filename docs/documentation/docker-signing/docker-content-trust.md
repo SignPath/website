@@ -3,7 +3,7 @@ main_header: Documentation
 sub_header: Signing Docker images with Docker Content Trust
 layout: resources
 toc: true
-show_toc: 5
+show_toc: 0
 description: Documentation for signing Docker images with SignPath using Docker Content Trust
 ---
 
