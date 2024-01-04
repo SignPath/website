@@ -60,7 +60,7 @@ These certificates are technically similar, they differ mostly in key usage attr
 
 The following information is stored in certificates:
 
-* **Subject:** The identity of the private key's owner. The subject is provided in the form of a [distinguished name](https://ldapwiki.com/wiki/Distinguished%20Names#section-Distinguished+Names-DistinguishedNamesAndCertificates1). It has the following attributes:
+* **Subject:** The identity of the private key's owner. The subject is provided in the form of a distinguished name. It has the following attributes:
   * *Common Name (CN):* The owner's identifier. For HTTPS server certificates, this is the domain name (e.g. www.google.com). For all other certificates, including code signing, this is the organization. Required.
   * *Organization (O):* The legal name of the owner. Only required for some types, see next section.
   * *Organizational Unit (OU):* The OU within the owner organization responsible for this key. Optional.
