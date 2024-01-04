@@ -77,7 +77,7 @@ This is a very straightforward way to authorize specific groups of build nodes f
 * Use Microsoft Certificate Server to assign computer certificates to this group (we recommend using short-lived certificates, i.e. days or weeks, for security critical groups)
 * Specify the template ID in the Double Authentication Proxy configuration
 * Register the Double Authentication Proxy as trusted build system (see [configuration](#configuration))
-* Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/submit-signingrequest). Use the template ID to select the correct certificate client certificate.
+* Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/Submit-SigningRequest). Use the template ID to select the correct certificate client certificate.
 </div>
 
 This diagram shows how machine certificates, Double Authentication Proxy and SignPath work together:
