@@ -21,7 +21,7 @@ With SignPath, you have three options for creating or importing a certificate:
 
 * **Self-signed certificates** are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.
 * **Certificate signing requests (CSRs)** can be created usign SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.
-* **PFX files** can be imported into SignPath. If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution.
+* **PFX files** can be imported into SignPath. If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys on the HSM key store.)
 
 ## Restrictions
 
