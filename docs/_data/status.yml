@@ -8,6 +8,13 @@ current:
     #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
 planned:
+  - date: 'Jan. 11, 2024'
+    range: 'Jan 11, 2024 19:00 - 21:00 UTC'
+    type: warning
+    title: 'Thales DPoD maintenance windows'
+    description: |
+      For all customers using their own Thales DPoD Cloud HSMs hosted in the EU, signing operations may briefly be interrupted due to maintenance operations by Thales.
+    link: https://status.dpondemand.io/
 incidents:
   - date: 'Nov. 26, 2023'
     range: 'Nov. 26, 2023 02:50 - 22:05 UTC'
