@@ -21,9 +21,12 @@
       version: 1.155.0
       breaking_changes:
         - text: >-
-            In `signpath-application` values `chartSettings` section: Removed `malwareScanning.timeout` value,
-            and instead introduced scanner-type specific `malwareScanning.signPathMalwareScanningService.scanningTimeout/httpRequestTimeout` resp.
-            `malwareScanning.customMalwareScanningScript.scriptTimeout` configuration values.
+            In `signpath-application` values `chartSettings` section: removed `malwareScanning.timeout` configuration value,
+            and instead introduced scanner-type specific values: 
+
+            * `malwareScanning.signPathMalwareScanningService.scanningTimeout` and `.httpRequestTimeout`
+            
+            * `malwareScanning.customMalwareScanningScript.scriptTimeout`
           issues: [SIGN-6637]
       improvements:
         - text: >-
