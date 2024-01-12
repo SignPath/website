@@ -1,11 +1,11 @@
-- date: '2024-01-TODO'
+- date: '2024-01-25'
   updates:
-    application: 
+    application:
       version: 1.155.0
       new_features:
         - text: >-
             REST API: Added new routes for (de)activating certificates, projects, signing policies and artifact configurations,
-            and new route for the "delete private key" certificate operation.
+            and a new route for the "delete private key" certificate operation.
           issues: [SIGN-6640, SIGN-6642]
         - text: >-
             REST API: Added `GET /v1-pre/{organizationId}/InteractiveUsers/Me` route.
@@ -21,16 +21,16 @@
       version: 1.155.0
       breaking_changes:
         - text: >-
-            Moved `chartSettings.malwareScanning.timeout` configuration to
-            `chartSettings.malwareScanning.signPathMalwareScanningService.scanningTimeout/httpRequestTimeout` resp.
-            `chartSettings.malwareScanning.customMalwareScanningScript.scriptTimeout` in `signpath-application`.
+            In `signpath-application` values `chartSettings` section: Removed `malwareScanning.timeout` value,
+            and instead introduced scanner-type specific `malwareScanning.signPathMalwareScanningService.scanningTimeout/httpRequestTimeout` resp.
+            `malwareScanning.customMalwareScanningScript.scriptTimeout` configuration values.
           issues: [SIGN-6637]
       improvements:
         - text: >-
             Added logging of the "User Agent" header to Application Insights requests.
           issues: [SIGN-6621]
         - text: >-
-            Avoided creating the `signpathmalwarescanningservice` config map resource (unused since 1.144).
+            Removed the `signpathmalwarescanningservice` config map resource (unused since 1.144).
           issues: [SIGN-6221]
       bug_fixes:
         - text: >-
@@ -41,7 +41,7 @@
     application: 
       version: 1.153.1
       bug_fixes:
-        - text: >
+        - text: >-
             Trusted build systems: Fixed validation error for Git repository SSH URLs.
           issues: [SIGN-6692]
 - date: '2023-12-13'
