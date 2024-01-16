@@ -29,7 +29,7 @@ At SignPath, we believe that signing code is crucial for secure distribution of 
 ## Address and legal information
 
 **SignPath GmbH**<br>
-Werdertorgasse 14<br>
+Gonzagagasse 11/23<br>
 1010 Vienna<br>
 Austria
 
