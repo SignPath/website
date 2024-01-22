@@ -1,3 +1,52 @@
+- date: '2024-01-22'
+  updates:
+    application:
+      version: 1.155.0
+      new_features:
+        - text: >-
+            REST API: Added new routes for (de)activating certificates, projects, signing policies and artifact configurations,
+            and a new route for the "delete private key" certificate operation.
+          issues: [SIGN-6640, SIGN-6642]
+        - text: >-
+            REST API: Added `GET /v1-pre/{organizationId}/InteractiveUsers/Me` route.
+          issues: [SIGN-6641]
+      improvements:
+        - text: >-
+            REST API: Added the ID of the created entity to the response body in various POST routes.
+          issues: [SIGN-6553]
+        - text: >-
+            Improved the title line on the signing request detail page for long project/signing policy names.
+          issues: [SIGN-6525]
+    self_hosted_installations:
+      version: 1.155.0
+      breaking_changes:
+        - text: >-
+            In `signpath-application` values `chartSettings` section: removed `malwareScanning.timeout` configuration value,
+            and instead introduced scanner-type specific values: 
+
+            * `malwareScanning.signPathMalwareScanningService.scanningTimeout` and `.httpRequestTimeout`
+            
+            * `malwareScanning.customMalwareScanningScript.scriptTimeout`
+          issues: [SIGN-6637]
+      improvements:
+        - text: >-
+            Added logging of the "User Agent" header to Application Insights requests.
+          issues: [SIGN-6621]
+        - text: >-
+            Removed the `signpathmalwarescanningservice` config map resource (unused since 1.144).
+          issues: [SIGN-6221]
+      bug_fixes:
+        - text: >-
+            Fixed broken Application Insights sampling configuration for `signservice` Pods.
+          issues: [SIGN-6666]
+- date: '2023-12-20'
+  updates:
+    application: 
+      version: 1.153.1
+      bug_fixes:
+        - text: >-
+            Trusted build systems: Fixed validation error for Git repository SSH URLs.
+          issues: [SIGN-6692]
 - date: '2023-12-13'
   updates:
     crypto_providers:
