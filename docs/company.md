@@ -40,5 +40,3 @@ E-Mail: [office@signpath.io](mailto:office@signpath.io)
 Commercial register ID: 475506z<br>
 Jurisdiction: Handelsgericht Wien<br>
 VAT ID: ATU72648227
-
-SignPath GmbH is a subsidiary of [RUBICON IT GmbH](https://www.rubicon.eu).
