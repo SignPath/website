@@ -15,7 +15,7 @@ description:
 
 SignPath offers a platform for secure code signing. Our customers are tech companies as well as enterprises developing their own software, scripts and macros. 
 
-Do you like to research and implement tailor-made security measures? Are comprehensive security audits part of your DNA? Then we have got an interesting offer for you right in the heart of Vienna. You can contribute to the success of a high-security IT scale-up and help them to prevent cyber attacks.
+Do you like to research and implement tailor-made security measures? Are comprehensive security audits part of your DNA? Then we have got an interesting offer for you right in the heart of Vienna. You can contribute to the success of a high-security IT scale-up and help us to prevent cyber attacks.
 
 ## About us
 
