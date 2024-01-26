@@ -15,6 +15,8 @@ description:
 
 Do you like to research and implement tailor-made security measures? Are comprehensive security audits part of your DNA? Then we have got an interesting offer for you right in the heart of Vienna. You can contribute to the success of a high-security IT scale-up and help us to prevent cyber attacks.
 
+This position is ideal for senior year undergraduates or postgraduate students specializing in IT security or software engineering. It offers an opportunity for future full-time engagement.
+
 ## About us
 
 SignPath is a code signing scale-up providing a Software-as-a-Service platform and an enterprise software. Our customers are tech companies as well as enterprises developing their own software, scripts and macros. Our low- to mid-end customers appreciate the ease of use our SaaS service brings, with a high level of security even at the entry stage. Our enterprise customers benefit from additional integration, management and security features. These security sensitive customers rely on our experience with secure build chains in zero-trust environments.
@@ -23,19 +25,28 @@ Recent security incidents in the field of supply chains and increasing regulatio
 
 ## Your responsibilities
 
-* Security audits of new/existing application features and new/existing infrastructure components
-* Research and implementation of application and (cloud) infrastructure related security measures
-* Maintenance and improvement of our Secure Software Development Lifecycle (SSDLC)
-* Management of vulnerabilities and patching in the application and in our infrastructure
+* Code reviews of new application features and code changes
+* Audits of infrastructure components and changes
+* Research and implementation of security measures (application infrastructure)
+* Secure Software Development Lifecycle (SSDLC) maintenance and improvement
+* Vulnerability management
 
 ## Your profile
 
-* Ongoing education or a degree in IT security or a related field
-* Good written and spoken English (B2 or higher), German desirable
-* Knowledge of security technologies and principles
-* Experience in at least one higher level programming language (e.g. Java, .NET, python)
+Academic and work experience:
+* Security technologies and principles
+* Programming (full stack, high-level languages like C# or Java)
+* Secure coding (e.g. OWASP Top 10)
+
+Other skills:
+* Good written and spoken English (B2 or higher)
 * Independent and structured work style
-* Experience with SSDLCs, in cloud environments, or in Kubernetes security is advantageous
+
+Optional skills:
+* Code reviews (active or passive experience)
+* SSDLCs and AppSec tools
+* Cloud, Kubernetes security 
+* German (spoken B2 or higher)
 
 ## We offer
 
@@ -46,6 +57,6 @@ Recent security incidents in the field of supply chains and increasing regulatio
 * Modern work equipment, individually tailored to your needs
 * For employees living in Austria: Public transit ticket for Vienna and reimbursement of Internet expenses 
 
-You will work with our Chief Information Security Officer and Head of Information Security, our development team and our product management. Based on our experience and best practices we have established informal processes for your work that we can tailor to your specific needs.
+You will work with our CISO and Head of Information Security, our development team and our product management, and external security consultants.
 
 Our offices are in Vienna. Remote working is an option for this position.
