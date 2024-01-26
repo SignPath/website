@@ -1,3 +1,51 @@
+- date: '2024-02-01'
+  updates:
+    application:
+      version: 1.156.0
+      new_features:
+        - text: >-
+            REST API: Added new routes for creating and modifying Trusted Build Systems. 
+          issues: [SIGN-6684]
+      improvements:
+        - text: >-
+            Added an option to increase the number of users a group can contain for specific organizations. 
+            Relevant for directory synchronization with large groups.
+          issues: [SIGN-6680]
+        - text: >-
+            Updated JDK to the latest LTS version (21).
+          issues: [SIGN-6310]
+        - text: >-
+            Improved the display of error messages resulting from Win32 exceptions.
+          issues: [SIGN-6760]
+      bug_fixes:
+        - text: >-
+            Fixed a bug where changing the certificate before approving a signing request caused a processing error in certain situations.
+          issues: [SIGN-6677]
+        - text: >-
+            Fixed a bug that hid the detailed error message in the user interface when an artifact fails to be scanned for malware.
+          issues: [SIGN-6758]
+    self_hosted_installations:
+      version: 1.156.0
+      breaking_changes:
+        - text: >-
+            Updated `kubectl` to version 1.27, changing the supported K8s versions to 1.26 to 1.28.
+          issues: [SIGN-6746]
+      improvements:
+        - text: >-
+            Cleaned up the logs: Only relevant information is now logged.
+          issues: [SIGN-6663]
+        - text: >-
+            For Microsoft Application Insights logs, the custom dimension name has been renamed from `LoggerName` to `CategoryName`. 
+            Only applicable if Application Insights is used for log collection.
+          issues: [SIGN-6658]
+    powershell_module:
+      version: 4.3.4
+      bug_fixes:
+        - text: >-
+            Fixed a bug that prevented read-only files from being submitted for signing.
+          issues: [SIGN-6691]
+
+
 - date: '2024-01-22'
   updates:
     application:
