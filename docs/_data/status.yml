@@ -9,8 +9,13 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Feb. 1, 2024'
+    range: 'Feb. 1, 2024 14:04 - 14:08 UTC'
+    type: error
+    title: 'Processing errors'
+    description: 'Several signing requests were not completed after an application update.'
   - date: 'Jan. 11, 2024'
-    range: 'Jan 11, 2024 19:00 - 21:00 UTC'
+    range: 'Jan. 11, 2024 19:00 - 21:00 UTC'
     type: warning
     title: 'Thales DPoD maintenance windows'
     description: |
