@@ -27,7 +27,7 @@
             Application Insights: The custom dimension name has been renamed from `LoggerName` to `CategoryName` to comply with Microsoft standards.
           issues: [SIGN-6658]
         - text: >-
-            Application Insights: Now the `Trace` (application logs) and `Request` (Incoming HTTP requests) aren't sampled anymore on high load
+            Application Insights: Now the `Trace` (application logs) and `Request` (Incoming HTTP requests) telemetry types aren't sampled anymore on high load
             (i.e. Application Insights receives a gapless log stream) by default. The default configuration can be overridden in `signpath-application`
             or Sign Service values in the `additionalApplicationInsightsOptions` section.
           issues: [SIGN-6690]
