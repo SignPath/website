@@ -171,7 +171,7 @@ def process (filename: str, relpath: str):
 
     #print (f'lastmod:       {lastmod}\n')
     if lastmod:
-        sitemap.write(f'    <lastmod>{lastmod.isoformat("T")}</lastmod>\n')        
+        sitemap.write(f'    <lastmod>{lastmod.astimezone().isoformat("T")}</lastmod>\n')        
 
     sitemap.write('  </url>\n')
 
