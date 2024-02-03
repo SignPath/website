@@ -1,3 +1,47 @@
+- date: '2024-02-01'
+  updates:
+    application:
+      version: 1.156.0
+      new_features:
+        - text: >-
+            REST API: Added new routes for creating, querying and modifying Trusted Build Systems.
+          issues: [SIGN-6684]
+      improvements:
+        - text: >-
+            Improved error reporting of internal errors during Authenticode signing operations.
+          issues: [SIGN-6760]
+      bug_fixes:
+        - text: >-
+            Fixed a bug where changing the certificate before approving a signing request caused a processing error in certain situations.
+          issues: [SIGN-6677]
+        - text: >-
+            Fixed a bug that hid the detailed error message in the user interface when an artifact fails to be scanned for malware.
+          issues: [SIGN-6758]
+    self_hosted_installations:
+      version: 1.156.0
+      breaking_changes:
+        - text: Changed the recommended Kubernetes version to 1.27 and the `signpathio/kubectl` image tag to `1.27`.
+          issues: [SIGN-6746]
+      improvements:
+        - text: >-
+            Application Insights: The custom dimension name has been renamed from `LoggerName` to `CategoryName` to comply with Microsoft standards.
+          issues: [SIGN-6658]
+        - text: >-
+            Application Insights: Now the `Trace` (application logs) and `Request` (Incoming HTTP requests) telemetry types aren't sampled anymore on high load
+            (i.e. Application Insights receives a gapless log stream) by default. The default configuration can be overridden in `signpath-application`
+            or Sign Service values in the `additionalApplicationInsightsOptions` section.
+          issues: [SIGN-6690]
+        - text: >-
+            Container/Application Insights logs: Removed specific high volume, but unimportant log emitters to reduce log volume.
+          issues: [SIGN-6663]
+    powershell_module:
+      version: 4.3.4
+      bug_fixes:
+        - text: >-
+            Fixed a bug that prevented read-only files from being submitted for signing.
+          issues: [SIGN-6691]
+
+
 - date: '2024-01-22'
   updates:
     application:
