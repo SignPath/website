@@ -1,11 +1,12 @@
 ---
 title:
 description: Comparison chart of SignPath editions
+datasource: featuregroups,editions
 ---
 
 {%- include header.html -%}
 {%- assign reduced_price_factor = 1.00 -%}
-{%- assign groups = site.data['featuregroups'] -%}
+{%- assign groups = site.data.featuregroups -%}
 
 <section class='bg-blue font-white pricing-start top-section bg-image'>
 	<div>
@@ -48,7 +49,7 @@ description: Comparison chart of SignPath editions
 					{%- endfor -%}
 				</ul>
 			</div>
-			{%- for edition in site.data['editions'] -%}
+			{%- for edition in site.data.editions -%}
 				<div class='content col'>
 					<h3>{{- edition.name -}}</h3>
 					<ul>

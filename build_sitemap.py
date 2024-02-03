@@ -4,6 +4,8 @@ import glob
 from datetime import datetime, timedelta
 import subprocess
 
+verbose: bool = True
+
 # create sitemap.xml 
 #
 # list all *.md and *.html files using
@@ -12,7 +14,7 @@ import subprocess
 # * special path handling for blog entries 
 # and include their last modified date 
 # * if specified: 'last_modified_at' from front matter/html comment
-# * if file or 'layout' (from front matter) have been modified vs. git repo: current time + x (see 'modified_date' variable) 
+# * if file or 'layout' (from front matter) have been modified vs. git repo: current time + x (see 'publish_date' variable) 
 # * otherwise: latest of
 #   * file commit date
 #   * date for 'layout' file from front matter (this algorithm applied recursively)
@@ -23,7 +25,7 @@ import subprocess
 #   <!-- last_modified_at: ... --> (in first line)
 
 # The page will be updated after committing and pushing master branch. When generating the sitemap, we can only assume when this will occur
-modified_date = datetime.now() + timedelta (minutes=5)
+publish_date = datetime.now() + timedelta (minutes=1)
 
 global_includes = ['_includes/header.html', '_includes/footer.html']
 
@@ -65,11 +67,17 @@ def get_comment_date (filename, line: str) -> datetime:
             value = comment[len(key):].strip()
             return parse_datetime (value, filename, key[:-1]) if any(value) else None
 
+def get_file_date (filename) -> datetime:
+    if git_is_modified (filename):
+        return publish_date
+    else:
+        return git_get_commitdate (filename)
 
 def get_page_data (filename) -> tuple[datetime, str]:
     fm_lastmod: datetime = None
     fm_date: datetime = None
     fm_layout: str = None
+    fm_datasource: str = None
     fm_permalink: str = None
     modified: bool = git_is_modified(filename)
     with open(filename, 'r', encoding='utf-8') as f:
@@ -93,6 +101,8 @@ def get_page_data (filename) -> tuple[datetime, str]:
                         fm_date = parse_datetime(value, filename, key);
                     case 'layout':
                         fm_layout = f'_layouts/{value}.html'
+                    case 'datasource':
+                        fm_datasource = value
                     case 'permalink':
                         fm_permalink = value[1:] if value.startswith('/') else value
                     case 'redirect_to':
@@ -102,8 +112,10 @@ def get_page_data (filename) -> tuple[datetime, str]:
     
     if fm_lastmod: 
         date = fm_lastmod # if explicitly specified, take it
+        if verbose: print(f'{filename}: fm_lastmod={fm_lastmod}')
     elif modified:
-        date = modified_date
+        date = publish_date
+        if verbose: print(f'{filename}: publish_date={publish_date}')
     else:
         commit_date: datetime = git_get_commitdate (filename)
 
@@ -116,8 +128,22 @@ def get_page_data (filename) -> tuple[datetime, str]:
                 if not layout_date:
                     layout_date, _ = get_page_data (fm_layout)
                     layout_dates[fm_layout] = layout_date 
+                if verbose: print(f'  {fm_layout}: {layout_date}')
 
-        date = max(dt for dt in [commit_date, layout_date, fm_date, includes_date] if dt != None) # otherwise take highest non-null date
+        datasource_date: datetime = None
+        if fm_datasource:
+            for ds in fm_datasource.split(","):
+                dsfile: str = f'_data/{ds}.yml'
+                if not os.path.isfile(dsfile): 
+                    print(f'{filename}: data file {dsfile} not found', file=sys.stderr)
+                else:
+                    dsfiledate: date = get_file_date (dsfile)
+                    if verbose: print(f'  {dsfile}: {dsfiledate}')
+                    if datasource_date == None or datasource_date < dsfiledate:
+                        datasource_date = dsfiledate
+
+        date = max(dt for dt in [commit_date, layout_date, datasource_date, fm_date, includes_date] if dt != None) # otherwise take highest non-null date
+        if verbose: print(f'{filename}: commit_date={commit_date}, layout_date={layout_date}, datasource_date={datasource_date}, fm_date={fm_date}, includes_date={includes_date}')
 
     return date, fm_permalink
 
