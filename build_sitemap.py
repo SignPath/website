@@ -4,7 +4,7 @@ import glob
 from datetime import datetime, timedelta
 import subprocess
 
-verbose: bool = True
+verbose: bool = False
 
 # create sitemap.xml 
 #
@@ -18,6 +18,7 @@ verbose: bool = True
 # * otherwise: latest of
 #   * file commit date
 #   * date for 'layout' file from front matter (this algorithm applied recursively)
+#   * latest date for yaml listed in front matter 'datasource' (comma-separated; e.g. editions = _data/editions.yml)
 #   * 'date' from front matter
 #   * 'last_modified_at' dates in global include files (see 'global_includes' variable)
 #
