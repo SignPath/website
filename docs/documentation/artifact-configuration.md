@@ -143,7 +143,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>Yes</td>
     <td><code><a href="#opc-sign">&lt;opc-sign&gt;</a></code></td>
     <td>.vsix, .xps, hlkx, ...</td>
-    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. (Driver signing not available for Starter subscriptions.)</td>
+    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.</td>
   </tr>
   <tr>
     <td><code>&lt;nupkg-file&gt;</code></td>
@@ -186,7 +186,7 @@ File and directory names in `path` attributes are case-insensitive. You may use 
     <td>No</td>
     <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
     <td>.xml</td>
-    <td>Use this directive to sign XML files using <a href='https://www.w3.org/TR/xmldsig-core1/'>XMLDSIG</a> (available for Enterprise subscriptions)</td>
+    <td>Use this directive to sign XML files using <a href='https://www.w3.org/TR/xmldsig-core1/'>XMLDSIG</a> (available for Enterprise subscriptions). File size limit: 2 MB.</td>
   </tr> 
   <tr>
     <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>

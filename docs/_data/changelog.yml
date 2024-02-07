@@ -1,3 +1,38 @@
+- date: '2024-02-15'
+  updates:
+    application:
+      version: 1.157.0
+      new_features:
+      improvements:
+        - text: >-
+            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings" which now creates
+            a new signing request (linking back to the "original singing request") instead of "in-place" retrying the same signing request.
+          issues: [SIGN-6744]
+        - text: >-
+            Improved (strengthened) validation of email address inputs.
+          issues: [SIGN-6777]
+        - text: >-
+            Introduced file size limits for XML and OPC files to improve operational stability.
+          issues: [SIGN-6491, SIGN-6560]
+      bug_fixes:
+        - text: >-
+            Fixed path validation issue for encoded paths in OPC, MSIX and APPX files.
+          issues: [SIGN-6749]
+        - text: >-
+            Fixed "require origin verification" certificate evaluation when resubmitting failed singing requests.
+          issues: [SIGN-6696]
+    self_hosted_installations:
+      version: 1.157.0
+      breaking_changes:
+        - text: >-
+            Renamed the `hangfiredashboard` K8s Deployment to `operatorclient` and the corresponding container image
+            from `signpathio/hangfire-dashboard` to `signpathio/operator-client`.
+          issues: [SIGN-6762]
+      improvements:
+        - text: >-
+            Application Insights: Greatly reduced the amount of "pulled empty batch" events in the `CustomEvents` telemetry
+            to reduce log volume.
+          issues: [SIGN-6700]
 - date: '2024-02-01'
   updates:
     application:
@@ -40,8 +75,6 @@
         - text: >-
             Fixed a bug that prevented read-only files from being submitted for signing.
           issues: [SIGN-6691]
-
-
 - date: '2024-01-22'
   updates:
     application:
