@@ -1,4 +1,4 @@
-[![SignPath logo](./docs/assets/logo_signpath_500.png)](https://about.signpath.io)
+[![SignPath logo](./docs/assets/signpath-logo.svg){:width="500px"}](https://about.signpath.io)
 
 # SignPath Website
 
