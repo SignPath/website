@@ -1,6 +1,6 @@
 ---
-title: Terms of service
-header: Terms of service
+title: Terms of Service
+header: Terms of Service
 layout: default
 redirect_from: /terms-of-services
 description: SignPath SaaS application legal terms of service
@@ -13,7 +13,7 @@ Effective date: 2 April 2019
 * **Agreement** refers, collectively, to all the terms, conditions, notices contained or referenced in this document (the “Terms of Service” or the "Terms") and all other operating rules, policies (including the SignPath Privacy Policy, available at [https://about.signpath.io/privacy-policy/](https://about.signpath.io/privacy-policy/)) and procedures that we may publish from time to time on the Website. 
 * **Service** refers to the applications, software, products, and services provided by SignPath.
 * **Website** refers to the SignPath website located at www.signpath.io, and all services, and products provided by SignPath at or through the Website. It also refers to SignPath-owned subdomains of signpath.io.
-* **SignPath, We, and Us** refer to SignPath GmbH, Werdertorgasse 14, 1010 Vienna, Austria, as well as its affiliates, directors, subsidiaries, contractors, licensors, officers, agents, and employees.
+* **SignPath, We, and Us** refer to SignPath GmbH, Gonzagagasse 11/23, 1010 Vienna, Austria, as well as its affiliates, directors, subsidiaries, contractors, licensors, officers, agents, and employees.
 * **The User, You, and Your** refer to the individual person, company, or organization that has visited or is using the Website or Service; that accesses or uses any part of the Account; or that directs the use of the Account in the performance of its functions. An "Account" represents your legal relationship with SignPath. A “User Account” represents an individual User’s authorization to log in to and use the Service and serves as a User’s identity on SignPath. 
 * **Organizations** refers to shared workspaces that may be associated with a single entity or with one or more Users where multiple Users can collaborate across many projects at once. A User Account can be a member of any number of Organizations.
 * **Administrator** refers to the owner of an Organization who has ultimate administrative control over that Organization and the Content within it.
@@ -154,7 +154,7 @@ Effective date: 2 April 2019
 
 ### 8.2 Legal Notice to SignPath Must Be in Writing
 
-* Communications made through email will not constitute legal notice to SignPath or any of its officers, employees, agents or representatives in any situation where notice to SignPath is required by contract or any law or regulation. Legal notice to SignPath must be in writing and sent to SignPath GmbH, Werdertorgasse 14, 1010, Vienna, Austria.
+* Communications made through email will not constitute legal notice to SignPath or any of its officers, employees, agents or representatives in any situation where notice to SignPath is required by contract or any law or regulation. Legal notice to SignPath must be in writing and sent to SignPath GmbH, Gonzagagasse 11/23, 1010, Vienna, Austria.
 
 ## 9. Disclaimer of Warranties
 
@@ -203,3 +203,7 @@ Effective date: 2 April 2019
 ### 13.4 Amendments
 
 * This Agreement may only be modified by a written amendment signed by an authorized representative of SignPath, or by the posting by SignPath of a revised version in accordance with Section 12. Changes to These Terms. These Terms of Service represent the complete and exclusive statement of the agreement between you and us. This Agreement supersedes any proposal or prior agreement oral or written, and any other communications between you and SignPath relating to the subject matter of these terms including any confidentiality or nondisclosure agreements.
+
+## Changes
+
+* 1 February 2024: company address updated
