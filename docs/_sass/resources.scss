@@ -196,6 +196,7 @@ section.resources-section {
 				vertical-align: top;
 			}
 
+
 			td {
 				font-size: 0.9em;
 
@@ -213,6 +214,26 @@ section.resources-section {
 		table.noborder {
 			td, th {
 				border: none;
+			}
+		}
+
+		table.noheader {
+			thead {
+				display: none;
+			}
+		}
+
+		table.row-headers {
+			border-left: 1px solid $grey-border-color;
+			border-right: 1px solid $grey-border-color;
+
+			tr:not(last-child) {
+				th:first-child, td:first-child {
+					background-color: #F6F6F6;
+					font-weight: bold;
+					border-right: 1px solid $grey-border-color;
+					font-size: 1em;
+				}
 			}
 		}
 	}

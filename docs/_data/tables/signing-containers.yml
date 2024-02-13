@@ -1,0 +1,37 @@
+methods-differences:
+  headers:
+    topic:
+    cosign: Sigstore Cosign
+    dct: Docker Content Trust (DCT)
+    _attributes:
+      topic: {style: "width: 16%"}
+      cosign: {style: "width: 42%"}
+      dct: {style: "width: 42%"}
+  body:
+    - topic:  OCI Registry Requirements 
+      cosign: Works with any OCI registry.
+      dct: Requires [Notary](https://github.com/notaryproject/notary) server and signer (provided by _some_ OCI registries including Docker Hub and Azure Container Registry).
+    - topic: Validation Support
+      cosign: |
+        * Sigstore [Kubernetes Policy Controller](https://docs.sigstore.dev/policy-controller/overview/)
+        * [Connaisseur Cosign validator](https://sse-secure-systems.github.io/connaisseur/v3.3.2/validators/sigstore_cosign/) (third-party OSS)
+      dct: | 
+        * [Docker CLI](https://docs.docker.com/engine/security/trust/)
+        * [Mirantis Kubernetes Engine (MKE)](https://docs.mirantis.com/containers/v3.0/dockeree-products/msr/msr-user/manage-images/sign-images/trust-with-a-remote-mke.html)
+        * [Connaisseur DCT validator](https://sse-secure-systems.github.io/connaisseur/v3.3.2/validators/notaryv1/) (third-party OSS)
+        * [trusted-compose](https://github.com/sse-secure-systems/trusted-compose) for Docker Compose (third party OSS)
+    - topic: Ecosystem
+      cosign: |
+        Integrated with other Sigstore components including 
+        * [Fulcio](https://docs.sigstore.dev/certificate_authority/overview/), an OpenID-based certificate authority
+        * [Rekor](https://docs.sigstore.dev/logging/overview/), a transparency log
+      dct: |
+        Based on 
+        * [The Update Framework (TUF)](https://theupdateframework.io/), an opinionated framework for code signing
+        * [Notary](https://github.com/notaryproject/notary), an online implementation of TUF
+    - topic: Industry Support
+      cosign: |
+        * Excellent adoption by OSS projects
+      dct: |
+        * Intially proposed by Docker (but never quite picked up)
+        * [Notation](https://github.com/notaryproject/specifications) (a.k.a. Notary 2) is supposed to eventually succeed DCT

@@ -1,17 +1,15 @@
 ---
-main_header: Documentation
-sub_header: Signing Docker images with Docker Content Trust
+main_header: Container Signing
+sub_header: Docker Content Trust (DCT)
 layout: resources
 toc: true
 show_toc: 0
-description: Documentation for signing Docker images with SignPath using Docker Content Trust
+description: Documentation for signing Docker images with SignPath using Docker Content Trust (Notary v1)
 ---
 
-## Signing Docker Images with Docker Content Trust (Notary v1)
+## Overview
 
-### Overview
-
-DCT is based on Notary, which uses a system of keys:
+Docker Content Trust (DCT) is based on Notary v1, which uses a system of keys:
 
 | Key type        | Handled by       | Used to                                             | Usage frequency                     | Recommendation
 |-----------------|------------------|-----------------------------------------------------|-------------------------------------|------------------------------------------
@@ -21,7 +19,7 @@ DCT is based on Notary, which uses a system of keys:
 | **Snapshot**    | Notary signer    | sign matching collections to prove consistency      | Each image build                    | (Registry/Notary take care of this)
 | **Timestamp**   | Notary signer    | sign current collections to prove "freshness"       | Constantly                          | (Registry/Notary take care of this)
 
-#### Setup overview
+### Setup overview
 
 The process to set up SignPath for DCT is as follows:
 
@@ -48,11 +46,11 @@ As a result of this procedure, all remaining keys will be on secure systems:
 | **Snapshot**    | (depends on Notary setup) | Notary/Registry credentials
 | **Timestamp**   | (depends on Notary setup) | Notary/Registry credentials
 
-#### Signing overview
+### Signing overview
 
 Execute `Invoke-DockerSigning` in your CI system, or call each step individually. See [signing phase](#signing-phase) for step-by-step instructions.
 
-#### Security considerations
+## Security considerations
 
 The following table lists 
 
@@ -92,9 +90,9 @@ Note that developers usually own a single delegation key that is trusted by many
 (Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
 </div>
 
-### Setup phase
+## Setup phase
 
-#### Prerequisites
+### Prerequisites
 
 Required components: 
 * PowerShell 6 or higher
@@ -104,15 +102,15 @@ Required components:
 Optional components:
 * Attached [Yubikey](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#use-a-ubikey) USB token (strongly recommended)
 
-#### Steps
+### Steps
 
-##### 1. Create a new self-signed X.509 certificate in SignPath
+#### 1. Create a new self-signed X.509 certificate in SignPath
 
 This certificate will be added as a **delegation key** to your Docker repository in a later step. 
 
 You only need one delegation key, it can be shared between repositories.
 
-##### 2. Get or create the root and target keys
+#### 2. Get or create the root and target keys
 
 In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository's root key (only the public key) to SignPath. Use the [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module. 
 
@@ -138,7 +136,7 @@ If you are using your own registry, specify the value you would use for Docker C
 
 Choose one of the following scenarios:
 
-###### Scenario 1: You are currently not signing your Docker images
+##### Scenario 1: You are currently not signing your Docker images
 
 Call the following command:
 
@@ -159,7 +157,7 @@ Executing this command will
 
 The command prints the path of the certificate you need to upload in step 4.
 
-###### Scenario 2: You are already signing your Docker images
+##### Scenario 2: You are already signing your Docker images
 
 If you already have an existing set of keys that you want to keep, you only need to export the public part of the root key for uploading to SignPath. 
 
@@ -174,7 +172,7 @@ The command prints the path of the certificate you need to upload in step 4.
 
 We recommend that you remove existing delegation keys as soon as you have verified that your SignPath setup works. Use the `notary delegation remove` [command](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#work-with-delegation-roles) or perform a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys).
 
-##### 3. Add the delegation certificate to your repository's delegation keys
+#### 3. Add the delegation certificate to your repository's delegation keys
 
 Download the delegation key certificate file from step 1. Add it using the following command:
 
@@ -186,7 +184,7 @@ Add-DelegationCertificate -Repository $FQN `
 
 This adds a delegation (default name `signpath`) with the key from the specified certificate and publishes the changes to the Notary server. You will be prompted for the password of your _targets key_.
 
-##### 4. Set up a Docker repository and project in SignPath
+#### 4. Set up a Docker repository and project in SignPath
 
 * Add a new Docker repository in SignPath
   * specify its fully qualified name ([FQN](#fqn))
@@ -194,7 +192,7 @@ This adds a delegation (default name `signpath`) with the key from the specified
 * Create a project with an artifact configuration of type _Docker signing data_ for this repository
 * Add a signing policy to the project and choose the certificate you created in step 1
 
-##### 5. When everything works, delete the target key
+#### 5. When everything works, delete the target key
 
 Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit key of the target key you created in step 2. See the [Notary documenation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#files-and-state-on-disk).
 
@@ -210,23 +208,23 @@ If you run into unexpected problems later that require a target key, you can alw
 The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
 </div>
 
-### Signing phase
+## Signing phase
 
-#### Prerequisites
+### Prerequisites
 
 Required components:
 
 * PowerShell 6 or higher
-* Docker CLI
 * [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module
+* Docker CLI
 
 The unsigned image must be 
   * available on the local computer (preferably right after building it) 
   * _and_ pushed to the registry (unsigned)
 
-#### Execution
+### Execution
 
-##### Single-step signing
+#### Single-step signing
 
 For convenience, the `SignPathDocker` module provides a single command to sign a Docker image:
 
@@ -239,7 +237,7 @@ Invoke-DockerSigning -Repository $FQN -Tags $TAGS `
   [-RegistryUrl $REGISTRY_URL] [-RegistryUsername $REGISTRY_USERNAME] [-RegistryPassword $REGISTRY_PASSWORD]
 ~~~
 
-##### Perform each step separately
+#### Perform each step separately
 
 Alternatively, you perform each step separately. Reasons to do this include
 

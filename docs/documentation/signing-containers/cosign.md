@@ -1,17 +1,15 @@
 ---
-main_header: Documentation
-sub_header: Signing Docker images with cosign
+main_header: Container Signing
+sub_header: Sigstore Cosign
 layout: resources
 toc: true
 show_toc: 0
 description: Documentation for signing Docker images with SignPath using cosign
 ---
 
-## Signing Docker Images with cosign
+## Overview
 
-### Overview
-
-_cosign_ belongs to the [sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
+_Cosign_ is part of the [Sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
 
 This approach is not practical for all organizations which
 * use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or
@@ -26,7 +24,7 @@ _cosign_ builds upon X.509 certificate chains, but requires specific additional 
 
 </div>
 
-### Prerequisites
+## Prerequisites
 
 Required components on the client: 
 * cosign in version 2.0.0 or higher
@@ -37,11 +35,11 @@ In your SignPath organization, you need the following entities:
 
 The Docker container image needs to be pushed to an OCI-compliant container registry.
 
-### Signing
+## Signing
 
 Signing container images with cosign using SignPath consists of 3 steps:
 
-#### 1. Prepare the metadata for signing
+### 1. Prepare the metadata for signing
 
 ~~~ bash
 # Extract the repository digest identifier for the given FQN
@@ -66,11 +64,11 @@ If you are using your own registry, specify the value you would use for Docker C
 `$TAG` refers the specific image tag (e.g. `latest`)
 </div>
 
-#### 2. Create a signature for the metadata
+### 2. Create a signature for the metadata
 
 Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration#detached-raw-signatures') for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
 
-#### 3. Attach the signature to the image
+### 3. Attach the signature to the image
 
 Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for _cosign_ and upload the signature to the repository:
 

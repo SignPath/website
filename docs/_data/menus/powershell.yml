@@ -1,4 +1,4 @@
-- text: Overview
+- text: PowerShell cmdlets
   path: 
 
 - text: Submit-SigningRequest
@@ -7,5 +7,5 @@
 - text: Get-SignedArtifact
   path: Get-SignedArtifact
 
-- text: Get-CertificateByMicrosoftTemplateId
+- text: Get-CertificateBy&shy;Microsoft&shy;TemplateId
   path: Get-CertificateByMicrosoftTemplateId

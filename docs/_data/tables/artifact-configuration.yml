@@ -1,0 +1,203 @@
+signing-file-elements:
+  headers:
+    element: Element
+    isContainer: "[Container format](#containers)"
+    directive: Signing directive
+    extensions: Extensions
+    description: Description
+    _attributes:
+      element: {style: "width: 9em;"}
+      directive: {style: "width: 10em;"}
+  body:
+    - element: "`<pe-file>`"
+      isContainer: "No"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp"
+      description: "Portable Executable (PE) files: EXE, DLL, and other executable files"
+      bla: false
+    - element: "`<powershell-file>`"
+      isContainer: "No"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".ps1, .psm1, psd1, .psdc1, .ps1xml"
+      description: "PowerShell scripts and modules"
+    - element: "`<windows-script-file>`"
+      isContainer: "No"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".wsf, ,vbs, .js"
+      description: "Windows scripts for Windows Scripting Host, typically VBScript and JScript[^jscript]. (Not available for Starter subscriptions.)"
+    - element: "`<msi-file>`"
+      isContainer: "Yes"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".msi, .msm, .msp"
+      description: "Microsoft installer files"
+    - element: "`<cab-file>`"
+      isContainer: "Yes"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".cab"
+      description: "Windows cabinet files"
+    - element: "`<catalog-file>`"
+      isContainer: "No"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".cat"
+      description: "Windows catalog files"
+    - element: "`<appx-file>`"
+      isContainer: "Yes"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".appx, .appxbundle"
+      description: >-
+        App packages for Microsoft Store/Universal Windows Platform<br>
+        <span style="font-family: 'Line Awesome Free'; font-weight: 800;">&#61530;</span> 
+        The Common Name of the code signing certificate must match the `PublisherDisplayName` in the `AppxManifest.xml` file.
+    - element: "`<msix-file>`"
+      isContainer: "Yes"
+      directive: "[`<authenticode-sign>`](#authenticode-sign)"
+      extensions: ".msix, .msixbundle"
+      description: "MSIX installer app packages for Microsoft Windows"
+    - element: "`<opc-file>`"
+      isContainer: "Yes"
+      directive: "[`<opc-sign>`](#opc-sign)"
+      extensions: ".vsix, .xps, hlkx, ..."
+      description: >-
+        Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. 
+        (Driver signing not available for Starter subscriptions.)
+    - element: "`<nupkg-file>`"
+      isContainer: "Yes"
+      directive: "[`<nuget-sign>`](#nuget-sign)"
+      extensions: ".nupkg"
+      description: "NuGet packages"
+    - element: "`<jar-file>`"
+      isContainer: "Yes"
+      directive: "[`<jar-sign>`](#jar-sign)"
+      extensions: ".jar, .war, .ear, .apk, .aab"
+      description: "Java archives and Android apps. (Not available for Starter subscriptions.)"
+    - element: "[`<zip-file>`](#zip-file-element)"
+      isContainer: "Yes"
+      directive: "[`<jar-sign>`](#jar-sign)"
+      extensions: ".zip"
+      description: "Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the [JAR format](#jar-sign)"
+    - element: "`<office-oxml-file>`"
+      isContainer: "No"
+      directive: "[`<office-macro-sign>`](#office-macro-sign)"
+      extensions: ".xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, ... "
+      description: "Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)"
+    - element: "`<office-binary-file>`"
+      isContainer: "No"
+      directive: "[`<office-macro-sign>`](#office-macro-sign)"
+      extensions: ".xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... "
+      description: "Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)"
+    - element: "`<xml-file>`"
+      isContainer: "No"
+      directive: "[`<xml-sign>`](#xml-sign)"
+      extensions: ".xml"
+      description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Enterprise subscriptions)"
+    - element: "[`<directory>`](#directory-element)"
+      isContainer: "Yes"
+      directive: "[`<clickonce-sign>`](#clickonce-sign)"
+      description: "Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files."
+    - element: "`<file>`"
+      isContainer: "No"
+      directive: "[`<create-raw-signature>`](#detached-raw-signatures)"
+      description: "Arbitrary files. This directive will create a [detached raw signature](#detached-raw-signatures) file (available for Enterprise subscriptions)"
+
+directory-example:
+  headers:
+    fragment: The following fragment
+    equivalent: is equivalent to
+  body:
+    - fragment: |
+        ~~~ xml
+        <zip-file> 
+          <pe-file path="bin/program.exe">
+            <authenticode-sign/>
+          </pe-file>
+        </zip-file>
+        ~~~
+      equivalent: |
+        ~~~ xml
+        <zip-file>
+          <directory path="bin">
+            <pe-file path="program.exe">
+              <authenticode-sign/>
+            </pe-file>
+          </directory>
+        </zip-file>
+        ~~~
+
+file-set-example:
+  headers:
+    fragment: The following fragment
+    equivalent: is equivalent to
+  body:
+    - fragment: |
+        ~~~ xml
+        <pe-file path="first.dll">
+          <authenticode-sign/>
+        </pe-file>
+
+        <pe-file path="second.dll">
+          <authenticode-sign/>
+        </pe-file>
+        ~~~
+      equivalent: |
+        ~~~ xml
+        <pe-file-set>
+          <include path="first.dll" />
+          <include path="second.dll" />
+          <for-each>
+            <authenticode-sign/>
+          </for-each>
+        </pe-file-set>
+        ~~~
+
+similar-directories-example:
+  headers:
+    source:
+    image:
+  body:
+    - source: |
+        ~~~ xml
+        <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+          <msi-file>
+            <directory-set>
+              <include path="component1" />
+              <include path="component2" />
+              <include path="component3" />
+              <for-each>
+                <pe-file-set>
+                  <include path="main.exe" />
+                  <include path="resources/*.resource.dll" 
+                          min-matches="0" max-matches="unbounded" />
+                  <for-each>
+                    <authenticode-sign/>
+                  </for-each>
+                </pe-file-set>
+              </for-each>
+            </directory-set>
+            <authenticode-sign/>
+          </msi-file>
+        </artifact-configuration>
+        ~~~
+      image: "![graphical artifact configuration](/assets/img/resources/documentation_artifact-configuration_similar-definition.png)"
+
+similar-directories-example-match:
+  headers:
+    text:
+    image:
+  body:
+    - text: |
+        ~~~
+        • myapp.msi 
+          • component1/
+            • main.exe
+            • resources/de.resource.dll
+            • resources/en.resource.dll
+            • resources/fr.resource.dll
+          • component2/
+            • main.exe
+          • component3/
+            • main.exe
+            • resources/en.resource.dll
+        ~~~
+
+        (All `msi`, `exe` and `dll` files are signed with Authenticode.)
+      image: "![graphical resolved artifacts](/assets/img/resources/documentation_artifact-configuration_similar-resolved.png)"
