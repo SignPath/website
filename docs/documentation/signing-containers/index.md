@@ -5,6 +5,7 @@ layout: resources
 toc: true
 show_toc: 0
 description: Documentation for signing container images with SignPath
+redirect_from: /documentation/docker-signing
 ---
 
 Available for Enterprise and Open Source subscriptions
