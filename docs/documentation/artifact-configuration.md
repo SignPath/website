@@ -280,7 +280,7 @@ See also:
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Detached raw signatures can be used for arbitrary binary or text files or [signing Docker images using cosign](/documentation/docker-signing#cosign). The `create-raw-signature` directive supports the following parameters:
+Detached raw signatures can be used for arbitrary binary or text files or [signing Container Images using cosign](/documentation/signing-containers/cosign). The `create-raw-signature` directive supports the following parameters:
 
 | Parameter          | Description                      
 |-----------         |---------------------------------- 

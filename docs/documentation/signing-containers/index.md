@@ -15,8 +15,8 @@ Available for Enterprise and Open Source subscriptions
 
 SignPath supports these technologies for signing container images:
 
-* **[Sigstore Cosign](/documentation/docker-signing/cosign)**: Sign containers using Cosign by Sigstore (a Linux foundation project)
-* **[Docker Content Trust (DCT)](/documentation/docker-signing/docker-content-trust)**: Sign containers using DCT, directly supported by the Docker CLI and Mirantis 
+* **[Sigstore Cosign](/documentation/signing-containers/cosign)**: Sign containers using Cosign by Sigstore (a Linux foundation project)
+* **[Docker Content Trust (DCT)](/documentation/signing-containers/docker-content-trust)**: Sign containers using DCT, directly supported by the Docker CLI and Mirantis 
 
 ## Comparing Cosign and DCT
 
