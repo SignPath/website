@@ -12,7 +12,7 @@ We consider your privacy and the security of your personal data of great importa
 When you visit our website, your data is processed by:
 
 SignPath GmbH <br>
-Werdertorgasse 14 <br>
+Gonzagagasse 11/23 <br>
 1010 Vienna <br>
 AUSTRIA <br>
 office@signpath.io <br>

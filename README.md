@@ -1,4 +1,4 @@
-[![SignPath logo](./docs/assets/logo_signpath_500.png)](https://about.signpath.io)
+<a href="https://about.signpath.io"> <img src="docs/assets/signpath-logo.svg" width="500px"> </a>
 
 # SignPath Website
 
