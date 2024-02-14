@@ -23,8 +23,8 @@
     self_hosted_installations:
       version: 1.157.0
       breaking_changes:
-        - text: >-
-            Renamed the `hangfiredashboard` Application K8s Deployment to `operatorclient`:
+        - text: |-
+            Renamed the Hangfire dashboard application component K8s Deployment to "Operator Client":
             * Renamed `signpathio/hangfire-dashboard` Docker image to `signpathio/operator-client` (you may need to update your Docker image mirroring).
             * Replaced the `appSettings/appSecrets.hangfireDashboard` values section with `appSettings/appSecrets.operatorClient`.
             * Replaced `chartSettings.hangfireDashboard` section with `chartSettings.operatorClient`.
@@ -107,7 +107,7 @@
       breaking_changes:
         - text: >-
             In `signpath-application` values `chartSettings` section: removed `malwareScanning.timeout` configuration value,
-            and instead introduced scanner-type specific values: 
+            and instead introduced scanner-type specific values:
 
             * `malwareScanning.signPathMalwareScanningService.scanningTimeout` and `.httpRequestTimeout`
             
