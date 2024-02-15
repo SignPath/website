@@ -33,9 +33,6 @@ Both Cosign and DCT use concepts that differ widely from classic code signing me
 {%- include render-table.html -%}
 {: .row-headers }
 
-(https://docs.sigstore.dev/signing/quickstart/)
-(https://github.com/theupdateframework/notary)
-
 ### Why use SignPath for container signing?
 
 SignPath provides the following advantages:

@@ -19,7 +19,7 @@
             {%- for cell in table.headers -%}
                 {%- assign columnId = cell[0] -%}
                 {%- if columnId != "_attributes" -%}
-                    <td id="{{columnId}}" markdown="1" {% for attribute in row._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
+                    <td markdown="1" {% for attribute in row._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
 
 {{ row[columnId] }}
 </td>

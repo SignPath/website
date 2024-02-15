@@ -14,7 +14,6 @@ signing-file-elements:
       directive: "[`<authenticode-sign>`](#authenticode-sign)"
       extensions: ".exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp"
       description: "Portable Executable (PE) files: EXE, DLL, and other executable files"
-      bla: false
     - element: "`<powershell-file>`"
       isContainer: "No"
       directive: "[`<authenticode-sign>`](#authenticode-sign)"
