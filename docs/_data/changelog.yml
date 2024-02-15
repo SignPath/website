@@ -41,6 +41,10 @@
         - text: >-
             Increased default `signingProcessorService.dotNetGCHeapHardLimit` from 450 to 700 MB to avoid out of memory situations for XML and OPC signing.
           issues: [SIGN-6491, SIGN-6560]
+      bug_fixes:
+        - text: >-
+            Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.
+          issues: [SIGN-6778]
 - date: '2024-02-01'
   updates:
     application:
