@@ -5,6 +5,7 @@ layout: resources
 toc: true
 show_toc: 3
 description: Documentation for using Origin Verification in SignPath
+datasource: tables/origin-verification
 ---
 
 Available for Enterprise subscriptions

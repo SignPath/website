@@ -5,6 +5,7 @@ layout: resources
 toc: true
 show_toc: 3
 description: Artifact configuration syntax and elements
+datasource: tables/artifact-configuration
 ---
 
 ## Abstract
