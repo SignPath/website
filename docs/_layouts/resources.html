@@ -23,7 +23,8 @@
 						{%- assign className = nil -%}
 						{%- if parts.size > 1 -%}
 							{%- assign tail = parts[-1] | split:"." -%}
-							{%- if tail[0] == entry.path -%}
+							{%- if tail[0] == entry.path or tail[0] == "index" and entry.path == null -%} {%- assign is_current = true -%} {%- else -%} {%- assign is_current = false -%} {%- endif -%}
+							{%- if is_current -%}
 								{%- assign className = 'active' -%}
 							{%- endif -%}
 						{%- endif -%}
@@ -32,7 +33,7 @@
 						{%- else -%}
 						<li class='{{ className }}'>
 							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{%- if tail[0] == entry.path and page.hide_sub_toc != true -%}
+							{%- if is_current and page.hide_sub_toc != true -%}
 								<div class="no-mobile" >
 									{%- include toc.html html=content h_max=2 -%}
 								</div>

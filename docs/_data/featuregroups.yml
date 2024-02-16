@@ -79,8 +79,8 @@
       sub: '.xml'
       href: '/product/editions-explained#xml-signing'
     - name: docker
-      title: 'Docker images'
-      sub: 'Notary'
+      title: 'Container images'
+      sub: 'cosign, DCT/Notary'
       href: '/product/editions-explained#container-signing'
     - name: sbom
       title: 'SBOMs'

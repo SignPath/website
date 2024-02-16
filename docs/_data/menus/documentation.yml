@@ -13,8 +13,8 @@
 - text: Signing Code
   path: signing-code
 
-- text: Signing Docker images
-  path: docker-signing
+- text: Signing Container Images
+  path: signing-containers
 
 - separator: true
 

@@ -1,0 +1,53 @@
+appveyor-setup:
+  headers:
+    action: Action
+    steps: Steps
+    remarks: Remarks
+    _attributes: 
+      action: {style: "width: 20%"}
+      steps: {style: "width: 60%"}
+      remarks: {style: "width: 20%"}
+  body:
+    - action: Add an AppVeyor integration to a SignPath project
+      steps: |
+        1. On [ci.appveyor.com](https://ci.appveyor.com)
+          * Select *Account* and *Security*
+          * Make sure the checkboxes for both *API v1* and *API v2* are checked
+        2. On [ci.appveyor.com](https://ci.appveyor.com)
+          * Select *My Profile* and [*API Keys*](https://ci.appveyor.com/api-keys)
+          * Remember the ① **Bearer token** for the next step
+        3. On [SignPath.io](https://app.signpath.io)
+          * Navigate to your *project*, scroll down to the *Trusted Build Systems* section and add a link to *AppVeyor*
+          * In the dialog, enter the ① **API key** you just acquired
+      remarks: SignPath.io must authenticate against Appveyor to retrieve the build artifacts
+    - action: Encrypt the SignPath API token in AppVeyor
+      steps: |
+        1. On [SignPath.io](https://app.signpath.io)
+          * Choose the Users menu and create a new *CI User* or open an existing one
+          * Remember the ② **SignPath API token** for the next step
+        2. On [ci.appveyor.com](https://ci.appveyor.com)
+          * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
+          * Enter ② **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
+          * Remember the ③ **encrypted SignPath API token** for the next step
+      remarks: AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file
+    - action: Add a deploy Webhook
+      steps: |
+        Append this to your appveyor.yaml file:
+
+        ~~~ yaml
+        deploy:
+        - provider: Webhook
+          url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>&ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>
+          authorization:
+            secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
+        ~~~
+
+        | Parameter                                                 | Description
+        |-----------------------------------------------------------|--------------------------------------------------------------------------------
+        | `<ORGANIZATION_ID>`                                       | SignPath organization ID (can be retrieved from the organization page)
+        | `<PROJECT_SLUG>`                                          | Project slug
+        | `<SIGNING_POLICY_SLUG>`                                   | Signing policy slug
+        | `<ARTIFACT_CONFIGURATION_SLUG>`                           | _Optional_ artifact configuration slug (default artifact configuration if not specified)
+        | `<ENCRYPTED_SIGNPATH_API_TOKEN>`                          | ③ The encrypted value from the previous step
+      _attributes:
+        steps: {colspan: 2}

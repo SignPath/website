@@ -63,140 +63,8 @@ File and directory names in `path` attributes are case-insensitive. You may use 
 
 ### File element types and signing directives
 
-<table id="signing-file-elements">
-<thead>
-  <tr>
-    <th style="width: 9em;">Element</th>
-    <th><a href="#containers">Container format</a></th>
-    <th style="width: 10em;">Signing directive</th>
-    <th>Extensions</th>
-    <th>Description</th>
-  </tr>
-</thead>
-<tbody>
-  <tr>
-    <td><code>&lt;pe-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.exe, .dll, .acm, .ax, .cpl, .drv, .efi, .mui, .ocx, .scr, .sys, .tsp</td>
-    <td>Portable Executable (PE) files: EXE, DLL, and other executable files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;powershell-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.ps1, .psm1, psd1, .psdc1, .ps1xml</td>
-    <td>PowerShell scripts and modules</td>
-  </tr>
-  <tr>
-    <td><code>&lt;windows-script-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.wsf, ,vbs, .js</td>
-    <td markdown="1">Windows scripts for Windows Scripting Host, typically VBScript and JScript[^jscript]. (Not available for Starter subscriptions.)
-
-</td>
-  </tr>
-  <tr>
-    <td><code>&lt;msi-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.msi, .msm, .msp</td>
-    <td>Microsoft installer files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;cab-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.cab</td>
-    <td>Windows cabinet files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;catalog-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.cat</td>
-    <td>Windows catalog files</td>
-  </tr>
-  <tr>
-    <td><code>&lt;appx-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.appx, .appxbundle</td>
-    <td>
-      App packages for Microsoft Store/Universal Windows Platform<br>
-      <span style="font-family: 'Line Awesome Free'; font-weight: 800;">&#61530;</span> 
-      The Common Name of the code signing certificate must match the PublisherDisplayName in the AppxManifest.xml file.
-  </td>
-  </tr>
-  <tr>
-    <td><code>&lt;msix-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#authenticode-sign">&lt;authenticode-sign&gt;</a></code></td>
-    <td>.msix, .msixbundle</td>
-    <td>
-      MSIX installer app packages for Microsoft Windows
-  </td>
-  </tr>
-  <tr>
-    <td><code>&lt;opc-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#opc-sign">&lt;opc-sign&gt;</a></code></td>
-    <td>.vsix, .xps, hlkx, ...</td>
-    <td>Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. (Driver signing not available for Starter subscriptions.)</td>
-  </tr>
-  <tr>
-    <td><code>&lt;nupkg-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#nuget-sign">&lt;nuget-sign&gt;</a></code></td>
-    <td>.nupkg</td>
-    <td>NuGet packages</td>
-  <tr>
-    <td><code>&lt;jar-file&gt;</code></td>
-    <td>Yes</td>
-    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
-    <td>.jar, .war, .ear, .apk, .aab</td>
-    <td>Java archives and Android apps. (Not available for Starter subscriptions.)</td>
-  </tr>
-  </tr>
-    <tr>
-    <td><code><a href="#zip-file-element">&lt;zip-file&gt;</a></code></td>
-    <td>Yes</td>
-    <td><code><a href="#jar-sign">&lt;jar-sign&gt;</a></code></td>
-    <td>.zip</td>
-    <td>Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the <a href="#jar-sign">JAR format</a>.    
-</td>
-  </tr>
-  <tr>
-    <td><code>&lt;office-oxml-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
-    <td>.xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, ... </td>
-    <td>Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
-  </tr>  
-  <tr>
-    <td><code>&lt;office-binary-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#office-macro-sign">&lt;office-macro-sign&gt;</a></code></td>
-    <td>.xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... </td>
-    <td>Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)</td>
-  </tr> 
-   <tr>
-    <td><code>&lt;xml-file&gt;</code></td>
-    <td>No</td>
-    <td><code><a href="#xml-sign">&lt;xml-sign&gt;</a></code></td>
-    <td>.xml</td>
-    <td>Use this directive to sign XML files using <a href='https://www.w3.org/TR/xmldsig-core1/'>XMLDSIG</a> (available for Enterprise subscriptions)</td>
-  </tr> 
-  <tr>
-    <td><code><a href="#directory-element">&lt;directory&gt;</a></code></td>
-    <td>Yes</td>
-    <td><code><a href="#clickonce-sign">&lt;clickonce-sign&gt;</a></code></td>
-    <td></td>
-    <td>Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files.</td>
-  </tr>
-</tbody>
-</table>
+{%- assign table = site.data.tables.artifact-configuration.signing-file-elements -%}
+{%- include render-table.html -%}
 
 ### File element examples
 
@@ -257,36 +125,8 @@ You can either specify these directories in the `path` attribute of each file el
 
 ### &lt;directory&gt; example
 
-<table>
-  <thead>
-    <th>The following fragment</th>
-    <th>is equivalent to</th>
-  </thead>
-  <tbody> 
-    <tr> 
-      <td markdown="1">
-
-~~~ xml
-<zip-file> 
-  <pe-file path="bin/program.exe">
-    <authenticode-sign/>
-  </pe-file>
-</zip-file>
-~~~
-
-</td> <td markdown="1">
-
-~~~ xml
-<zip-file>
-  <directory path="bin">
-    <pe-file path="program.exe">
-      <authenticode-sign/>
-    </pe-file>
-  </directory>
-</zip-file>
-~~~
-
-</td> </tr> </tbody> </table>
+{%- assign table = site.data.tables.artifact-configuration.directory-example -%}
+{%- include render-table.html -%}
 
 ## Signing methods
 
@@ -435,6 +275,29 @@ The result is a `Signature` element added to the root element (after all existin
 See also:
 * Use [metadata restrictions](#file-metadata-restrictions) for `<xml-file>` to restrict root element and namespace.
 
+### Detached raw signatures using &lt;create-raw-signature&gt; {#detached-raw-signatures}
+
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
+Detached raw signatures can be used for arbitrary binary or text files or [signing Container Images using cosign](/documentation/signing-containers/cosign). The `create-raw-signature` directive supports the following parameters:
+
+| Parameter          | Description                      
+|-----------         |---------------------------------- 
+| `hash-algorithm`   | The hash algorithm used to calculate the signature. Supported options are `sha256`, `sha384` and `sha512`.
+| `rsa-padding`      | Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are `pkcs1` and `pss`.
+| `file-name`        | Name of the output file for the detached signature.
+
+**Note: Due to the detached signature being placed in a separate file, `<file>` and `<file-set>` elements are only allowed inside a <a href="#zip-file-element">`<zip-file>`</a>.**
+
+#### Verification
+
+There are multiple tools and solutions that support handling of raw signature blocks. One popular option is `openssl dgst`. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:
+
+~~~ bash
+openssl dgst -verify pubkey.pem -signature file.sig file
+~~~
+
 ## Using wildcards
 
 Every path attribute can contain the following wildcard patterns:
@@ -459,7 +322,7 @@ If wildcards are used, optional `max-matches` and `min-matches` parameters can b
 
 ## File and directory sets
 
-If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: `<directory-set>`, `<pe-file-set>`, `<powershell-file-set>`, `<windows-script-file-set>`, `<msi-file-set>`, `<cab-file-set>`, `<catalog-file-set>`, `<appx-file-set>`, `<msix-file-set>`, `<opc-file-set>`, `<nupkg-file-set>`, `<jar-file-set>`, `<zip-file-set>`, `<office-oxml-file-set>`, `<office-binary-file-set>`, `<xml-file-set>`
+If multiple files or directories should be handled in the same way, you can enumerate them using one of the following file or directory set elements: `<directory-set>`, `<pe-file-set>`, `<powershell-file-set>`, `<windows-script-file-set>`, `<msi-file-set>`, `<cab-file-set>`, `<catalog-file-set>`, `<appx-file-set>`, `<msix-file-set>`, `<opc-file-set>`, `<nupkg-file-set>`, `<jar-file-set>`, `<zip-file-set>`, `<office-oxml-file-set>`, `<office-binary-file-set>`, `<xml-file-set>`, `<file-set>`
 
 Each set element contains:
 
@@ -475,38 +338,8 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 ### File set example
 
-<table>
-  <thead>
-    <th>The following fragment</th>
-    <th>is equivalent to</th>
-  </thead>
-  <tbody> 
-    <tr> 
-      <td markdown="1">
-
-~~~ xml
-<pe-file path="first.dll">
-  <authenticode-sign/>
-</pe-file>
-
-<pe-file path="second.dll">
-  <authenticode-sign/>
-</pe-file>
-~~~
-
-</td> <td markdown="1">
-
-~~~ xml
-<pe-file-set>
-  <include path="first.dll" />
-  <include path="second.dll" />
-  <for-each>
-    <authenticode-sign/>
-  </for-each>
-</pe-file-set>
-~~~
-
-</td> </tr> </tbody> </table>
+{%- assign table = site.data.tables.artifact-configuration.file-set-example -%}
+{%- include render-table.html -%}
 
 ## File metadata restrictions {#metadata-restrictions}
 
@@ -636,63 +469,15 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
 
 This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
 
-<table class="noborder">
-<tr><td markdown="1">
-
-~~~ xml
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <msi-file>
-    <directory-set>
-      <include path="component1" />
-      <include path="component2" />
-      <include path="component3" />
-      <for-each>
-        <pe-file-set>
-          <include path="main.exe" />
-          <include path="resources/*.resource.dll" 
-                   min-matches="0" max-matches="unbounded" />
-          <for-each>
-            <authenticode-sign/>
-          </for-each>
-        </pe-file-set>
-      </for-each>
-    </directory-set>
-    <authenticode-sign/>
-  </msi-file>
-</artifact-configuration>
-~~~
-
-</td><td markdown="1">
-
-![graphical artifact configuration](/assets/img/resources/documentation_artifact-configuration_similar-definition.png)
-
-</td></tr></table>
+{%- assign table = site.data.tables.artifact-configuration.similar-directories-example -%}
+{%- include render-table.html -%}
+{: .noheader .noborder }
 
 Example of a directory structure that would match this configuration:
 
-<table class="noborder">
-<tr><td markdown="1">
-
-~~~
-• myapp.msi 
-  • component1/
-    • main.exe
-    • resources/de.resource.dll
-    • resources/en.resource.dll
-    • resources/fr.resource.dll
-  • component2/
-    • main.exe
-  • component3/
-    • main.exe
-    • resources/en.resource.dll
-~~~
-
-(All `msi`, `exe` and `dll` files are signed with Authenticode.)
-</td><td markdown="1">
-
-![graphical resolved artifacts](/assets/img/resources/documentation_artifact-configuration_similar-resolved.png)
-
-</td></tr></table>
+{%- assign table = site.data.tables.artifact-configuration.similar-directories-example-match -%}
+{%- include render-table.html -%}
+{: .noheader .noborder }
 
 **Footnotes:**
 
