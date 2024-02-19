@@ -9,14 +9,13 @@ summary: "We will boost and expand the market going activities. With this move, 
 description:
 ---
 
-SignPath, the leading provider of advanced code signing solutions and build protection, is proud to announce an additional seed financing round to boost and expand the market going activities. With this move, SignPath also grows its leadership team.
+**SignPath, the leading provider of advanced code signing solutions and build protection, is proud to announce an additional seed financing round to boost and expand the market going activities. With this move, SignPath also grows its leadership team.**
 
 It’s official now: SignPath, based in Vienna, Austria, has been fully independent since the end of 2023. The company was initially founded in 2017 as a subsidiary of RUBICON IT GmbH, a leading European software development company. 
 
 In order to position itself more broadly as supplier of code integrity and SW supply chain security and to enter the international market more strongly, SignPath expanded its management team with the beginning of 2024: 
 
-![image](/assets/posts/2024-02-19_new_year_new_faces.jpg)
-{: .center}
+{% include image.html url="/assets/posts/2024-02-19_new_year_new_faces.jpg" description="New management team: Paul Savoie, Stefan Wenig, Stephan Brack" %}
 
 CEO **Stefan Wenig** will continue to lead the positioning, product strategy and thought leadership within the company. Stefan has more than 25 years of experience in the IT industry as a software architect and development manager.
 
