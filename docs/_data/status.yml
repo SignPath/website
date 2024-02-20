@@ -9,6 +9,11 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Feb. 19, 2024'
+    range: 'Feb. 19, 2024 15:02 - 15:48 UTC'
+    type: warning
+    title: 'DPoD services unavailable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage. We're currently investigating the root cause.'
   - date: 'Feb. 1, 2024'
     range: 'Feb. 1, 2024 14:04 - 14:08 UTC'
     type: critical
