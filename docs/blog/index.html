@@ -23,7 +23,7 @@ description: SignPath team blog
           {% if page.featured_slugs contains post.slug %}
             <li>
               <a href='{{ post.url }}'>
-                <div class="header" style="background-image:url(/assets/posts/{{post.image}}_small.jpg);">
+                <div class="header">
                   {{ post.title }}
                 </div>
               </a>
@@ -58,7 +58,7 @@ description: SignPath team blog
       {% for post in site.posts %}
         <li>
           <a href='{{ post.url }}'>
-            <div class="header" style="background-image:url(/assets/posts/{{post.image}}_small.jpg);">
+            <div class="header">
               {{ post.title }}
             </div>
           </a>
