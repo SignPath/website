@@ -14,6 +14,10 @@ section.blog-section {
 
 		ul {
 
+			div.header {
+				background-color: $dark-grey-background-color;
+			}
+
 			div.info {
 				display: flex;
 				justify-content: space-between;
