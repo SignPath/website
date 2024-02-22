@@ -18,7 +18,7 @@ In order to position itself more broadly as supplier of code integrity and SW su
 
 {% include image.html url="/assets/posts/2024-02-19_new_year_new_faces.jpg" description="New management team: Paul Savoie, Stefan Wenig, Stephan Brack" %}
 
-CEO **Stefan Wenig** will continue to lead the positioning, product strategy and thought leadership within the company. Stefan has more than 25 years of experience as a software architect and development manager in the IT industry.
+**CEO Stefan Wenig** will continue to lead the positioning, product strategy and thought leadership within the company. Stefan has more than 25 years of experience as a software architect and development manager in the IT industry.
 
 New to the management team is **Chief Sales Officer (CSO) Stephan Brack**. Stephan has wide ranging experience in positioning and selling security products with his own company Protected Networks. He will focus on growing and supporting the sales and reseller team. He will also establish the relevant content activities to support customers and teams.
 
