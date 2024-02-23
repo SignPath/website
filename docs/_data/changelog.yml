@@ -1,3 +1,16 @@
+- date: '2024-02-29'
+  updates:
+    self_hosted_installations:
+      version: 1.158.0
+      new_features:
+        - text: >-
+            New "Operator REST API" (part of the Operator Client deployment) including organization list queries and organization creation APIs.
+            Can be activated via `appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled`.
+          issues: [SIGN-6678]
+      improvements:
+        - text: >-
+            Added `Generate-Secret` tool to simplify secure encryption key, basic authentication secrets and API token generation.
+          issues: [SIGN-6269]
 - date: '2024-02-15'
   updates:
     application:
