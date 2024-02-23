@@ -30,9 +30,6 @@
         - text: >-
             Fixed path validation issue for encoded paths in OPC, MSIX and APPX files.
           issues: [SIGN-6749]
-        - text: >-
-            Fixed "require origin verification" certificate evaluation when resubmitting failed singing requests.
-          issues: [SIGN-6696]
     self_hosted_installations:
       version: 1.157.0
       breaking_changes:
