@@ -1,6 +1,9 @@
 - text: Company
   path: company
 
+- text: Team
+  path: team
+
 - text: Blog
   path: blog
 
