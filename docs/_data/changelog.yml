@@ -5,7 +5,7 @@
       new_features:
         - text: >-
             New "Operator REST API" (part of the Operator Client deployment) including organization list queries and organization creation APIs.
-            Can be activated via `appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled`.
+            Can be activated via `appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled` configuration.
           issues: [SIGN-6678]
       improvements:
         - text: >-
