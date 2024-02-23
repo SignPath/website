@@ -9,7 +9,7 @@
           issues: [SIGN-6678]
       improvements:
         - text: >-
-            Added `Generate-Secret` tool to simplify secure encryption key, basic authentication secrets and API token generation.
+            Added `Generate-Secret` tool to simplify secure encryption key, basic authentication secret and API token generation.
           issues: [SIGN-6269]
 - date: '2024-02-15'
   updates:
