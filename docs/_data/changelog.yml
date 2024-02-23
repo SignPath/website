@@ -4,14 +4,14 @@
       version: 1.157.0
       improvements:
         - text: >-
-            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings" which now creates
-            a new signing request (linking back to the "original singing request") instead of "in-place" retrying the same signing request.
+            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
+            a new signing request (linking back to the "original singing request") instead of retrying the same signing request.
           issues: [SIGN-6744]
         - text: >-
-            Improved (strengthened) validation of email address inputs.
+            Stricter validation of email address input.
           issues: [SIGN-6777]
         - text: >-
-            Introduced file size limits for XML and OPC files to improve operational stability.
+            Introduced file size limits for XML files (2 MB) and OPC files (40 MB) to improve operational stability.
           issues: [SIGN-6491, SIGN-6560]
       bug_fixes:
         - text: >-
@@ -25,17 +25,17 @@
       breaking_changes:
         - text: |-
             Renamed the Hangfire dashboard application component K8s Deployment to "Operator Client":
-            * Renamed `signpathio/hangfire-dashboard` Docker image to `signpathio/operator-client` (you may need to update your Docker image mirroring).
-            * Replaced the `appSettings/appSecrets.hangfireDashboard` values section with `appSettings/appSecrets.operatorClient`.
-            * Replaced `chartSettings.hangfireDashboard` section with `chartSettings.operatorClient`.
-            * Changed `operatorClient` authentication settings from basic auth to API token-based (see `operatorClientOptions.operatorUsers` section).
+            * Renamed `signpathio/hangfire-dashboard` Docker image to `signpathio/operator-client` (you may need to update your Docker image mirroring)
+            * Replaced the `appSettings/appSecrets.hangfireDashboard` values section with `appSettings/appSecrets.operatorClient`
+            * Replaced `chartSettings.hangfireDashboard` section with `chartSettings.operatorClient`
+            * Changed `operatorClient` authentication settings from basic auth to API token-based (see `operatorClientOptions.operatorUsers` section)
           issues: [SIGN-6762]
       improvements:
         - text: >-
-            Added the possibility to expose the Operator Client via the Ingress (see "Enable Operator Client Ingress" installation guide)
+            Added the possibility to expose the Operator Client via the Ingress (see "Enable Operator Client Ingress" installation guide).
           issues: [SIGN-6762]
         - text: >-
-            Application Insights: Greatly reduced the amount of "pulled empty batch" events in the `CustomEvents` telemetry
+            Application Insights: greatly reduced the amount of "pulled empty batch" events in the `CustomEvents` telemetry
             to reduce log volume.
           issues: [SIGN-6700]
         - text: >-
