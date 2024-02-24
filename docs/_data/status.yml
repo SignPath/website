@@ -9,6 +9,11 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Feb. 24, 2024'
+    range: 'Feb. 24, 2024 05:45 - 15:30 UTC'
+    type: warning
+    title: 'Infrastructure problems'
+    description: 'One node dealing with certificates on the software key store experienced network problems for signing operations. Signing requests with HSM-based keys were not affected.'
   - date: 'Feb. 19, 2024'
     range: 'Feb. 19, 2024 15:02 - 15:48 UTC'
     type: warning
