@@ -3,7 +3,6 @@ title: Team
 header: Our Team
 layout: default
 description: About SignPath GmbH
-redirect_from: /blog/2024/02/22/new-funding-new-faces
 ---
 
 <div class='columns'>
