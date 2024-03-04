@@ -68,7 +68,7 @@ This removes both the CSP and KSP version (in case they are installed).
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:
 
-{%- assign table = site.data.tables.crypto-providers.csp-ksp-general-params -%}
+{%- assign table = site.data.tables.crypto-providers.windows-csp-ksp-general-params -%}
 {%- include render-table.html -%}
 
 <div class="panel info" markdown="1">
@@ -83,7 +83,7 @@ The KSP and CSP interfaces expect you to identify a key, but SignPath requires y
 The following table shows the KSP `HRESULT` result codes for the different error situations when calling the SignPath REST API.
 Note that the CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
-{%- assign table = site.data.tables.crypto-providers.csp-ksp-errors -%}
+{%- assign table = site.data.tables.crypto-providers.windows-csp-ksp-errors -%}
 {%- include render-table.html -%}
 
 ## SignTool.exe {#signtool}
@@ -99,7 +99,7 @@ Only the 64-bit version of _SignTool.exe_ is supported.
 
 _SignTool.exe_ requires the following parameters:
 
-{%- assign table = site.data.tables.crypto-providers.signtool-parameters -%}
+{%- assign table = site.data.tables.crypto-providers.windows-signtool-parameters -%}
 {%- include render-table.html -%}
 
 Sample: sign `MyApp.exe`

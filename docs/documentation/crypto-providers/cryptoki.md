@@ -14,7 +14,7 @@ This section provides information how to use the SignPath Cryptoki library with 
 
 ### Supported Linux distributions
 
-{%- assign table = site.data.tables.crypto-providers.overview-supported-linux-distributions -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-supported-linux-distributions -%}
 {%- include render-table.html -%}
 
 <div class="panel warning" markdown="1">
@@ -114,7 +114,7 @@ PIN = CONFIG
 
 Note that Linux distributions have different default installation paths for `libpkcs11.so`:
 
-{%- assign table = site.data.tables.crypto-providers.openssl-libp11-installation-paths -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-libp11-installation-paths -%}
 {%- include render-table.html -%}
 
 </div>
@@ -128,7 +128,7 @@ MODULE_PATH = C:\\path\\to\\SignPath.Cryptoki.dll
 
 Also set the following environment variable:
 
-{%- assign table = site.data.tables.crypto-providers.openssl-env -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-env -%}
 {%- include render-table.html -%}
 
 ### Invocation
@@ -144,7 +144,7 @@ For *Linux*, configuration, signing invocation and verification examples are pro
 
 Generally, all commands require the following parameters to work with the SignPath Cryptoki library:
 
-{%- assign table = site.data.tables.crypto-providers.openssl-invocation-params -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-invocation-params -%}
 {%- include render-table.html -%}
 
 #### openssl dgst
@@ -244,7 +244,7 @@ osslsigncode sign `
    -in "sample.exe" -out "sample.signed.exe"
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.osslsigncode-invocation-params -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-osslsigncode-invocation-params -%}
 {%- include render-table.html -%}
 
 <div class="panel tip" markdown="1">
@@ -275,7 +275,7 @@ The following invocation examples are also provided in the Docker container samp
 pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG ...
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.pkcs11-tool-invocation-common-parameters -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-common-parameters -%}
 {%- include render-table.html -%}
 
 #### Listing of the available PKCS #11 objects
@@ -296,7 +296,7 @@ pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG `
    --input-file "artifact.hash.bin" --output-file "artifact.sig"
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.pkcs11-tool-invocation-signing-parameters -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-signing-parameters -%}
 {%- include render-table.html -%}
 
 ## Java jarsigner {#jarsigner}
@@ -333,7 +333,7 @@ Synopsis for _jarsigner_ when using the SignPath Cryptoki library:
 jarsigner <parameters> <jar-files> <keystore-alias>
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.jarsigner-invocation-parameters -%}
+{%- assign table = site.data.tables.crypto-providers.cryptoki-jarsigner-invocation-parameters -%}
 {%- include render-table.html -%}
 
 Sample: sign `myapp.jar`

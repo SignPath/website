@@ -22,22 +22,6 @@ overview-crypto-providers:
       platforms: Windows
       description: This API is deprecated, most tools now use KSP/CNG
 
-overview-supported-linux-distributions:
-  headers:
-    distro: Distribution
-    version: Version
-    comment: Comment
-  body:
-    - distro: Debian
-      version: 11
-    - distro: Ubuntu
-      version: 20.04
-      comment: Except [osslsigncode](#osslsigncode)
-    - distro: RedHat
-      version: 8 (latest minor)
-    - distro: RedHat
-      version: 9 (latest minor)
-
 config-values:
   headers:
     setting: Setting (in JSON file)
@@ -115,66 +99,21 @@ config-api-token-options:
     - value: Registry path to DPAPI-encrypted token (Windows only)  
       example: "`registry:`&#8203;`HKEY_CURRENT_USER\\`&#8203;`SOFTWARE\\SignPath\\`&#8203;`MyEncryptedApiToken`"
 
-csp-ksp-general-params:
+cryptoki-supported-linux-distributions:
   headers:
-    parameter: Parameter
-    value: Value
-    description: Description
+    distro: Distribution
+    version: Version
+    comment: Comment
   body:
-    - parameter: Crypto Provider
-      value: "`SignPathKSP` or `SignPathCSP`"
-      description: SignPath KSP (preferred) or CSP
-    - parameter: Key container name
-      value: "`<ProjectSlug>/`&#8203;`SigningPolicySlug>`"
-      description: "_Project_ and _Signing Policy_ slug, separated by a forward slash (`/`)"
-    - parameter: Certificate file
-      value: Path to the x.509 certificate file
-      description: Download the respective certificate file from SignPath
-
-csp-ksp-errors:
-  headers:
-    situation: Situation
-    error: "KSP error result code resp. CSP `GetLastError()` code"
-    _attributes: 
-      situation: {style: "width: 50%"}
-      error: {style: "width: 50%"}
-  body:
-    - situation: |
-        Transient errors like HTTP timeouts or 503 (Service Unavailable) which still occur after the last retry
-      error: |
-        `NTE_DEVICE_NOT_READY` ("The device that is required by this cryptographic provider is not ready for use.") for errors without an HTTP status code. Otherwise, HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F7` for HTTP 503
-    - situation: |
-        Non-transient service errors (e.g. 500 Internal Server Error) 
-      error: |
-        HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F4` for HTTP 500
-    - situation: |
-        User errors detected by service (4xx returned)  
-      error: |
-        HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x80040190` for HTTP 400
-    - situation: |
-        Other unspecified errors (fall back)  
-      error: |
-        `NTE_FAIL` (“An internal error occurred.”)
-
-signtool-parameters:
-  headers:
-    parameter: Parameter
-    value: Value
-    description: Description
-  body:
-    - parameter: "`/csp`"
-      value: "`SignPathKSP` or `SignPathCSP`"
-      description: SignPath KSP (preferred) or CSP
-    - parameter: "`/kc`"
-      value: "`<ProjectSlug>/`&#8203;`<SigningPolicySlug>`"
-      description: |
-        Key container name: _Project_ and _Signing Policy_ slug, separated by a forward slash (`/`)
-    - parameter: "`/fd`"
-      value: "`SHA256`, `SHA384` or `SHA512`"
-      description: Digest (hashing) algorithm
-    - parameter: "`/f`"
-      value: Path to the certificate file
-      description: Download the respective certificate file from SignPath
+    - distro: Debian
+      version: 11
+    - distro: Ubuntu
+      version: 20.04
+      comment: Except [osslsigncode](#osslsigncode)
+    - distro: RedHat
+      version: 8 (latest minor)
+    - distro: RedHat
+      version: 9 (latest minor)
 
 cryptoki-parameters:
   headers:
@@ -205,7 +144,7 @@ cryptoki-errors:
     - situation: Other unspecified errors (fall back)   
       error: "`CKR_GENERAL_ERROR`"
 
-openssl-libp11-installation-paths:
+cryptoki-openssl-libp11-installation-paths:
   headers:
     distro: Distribution
     default_path: Default path
@@ -219,7 +158,7 @@ openssl-libp11-installation-paths:
     - distro: RedHat w/ OpenSSL 3.x
       default_path: "`/usr/lib64/engines-3/libpkcs11.so`"
 
-openssl-env:
+cryptoki-openssl-env:
   headers:
     env: Environment variable
     value: Value
@@ -229,7 +168,7 @@ openssl-env:
       value: "Path to `openssl-signpath.cnf` file"
       description: This variable tells OpenSSL to load the custom configuration file
 
-openssl-invocation-params:
+cryptoki-openssl-invocation-params:
   headers:
     parameter: Parameter
     value: Value
@@ -246,7 +185,7 @@ openssl-invocation-params:
       description: |
         A PKCS #11 URI including _Project_ and _Signing Policy_ slug, see also [Cryptoki parameters](#cryptoki-parameters).
 
-osslsigncode-invocation-params:
+cryptoki-osslsigncode-invocation-params:
   headers:
     parameter: Parameter
     value: Value
@@ -263,7 +202,7 @@ osslsigncode-invocation-params:
       value: "`certificate.pem`"
       description: Certificate of the used signing policy in PEM format.
 
-pkcs11-tool-invocation-common-parameters:
+cryptoki-pkcs11-tool-invocation-common-parameters:
   headers:
     parameter: Parameter
     value: Value
@@ -277,7 +216,7 @@ pkcs11-tool-invocation-common-parameters:
       description: |
         See [PIN parameter](#cryptoki-parameters)
 
-pkcs11-tool-invocation-signing-parameters:
+cryptoki-pkcs11-tool-invocation-signing-parameters:
   headers:
     parameter: Parameter
     value: Value
@@ -300,7 +239,7 @@ pkcs11-tool-invocation-signing-parameters:
       description: |
         The file containing a hash in _binary_ form
 
-jarsigner-invocation-parameters:
+cryptoki-jarsigner-invocation-parameters:
   headers:
     parameter: Parameter
     value: Value
@@ -382,3 +321,64 @@ rest-api-payload-json:
     - prop: "`Metadata`"
       description: |
         Can contain arbitrary metadata JSON values. We recommend to include `CreatingProcess` metadata with `CommandLine` and `User` as shown in the example above.
+
+windows-csp-ksp-general-params:
+  headers:
+    parameter: Parameter
+    value: Value
+    description: Description
+  body:
+    - parameter: Crypto Provider
+      value: "`SignPathKSP` or `SignPathCSP`"
+      description: SignPath KSP (preferred) or CSP
+    - parameter: Key container name
+      value: "`<ProjectSlug>/`&#8203;`SigningPolicySlug>`"
+      description: "_Project_ and _Signing Policy_ slug, separated by a forward slash (`/`)"
+    - parameter: Certificate file
+      value: Path to the x.509 certificate file
+      description: Download the respective certificate file from SignPath
+
+windows-csp-ksp-errors:
+  headers:
+    situation: Situation
+    error: "KSP error result code resp. CSP `GetLastError()` code"
+    _attributes: 
+      situation: {style: "width: 50%"}
+      error: {style: "width: 50%"}
+  body:
+    - situation: |
+        Transient errors like HTTP timeouts or 503 (Service Unavailable) which still occur after the last retry
+      error: |
+        `NTE_DEVICE_NOT_READY` ("The device that is required by this cryptographic provider is not ready for use.") for errors without an HTTP status code. Otherwise, HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F7` for HTTP 503
+    - situation: |
+        Non-transient service errors (e.g. 500 Internal Server Error) 
+      error: |
+        HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F4` for HTTP 500
+    - situation: |
+        User errors detected by service (4xx returned)  
+      error: |
+        HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x80040190` for HTTP 400
+    - situation: |
+        Other unspecified errors (fall back)  
+      error: |
+        `NTE_FAIL` (“An internal error occurred.”)
+
+windows-signtool-parameters:
+  headers:
+    parameter: Parameter
+    value: Value
+    description: Description
+  body:
+    - parameter: "`/csp`"
+      value: "`SignPathKSP` or `SignPathCSP`"
+      description: SignPath KSP (preferred) or CSP
+    - parameter: "`/kc`"
+      value: "`<ProjectSlug>/`&#8203;`<SigningPolicySlug>`"
+      description: |
+        Key container name: _Project_ and _Signing Policy_ slug, separated by a forward slash (`/`)
+    - parameter: "`/fd`"
+      value: "`SHA256`, `SHA384` or `SHA512`"
+      description: Digest (hashing) algorithm
+    - parameter: "`/f`"
+      value: Path to the certificate file
+      description: Download the respective certificate file from SignPath
