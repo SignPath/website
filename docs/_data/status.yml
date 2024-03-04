@@ -23,8 +23,8 @@ incidents:
   - date: 'Feb. 19, 2024'
     range: 'Feb. 19, 2024 15:02 - 15:48 UTC'
     type: warning
-    title: 'DPoD services unavailable'
-    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage. We are currently investigating the root cause.'
+    title: 'DPoD services unreachable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage. (The origin of the connectivity problems could not be established, additional network probes added.)'
   - date: 'Feb. 1, 2024'
     range: 'Feb. 1, 2024 14:04 - 14:08 UTC'
     type: critical
@@ -66,7 +66,7 @@ incidents:
     range: 'Aug. 7, 2023 14:00 - 16:10 UTC'
     type: critical
     title: 'DNS error'
-    description: The domain signpath.io was not resolved by our domain registrar's name servers. Problem detection was delayed as many systems including our monitoring were using cached DNS entries, and support email transmission was affected by the same problem. We are currently investigation the root cause with our registrar.
+    description: The domain signpath.io was not resolved by our domain registrar's name servers. Problem detection was delayed as many systems including our monitoring were using cached DNS entries, and support email transmission was affected by the same problem.
   - date: 'May 11, 2023'
     range: 'May 11, 2023 13:00 - May 12, 2023 09:22 UTC'
     type: warning
