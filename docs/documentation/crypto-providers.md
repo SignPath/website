@@ -8,6 +8,9 @@ description: SignPath Crypto Providers (CSP, KSP, Cryptoki)
 datasource: tables/crypto-providers
 ---
 
+Available for Enterprise subscriptions
+{: .badge.icon-signpath}
+
 ## Overview
 
 The SignPath Crypto Providers allow signing tools such as _SignTool.exe_, _OpenSSL_ or _jarsigner_ to sign files locally using keys or certificates stored and managed by SignPath. 
