@@ -273,7 +273,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 | ------------------------------------------------------------------ | --------------- |
 | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
 | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
-| `ApiToken`                                                         | The API token of the CI user (see [build system integration](./build-system-integration#authentication))
+| `ApiToken`                                                         | The API token of the CI user (see [build system integration](/documentation/build-system-integration#authentication))
 | `OrganizationId`                                                   | ID of your SignPath organization
 | `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
 | `Description`                                                      | Optional description for your signing request (e.g. version number)
@@ -295,5 +295,5 @@ If you would rather provide credentials via environment variables, username and 
 
 **WaitForCompletion option**
 
-Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](./build-system-integration#powershell).
+Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](/documentation/build-system-integration#powershell).
 </div>
