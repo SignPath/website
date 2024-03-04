@@ -58,7 +58,7 @@ signing-file-elements:
       extensions: ".vsix, .xps, hlkx, ..."
       description: >-
         Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. 
-        (Driver signing not available for Starter subscriptions.)
+        (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.
     - element: "`<nupkg-file>`"
       isContainer: "Yes"
       directive: "[`<nuget-sign>`](#nuget-sign)"
@@ -88,7 +88,7 @@ signing-file-elements:
       isContainer: "No"
       directive: "[`<xml-sign>`](#xml-sign)"
       extensions: ".xml"
-      description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Enterprise subscriptions)"
+      description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Enterprise subscriptions). File size limit: 2 MB."
     - element: "[`<directory>`](#directory-element)"
       isContainer: "Yes"
       directive: "[`<clickonce-sign>`](#clickonce-sign)"

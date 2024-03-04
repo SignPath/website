@@ -1,3 +1,60 @@
+- date: '2024-02-29'
+  updates:
+    self_hosted_installations:
+      version: 1.158.0
+      new_features:
+        - text: >-
+            New "Operator REST API" (part of the Operator Client deployment) including organization list queries and organization creation APIs.
+            Can be activated via `appSettings.shared.globalFeatureToggleOptions.isOperatorApiEnabled` configuration.
+          issues: [SIGN-6678]
+      improvements:
+        - text: >-
+            Added `Generate-Secret` tool to simplify secure encryption key, basic authentication secret and API token generation.
+          issues: [SIGN-6269]
+- date: '2024-02-15'
+  updates:
+    application:
+      version: 1.157.0
+      improvements:
+        - text: >-
+            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
+            a new signing request (linking back to the "original singing request") instead of retrying the same signing request.
+          issues: [SIGN-6744]
+        - text: >-
+            Stricter validation of email address input.
+          issues: [SIGN-6777]
+        - text: >-
+            Introduced file size limits for XML files (2 MB) and OPC files (40 MB) to improve operational stability.
+          issues: [SIGN-6491, SIGN-6560]
+      bug_fixes:
+        - text: >-
+            Fixed path validation issue for encoded paths in OPC, MSIX and APPX files.
+          issues: [SIGN-6749]
+    self_hosted_installations:
+      version: 1.157.0
+      breaking_changes:
+        - text: |-
+            Renamed the Hangfire dashboard application component K8s Deployment to "Operator Client":
+            * Renamed `signpathio/hangfire-dashboard` Docker image to `signpathio/operator-client` (you may need to update your Docker image mirroring)
+            * Replaced the `appSettings/appSecrets.hangfireDashboard` values section with `appSettings/appSecrets.operatorClient`
+            * Replaced `chartSettings.hangfireDashboard` section with `chartSettings.operatorClient`
+            * Changed `operatorClient` authentication settings from basic auth to API token-based (see `operatorClientOptions.operatorUsers` section)
+          issues: [SIGN-6762]
+      improvements:
+        - text: >-
+            Added the possibility to expose the Operator Client via the Ingress (see "Enable Operator Client Ingress" installation guide).
+          issues: [SIGN-6762]
+        - text: >-
+            Application Insights: greatly reduced the amount of "pulled empty batch" events in the `CustomEvents` telemetry
+            to reduce log volume.
+          issues: [SIGN-6700]
+        - text: >-
+            Increased default `signingProcessorService.dotNetGCHeapHardLimit` from 450 to 700 MB to avoid out of memory situations for XML and OPC signing.
+          issues: [SIGN-6491, SIGN-6560]
+      bug_fixes:
+        - text: >-
+            Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.
+          issues: [SIGN-6778]
 - date: '2024-02-01'
   updates:
     application:
@@ -40,8 +97,6 @@
         - text: >-
             Fixed a bug that prevented read-only files from being submitted for signing.
           issues: [SIGN-6691]
-
-
 - date: '2024-01-22'
   updates:
     application:
@@ -66,7 +121,7 @@
       breaking_changes:
         - text: >-
             In `signpath-application` values `chartSettings` section: removed `malwareScanning.timeout` configuration value,
-            and instead introduced scanner-type specific values: 
+            and instead introduced scanner-type specific values:
 
             * `malwareScanning.signPathMalwareScanningService.scanningTimeout` and `.httpRequestTimeout`
             
