@@ -32,7 +32,7 @@ overview-supported-linux-distributions:
       version: 11
     - distro: Ubuntu
       version: 20.04
-      comment: Except [osslsigncode](#osslsigncode)
+      comment: Except [osslsigncode](/documentation/crypto-providers/cryptoki#osslsigncode)
     - distro: RedHat
       version: 8 (latest minor)
     - distro: RedHat
@@ -185,7 +185,7 @@ cryptoki-parameters:
     - parameter: PIN
       value: "`CONFIG` or `<OrganizationId>:<ApiToken>`"
       description: |
-        Either use `CONFIG` to use the values from the [configuration file or environment variables](#crypto-provider-config-values), or directly specify a SignPath _Organization ID_ and _API token_ for the CI or Interactive User that was added as a submitter, separated by a colon (`:`)
+        Either use `CONFIG` to use the values from the [configuration file or environment variables](/documentation/crypto-providers#crypto-provider-config-values), or directly specify a SignPath _Organization ID_ and _API token_ for the CI or Interactive User that was added as a submitter, separated by a colon (`:`)
     - parameter: Key ID
       value: "`<ProjectSlug>/`&#8203;`<SigningPolicySlug>`"
       description: |
