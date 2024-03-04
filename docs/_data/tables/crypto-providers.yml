@@ -32,7 +32,7 @@ overview-supported-linux-distributions:
       version: 11
     - distro: Ubuntu
       version: 20.04
-      comment: Except [osslsigncode](/documentation/crypto-providers/cryptoki#osslsigncode)
+      comment: Except [osslsigncode](#osslsigncode)
     - distro: RedHat
       version: 8 (latest minor)
     - distro: RedHat

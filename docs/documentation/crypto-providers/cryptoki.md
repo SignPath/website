@@ -12,6 +12,22 @@ datasource: tables/crypto-providers
 
 This section provides information how to use the SignPath Cryptoki library with any tool that supports Cryptoki. Below this section you will find instructions for specific tools.
 
+### Supported Linux distributions
+
+{%- assign table = site.data.tables.crypto-providers.overview-supported-linux-distributions -%}
+{%- include render-table.html -%}
+
+<div class="panel warning" markdown="1">
+<div class="panel-header">OpenSSL 3.0.0 - 3.0.8 incompatibility</div>
+
+
+Distributions with an OpenSSL version between 3.0.0 and 3.0.8 (including) don't support the the [OpenSSL](#openssl) and [osslsigncode](#osslsigncode) scenarios.
+The reason is an [OpenSSL bug](https://github.com/openssl/openssl/issues/20161) which has been fixed in OpenSSL 3.0.9.
+The issue expresses in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
+
+The workaround is to either replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
+</div>
+
 ### Installation
 
 Simply copy-deploy the `Windows\SignPath.Cryptoki.dll` (Windows) resp. `Linux/libSignPath.Cryptoki/`&#8203;`<OpenSslVersion>/`&#8203;`libSignPath.Cryptoki.so` (Linux) library file of the Crypto Providers ZIP archive. To choose the right OpenSSL version, check the output of `openssl version` on your target system.

@@ -32,22 +32,6 @@ The following Crypto Providers are available for SignPath:
 {%- assign table = site.data.tables.crypto-providers.overview-crypto-providers -%}
 {%- include render-table.html -%}
 
-#### Supported Linux distributions
-
-{%- assign table = site.data.tables.crypto-providers.overview-supported-linux-distributions -%}
-{%- include render-table.html -%}
-
-<div class="panel warning" markdown="1">
-<div class="panel-header">OpenSSL 3.0.0 - 3.0.8 incompatibility</div>
-
-
-Distributions with an OpenSSL version between 3.0.0 and 3.0.8 (including) don't support the the [OpenSSL](/documentation/crypto-providers/cryptoki#openssl) and [osslsigncode](/documentation/crypto-providers/cryptoki#osslsigncode) scenarios.
-The reason is an [OpenSSL bug](https://github.com/openssl/openssl/issues/20161) which has been fixed in OpenSSL 3.0.9.
-The issue expresses in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
-
-The workaround is to either replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
-</div>
-
 ### Signing flow {#flow}
 
 This diagram describes how the various components work together to create a signature.
