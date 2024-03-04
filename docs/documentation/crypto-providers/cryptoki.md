@@ -50,7 +50,7 @@ The Cryptoki API expects you to identify a key, but SignPath requires you to spe
 
 How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
-### Error return values for Cryptoki/PKCS #11 functions
+### Error handling
 
 The following table shows the [PKCS #11] Cryptoki function return values for the different error situations when calling the SignPath REST API.
 
@@ -348,6 +348,8 @@ jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.S
 When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
 
 </div>
+
+[PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
 
 [OpenSSL]: https://www.openssl.org/
 [openssl-dsgt]: https://www.openssl.org/docs/man1.1.1/man1/dgst.html

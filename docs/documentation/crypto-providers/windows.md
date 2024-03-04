@@ -78,7 +78,7 @@ The KSP and CSP interfaces expect you to identify a key, but SignPath requires y
 
 </div>
 
-### Error return values for KSP and CSP functions
+### Error handling
 
 The following table shows the KSP `HRESULT` result codes for the different error situations when calling the SignPath REST API.
 Note that the CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).

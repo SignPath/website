@@ -93,14 +93,14 @@ Depending on the signing tool you're using, the corresponding Crypto Provider ne
 * [GPG-based tools](/documentation/crypto-providers/gpg), such as _gpg_, _rpm_, or _dkpg-sig_ use the [SignPath Cryptoki Crypto Provider](/documentation/crypto-providers/cryptoki) but require additional configuration steps
 * Instead of using a CryptoProvider, it is also possible to [sign hashes directly using the REST API](/documentation/crypto-providers/rest-api)
 
-## Crypto Provider configuration {#crypto-provider-configuration}
+## Configuration {#crypto-provider-configuration}
 
-### Setting configuration values {#crypto-provider-config-values}
+### Values {#crypto-provider-config-values}
 
-This section describes how to specify configuration settings for all Crypto Providers.
+This section describes how to specify configuration values for all Crypto Providers.
 
 You can either use a JSON configuration file and specify the JSON file path via the `SIGNPATH_CONFIG_FILE` environment variable, or use individual configuration environment variables per setting.
-Note that environment variables take precedence over the corresponding JSON settings.
+Note that environment variables take precedence over the corresponding JSON values.
 
 {%- assign table = site.data.tables.crypto-providers.config-values -%}
 {%- include render-table.html -%}
@@ -126,7 +126,7 @@ Sample configuration file:
 }
 ~~~
 
-### Options for providing the API token {#api-token-options}
+### API token options {#api-token-options}
 
 The `ApiToken` value can contain the API token in one of the following variants:
 
@@ -157,7 +157,7 @@ New-Item -Path "HKCU:\SOFTWARE\" -Name SignPath
 New-ItemProperty -Path "HKCU:\SOFTWARE\SignPath" -Name "$ApiTokenRegistryValueName" -Value "$EncryptedBase64EncodedApiToken" -PropertyType "String"
 ~~~
 
-### HTTP Proxy configuration {#http-proxy-config}
+### HTTP Proxy {#http-proxy-config}
 
 Optionally an HTTP web proxy can be used for the outgoing API requests.
 
@@ -170,7 +170,7 @@ Alternatively, a proxy server can be specified in the [configuration](#crypto-pr
 
 In case this configuration value is set, it overrides the system's proxy settings on Windows.
 
-### SignPath Project configuration {#signpath-project-configuration}
+### SignPath Project {#signpath-project-configuration}
 
 In order to perform hash-based signing with the Crypto Providers, perform the following steps in the SignPath UI:
 
