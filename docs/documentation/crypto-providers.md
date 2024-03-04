@@ -24,7 +24,7 @@ This documentation contains information about the latest version of the CryptoPr
 
 ### Crypto Providers
 
-The following Crypto Providers are provided by SignPath:
+The following Crypto Providers are available for SignPath:
 
 {%- assign table = site.data.tables.crypto-providers.overview-crypto-providers -%}
 {%- include render-table.html -%}
@@ -47,15 +47,15 @@ The workaround is to either replace the system's OpenSSL version with >= 3.0.9 o
 
 ### Linux Docker container samples {#linux-docker-samples}
 
-For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and their required dependencies.
+For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.
 
-See the `samples` directory in the Linux Crypto Provider package. Also check out `samples/README.md`.
+See the `samples` directory in the Linux Crypto Provider package. It contains a `README.md` file with further information.
 
-While all the contained scripts could also run outside of a Docker container, especially for GPG based signing tools we recommend to perform the signing operations in a container to contain the signing and all used dependencies.
+All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.
 
 ## Installation
 
-Depending on signing tool you're using, the corresponding Crypto Provider needs to be installed (on all build nodes).
+Depending on the signing tool you're using, the corresponding Crypto Provider needs to be installed (on all build nodes).
 
 * **SignPath KSP or CSP** for [SignTool.exe](#signtool) and most native Windows tools
 * **SignPath Cryptoki** for [OpenSSL](#openssl), [jarsigner](#jarsigner), and many other Open Source tools
@@ -73,14 +73,14 @@ To install both CSP and KSP,
    ~~~
 
 
-1. Continue with [configuration](#crypto-provider-configuration).
+1. Continue with the [configuration](#crypto-provider-configuration).
 
 Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or PowerShell Core session.
 
 <div class="panel info" markdown="1">
 <div class="panel-header">Verification</div>
 
-To verify successful registration of the CSP and KSP, you can use the following command.
+To verify the successful registration of the CSP and KSP, you can use the following command:
 
 ~~~powershell
 certutil -csplist
@@ -93,7 +93,7 @@ It should contain two entries:
 
 </div>
 
-In case you only want to install the KSP (note that CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP), use the following command.
+CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:
 
 ~~~powershell
 powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 -InstallParts KSP
@@ -101,7 +101,7 @@ powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 -InstallParts KSP
 
 ### Update to a new version
 
-To update to a new version, simply install the new version as described in the previous section. This overwrites the existing installation.
+Installing a new version will overwrite the existing installation.
 
 ### Uninstallation
 
@@ -285,7 +285,7 @@ Cryptoki-enabled tools usually provide the following parameters:
 <div class="panel info" markdown="1">
 <div class="panel-header">Keys are not specified directly</div>
 
-The Cryptoki API expects you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
 
 </div>
 
@@ -298,12 +298,12 @@ For Cryptoki-based signing, tool setup can be complex. Unlike the KSP/CSP provid
 * A tool might directly support Cryptoki (and will provide a parameter or configuration option to specify the Cryptoki library and key identifier)
 * A tool might support different engines. If it doesn't come with a Cryptoki engine, you need to get it from another source and install it. In this case you need to 
   * specify the engine in the tool's configuration or parameter list,
-  * _and_ specify the Cryptoki library in the engine's configuration
+  * _and_ specify the SignPath Cryptoki library in the engine's configuration
 * A tool might internally call another tool such as OpenSSL or GPG to create the signature
 
 If your signing tool does not provide guidance for using Cryptoki libraries, you probably need a solid understanding of the specific tool chain to configure it. For better results, please also refer to [signing flow](#flow).
 
-### Error return values for Cryptoki/PKCS #11 functions
+#### Error return values for Cryptoki/PKCS #11 functions
 
 The following table shows the [PKCS #11] Cryptoki function return values for the different error situations when calling the SignPath REST API.
 
@@ -317,12 +317,12 @@ _[OpenSSL]_ is a toolkit that provides a range of cryptographic operations, incl
 <div class="panel warning" markdown="1">
 <div class="panel-header">Important</div>
 
-Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux also see the notes in [supported Linux distributions](#supported-linux-distributions).
+Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](#supported-linux-distributions).
 </div>
 
 ### Prerequisites
 
-_OpenSSL_ cannot directly communicate with a Cryptoki library. Instead the [OpenSC pkcs11 OpenSSL engine](https://github.com/OpenSC/libp11) can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.
+_OpenSSL_ cannot directly communicate with a Cryptoki library. Instead, the [OpenSC pkcs11 OpenSSL engine](https://github.com/OpenSC/libp11) can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.
 
 **Windows:** Download `libp11-...-windows.zip ` from [OpenSC libp11 Releases](https://github.com/OpenSC/libp11/releases) and copy-deploy `pkcs11.dll` (x64 version).
 
@@ -391,12 +391,12 @@ Generally, all commands require the following parameters to work with the SignPa
 <div class="panel info" markdown="1">
 <div class="panel-header">Keys are not specified directly</div>
 
-The Cryptoki API expects you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
 </div>
 
 #### openssl dgst
 
-The _[_dgst_][openssl-dsgt]_ command calculates digests of files, but can also be used to create and verify signatures.
+The _[dgst][openssl-dsgt]_ command calculates digests of files, but can also be used to create and verify signatures.
 
 Sample: sign `artifact.bin` and write the signature to `artifact.sig`.
 
@@ -412,7 +412,7 @@ The following digests are supported: `sha256`, `sha384`, `sha512`
 
 #### openssl pkeyutl
 
-The _[_pkeyutl_][openssl-pkeyutl]_ command performs low-level cryptographic operations, such as signing.
+The _[pkeyutl][openssl-pkeyutl]_ command performs low-level cryptographic operations, such as signing.
 
 <!-- todo omit?-->
 <div class="panel info" markdown="1">
@@ -470,7 +470,7 @@ _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures 
 <div class="panel warning" markdown="1">
 <div class="panel-header">Important</div>
 
-Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](#supported-linux-distributions) regarding supported OpenSSL versions.
+Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](#supported-linux-distributions) regarding the supported OpenSSL versions.
 </div>
 
 #### Prerequisites
@@ -491,7 +491,7 @@ The following invocation examples are also provided in the Docker container samp
 openssl x509 -inform DER -in "certificate.cer" -outform PEM -out "certificate.pem"
 ~~~
 
-##### Signing an exe file
+##### Signing an .exe file
 
 ~~~ powershell
 osslsigncode sign `
@@ -531,7 +531,7 @@ pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG ...
 
 ##### Listing of the available PKCS #11 objects
 
-The following command lists available objects, which corresponds to the list of signing policies where the user referenced by the API token is assigned as _Submitter_.
+The following command lists available objects, which corresponds to the list of signing policies for which the authenticated user has _Submitter_ permissions.
 
 ~~~ powershell
 pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG --list-objects
@@ -616,7 +616,7 @@ For details how these files need to be configured and about the necessary depend
 
 #### GPG Key Generation {#gpg-key-generation}
 
-GPG has an own key format and therefore SignPath's X.509 certificates cannot be directly used. Instead we have to generate a GPG key which _references_ a SignPath certificate. This means that we create a new GPG key which includes the RSA public key of a SignPath certificate and "links" the RSA private key (which resides in SignPath's HSMs). This is possible via a ["shadowed private key"](https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format) stored within `$GNUPGHOME/private-keys-v1.d/<KeyGrip>.key` which basically references a SignPath project and signing policy slug within.
+GPG has an own key format and therefore SignPath's X.509 certificates cannot be directly used. Instead you have to generate a GPG key which _references_ a SignPath certificate. This means creating a new GPG key which includes the RSA public key of a SignPath certificate and "links" the RSA private key (which resides in SignPath's HSMs). This is possible via a ["shadowed private key"](https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format) stored within `$GNUPGHOME/private-keys-v1.d/<KeyGrip>.key` which basically references a SignPath project and signing policy slug within.
 
 Although the RSA key is used from the SignPath certificate, GPG keys hold their own metadata like name, email and expiration date which need to be specified during the GPG key generation. As defaults we use `"SignPath <ProjectSlug> / <SigningPolicySlug>` for the full name,  `"<SigningPolicySlug>@<ProjectSlug>` as email and 1 year expiration.
 
@@ -632,16 +632,16 @@ During the GPG key generation two SignPath hash signing operations happen: One t
 
 #### GPG File Signing {#gpg-file-signing}
 
-**Preparation**: Before running a GPG signing operation via `gpg --sign ...` the following steps are necessary.
+**Preparation**: Before running a GPG signing operation via `gpg --sign ...`, the following steps are necessary.
 
 1. [Generate a GPG key](#gpg-key-generation)
 1. Copy the generated public GPG key (`<Email>.public.pgp`) to the target system
-1. [Configure GPG](#configure-gnupg) (After the `SCD LEARN` command all keys which are available for the ApiToken are restored as shadowed private keys and therefore can be used by the corresponding GPG keys, see `UseSignPathCryptoki`&#8203;`GpgConfiguration` function in the Linux container samples)
+1. [Configure GPG](#configure-gnupg) (After the `SCD LEARN` command, all keys which are available for the ApiToken are restored as shadowed private keys and therefore can be used by the corresponding GPG keys, see `UseSignPathCryptoki`&#8203;`GpgConfiguration` function in the Linux container samples)
 1. Import the GPG key (see `ImportGpgKeys` function in the Linux container samples)
 
 The [Linux container samples](#linux-docker-samples) contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `.\RunScenario.ps1 ... -Scenario GpgSignFile`. The used GPG key is referenced via its email address.
 
-During `gpg --sign`, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `gpg --sign`, SignPath is called to perform a hash based signing operation with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### RPM Signing (Linux)
 
@@ -649,7 +649,7 @@ RPM signing is based on [GPG signing](#gpg-signing). Therefore the preparation s
 
 The [Linux container samples](#linux-docker-samples) contain a full example to sign and verify a RPM file (including the mentioned preparation steps) in `.\RunScenario.ps1 ... -Scenario SignRpm`. The used GPG key is referenced via its email address. See `SignRpm.ps1` for details.
 
-During `rpm --addsign`, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `rpm --addsign`, SignPath is called to perform a hash based signing operation with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### DEB Signing via dpkg-sig (Linux)
 
@@ -661,11 +661,11 @@ During `dpkg-sig --sign`, SignPath is called to perform a hash based signing ope
 
 ### Maven Artifact Signing (Linux)
 
-Maven artifacts can be signed with the [Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/) which uses [GPG](#gpg-signing) commands to sign the different artifact files (.JAR files, ...). Therefore the preparation steps mentioned in [GPG File Signing](#gpg-file-signing) are necessary before signing.
+Maven artifacts can be signed with the [Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/) which uses [GPG](#gpg-signing) commands to sign the different artifact files (e.g. .JAR files). Therefore, the preparation steps mentioned in [GPG File Signing](#gpg-file-signing) are necessary before signing.
 
 The [Linux container samples](#linux-docker-samples) contain a full example to build, sign and verify Maven artifacts (including the mentioned preparation steps) in `.\RunScenario.ps1 ... -Scenario SignMaven`. The used GPG key is referenced via its email address.
 
-During `mvn install`, SignPath is called to perform a hash based signing operations with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `mvn install`, SignPath is called to perform a hash based signing operations with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ## Direct usage of the SignPath REST API
 

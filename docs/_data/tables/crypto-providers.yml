@@ -58,12 +58,12 @@ config-values:
       env: "`SIGNPATH_TLS_`&#8203;`CLIENT_CERTIFICATE`"
       default: (-)
       description: |
-        TLS/SSL client certificate authentication in the format `thumbprint:`&#8203;`$HexThumbprint` (optional, Windows only)
+        Reference to a TLS/SSL client authentication certificate in the format `thumbprint:`&#8203;`$HexThumbprint` (optional, Windows only)
     - setting: "`ApiUrl`"
       env: "`SIGNPATH_API_URL`"
       default: "`https://`&#8203;`app.signpath.io/`&#8203;`Api`"
       description: |
-        The SignPath API endpoint to use. Needs to be set if SignPath is run on-premises.
+        The SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.
     - setting: "`HttpProxy`"
       env: "`http_proxy`"
       default: (-)
@@ -73,12 +73,12 @@ config-values:
       env: "`SIGNPATH_TIMEOUTS_`&#8203;`HTTP_REQUEST`"
       default: "`30`"
       description: |
-        The timeout for the HTTP calls in seconds per try.
+        The timeout for the HTTP calls in seconds per attempt.
     - setting: "`Timeouts.FirstRetryDelay`"
       env: "`SIGNPATH_TIMEOUTS_`&#8203;`FIRST_RETRY_DELAY`"
       default: "`1.16`"
       description: |
-        The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 sec initial delay.
+        The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.
       _attributes: 
         description: { rowSpan: 2 }
     - setting: "`Timeouts.RetryCount`"
@@ -96,7 +96,7 @@ config-values:
       env: "`SIGNPATH_LOG_FILE_`&#8203;`DIRECTORY`"
       default: (-)
       description: |
-        The path to the folder where file logs should be stored. File logging is disabled if no value is provided.
+        The path to the folder where log files should be stored. Logging to files is disabled if no value is provided.
     - setting: "`Cryptoki.`&#8203;`DoNotFailOn`&#8203;`ReadWriteSessions`"
       env: "`SIGNPATH_CRYPTOKI_`&#8203;`DO_NOT_FAIL_ON_`&#8203;`READ_WRITE_SESSIONS`"
       default: "`false`"
@@ -189,7 +189,7 @@ cryptoki-parameters:
     - parameter: Key ID
       value: "`<ProjectSlug>/`&#8203;`<SigningPolicySlug>`"
       description: |
-        gnPath _Project_ slug and _Signing Policy_ slug, separated by a forward slash (`/`)
+        SignPath _Project_ slug and _Signing Policy_ slug, separated by a forward slash (`/`)
 
 cryptoki-errors:
   headers:
@@ -275,7 +275,7 @@ pkcs11-tool-invocation-common-parameters:
     - parameter: "`--pin`"
       value: "`CONFIG` or `<OrganizationId>:<ApiToken>`"
       description: |
-        See ["PIN" parameter](#cryptoki-parameters)
+        See [PIN parameter](#cryptoki-parameters)
 
 pkcs11-tool-invocation-signing-parameters:
   headers:
