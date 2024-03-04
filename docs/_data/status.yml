@@ -14,6 +14,12 @@ incidents:
     type: warning
     title: 'Infrastructure problems'
     description: 'One node dealing with certificates on the software key store experienced network problems for signing operations. Signing requests with HSM-based keys were not affected.'
+  - date: 'Feb. 22, 2024'
+    range: 'Feb. 22, 2024, 17:40 - 17:45 UTC'
+    type: warning
+    title: 'DPoD services unavailable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage.'
+    link: 'https://status.dpondemand.io/incidents/fgrpzmfwcc35'
   - date: 'Feb. 19, 2024'
     range: 'Feb. 19, 2024 15:02 - 15:48 UTC'
     type: warning
