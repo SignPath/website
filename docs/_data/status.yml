@@ -9,6 +9,16 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Feb. 24, 2024'
+    range: 'Feb. 24, 2024 05:45 - 15:30 UTC'
+    type: warning
+    title: 'Infrastructure problems'
+    description: 'One node dealing with certificates on the software key store experienced network problems for signing operations. Signing requests with HSM-based keys were not affected.'
+  - date: 'Feb. 19, 2024'
+    range: 'Feb. 19, 2024 15:02 - 15:48 UTC'
+    type: warning
+    title: 'DPoD services unavailable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage. We are currently investigating the root cause.'
   - date: 'Feb. 1, 2024'
     range: 'Feb. 1, 2024 14:04 - 14:08 UTC'
     type: critical
@@ -33,7 +43,7 @@ incidents:
     description: |
       Problems in the database backend caused temporarily outdated lists and reports.
   - date: 'Nov. 8, 2023'
-    range: 'Nov 8, 2023 15:30 - Nov 23, 2023 14:00 UTC'
+    range: 'Nov. 8, 2023 15:30 - Nov. 23, 2023 14:00 UTC'
     type: warning
     title: 'Problem importing PFX files into the HSM key store'
     description: |
@@ -52,7 +62,7 @@ incidents:
     title: 'DNS error'
     description: The domain signpath.io was not resolved by our domain registrar's name servers. Problem detection was delayed as many systems including our monitoring were using cached DNS entries, and support email transmission was affected by the same problem. We are currently investigation the root cause with our registrar.
   - date: 'May 11, 2023'
-    range: 'May 11, 2023 13:00 - May 12, 2003 09:22 UTC'
+    range: 'May 11, 2023 13:00 - May 12, 2023 09:22 UTC'
     type: warning
     title: 'Performance degradation'
     description: |
@@ -78,7 +88,7 @@ incidents:
     description: 'Due to multi-region network problems in Microsoft Azure (Tracking ID VSG1-B90), a small percentage of signing requests was failing. In most situations, this was mitigated by automated retries.'
     link: 'https://azure.status.microsoft/en-us/status/history/'
   - date: 'Dec. 12, 2022'
-    range: 'Dec. 12, 2022 21:20 - Dec. 13, 9:50 UTC'
+    range: 'Dec. 12, 2022 21:20 - Dec. 13, 2022 9:50 UTC'
     type: critical
     title: 'Infrastructure problems'
     description: 'One node experienced low-level infrastructure problems for signing operations. The issue could not be identified at runtime, so affected signing requests were not retried and failed immediately.'
@@ -99,7 +109,7 @@ incidents:
     description: 'Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.'
     link: https://status.digicert.com/incidents/4rrjfq4fvb91
   - date: 'Apr. 4, 2022'
-    range: 'Apr. 4, 2022 19:10 - Apr. 5, 8:25 UTC'
+    range: 'Apr. 4, 2022 19:10 - Apr. 5, 2022 8:25 UTC'
     type: warning
     title: 'Processing delays'
     description: 'Due to problems with the timestamp authority, several signing requests had to be rescheduled and completed late.'
@@ -120,27 +130,27 @@ incidents:
     title: 'Planned maintenance'
     description: 'Due to network configuration changes, HSM-based signing will experience problems. All signing requests will continue processing when network connectivity is restored.'
   - date: 'Aug. 28, 2021'
-    range: 'Aug. 28, 2021 21:30 - Aug. 29, 2021, 1:30 UTC'
+    range: 'Aug. 28, 2021 21:30 - Aug. 29, 2021 1:30 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to network configuration changes, HSM-based signing will experience intermittent problems. All signing requests will continue processing when network connectivity is restored.'
   - date: 'Jan. 4, 2021'
-    range: 'Jan. 4, 2021, 12:00 - 13:00 UTC'
+    range: 'Jan. 4, 2021 12:00 - 13:00 UTC'
     type: warning
     title: 'Planned maintenance to change authentication provider'
     description: 'We are changing our authentication provider to Okta. This is the first of two migration steps.'
   - date: 'Nov. 18, 2020'
-    range: 'Nov. 18, 2020, 6:00 - 8:00 UTC'
+    range: 'Nov. 18, 2020 6:00 - 8:00 UTC'
     type: warning
     title: 'Payment provider: Planned maintenance'
     description: 'Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath.io will not be affected.'
   - date: 'Nov. 4, 2020'
-    range: 'Nov. 4, 2020, 23:00 - Nov. 5, 2020, 5:00 UTC'
+    range: 'Nov. 4, 2020 23:00 - Nov. 5, 2020 5:00 UTC'
     title: 'Planned maintenance'
     type: warning
     description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'
   - date: 'Jun. 4, 2020'
-    range: 'Jun. 4, 2020, 21:30 - Jun. 5, 2020, 4:00 UTC'
+    range: 'Jun. 4, 2020 21:30 - Jun. 5, 2020 4:00 UTC'
     type: warning
     title: 'Planned maintenance'
     description: 'Due to a reconfiguration of our internet provider, the processing of HSM-based signing requests and creating/deleting certificates may be temporarily unavailable.'

@@ -299,7 +299,7 @@
             Added limited administrator roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/documentation/users#roles).
           issues: [SIGN-6305]
         - text: >-
-            [Select multiple files](/documentation/artifact-configuration/#zip-file-element) is now generally available.
+            [Select multiple files](/documentation/artifact-configuration#zip-file-element) is now generally available.
           issues: []
         - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/documentation/artifact-configuration#deep-signing-containers).
           issues: [SIGN-6150]
@@ -348,7 +348,7 @@
             (Existing spelling is still valid for the current schema version.)
           issues: [SIGN-6000]
         - text: >-
-            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element).
+            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration#zip-file-element).
           issues: [SIGN-6271]
         - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
@@ -416,7 +416,7 @@
     application:
       version: 1.146.0
       new_features:
-        - text: Added [`ui-multifile-upload`](/documentation/artifact-configuration/#zip-file-element) feature to upload multiple files in signing request web client UI (preview).
+        - text: Added [`ui-multifile-upload`](/documentation/artifact-configuration#zip-file-element) feature to upload multiple files in signing request web client UI (preview).
           issues: [SIGN-5936]
         - text: Added "Multiple Office files with macros" default artifact configuration which allows to upload multiple Office files in the user interface.
           issues: [SIGN-5936]

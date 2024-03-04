@@ -1,9 +1,8 @@
 ---
 main_header: Documentation
-sub_header: PowerShell
+sub_header: PowerShell cmdlets
 layout: resources
-toc: true
-show_toc: 0
+toc: false
 description: SignPath PowerShell cmdlets
 ---
 

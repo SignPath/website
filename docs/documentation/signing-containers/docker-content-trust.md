@@ -1,30 +1,15 @@
 ---
-main_header: Documentation
-sub_header: Signing Docker images
+main_header: Container Signing
+sub_header: Docker Content Trust (DCT)
 layout: resources
 toc: true
-show_toc: 4
-description: Documentation for signing Docker containers with SignPath using Docker Content Trust (DCT)
+show_toc: 0
+description: Documentation for signing Docker images with SignPath using Docker Content Trust (Notary v1)
 ---
-
-Available for Enterprise and Open Source subscriptions
-{: .badge.icon-signpath}
 
 ## Overview
 
-Docker Content Trust (DCT) is the system used for signing and verifying container images in Docker registries. 
-
-SignPath provides the following advantages when signing for DCT:
-
-* **You don't need to keep the target key** (a powerful key without hardware protection option that you would otherwise need for every new developer)
-* **Developers don't need to keep their own delegation keys**
-* You can use the full power of SignPath **signing policies**, including permission, approval, and origin verification
-* You can use all **CI integration** features of SignPath
-* Configuration and policy management is **aligned with other signing methods**, such as Authenticode or Java signing
-* SignPath maintains a **full audit log** of all signing activities
-* SignPath controls **signing on a semantic level**, where DCT would just verify signatures on manifest files (i.e. with SignPath, a signing request that claims to add a signature to a specific image and/or label can be trusted to do just that and nothing else)
-
-DCT is based on Notary, which uses a system of keys:
+Docker Content Trust (DCT) is based on Notary v1, which uses a system of keys:
 
 | Key type        | Handled by       | Used to                                             | Usage frequency                     | Recommendation
 |-----------------|------------------|-----------------------------------------------------|-------------------------------------|------------------------------------------
@@ -61,13 +46,11 @@ As a result of this procedure, all remaining keys will be on secure systems:
 | **Snapshot**    | (depends on Notary setup) | Notary/Registry credentials
 | **Timestamp**   | (depends on Notary setup) | Notary/Registry credentials
 
-Future versions of SignPath will include root key management.
-
 ### Signing overview
 
 Execute `Invoke-DockerSigning` in your CI system, or call each step individually. See [signing phase](#signing-phase) for step-by-step instructions.
 
-### Security considerations
+## Security considerations
 
 The following table lists 
 
@@ -232,8 +215,8 @@ The default [expiration time](https://github.com/theupdateframework/notary/blob/
 Required components:
 
 * PowerShell 6 or higher
-* Docker CLI
 * [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module
+* Docker CLI
 
 The unsigned image must be 
   * available on the local computer (preferably right after building it) 
@@ -290,7 +273,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 | ------------------------------------------------------------------ | --------------- |
 | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
 | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
-| `ApiToken`                                                         | The API token of the CI user (see [build system integration](./build-system-integration#authentication))
+| `ApiToken`                                                         | The API token of the CI user (see [build system integration](/documentation/build-system-integration#authentication))
 | `OrganizationId`                                                   | ID of your SignPath organization
 | `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
 | `Description`                                                      | Optional description for your signing request (e.g. version number)
@@ -312,5 +295,5 @@ If you would rather provide credentials via environment variables, username and 
 
 **WaitForCompletion option**
 
-Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](./build-system-integration#powershell).
+Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](/documentation/build-system-integration#powershell).
 </div>

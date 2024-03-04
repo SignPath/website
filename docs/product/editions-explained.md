@@ -130,9 +130,9 @@ See [artifact configuration](/documentation/artifact-configuration#xml-sign) for
 
 **Available for** _{{ site.data.editions | where: "signing_methods.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
 
-### Docker/container signing {#container-signing}
+### Container image signing {#container-signing}
 
-SignPath supports signing Docker container images and tags using Docker Content Trust (DCT). See [Docker signing](/documentation/docker-signing) for details.
+SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See [Signing Container Images](/documentation/signing-containers) for details.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
 
