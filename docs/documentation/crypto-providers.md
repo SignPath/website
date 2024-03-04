@@ -757,7 +757,7 @@ The response contains a JSON body with the following content depending on the re
 
 * If `IsFastSigningRequest` was `false`: Only a `SigningRequestId` property. The actual signing operation will be performed asynchronously and can be retrieved via following `GET $ApiUrl/v1/$OrganizationId/`&#8203;`SigningRequests/$SigningRequestId` requests to check the status and retrieve the signature value.
 
-## Retrieve Signing Policy details {#retrieve-signing-policy-details}
+### Retrieve Signing Policy details {#retrieve-signing-policy-details}
 
 Via `GET $ApiUrl/v1/$OrganizationId/`&#8203;`Cryptoki/MySigningPolicies` all signing policies with the user referenced by the API token assigned as _Submitter_ can be queried. With optional `?projectSlug=$ProjectSlug&`&#8203;`signingPolicySlug=$SigningPolicySlug` query parameters the returned signing policies can be restricted (to exactly one if the project / signing policy exists).
 
@@ -786,7 +786,7 @@ Example response:
 }
 ~~~~
 
-# Timestamps {#timestamps}
+## Timestamps {#timestamps}
 
 When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:
 
@@ -799,7 +799,7 @@ Always check your signatures and timestamps to ensure that they will be valid af
 
 If you use the file-based signing method of SignPath, timestamps will be managed automatically.
 
-# Signing flow {#flow}
+## Signing flow {#flow}
 
 This section describes how the various components work together to create a signature.
 
