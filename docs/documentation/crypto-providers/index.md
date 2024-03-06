@@ -91,6 +91,7 @@ Depending on the signing tool you're using, the corresponding Crypto Provider ne
 * [SignPath KSP and CSP](/documentation/crypto-providers/windows) for _SignTool.exe_ and most native Windows tools
 * [SignPath Cryptoki](/documentation/crypto-providers/cryptoki) for _OpenSSL_, _jarsigner_, and many other Open Source tools
 * [GPG-based tools](/documentation/crypto-providers/gpg), such as _gpg_, _rpm_, or _dkpg-sig_ use the [SignPath Cryptoki Crypto Provider](/documentation/crypto-providers/cryptoki) but require additional configuration steps
+* [SignPath CryptoTokenKit](/documentation/crypto-providers/macos) for macOS _codesign_
 * Instead of using a CryptoProvider, it is also possible to [sign hashes directly using the REST API](/documentation/crypto-providers/rest-api)
 
 ## Configuration {#crypto-provider-configuration}

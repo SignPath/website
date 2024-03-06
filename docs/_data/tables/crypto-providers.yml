@@ -21,6 +21,11 @@ overview-crypto-providers:
         [CAPI](https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) (CryptoAPI)
       platforms: Windows
       description: This API is deprecated, most tools now use KSP/CNG
+    - provider: |
+        **CTK** (CryptoTokenKit)
+      technology: |
+        [CTK extension](https://developer.apple.com/documentation/cryptotokenkit/)
+      platforms: macOS
 
 config-values:
   headers:
@@ -52,17 +57,17 @@ config-values:
       env: "`http_proxy`"
       default: (-)
       description: |
-        The address of an [HTTP (web) proxy](#http-proxy-config) (optional).
+        The address of an [HTTP (web) proxy](#http-proxy-config) (optional, not available on macOS).
     - setting: "`Timeouts.HttpRequest`"
       env: "`SIGNPATH_TIMEOUTS_`&#8203;`HTTP_REQUEST`"
       default: "`30`"
       description: |
-        The timeout for the HTTP calls in seconds per attempt.
+        The timeout for the HTTP calls in seconds per attempt (not available on macOS).
     - setting: "`Timeouts.FirstRetryDelay`"
       env: "`SIGNPATH_TIMEOUTS_`&#8203;`FIRST_RETRY_DELAY`"
       default: "`1.16`"
       description: |
-        The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.
+        The initial delay in seconds and maximum number of retries in case of failed API HTTP requests like timeouts or 503 (Service Unavailable) errors. The delay between the retries increases exponentially and sums up to a total delay time of 10 mins for the default values of 10 retries with 1.16 seconds initial delay.  (not available on macOS)
       _attributes: 
         description: { rowSpan: 2 }
     - setting: "`Timeouts.RetryCount`"
@@ -71,11 +76,11 @@ config-values:
     - setting: "`Log.Console.Level`"
       env: "`SIGNPATH_LOG_CONSOLE_`&#8203;`LEVEL`"
       default: "`none`"
-      description: The log level used for console logging.
+      description: The log level used for console logging. (not available on macOS)
     - setting: "`Log.File.Level`"
       env: "`SIGNPATH_LOG_FILE_LEVEL`"
       default: "`warning`"
-      description: The log level used for file logging.
+      description: The log level used for file logging. (not available on macOS)
     - setting: "`Log.File.Directory`"
       env: "`SIGNPATH_LOG_FILE_`&#8203;`DIRECTORY`"
       default: (-)
@@ -269,6 +274,42 @@ cryptoki-jarsigner-invocation-parameters:
       description: |
         _Project_ and _Signing Policy_ slug, separated by a forward slash (`/`)
 
+macos-application-parameters:
+  headers:
+    parameter: Parameter
+    value: Value
+    description: Description
+  body:
+    - parameter: "`-config`"
+      value: "`/path/to/config/file.json`"
+      description: Path to config file.
+    - parameter: "`-s`"
+      value: "`$SigningPolicySlug`"
+      description: If not specified, the certificates from all available signing policies will be loaded.
+    - parameter: "`-p`"
+      value: "`$ProjectSlug`"
+      description: If not specified, the certificates from all available projects will be loaded.
+    - parameter: "`-u`"
+      value: "`$ApiUrl`"
+      description: The base URL of the SignPath API, e.g. `https://app.signpath.io/`&#8203;`Api`
+    - parameter: "`-o`"
+      value: "`$OrganizationId`"
+      description: The id of the organization to use.
+    - parameter: "`-t`"
+      value: "`$ApiToken`"
+      description: The API token for a CI or Interactive User (can be created in the "Users and Groups" UI).
+
+macos-codesign-parameters:
+  headers:
+    parameter: Parameter
+    value: Value
+    description: Description
+  body:
+    - parameter: "`-s`"
+      value: "`$SigningIdentity`"
+      description: |
+        A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.
+
 rest-api-parameters:
   headers:
     parameter: Parameter
@@ -278,7 +319,7 @@ rest-api-parameters:
     - parameter: "`$ApiUrl`"
       type: URL segment
       description: |
-         The base URL of the SignPath API, e.g. `https://app.signpath.io/`&#8203;`Api`
+         The base URL of the SignPath API, e.g. `https://app.signpath.io/`&#8203;`Api` (default)
     - parameter: "`$OrganizationId`"
       type: URL segment
       description: |

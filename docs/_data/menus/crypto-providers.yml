@@ -10,5 +10,8 @@
 - text: GPG
   path: gpg
 
+- text: macOS CryptoTokenKit
+  path: macos
+
 - text: REST API
   path: rest-api
