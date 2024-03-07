@@ -35,7 +35,7 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 <div class="panel-header">Keys are not specified directly</div>
 
 When using a file-based [configuration](/documentation/crypto-providers#crypto-provider-configuration), the macOS CryptoTokenKit Crypto Provider requires the config file to be
-* located in the same directory as the `SignPathCryptoTokenKit.app` application or
+* named `config.json` and placed in the same directory as the `SignPathCryptoTokenKit.app` application or
 * its path to be specified via the `-config` parameter
 
 </div>
@@ -50,12 +50,12 @@ open "SignPathCryptoTokenKit.app" --args -p MyProject -s release-signing -config
 
 The following commands are helpful to make sure the setup is correct:
 
-Using the `security` command, the registered smart cards can be listed. This list should contain an entry **TODO**
+Using the `security` command, the registered smart cards can be listed. This list should contain an entry `io.signpath.apps.SignPathCryptoTokenKit.ctk:<identifier>`
 ~~~bash
 security list-smartcard
 ~~~
 
-Using the `pluginkit` tool, the registration of the token driver can be verified. **TODO**
+Using the `pluginkit` tool, the registration of the token driver can be verified. The command lists all registered tokens and should also list `io.signpath.apps.CryptoTokenKit(<Version>)`.
 
 ~~~bash
 pluginkit -m -v -p com.apple.ctk-tokens
