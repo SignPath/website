@@ -15,8 +15,10 @@ export function GoogleAnalytics() {
   }
 
   gtag('consent', 'default', {
+    ad_user_data: 'granted',
+    ad_personalization: 'granted',
     ad_storage: 'granted',
-    analytics_storage: 'granted',
+    analytics_storage: 'granted'
   });
   gtag('js', new Date());
   gtag('config', 'G-CX618DRF59', { anonymize_ip: true, domains: ['app.signpath.io', 'secure.avangate.com'] }); // Google Analytics
