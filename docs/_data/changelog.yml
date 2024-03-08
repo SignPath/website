@@ -7,9 +7,11 @@
             Added a new API route `GET /v1-pre/<org-id>/SiginingRequests` that allows listing Signing Requests. 
             See the [API definition](https://app.signpath.io/Api/swagger) for more details.
           issues: [SIGN-6793]
-        - text: >-
-            Split the REST API functionality to modify group memberships into separate routes providing options to either submit a 
-            list of group members (`/ChangeMembers`) or to send incremental changes (`/ModifyMembers`). 
+        - text: |-
+            Provided dedicated REST APIs for modifying group memberships: 
+            * `/ChangeMembers` sets a new list of members
+            * `/ModifyMembers` allows to add/remove members
+
             See the [API definition](https://app.signpath.io/Api/swagger) for more details.
           issues: [SIGN-6661]
         - text: >-
@@ -25,7 +27,7 @@
             The AdministrationUtility tool can now also log to AppInsights.
           issues: [SIGN-6752]
         - text: >-
-            Added another safeguard mechanism that prevents the inactive color from processing signing requests.
+            Added an additional safeguard mechanism that prevents the inactive color deployment from processing signing requests.
           issues: [SIGN-6822]
       bug_fixes:
         - text: >-
@@ -102,7 +104,7 @@
           issues: [SIGN-6491, SIGN-6560]
       bug_fixes:
         - text: >-
-            Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.
+            Fixed a migration job issue which left the old color Application Pods running in case of an Kubernetes API server outage.
           issues: [SIGN-6778]
 - date: '2024-02-01'
   updates:
