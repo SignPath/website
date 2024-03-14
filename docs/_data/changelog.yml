@@ -1,3 +1,54 @@
+- date: '2024-03-14'
+  updates:
+    application:
+      version: 1.159.0
+      improvements:
+        - text: >-
+            Added a new API route `GET /v1-pre/<org-id>/SiginingRequests` that allows listing Signing Requests. 
+            See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+          issues: [SIGN-6793]
+        - text: |-
+            Provided dedicated REST APIs for modifying group memberships: 
+            * `/ChangeMembers` sets a new list of members
+            * `/ModifyMembers` allows to add/remove members
+
+            See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+          issues: [SIGN-6661]
+        - text: >-
+            Improved the reliability of processing signing requests in case of temporary network errors.
+          issues: [SIGN-6829]
+    self_hosted_installations:
+      version: 1.159.0
+      improvements:
+        - text: >-
+            Added additional custom dimensions to AppInsights events.
+          issues: [SIGN-6554]
+        - text: >-
+            The AdministrationUtility tool can now also log to AppInsights.
+          issues: [SIGN-6752]
+        - text: >-
+            Added an additional safeguard mechanism that prevents the inactive color deployment from processing signing requests.
+          issues: [SIGN-6822]
+      bug_fixes:
+        - text: >-
+            Fixed the mechanism that restarts the SignService components when the connection to a Luna/Thales DPoD HSM becomes corrupt.
+          issues: [SIGN-6783]
+        - text: >-
+            Added missing ActivityId entries to the log output to ensure a consistent logging experience.
+          issues: [SIGN-6788]
+    crypto_providers:
+      version: 4.4.1
+      bug_fixes:
+        - text: >-
+            Fixed a bug that prevented the underlying error messages from being shown.
+          issues: [SIGN-6796]
+        - text: >-
+            Fixed a bug that prevented retries from being executed properly in certain situations.
+          issues: [SIGN-6796]
+        - text: >-
+            Fixed a bug in the Linux container samples for GPG signing.
+          issues: [SIGN-6845]
+
 - date: '2024-02-29'
   updates:
     self_hosted_installations:
@@ -53,7 +104,7 @@
           issues: [SIGN-6491, SIGN-6560]
       bug_fixes:
         - text: >-
-            Fixed a migration job issue which led the old color Application Pods running in case of an Kubernetes API server outage.
+            Fixed a migration job issue which left the old color Application Pods running in case of an Kubernetes API server outage.
           issues: [SIGN-6778]
 - date: '2024-02-01'
   updates:
