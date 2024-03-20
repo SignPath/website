@@ -2,11 +2,7 @@
   updates:
     application:
       version: 1.159.0
-      improvements:
-        - text: >-
-            Added a new API route `GET /v1-pre/<org-id>/SiginingRequests` that allows listing Signing Requests. 
-            See the [API definition](https://app.signpath.io/Api/swagger) for more details.
-          issues: [SIGN-6793]
+      breaking_changes:
         - text: |-
             Provided dedicated REST APIs for modifying group memberships: 
             * `/ChangeMembers` sets a new list of members
@@ -14,6 +10,11 @@
 
             See the [API definition](https://app.signpath.io/Api/swagger) for more details.
           issues: [SIGN-6661]
+      improvements:
+        - text: >-
+            Added a new API route `GET /v1-pre/<org-id>/SiginingRequests` that allows listing Signing Requests. 
+            See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+          issues: [SIGN-6793]
         - text: >-
             Improved the reliability of processing signing requests in case of temporary network errors.
           issues: [SIGN-6829]
