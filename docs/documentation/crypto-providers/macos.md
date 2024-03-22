@@ -43,7 +43,9 @@ When using a file-based [configuration](/documentation/crypto-providers#crypto-p
 Example call starting the application:
 
 ~~~bash
-open "SignPathCryptoTokenKit.app" --args -p MyProject -s release-signing -config /path/to/config.json
+export SIGNPATH_ORGANIZATION_ID=...
+export SIGNPATH_API_TOKEN=...
+open "SignPathCryptoTokenKit.app" --args -p MyProject -s release-signing -u https://app.signpath.io/Api
 ~~~
 
 ### Troubleshooting
