@@ -120,7 +120,7 @@ In order for SignPath to ensure that only valid tags can be signed, you need to 
 `Get-RootCertificate`, `Initialize-DockerSigning`, and `Add-DelegationCertificate` accept the following parameters:
 
 | Parameter                             | Description     |
-| ------------------------------------- | --------------- |
+|---------------------------------------|-----------------|
 | `Repository`                          | The FQN provided when creating the Docker repository in SignPath
 | `NotaryUsername` and `NotaryPassword` | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry.
 | `NotaryUrl`                           | Optional parameter to specify the URL of your internal notary server. Defaults to `https://notary.docker.io` which is the Notary server used by Docker Hub.
@@ -270,7 +270,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 `Invoke-DockerSigning`, `New-DockerSigningData`, `Submit-SigningRequest`, and `Push-SignedDockerSigningData` accept all or some of the following parameters:
 
 | Parameter                                                          | Description     |
-| ------------------------------------------------------------------ | --------------- |
+|--------------------------------------------------------------------|-----------------|
 | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
 | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
 | `ApiToken`                                                         | The API token of the CI user (see [build system integration](/documentation/build-system-integration#authentication))

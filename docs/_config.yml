@@ -24,6 +24,9 @@ email_oss: support@signpath.io?subject=OSS%20subscription
 baseurl: "" # the subpath of your site, e.g. /blog
 target_environment: "production"
 
+sp_web_url: "https://app.signpath.io/Web"
+sp_api_url: "https://app.signpath.io/api"
+
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings

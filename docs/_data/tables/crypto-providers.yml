@@ -310,41 +310,6 @@ macos-codesign-parameters:
       description: |
         A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.
 
-rest-api-parameters:
-  headers:
-    parameter: Parameter
-    type: Type
-    description: Description
-  body:
-    - parameter: "`$ApiUrl`"
-      type: URL segment
-      description: |
-         The base URL of the SignPath API, e.g. `https://app.signpath.io/`&#8203;`Api` (default)
-    - parameter: "`$OrganizationId`"
-      type: URL segment
-      description: |
-        The id of the organization to use.
-    - parameter: "`Authorization: Bearer $ApiToken`"
-      type: Header
-      description: |
-        The API token for a CI or Interactive User (can be created in the "Users and Groups" UI).
-
-rest-api-signing-request-fields:
-  headers:
-    name: Name
-    description: Description
-  body:
-    - name: "`ProjectSlug`"
-      description: The project slug to use.
-    - name: "`SigningPolicySlug`"
-      description: The signing policy slug to use.
-    - name: "`IsFastSigningRequest`"
-      description: |
-        Use `true` to get the signature directly in the response. Otherwise you will get only a `SigningRequestId` in the response. See also [response description](#signing-request-response).
-    - name: "`Artifact`"
-      description: |
-        A JSON document containing the the hash to sign and metadata. See [following section](#hash-signing-payload-json).
-
 rest-api-payload-json:
   headers:
     prop: JSON property

@@ -12,96 +12,88 @@ datasource: tables/crypto-providers
 
 As an alternative to using a Crypto Provider client, signing requests to a ["Hash signing data"](/documentation/crypto-providers#signpath-project-configuration) project can also be performed directly via SignPath's REST API.
 
-All API requests require the following parameters:
-
-{%- assign table = site.data.tables.crypto-providers.rest-api-parameters -%}
-{%- include render-table.html -%}
-
 ## Signing Request
 
-The signing request (which contains the hash to sign and metadata) is an HTTP POST request to `$ApiUrl/v1/$OrganizationId/`&#8203;`SigningRequests` with the following `multipart/form-data` fields:
+See [HTTP REST API](/documentation/build-system-integration#rest-api) for basic instructions to submit a signing request.
 
-{%- assign table = site.data.tables.crypto-providers.rest-api-signing-request-fields -%}
-{%- include render-table.html -%}
+### Fast signing
 
-Example request:
+For hash data we recommend using a _fast signing request_. These requests are performed immediately without queuing, and the API immediately returns the signed artifact.
 
-~~~ powershell
-$FormBoundary = New-Guid
+* Provide the additional field `IsFastSigningRequest` with the value `true`
+* The API returns the JSON-formatted result (see [response description](#signing-request-response))
 
-$Response = Invoke-WebRequest -Method Post -Uri "$ApiUrl/v1/$OrganizationId/SigningRequests" `
-    -ContentType "multipart/form-data; boundary=$FormBoundary" `
-    -Headers @{ Authorization = "Bearer $ApiToken" } -Body @"
---$FormBoundary
-Content-Disposition: form-data; name="ProjectSlug"
+(By default, the API returns a signing request ID that can be used to [get the result](/documentation/build-system-integration#get-signing-request-data).)
 
-$ProjectSlug
---$FormBoundary
-Content-Disposition: form-data; name="SigningPolicySlug"
+### Artifact format for signing hash digests {#hash-signing-payload-json}
 
-$SigningPolicySlug
---$FormBoundary
-Content-Disposition: form-data; name="IsFastSigningRequest"
+| JSON property        | Description 
+|----------------------|--------------
+| `SignatureAlgorithm` | For RSA certificates: `"RsaPkcs1"` for the PKCS #1 v1.5 padding mode, or `"RsaPss"` for PSS padding mode. For elliptic curve certificates: `Ecdsa`.
+| `RsaHashAlgorithm`"  | The OID for used hash algorithm with the following allowed values: `"1.2.840.113549.2.5"` (MD5), `"1.3.14.3.2.26"` (SHA1), `"2.16.840.1.101.3.4.2.1"` (SHA-256), `"2.16.840.1.101.3.4.2.2"` (SHA-384), `"2.16.840.1.101.3.4.2.3"` (SHA-512). _Note that this property is only used for RSA certificates._
+| `Base64EncodedHash`  | The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
+| `Metadata`           | Can contain arbitrary metadata JSON values. We recommend to include `CreatingProcess` metadata with `CommandLine` and `User` as shown in the example above.
 
-true
---$FormBoundary
-Content-Disposition: form-data; name="Artifact"; filename="payload.json"
-Content-Type: application/json
+<div class="panel info" markdown="1">
+<div class="panel-header">Key length</div>
 
+SignPath crypto providers use the file name `payload.json` for hash digest artifacts.
+</div>
+
+### Response {#signing-request-response}
+
+The response artifact has the same format and values as the request artifact with the additional property 'Signature'.
+
+| JSON property | Description 
+|---------------|--------------
+| `Signature `  | Base64-encoded signature of 'Base64EncodedHash'. Format and length depend on the key of the signing policy's certificate.
+
+### Example 
+
+**Request:**
+
+~~~ bash
+curl -H "Authorization: Bearer $API_TOKEN" \
+     -F "ProjectSlug=$PROJECT" \
+     -F "SigningPolicySlug=test-signing" \
+     -F "IsFastSigningRequest=true" \
+     -F "Artifact=@$PATH_TO_ARTIFACT" 
+     https://app.signpath.io/API/v1/$ORGANIZATION_ID/SigningRequests
+~~~
+
+**Request artifact:**
+
+~~~ JSON
 {
     "SignatureAlgorithm": "RsaPkcs1",
     "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
     "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
-
     "Metadata":
     {
         "CreatingProcess": { "CommandLine": "SampleCommand -SampleArgument", "User": "SampleUser" }
     }
 }
---$FormBoundary--
-"@
 ~~~
 
-### payload.json format {#hash-signing-payload-json}
+**Response:**
 
-{%- assign table = site.data.tables.crypto-providers.rest-api-payload-json -%}
-{%- include render-table.html -%}
-
-<div class="panel info" markdown="1">
-<div class="panel-header">Key length</div>
-
-The used key length and therefore the length of the resulting `Signature` in the response depends on the key length of the used certificate referenced in the signing policy. For ECDSA signatures also the used curve is determined by the certificate.
-
-</div>
-
-### Response {#signing-request-response}
-
-
-The response contains a JSON body with the following content depending on the request's `IsFastSigningRequest` value.
-
-* If `IsFastSigningRequest` was `true`: The Base64-encoded signature in the `Signature` property and the repeated incoming JSON properties.
-
-   Example response:
-
-   ~~~ JSON
-   {
-      "SignatureAlgorithm": "RsaPkcs1",
-      "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
-      "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
-      "Metadata": { ... },
-      "Signature": "wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."
-   }
-   ~~~
-
-* If `IsFastSigningRequest` was `false`: Only a `SigningRequestId` property. The actual signing operation will be performed asynchronously and can be retrieved via following `GET $ApiUrl/v1/$OrganizationId/`&#8203;`SigningRequests/$SigningRequestId` requests to check the status and retrieve the signature value. See the ["Get signing request data" section](/documentation/build-system-integration#get-signing-request-data) for more information.
+~~~ JSON
+{
+    "SignatureAlgorithm": "RsaPkcs1",
+    "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
+    "Base64EncodedHash": "GJShnIW6FTrL90OsTkP8AEyJFgSyb4xp4eg+oq/HxI8=",
+    "Metadata": { ... },
+    "Signature": "wGI2oiHHVSVGHR1rtjv83Pir1SEVLmnLNGuJD4..."
+}
+~~~
 
 ## Retrieve Signing Policy details {#retrieve-signing-policy-details}
 
-Via `GET $ApiUrl/v1/$OrganizationId/`&#8203;`Cryptoki/MySigningPolicies` all signing policies with the user referenced by the API token assigned as _Submitter_ can be queried. With optional `?projectSlug=$ProjectSlug&`&#8203;`signingPolicySlug=$SigningPolicySlug` query parameters the returned signing policies can be restricted (to exactly one if the project / signing policy exists).
+Use `GET {{site.sp_api_url}}/v1/$OrganizationId/Cryptoki/MySigningPolicies?``projectSlug=$Project&signingPolicySlug=$SigningPolicy` to get information about the signing plicy, including the X.509 certificate and RSA key parameters.
 
-The response contains signing policy details like the `signingPolicyId`, the RSA key parameters or the referenced X.509 certificate (`certificateBytes`).
+(If project and signing policy are not specified, this API returns all signing policies where user identified by the API token is assigned as _Submitter_.)
 
-Example response:
+**Example response:**
 
 ~~~ JSON
 {
@@ -118,8 +110,7 @@ Example response:
             "certificateBytes": "MIIC5zCC...",
             "keyType": "Rsa",
             "publicKeyBytes": "MIIBCgKC..."
-        },
-        ... in case multiple signing policies match
+        }
     ]
 }
 ~~~~

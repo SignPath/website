@@ -30,7 +30,7 @@ The workaround is to either replace the system's OpenSSL version with >= 3.0.9 o
 
 ### Installation
 
-Simply copy-deploy the `Windows\SignPath.Cryptoki.dll` (Windows) resp. `Linux/libSignPath.Cryptoki/`&#8203;`<OpenSslVersion>/`&#8203;`libSignPath.Cryptoki.so` (Linux) library file of the Crypto Providers ZIP archive. To choose the right OpenSSL version, check the output of `openssl version` on your target system.
+Simply copy-deploy the `Windows\SignPath.Cryptoki.dll` (Windows) resp. `Linux/libSignPath.Cryptoki/<OpenSslVersion>/libSignPath.Cryptoki.so` (Linux) library file of the Crypto Providers ZIP archive. To choose the right OpenSSL version, check the output of `openssl version` on your target system.
 
 The various signing tools require the target system's file path of the library file in their configurations.
 

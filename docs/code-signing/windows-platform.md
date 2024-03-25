@@ -38,7 +38,7 @@ SmartScreen is a cloud-based system that compares downloaded software against li
 (The term SmartScreen is also used for a feature in Edge and Internet Explorer that helps avoiding phishing sites and social engineering attacks, a function that is not related to code signing.)
 
 | Validation and reputation | Action |
-| ------------------------- | ------ |
+|---------------------------|--------|
 | The program is not signed, or the signature is invalid | The user is warned not to start the program |
 | The program has a valid signature, but the certificate has little or no reputation | The name of the software publisher is displayed, and the user is prompted to proceed or abort |
 | The program is signed, and the certificate has reputation | The program is executed or installed

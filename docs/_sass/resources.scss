@@ -380,3 +380,9 @@ div.pssyntax {
 		}
 	}
 }
+
+@media only screen and (max-width: 999px) {
+	:not(pre) > code {
+			word-break: break-all;
+	}
+}
