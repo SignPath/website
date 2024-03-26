@@ -63,7 +63,7 @@ curl -H "Authorization: Bearer $API_TOKEN" \
 
 **Request artifact:**
 
-~~~ JSON
+~~~ json
 {
     "SignatureAlgorithm": "RsaPkcs1",
     "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
@@ -77,7 +77,7 @@ curl -H "Authorization: Bearer $API_TOKEN" \
 
 **Response:**
 
-~~~ JSON
+~~~ json
 {
     "SignatureAlgorithm": "RsaPkcs1",
     "RsaHashAlgorithm": "2.16.840.1.101.3.4.2.1",
@@ -95,7 +95,7 @@ Use `GET {{site.sp_api_url}}/v1/$OrganizationId/Cryptoki/MySigningPolicies?``pro
 
 **Example response:**
 
-~~~ JSON
+~~~ json
 {
     "signingPolicies": [
         {
