@@ -181,7 +181,7 @@ Detached raw signatures can be used for arbitrary binary or text files or [signi
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------
-| `file-name`        | Yes           |                              | Name of the output file containing the signature
+| `file-name`        | Yes           |                              | Name of the output file containing the signature (you can reference the original file name via the `file.name` variable, e.g. `${file.name}.sig`)
 | `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
 | `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
 
@@ -191,7 +191,7 @@ Detached raw signatures can be used for arbitrary binary or text files or [signi
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
     <file path="myfile.bin">
-      <create-raw-signature file-name="myfile.bin.sig" hash-algorithm="sha256" />
+      <create-raw-signature file-name="${file.name}.sig" hash-algorithm="sha256" />
     </pe-file>
   </zip-file>
 </artifact-configuration>

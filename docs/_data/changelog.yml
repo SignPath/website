@@ -1,3 +1,29 @@
+- date: '2024-03-28'
+  updates:
+    application:
+      version: 1.160.1
+      improvements:
+        - text: |-
+            Detached raw signatures artifact configurations now allow to reference the original file name via the `file.name` variable, e.g. `${file.name}.sig`.
+          issues: [SIGN-6771]
+        - text: |-
+            "Resubmit with current settings" now also works for signing requests which fail due to an _artifact retrieval_ error.
+          issues: [SIGN-6794]
+    self_hosted_installations:
+      version: 1.160.1
+      breaking_changes:
+        - text: |-
+            Hash signing operations are now happening via the `signingprocessorservice` component.
+
+            Therefore mandatory basic authentication configuration is necessary: `signingProcessorService.basicAuthenticationOptions`, resp. 
+            `fastSigningRequestProcessorServiceClientOptions.basicAuthenticationPassword` in `signpath-application` values.
+            See the "Generate basic authentication passwords and hashes" section in the installation guide how to generate.
+          issues: [SIGN-6720]
+      improvements:
+        - text: |-
+            The "watch dog" mechanism for HSM SignServices doesn't require a TSA URL anymore. So the previously mandatory SignService values
+            config entry `appSettings.signService.cspWatchdogOptions.timestampingServerUrl` can be removed.
+          issues: [SIGN-6825]
 - date: '2024-03-14'
   updates:
     application:
