@@ -287,7 +287,7 @@ Detached raw signatures can be used for arbitrary binary or text files or [signi
 |-----------         |---------------------------------- 
 | `hash-algorithm`   | The hash algorithm used to calculate the signature. Supported options are `sha256`, `sha384` and `sha512`.
 | `rsa-padding`      | Required for signing with certificates based on RSA keys. Forbidden for other key algorithms. Supported options are `pkcs1` and `pss`.
-| `file-name`        | Name of the output file for the detached signature.
+| `file-name`        | Name of the output file for the detached signature. You can reference the original file name via the `file.name` variable, e.g. `${file.name}.sig`.
 
 **Note: Due to the detached signature being placed in a separate file, `<file>` and `<file-set>` elements are only allowed inside a <a href="#zip-file-element">`<zip-file>`</a>.**
 
