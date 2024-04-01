@@ -145,7 +145,7 @@ Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-c
 * Hardware Bill of Materials (HBOM)
 * and others
 
-See this [artifact configuration sample](/documentation/artifact-configuration#sbom-sample) for details.
+See this [artifact configuration sample](/documentation/artifact-configuration#sbom-restriction) for details.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
 

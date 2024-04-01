@@ -69,7 +69,7 @@ signing-file-elements:
       directive: "[`<jar-sign>`](#jar-sign)"
       extensions: ".jar, .war, .ear, .apk, .aab"
       description: "Java archives and Android apps. (Not available for Starter subscriptions.)"
-    - element: "[`<zip-file>`](#zip-file-element)"
+    - element: "[`<zip-file>`](syntax#zip-file-element)"
       isContainer: "Yes"
       directive: "[`<jar-sign>`](#jar-sign)"
       extensions: ".zip"
@@ -89,14 +89,14 @@ signing-file-elements:
       directive: "[`<xml-sign>`](#xml-sign)"
       extensions: ".xml"
       description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Enterprise subscriptions). File size limit: 2 MB."
-    - element: "[`<directory>`](#directory-element)"
+    - element: "[`<directory>`](syntax#directory-element)"
       isContainer: "Yes"
       directive: "[`<clickonce-sign>`](#clickonce-sign)"
       description: "Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files."
     - element: "`<file>`"
       isContainer: "No"
-      directive: "[`<create-raw-signature>`](#detached-raw-signatures)"
-      description: "Arbitrary files. This directive will create a [detached raw signature](#detached-raw-signatures) file (available for Enterprise subscriptions)"
+      directive: "[`<create-raw-signature>`](#create-raw-signature)"
+      description: "Arbitrary files. This directive will create a detached raw signature file (available for Enterprise subscriptions)"
 
 directory-example:
   headers:

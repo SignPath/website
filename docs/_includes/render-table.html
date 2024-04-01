@@ -4,28 +4,36 @@
         <tr>
         {%- for header in table.headers | where: -%}
             {% assign columnId = header[0] %}
-            {%- if columnId != "_attributes" -%}
+            {%- unless columnId == "_attributes" or table-omit-columns contains columnId -%}
                 <th markdown="1" {% for attribute in table.headers._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
 
 {{ header[1] }} 
 </th>
-            {%- endif -%}
+            {%- endunless -%}
         {%- endfor -%}
         </tr>
     </thead>
     <tbody>
         {%- for row in table.body -%}
-        <tr>
-            {%- for cell in table.headers -%}
-                {%- assign columnId = cell[0] -%}
-                {%- if columnId != "_attributes" -%}
-                    <td markdown="1" {% for attribute in row._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
+            {%- assign displayRow = true -%}
+            {%- if table-filter-column != nil and table-filter-value != nil -%}
+                {%- unless row[table-filter-column] contains table-filter-value -%}
+                    {%- assign displayRow = false -%}   
+                {%- endunless -%}
+            {%- endif -%}
+            {%- if displayRow == true -%}
+                <tr>
+                    {%- for cell in table.headers -%}
+                        {%- assign columnId = cell[0] -%}
+                        {%- unless columnId == "_attributes" or table-omit-columns contains columnId -%}
+                            <td markdown="1" {% for attribute in row._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
 
 {{ row[columnId] }}
 </td>
-                {%- endif -%}
-            {%- endfor -%}
-        </tr>
+                        {%- endunless -%}
+                    {%- endfor -%}
+                </tr>
+            {%- endif -%}
         {%- endfor -%}
     </tbody>
 </table>

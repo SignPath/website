@@ -63,12 +63,13 @@ section.resources-section {
 				font-weight: bold;
 				margin-left: 0;
 				text-align: left;
-				&:target::before { /* anchor margin on top */
-					content: "";
-					display: block;
-					margin-top: -100px;
-					height: 100px;
-				}
+				// see [id] selector in main.scss
+				// &:target::before { /* anchor margin on top */
+				// 	content: "";
+				// 	display: block;
+				// 	margin-top: -100px;
+				// 	height: 100px;
+				// }
 			}
 
 			& > h2 {
