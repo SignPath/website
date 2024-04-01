@@ -87,7 +87,7 @@ Some formats support nested signing. The following example signs both the file `
 </msi-file>
 ~~~
 
-for root elements, the `path` attribute is optional and cannot contain directories. You may use [wildcards](#wildcards) to specify the name ...
+For root elements, the `path` attribute is optional and cannot contain directories. You may use [wildcards](#wildcards) to specify the name ...
 
 ~~~ xml
 <pe-file path="myapp-v*.exe">
