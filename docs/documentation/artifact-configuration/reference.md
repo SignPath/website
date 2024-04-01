@@ -175,7 +175,7 @@ Available for Enterprise subscriptions
 {%- assign ac-directive = "create-raw-signature" -%}
 {%- include render-ac-directive-table.html -%}
 
-**Note: Since the detached signature are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
+**Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
 
 Detached raw signatures can be used for arbitrary binary or text files or [signing Container Images using cosign](/documentation/signing-containers/cosign). The `create-raw-signature` directive supports the following parameters:
 
