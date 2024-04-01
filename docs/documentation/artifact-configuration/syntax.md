@@ -25,7 +25,7 @@ They contain exactly one file element representing the artifact.
 
 ## Basic artifact structure {#structure}
 
-**Note: The following example fragments show only the root file element.** XML prologue and `<artifact configuration` element are omitted for clarity.
+**Note: The following example fragments show only the root file element.** XML prologue and `<artifact configuration>` element are omitted for clarity.
 
 Several [element types](reference#file-elements) are available of various supported file types.
 
@@ -131,7 +131,7 @@ Result:
 
 * The user can select one or more files in the artifact browse dialog 
 * A ZIP archive named `bundle.zip` will automatically be created and uploaded (even if only a single file is selected)
-* The signed artifacts will still be provided as a ZIP archive dowload (also called `bundle-zip`)
+* The signed artifacts will still be provided as a ZIP archive dowload (also called `bundle.zip`)
 
 Example:
 
