@@ -215,7 +215,7 @@ The restrictions can be applied to file elements, [file set elements](syntax#fil
 
 | File element | Supported restriction attributes                                                | Example
 |--------------|---------------------------------------------------------------------------------|--------
-| `<pe-file>`  | PE file headers: `product-name`, `product-version`                              | [PE file restrictions](examples/pe-restriction)
+| `<pe-file>`  | PE file headers: `product-name`, `product-version`                              | [PE file restrictions](examples#pe-restriction)
 | `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`  | [SBOM restrictions](examples#sbom-restriction)
 
 
