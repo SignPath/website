@@ -66,7 +66,7 @@ If you are using your own registry, specify the value you would use for Docker C
 
 ### 2. Create a signature for the metadata
 
-Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration#create-raw-signature) for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
+Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration/reference#create-raw-signature) for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
 
 ### 3. Attach the signature to the image
 

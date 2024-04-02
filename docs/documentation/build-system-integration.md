@@ -82,7 +82,7 @@ curl -H "Authorization: Bearer $API_TOKEN" \
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-Values for [user-defined parameters](/documentation/artifact-configuration#user-defined-parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
+Values for [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
 
 Example: `-F "Parameters[productVersion]=1.2.0"`
 

@@ -140,7 +140,7 @@ Create multiple artifact configurations for
 * projects that create different artifacts at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)
 
-Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or re-sign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration#number-of-matches) (`min-matches="0"`).
+Versioning ensures that your SignPath setup will still work for old versions of your artifacts, e.g. if you rebuild or re-sign an old version. Explicit versioning is only required if the structure of the artifact changes. If you just add files to a package, you might as well just [make them optional](/documentation/artifact-configuration/syntax#number-of-matches) (`min-matches="0"`).
 
 If you want to use versioned artifact configurations with CI
 

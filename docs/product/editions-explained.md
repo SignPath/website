@@ -110,7 +110,7 @@ Additional signing requests submitted from CI pipelines may be rejected and have
 
 ### File-based signing {#file-signing}
 
-SignPath directly supports signing various file formats. See [artifact configurations](/documentation/artifact-configuration#file-elements) for details about available signing methods and file types.
+SignPath directly supports signing various file formats. See [the artifact configuration reference](/documentation/artifact-configuration/reference#file-elements) for details about available signing methods and file types.
 
 ### Microsoft Office macros {#office-macros}
 
@@ -126,7 +126,7 @@ See [Office macros](/product/office-macros) for more information.
 
 SignPath supports signing XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
 
-See [artifact configuration](/documentation/artifact-configuration#xml-sign) for details.
+See [artifact configuration](/documentation/artifact-configuration/reference#xml-sign) for details.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
 
@@ -145,7 +145,7 @@ Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-c
 * Hardware Bill of Materials (HBOM)
 * and others
 
-See this [artifact configuration sample](/documentation/artifact-configuration#sbom-restriction) for details.
+See this [artifact configuration sample](/documentation/artifact-configuration/examples#sbom-restriction) for details.
 
 **Available for** _{{ site.data.editions | where: "signing_methods.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
 
@@ -192,7 +192,7 @@ Create [multiple artifact configurations](/documentation/projects#keeping-versio
 
 ### Metadata constraints
 
-You can restrict some [file attributes](/documentation/artifact-configuration#metadata-restrictions) in the artifact configuration. 
+You can restrict some [file attributes](/documentation/artifact-configuration/reference#metadata-restrictions) in the artifact configuration. 
 
 This is useful if you want to 
 
@@ -204,7 +204,7 @@ This is useful if you want to
 
 ### User-defined parameters
 
-You can define [parameters](/documentation/artifact-configuration#user-defined-parameters) for each signing request. 
+You can define [parameters](/documentation/artifact-configuration/syntax#parameters) for each signing request. 
 
 Use this to
 * create more restrictive artifact configurations
