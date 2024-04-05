@@ -1,3 +1,11 @@
+- date: '2024-04-11'
+  updates:
+    self_hosted_installations:
+      version: 1.161.0
+      improvements:
+        - text: |-
+            Added a safe-guard mechanism for `signpath-application` Pods which prevents startup on "inactive colors" due to deployment or configuration errors.
+          issues: [SIGN-6789]
 - date: '2024-03-28'
   updates:
     application:
