@@ -26,7 +26,7 @@ Both Cosign and DCT use concepts that differ widely from classic code signing me
 ### Similarities 
 
 * **No classic Certificate Authorities:** Manual key/certificate trust configuration ("pinning") required
-* **Signing items in OCI repositoies rather than files:** Signatures are not transferable to other repositories, e.g. in replication scenarios
+* **Signing items in OCI repositories rather than files:** Signatures are not transferable to other repositories, e.g. in replication scenarios
 
 ### Differences 
 
