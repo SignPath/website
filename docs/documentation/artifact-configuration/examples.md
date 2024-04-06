@@ -22,7 +22,9 @@ For the sake of clarity, all examples omit the XML prolog. A complete artifact c
 ~~~
 </div>
 
-## Predefined configuration for single Portable Executable file
+## Basic examples
+
+### Predefined configuration for single Portable Executable file
 
 This configuration works for all PE files.
 
@@ -34,7 +36,9 @@ This configuration works for all PE files.
 </artifact-configuration>
 ~~~
 
-## Signing multiple artifacts in a ZIP container
+## Signing multiple files
+
+### Signing multiple artifacts in a ZIP container
 
 You can sign multiple unrelated artifacts by packing them into a single ZIP file.
 
@@ -51,7 +55,7 @@ You can sign multiple unrelated artifacts by packing them into a single ZIP file
 </artifact-configuration>
 ~~~
 
-## Deep-signing an MSI installer {#msi-sample}
+### Deep-signing an MSI installer {#msi-sample}
 
 This will sign the PE files `libs/common.dll` and `main.exe`, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.
 
@@ -69,7 +73,7 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
 </artifact-configuration>
 ~~~
 
-## Signing similar directories within an MSI file
+### Signing similar directories within an MSI file
 
 This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
 
@@ -83,7 +87,9 @@ Example of a directory structure that would match this configuration:
 {%- include render-table.html -%}
 {: .noheader .noborder }
 
-## PE file metadata restriction {#pe-restriction}
+## Metadata restrictions
+
+### PE file metadata restriction {#pe-restriction}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
@@ -102,7 +108,7 @@ Example of a directory structure that would match this configuration:
 </artifact-configuration>
 ~~~
 
-## XML file schema restriction for CycloneDX SBOM {#sbom-restriction}
+### XML file schema restriction for CycloneDX SBOM {#sbom-restriction}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">

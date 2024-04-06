@@ -46,7 +46,7 @@ SignPath provides the following advantages:
 
 For _cosign_, there are additional specific advantages:     
 
-* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
+* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support Cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
 * You can use your own key material and **keep your signature data private** without having to operate an own Fulcio certificate authority system
 
 For _Notary v1 / Docker Content Trust (DCT)_, there are additional specific advantages:

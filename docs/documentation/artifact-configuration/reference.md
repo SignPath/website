@@ -177,7 +177,9 @@ Available for Enterprise subscriptions
 
 **Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
 
-Detached raw signatures can be used for arbitrary binary or text files or [signing Container Images using cosign](/documentation/signing-containers/cosign). The `create-raw-signature` directive supports the following parameters:
+Detached raw signatures can be used to sign any binary or text file. They can also be used to [sign _Cosign_ metadata files](/documentation/signing-containers/cosign).
+
+The `create-raw-signature` directive supports the following parameters:
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------

@@ -4,42 +4,80 @@ sub_header: Sigstore Cosign
 layout: resources
 toc: true
 show_toc: 0
-description: Documentation for signing Docker images with SignPath using cosign
+description: Documentation for signing Docker images with SignPath using Cosign
 ---
 
-## Overview
+## Cosign Overview
 
-_Cosign_ is part of the [Sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers and Github Actions builds to authenticate using OpenIdConnect and receive short-lived signing keys from a Fulcio certificate authority (CA). All signatures are recorded in a public transparency log (called Rekor). Due to the keys not being persistent anywhere, _cosign_ refers to this method as "keyless signing".
-
-This approach is not practical for all organizations which
-* use an automated build system that does not support cosign (currently only Github Actions SaaS and Gitlab SaaS) or
-* don't want their signatures to be logged in the public Rekor log and don't want to operate their own Fulcio CA
-
-For these organizations, signing with _cosign_ is only possible using public/private key pairs.
+_Cosign_ is part of the [Sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers to sign container images using OpenID user accounts from GitHub, Google or Microsoft. For those developers, Sigstore eliminates the need for certificates or locally storeed private keys.
 
 <div class="panel info" markdown="1">
-<div class="panel-header">X.509 certificate chains in cosign</div>
+<div class="panel-header">Sigstore architecture</div>
 
-_cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.
+Sigstore combines the _Cosign_ tool, the _Fulcio_ certificate authority and the _Rekor_ transparency log as follows:
+
+1. Cosign creates a metadata file for signing
+2. Fulcio authenticates the user account using OpenID Connect (OIDC)
+3. Fulcio creates a short-lived certificate for the OIDC identity using an ephemeral key and signs the metadata digest
+4. Rekor logs the signature in its public transparency log
+5. Cosign uploads signature and metadata to the image's repository
+   
+</div>
+
+## Advantages of using SignPath for Cosign
+
+While this works well for individual developers, organizations often have differen requirements, including
+
+* Control issuing of certificates and key management
+* Using automated CI/CD build system that do not support 3rd party OICD authentication
+* Do not use individual OICD user accounts for signing
+* No public signature logging (or operating their own Fulcio CA)
+
+SignPath supports Cosign signing using an organization's certificate and keys.
+
+Additionally, SignPath allows to process the entire metadata file. Metadata files contain
+
+* The container image's identity (e.g. Docker Hub namespace/repository identifiers)
+* The container image's hash digest
+* Optional data
+
+Submitting full metadata files instead of their hash codes has several advantages:
+
+* Full auditing of signed data
+* Additional verifications (e.g. image identity) can be performed before signing
+* Additional information (e.g. source and build metadata and attestations) can be inserted before signing
+
+SignPath will offer advanced verification and information features in the near future.
+
+<div class="panel info" markdown="1">
+<div class="panel-header">X.509 certificate chains in Cosign</div>
+
+_Cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.
 
 </div>
 
-## Prerequisites
+## How to use Cosign with SignPath
+
+When Cosign is used directly, it creates the metadata, signs it, and upload the signature. You can use Cosign with SignPath's [Cryptoki provider](/documentation/crypto-providers/cryptoki).
+
+When SignPath is used to sign Cosign metadata files, you need to perform each step separately:
+
+1. Use `cosign` to create the metadata file
+2. Use SignPath to create a signatore for the metadata 
+3. Use `cosign` to upload metadata and signature to your repository
+
+### Prerequisites
 
 Required components on the client: 
-* cosign in version 2.0.0 or higher
+* Cosign in version 2.0.0 or higher
 
 In your SignPath organization, you need the following entities:
-* a project with an artifact configuration of type _Detached raw signatures_
-* a certificate (only the public/private key pair will be used)
+* A project with an artifact configuration of type _Detached raw signatures_
+* A certificate (only the public/private key pair will be used)
 
-The Docker container image needs to be pushed to an OCI-compliant container registry.
+The Docker container image must be pushed to an OCI-compliant container registry.
 
-## Signing
-
-Signing container images with cosign using SignPath consists of 3 steps:
-
-### 1. Prepare the metadata for signing
+### Step 1: create the metadata file
 
 ~~~ bash
 # Extract the repository digest identifier for the given FQN
@@ -64,11 +102,11 @@ If you are using your own registry, specify the value you would use for Docker C
 `$TAG` refers the specific image tag (e.g. `latest`)
 </div>
 
-### 2. Create a signature for the metadata
+### Step 2: create a signature for the metadata
 
 Upload the `payload.json.zip` file to SignPath for signing. Use the artifact configuration "Detached raw signatures" for a single container image or extend it according to your needs. See [detached raw signatures](/documentation/artifact-configuration/reference#create-raw-signature) for more details. The following step expects the signed artifact to be stored as `payload.json.signed.zip`.
 
-### 3. Attach the signature to the image
+### Step 3: attach the signature to the image
 
 Finally, the following snippet will unzip the signed artifact, encode the signature in base64 for _cosign_ and upload the signature to the repository:
 
