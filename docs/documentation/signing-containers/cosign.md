@@ -26,7 +26,7 @@ Sigstore combines the _Cosign_ tool, the _Fulcio_ certificate authority and the 
 
 ## Advantages of using SignPath for Cosign
 
-While this works well for individual developers, organizations often have differen requirements, including
+While this works well for individual developers, organizations often have different requirements, including
 
 * Control issuing of certificates and key management
 * Using automated CI/CD build system that do not support 3rd party OICD authentication
@@ -63,7 +63,7 @@ When Cosign is used directly, it creates the metadata, signs it, and upload the 
 When SignPath is used to sign Cosign metadata files, you need to perform each step separately:
 
 1. Use `cosign` to create the metadata file
-2. Use SignPath to create a signatore for the metadata 
+2. Use SignPath to create a signature for the metadata 
 3. Use `cosign` to upload metadata and signature to your repository
 
 ### Prerequisites
