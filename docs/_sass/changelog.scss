@@ -42,12 +42,11 @@ section.changelog {
 			margin-bottom: 0px;
 			margin-top: 0px;
 			font-size: 1.5em;
-			padding-bottom: 5px;
-			border-bottom: 1px solid $grey-border-color;
+			margin-top: 20px;
+			border-top: 1px solid $grey-border-color;
 		
 			& > span {
-				display: inline-block;
-				float:right;
+				float: right;
 				font-size: 0.8em;
 				color: $dark-grey-font-color;
 			}
@@ -73,7 +72,9 @@ section.changelog {
 
 		ul p {
 			margin: 0px !important;
-			display: inline;
+			&:has(+ span) {
+				display: inline;
+			}
 		}
 
 		span.enterprise-only {

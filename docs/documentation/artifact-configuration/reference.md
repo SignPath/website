@@ -181,7 +181,7 @@ Detached raw signatures can be used for arbitrary binary or text files or [signi
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------
-| `file-name`        | Yes           |                              | Name of the output file containing the signature (you can reference the original file name via the `file.name` variable, e.g. `${file.name}.sig`)
+| `file-name`        | Yes           |                              | Name of the output file containing the signature. Use `$(file.name)` to reference the source file name.
 | `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
 | `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
 

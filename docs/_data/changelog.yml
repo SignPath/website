@@ -4,7 +4,7 @@
       version: 1.161.0
       improvements:
         - text: |-
-            Added a safe-guard mechanism for `signpath-application` Pods which prevents startup on "inactive colors" due to deployment or configuration errors.
+            Added a safeguard mechanism for `signpath-application` pods which prevents startup on inactive colors due to deployment or configuration errors.
           issues: [SIGN-6789]
 - date: '2024-03-28'
   updates:
@@ -12,7 +12,7 @@
       version: 1.160.1
       improvements:
         - text: |-
-            Detached raw signatures artifact configurations now allow to reference the original file name via the `file.name` variable, e.g. `${file.name}.sig`.
+            Artifact configuration: [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature) supports input filename substitution via `${file.name}`.
           issues: [SIGN-6771]
         - text: |-
             "Resubmit with current settings" now also works for signing requests which fail due to an _artifact retrieval_ error.
@@ -21,15 +21,17 @@
       version: 1.160.1
       breaking_changes:
         - text: |-
-            Hash signing operations are now happening via the `signingprocessorservice` component.
+            Hash signing operations are now performed by `signingprocessorservice`.
 
-            Therefore mandatory basic authentication configuration is necessary: `signingProcessorService.basicAuthenticationOptions`, resp. 
-            `fastSigningRequestProcessorServiceClientOptions.basicAuthenticationPassword` in `signpath-application` values.
-            See the "Generate basic authentication passwords and hashes" section in the installation guide how to generate.
+            You need to configure basic authentication configuration:
+            * signingprocessorservice: `signingProcessorService.basicAuthenticationOptions`
+            * signpath-application: `fastSigningRequestProcessorServiceClientOptions.basicAuthenticationPassword`
+
+            See "Generate basic authentication passwords and hashes" in the installation guide for more information.
           issues: [SIGN-6720]
       improvements:
         - text: |-
-            The "watch dog" mechanism for HSM SignServices doesn't require a TSA URL anymore. So the previously mandatory SignService values
+            The HSM SignServices watchdog doesn't require a TSA URL anymore. The previously mandatory SignService values
             config entry `appSettings.signService.cspWatchdogOptions.timestampingServerUrl` can be removed.
           issues: [SIGN-6825]
 - date: '2024-03-14'
