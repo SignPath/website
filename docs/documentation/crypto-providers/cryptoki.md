@@ -17,16 +17,14 @@ This section provides information how to use the SignPath Cryptoki library with 
 {%- assign table = site.data.tables.crypto-providers.cryptoki-supported-linux-distributions -%}
 {%- include render-table.html -%}
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">OpenSSL 3.0.0 - 3.0.8 incompatibility</div>
-
-
-Distributions with an OpenSSL version between 3.0.0 and 3.0.8 (including) don't support the the [OpenSSL](#openssl) and [osslsigncode](#osslsigncode) scenarios.
-The reason is an [OpenSSL bug](https://github.com/openssl/openssl/issues/20161) which has been fixed in OpenSSL 3.0.9.
-The issue expresses in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
-
-The workaround is to either replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
-</div>
+> **OpenSSL 3.0.0 - 3.0.8 incompatibility**
+>
+> Distributions with an OpenSSL version between 3.0.0 and 3.0.8 (including) don't support the the [OpenSSL](#openssl) and [osslsigncode](#osslsigncode) scenarios.
+> The reason is an [OpenSSL bug](https://github.com/openssl/openssl/issues/20161) which has been fixed in OpenSSL 3.0.9.
+> The issue results in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
+>
+> You need to replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
+{: .panel .warning }
 
 ### Installation
 
@@ -41,12 +39,10 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 {%- assign table = site.data.tables.crypto-providers.cryptoki-parameters -%}
 {%- include render-table.html -%}
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Keys are not specified directly</div>
-
-The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
-
-</div>
+> **Keys are not specified directly**
+>
+> The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+{: .panel .info }
 
 How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
@@ -73,11 +69,10 @@ If your signing tool does not provide guidance for using Cryptoki libraries, you
 
 _[OpenSSL]_ is a toolkit that provides a range of cryptographic operations, including signing.
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Important</div>
-
-Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions).
-</div>
+> **Important**
+>
+> Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions).
+{: .panel .warning }
 
 ### Setup
 
@@ -108,16 +103,17 @@ init = 0
 PIN = CONFIG
 ~~~
 
-
-<div class="panel info" markdown="1">
-<div class="panel-header">Default installation paths of libp11</div>
-
-Note that Linux distributions have different default installation paths for `libpkcs11.so`:
-
-{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-libp11-installation-paths -%}
-{%- include render-table.html -%}
-
-</div>
+> **Default installation paths of libp11**
+>
+> Note that Linux distributions have different default installation paths for `libpkcs11.so`:
+>
+> | Distribution                  | Default path 
+> |-------------------------------|--------------
+> | Debian/Ubuntu w/ OpenSSL 1.1  | `/usr/lib/x86_64-linux-gnu/engines-1.1/libpkcs11.so`
+> | Debian/Ubuntu w/ OpenSSL 3.x  | `/usr/lib/x86_64-linux-gnu/engines-3/libpkcs11.so`
+> | RedHat w/ OpenSSL 1.1         | `/usr/lib64/engines-1.1/libpkcs11.so`
+> | RedHat w/ OpenSSL 3.x         | `/usr/lib64/engines-3/libpkcs11.so`
+{: .panel .info }
 
 For Windows use .dll paths respectively (note the double backslashes):
 
@@ -135,12 +131,11 @@ Also set the following environment variable:
 
 _OpenSSL_ provides a variety of commands that can be used for signing. In this section, a few of them are outlined.
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip</div>
 
-For *Linux*, configuration, signing invocation and verification examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario OpenSSL`. See [Linux container samples](#linux-docker-samples).
-
-</div>
+> **Tip**
+>
+> For *Linux*, configuration, signing invocation and verification examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario OpenSSL`. See [Linux container samples](#linux-docker-samples).
+{: .panel .tip }
 
 Generally, all commands require the following parameters to work with the SignPath Cryptoki library:
 
@@ -157,28 +152,26 @@ Sample: sign `artifact.bin` and write the signature to `artifact.sig`.
 openssl dgst -engine pkcs11 -keyform engine -sign "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -sha256 -out "artifact.sig" "artifact.bin"
 ~~~ 
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Supported digests</div>
-
-The following digests are supported: `sha256`, `sha384`, `sha512`
-</div>
+> **Supported digests**
+>
+> The following digests are supported: `sha256`, `sha384`, `sha512`
+{: .panel .info }
 
 #### openssl pkeyutl
 
 The _[pkeyutl][openssl-pkeyutl]_ command performs low-level cryptographic operations, such as signing.
 
 <!-- todo omit?-->
-<div class="panel info" markdown="1">
-<div class="panel-header">Note: provide binary hash digest</div>
-
-The command does hash the input data but will use the data directly as an input for the signature algorithm. To create the hash of a file, you can use the following snippet:
-
-~~~ powershell
-$ArtifactHash = Get-FileHash "artifact.bin" -Algorithm "SHA256" # SHA1, SHA256, SHA384 and SHA512 are supported
-$ArtifactHashBytes = [byte[]] -split ($ArtifactHash.Hash -replace '..', '0x$& ')
-[IO.File]::WriteAllBytes("artifact.hash.bin", $ArtifactHashBytes)
-~~~
-</div>
+> **Note: provide binary hash digest**
+>
+> The command does hash the input data but will use the data directly as an input for the signature algorithm. To create the hash of a file, you can use the following snippet:
+> 
+> ~~~ powershell
+> $ArtifactHash = Get-FileHash "artifact.bin" -Algorithm "SHA256" # SHA1, SHA256, SHA384 and SHA512 are supported
+> $ArtifactHashBytes = [byte[]] -split ($ArtifactHash.Hash -replace '..', '0x$& ')
+> [IO.File]::WriteAllBytes("artifact.hash.bin", $ArtifactHashBytes)
+> ~~~
+{: .panel .info }
 
 Sample: sign the hash code in `artifact.hash.bin` using PKCS1 padding, write the signature to `artifact.sig`
 
@@ -208,23 +201,19 @@ Sample: sign the file `artifact.bin` using `certificate.pem`, write the detached
 openssl cms -engine pkcs11 -signer "certificate.pem" -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -keyform engine -sign -binary -in "artifact.bin" -noattr -out "artifact.sig" -outform PEM
 ~~~
 
-
-<div class="panel warning" markdown="1">
-<div class="panel-header">Important</div>
-
-_OpenSSL_ fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).
-</div>
-
+> **Important**
+>
+> _OpenSSL_ fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).
+{: .panel .warning }
 
 ## osslsigncode {#osslsigncode}
 
 _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the [OpenSSL](#openssl) section for details.
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Important</div>
-
-Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions) regarding the supported OpenSSL versions.
-</div>
+> **Important**
+>
+> Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions) regarding the supported OpenSSL versions.
+{: .panel .warning }
 
 ### Setup
 
@@ -247,11 +236,10 @@ osslsigncode sign `
 {%- assign table = site.data.tables.crypto-providers.cryptoki-osslsigncode-invocation-params -%}
 {%- include render-table.html -%}
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip</div>
-
-This invocation example is also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario osslsigncode`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-</div>
+> **Tip**
+>
+> This invocation example is also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario osslsigncode`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+{: .panel .tip }
 
 ## OpenSC pkcs11-tool (Linux)
 
@@ -263,11 +251,10 @@ Before version 0.23, `pkcs11-tool` always opened the Cryptoki session in a read/
 
 ### Invocation
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip</div>
-
-The following invocation examples are also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario Pkcs11Tool`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-</div>
+> **Tip**
+>
+> The following invocation examples are also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario Pkcs11Tool`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+{: .panel .tip }
 
 #### Common parameters
 
@@ -320,12 +307,10 @@ slot=1
 
 ### Invocation
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip</div>
-
-For *Linux*, configuration and invocation examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario JarSigner`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-
-</div>
+> **Tip**
+>
+> For *Linux*, configuration and invocation examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario JarSigner`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+{: .panel .tip }
 
 Synopsis for _jarsigner_ when using the SignPath Cryptoki library:
 
@@ -342,12 +327,10 @@ Sample: sign `myapp.jar`
 jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.SunPKCS11" -providerArg pkcs11.config -sigalg "SHA256withRSA" -storepass "CONFIG" myapp.jar "$ProjectSlug/$SigningPolicySlug" 
 ~~~
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Warning: Produce correct timestamps</div>
-
-When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
-
-</div>
+> **Warning: Produce correct timestamps**
+>
+> When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
+{: .panel .warning }
 
 [PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
 

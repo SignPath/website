@@ -15,12 +15,12 @@ To integrate SignPath in your build chain, you can use the [official SignPath mo
 Install-Module -Name SignPath
 ~~~
 
-<div class="panel " markdown="1">
-<div class="panel-header">Specify an an acceptable version range</div>
-The releases of the SignPath module follow [semantic versioning](https://semver.org/) principles. In automated scenarios, we recommend to fix the major version and set the minimum minor version. This ensures that the most current backwards-compatible version is installed.
-
-To achieve this, specify a lower and upper bound, e.g. `-MinimumVersion 4.0.0 -MaximumVersion 4.999.999`
-</div>
+> **Specify an an acceptable version range**
+>
+> The releases of the SignPath module follow [semantic versioning](https://semver.org/) principles. In automated scenarios, we recommend to fix the major version and set the minimum minor version. This ensures that the most current backwards-compatible version is installed.
+>
+> To achieve this, specify a lower and upper bound, e.g. `-MinimumVersion 4.0.0 -MaximumVersion 4.999.999`
+{: .panel .tip }
 
 ## SignPath PowerShell cmdlets
 

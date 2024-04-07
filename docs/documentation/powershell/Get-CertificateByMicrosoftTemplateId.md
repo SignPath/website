@@ -11,14 +11,11 @@ Gets a certificate from a Microsoft AD CS template ID.
 
 ## Syntax
 
-<div class="pssyntax" markdown="1">
-
 ~~~ powershell
 Get-CertificateByMicrosoftTemplateId
     -Store <System.Security.Cryptography.X509Certificates.StoreLocation>
     -TemplateId <String>
 ~~~
-</div>
 
 ## Description
 

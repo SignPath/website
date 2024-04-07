@@ -69,16 +69,16 @@ You may configure the system to accept certificates based on
 * the issuer (e.g. issued by a certain immediate certificate)
 * a Microsoft Certificate Server _template ID_ (see below)
 
-<div class='panel tip' markdown='1' >
-<div class='panel-header'>Use Active Directory computer groups via Microsoft Certificate Server</div>
-This is a very straightforward way to authorize specific groups of build nodes for SignPath:
-
-* Include all buiild nodes with certain security properties in a computer group
-* Use Microsoft Certificate Server to assign computer certificates to this group (we recommend using short-lived certificates, i.e. days or weeks, for security critical groups)
-* Specify the template ID in the Double Authentication Proxy configuration
-* Register the Double Authentication Proxy as trusted build system (see [configuration](#configuration))
-* Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/Submit-SigningRequest). Use the template ID to select the correct certificate client certificate.
-</div>
+> **Use Active Directory computer groups via Microsoft Certificate Server**
+>
+> This is a very straightforward way to authorize specific groups of build nodes for SignPath:
+> 
+> * Include all buiild nodes with certain security properties in a computer group
+> * Use Microsoft Certificate Server to assign computer certificates to this group (we recommend using short-lived certificates, i.e. days or weeks, for security critical groups)
+> * Specify the template ID in the Double Authentication Proxy configuration
+> * Register the Double Authentication Proxy as trusted build system (see [configuration](#configuration))
+> * Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/Submit-SigningRequest). Use the template ID to select the correct certificate client certificate.
+{: .panel .tip }
 
 This diagram shows how machine certificates, Double Authentication Proxy and SignPath work together:
 

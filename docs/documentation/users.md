@@ -32,11 +32,10 @@ Only [sign up][login page] for a new user account if you want to evaluate SignPa
 
 A user account may be used for one or more SignPath organizations. 
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Account unification</div>
-
-All social accounts and username/password accounts using the same email address are considered the same account.
-</div>
+> **Account unification**
+>
+> All social accounts and username/password accounts using the same email address are considered the same account.
+{: .panel .info }
 
 ### Invitations {#invitations}
 
@@ -66,13 +65,12 @@ Users can add API tokens to their own user account:
   * Click your user name (upper right corner) and choose _My profile_
   * Click _Generate token_ in the _API Token_ section
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Remember your token</div>
-
-API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.
-
-We recommend using a password safe for personal API tokens.
-</div>
+> **Remember your token**
+> 
+> API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.
+>
+> We recommend using a password safe for personal API tokens.
+{: .panel .warning }
 
 ## CI users {#ci}
 
@@ -82,29 +80,26 @@ They can also be used for other automation tasks. You may need to consider addin
 
 CI users can only authenticate with an API token. 
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Remember your token</div>
+> **Remember your token**
+>
+> API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.
+>
+> We recommend that you store API tokens used for CI integration in your CI system's build settings as secret values.
+{: .panel .warning }
 
-API tokens are only displayed when generated. Store them in a safe location. If an API token is lost, you need to regenerate it, potentially invalidating existing configurations using the previous token.
-
-We recommend that you store API tokens used for CI integration in your CI system's build settings as secret values.
-</div>
-
-<div class="panel tip" markdown="1">
-<div class="panel-header">Account unification</div>
-
-We recommend using a dedicated CI user per project, but you may opt to share CI users for all projects in a team.
-
-If you don't use [origin verification](/documentation/origin-verification), you should create a CI user per signing policy and strongly restrict access to the user's API token through your CI systems _secrets_ configuration.
-
-Example: Assume _Team 1_ has two projects _A_ and _B_, each with _test-signing_ and _release-signing_ signing policies. Consider creating CI users as follows:
-
-| Using origin verification | CI user per project                                       | CI user per team
-|---------------------------|-----------------------------------------------------------|---------------------------------------
-| **Yes**                   | `PrjA`, `PrjB`                                            | `Team1`
-| **No**                    | `PrjA-test`, `PrjA-release`, `PrjB-test`, `PrjB-release`  | `Team1-test`, `Team1-release`
-
-</div>
+> **Account unification**
+> 
+> We recommend using a dedicated CI user per project, but you may opt to share CI users for all projects in a team.
+> 
+> If you don't use [origin verification](/documentation/origin-verification), you should create a CI user per signing policy and strongly restrict access to the user's API token through your CI systems _secrets_ configuration.
+> 
+> Example: Assume _Team 1_ has two projects _A_ and _B_, each with _test-signing_ and _release-signing_ signing policies. Consider creating CI users as follows:
+> 
+> | Using origin verification | CI user per project                                       | CI user per team
+> |---------------------------|-----------------------------------------------------------|---------------------------------------
+> | **Yes**                   | `PrjA`, `PrjB`                                            | `Team1`
+> | **No**                    | `PrjA-test`, `PrjA-release`, `PrjB-test`, `PrjB-release`  | `Team1-test`, `Team1-release`
+{: .panel .tip }
 
 ## Support users {#support}
 
@@ -136,12 +131,11 @@ Please always mention your *Organization ID* in support requests.
 * Trusted build system management
 * Delete the SignPath organization
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Role distribution hints</div>
-
-* **User administration** may be performed in your organization's directory and synchronized to SignPath. 
-* **Project administration** may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization's policies and approval processes. Day to day configuration changes may be delegated via each project's _configurators_ role.
-</div>
+> **Role distribution hints**
+> 
+> * **User administration** may be performed in your organization's directory and synchronized to SignPath. 
+> * **Project administration** may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization's policies and approval processes. Day to day configuration changes may be delegated via each project's _configurators_ role.
+{: .panel .tip }
 
 ## Permissions {#permissions}
 

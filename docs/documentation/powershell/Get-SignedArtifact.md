@@ -11,8 +11,6 @@ Downloads a signed artifact based on a signing request ID.
 
 ## Syntax
 
-<div class="pssyntax" markdown="1">
-
 ~~~ powershell
 Get-SignedArtifact 
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
@@ -23,7 +21,6 @@ Get-SignedArtifact
     [-WaitForCompletionTimeoutInSeconds <Int32>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
 ~~~
-</div>
 
 ## Description
 

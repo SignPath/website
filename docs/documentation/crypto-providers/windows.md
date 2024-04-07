@@ -27,21 +27,19 @@ To install both CSP and KSP,
 
 Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or PowerShell Core session.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Verification</div>
-
-To verify the successful registration of the CSP and KSP, you can use the following command:
-
-~~~powershell
-certutil -csplist
-~~~
-
-It should contain two entries:
-
-   * `Provider Name: SignPathCSP`
-   * `Provider Name: SignPathKSP`
-
-</div>
+> **Verification**
+>
+> To verify the successful registration of the CSP and KSP, you can use the following command:
+>
+> ~~~powershell
+> certutil -csplist
+> ~~~
+> 
+> It should contain two entries:
+> 
+>    * `Provider Name: SignPathCSP`
+>    * `Provider Name: SignPathKSP`
+{: .panel .info }
 
 CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:
 
@@ -71,12 +69,10 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 {%- assign table = site.data.tables.crypto-providers.windows-csp-ksp-general-params -%}
 {%- include render-table.html -%}
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Keys are not specified directly</div>
-
-The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
-
-</div>
+> **Keys are not specified directly**
+>
+> The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+{: .panel .info }
 
 ### Error handling
 
@@ -90,12 +86,10 @@ Note that the CSP error code has to be retrieved via [`GetLastError()`](https://
 
 _[SignTool.exe]_ is a command line tool by Microsoft. _SignTool.exe_ can use both the SignPath CSP and the SignPath KSP. We recommend using the SignPath KSP whenever possible.
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">Important</div>
-
-Only the 64-bit version of _SignTool.exe_ is supported.
-
-</div>
+> **Important**
+>
+> Only the 64-bit version of _SignTool.exe_ is supported.
+{: .panel .warning }
 
 _SignTool.exe_ requires the following parameters:
 
@@ -108,18 +102,14 @@ Sample: sign `MyApp.exe`
 signtool.exe sign /csp SignPathKSP /kc "$ProjectSlug/$SigningPolicySlug" /fd SHA256 /f "certificate.cer" "MyApp.exe"
 ~~~
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip: Diagnostics</div>
+> **Tip: Diagnostics**
+>
+> Specify `/v` to enable verbose output.
+{: .panel .tip }
 
-Specify `/v` to enable verbose output.
-
-</div>
-
-<div class="panel warning" markdown="1">
-<div class="panel-header">Warning: Produce correct timestamps</div>
-
-When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
-
-</div>
+> **Warning: Produce correct timestamps**
+>
+> When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
+{: .panel .warning }
 
 [SignTool.exe]: https://docs.microsoft.com/en-us/dotnet/framework/tools/signtool-exe

@@ -149,20 +149,6 @@ cryptoki-errors:
     - situation: Other unspecified errors (fall back)   
       error: "`CKR_GENERAL_ERROR`"
 
-cryptoki-openssl-libp11-installation-paths:
-  headers:
-    distro: Distribution
-    default_path: Default path
-  body:
-    - distro: Debian/Ubuntu w/ OpenSSL 1.1
-      default_path: "`/usr/lib/x86_64-linux-gnu/engines-1.1/libpkcs11.so`"
-    - distro: Debian/Ubuntu w/ OpenSSL 3.x
-      default_path: "`/usr/lib/x86_64-linux-gnu/engines-3/libpkcs11.so`"
-    - distro: RedHat w/ OpenSSL 1.1
-      default_path: "`/usr/lib64/engines-1.1/libpkcs11.so`"
-    - distro: RedHat w/ OpenSSL 3.x
-      default_path: "`/usr/lib64/engines-3/libpkcs11.so`"
-
 cryptoki-openssl-env:
   headers:
     env: Environment variable

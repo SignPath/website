@@ -56,12 +56,10 @@ Under _Provisioning_, click _Get started_, then enter the following settings:
 
 ![Microsoft Entra ID - select provisioning](/assets/img/resources/documentation_scim-04a-select-provisioning.png){:.margin-left}
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Dry-Run mode</div>
-
-By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when done (see step 7).
-
-</div>
+> **Dry-Run mode**
+> 
+> By specifying the `/dry-run` postfix in the _Tentant URL_, you tell the SignPath connector to only simulate the updates/changes, but not perform any write operations. We recommend testing the setup with this configuration and to remove the `/dry-run` URL segment when done (see step 7).
+{: .panel .tip }
 
 Click "Test connection" to confirm that the configuration is correct. When successful, save the provisioning settings.
 
@@ -83,18 +81,16 @@ Change the _Mapping type_ to "Expression" and enter the following expression: `A
 
 ![Microsoft Entra ID - mapping expression](/assets/img/resources/documentation_scim-05d-mapping-part4.png){:.margin-left}
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Mapping expression</div>
-
-To find out the value for `<your-sso-identifier>:`, open an exising user on SignPath. In the _Identity_ field, everything before the first `:` is your SSO identifier.
-
-![SignPath - look up SSO identifier](/assets/img/resources/documentation_scim-05e-sso-identifier-on-signpath.png)
-
-In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the _SignPath Identity_ (after the `:`) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use `[objectId]`. If you are forwarding your `sid` from your Active Directory, use `[onPremisesSecurityIdentifier]`.
-
-_For details on how the expression system works in Azure, see the [Microsoft reference for writing expressions for attribute mappings]._
-
-</div>
+> **Mapping expression**
+>
+> To find out the value for `<your-sso-identifier>:`, open an exising user on SignPath. In the _Identity_ field, everything before the first `:` is your SSO identifier.
+> 
+> ![SignPath - look up SSO identifier](/assets/img/resources/documentation_scim-05e-sso-identifier-on-signpath.png)
+> 
+> In order for SignPath to be able to map your Microsoft Entra ID users correctly, the second part of the _SignPath Identity_ (after the `:`) should map to the respective field of the Microsoft Entra ID user. If you are mapping your Microsoft Entra ID users directly, you can use `[objectId]`. If you are forwarding your `sid` from your Active Directory, use `[onPremisesSecurityIdentifier]`.
+>
+> _For details on how the expression system works in Azure, see the [Microsoft reference for writing expressions for attribute mappings]._
+{: .panel .tip}
 
 After saving the mapping, you can now test your configuration.
 
@@ -120,40 +116,35 @@ After you successfully tested the configuration, you can remove the `/dry-run` p
 
 You can now assign all users and groups that you want to synchronize.
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Notes on the synchronization</div>
+> **Notes on the synchronization**
+> 
+> **User synchronization:**
+> 
+> In the default mapping configuration, Entra ID users are initially mapped to SignPath users by comparing the following attribute values: 
+> * First, the `externalId` attribute configured in step 5
+> * Second, the `displayName` attribute
+> 
+> Every user must be assigned at most one role other than _Regular User_, otherwise the synchronization will fail.
+> 
+> When an Entra ID user is removed from all groups that are synchronized, the SignPath user will be deactivated.
+> 
+> **Group synchronization:**
+> 
+> * Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
+> * Nested groups are not supported by Microsoft by Microsoft Entra. However, if a user is both in a first- and second-level group, their group assignment (but not role assignment) is correctly resolved. See the [official Microsoft documentation on scoping].
+> * We suggest creating two "types" of groups:
+> 	* _Role groups_ like "PKI Team" or "Auditors" where users are mapped to a specific role, e.g. _Certificate Administrator_ or _Global Reader_.
+> 	* _Project specific groups_ that can be assigned within SignPath, such as "Project 1 Submitters" or "Project 2 Configurators". You can assign these groups the role _Regular User_.
+> 
+> After the first mapping is done, Azure will match users and groups using their unique IDs.
+{: .panel .tip}
 
-**User synchronization:**
-
-In the default mapping configuration, Entra ID users are initially mapped to SignPath users by comparing the following attribute values: 
-* First, the `externalId` attribute configured in step 5
-* Second, the `displayName` attribute
-
-Every user must be assigned at most one role other than _Regular User_, otherwise the synchronization will fail.
-
-When an Entra ID user is removed from all groups that are synchronized, the SignPath user will be deactivated.
-
-**Group synchronization:**
-
-* Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
-* Nested groups are not supported by Microsoft by Microsoft Entra. However, if a user is both in a first- and second-level group, their group assignment (but not role assignment) is correctly resolved. See the [official Microsoft documentation on scoping].
-* We suggest creating two "types" of groups:
-	* _Role groups_ like "PKI Team" or "Auditors" where users are mapped to a specific role, e.g. _Certificate Administrator_ or _Global Reader_.
-	* _Project specific groups_ that can be assigned within SignPath, such as "Project 1 Submitters" or "Project 2 Configurators". You can assign these groups the role _Regular User_.
-
-After the first mapping is done, Azure will match users and groups using their unique IDs.
-
-</div>
-
-<div class="panel tip" markdown="1">
-<div class="panel-header">Troubleshooting</div>
-
-All synchronization attempts can be viewed in the _Enterprise Application_ under _Provisioning logs_.
-
-Please note that some items may take a couple of hours to be synchronized.
-
-</div>
-
+> **Troubleshooting**
+>
+> All synchronization attempts can be viewed in the _Enterprise Application_ under _Provisioning logs_.
+>
+> Please note that some items may take a couple of hours to be synchronized.
+{: .panel .tip}
 
 [Microsoft reference for writing expressions for attribute mappings]: https://learn.microsoft.com/en-us/entra/identity/app-provisioning/functions-for-customizing-application-data
 [official Microsoft documentation on scoping]: https://learn.microsoft.com/en-us/entra/identity/app-provisioning/how-provisioning-works#scoping

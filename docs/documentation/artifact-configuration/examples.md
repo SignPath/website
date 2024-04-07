@@ -10,17 +10,17 @@ datasource: tables/artifact-configuration
 
 ## Syntax
 
-<div class='panel info' markdown='1' >
-<div class='panel-header'> Examples are shortened</div>
-For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
-
-~~~ xml
-<?xml version="1.0" encoding="utf-8" ?>
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <!-- ... -->
-</artifact-configuration>
-~~~
-</div>
+> **Examples are shortened**
+>
+> For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
+> 
+> ~~~ xml
+> <?xml version="1.0" encoding="utf-8" ?>
+> <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+>   <!-- ... -->
+> </artifact-configuration>
+> ~~~
+{: .panel .info }
 
 ## Basic examples
 

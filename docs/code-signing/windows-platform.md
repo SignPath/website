@@ -22,14 +22,14 @@ Windows marks downloaded software as insecure ("Mark-of-the-Web") and evaluates 
 * A missing or invalid signature will lead to a security warning, encouraging the user to abort the execution.
 * A valid signature will either prompt the user with the publisher name, or silently execute the program, depending on the certificate’s SmartScreen reputation (see below).
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Mark-of-the-Web: downloaded files and code signing</div>
-The Mark-of-the-Web (MotW) is a flag on a file that indicates it has been *downloaded from the internet*. It is applied by browsers and other tools that download files to local disks. This indicates to Windows that the program might not be secure. When the program is started, the signature and certificate validation process is executed. 
-
-All major browsers for Windows apply the MotW correctly (Internet Explorer, Edge, Chrome, Firefox and Opera). Notably, 7zip does not propagate the MotW when unpacking. 
-
-You can see (and remove) this indication in Windows Explorer by opening the program file’s Properties dialog just below the file attributes.
-</div>
+> **Mark-of-the-Web: downloaded files and code signing**
+> 
+> The Mark-of-the-Web (MotW) is a flag on a file that indicates it has been *downloaded from the internet*. It is applied by browsers and other tools that download files to local disks. This indicates to Windows that the program might not be secure. When the program is started, the signature and certificate validation process is executed. 
+>
+> All major browsers for Windows apply the MotW correctly (Internet Explorer, Edge, Chrome, Firefox and Opera). Notably, 7zip does not propagate the MotW when unpacking. 
+>
+> You can see (and remove) this indication in Windows Explorer by opening the program file’s Properties dialog just below the file attributes.
+{: .panel .info}
 
 #### Microsoft SmartScreen
 
@@ -48,23 +48,24 @@ There are two ways to gain **SmartScreen reputation**:
 * **Standard (OV) certificates:** The certificate is encountered several times in the wild, and no malign usage was reported. SmartScreen collects this data from Windows users.
 * **Extended Validation (EV) certificates:** these certificates have full reputation when they are issued.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">EV certificates strongly recommended for Internet downloads</div>
-If your programs are downloaded and installed by users, SmartScreen reputation is very important. Without full reputation, users will be warned not to trust your software, and the option to execute or install it is hidden behind a "more information" link. 
 
-Renewed standard (OV) certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
-</div>
+> **EV certificates strongly recommended for Internet downloads**
+>
+> If your programs are downloaded and installed by users, SmartScreen reputation is very important. Without full reputation, users will be warned not to trust your software, and the option to execute or install it is hidden behind a "more information" link. 
+> 
+> Renewed standard (OV) certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
+{: .panel .info}
 
-<div class="panel product" markdown="1">
-<div class="panel-header">SignPath.io: use EV certificates without USB tokens</div>
-EV code-signing certificates must be stored on secure hardware. Normally this means that you will receive a USB token from the CA. These tokens are difficult to use in team scenarios and automated builds &ndash; you will have to store them safely and attach them to build computers when needed. They usually require installation of device drivers, CSPs, and often password entry for each signature. The need to build on a physical computer also defies the goal of having safe, reproducable build environments. 
-
-**SignPath.io** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
-
-* Request an attested certificate siging request (CSR) from SignPath.io
-* Buy an EV certificate from your favorite CA
-* Download the certificate from the CA, upload it to SignPath.io (does not include private key)
-</div>
+> **SignPath.io: use EV certificates without USB tokens**
+>
+> EV code-signing certificates must be stored on secure hardware. Normally this means that you will receive a USB token from the CA. These tokens are difficult to use in team scenarios and automated builds &ndash; you will have to store them safely and attach them to build computers when needed. They usually require installation of device drivers, CSPs, and often password entry for each signature. The need to build on a physical computer also defies the goal of having safe, reproducable build environments. 
+> 
+> **SignPath.io** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
+> 
+> * Request an attested certificate siging request (CSR) from SignPath.io
+> * Buy an EV certificate from your favorite CA
+> * Download the certificate from the CA, upload it to SignPath.io (does not include private key)
+{: .panel .product}
 
 ### Verifications for all programs
 
@@ -142,12 +143,12 @@ The private key of a certificate must be properly protected. Theft of private ke
 
 An HSM is a device that stores secret keys and performs cryptographic operations using these keys. When used properly, the HSM will generate the key itself, and will never expose it to any user or any other device. So when you use a HSM for signing, the HSM will not give the key to the signing software. Rather, the signing software will send the data (the digest) to the HSM and ask for a signature.
 
-<div class="panel warning" markdown="1">
-<div class="panel-header">HSM limitations</div>
-Note that hardware keys can still be physically stolen, especially when stored on inexpensive USB devices. 
-
-Additionally, even if the key is not stolen, it could be abused by a hacker who gains access to the HSM, or a system that can access the HSM, such as a build server.
-</div>
+> **HSM limitations**
+>
+> Note that hardware keys can still be physically stolen, especially when stored on inexpensive USB devices. 
+>
+> Additionally, even if the key is not stolen, it could be abused by a hacker who gains access to the HSM, or a system that can access the HSM, such as a build server.
+{: .panel .warning }
 
 ### Using HSMs for code signing on Windows
 
@@ -160,20 +161,19 @@ A CSP can provide these services:
 
 HSMs usually bring their own installable CSPs. You can think of the CSP as a device driver for the HSM.
 
-<div class='panel info' markdown="1">
-<div class='panel-header'>HSM code signing under the hood</div>
-
-Here is what happens when you call SignTool.exe with a certificate from an HSM:
-
-1. **SignTool.exe** calls the Windows CryptoAPI (**CAPI**) and passes the **file** and **certificate ID**
-1. **CAPI** finds the Subject Interface Package (**SIP**) for the **file** type
-1. The **SIP** computes the file's hash **digest** 
-1. **CAPI** selects the **HSM**'s Cryptographic Service Provider (**CSP**) based on the certificate
-1. **CAPI** calls the **CSP** with the **digest** and the **certificate ID**
-1. The **CSP** submits a *create signature* request to the **HSM**
-1. The **HSM** creates a **signature**
-1. The **SIP** writes the **signature** to the **file**
-</div>
+> **HSM code signing under the hood**
+> 
+> Here is what happens when you call SignTool.exe with a certificate from an HSM:
+> 
+> 1. **SignTool.exe** calls the Windows CryptoAPI (**CAPI**) and passes the **file** and **certificate ID**
+> 2. **CAPI** finds the Subject Interface Package (**SIP**) for the **file** type
+> 3. The **SIP** computes the file's hash **digest** 
+> 4. **CAPI** selects the **HSM**'s Cryptographic Service Provider (**CSP**) based on the certificate
+> 5. **CAPI** calls the **CSP** with the **digest** and the **certificate ID**
+> 6. The **CSP** submits a *create signature* request to the **HSM**
+> 7. The **HSM** creates a **signature**
+> 8. The **SIP** writes the **signature** to the **file**
+{: .panel .info }
 
 In this process, the HSM will never expose the private key to any other system.
 

@@ -116,12 +116,12 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > SignPath allows you to configure any number of certificates at any given time. (Available HSM key storage capacity depends on your subscription type.)
 
-<div class='panel tip' markdown='1' data-title='Do a cost/benefit analysis'>
-<div class='panel-header'>Do a cost/benefit analysis</div>
-Buying multiple EV certificates can be costly. On the other hand, non-EV certificates will always start with zero [SmartScreen](https://en.wikipedia.org/wiki/Microsoft_SmartScreen) reputation.
-
-We recommend that you consider buying separate certificates for major product lines, teams or customers. However, you can have a perfectly secure code signing process with a single release certificate.
-</div>
+> **Do a cost/benefit analysis**
+>
+> Buying multiple EV certificates can be costly. On the other hand, non-EV certificates will always start with zero [SmartScreen](https://en.wikipedia.org/wiki/Microsoft_SmartScreen) reputation.
+> 
+> We recommend that you consider buying separate certificates for major product lines, teams or customers. However, you can have a perfectly secure code signing process with a single release certificate.
+{: .panel .tip }
 
 | PKIC recommendation details | Remarks |
 |-----------------------------|---------|
