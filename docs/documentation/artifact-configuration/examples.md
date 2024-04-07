@@ -77,14 +77,12 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
 
 This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
 
-{%- assign table = site.data.tables.artifact-configuration.similar-directories-example -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.similar-directories-example -%}
 {: .noheader .noborder }
 
 Example of a directory structure that would match this configuration:
 
-{%- assign table = site.data.tables.artifact-configuration.similar-directories-example-match -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.similar-directories-example-match -%}
 {: .noheader .noborder }
 
 ## Metadata restrictions

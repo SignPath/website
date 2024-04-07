@@ -111,8 +111,7 @@ All supported container formats have an internal directory structure. You can se
 
 You can either specify these directories in the `path` attribute of each file element or nest these file elements within `<directory>` elements.
 
-{%- assign table = site.data.tables.artifact-configuration.directory-example -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.directory-example -%}
 
 ### `<zip-file>` element {#zip-file-element}
 
@@ -189,8 +188,7 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 ### File set example
 
-{%- assign table = site.data.tables.artifact-configuration.file-set-example -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.file-set-example -%}
 
 ## User-defined parameters {#parameters}
 

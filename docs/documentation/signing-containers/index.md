@@ -30,8 +30,7 @@ Both Cosign and DCT use concepts that differ widely from classic code signing me
 
 ### Differences 
 
-{%- assign table = site.data.tables.signing-containers.methods-differences -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.signing-containers.methods-differences -%}
 {: .row-headers }
 
 ### Why use SignPath for container signing?

@@ -2,7 +2,7 @@
 <table>
     <thead>
         <tr>
-        {%- for header in table.headers | where: -%}
+        {%- for header in include.table.headers | where: -%}
             {% assign columnId = header[0] %}
             {%- unless columnId == "_attributes" or table-omit-columns contains columnId -%}
                 <th markdown="1" {% for attribute in table.headers._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
@@ -14,7 +14,7 @@
         </tr>
     </thead>
     <tbody>
-        {%- for row in table.body -%}
+        {%- for row in include.table.body -%}
             {%- assign displayRow = true -%}
             {%- if table-filter-column != nil and table-filter-value != nil -%}
                 {%- unless row[table-filter-column] contains table-filter-value -%}
@@ -23,7 +23,7 @@
             {%- endif -%}
             {%- if displayRow == true -%}
                 <tr>
-                    {%- for cell in table.headers -%}
+                    {%- for cell in include.table.headers -%}
                         {%- assign columnId = cell[0] -%}
                         {%- unless columnId == "_attributes" or table-omit-columns contains columnId -%}
                             <td markdown="1" {% for attribute in row._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >

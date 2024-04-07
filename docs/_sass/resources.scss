@@ -355,6 +355,15 @@ table.break-column-1 {
 		}
 	}
 }
+table.break-column-2 {
+	tr td:nth-child(2) {
+		word-break: break-all;
+		min-width: 10em;
+		code {
+			white-space: inherit;
+		}
+	}
+}
 
 div.language-powershell {
 	& span.err {

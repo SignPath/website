@@ -816,7 +816,7 @@
             * `appSettings.deletionProcessorService`
             * `appSettings.signingProcessorService`
           issues: [SIGN-5442]
-        - text: Configuration value `appSettings.notificationsProcessorService.smtpServerOptions.useSsl` has been renamed to `.secureSocketMode` and the former `false` value now corresponds to `'None'`, resp. `true` value now corresponds to `'Ssl'`.
+        - text: Configuration value `appSettings.notificationsProcessorService.smtpServerOptions.useSsl` has been renamed to `.secureSocketMode`. Change `false` to `'None'` and `true` to `'Ssl'`.
           issues: [SIGN-5464]
       new_features:
         - text: Added support for SMTP StartTLS protocol.

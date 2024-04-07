@@ -126,7 +126,7 @@ In order for SignPath to ensure that only valid tags can be signed, you need to 
 > <a name="fqn"/> 
 > **Fully qualified name (FQN)**
 > 
-> For images hosted on Docker Hub, the FQN is `docker.io/<namespace>/<repository>`, e.g. `docker.io/jetbrains/teamcity-server`. 
+> For images hosted on Docker Hub, the FQN is `docker.io/$namespace/$repository`, e.g. `docker.io/jetbrains/teamcity-server`. 
 > 
 > If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using `docker pull myreg.jfrog.io/> myrepo/myimage:latest`, the FQN would be `myreg.jfrog.io/myrepo/myimage`.
 {: .panel .info }
@@ -286,7 +286,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 > 
 > **Using environment variables for authentication**
 > 
-> If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable respectively. See the [Notary documentation](https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
+> If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable. See the [Notary documentation](https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
 > 
 > **WaitForCompletion option**
 > 

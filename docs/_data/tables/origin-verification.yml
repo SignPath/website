@@ -27,7 +27,7 @@ appveyor-setup:
           * Remember the ② **SignPath API token** for the next step
         2. On [ci.appveyor.com](https://ci.appveyor.com)
           * Open *Account Settings* and choose *[Encrypt YAML](https://ci.appveyor.com/tools/encrypt)*
-          * Enter ② **``Bearer <SIGNPATH_API_TOKEN>``** (without &lt;brackets&gt;)
+          * Enter ② **``Bearer $SIGNPATH_API_TOKEN``** (without $)
           * Remember the ③ **encrypted SignPath API token** for the next step
       remarks: AppVeyor lets you encrypt secret values. You can then safely use the encrypted string in your appveyor.yaml file
     - action: Add a deploy Webhook
@@ -37,17 +37,17 @@ appveyor-setup:
         ~~~ yaml
         deploy:
         - provider: Webhook
-          url: https://app.signpath.io/API/v1/<ORGANIZATION_ID>/Integrations/AppVeyor?ProjectSlug=<PROJECT_SLUG>&SigningPolicySlug=<SIGNING_POLICY_SLUG>&ArtifactConfigurationSlug=<ARTIFACT_CONFIGURATION_SLUG>
+          url: https://app.signpath.io/API/v1/$ORGANIZATION_ID/Integrations/AppVeyor?ProjectSlug=$PROJECT_SLUG&SigningPolicySlug=$SIGNING_POLICY_SLUG&ArtifactConfigurationSlug=$ARTIFACT_CONFIGURATION_SLUG
           authorization:
-            secure: <ENCRYPTED_SIGNPATH_API_TOKEN>
+            secure: $ENCRYPTED_SIGNPATH_API_TOKEN
         ~~~
 
         | Parameter                                                 | Description
         |-----------------------------------------------------------|--------------------------------------------------------------------------------
-        | `<ORGANIZATION_ID>`                                       | SignPath organization ID (can be retrieved from the organization page)
-        | `<PROJECT_SLUG>`                                          | Project slug
-        | `<SIGNING_POLICY_SLUG>`                                   | Signing policy slug
-        | `<ARTIFACT_CONFIGURATION_SLUG>`                           | _Optional_ artifact configuration slug (default artifact configuration if not specified)
-        | `<ENCRYPTED_SIGNPATH_API_TOKEN>`                          | ③ The encrypted value from the previous step
+        | `$ORGANIZATION_ID`                                       | SignPath organization ID (can be retrieved from the organization page)
+        | `$PROJECT_SLUG`                                          | Project slug
+        | `$SIGNING_POLICY_SLUG`                                   | Signing policy slug
+        | `$ARTIFACT_CONFIGURATION_SLUG`                           | _Optional_ artifact configuration slug (default artifact configuration if not specified)
+        | `$ENCRYPTED_SIGNPATH_API_TOKEN`                          | ③ The encrypted value from the previous step
       _attributes:
         steps: {colspan: 2}

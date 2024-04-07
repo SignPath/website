@@ -102,8 +102,7 @@ These checks are performed to ensure that the binary artifacts result purely fro
 This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
 ![AppVeyor Setup flow](/assets/img/resources/documentation_build-integration_appveyor.png)
 
-{%- assign table = site.data.tables.origin-verification.appveyor-setup -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.origin-verification.appveyor-setup -%}
 
 ### Attached build documentation
 

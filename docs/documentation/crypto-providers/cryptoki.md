@@ -1,6 +1,6 @@
 ---
 main_header: Crypto Providers
-sub_header: Cryptoki/PKCS#11
+sub_header: Cryptoki/PKCS #11
 layout: resources
 toc: true
 show_toc: 3
@@ -14,8 +14,12 @@ This section provides information how to use the SignPath Cryptoki library with 
 
 ### Supported Linux distributions
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-supported-linux-distributions -%}
-{%- include render-table.html -%}
+| Distribution | Version         | Comment
+|--------------|-----------------|-------------------
+| Debian       | 11
+| Ubuntu       | 20.04           | Except [osslsigncode](#osslsigncode)
+| RedHat       | 8 (latest minor) 
+| RedHat       | 9 (latest minor)
 
 > **OpenSSL 3.0.0 - 3.0.8 incompatibility**
 >
@@ -28,16 +32,23 @@ This section provides information how to use the SignPath Cryptoki library with 
 
 ### Installation
 
-Simply copy-deploy the `Windows\SignPath.Cryptoki.dll` (Windows) resp. `Linux/libSignPath.Cryptoki/<OpenSslVersion>/libSignPath.Cryptoki.so` (Linux) library file of the Crypto Providers ZIP archive. To choose the right OpenSSL version, check the output of `openssl version` on your target system.
+Simply copy the library file from the Crypto Providers ZIP archive to a directory in your system's file path.
 
-The various signing tools require the target system's file path of the library file in their configurations.
+* Windows: `Windows\SignPath.Cryptoki.dll` 
+* Linux: `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so`
+
+Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
 ### Parameters {#cryptoki-parameters}
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), Cryptoki-enabled tools usually provide the following parameters:
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-parameters -%}
-{%- include render-table.html -%}
+| Parameter | Value for the SignPath Cryptoki Library | Description
+|-----------|-----------------------------------------|------------------------------------------
+| PIN       | `$OrganizationId:$ApiToken` or `CONFIG` | SignPath _Organization_ and _Submitter_ API token, separated by a colon. Specify `CONFIG` to use the values from the [configuration file or environment variables][config-values].
+| Key ID    | `$ProjectSlug/$SigningPolicySlug`       | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash
+
+[config-values]: /documentation/crypto-providers#crypto-provider-config-values
 
 > **Keys are not specified directly**
 >
@@ -50,8 +61,12 @@ How these parameters can be specified depends on the tool being used. Since not 
 
 The following table shows the [PKCS #11] Cryptoki function return values for the different error situations when calling the SignPath REST API.
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-errors -%}
-{%- include render-table.html -%}
+| Situation                                                          | PKCS #11 error code
+|--------------------------------------------------------------------|--------------------------
+| Transient errors like HTTP timeouts or 503                         | `CKR_FUNCTION_FAILED`
+| Non-transient service errors (e.g. 500 Internal Server Error)      | `CKR_DEVICE_ERROR`
+| User errors detected by service (4xx returned)                     | `CKR_ARGUMENTS_BAD`
+| Other unspecified errors (fall back)                               | `CKR_GENERAL_ERROR`
 
 ### Integration with signing tools
 
@@ -124,13 +139,13 @@ MODULE_PATH = C:\\path\\to\\SignPath.Cryptoki.dll
 
 Also set the following environment variable:
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-env -%}
-{%- include render-table.html -%}
+| Environment variable | Value                               | Description
+|----------------------|-------------------------------------|-------------------------
+| `OPENSSL_CONF`"      | Path to `openssl-signpath.cnf` file | This variable tells OpenSSL to load the custom configuration file
 
 ### Invocation
 
 _OpenSSL_ provides a variety of commands that can be used for signing. In this section, a few of them are outlined.
-
 
 > **Tip**
 >
@@ -139,8 +154,12 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 
 Generally, all commands require the following parameters to work with the SignPath Cryptoki library:
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-openssl-invocation-params -%}
-{%- include render-table.html -%}
+| Parameter    | Value                                                     | Description
+|--------------|-----------------------------------------------------------|----------------------------
+| `-keyform`   | `engine`                                                  | Use the specified engine to access the key.
+| `-engine`    | `pkcs11`                                                  | Use the _libp11_ engine specified in the `openssl-signpath.cnf` file.
+| `-inkey`     | `pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private`  | A PKCS #11 URI including _Project_ and _Signing Policy_ slug, see also [Cryptoki parameters](#cryptoki-parameters).
+{: .break-column-2 }
 
 #### openssl dgst
 
@@ -233,8 +252,11 @@ osslsigncode sign `
    -in "sample.exe" -out "sample.signed.exe"
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-osslsigncode-invocation-params -%}
-{%- include render-table.html -%}
+| Parameter          | Value                              | Description
+|--------------------|------------------------------------|-----------------------------
+| `--pkcs11module`   | `/path/to/libSignPath.Cryptoki.so` | Path to the SignPath Cryptoki library
+| `--key`            | `pkcs11:id=...`                    | A PKCS #11 URI as shown in the example above including _Project_ and _Signing Policy_ slugs and the "pin" value (see also [Cryptoki parameters](#cryptoki-parameters))
+| `--certs`          | `certificate.pem`                  | Certificate of the used signing policy in PEM format
 
 > **Tip**
 >
@@ -262,8 +284,7 @@ Before version 0.23, `pkcs11-tool` always opened the Cryptoki session in a read/
 pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG ...
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-common-parameters -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-common-parameters -%}
 
 #### Listing of the available PKCS #11 objects
 
@@ -283,8 +304,12 @@ pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG `
    --input-file "artifact.hash.bin" --output-file "artifact.sig"
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-signing-parameters -%}
-{%- include render-table.html -%}
+| Parameter          | Value                             | Description
+|--------------------|-----------------------------------|--------------------------------------------
+| `--mechanism`      | e.g. `RSA-PKCS-PSS`               | Use the `--list-mechanisms` argument to list all available mechanisms
+| `--hash-algorithm` | e.g. `SHA256`                     | Only necessary for `RSA-PKCS-PSS` mechanism
+| `--label`          | `$ProjectSlug/$SigningPolicySlug` | _Project_ and _Signing Policy_ slugs, separated by a forward slash
+| `--input-file`     | `/path/to/hash.bin`               | File containing a hash in _binary_ form
 
 ## Java jarsigner {#jarsigner}
 
@@ -294,7 +319,7 @@ The [`jarsigner`](https://docs.oracle.com/en/java/javase/17/docs/specs/man/jarsi
 
 1. Configure the SunPKCS11 Provider
    * OpenJDK: the provider is configured automatically
-   * Oracle JDK: see [Oracle PKCS#11 Reference Guide][oracle-install]
+   * Oracle JDK: see [Oracle PKCS #11 Reference Guide][oracle-install]
 2. Register the SignPath Cryptoki library for the SunPKCS11 Provider 
 
 Sample `pkcs11.config`
@@ -318,8 +343,15 @@ Synopsis for _jarsigner_ when using the SignPath Cryptoki library:
 jarsigner <parameters> <jar-files> <keystore-alias>
 ~~~
 
-{%- assign table = site.data.tables.crypto-providers.cryptoki-jarsigner-invocation-parameters -%}
-{%- include render-table.html -%}
+| Parameter          | Value                                   | Description
+|--------------------|-----------------------------------------|---------------------------------
+| `-storetype`       | `PKCS11`                                | Use a PKCS11 store for the signing operation
+| `-providerClass`   | `sun.security.pkcs11.SunPKCS11`         | Use the SunPKCS11 provider for the signing operation
+| `-keystore`        | `NONE`                                  | Key is not loaded from a file
+| `-providerArg`     | Path to `pkcs11.config`                 | The SunPKCS11 provider expects a path to the config file
+| `-sigalg`          | `SHA256withRSA`, `SHA384withRSA`, `SHA512withRSA`, `SHA256withECDSA`, `SHA384withECDSA`, or `SHA512withECDSA` | Digest and signature algorithm
+| `-storepass`       | `CONFIG` or `$OrganizationId:$ApiToken` | See ["PIN" parameter](#cryptoki-parameters)
+| _keystore-alias_   | `$ProjectSlug/$SigningPolicySlug`       | _Project_ and _Signing Policy_ slug, separated by a forward slash
 
 Sample: sign `myapp.jar`
 

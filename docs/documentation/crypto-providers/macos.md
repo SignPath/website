@@ -28,8 +28,14 @@ macOS allows CryptoTokenKit extensions to be registered in the system. Through t
 
 The `SignPathCryptoTokenKit.app` application loads all available certificates for the given parameters and makes them avaialble in the macOS keychain through a CryptoTokenKit extension. The application supports the following parameters (all of them are optional):
 
-{%- assign table = site.data.tables.crypto-providers.macos-application-parameters -%}
-{%- include render-table.html -%}
+| Parameter          | Value                                   | Description
+|--------------------|-----------------------------------------|---------------------------------
+| `-config`          | `/path/to/config/file.json`             | Path to config file
+| `-s`               | `$SigningPolicySlug`                    | If not specified, the certificates from all available signing policies will be loaded
+| `-p`               | `$ProjectSlug`                          | If not specified, the certificates from all available projects will be loaded
+| `-u`               | `$ApiUrl`                               | The base URL of the SignPath API, e.g. `https://app.signpath.io/Api`
+| `-o`               | `$OrganizationId`                       | The id of the organization to use
+| `-t`               | `$ApiToken`                             | The API token for a CI or Interactive User (can be created in the "Users and Groups" UI)
 
 > **Keys are not specified directly**
 >
@@ -55,7 +61,7 @@ Using the `security` command, the registered smart cards can be listed. This lis
 security list-smartcard
 ~~~
 
-Using the `pluginkit` tool, the registration of the token driver can be verified. The command lists all registered tokens and should also list `io.signpath.apps.CryptoTokenKit(<Version>)`.
+Using the `pluginkit` tool, the registration of the token driver can be verified. The command lists all registered tokens and should also list `io.signpath.apps.CryptoTokenKit($Version)`.
 
 ~~~bash
 pluginkit -m -v -p com.apple.ctk-tokens
@@ -67,8 +73,9 @@ _[codesign]_ is a command line tool by Apple.
 
 _codesign_ requires the following parameter to find the correct certificate:
 
-{%- assign table = site.data.tables.crypto-providers.macos-codesign-parameters -%}
-{%- include render-table.html -%}
+| Parameter          | Value                                   | Description
+|--------------------|-----------------------------------------|---------------------------------
+| `-s`               | `$SigningIdentity`                      | A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.
 
 Sample: sign `MyApp.app`
 
