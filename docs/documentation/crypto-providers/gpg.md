@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: Creating GPG signatures with SignPath
-datasource: tables/crypto-providers
 ---
 
 ## General Instructions

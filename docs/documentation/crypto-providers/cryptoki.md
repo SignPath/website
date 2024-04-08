@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: SignPath Cryptoki Crypto Providers
-datasource: tables/crypto-providers
 ---
 
 ## General instructions
@@ -284,7 +283,10 @@ Before version 0.23, `pkcs11-tool` always opened the Cryptoki session in a read/
 pkcs11-tool --module $LibSignPathCryptokiPath --pin CONFIG ...
 ~~~
 
-{%- include render-table.html table=site.data.tables.crypto-providers.cryptoki-pkcs11-tool-invocation-common-parameters -%}
+| Parameter          | Value                                   | Description
+|--------------------|-----------------------------------------|--------------------------------------------
+| `--module`         | `/path/to/libSignPath.Cryptoki.so`      | Path to the SignPath Cryptoki library
+| `--pin`            | `CONFIG` or `$OrganizationId:$ApiToken` | See [PIN parameter](#cryptoki-parameters)
 
 #### Listing of the available PKCS #11 objects
 

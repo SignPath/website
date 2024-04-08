@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: SignPath macOS CryptoTokenKit Crypto Provider
-datasource: tables/crypto-providers
 ---
 
 ## General instructions

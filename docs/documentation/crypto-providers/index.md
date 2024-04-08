@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: SignPath Crypto Providers (CSP, KSP, Cryptoki)
-datasource: tables/crypto-providers
 ---
 
 Available for Enterprise subscriptions

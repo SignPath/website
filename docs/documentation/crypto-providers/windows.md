@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: SignPath Windows CSP and KSP Crypto Providers
-datasource: tables/crypto-providers
 ---
 
 ## General instructions

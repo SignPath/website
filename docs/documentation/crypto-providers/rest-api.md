@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: Direct usage of the REST API for hash signing
-datasource: tables/crypto-providers
 ---
 
 ## Overview
