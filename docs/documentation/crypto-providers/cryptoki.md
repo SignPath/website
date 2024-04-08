@@ -268,7 +268,12 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 
 ### Setup
 
-Before version 0.23, `pkcs11-tool` always opened the Cryptoki session in a read/write mode (see [GitHub issue #2182](https://github.com/OpenSC/OpenSC/issues/2182)) and therefore fails with a _"PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED"_ error. To enable compatibility with these earlier versions you need to set the `Cryptoki.DoNotFailOnReadWriteSessions` value in the SignPath [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-config-values).
+> **`pkcs11-tool` before version 0.23**
+>
+> Set `Cryptoki.DoNotFailOnReadWriteSessions` to `true` in the SignPath [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-config-values).
+>
+> _Background: `pkcs11-tool` used to open the Cryptoki session in a read/write mode (see [GitHub issue #2182](https://github.com/OpenSC/OpenSC/issues/2182)) and therefore fails with `PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED`. This flag enables compatibility with these earlier versions._
+{: .panel .info }
 
 ### Invocation
 
