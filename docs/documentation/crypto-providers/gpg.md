@@ -13,11 +13,9 @@ This section provides information to use SignPath with any tool that uses GPG fo
 
 ### Overview
 
-GnuPG does not directly support PKCS #11/Cryptoki but offers a ["Smart Card" interface](https://wiki.gnupg.org/SmartCard), normally used to access smart card or USB token based HSMs.
+GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs11-scd](https://github.com/alonbl/gnupg-pkcs11-scd/) project adds this capability as a GnuPG ["Smart Card" interface](https://wiki.gnupg.org/SmartCard) daemon. 
 
-Here the [gnupg-pkcs11-scd](https://github.com/alonbl/gnupg-pkcs11-scd/) project comes into play, which uses the GnuPG smart card interface to adapt to a PKCS #11 Crypto Provider. This tool runs as a GnuPG smart card daemon which we use to connect GnuPG to the SignPath PKCS #11/Cryptoki Crypto Provider as shown in the following figure.
-
-![Figure: GPG signing flow](/assets/img/resources/documentation_crypto_providers-GpgSigningFlow.svg)
+![Figure: GPG signing flow](/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg)
 
 ### Setup
 
@@ -33,24 +31,25 @@ For more details see
 
 #### GPG Key Generation {#gpg-key-generation}
 
+{:.panel.info}
 > **GPG terminology: public keys**
 >
 > GPG uses the term _public key_ for a specific file format that includes the actual public key key, the holder's identity (name, email address), expiration, and other data. It is therefore more similar to a certificate than just a public key.
 >
 > This sometimes creates confusion about whether the term public key refers to just the public part of the cryptographic key pair, or an entire GPG public key.
-{: .panel .info}
 
 To use GPG with SignPath, you need to create an X.509 certificate for the cryptographic key pair, and a separate GPG public key on your computer. The GPG public key will _contain_ the cryptographic public key from the certificate and _reference_ the private key, which will remain with SignPath.
 
 The reference is implemented as a ["shadowed private key"](https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format) and references a SignPath _project_ slug and _signing policy_ slug. (It is stored in `$GNUPGHOME/private-keys-v1.d/$KeyGrip.key` and can be restored from the GPG public key.)
 
+{:.panel.tip}
 > **Tip: Create a self-signed certificate in SignPath**
 >
 > We recommend that you create a self-signed certificate in SignPath for each GPG public key. While the certificate's metadata is not used, you might want to use similar values as for the GPG public key for clarity.
 >
 > However, technically you can use any code signing certificate, including those issued by Certificate Authorities, with arbitrary metadata
-{: .panel .tip }
 
+{:.panel.tip}
 > **Sample code to create a GPG public key**
 > 
 > The [Linux container samples](/documentation/crypto-providers#linux-docker-samples) contain scripts to generate a GPG key.
@@ -71,7 +70,6 @@ The reference is implemented as a ["shadowed private key"](https://github.com/gp
 > GPG key generation causes two SignPath hash signing operations: 
 > * self-sign the key 
 > * sign the revocation certificate
-{: .panel .tip}
 
 #### Prepare for signing
 

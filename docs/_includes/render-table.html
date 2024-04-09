@@ -1,4 +1,8 @@
 
+{% if include.table == nil or include.table.body == nil %}
+    <div><strong style="background-color: red; color: white;">Error: table argument missing or no body in render-table </strong></div>
+{% endif %}
+
 <table>
     <thead>
         <tr>

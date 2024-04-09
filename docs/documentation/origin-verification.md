@@ -17,10 +17,10 @@ Origin verification allows trusted build systems to provide reliable origin meta
 
 Origin verification results in additional confidence for information in signing reqeusts, whether used for inspection or for policies. The feature is designed for use in enterprise scenarios, where policies and security controls need to be administered, enforced and audited centrally, while development teams still maintain full control over their projects. The ultimate goal of origin verification is to enable signing policies based on source code reviews.
 
+{:.panel.info}
 > **Open Source code signing**
 > 
 > The same principles are applied for Open Source signing, where [SignPath Foundation](https://signpath.org) provides certificates to individual OSS projects. Origin verification ensures that the Foundation's signing policies are observed while leaving full control over repositories and build configurations with the OSS teams.
-{: .panel .info }
 
 Origin verification verifies the following information:
 
@@ -38,6 +38,7 @@ Verification of reproducability depends on the CI system used. Typical verificat
 
 In order to use origin verification, a [Trusted Build System](trusted-build-systems) must be configured and linked to the project.
 
+{:.panel.tip}
 > **Use origin verification restrictions**
 > 
 > Enable additional restrictions for signing policies that use release certificates:
@@ -45,14 +46,13 @@ In order to use origin verification, a [Trusted Build System](trusted-build-syst
 > * Select **Verify origin** to make sure that only verified builds can be signed
 > * Define source code review policies for branches that are supposed to be used for production releases. Use the **Allowed branch names** setting to make sure that a signing policy can only be used for specified branches. Typical settings include `master` or `release/*`.
 > * If you need to be able to sign other builds under special circumstances, consider adding another signing policy with strong approval requirements (e.g. 2 out of *n*).
-{: .panel .tip}
 
+{:.panel.warning}
 > **Source code reviews must include build scripts**
 >
 > Note that a build script or makefile can download any software from the Internet and include it as a build artifact. SignPath cannot possibly detect or prevent this, but it can make sure that any such evasion will be visible in the source code repository.
 >
 > Make sure that your source code review policy includes CI configuration, build scripts, and makefiles. External content should not be accepted in reviews.
-{: .panel .warning}
 
 See the [signing policy](/documentation/projects#signing-policy-origin-verification) documentation for some ideas on how to secure your build pipelines using origin verification.
 
@@ -69,6 +69,7 @@ Contact support@signpath.io for the connector and documentation.
 
 ## AppVeyor
 
+{:.panel.info}
 > **Pre-configured connector**
 >
 > The AppVeyor connector is built into SignPath and connects to appveyor.com. 
@@ -76,7 +77,6 @@ Contact support@signpath.io for the connector and documentation.
 > * It must still be linked to each project (see below)
 > 
 > A customizable connector for AppVeyor Server will be provided in the future.
-{: .panel .info }
 
 ### Prerequisites and restrictions
 
@@ -91,16 +91,16 @@ The following checks are performed:
 
 These checks are performed to ensure that the binary artifacts result purely from the specified source code.
 
+{:.panel.todo}
 > **TODO**
 >
 > Is the following list complete? see https://www.appveyor.com/docs/build-configuration/#generic-git-repositories-and-yaml
 >
 > At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea. 
-{: .panel .todo }
 
 ### Setup
 This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
-![AppVeyor Setup flow](/assets/img/resources/documentation_build-integration_appveyor.png)
+![AppVeyor Setup flow](/assets/img/resources/documentation/build-integration_appveyor.png)
 
 {%- include render-table.html table=site.data.tables.origin-verification.appveyor-setup -%}
 

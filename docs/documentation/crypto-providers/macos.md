@@ -36,12 +36,12 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 | `-o`               | `$OrganizationId`                       | The id of the organization to use
 | `-t`               | `$ApiToken`                             | The API token for a CI or Interactive User (can be created in the "Users and Groups" UI)
 
+{:.panel.info}
 > **Keys are not specified directly**
 >
 > When using a file-based [configuration](/documentation/crypto-providers#crypto-provider-configuration), the macOS CryptoTokenKit Crypto Provider requires the config file to be
 > * named `config.json` and placed in the same directory as the `SignPathCryptoTokenKit.app` application or
 > * its path to be specified via the `-config` parameter
-{: .panel .info }
 
 Example call starting the application:
 
@@ -82,9 +82,9 @@ Sample: sign `MyApp.app`
 codesign -s MyCertificateSubjectName MyApp.app
 ~~~
 
+{:.panel.warning}
 > **Warning: Produce correct timestamps**
 > 
 > When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
-{: .panel .warning }
 
 [codesign]: https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html

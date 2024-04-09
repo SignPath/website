@@ -30,6 +30,7 @@ To use an in-house CA, you can create a certificate signing request (CSR) in Sig
 
 Certificates can be rolled out to your test computers manually or using an automated process. You should generally add self-signed test certificates to the `Trusted Root Certification Authorities` certificate store of computers you use for testing your software. If you do this, Windows will treat your test certificates as if they were issued by a trusted Root CA.
 
+{:.panel.tip}
 > **Trusted publishers**
 >
 > You may also add your test certificates to the `Trusted Publishers` store on internal machines. This is what happens when a user choses to always trust this publisher during installation, and therefore results in the same behavior, so don't do this if you want to replicate the default behavior on user machines.
@@ -37,7 +38,6 @@ Certificates can be rolled out to your test computers manually or using an autom
 > Adding a certificate to this store will affect User Account Control (UAC) device driver installation prompts as well as whitelisting features such as Software Restriction Policies (SRP), AppLocker and WDAC Code Integrity Policies. 
 > 
 > Only add your certificates to this store for computers in your own organization, don't use your installer to add your certificate to this store.
-{: .panel .tip }
 
 ### Manual installation
 

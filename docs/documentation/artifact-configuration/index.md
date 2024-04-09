@@ -12,7 +12,7 @@ datasource: tables/artifact-configuration
 
 The artifact configuration describes the structure of the artifacts you want to sign. For simple artifacts, you can use predefined configurations to get started quickly. For signing several artifacts together, and for more complex artifacts, specify the structure of your artifact and provide signing directives using XML.
 
-![Artifact configuration XML](/assets/img/resources/documentation_artifact-configuration.png)
+![Artifact configuration XML](/assets/img/resources/documentation/artifact-configuration.png)
 
 ## Creating and editing artifact configurations
 

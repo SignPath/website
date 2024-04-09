@@ -12,10 +12,10 @@ description: Documentation for integrating SignPath with Continuous Integration 
 
 This section describes how SignPath can be integrated into automated builds using continuous integration software. You can use the PowerShell module provided by SignPath, directly call the Web API to submit signing requests, or integrate SignPath as part of your AppVeyor build step.
 
+{:.panel.info}
 > **Locating ID values**
 >
 > All necessary IDs can be found on the signing policy details page, including a code snippet that calls the PowerShell module.
-{: .panel .info }
 
 ## Authentication {#authentication}
 
@@ -231,17 +231,16 @@ For each completed signing request, SignPath will post the following JSON inform
 ~~~
 
 
+{:.panel.info}
 > **Status changes triggers**
 > 
 > Notifications are sent for the following status changes: `Completed`, `Failed`, `Denied` and `Canceled`.
-{: .panel .info }
 
 A handler for this Webhook can use the Web API for further activities, such as pushing the signed artifact to a repository. Use the Web API to get signing request data including build information.
 
+{:.panel.info}
 > **Webhook authentication**
 >
 > Webhooks will send the `Authentication` header exactly as specified. Don't forget to add the method, for example:
 >
 > `Bearer JEAG1OrTXZ/t4URp5URt40DLBlA3WtcJmbwfeosyBkTABr6r`
-{: .panel .info}
-

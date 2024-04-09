@@ -10,6 +10,7 @@ datasource: tables/artifact-configuration
 
 ## Syntax
 
+{:.panel.info}
 > **Examples are shortened**
 >
 > For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
@@ -20,7 +21,6 @@ datasource: tables/artifact-configuration
 >   <!-- ... -->
 > </artifact-configuration>
 > ~~~
-{: .panel .info }
 
 ## Basic examples
 

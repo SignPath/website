@@ -3,6 +3,7 @@ main_header: Documentation
 sub_header: Setting up Projects
 layout: resources
 toc: true
+show_toc: 3
 redirect_from: /documentation/key-concepts#projects
 description: How to set up development projects for repeated signing with SignPath
 ---
@@ -42,12 +43,12 @@ Typically, a project contains these two singing policies:
 
 Both types of policies may alternatively use certificates that are issued by an in-house CA.
 
+{:.panel.tip}
 > **Why sign test builds?**
 >
 > It's important that test builds are signed, so they will behave like release builds *on test systems*. Several platform mechanisms may be used or inadvertently encountered that behave differently for signed and unsigned software.
 >
 > Test-signing can also provide protection for test systems, if these systems are configured in a way that prevents installation or execution of unsigned software, or produces warnings for users.
-{: .panel .tip }
 
 ### General Properties
 
@@ -88,6 +89,7 @@ Select **Verify origin** if you want to accept only signing requests with positi
 | **Project repository URL** | Must be configured in the project settings (applies to all signing policies)
 | **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds.
 
+{:.panel.tip}
 > **Create differentiated signing policies**
 > 
 > You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.
@@ -106,7 +108,6 @@ Select **Verify origin** if you want to accept only signing requests with positi
 > Approval is required if another branch is used for release signing, but origin verification is still available. Approvers might include project managers or senior team members.
 >
 > In some situations, it might even be necessary to sign any old release, e.g. via manual upload. This requires approval from two persons, maybe even from a reduced list that includes senior management.
-{: .panel .tip }
 
 ## Artifact configurations {#artifact-configurations}
 
@@ -151,7 +152,7 @@ You can create an artifact configuration by selecting one of the **predefined te
 
 In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don't want to be signed with your certificate.
 
-For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration).
+For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration/screenshot.png).
 
 ## Trusted build systems {#trusted-build-systems}
 

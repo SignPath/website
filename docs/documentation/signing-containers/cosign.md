@@ -11,6 +11,7 @@ description: Documentation for signing Docker images with SignPath using Cosign
 
 _Cosign_ is part of the [Sigstore](https://www.sigstore.dev/) project. It is primarily targeted at the open source community, allowing individual developers to sign container images using OpenID user accounts from GitHub, Google or Microsoft. For those developers, Sigstore eliminates the need for certificates or locally storeed private keys.
 
+{:.panel.info}
 > **Sigstore architecture**
 >
 > Sigstore combines the _Cosign_ tool, the _Fulcio_ certificate authority and the _Rekor_ transparency log as follows:
@@ -20,7 +21,6 @@ _Cosign_ is part of the [Sigstore](https://www.sigstore.dev/) project. It is pri
 > 3. Fulcio creates a short-lived certificate for the OIDC identity using an ephemeral key and signs the metadata digest
 > 4. Rekor logs the signature in its public transparency log
 > 5. Cosign uploads signature and metadata to the image's repository
-{: .panel .info }
 
 ## Advantages of using SignPath for Cosign
 
@@ -47,10 +47,10 @@ Submitting full metadata files instead of their hash codes has several advantage
 
 SignPath will offer advanced verification and information features in the near future.
 
+{:.panel.info}
 > **X.509 certificate chains in Cosign**
 >
 > _Cosign_ builds upon X.509 certificate chains, but requires specific additional attributes to be set in each certificate. The sigstore project is actively working on supporting custom certificates from traditional PKIs.
-{: .panel .info }
 
 ## How to use Cosign with SignPath
 
@@ -84,6 +84,7 @@ cosign generate $IMAGE_DIGEST > payload.json
 zip payload.json.zip payload.json
 ~~~
 
+{:.panel.info}
 > **FQN and TAG**
 >
 > <a name="fqn"/> 
@@ -95,7 +96,6 @@ zip payload.json.zip payload.json
 > 
 > 
 > `$TAG` refers the specific image tag (e.g. `latest`)
-{: .panel .info }
 
 ### Step 2: create a signature for the metadata
 

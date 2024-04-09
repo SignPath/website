@@ -18,10 +18,10 @@ Crypto Providers are generally used to provide a device-independent API for usin
 
 The SignPath Crypto Providers do not access the crypto hardware directly. Instead, they implement these interfaces to provide access to SignPath _Projects_ and _Signing Policies_. During the entire operation, the private key will remain on the HSM.
 
+{:.panel.info}
 > **Version info**
 >
 > This documentation contains information about the latest version of the CryptoProviders. See the [changelog](/documentation/changelog?component=crypto_providers) for updates.
-{: .panel .info }
 
 ### Crypto Providers
 
@@ -43,7 +43,7 @@ The following Crypto Providers are available for SignPath:
 
 This diagram describes how the various components work together to create a signature.
 
-![Figure: Signing flow overview](/assets/img/resources/documentation_crypto_providers-CryptoProvidersSigningFlow.svg)
+![Figure: Signing flow overview](/assets/img/resources/documentation/crypto-providers/signing-flow.svg)
 
 With small platform-specific variations, the general flow of a signing operations is as follows:
 

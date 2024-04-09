@@ -33,10 +33,10 @@ For hash data we recommend using a _fast signing request_. These requests are pe
 | `Base64EncodedHash`  | The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
 | `Metadata`           | Can contain arbitrary metadata JSON values. We recommend to include `CreatingProcess` metadata with `CommandLine` and `User` as shown in the example above.
 
+{:.panel.info}
 > **Key length**
 > 
 > SignPath crypto providers use the file name `payload.json` for hash digest artifacts.
-{: .panel .info }
 
 ### Response {#signing-request-response}
 

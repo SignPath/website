@@ -69,6 +69,7 @@ You may configure the system to accept certificates based on
 * the issuer (e.g. issued by a certain immediate certificate)
 * a Microsoft Certificate Server _template ID_ (see below)
 
+{:.panel.tip}
 > **Use Active Directory computer groups via Microsoft Certificate Server**
 >
 > This is a very straightforward way to authorize specific groups of build nodes for SignPath:
@@ -78,11 +79,10 @@ You may configure the system to accept certificates based on
 > * Specify the template ID in the Double Authentication Proxy configuration
 > * Register the Double Authentication Proxy as trusted build system (see [configuration](#configuration))
 > * Submit signing requests using mTLS, e.g. using the [PowerShell cmdlet](/documentation/powershell/Submit-SigningRequest). Use the template ID to select the correct certificate client certificate.
-{: .panel .tip }
 
 This diagram shows how machine certificates, Double Authentication Proxy and SignPath work together:
 
-![Double Authentication Proxy architecture diagram](/assets/img/resources/double-authentication-proxy.png){:width="500px"}
+![Double Authentication Proxy architecture diagram](/assets/img/resources/documentation/double-authentication-proxy.png){:width="500px"}
 
 Contact support@signpath.io for installable container images and documentation.
 

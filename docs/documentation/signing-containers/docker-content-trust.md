@@ -68,6 +68,7 @@ The following table lists
 | **Timestamp** | legitimate images wrongly declared current (freeze attack)    | Key rotation
 
 
+{:.panel.info}
 > **The misleading security assumption of Notary and Docker Content Trust (DCT)**
 >
 > **TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.**
@@ -87,7 +88,6 @@ The following table lists
 > Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys. 
 > 
 > (Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
-{: .panel .info }
 
 ## Setup phase
 
@@ -113,6 +113,7 @@ You only need one delegation key, it can be shared between repositories.
 
 In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository's root key (only the public key) to SignPath. Use the [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module. 
 
+{:.panel.info}
 > **PowerShell parameters and FQN**
 > 
 > `Get-RootCertificate`, `Initialize-DockerSigning`, and `Add-DelegationCertificate` accept the following parameters:
@@ -129,7 +130,6 @@ In order for SignPath to ensure that only valid tags can be signed, you need to 
 > For images hosted on Docker Hub, the FQN is `docker.io/$namespace/$repository`, e.g. `docker.io/jetbrains/teamcity-server`. 
 > 
 > If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using `docker pull myreg.jfrog.io/> myrepo/myimage:latest`, the FQN would be `myreg.jfrog.io/myrepo/myimage`.
-{: .panel .info }
 
 Choose one of the following scenarios:
 
@@ -195,6 +195,7 @@ Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit ke
 
 We recommend to perform a test signing before deleting the target key.
 
+{:.panel.info}
 > **Delete the target key: reason and consequences**
 >
 > DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.
@@ -202,7 +203,6 @@ We recommend to perform a test signing before deleting the target key.
 > If you run into unexpected problems later that require a target key, you can always create a new one by performing a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys). Don't forget to add existing delegation keys you want to keep after a key rotation.
 > 
 > The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
-{: .panel .info }
 
 ## Signing phase
 
@@ -260,6 +260,7 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
   [-NotaryUrl $NOTARY_URL] [-NotaryUsername $NOTARY_USERNAME] [-NotaryPassword $NOTARY_PASSWORD]
 ~~~
 
+{:.panel.info}
 > **PowerShell parameters**
 >
 > `Invoke-DockerSigning`, `New-DockerSigningData`, `Submit-SigningRequest`, and `Push-SignedDockerSigningData` accept all or some of the following parameters:
@@ -291,4 +292,3 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
 > **WaitForCompletion option**
 > 
 > Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](/documentation/build-system-integration#powershell).
-{: .panel .info }

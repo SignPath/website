@@ -27,7 +27,7 @@ This section provides information how to use the SignPath Cryptoki library with 
 > The issue results in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
 >
 > You need to replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
-{: .panel .warning }
+{:.panel.warning}
 
 ### Installation
 
@@ -49,10 +49,10 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 
 [config-values]: /documentation/crypto-providers#crypto-provider-config-values
 
+{:.panel.info}
 > **Keys are not specified directly**
 >
 > The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
-{: .panel .info }
 
 How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
@@ -83,10 +83,10 @@ If your signing tool does not provide guidance for using Cryptoki libraries, you
 
 _[OpenSSL]_ is a toolkit that provides a range of cryptographic operations, including signing.
 
+{:.panel.warning}
 > **Important**
 >
 > Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions).
-{: .panel .warning }
 
 ### Setup
 
@@ -117,6 +117,7 @@ init = 0
 PIN = CONFIG
 ~~~
 
+{:.panel.info}
 > **Default installation paths of libp11**
 >
 > Note that Linux distributions have different default installation paths for `libpkcs11.so`:
@@ -127,7 +128,6 @@ PIN = CONFIG
 > | Debian/Ubuntu w/ OpenSSL 3.x  | `/usr/lib/x86_64-linux-gnu/engines-3/libpkcs11.so`
 > | RedHat w/ OpenSSL 1.1         | `/usr/lib64/engines-1.1/libpkcs11.so`
 > | RedHat w/ OpenSSL 3.x         | `/usr/lib64/engines-3/libpkcs11.so`
-{: .panel .info }
 
 For Windows use .dll paths respectively (note the double backslashes):
 
@@ -146,10 +146,10 @@ Also set the following environment variable:
 
 _OpenSSL_ provides a variety of commands that can be used for signing. In this section, a few of them are outlined.
 
+{:.panel.tip}
 > **Tip**
 >
 > For *Linux*, configuration, signing invocation and verification examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario OpenSSL`. See [Linux container samples](#linux-docker-samples).
-{: .panel .tip }
 
 Generally, all commands require the following parameters to work with the SignPath Cryptoki library:
 
@@ -170,16 +170,17 @@ Sample: sign `artifact.bin` and write the signature to `artifact.sig`.
 openssl dgst -engine pkcs11 -keyform engine -sign "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -sha256 -out "artifact.sig" "artifact.bin"
 ~~~ 
 
+{:.panel.info}
 > **Supported digests**
 >
 > The following digests are supported: `sha256`, `sha384`, `sha512`
-{: .panel .info }
 
 #### openssl pkeyutl
 
 The _[pkeyutl][openssl-pkeyutl]_ command performs low-level cryptographic operations, such as signing.
 
 <!-- todo omit?-->
+{:.panel.info}
 > **Note: provide binary hash digest**
 >
 > The command does hash the input data but will use the data directly as an input for the signature algorithm. To create the hash of a file, you can use the following snippet:
@@ -189,7 +190,6 @@ The _[pkeyutl][openssl-pkeyutl]_ command performs low-level cryptographic operat
 > $ArtifactHashBytes = [byte[]] -split ($ArtifactHash.Hash -replace '..', '0x$& ')
 > [IO.File]::WriteAllBytes("artifact.hash.bin", $ArtifactHashBytes)
 > ~~~
-{: .panel .info }
 
 Sample: sign the hash code in `artifact.hash.bin` using PKCS1 padding, write the signature to `artifact.sig`
 
@@ -219,19 +219,19 @@ Sample: sign the file `artifact.bin` using `certificate.pem`, write the detached
 openssl cms -engine pkcs11 -signer "certificate.pem" -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -keyform engine -sign -binary -in "artifact.bin" -noattr -out "artifact.sig" -outform PEM
 ~~~
 
+{:.panel.warning}
 > **Important**
 >
 > _OpenSSL_ fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).
-{: .panel .warning }
 
 ## osslsigncode {#osslsigncode}
 
 _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the [OpenSSL](#openssl) section for details.
 
+{:.panel.warning}
 > **Important**
 >
 > Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions) regarding the supported OpenSSL versions.
-{: .panel .warning }
 
 ### Setup
 
@@ -257,10 +257,10 @@ osslsigncode sign `
 | `--key`            | `pkcs11:id=...`                    | A PKCS #11 URI as shown in the example above including _Project_ and _Signing Policy_ slugs and the "pin" value (see also [Cryptoki parameters](#cryptoki-parameters))
 | `--certs`          | `certificate.pem`                  | Certificate of the used signing policy in PEM format
 
+{:.panel.tip}
 > **Tip**
 >
 > This invocation example is also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario osslsigncode`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-{: .panel .tip }
 
 ## OpenSC pkcs11-tool (Linux)
 
@@ -268,19 +268,19 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 
 ### Setup
 
+{:.panel.info}
 > **`pkcs11-tool` before version 0.23**
 >
 > Set `Cryptoki.DoNotFailOnReadWriteSessions` to `true` in the SignPath [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-config-values).
 >
 > _Background: `pkcs11-tool` used to open the Cryptoki session in a read/write mode (see [GitHub issue #2182](https://github.com/OpenSC/OpenSC/issues/2182)) and therefore fails with `PKCS11 function C_OpenSession failed: rv = CKR_TOKEN_WRITE_PROTECTED`. This flag enables compatibility with these earlier versions._
-{: .panel .info }
 
 ### Invocation
 
+{:.panel.tip}
 > **Tip**
 >
 > The following invocation examples are also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario Pkcs11Tool`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-{: .panel .tip }
 
 #### Common parameters
 
@@ -339,10 +339,10 @@ slot=1
 
 ### Invocation
 
+{:.panel.tip}
 > **Tip**
 >
 > For *Linux*, configuration and invocation examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario JarSigner`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
-{: .panel .tip }
 
 Synopsis for _jarsigner_ when using the SignPath Cryptoki library:
 
@@ -366,10 +366,10 @@ Sample: sign `myapp.jar`
 jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.SunPKCS11" -providerArg pkcs11.config -sigalg "SHA256withRSA" -storepass "CONFIG" myapp.jar "$ProjectSlug/$SigningPolicySlug" 
 ~~~
 
+{:.panel.warning}
 > **Warning: Produce correct timestamps**
 >
 > When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
-{: .panel .warning }
 
 [PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
 

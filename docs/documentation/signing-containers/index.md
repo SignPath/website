@@ -33,7 +33,7 @@ Both Cosign and DCT use concepts that differ widely from classic code signing me
 {%- include render-table.html table=site.data.tables.signing-containers.methods-differences -%}
 {: .row-headers }
 
-### Why use SignPath for container signing?
+## Why use SignPath for container signing?
 
 SignPath provides the following advantages:
 
