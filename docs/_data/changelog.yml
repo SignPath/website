@@ -1,3 +1,16 @@
+- date: '2024-TODO'
+  updates:
+    crypto_providers:
+      version: 4.5.1
+      improvements:
+        - text: |-
+            Crypto Provider documentation has been made publicly available at https://about.signpath.io/documentation/crypto-providers/.
+        - text: |-
+            CryptoProviders package now contains SBOMs (see Windows, resp. Linux sub directories).
+          issues: [SIGN-6868]
+        - text: |-
+            Improve logging for function calls which return error results for Cryptoki and KSP interfaces.
+          issues: [SIGN-6818]
 - date: '2024-04-11'
   updates:
     self_hosted_installations:
