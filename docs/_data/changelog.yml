@@ -2,6 +2,10 @@
   updates:
     self_hosted_installations:
       version: 1.161.0
+      new_features:
+        - text: |-
+            When applying changes via `helm upgrade`, now all `signpath-application` deployments restart automatically (via rollout restart).
+          issues: [SIGN-5823]
       improvements:
         - text: |-
             Added a safeguard mechanism for `signpath-application` pods which prevents startup on inactive colors due to deployment or configuration errors.
