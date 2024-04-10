@@ -1,7 +1,7 @@
 - date: '2024-04-11'
   updates:
     self_hosted_installations:
-      version: 1.161.0
+      version: 1.161.1
       new_features:
         - text: |-
             When applying changes via `helm upgrade`, now all `signpath-application` deployments restart automatically (via rollout restart).
