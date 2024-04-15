@@ -175,7 +175,7 @@ The `create-raw-signature` directive supports the following parameters:
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------
-| `file-name`        | Yes           |                              | Name of the output file containing the signature
+| `file-name`        | Yes           |                              | Name of the output file containing the signature. Use `$(file.name)` to reference the source file name.
 | `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
 | `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
 
@@ -185,7 +185,7 @@ The `create-raw-signature` directive supports the following parameters:
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
     <file path="myfile.bin">
-      <create-raw-signature file-name="myfile.bin.sig" hash-algorithm="sha256" />
+      <create-raw-signature file-name="${file.name}.sig" hash-algorithm="sha256" />
     </pe-file>
   </zip-file>
 </artifact-configuration>

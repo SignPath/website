@@ -1,3 +1,43 @@
+- date: '2024-04-11'
+  updates:
+    self_hosted_installations:
+      version: 1.161.1
+      new_features:
+        - text: |-
+            When applying changes via `helm upgrade`, now all `signpath-application` deployments restart automatically (via rollout restart).
+          issues: [SIGN-5823]
+      improvements:
+        - text: |-
+            Added a safeguard mechanism for `signpath-application` pods which prevents startup on inactive colors due to deployment or configuration errors.
+          issues: [SIGN-6789]
+- date: '2024-03-28'
+  updates:
+    application:
+      version: 1.160.1
+      improvements:
+        - text: |-
+            Artifact configuration: [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature) supports input filename substitution via `${file.name}`.
+          issues: [SIGN-6771]
+        - text: |-
+            "Resubmit with current settings" now also works for signing requests which fail due to an _artifact retrieval_ error.
+          issues: [SIGN-6794]
+    self_hosted_installations:
+      version: 1.160.1
+      breaking_changes:
+        - text: |-
+            Hash signing operations are now performed by `signingprocessorservice`.
+
+            You need to configure basic authentication configuration:
+            * signingprocessorservice: `signingProcessorService.basicAuthenticationOptions`
+            * signpath-application: `fastSigningRequestProcessorServiceClientOptions.basicAuthenticationPassword`
+
+            See "Generate basic authentication passwords and hashes" in the installation guide for more information.
+          issues: [SIGN-6720]
+      improvements:
+        - text: |-
+            The HSM SignServices watchdog doesn't require a TSA URL anymore. The previously mandatory SignService values
+            config entry `appSettings.signService.cspWatchdogOptions.timestampingServerUrl` can be removed.
+          issues: [SIGN-6825]
 - date: '2024-03-14'
   updates:
     application:
