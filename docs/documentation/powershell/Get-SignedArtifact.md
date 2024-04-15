@@ -30,19 +30,19 @@ This cmdlet throws an exception if the signing request does not successfully com
 
 ## Parameters
 
-| Parameter                                 | Type              | Description                                                   | Default value | Editions
-|-------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
-| `-OrganizationId`                         | `String`          | ID of your SignPath organization
-| `-ApiToken`                               | `String`          | API token of an interactive or CI user
-| `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
-| `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
-| `-SigningRequestId`                       | `String`          | ID of the siging request
-| `-OutputArtifactPath`                     | `String`          | Specifies the target path for the downloaded signed artifact  | `InputArtifactPath` with an added `.signed` extension 
-| `-Force`                                  | Switch            | Allows the cmdlet to overwrite the file at OutputArtifactPath | `false`
-| `-WaitForCompletionTimeoutInSeconds`      | `Int32`           | Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts) | 600 seconds
-| `-ServiceUnavailableTimeoutInSeconds`     | `Int32`           | Total time in seconds that the cmdlet will wait for a single service call to succeed (across several retries) | 600 seconds
-| `-UploadAndDownloadRequestTimeoutInSeconds` | `Int32`         | HTTP timeout used for upload and download HTTP requests       | 300 seconds
-{: .break-column-1 }
+| Parameter                                   | Type              | Description                                                   | Default value | Editions
+|---------------------------------------------|-------------------|---------------------------------------------------------------|---------------|---------
+| `-OrganizationId`                           | `String`          | ID of your SignPath organization                              |
+| `-ApiToken`                                 | `String`          | API token of an interactive or CI user                        |
+| `-ClientCertificate`                        | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | Enterprise
+| `-ApiUrl`                                   | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
+| `-SigningRequestId`                         | `String`          | ID of the siging request                                      |
+| `-OutputArtifactPath`                       | `String`          | Specifies the target path for the downloaded signed artifact  | `InputArtifactPath` with an added `.signed` extension 
+| `-Force`                                    | Switch            | Allows the cmdlet to overwrite the file at OutputArtifactPath | `false`
+| `-WaitForCompletionTimeoutInSeconds`        | `Int32`           | Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts) | 600 seconds  
+| `-ServiceUnavailableTimeoutInSeconds`       | `Int32`           | Total time in seconds that the cmdlet will wait for a single service call to succeed (across several retries) | 600 seconds
+| `-UploadAndDownloadRequestTimeoutInSeconds` | `Int32`           | HTTP timeout used for upload and download HTTP requests       | 300 seconds
+{: .break-column-1 .break-column-4}
 
 
 ## Examples

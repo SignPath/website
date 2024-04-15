@@ -119,7 +119,7 @@ Environment variables take precedence over the corresponding JSON values.
 | `ApiUrl`                          | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
 | `HttpProxy`                       | `http_proxy`                              | (optional)                    | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
 | `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`    | Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option 
-{: .break-column-1 .break-column-2}
+{: .break-code}
 
 **Logging settings:**
 

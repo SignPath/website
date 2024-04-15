@@ -346,22 +346,21 @@ table td[data-label="Parameter"] code {
 	white-space: nowrap; // prevent hypen line breaks in -Parametername 
 }
 
-table.break-column-1 {
-	tr td:nth-child(1) {
-		word-break: break-all;
-		min-width: 10em;
-		code {
-			white-space: inherit;
-		}
-	}
+table.break-code code {
+	word-break: break-all;
+	min-width: 10em;
+	white-space: inherit;
 }
-table.break-column-2 {
-	tr td:nth-child(2) {
-		word-break: break-all;
-		min-width: 10em;
-		code {
-			white-space: inherit;
-		}
+
+table.break-column-1 tr td:nth-child(1),
+table.break-column-2 tr td:nth-child(2),
+table.break-column-3 tr td:nth-child(3),
+table.break-column-4 tr td:nth-child(4),
+table.break-column-5 tr td:nth-child(5) {
+	word-break: break-all;
+	min-width: 10em;
+	code {
+		white-space: inherit;
 	}
 }
 
