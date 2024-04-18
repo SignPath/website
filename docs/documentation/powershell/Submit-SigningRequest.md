@@ -15,7 +15,6 @@ Submits a new signing request or resubmits an existing one via the SignPath REST
 
 Use `-InputArtifact` to directly upload the artifact from the specified local file.
 
-{:.pssyntax}
 ~~~ powershell
 Submit-SigningRequest 
     -InputArtifactPath <String>
@@ -38,8 +37,6 @@ Submit-SigningRequest
 
 Use `-ArtifactRetrievalLink` to instruct SingPath to download the artifact from the specified URL.
 
-{:.pssyntax}
-~~~ powershell
 Submit-SigningRequest 
     -ArtifactRetrievalLink <String> 
         -ArtifactRetrievalLinkFileName <String> 
@@ -67,7 +64,6 @@ Available for Enterprise subscriptions
 
 Use `-Resubmit` to create a new signing request based on an existing signing request, but typically using a different _signing policy_ ([read more.](#new-vs-resigning)).
 
-{:.pssyntax}
 ~~~ powershell
 Submit-SigningRequest 
     -Resubmit
@@ -104,11 +100,10 @@ Processing a signing request may take several minutes, or even longer if manual 
 
 ## Parameters
 
-<div class="panel tip" markdown="1">
-<div class="panel-header">Tip</div>
-
-Signing policies in the SignPath Web application show basic `Submit-SigningRequest` calls with essential parameters.
-</div>
+{:.panel.tip}
+> **Tip**
+>
+> Signing policies in the SignPath Web application show basic `Submit-SigningRequest` calls with essential parameters.
 
 ### Parameters with `-InputArtifactPath` or `-ArtifactRetrievalLink`
 
@@ -127,21 +122,18 @@ Signing policies in the SignPath Web application show basic `Submit-SigningReque
 | `-Origin`                                 | `Hashtable`       | Information about the origin of the artifact, see below       |               | Enterprise
 {: .break-column-1 }
 
-<div class="panel note" markdown="1">
-<div class="panel-header">Slugs or IDs</div>
+{:.panel.note}
+> **Slugs or IDs**
+>
+> Use either slugs _or_ IDs, don't mix them.
 
-Use either slugs _or_ IDs, don't mix them.
-</div>
-
-<div class="panel tip" markdown="1">
-<div class="panel-header">Automated builds version control</div>
-
-Consider using these sources if you are using automated builds:
-
-* **Artifact configuration: version management**. Create new versions of your artifact configuration for breaking changes and let your code determine the version to use. This ensures that signing will continue to work for older versions of your application while the artifact configuration evolves. If the script that invokes this cmdlet is under version control, it might be a better idea to have the artifact configuration slug hard coded in the script than to get it from a CI variable.
-* **Signing policy: CI parameter**. If you take the signing policy from a Continuous Integration/Build Automation parameter, you can use the same script and cmdlet invocation for different build configurations, such as test and release.
-
-</div>
+{:.panel.tip}
+> **Automated builds version control**
+> 
+> Consider using these sources if you are using automated builds:
+> 
+> * **Artifact configuration: version management**. Create new versions of your artifact configuration for breaking changes and let your code determine the version to use. This ensures that signing will continue to work for older versions of your application while the artifact configuration evolves. If the script that invokes this cmdlet is under version control, it might be a better idea to have the artifact configuration slug hard coded in the script than to get it from a CI variable.
+> * **Signing policy: CI parameter**. If you take the signing policy from a Continuous Integration/Build Automation parameter, you can use the same script and cmdlet invocation for different build configurations, such as test and release.
 
 #### `-Origin` values
 

@@ -12,7 +12,7 @@ datasource: tables/artifact-configuration
 
 The artifact configuration describes the structure of the artifacts you want to sign. For simple artifacts, you can use predefined configurations to get started quickly. For signing several artifacts together, and for more complex artifacts, specify the structure of your artifact and provide signing directives using XML.
 
-![Artifact configuration XML](/assets/img/resources/documentation_artifact-configuration.png)
+![Artifact configuration XML](/assets/img/resources/documentation/artifact-configuration/screenshot.png)
 
 ## Creating and editing artifact configurations
 
@@ -53,3 +53,9 @@ You can easily sign multiple files by creating a ZIP archive. Use wildcards, ind
 ## Deep signing of nested files
 
 Sometimes you need to sign both the container and its contents. For instance, an MSI installer package needs to be signed, but you also want the files it installs to be signed. SignPath can sign both the container and its contents in a single pass if you specify an appropriate artifact configuration. See [here](examples#msi-sample) for an example.
+
+## Further reading
+
+* [Syntax and Structure](syntax): introduction and information about user-defined parameters
+* [Reference](reference): details about supported file types and signing methods
+* [Examples](examples): examples for various elements and how they can be combined

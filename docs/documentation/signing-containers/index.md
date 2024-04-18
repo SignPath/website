@@ -26,15 +26,14 @@ Both Cosign and DCT use concepts that differ widely from classic code signing me
 ### Similarities 
 
 * **No classic Certificate Authorities:** Manual key/certificate trust configuration ("pinning") required
-* **Signing items in OCI repositoies rather than files:** Signatures are not transferable to other repositories, e.g. in replication scenarios
+* **Signing items in OCI repositories rather than files:** Signatures are not transferable to other repositories, e.g. in replication scenarios
 
 ### Differences 
 
-{%- assign table = site.data.tables.signing-containers.methods-differences -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.signing-containers.methods-differences -%}
 {: .row-headers }
 
-### Why use SignPath for container signing?
+## Why use SignPath for container signing?
 
 SignPath provides the following advantages:
 
@@ -46,7 +45,7 @@ SignPath provides the following advantages:
 
 For _cosign_, there are additional specific advantages:     
 
-* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
+* You can **authenticate automated build systems instead of individual developers** and leverage origin verification for CI systems that do not support Cosign workload identities (currently only Github and Gitlab in their SaaS offerings)
 * You can use your own key material and **keep your signature data private** without having to operate an own Fulcio certificate authority system
 
 For _Notary v1 / Docker Content Trust (DCT)_, there are additional specific advantages:

@@ -117,19 +117,19 @@ section.resources-section {
 		}
 
 		/** HIGHLIGHTS **/
-		div.panel {
+		blockquote.panel {
 			border: 1px solid $grey-border-color;
 			border-radius: 6px;
 			padding: 0px 20px;
 			margin: 10px 0px;
 
-			& > div.panel-header::before {
+			& > p:first-child::before {
 				margin-right: 10px;
 				display: inline-block;
 			}
 
 			&.info, &.warning, &.tip {
-				& > div.panel-header::before {
+				& > p:first-child::before {
 					font-family: "Line Awesome Free";
 					font-weight: 800;
 				}
@@ -137,33 +137,33 @@ section.resources-section {
 
 			&.info {
 				background-color: $light-grey-background-color;
-				& > div.panel-header::before {
+				& > p:first-child::before {
 					content: "\f05a";
 				}
 			}
 			&.tip {
 				background-color: $light-grey-background-color;
-				& > div.panel-header::before {
+				& > p:first-child::before {
 					content: "\f0eb";
 				}
 			}
 			
 			&.warning {
 				background-color: $light-orange-background-color;
-				& > div.panel-header::before {
+				& > p:first-child::before {
 					content: "\f071";				
 				}
 			}
 
 			&.product {
 				background-color: $light-blue-background-color;
-				& > div.panel-header::before {
+				& > p:first-child::before {
 					content: "\e808";
 					font-family: fontello;				
 				}
 			}
 
-			& > div.panel-header {
+			& > p:first-child {
 				background-color: $grey-border-color;
 				margin: 0px;
 				padding: 5px 10px;
@@ -171,10 +171,6 @@ section.resources-section {
 				font-size: 1em;
 				margin-left: -20px;
 				margin-right: -20px;
-			}
-
-			& > div.panel-body {
-				margin: 20px;
 			}
 
 			&.todo {
@@ -350,21 +346,28 @@ table td[data-label="Parameter"] code {
 	white-space: nowrap; // prevent hypen line breaks in -Parametername 
 }
 
-table.break-column-1 {
-	tr td:nth-child(1) {
-		word-break: break-all;
-		min-width: 10em;
-		code {
-			white-space: inherit;
-		}
+table.break-code code {
+	word-break: break-all;
+	min-width: 10em;
+	white-space: inherit;
+}
+
+table.break-column-1 tr td:nth-child(1),
+table.break-column-2 tr td:nth-child(2),
+table.break-column-3 tr td:nth-child(3),
+table.break-column-4 tr td:nth-child(4),
+table.break-column-5 tr td:nth-child(5) {
+	word-break: break-all;
+	min-width: 10em;
+	code {
+		white-space: inherit;
 	}
 }
 
-div.pssyntax span.err {
-	background-color: inherit;
-}
-
-div.pssyntax {
+div.language-powershell {
+	& span.err {
+		background-color: inherit;
+	}
 	& span.nf, span.nx, span.kt {
 		color: #990000;
 		font-weight: bold;

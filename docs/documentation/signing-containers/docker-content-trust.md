@@ -68,27 +68,26 @@ The following table lists
 | **Timestamp** | legitimate images wrongly declared current (freeze attack)    | Key rotation
 
 
-<div class="panel info" markdown="1">
-<div class="panel-header">The misleading security assumption of Notary and Docker Content Trust (DCT)</div>
-
-**TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.**
-
-**Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation. The Notary documentation is currently not published but available at [GitHub](https://github.com/theupdateframework/notary/tree/master/docs).
-
-Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned.
-
-Notary has a well-defined [threat model](https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model) which states the following about compromised delegation keys:
-
-> An attacker can add malicious content, remove legitimate content from a collection, and mix up the targets in a collection, but only within the particular delegation roles that the key can sign for. **Depending on the restrictions on that role, they may be restricted** in what type of content they can modify. *[Our emphasis]*
-
-**This is the most important part of the threat model,** since it involves the least protected keys. However, DCT uses Notary in a way that provides no such restriction. While DCT does provide the usual per-delegation signature manifests, its primary source of trust is **a shared signature manifest** called `releases.json` that includes all signatures from all delegates. 
-
-When verifying signatures, Docker only looks at this shared manifest, and thereby invalidates the separation of delegates provided by Notary. This essentially means that everybody who holds any delegation key can add signatures for images and labels, and change existing signature entries from other delegates.
-
-Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys. 
-
-(Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
-</div>
+{:.panel.info}
+> **The misleading security assumption of Notary and Docker Content Trust (DCT)**
+>
+> **TL;DR: a single compromised delegation key will compromise all image repositories that trust this delegation.**
+> 
+> **Update**: The Notary documentation is no longer hosted on docker.com. The implicit promise that Notary's threat model also works for Docker Content Trust is no longer made. This section will soon be updated to reflect the new structure of Docker's documentation. The Notary documentation is currently not published but available at [GitHub](https://github.com/theupdateframework/notary/tree/master/docs).
+>
+> Docker Content Trust (DCT) builds on the Notary signing system. While Notary was basically built for DCT, this does not necessarily mean that the two systems are well aligned.
+> 
+> Notary has a well-defined [threat model](https://github.com/notaryproject/notary/blob/master/docs/service_architecture.md#threat-model) which states the following about compromised delegation keys:
+> 
+> > An attacker can add malicious content, remove legitimate content from a collection, and mix up the targets in a collection, but only within the particular delegation roles that the key can sign for. **Depending on the restrictions on that role, they may be restricted** in what type of content they can modify. *[Our emphasis]*
+>
+> **This is the most important part of the threat model,** since it involves the least protected keys. However, DCT uses Notary in a way that provides no such restriction. While DCT does provide the usual per-delegation signature manifests, its primary source of trust is **a shared signature manifest** called `releases.json` that includes all signatures from all delegates. 
+> 
+> When verifying signatures, Docker only looks at this shared manifest, and thereby invalidates the separation of delegates provided by Notary. This essentially means that everybody who holds any delegation key can add signatures for images and labels, and change existing signature entries from other delegates.
+> 
+> Note that developers usually own a single delegation key that is trusted by many repositories. Issuing seperate delegation keys for each repository is not a good solution, it just puts an additional burden on developers to keep their keys secure, thus increasing the risks. Also, DCT does not support hardware tokens for delegation keys. 
+> 
+> (Disclaimer: all compromise scenarios for delegation keys assume access to the developer's Notary credentials, which are usually the same as their Docker registry credentials.)
 
 ## Setup phase
 
@@ -114,25 +113,23 @@ You only need one delegation key, it can be shared between repositories.
 
 In order for SignPath to ensure that only valid tags can be signed, you need to upload the repository's root key (only the public key) to SignPath. Use the [SignPathDocker](https://powershellgallery.com/packages/SignPathDocker/) PowerShell module. 
 
-<div class="panel info" markdown="1">
-<div class="panel-header">PowerShell parameters and FQN</div>
-
-`Get-RootCertificate`, `Initialize-DockerSigning`, and `Add-DelegationCertificate` accept the following parameters:
-
-| Parameter                             | Description     |
-|---------------------------------------|-----------------|
-| `Repository`                          | The FQN provided when creating the Docker repository in SignPath
-| `NotaryUsername` and `NotaryPassword` | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry.
-| `NotaryUrl`                           | Optional parameter to specify the URL of your internal notary server. Defaults to `https://notary.docker.io` which is the Notary server used by Docker Hub.
-
-<a name="fqn"/> 
-**Fully qualified name (FQN)**
-
-For images hosted on Docker Hub, the FQN is `docker.io/<namespace>/<repository>`, e.g. `docker.io/jetbrains/teamcity-server`. 
-
-If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using `docker pull myreg.jfrog.io/myrepo/myimage:latest`, the FQN would be `myreg.jfrog.io/myrepo/myimage`.
-
-</div>
+{:.panel.info}
+> **PowerShell parameters and FQN**
+> 
+> `Get-RootCertificate`, `Initialize-DockerSigning`, and `Add-DelegationCertificate` accept the following parameters:
+> 
+> | Parameter                             | Description     |
+> |---------------------------------------|-----------------|
+> | `Repository`                          | The FQN provided when creating the Docker repository in SignPath
+> | `NotaryUsername` and `NotaryPassword` | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry.
+> | `NotaryUrl`                           | Optional parameter to specify the URL of your internal notary server. Defaults to `https://notary.docker.io` which is the Notary server used by Docker Hub.
+> 
+> <a name="fqn"/> 
+> **Fully qualified name (FQN)**
+> 
+> For images hosted on Docker Hub, the FQN is `docker.io/$namespace/$repository`, e.g. `docker.io/jetbrains/teamcity-server`. 
+> 
+> If you are using your own registry, specify the value you would use for Docker CLI commands, but without tag or digest values. E.g. when using `docker pull myreg.jfrog.io/> myrepo/myimage:latest`, the FQN would be `myreg.jfrog.io/myrepo/myimage`.
 
 Choose one of the following scenarios:
 
@@ -198,15 +195,14 @@ Delete the file `~/.docker/trust/private/$id*.key` where `$id` is the 7 digit ke
 
 We recommend to perform a test signing before deleting the target key.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Delete the target key: reason and consequences</div>
-
-DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.
-
-If you run into unexpected problems later that require a target key, you can always create a new one by performing a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys). Don't forget to add existing delegation keys you want to keep after a key rotation.
-
-The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
-</div>
+{:.panel.info}
+> **Delete the target key: reason and consequences**
+>
+> DCT and Notary provide no method to protect the target key beyond a simple passphrase. Yubikey tokens can only be used for the root key. However, since SignPath uses only a single delegation key for all developers and CI systems, there is usually no need to for the target key after the setup phase. We therefore recommend that you delete the key file right after sucessfull initialization.
+>
+> If you run into unexpected problems later that require a target key, you can always create a new one by performing a [key rotation](https://github.com/notaryproject/notary/blob/master/docs/advanced_usage.md#rotate-keys). Don't forget to add existing delegation keys you want to keep after a key rotation.
+> 
+> The default [expiration time](https://github.com/theupdateframework/notary/blob/master/docs/best_practices.md) for both target and delegation keys is 3 years. After this time, you need to perform a key rotation in any case.
 
 ## Signing phase
 
@@ -264,36 +260,35 @@ Push-SignedDockerSigningData -Repository $FQN -InputArtifactPath $ZIP_FILE `
   [-NotaryUrl $NOTARY_URL] [-NotaryUsername $NOTARY_USERNAME] [-NotaryPassword $NOTARY_PASSWORD]
 ~~~
 
-<div class="panel info" markdown="1">
-<div class="panel-header">PowerShell parameters</div>
-
-`Invoke-DockerSigning`, `New-DockerSigningData`, `Submit-SigningRequest`, and `Push-SignedDockerSigningData` accept all or some of the following parameters:
-
-| Parameter                                                          | Description     |
-|--------------------------------------------------------------------|-----------------|
-| `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
-| `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
-| `ApiToken`                                                         | The API token of the CI user (see [build system integration](/documentation/build-system-integration#authentication))
-| `OrganizationId`                                                   | ID of your SignPath organization
-| `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
-| `Description`                                                      | Optional description for your signing request (e.g. version number)
-| `NotaryUsername` and `NotaryPassword`                              | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry. If specified, overrides values in the `NOTARY_AUTH` environment variable. `NotaryPassword` is a PowerShell SecureString.
-| `RegistryUsername` and `RegistryPassword`                          | The credentials of your Docker registry. If specified, overrides values in the `REGISTRY_AUTH` environment variable. `RegistryPassword` is a PowerShell SecureString.
-| `RegistryUrl` and `NotaryUrl`                                      | Optional parameter to specify the URLs of your internal registry and notary server. Defaults to `docker.io` (Docker Hub) and `notary.docker.io` (Notary of Docker Hub)
-
-**Passing SecureString parameters**
-
-Use the following syntax to create `SecureString` objects for the `-NotaryPassword` and `-RegistryPassword` parameters: 
-
-~~~ powershell
-$SECURE_PASSWORD = ConvertTo-SecureString $PLAINTEXT_PASSWORD -AsPlainText 
-~~~
-
-**Using environment variables for authentication**
-
-If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable respectively. See the [Notary documentation](https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
-
-**WaitForCompletion option**
-
-Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](/documentation/build-system-integration#powershell).
-</div>
+{:.panel.info}
+> **PowerShell parameters**
+>
+> `Invoke-DockerSigning`, `New-DockerSigningData`, `Submit-SigningRequest`, and `Push-SignedDockerSigningData` accept all or some of the following parameters:
+> 
+> | Parameter                                                          | Description     |
+> |--------------------------------------------------------------------|-----------------|
+> | `Repository`                                                       | The FQN provided when creating the Docker repository in SignPath
+> | `Tags`                                                             | A comma-separated list of Docker tags that you want to sign (e.g. `v1,1.2.17`)
+> | `ApiToken`                                                         | The API token of the CI user (see [build system integration](/documentation/build-system-integration#authentication))
+> | `OrganizationId`                                                   | ID of your SignPath organization
+> | `ProjectSlug`, `SigningPolicySlug` and `ArtifactConfigurationSlug` | The respective project, signing policy and artifact configuration for your signing request
+> | `Description`                                                      | Optional description for your signing request (e.g. version number)
+> | `NotaryUsername` and `NotaryPassword`                              | The credentials of your Notary server. In most cases, these are the same as the credentials for your Docker registry. If specified, overrides values in the `NOTARY_AUTH` environment variable. `NotaryPassword` is a PowerShell SecureString.
+> | `RegistryUsername` and `RegistryPassword`                          | The credentials of your Docker registry. If specified, overrides values in the `REGISTRY_AUTH` environment variable. `RegistryPassword` is a PowerShell SecureString.
+> | `RegistryUrl` and `NotaryUrl`                                      | Optional parameter to specify the URLs of your internal registry and notary server. Defaults to `docker.io` (Docker Hub) and `notary.docker.io` (Notary of Docker Hub)
+>  
+> **Passing SecureString parameters**
+> 
+> Use the following syntax to create `SecureString` objects for the `-NotaryPassword` and `-RegistryPassword` parameters: 
+> 
+> ~~~ powershell
+> $SECURE_PASSWORD = ConvertTo-SecureString $PLAINTEXT_PASSWORD -AsPlainText 
+> ~~~
+> 
+> **Using environment variables for authentication**
+> 
+> If you would rather provide credentials via environment variables, username and password have to be concatenated with a colon `:`, encoded in base64 and stored in  the `REGISTRY_AUTH` or `NOTARY_AUTH` environment variable. See the [Notary documentation](https://github.com/notaryproject/notary/blob/master/docs/reference/client-config.md#environment-variables-optional).
+> 
+> **WaitForCompletion option**
+> 
+> Instead of calling `Get-SignedArtifact` separately, you may call `Submit-SigningRequest` with the  `-WaitForCompletion` parameter. The `Submit-SigningRequest` command is described in  [build system integration](/documentation/build-system-integration#powershell).

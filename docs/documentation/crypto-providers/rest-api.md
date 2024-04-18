@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: Direct usage of the REST API for hash signing
-datasource: tables/crypto-providers
 ---
 
 ## Overview
@@ -34,11 +33,10 @@ For hash data we recommend using a _fast signing request_. These requests are pe
 | `Base64EncodedHash`  | The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
 | `Metadata`           | Can contain arbitrary metadata JSON values. We recommend to include `CreatingProcess` metadata with `CommandLine` and `User` as shown in the example above.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Key length</div>
-
-SignPath crypto providers use the file name `payload.json` for hash digest artifacts.
-</div>
+{:.panel.info}
+> **Key length**
+> 
+> SignPath crypto providers use the file name `payload.json` for hash digest artifacts.
 
 ### Response {#signing-request-response}
 

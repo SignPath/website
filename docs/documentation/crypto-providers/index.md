@@ -5,7 +5,6 @@ layout: resources
 toc: true
 show_toc: 3
 description: SignPath Crypto Providers (CSP, KSP, Cryptoki)
-datasource: tables/crypto-providers
 ---
 
 Available for Enterprise subscriptions
@@ -19,24 +18,32 @@ Crypto Providers are generally used to provide a device-independent API for usin
 
 The SignPath Crypto Providers do not access the crypto hardware directly. Instead, they implement these interfaces to provide access to SignPath _Projects_ and _Signing Policies_. During the entire operation, the private key will remain on the HSM.
 
-<div class="panel info" markdown="1">
-<div class="panel-header">Version info</div>
-
-This documentation contains information about the latest version of the CryptoProviders. See the [changelog](/documentation/changelog?component=crypto_providers) for updates.
-</div>
+{:.panel.info}
+> **Version info**
+>
+> This documentation contains information about the latest version of the CryptoProviders. See the [changelog](/documentation/changelog?component=crypto_providers) for updates.
 
 ### Crypto Providers
 
 The following Crypto Providers are available for SignPath:
 
-{%- assign table = site.data.tables.crypto-providers.overview-crypto-providers -%}
-{%- include render-table.html -%}
+| Crypto Provider                               | Technology                                    | Supported platforms | Description
+|-----------------------------------------------|-----------------------------------------------|---------------------|--------------
+| **Cryptoki** (Cryptographic Token Interface)  | [PKCS #11] version 2.40                       | Windows, Linux
+| **KSP** (Key Storage Provider)                | [CNG] (Cryptographic API: Next Generation)    | Windows
+| **CSP** (Cryptographic Service Provider)      | [CAPI] (CryptoAPI)                            | Windows             | This API is deprecated, most tools now use KSP/CNG
+| **CTK** (CryptoTokenKit)                      | [CTK extension]                               | macOS
+
+[PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
+[CNG]: https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval
+[CAPI]: https://docs.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers
+[CTK extension]: https://developer.apple.com/documentation/cryptotokenkit/
 
 ### Signing flow {#flow}
 
 This diagram describes how the various components work together to create a signature.
 
-![Figure: Signing flow overview](/assets/img/resources/documentation_crypto_providers-CryptoProvidersSigningFlow.svg)
+![Figure: Signing flow overview](/assets/img/resources/documentation/crypto-providers/signing-flow.svg)
 
 With small platform-specific variations, the general flow of a signing operations is as follows:
 
@@ -46,7 +53,7 @@ With small platform-specific variations, the general flow of a signing operation
 2. The **signing tool** reads the file and calculates a **hash digest**.
    * Depending on the tool, this might be the hash digest of the entire file, or just a of a specific part of the file.
    * For Authenticode, this step is performed by a Windows API using a format-specific SIP (Subject Interface Package).
-3. The **signing tool** calls a **System API** (Windows) or an **engine** (PKCS#11) to get a signature block.
+3. The **signing tool** calls a **System API** (Windows) or an **engine** (PKCS #11) to get a signature block.
 4. This API or engine calls the **SignPath Crypto Provider**.
 5. The SignPath Crypto Provider calls the **SignPath REST API** over HTTPS/REST.
 6. **SignPath**
@@ -100,21 +107,50 @@ Depending on the signing tool you're using, the corresponding Crypto Provider ne
 
 This section describes how to specify configuration values for all Crypto Providers.
 
-You can either use a JSON configuration file and specify the JSON file path via the `SIGNPATH_CONFIG_FILE` environment variable, or use individual configuration environment variables per setting.
-Note that environment variables take precedence over the corresponding JSON values.
+You can either use a JSON configuration file and specify the JSON file path via the `SIGNPATH_CONFIG_FILE` environment variable, or use individual configuration environment variables per setting. 
 
-{%- assign table = site.data.tables.crypto-providers.config-values -%}
-{%- include render-table.html -%}
+Environment variables take precedence over the corresponding JSON values.
+
+| JSON setting                      | Environment variable                      | Default Value                 | Description
+|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
+| `OrganizationId`                  | `SIGNPATH_ORGANIZATION_ID`                | (mandatory)                   | ID of your organization
+| `ApiToken`                        | `SIGNPATH_API_TOKEN`                      | (mandatory)                   | API token for a CI or Interactive User (see below for options)
+| `TlsClientCertificate`            | `SIGNPATH_TLS_CLIENT_CERTIFICATE`         | (optional)                    | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint` (Windows only)
+| `ApiUrl`                          | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
+| `HttpProxy`                       | `http_proxy`                              | (optional)                    | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
+| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`    | Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option 
+{: .break-code}
+
+**Logging settings:**
+
+| JSON setting                      | Environment variable                      | Default Value                 | Description
+|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
+| `Log.Console.Level`               | `SIGNPATH_LOG_CONSOLE_LEVEL`              | `none`                        | Log level used for console logging (not available on macOS)
+| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `warning`                     | Log level used for file logging (not available on macOS)
+| `Log.File.Directory`              | `SIGNPATH_LOG_FILE_DIRECTORY`             | (optional)                    | Path to the folder to store log files (no file logging if not provided)
 
 Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `verbose`.
 
-Sample configuration file:
+**Timeout settings:**
+
+| JSON setting                      | Environment variable                      | Default Value                 | Description
+|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
+| `Timeouts.HttpRequest`            | `SIGNPATH_TIMEOUTS_HTTP_REQUEST`          | `30`                          | Timeout for HTTP calls in seconds per attempt (not available on macOS)
+| `Timeouts.FirstRetryDelay`        | `SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY`     | `1.16`                        | Initial delay in seconds in case of failed API HTTP requests (not available on macOS)
+| `Timeouts.RetryCount`             | `SIGNPATH_TIMEOUTS_RETRY_COUNT`           | `10`                          | Maximum number of retries in case of failed API HTTP requests (not available on macOS)
+{: .break-column-2}
+
+HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.
+
+The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.
+
+**Sample configuration file:**
 
 ~~~json
 {
     "ApiUrl": "https://app.signpath.io/Api",
-    "OrganizationId": "<OrganizationId>",
-    "ApiToken": "<ApiToken>",
+    "OrganizationId": "$OrganizationId",
+    "ApiToken": "$ApiToken",
     "Log": {
         "Console": {
             "Level": "warning"
@@ -131,8 +167,13 @@ Sample configuration file:
 
 The `ApiToken` value can contain the API token in one of the following variants:
 
-{%- assign table = site.data.tables.crypto-providers.config-api-token-options -%}
-{%- include render-table.html -%}
+| Value                                                 | Example
+|-------------------------------------------------------|-----------------------------
+| Unencrpyted token                                     | `AIk/65sl23lA1nVV/pgSqk96SvHFsSw3xitmp5Qhr+F/`
+| DPAPI-encrypted token (Windows only)                  | `encrypted:AQAAANCMnd8BFdERjHoAwE/Cl+sBAAA...`
+| Registry path to DPAPI-encrypted token (Windows only) | `registry:HKEY_CURRENT_USER\\SOFTWARE\\SignPath\\MyEncryptedApiToken`
+{: .break-column-2}
+
 
 In order to encrypt the token, you can use the following PowerShell snippet:
 
@@ -145,7 +186,6 @@ $ApiTokenBytes = [System.Text.Encoding]::UTF8.GetBytes($ApiToken)
 $EncryptedApiToken = [Security.Cryptography.ProtectedData]::Protect($ApiTokenBytes, $null, [System.Security.Cryptography.DataProtectionScope]::CurrentUser)
 
 $EncryptedBase64EncodedApiToken = [System.Convert]::ToBase64String($EncryptedApiToken)
-
 ~~~
 
 To store the encrypted token in the Windows registry, you can use the following snippet:

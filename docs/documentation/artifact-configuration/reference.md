@@ -10,8 +10,7 @@ datasource: tables/artifact-configuration
 
 ## File and directory elements {#file-elements}
 
-{%- assign table = site.data.tables.artifact-configuration.signing-file-elements -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.signing-file-elements -%}
 
 ### Container formats {#containers}
 
@@ -27,8 +26,7 @@ For [file and directory sets](syntax#file-and-directory-sets), specify the signi
 
 ### `<authenticode-sign>`
 
-{%- assign ac-directive = "authenticode-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="authenticode-sign" -%}
 
 Microsoft Authenticode is the primary signing method on the Windows platform. Authenticode is a versatile and extensible mechanism that works for many different file types. Using `<authenticode-sign>` is equivalent to using Microsoft's `SignTool.exe`.
 
@@ -38,8 +36,7 @@ See also:
 
 ### `<clickonce-sign>`
 
-{%- assign ac-directive = "clickonce-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="clickonce-sign" -%}
 
 ClickOnce signing, also called 'manifest signing', is a method used for ClickOnce applications and Microsoft Office Add-ins. Using `<clickonce-sign>` is equivalent to using Microsoft's `mage.exe`.
 
@@ -57,8 +54,7 @@ ClickOnce signing applies to directories, not to individual files. Therefore, yo
 
 ### `<nuget-sign>`
 
-{%- assign ac-directive = "nuget-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="nuget-sign" -%}
 
 NuGet packages are signed by [NuGet Gallery](https://www.nuget.org/). They can be signed by the publisher too. Using `<nuget-sign>` is equivalent to using Microsoft's `nuget` `sign` command.
 
@@ -97,8 +93,7 @@ Macro signatures apply only to the macros within the document files and are not 
 
 ### `<opc-sign>`
 
-{%- assign ac-directive = "opc-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="opc-sign" -%}
 
 Signs according to the [Open Packaging Conventions](https://en.wikipedia.org/wiki/Open_Packaging_Conventions) (OPC) specification. Using `<opc-sign>` for Visual Studio Extensions is equivalent to using Microsoft's `VSIXSignTool.exe`.
 
@@ -114,8 +109,7 @@ Note that not all OPC-based formats use OPC signatures:
 Available for Basic and Enterprise subscriptions
 {: .badge.icon-signpath}
 
-{%- assign ac-directive = "jar-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="jar-sign" -%}
 
 Android apps and app-bundles: Note that JAR signatures only implement APK signing scheme v1 (v2 and v3 are not yet supported).
 
@@ -138,8 +132,7 @@ Add the `-verbose` option to see the certificate.
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-{%- assign ac-directive = "xml-sign" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="xml-sign" -%}
 
 Sign XML files with [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
 
@@ -156,6 +149,7 @@ The result is a `Signature` element added to the root element (after all existin
 | Transformation    | Exclusive XML Canonicalization: `http://www.w3.org/2001/10/xml-exc-c14n#`     | `/*/Signature/SignedInfo/Reference/Transforms/Transform/@Algorithm`
 | Digest method     | SHA-256: `http://www.w3.org/2001/04/xmlenc#sha256`                            | `/*/Signature/SignedInfo/Reference/DigestMethod/@Algorithm`
 | X.509 Certificate | _See `key-info-x509-data` option_                                             | `/*/Signature/KeyInfo/X509Data`
+{:.break-code}
 
 **Supported options:**  
 
@@ -172,12 +166,13 @@ See also:
 Available for Enterprise subscriptions
 {: .badge.icon-signpath}
 
-{%- assign ac-directive = "create-raw-signature" -%}
-{%- include render-ac-directive-table.html -%}
+{%- include_relative render-ac-directive-table.inc directive="create-raw-signature" -%}
 
 **Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
 
-Detached raw signatures can be used for arbitrary binary or text files or [signing Container Images using cosign](/documentation/signing-containers/cosign). The `create-raw-signature` directive supports the following parameters:
+Detached raw signatures can be used to sign any binary or text file. They can also be used to [sign _Cosign_ metadata files](/documentation/signing-containers/cosign).
+
+The `create-raw-signature` directive supports the following parameters:
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------

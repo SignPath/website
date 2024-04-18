@@ -10,19 +10,21 @@ datasource: tables/artifact-configuration
 
 ## Syntax
 
-<div class='panel info' markdown='1' >
-<div class='panel-header'> Examples are shortened</div>
-For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
+{:.panel.info}
+> **Examples are shortened**
+>
+> For the sake of clarity, all examples omit the XML prolog. A complete artifact configuration looks like this:
+> 
+> ~~~ xml
+> <?xml version="1.0" encoding="utf-8" ?>
+> <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+>   <!-- ... -->
+> </artifact-configuration>
+> ~~~
 
-~~~ xml
-<?xml version="1.0" encoding="utf-8" ?>
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <!-- ... -->
-</artifact-configuration>
-~~~
-</div>
+## Basic examples
 
-## Predefined configuration for single Portable Executable file
+### Predefined configuration for single Portable Executable file
 
 This configuration works for all PE files.
 
@@ -34,7 +36,9 @@ This configuration works for all PE files.
 </artifact-configuration>
 ~~~
 
-## Signing multiple artifacts in a ZIP container
+## Signing multiple files
+
+### Signing multiple artifacts in a ZIP container
 
 You can sign multiple unrelated artifacts by packing them into a single ZIP file.
 
@@ -51,7 +55,7 @@ You can sign multiple unrelated artifacts by packing them into a single ZIP file
 </artifact-configuration>
 ~~~
 
-## Deep-signing an MSI installer {#msi-sample}
+### Deep-signing an MSI installer {#msi-sample}
 
 This will sign the PE files `libs/common.dll` and `main.exe`, then re-package their MSI container and sign it too. It also restricts the name of the MSI container file.
 
@@ -69,21 +73,21 @@ This will sign the PE files `libs/common.dll` and `main.exe`, then re-package th
 </artifact-configuration>
 ~~~
 
-## Signing similar directories within an MSI file
+### Signing similar directories within an MSI file
 
 This artifact configuration describes an MSI installer package containing several components. The components have a similar structure and are therefore defined as a `<directory-set>`. Each component contains a `main.exe` and zero or more resource DLLs.
 
-{%- assign table = site.data.tables.artifact-configuration.similar-directories-example -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.similar-directories-example -%}
 {: .noheader .noborder }
 
 Example of a directory structure that would match this configuration:
 
-{%- assign table = site.data.tables.artifact-configuration.similar-directories-example-match -%}
-{%- include render-table.html -%}
+{%- include render-table.html table=site.data.tables.artifact-configuration.similar-directories-example-match -%}
 {: .noheader .noborder }
 
-## PE file metadata restriction {#pe-restriction}
+## Metadata restrictions
+
+### PE file metadata restriction {#pe-restriction}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
@@ -102,7 +106,7 @@ Example of a directory structure that would match this configuration:
 </artifact-configuration>
 ~~~
 
-## XML file schema restriction for CycloneDX SBOM {#sbom-restriction}
+### XML file schema restriction for CycloneDX SBOM {#sbom-restriction}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
