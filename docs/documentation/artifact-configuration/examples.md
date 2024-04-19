@@ -110,7 +110,7 @@ Example of a directory structure that would match this configuration:
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <!-- with this restriction, only CylconeDX 1.4 SBOM files can be signed with this artifact configuration -->
+  <!-- with this restriction, only CylconeDX 1.5 SBOM files can be signed with this artifact configuration -->
   <xml-file root-element-namespace="http://cyclonedx.org/schema/bom/1.5" root-element-name="bom">
     <xml-sign/>
   </xml-file>
