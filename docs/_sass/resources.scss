@@ -307,21 +307,23 @@ ul.article-toc.mobile-only {
 					border: 0px solid transparent;
 					padding-left: 0px;
 					border-bottom: 1px solid $grey-border-color;
-					min-height: calc(1em + 10px); /* to deal with empty cells */
+					min-height: calc(1.4em + 10px); /* to deal with empty cells */
 
 
 					&:before {
+						content: attr(data-label);
+						font-weight: 800;
 						position: absolute;
 						width: 130px;
 						left: -140px;
 						top: 0px;
 						bottom: -1px;
-						content: attr(data-label);
-						padding-left: 10px;
-						padding-top: 5px;
-						padding-bottom: 5px;
-						font-weight: 800;
 						border-bottom: 1px solid $grey-border-color;
+						padding-left: 10px;
+						padding-bottom: 5px;
+						$td-height: 1.0em;
+						padding-top: calc(5px + #{($line-height - $td-height)/2});
+						line-height: $td-height;
 					}
 
 					&:last-child {
