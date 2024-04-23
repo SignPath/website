@@ -1,17 +1,19 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    #title: 'All systems are operational' # always restore this message when going back to 'good'
+    type: good
+    title: 'All systems are operational' # always restore this message when going back to 'good'
     #type: good | warning | critical
     #title: 'Problem importing PFX files into the HSM key store'
     #description: |
     #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
-    title: 'DPoD services unavailable'
-    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests is delayed until after the outage and synchronous hash-based signing fail.'
-    link: 'https://status.dpondemand.io/incidents/p6xcvbzlbzyf'
 planned:
 incidents:
+  - date: 'Apr. 23, 2024'
+    range: 'Apr. 23, 2024, 12:26 - 13:37 UTC'
+    title: 'DPoD services unavailable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage and synchronous hash-based signing failed.'
+    link: 'https://status.dpondemand.io/incidents/p6xcvbzlbzyf'
   - date: 'Apr. 18, 2024'
     range: 'Apr. 18, 2024, 10:20 - 10:50 UTC'
     type: warning
