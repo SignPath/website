@@ -1,3 +1,24 @@
+- date: '2024-04-25'
+  updates:
+    application:
+      version: 1.162.2
+      improvements:
+        - text: |-
+            Improve history UI (better aligned table columns and better use of screen estate).
+          issues: [SIGN-6883]
+        - text: |-
+            Performance improved `ChangeMembers`/`ModifyMembers` user group REST APIs.
+          issues: [SIGN-6891]
+    self_hosted_installations:
+      version: 1.162.2
+      new_features:
+        - text: |-
+            HSM SignServices now allow to enter a "readonly" mode for operational/maintenance purposes, which disables key management while still allowing signing operations.
+          issues: [SIGN-6581]
+      improvements:
+        - text: |-
+            Switched `signingprocessorservice` K8s readiness probe from "readyfile" command probe to an HTTP "healthz" probe to improve stability.
+          issues: [SIGN-6902]
 - date: '2024-04-11'
   updates:
     self_hosted_installations:
