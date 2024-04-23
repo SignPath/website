@@ -9,9 +9,20 @@ description: SignPath Cryptoki Crypto Providers
 
 ## General instructions
 
-This section provides information how to use the SignPath Cryptoki library with any tool that supports Cryptoki. Below this section you will find instructions for specific tools.
+The SignPath Cryptoki library is used to enables code signing using tools that support the Cryptoki/PKCS #11 standard.
 
-### Supported Linux distributions
+{:.panel.info #about-cryptoki}
+> **Cryptoki and PKCS #11** 
+>
+> Cryptoki is the _Cryptographic Token Interface_ [defined](https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html) by the PKCS #11 standard. 
+> It is used by cryotographic software to access encryption and signing keys that are not stored on disks. 
+>
+> Cryptoki/PKCS #11 is primarily used in the Open Source ecosystem, e.g. Linux tools and their ports to other platforms including Windows. 
+> Some tools support it indirectly through their own provider ecosystem, e.g. [Java via SunPKCS11](#jarsigner) and [GPG via gnupg-pkcs11-scd](gpg).
+
+This section provides general information about using the SignPath Cryptoki library with code signing tools. Subsequent sections provide instructions for specific tools.
+
+### Supported Linux distributions {#supported-linux-distributions}
 
 | Distribution | Version         | Comment
 |--------------|-----------------|-------------------
@@ -26,7 +37,7 @@ This section provides information how to use the SignPath Cryptoki library with 
 > The reason is an [OpenSSL bug](https://github.com/openssl/openssl/issues/20161) which has been fixed in OpenSSL 3.0.9.
 > The issue results in _"http_exception occurred (error code= generic:168296454): Error in SSL handshake"_ errors.
 >
-> You need to replace the system's OpenSSL version with >= 3.0.9 or to use an isolated OpenSSL installation.
+> You need to replace the system's OpenSSL version with >= 3.0.9 or use an isolated OpenSSL installation.
 {:.panel.warning}
 
 ### Installation
@@ -40,21 +51,19 @@ Check the output of `openssl version` on your target system to select the correc
 
 ### Parameters {#cryptoki-parameters}
 
-Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), Cryptoki-enabled tools usually provide the following parameters:
+Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:
 
-| Parameter | Value for the SignPath Cryptoki Library | Description
-|-----------|-----------------------------------------|------------------------------------------
-| PIN       | `$OrganizationId:$ApiToken` or `CONFIG` | SignPath _Organization_ and _Submitter_ API token, separated by a colon. Specify `CONFIG` to use the values from the [configuration file or environment variables][config-values].
-| Key ID    | `$ProjectSlug/$SigningPolicySlug`       | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash
+| Tool parameter | Value (using SignPath provider)         | Description
+|----------------|-----------------------------------------|------------------------------------------
+| _PIN_          | `$OrganizationId:$ApiToken` or `CONFIG` | SignPath _Organization_ and _Submitter_ API token, separated by a colon. Specify `CONFIG` to use the values definded in [the configuration file or environment variables](/documentation/crypto-providers#crypto-provider-config-values)
+| _key ID_       | `$ProjectSlug/$SigningPolicySlug`       | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash
 
-[config-values]: /documentation/crypto-providers#crypto-provider-config-values
+Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only [indirectly](#about-cryptoki), parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
 {:.panel.info}
 > **Keys are not specified directly**
 >
-> The Cryptoki API expects you to identify a key, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
-
-How these parameters can be specified depends on the tool being used. Since not all tools support Cryptoki directly, parameters are sometimes passed indirectly or using a specific syntax for an existing tool parameter (see below).
+> The Cryptoki API expects you to identify a _key_, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the key or certificate of the specified _Signing Policy_.
 
 ### Error handling
 
@@ -86,7 +95,7 @@ _[OpenSSL]_ is a toolkit that provides a range of cryptographic operations, incl
 {:.panel.warning}
 > **Important**
 >
-> Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions).
+> Only latest OpenSSL 1.1 and 3.x versions are supported. For Linux, see also the notes in [supported Linux distributions](#supported-linux-distributions).
 
 ### Setup
 
@@ -231,7 +240,7 @@ _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures 
 {:.panel.warning}
 > **Important**
 >
-> Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](/documentation/crypto-providers#supported-linux-distributions) regarding the supported OpenSSL versions.
+> Only osslsigncode 2.x or higher is supported. Also see the notes in [supported Linux distributions](#supported-linux-distributions) regarding the supported OpenSSL versions.
 
 ### Setup
 
