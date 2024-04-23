@@ -8,7 +8,7 @@ current:
     #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
     title: 'DPoD services unavailable'
-    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage and synchronous hash-based signing failed.'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests is delayed until after the outage and synchronous hash-based signing fail.'
     link: 'https://status.dpondemand.io/incidents/p6xcvbzlbzyf'
 planned:
 incidents:
