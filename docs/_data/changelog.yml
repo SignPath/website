@@ -13,7 +13,7 @@
       version: 1.162.2
       new_features:
         - text: |-
-            HSM SignServices now providea "readonly" mode for operational/maintenance purposes, which disables key management while still allowing signing operations.
+            HSM SignServices now provides "readonly" mode for operational/maintenance purposes, which disables key management while still allowing signing operations.
           issues: [SIGN-6581]
       improvements:
         - text: |-
