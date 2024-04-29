@@ -9,6 +9,12 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Apr. 23, 2024'
+    range: 'Apr. 23, 2024, 12:26 - 13:37 UTC'
+    type: warning
+    title: 'DPoD services unavailable'
+    description: 'For customers using Thales DPoD Cloud HSM, completion of signing requests was delayed until after the outage and synchronous hash-based signing failed.'
+    link: 'https://status.dpondemand.io/incidents/p6xcvbzlbzyf'
   - date: 'Apr. 18, 2024'
     range: 'Apr. 18, 2024, 10:20 - 10:50 UTC'
     type: warning

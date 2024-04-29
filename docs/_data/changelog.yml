@@ -20,7 +20,7 @@
             Improved history UI: table column alignment, use of screen estate.
           issues: [SIGN-6883]
         - text: |-
-            New user group `ModifyMembers`, `ChangeMembers` REST APIs for improved efficiency when adding/removing members.
+            Improved performance of `ModifyMembers`, `ChangeMembers` user group REST APIs.
           issues: [SIGN-6891]
     self_hosted_installations:
       version: 1.162.2
