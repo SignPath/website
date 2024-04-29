@@ -49,6 +49,8 @@ Simply copy the library file from the Crypto Providers ZIP archive to a director
 
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
+On Windows you can alternatively run the [MSI installer](/documentation/crypto-providers/windows#installation), which drops the `SignPath.Cryptoki.dll` in `%ProgramFiles%\SignPath\CryptoProviders`.
+
 ### Parameters {#cryptoki-parameters}
 
 Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:

@@ -13,18 +13,10 @@ This section provides information to use SignPath with any tool that supports KS
 
 ### Installation
 
-To install both CSP and KSP,
+To install the Windows CNG KSP and CAPI CSP providers,
 
-1. Copy the contents of the `Windows` directory of the Crypto Providers ZIP archive to the target system.
-1. Run the following command with Administrator privileges in the destination directory:
-
-   ~~~powershell
-   powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1
-   ~~~
-
+1. Run the MSI installer file from the `Windows` subdirectory of the Crypto Providers ZIP archive. (See below for unattended options.)
 1. Continue with the [general Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
-
-Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or PowerShell Core session.
 
 {:.panel.info}
 > **Verification**
@@ -40,11 +32,39 @@ Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or Pow
 >    * `Provider Name: SignPathCSP`
 >    * `Provider Name: SignPathKSP`
 
-CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:
+CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP.
+In case you only want to install the KSP, you can de-select the "Windows CAPI CSP" in the "custom setup" installer step.
+
+#### Unattended installation
+
+To install the MSI in an automated fashion, run the following command (in an elevated command prompt).
 
 ~~~powershell
-powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 -InstallParts KSP
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log
 ~~~
+
+See [`msiexec` docs](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) for documentation.
+
+Note that by default `msiexec` does not wait for installation finishing. To achieve this run in an PowerShell session the following command.
+
+~~~powershell
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
+~~~
+
+To install only parts, use the `ADDLOCAL` msiexec parameter with the following options (delimited by commas):
+
+   * `KSP` for the Windows CNG KSP installation and registration.
+   * `CSP` for the Windows CAPI CNG installation and registration.
+   * `Cryptoki` for the Cryptoki library installation.
+   * `SignPathConfigAndEnv` for the default `CryptoProvidersConfig.json` configuration file in `%ProgramFiles%\SignPath\CryptoProviders`
+     and the system-wide `SIGNPATH_CONFIG_FILE` env variable.
+
+Example (KSP and config/env variable):
+
+~~~powershell
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log ADDLOCAL=KSP,SignPathConfigAndEnv | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
+~~~
+
 
 #### Update to a new version
 
@@ -52,15 +72,17 @@ Installing a new version will overwrite the existing installation.
 
 #### Uninstallation
 
-Run the following command with Administrator privileges in the installation directory:
+Uninstall via Windows' "Apps & features" / "Installed apps" dialog.
+
+#### Unattended uninstallation
+
+To uninstall in an automated fashion, run the following command (in an elevated PowerShell session).
 
 ~~~powershell
-powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 Uninstall
+msiexec /x SignPathCryptoProviders-$Version.msi /qn /L* uninstall.log | Out-Host
 ~~~
 
-This removes both the CSP and KSP version (in case they are installed).
-
-### Parameters
+### KSP / CSP Parameters
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:
 
