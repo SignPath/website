@@ -4,7 +4,7 @@
       version: 4.5.1
       improvements:
         - text: |-
-            Crypto Provider documentation has been made publicly available at https://about.signpath.io/documentation/crypto-providers/.
+            Crypto Providers documentation has been made [publicly available](/documentation/crypto-providers).
         - text: |-
             CryptoProviders package now contains SBOMs (see Windows, resp. Linux sub directories).
           issues: [SIGN-6868]
