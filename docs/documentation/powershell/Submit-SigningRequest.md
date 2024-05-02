@@ -37,6 +37,7 @@ Submit-SigningRequest
 
 Use `-ArtifactRetrievalLink` to instruct SingPath to download the artifact from the specified URL.
 
+~~~ powershell
 Submit-SigningRequest 
     -ArtifactRetrievalLink <String> 
         -ArtifactRetrievalLinkFileName <String> 
