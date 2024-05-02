@@ -221,7 +221,7 @@ Verifies that a file has a valid Authenticode signature.
 
 This method verifies signatures according to Windows rules:
 
-* Supported hash digest algorithm and legnth, signing key type and lenght
+* Supported hash digest algorithm and length, signing key type and length
 * Valid timestamp (or unexpired publisher certificate)
 * Certificate chain ends in Windows trusted root certificate 
 
@@ -238,8 +238,8 @@ May be combined with [`<authenticode-sign>`](#authenticode-sign).
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <pe-file-set>
-      <include path="Microsoft.*.dll" max-matches="unbounded"/>
-      <include path="System.*.dll" max-matches="unbounded"/>
+      <include path="Microsoft.*.dll" max-matches="unbounded" />
+      <include path="System.*.dll" max-matches="unbounded" />
       <for-each>
         <authenticode-verify/>
       </for-each>
