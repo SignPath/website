@@ -24,7 +24,7 @@ Specify signing directives in file and directory elements.
 
 For [file and directory sets](syntax#file-and-directory-sets), specify the signing directive in the `<for-each>` element.
 
-### `<authenticode-sign>` 
+### `<authenticode-sign>`
 
 {%- include_relative render-ac-directive-table.inc directive="authenticode-sign" -%}
 
@@ -114,7 +114,7 @@ Available for Basic and Enterprise subscriptions
 
 Android apps and app-bundles: Note that JAR signatures only implement APK signing scheme v1 (v2 and v3 are not yet supported).
 
-#### Verification
+#### Verification {#jar-sign-verification}
 
 * **Java** always verifies signatures for client components. For server components, you will need to create a policy. Please consult the documentation of your application server or [Oracle's documentation](https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html).
 * **Android** always verifies App signatures, but current Android versions require signing schemes v2 or v3.
