@@ -46,9 +46,13 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 Example call starting the application:
 
 ~~~bash
-export SIGNPATH_ORGANIZATION_ID=...
 export SIGNPATH_API_TOKEN=...
 open "SignPathCryptoTokenKit.app" --args -p MyProject -s release-signing -u https://app.signpath.io/Api
+open SignPathCryptoTokenKit.app --args \
+  -p MyProject \
+  -s release-signing \
+  -u https://app.signpath.io/Api \
+  -o 0241f767-69c8-448d-ad5e-8bd453916068
 ~~~
 
 ### Troubleshooting
