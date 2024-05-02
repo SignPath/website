@@ -47,7 +47,6 @@ Example call starting the application:
 
 ~~~bash
 export SIGNPATH_API_TOKEN=...
-open "SignPathCryptoTokenKit.app" --args -p MyProject -s release-signing -u https://app.signpath.io/Api
 open SignPathCryptoTokenKit.app --args \
   -p MyProject \
   -s release-signing \
