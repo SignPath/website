@@ -1,3 +1,36 @@
+- date: '2024-05-09'
+  updates:
+    application:
+      version: 1.163.0
+      new_features:
+        - text: >-
+            Authenticode files can now be signature _validated_ with the new `<authenticode-verify />` artifact configuration directive.
+
+            For example, this can be used to ensure that within deep signing configurations third-party components have valid signatures in place.
+          issues: [SIGN-2021]
+        - text: >-
+            Office Macro signing now supports ECDSA certificates.
+          issues: [SIGN-6961, SIGN-6627]
+      improvements:
+        - text: >-
+            Improved error reporting when a Office Macro file contains no macros instead of just rendering "processing error".
+          issues: [SIGN-6961, SIGN-5848]
+      bug_fixes:
+        - text: >-
+            Fixed error handling for malformed hash signing requests with invalid hash encoding or length (rendered a 500 response since 1.160).
+          issues: [SIGN-6961]
+        - text: >-
+            Fixed a rare concurrency issue on high Office Macro signing load.
+          issues: [SIGN-6961, SIGN-6599]
+        - text: >-
+            Fixed status-filter with multiple input values in the list signing request REST API.
+          issues: [SIGN-6857]
+    self_hosted_installations:
+      version: 1.163.0
+      improvements:
+        - text: >-
+            Replaced the "readiness probes" in all K8s deployments with startup + liveness probes to improve startup perf and stability.
+          issues: [SIGN-6148]
 - date: '2024-04-25'
   updates:
     application:
