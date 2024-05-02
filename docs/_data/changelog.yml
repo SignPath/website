@@ -6,25 +6,22 @@
         - text: >-
             Authenticode files can now be signature _validated_ with the new `<authenticode-verify />` artifact configuration directive.
 
-            For example, this can be used to ensure that within deep signing configurations third-party components have valid signatures in place.
+            Use to ensure that third-party components are properly signed in deep signing configurations.
           issues: [SIGN-2021]
         - text: >-
-            Office Macro signing now supports ECDSA certificates.
+            Office macro signing now supports ECDSA certificates.
           issues: [SIGN-6961, SIGN-6627]
       improvements:
         - text: >-
-            Improved error reporting when a Office Macro file contains no macros instead of just rendering "processing error".
+            Improved error reporting when a macro-enabled Office file contains no macros instead of generic "processing error".
           issues: [SIGN-6961, SIGN-5848]
       bug_fixes:
         - text: >-
-            Fixed error handling for malformed hash signing requests with invalid hash encoding or length (rendered a 500 response since 1.160).
+            Malformed hash signing requests now result in a specific 400 validation error (invalid hash encoding or length, was a 500 response since version 1.160).
           issues: [SIGN-6961]
         - text: >-
-            Fixed a rare concurrency issue on high Office Macro signing load.
+            Fixed a rare concurrency issue on high Office macro signing load.
           issues: [SIGN-6961, SIGN-6599]
-        - text: >-
-            Fixed status-filter with multiple input values in the list signing request REST API.
-          issues: [SIGN-6857]
     self_hosted_installations:
       version: 1.163.0
       improvements:
