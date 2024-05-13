@@ -1,6 +1,6 @@
 ---
-title: Jobs - Tech Writer
-header: Tech Writer
+title: Jobs - Technical Writer
+header: Technical Writer
 sub-header: Translate our vision into great content 
 sub-header-items:
     - 'Full-time or part-time'
@@ -19,7 +19,7 @@ We are looking for a technical writer who understands and writes about cyber sec
 ## About us
 
 SignPath's mission is to combat software supply chain attacks through verifiable code integrity, from developer to customer. Our products include build pipeline verification and policy-driven code signing for multiple platforms. SignPath products are used by business customers of all sizes and many open-source projects. 
-SignPath offers a platform for secure code signing. Our customers are tech companies as well as enterprises developing their own software, scripts and macros. 
+SignPath offers a platform for secure code signing. Our customers are technology companies as well as enterprises developing their own software, scripts and macros. 
 
 ## Your responsibilities
 
@@ -36,9 +36,9 @@ SignPath offers a platform for secure code signing. Our customers are tech compa
 ## Your profile
 
 * Excellent writing skills in English and a passion for creating written content
-* Experience as a technical writer, tech journalist or marketing specialist for tech companies
+* Experience as a technical writer, technology journalist or marketing specialist for technology companies
 * Ability to quickly grasp complex technical problems, extract the relevant points and translate them into easy-to-understand language
-* Interested in current trends in the software security space and in understanding them 
+* Interested in current trends in the software security space and in understanding them
 * You can work independently and are comfortable with taking responsibility for your tasks
 * Ideally, you have experience in creating marketing content and SEO optimization
 * Ideally, you have experience with B2B enterprise software
@@ -51,3 +51,5 @@ SignPath offers a platform for secure code signing. Our customers are tech compa
 * Room for your own ideas
 * Modern work equipment, individually tailored to your needs
 * For employees living in Austria: Public transit ticket for Vienna and reimbursement of internet expenses
+
+_Please include text samples for at least one of the above-mentioned research topics in your application._
