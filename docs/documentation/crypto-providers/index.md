@@ -109,6 +109,7 @@ This section describes how to specify configuration values for all Crypto Provid
 
 You can either use a JSON configuration file and specify the JSON file path via the `SIGNPATH_CONFIG_FILE` environment variable, or use individual configuration environment variables per setting.
 In case you used the [MSI installer](/documentation/crypto-providers/windows#installation), a `SIGNPATH_CONFIG_FILE` system env variable is created and set to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` which points to a skeleton JSON file.
+This file you can use to fill in OrganizationId, logging configuration adaptions, ...
 
 Environment variables take precedence over the corresponding JSON values.
 

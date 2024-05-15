@@ -4,9 +4,9 @@
       version: 5.0.0
       new_features:
         - text: |-
-            The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now have a Windows MSI installer.
+            The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.
 
-            * See [install/uninstall docs](/documentation/crypto-providers/windows#installation) incl. unattended installation options.
+            * See [install/uninstall docs](/documentation/crypto-providers/windows#installation). This also includes unattended installation options.
             * To upgrade from a previous _manual_ installation / registration or from an `InstallCspKsp.ps1` installation:
               * Simply install the new MSI.
               * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: Copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`.
