@@ -87,6 +87,20 @@ Some formats support nested signing. The following example signs both the file `
 </msi-file>
 ~~~
 
+For nested signing, consider [verifying signatures](reference#verification) of files that are already supposed to be signed:
+
+~~~ xml
+<msi-file>
+  <pe-file path="thirdparty.dll">
+     <authenticode-verify/> 
+  </pe-file>
+  <pe-file path="myapp.exe">
+     <authenticode-sign/> 
+  </pe-file>
+  <authenticode-sign/>
+</msi-file>
+~~~
+
 For root elements, the `path` attribute is optional and cannot contain directories. You may use [wildcards](#wildcards) to specify the name ...
 
 ~~~ xml

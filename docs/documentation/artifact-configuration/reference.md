@@ -32,6 +32,7 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 
 See also:
 
+* Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
 * Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
 ### `<clickonce-sign>`
@@ -113,7 +114,7 @@ Available for Basic and Enterprise subscriptions
 
 Android apps and app-bundles: Note that JAR signatures only implement APK signing scheme v1 (v2 and v3 are not yet supported).
 
-#### Verification
+#### Verification {#jar-sign-verification}
 
 * **Java** always verifies signatures for client components. For server components, you will need to create a policy. Please consult the documentation of your application server or [Oracle's documentation](https://docs.oracle.com/javase/tutorial/security/toolsign/receiver.html).
 * **Android** always verifies App signatures, but current Android versions require signing schemes v2 or v3.
@@ -194,12 +195,57 @@ The `create-raw-signature` directive supports the following parameters:
 
 The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.bin.sig`.
 
-#### Verification
+#### Detached signature verification
 
 There are multiple tools and solutions that support handling of raw signature blocks. One popular option is `openssl dgst`. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:
 
 ~~~ bash
 openssl dgst -verify pubkey.pem -signature file.sig file
+~~~
+
+## Verification methods {#verification}
+
+Verification directives are used to ensure that files in a singing request are already properly signed by their respective publisher.
+
+Use this to
+
+* avoid installing unsigned files with your (signed) installers or packages
+* sign each file in it's respective build pipeline rather than signing everything in the final (downstream) pipeline
+* re-sign third-party files to comply with your organization's code signing policies
+
+When used to verify a file before signing it, the _verify_ directive must precede any _sign_ directives.
+
+### `<authenticode-verify>`
+
+Verifies that a file has a valid Authenticode signature.
+
+This method verifies signatures according to Windows rules:
+
+* Supported hash digest algorithm and length, signing key type and length
+* Valid timestamp (or unexpired publisher certificate)
+* Certificate chain ends in Windows trusted root certificate 
+
+May be combined with [`<authenticode-sign>`](#authenticode-sign). 
+
+{:.panel.todo}
+> **TODO: add**
+>
+> Use `append="true"` to add the new signature instead of replacing the existing one (supported formats only).
+
+#### Example
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <msi-file>
+    <pe-file-set>
+      <include path="Microsoft.*.dll" max-matches="unbounded" />
+      <include path="System.*.dll" max-matches="unbounded" />
+      <for-each>
+        <authenticode-verify/>
+      </for-each>
+    </pe-file-set>
+  </msi-file>
+</artifact-configuration>
 ~~~
 
 ## File metadata restrictions {#metadata-restrictions}

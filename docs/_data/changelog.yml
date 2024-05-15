@@ -25,6 +25,36 @@
         - text: |-
             Improve logging for function calls which return error results for Cryptoki and KSP interfaces.
           issues: [SIGN-6818]
+- date: '2024-05-13'
+  updates:
+    application:
+      version: 1.163.0
+      new_features:
+        - text: >-
+            Authenticode files can now be signature _validated_ with the new `<authenticode-verify />` artifact configuration directive.
+
+            Use to ensure that third-party components are properly signed in deep signing configurations.
+          issues: [SIGN-2021]
+        - text: >-
+            Office macro signing now supports ECDSA certificates.
+          issues: [SIGN-6961, SIGN-6627]
+      improvements:
+        - text: >-
+            Improved error reporting when a macro-enabled Office file contains no macros instead of generic "processing error".
+          issues: [SIGN-6961, SIGN-5848]
+      bug_fixes:
+        - text: >-
+            Malformed hash signing requests now result in a specific 400 validation error (invalid hash encoding or length, was a 500 response since version 1.160).
+          issues: [SIGN-6961]
+        - text: >-
+            Fixed a rare concurrency issue on high Office macro signing load.
+          issues: [SIGN-6961, SIGN-6599]
+    self_hosted_installations:
+      version: 1.163.0
+      improvements:
+        - text: >-
+            Replaced the "readiness probes" in all K8s deployments with startup + liveness probes to improve startup perf and stability.
+          issues: [SIGN-6148]
 - date: '2024-04-25'
   updates:
     application:
