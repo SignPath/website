@@ -31,9 +31,10 @@ For more details see
 
 #### Error logs {#gpg-error-logs}
 
-In case you experience errors in the SignPath Cryptoki provider or `gnupg-pkcs11-scd`, you won't see any details in the console output (just generic error messages).
+For `gnupg-pkcs11-scd`, `stdout` console output must be disabled. Use the log files for troubleshooting.
 
-In this case you can inspect the following log file locations:
+For the [Linux container samples], the following log file locations are configured:
+
 * SignPath Cryptoki logs: `samples/Scenarios/temp/SignPathLogs/*.log`
 * `gnupg-pkcs11` logs: `samples/Scenarios/temp/gnupg-pkcs11-scd.log`
 * GPG logs: `samples/Scenarios/temp/gpg-agent.log`
