@@ -29,6 +29,16 @@ For more details see
 * [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) documentation
 * `samples/Scenarios/Gpg` in the [Linux container samples] (details about configuration and necessary dependencies)
 
+#### Error logs {#gpg-error-logs}
+
+For `gnupg-pkcs11-scd`, `stdout` console output must be disabled. Use the log files for troubleshooting.
+
+For the [Linux container samples], the following log file locations are configured:
+
+* SignPath Cryptoki logs: `samples/Scenarios/temp/SignPathLogs/*.log`
+* `gnupg-pkcs11` logs: `samples/Scenarios/temp/gnupg-pkcs11-scd.log`
+* GPG logs: `samples/Scenarios/temp/gpg-agent.log`
+
 #### GPG Key Generation {#gpg-key-generation}
 
 {:.panel.info}
@@ -70,6 +80,8 @@ The reference is implemented as a ["shadowed private key"](https://github.com/gp
 > GPG key generation causes two SignPath hash signing operations: 
 > * self-sign the key 
 > * sign the revocation certificate
+>
+> In case errors appear, check out the [error logs](#gpg-error-logs).
 
 #### Prepare for signing
 
