@@ -87,7 +87,7 @@ Select **Verify origin** if you want to accept only signing requests with positi
 | Property                   | Value 
 |----------------------------|-------
 | **Project repository URL** | Must be configured in the project settings (applies to all signing policies)
-| **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `master` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds.
+| **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `main` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds.
 
 {:.panel.tip}
 > **Create differentiated signing policies**
@@ -165,6 +165,6 @@ Using a trusted build systems is required for signing policies that have the [_t
 
 Trusted build systems are used to make sure that only builds from reliable sources can be signed using certain policies and certificates. They are also the foundation of [origin verification](#signing-policy-origin-verification).
 
-## Webhooks 
+## Webhooks
 
 Configure Webhooks to notify other systems in your build chain about completed signing requests. See [Webhook notifications](/documentation/build-system-integration#webhook-notifications).

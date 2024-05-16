@@ -26,7 +26,7 @@ The following options are available:
 * Use a dedicated [CI user](/documentation/users#ci).
 * [Add an API token](/documentation/users#interactive-api-token) to your own user account for personal API access.
 
-## PowerShell 
+## PowerShell
 
 [![PowerShell Gallery](https://img.shields.io/powershellgallery/v/SignPath.svg?style=flat-square&label=PowerShell%20Gallery)](https://www.powershellgallery.com/packages/SignPath/)
 
@@ -130,7 +130,7 @@ curl -H "Authorization: Bearer $API_TOKEN" \
     },
     "repositoryData": {
       "url": "https://github.com/name/project",
-      "branchName": "master",
+      "branchName": "main",
       "commitId": "efe8bbc00c5484bfd38ce13a749ea2103a8ea713",
       "sourceControlManagementType": "git"
     }

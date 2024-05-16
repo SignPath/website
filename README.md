@@ -85,6 +85,6 @@ The page deploys to Github Pages using Github Actions. There are multiple enviro
 * `production`: Uses github pages right from this repository:
 * `fqa`: Deploys to the `website-fqa` repository which in turn uses Github Pages to host the page. 
 
-Deployment happens automatically on pushes to `master` or manually from the Github Actions tab.
+Deployment happens automatically on pushes to `main` or manually from the Github Actions tab.
 
 _Note: For the deployments to another git repository, [cpina/github-action-push-to-another-repository](https://github.com/marketplace/actions/push-directory-to-another-repository) is used._
