@@ -25,7 +25,7 @@ verbose: bool = False
 # Syntax for HTML file comments:
 #   <!-- last_modified_at: ... --> (in first line)
 
-# The page will be updated after committing and pushing master branch. When generating the sitemap, we can only assume when this will occur
+# The page will be updated after committing and pushing main branch. When generating the sitemap, we can only assume when this will occur
 publish_date = datetime.now() + timedelta (minutes=1)
 
 global_includes = ['_includes/header.html', '_includes/footer.html']
