@@ -132,11 +132,16 @@ Please always mention your *Organization ID* in support requests.
 * Trusted build system management
 * Delete the SignPath organization
 
+{:.panel.warning}
+> **User Administrators may assign Global Administrator permissions**
+> 
+> In order to use the _User Administrator_ role for directory synchronization, this role can assign and remove the _Global Administrator_ role. 
+
+{:.panel.tip}
 > **Role distribution hints**
 > 
 > * **User administration** may be performed in your organization's directory and synchronized to SignPath. 
 > * **Project administration** may be performed by a dedicated team. Creating projects and policies, and assigning certificates based on these policies, should be performed based on your organization's policies and approval processes. Day to day configuration changes may be delegated via each project's _configurators_ role.
-{:.panel.tip}
 
 ## Permissions {#permissions}
 
