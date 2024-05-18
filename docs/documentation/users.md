@@ -133,9 +133,11 @@ Please always mention your *Organization ID* in support requests.
 * Delete the SignPath organization
 
 {:.panel.warning}
-> **User Administrators may assign Global Administrator permissions**
+> **User Administrators may assign permissions exceeding their own**
 > 
-> In order to use the _User Administrator_ role for directory synchronization, this role can assign and remove the _Global Administrator_ role. 
+> This role can assign roles to itself or other users. Since most roles include some permissions beyond that of _User Administrator_, any person with this role can escalate their own permissions by assigning roles to their own account or to users accounts they create specifically for this purpose. While this will be visible and detectable in audit logs, we suggest assigning this role carefully. 
+>
+> For _Enterprise_ subscriptions, we suggest using [directory synchronization](#directory-sync) as the primary means of user and group administration.
 
 {:.panel.tip}
 > **Role distribution hints**
