@@ -8,7 +8,7 @@
           issues: [SIGN-6357]
       bug_fixes:
         - text: >-
-            Fixed "Approvers" list validation in UI when "Use approval process" is enabled.
+            Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).
           issues: [SIGN-7003]
     self_hosted_installations:
       version: 1.164.0
