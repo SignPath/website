@@ -1,7 +1,7 @@
-- date: '2024-05-23'
+- date: '2024-05-27'
   updates:
     application:
-      version: 1.164.0
+      version: 1.164.3
       new_features:
         - text: >-
             Added ECDSA certificate support for Authenticode.
@@ -10,6 +10,9 @@
         - text: >-
             Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).
           issues: [SIGN-7003]
+        - text: >-
+            Fixed issue (introduced in 1.164) which caused failing signing requests under high signing request load.
+          issues: [SIGN-7035]
     self_hosted_installations:
       version: 1.164.0
       breaking_changes:
