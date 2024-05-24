@@ -11,7 +11,7 @@
             Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).
           issues: [SIGN-7003]
         - text: >-
-            Fixed issue (introduced in 1.164) which caused failing signing requests under high signing request load.
+            Fixed issue (introduced in 1.154) which caused failing signing requests under high signing request load.
           issues: [SIGN-7035]
     self_hosted_installations:
       version: 1.164.0
