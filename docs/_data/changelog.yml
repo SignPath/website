@@ -1,3 +1,34 @@
+- date: '2024-05-27'
+  updates:
+    application:
+      version: 1.164.3
+      new_features:
+        - text: >-
+            Added ECDSA certificate support for Authenticode.
+          issues: [SIGN-6357]
+      bug_fixes:
+        - text: >-
+            Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).
+          issues: [SIGN-7003]
+    self_hosted_installations:
+      version: 1.164.0
+      breaking_changes:
+        - text: Changed the recommended Kubernetes version to 1.28 and the `signpathio/kubectl` image tag to `1.28`.
+          issues: [SIGN-6992]
+      improvements:
+        - text: >-
+            Reduced the compressed `signing-processor-service` image size by 350 MB.
+          issues: [SIGN-7000]
+      bug_fixes:
+        - text: >-
+            Fixed false-positive exceptions for hash/fast signing operations when the client aborts the HTTP call.
+          issues: [SIGN-6985]
+        - text: >-
+            Fixed failing hash/fast signing operations when malware scanning is disabled in the corresponding signing policy.
+          issues: [SIGN-6979]
+        - text: >-
+            Fixed issue which can cause occasional failing signing requests under very high load. (Introduced in 1.154)
+          issues: [SIGN-7035]
 - date: '2024-05-13'
   updates:
     application:
