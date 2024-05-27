@@ -27,7 +27,7 @@
             Fixed failing hash/fast signing operations when malware scanning is disabled in the corresponding signing policy.
           issues: [SIGN-6979]
         - text: >-
-            Fixed issue (introduced in 1.154) which can cause single failing signing requests under very high parallel signing request load.
+            Fixed issue which can cause occasional failing signing requests under very high load. (Introduced in 1.154)
           issues: [SIGN-7035]
 - date: '2024-05-13'
   updates:
