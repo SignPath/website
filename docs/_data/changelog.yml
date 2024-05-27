@@ -1,7 +1,7 @@
 - date: '2024-TODO'
   updates:
     crypto_providers:
-      version: 5.0.0
+      version: 5.x
       new_features:
         - text: |-
             The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.
@@ -12,6 +12,13 @@
               * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: Copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`.
               * Delete the old installation target directory (incl. the old configuration file).
           issues: [SIGN-6741]
+      improvements:
+        - text: |-
+            Linux container samples improvements:
+            * Added a Bash port for the entry point script (`run_scenario.sh`) next to the existing PowerShell version (`RunScenario.ps1`).
+            * The `GenerateGpgKey` scenario now allows to specify all key parameters like full name, email or expiration directly to the entry point script.
+            * The GPG scenarios (e.g. `SignRpm`) now allows to specify the key's ID (email) directly to the entry point script.
+          issues: [SIGN-7051]
 - date: '2024-03-25'
   updates:
     crypto_providers:

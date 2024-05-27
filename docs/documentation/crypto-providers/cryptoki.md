@@ -160,7 +160,12 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration, signing invocation and verification examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario OpenSSL`. See [Linux container samples](#linux-docker-samples).
+> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples]. Sample invocation:
+> 
+> ```bash
+> run_scenario.sh ... -Scenario OpenSSL -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ```
+> 
 
 Generally, all commands require the following parameters to work with the SignPath Cryptoki library:
 
@@ -271,7 +276,11 @@ osslsigncode sign `
 {:.panel.tip}
 > **Tip**
 >
-> This invocation example is also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario osslsigncode`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+> This invocation is also provided in the [Linux container samples]:
+> 
+> ```bash
+> run_scenario.sh ... -Scenario osslsigncode -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ```
 
 ## OpenSC pkcs11-tool (Linux)
 
@@ -291,7 +300,12 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 {:.panel.tip}
 > **Tip**
 >
-> The following invocation examples are also provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario Pkcs11Tool`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+> The following invocation examples are also provided in the [Linux container samples]:
+> 
+> ```bash
+> run_scenario.sh ... -Scenario Pkcs11Tool -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ```
+> 
 
 #### Common parameters
 
@@ -353,7 +367,12 @@ slot=1
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration and invocation examples are provided in the Docker container samples via `.\RunScenario.ps1 ... -Scenario JarSigner`. See [Linux container samples](/documentation/crypto-providers#linux-docker-samples).
+> For *Linux*, configuration and invocation examples are provided in the [Linux container samples]. Sample invocation:
+> 
+> ```bash
+> run_scenario.sh ... -Scenario JarSigner -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ```
+> 
 
 Synopsis for _jarsigner_ when using the SignPath Cryptoki library:
 
@@ -390,3 +409,4 @@ jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.S
 [openssl-cms]: https://www.openssl.org/docs/man1.1.1/man1/cms.html
 [oracle-install]: https://docs.oracle.com/en/java/javase/14/security/pkcs11-reference-guide1.html#GUID-C4ABFACB-B2C9-4E71-A313-79F881488BB9
 [osslsigncode]: https://github.com/mtrojnar/osslsigncode
+[Linux container samples]: /documentation/crypto-providers#linux-docker-samples
