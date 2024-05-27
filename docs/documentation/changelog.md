@@ -26,10 +26,20 @@ Component
 {% assign one_year_ago = today | minus: 31536000 %}
 {% assign opened_old_container = false %}
 
-{% for release in site.data.changelog %}
+{% comment %} 
+---------------- iterate over all entries 
+{% endcomment %}
+{% for entry in site.data.changelog %}
 
-{% assign timestamp = release.date | date: '%s' | to_i %}
+{% comment %} 
+---------------- converts to unix timestamp 
+{% endcomment %}
+{% assign timestamp = entry.date | date: '%s' | to_i %}
 {% assign timestamp_num = timestamp | minus: 1 %}
+
+{% comment %} 
+---------------- puts old changelogs into an own div wrapper 
+{% endcomment %}
 {% if timestamp_num < one_year_ago %}
 	{% if opened_old_container == false %}
 		{% assign opened_old_container = true %}
@@ -38,29 +48,54 @@ Component
 	{% endif %}
 {% endif %}
 
+{% comment %} 
+-------- calculate css class list for the entry 
+{% endcomment %}
 {% assign class_list = 'release' %}
-{% for update in release.updates %}
-	{% assign class_list = class_list | append: ' component-' | append: update[0] %}
+{% for update in entry.updates %}
+	{% comment %} extract the component (e.g. application) {% endcomment %}
+	{% assign component = update[0] %}
+	{% assign class_list = class_list | append: ' component-' | append: component %}
 {% endfor %}
 
-<article class='{{ class_list }}' id="{{ release.date | date: '%Y-%m-%d'}}">
-	<h1>&nbsp;<span>{{ release.date | date: '%B %d, %Y'}}</span></h1>
-	{% if release.updates %}
-		{% for update in release.updates %}
-			<div class='component-{{ update[0] }}'>
+{% comment %}
+---------------- actual changelog rendering
+{% endcomment %}
+<article class='{{ class_list }}' id="{{ entry.date | date: '%Y-%m-%d' }}">
+	<h1>&nbsp;<span>{{ entry.date | date: '%B %d, %Y'}}</span></h1>
+	{% if entry.updates %}
+		{% for update in entry.updates %}
+			
+			{% comment %} 
+			---------------- extract the component (e.g. application, crypto_providers, etc.) and release 
+			{% endcomment %}
+			{% assign component = update[0] %}
+			{% assign release = update[1] %}
+			
+			<div class='component-{{ component }}'>
 			<h2>
-				{% case update[0] %}
-					{% when "application" %} SignPath Application {{ update[1].version }}
-					{% when "self_hosted_installations" %} Self-hosted Installations {{ update[1].version }}
-					{% when "powershell_module" %} SignPath PowerShell Module {{ update[1].version }}
-					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ update[1].version }}
-					{% when "crypto_providers" %} Crypto Providers {{ update[1].version }}
+				{% case component %}
+					{% when "application" %} SignPath Application {{ release.version }}
+					{% when "self_hosted_installations" %} Self-hosted Installations {{ release.version }}
+					{% when "powershell_module" %} SignPath PowerShell Module {{ release.version }}
+					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ release.version }}
+					{% when "crypto_providers" %} Crypto Providers {{ release.version }}
 				{% endcase %}
 			</h2>
-			{% for update_type in update[1] %}
-				{% if update_type[0] != "version" %}
+			
+			{% for changes_per_type in release %}
+				
+				{% comment %} 
+				---------------- extract change_type (e.g. new_features, improvements, bug_fixes) and actual change log {% endcomment %} 
+			  {% assign change_type = changes_per_type[0] %}
+			  {% assign changes = changes_per_type[1] %}
+			  
+			  {% comment %} 
+			  ---------------- necessary for current yaml structure 
+			  {% endcomment %}
+				{% if change_type != "version" %}
 					<h3>
-						{% case update_type[0] %}
+						{% case change_type %}
 							{% when "breaking_changes" %} Breaking Changes / Manual migration steps:
 							{% when "upgrade_information" %} Upgrade Information:
 							{% when "new_features" %} New Features:
@@ -68,11 +103,13 @@ Component
 							{% when "bug_fixes" %} Bug Fixes:
 						{% endcase %}
 					</h3>
-					{% if update_type[0] == "upgrade_information" %}
-						{{ update_type[1] | markdownify }}
+					
+					{% if change_type == "upgrade_information" %}
+						{{ changes | markdownify }}
+					
 					{% else %}
 						<ul>
-							{% for note in update_type[1] %}
+							{% for note in changes %}
 								<li>
 									{{ note.text | markdownify }}
 									{% if note.saas_only %}
@@ -91,6 +128,8 @@ Component
 	{% endif %}
 </article>
 {% endfor %}
-</div>
+{% if opened_old_container == true %}
+</div> <!-- older-releases -->
+{% endif %}
 
 </section>

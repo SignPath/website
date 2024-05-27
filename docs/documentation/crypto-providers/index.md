@@ -74,7 +74,7 @@ As always, the private key does not leave the boundaries of the HSM.
 
 For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.
 
-See the `samples` directory in the Linux Crypto Provider package. It contains a `README.md` file with further information.
+See the `Linux/samples` directory in the Crypto Provider package. It contains a `README.md` file with further information.
 
 All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.
 
