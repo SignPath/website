@@ -64,6 +64,15 @@ section.devops-section {
                     a:focus {
                         text-decoration: none;
                     }
+
+                    svg {
+                        fill: $white-font-color;
+                    }
+                }
+
+                svg {
+                    width: 16px;
+                    height: auto;
                 }
             }
         }
