@@ -37,9 +37,9 @@ description: Using SignPath in a DevOps pipeline
         <li class='active'><a data-tabkey='powershell' href="#"><i class="icon-powershell"></i> <span>PowerShell</span></a></li>
         <li><a data-tabkey='curl' href="#"><i class="icon-curl"></i> <span>cURL</span></a></li>
         <li><a data-tabkey='jenkins' href="#"><i class="icon-jenkins"></i> <span>Jenkins</span></a></li>
+        <li><a data-tabkey='github-actions' href="#">{% include github.svg %} <span>GitHub Actions</span></a></li>
         <li><a data-tabkey='appveyor' href="#"><i class="icon-appveyor"></i> <span>AppVeyor</span></a></li>
         <li><a data-tabkey='azuredevops' href="#"><i class="icon-azure-devops"></i> <span>Azure DevOps</span></a></li>
-        <li><a data-tabkey='github' href="#">{% include github.svg %} <span>GitHub</span></a></li>
       </ul>
       {% raw %}
       <div class='panel'>
@@ -75,6 +75,18 @@ description: Using SignPath in a DevOps pipeline
           <span>  <span class='parameter'>waitForCompletion:</span> true </span>
           <span>) </span>
         </code>
+        <code data-tabcontent='github-actions'>
+          <span>- uses: <span class='command'>signpath/github-action-submit-signing-request@v0.4</span> </span>
+          <span>  with:</span>
+          <span>    <span class='parameter'>api-token</span>: <span class='string'>'</span><span class='variable'>${{ secrets.SIGNPATH_API_TOKEN }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>organization-id</span>: <span class='string'>'</span><span class='variable'>${{ vars.SIGNPATH_ORGANIZATION_ID }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>project-slug</span>: <span class='string'>'my_software'</span></span>
+          <span>    <span class='parameter'>signing-policy-slug</span>: <span class='string'>'release-signing'</span></span>
+          <span>    <span class='parameter'>github-artifact-id</span>: <span class='string'>'</span><span class='variable'>${{ steps.upload-unsigned-artifact.outputs.artifact-id }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>output-artifact-directory</span>: <span class='string'>'./my_software-signed'</span></span>
+          <span>    <span class='parameter'>wait-for-completion</span>: <span class='string'>'true'</span></span>
+        </code>
+      </div>
         <code data-tabcontent='appveyor'>
           <span><span class='command'>deploy:</span></span>
           <span>  - <span class='parameter'>provider</span>: Webhook</span>
@@ -93,18 +105,6 @@ description: Using SignPath in a DevOps pipeline
           <span>    <span class='parameter'>outputArtifactPath</span>: <span class='string'>'</span><span class='variable'>$(Build.ArtifactStagingDirectory)</span><span class='string'>/my-release-signed.msi'</span></span>
           <span>    <span class='parameter'>waitForCompletion</span>: <span class='string'>'sync'</span></span>
         </code>
-        <code data-tabcontent='github'>
-          <span>- uses: <span class='command'>signpath/github-action-submit-signing-request@v0.4</span> </span>
-          <span>  with:</span>
-          <span>    <span class='parameter'>api-token</span>: <span class='string'>'</span><span class='variable'>${{ secrets.SIGNPATH_API_TOKEN }}</span><span class='string'>'</span></span>
-          <span>    <span class='parameter'>organization-id</span>: <span class='string'>'</span><span class='variable'>${{ vars.SIGNPATH_ORGANIZATION_ID }}</span><span class='string'>'</span></span>
-          <span>    <span class='parameter'>project-slug</span>: <span class='string'>'my_software'</span></span>
-          <span>    <span class='parameter'>signing-policy-slug</span>: <span class='string'>'release-signing'</span></span>
-          <span>    <span class='parameter'>github-artifact-id</span>: <span class='string'>'</span><span class='variable'>${{ steps.upload-unsigned-artifact.outputs.artifact-id }}</span><span class='string'>'</span></span>
-          <span>    <span class='parameter'>output-artifact-directory</span>: <span class='string'>'./my_software-signed'</span></span>
-          <span>    <span class='parameter'>wait-for-completion</span>: <span class='string'>'true'</span></span>
-        </code>
-      </div>
        {% endraw %}
     </div>
 
