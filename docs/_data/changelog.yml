@@ -1,3 +1,18 @@
+- date: '2024-06-05'
+  updates:
+    application:
+      version: 1.165.1
+      improvements:
+        - text: >-
+            Allow non-RFC compliant Certificate Signing Request (CSR) certificate upload and PFX import with common names longer than 64 characters.
+          issues: [SIGN-2219, SIGN-7040, SIGN-7042]
+        - text: >-
+            Improve error reporting for PFX files with missing common name field in the contained certificate.
+          issues: [SIGN-6529]
+      bug_fixes:
+        - text: >-
+            Fixed error handling for invalid ClickOnce files with missing "deployment manifest" files.
+          issues: [SIGN-7034, SIGN-6884]
 - date: '2024-05-27'
   updates:
     application:
@@ -11,7 +26,7 @@
             Fixed minor UI glitch for edit signing policy (approval deactivated when removing all approvers).
           issues: [SIGN-7003]
     self_hosted_installations:
-      version: 1.164.0
+      version: 1.164.3
       breaking_changes:
         - text: Changed the recommended Kubernetes version to 1.28 and the `signpathio/kubectl` image tag to `1.28`.
           issues: [SIGN-6992]
