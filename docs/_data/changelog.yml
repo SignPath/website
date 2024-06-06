@@ -1,7 +1,7 @@
-- date: '2024-06-05'
+- date: '2024-06-10'
   updates:
     application:
-      version: 1.165.1
+      version: 1.165.2
       improvements:
         - text: >-
             Allow import of certificates that exceed RFC length limits in Distinguished Name components such as Common Name.
