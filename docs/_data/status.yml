@@ -14,7 +14,8 @@ planned:
     title: 'HSM maintenance'
     description: |
       Planned maintenance for SignPath's HSM cluster.
-      Limited certificate management (disabled certificate creation/import), expect slightly longer signing request processing times and hash signing response times.
+      • Creating/importing certificates is disabled
+      • Expect slightly longer processing times for signing requests including and hash signing
       Software certificates and Thales DPoD Cloud HSM certificates will not be affected.
 incidents:
   - date: 'Jun. 5, 2024'
