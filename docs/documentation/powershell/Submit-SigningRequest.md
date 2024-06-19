@@ -31,6 +31,7 @@ Submit-SigningRequest
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
+    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Provide a URL to retrieve the artifact {#artifact-retrieval}
@@ -56,6 +57,7 @@ Submit-SigningRequest
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
+    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Resubmit an existing singing request {#resubmit}
@@ -80,6 +82,7 @@ Submit-SigningRequest
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
+    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~ 
 
 ## Description
@@ -175,6 +178,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 | `-OutputArtifactPath`                     | `String`          | Specifies the target path for the downloaded signed artifact  | `InputArtifactPath` with an added `.signed` extension 
 | `-Force`                                  | Switch            | Allows the cmdlet to overwrite the file at OutputArtifactPath | `false`
 | `-WaitForCompletionTimeoutInSeconds`      | `Int32`           | Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts) | 600 seconds
+| `-CancellationTimeoutInSeconds`           | `Int32`           | Maximum processing time in seconds (after submission) before the signing request gets cancelled | `WaitForCompletionTimeoutInSeconds` value
 {: .break-column-1 }
 
 ### Common parameters
