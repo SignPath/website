@@ -10,5 +10,8 @@
 - text: Jobs
   path: jobs
 
+- text: Support
+  path: support
+
 - text: Contact
   path: contact
