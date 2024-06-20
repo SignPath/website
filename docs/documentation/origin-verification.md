@@ -65,7 +65,7 @@ This connector ensures that
 * Origin metadata is provided by Jenkins CI, not the build script, and can therefore not be forged
 * The artifact is stored as an immutable Jenkins artifact before it is submitted for signing
 
-Contact support@signpath.io for the connector and documentation.
+Contact [our support team](/support) for the connector and documentation.
 
 ## AppVeyor
 
@@ -116,8 +116,8 @@ These steps allow consumers of the signed artifact to verify source code version
 
 ## Azure DevOps
 
-Contact support@signpath.io for our Azure DevOps connector with origin verification support.
+Contact [our support team](/support) for our Azure DevOps connector with origin verification support.
 
 ## GitHub Actions
 
-Contact support@signpath.io for a preview version of our GitHub Actions connector with origin verification support.
+Contact [our support team](/support) for a preview version of our GitHub Actions connector with origin verification support.
