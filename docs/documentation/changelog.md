@@ -11,15 +11,28 @@ redirect_from:
 
 <section class='changelog'>
 
-<div class='changelog-component-select-ctn'>
-Component 
-<select id='changelog-component-select'>
-	<option value='all'>All components</option>
-	<option value='application'>SignPath Application</option>
-	<option value='self_hosted_installations'>Self-hosted Installations</option>
-	<option value='powershell_module'>PowerShell module</option>
-	<option value='crypto_providers'>Crypto Providers</option>
-</select>
+<div class='changelog-select-ctn'>
+	<div>
+		Component 
+		<select id='changelog-component-select'>
+			<option value='all'>All components</option>
+			<option value='application'>SignPath Application</option>
+			<option value='self_hosted_installations'>Self-hosted Installations</option>
+			<option value='powershell_module'>PowerShell module</option>
+			<option value='crypto_providers'>Crypto Providers</option>
+		</select>
+	</div>
+	<div>
+		Changes 
+		<select id='changelog-change_type-select'>
+			<option value='all'>All changes</option>
+			<option value='breaking_changes'>Breaking changes</option>
+			<option value='upgrade_information'>Upgrade information</option>
+			<option value='new_features'>New features</option>
+			<option value='improvements'>Improvements</option>
+			<option value='bug_fixes'>Bug fixes</option>
+		</select>
+	</div>
 </div>
 
 {% assign today = site.time | date: '%s' %}
@@ -56,7 +69,13 @@ Component
 	{% comment %} extract the component (e.g. application) {% endcomment %}
 	{% assign component = update[0] %}
 	{% assign class_list = class_list | append: ' component-' | append: component %}
+	{% assign release = update[1] %}
+	{% for changes_per_type in release %}
+	  {% assign change_type = changes_per_type[0] %}
+	  {% assign class_list = class_list | append: ' change_type-' | append: change_type %}
+	{% endfor %}
 {% endfor %}
+{% assign class_list = class_list | split: " " | uniq | join: " " %}
 
 {% comment %}
 ---------------- actual changelog rendering
@@ -72,7 +91,13 @@ Component
 			{% assign component = update[0] %}
 			{% assign release = update[1] %}
 			
-			<div class='component-{{ component }}'>
+			{% assign component_change_type_class_list = 'component' %}
+			{% for changes_per_type in release %}
+			  {% assign change_type = changes_per_type[0] %}
+			  {% assign component_change_type_class_list = component_change_type_class_list | append: ' change_type-' | append: change_type %}
+			{% endfor %}
+
+			<div class='component-{{ component }} {{ component_change_type_class_list }}'>
 			<h2>
 				{% case component %}
 					{% when "application" %} SignPath Application {{ release.version }}
@@ -94,6 +119,7 @@ Component
 			  ---------------- necessary for current yaml structure 
 			  {% endcomment %}
 				{% if change_type != "version" %}
+				  <div class='change_type-{{ change_type }}'>
 					<h3>
 						{% case change_type %}
 							{% when "breaking_changes" %} Breaking Changes / Manual migration steps:
@@ -119,6 +145,7 @@ Component
 							{% endfor %}
 						</ul>
 					{% endif %}
+					</div> <!-- change_type -->
 				{% endif %}
 			{% endfor %}
 			</div>
