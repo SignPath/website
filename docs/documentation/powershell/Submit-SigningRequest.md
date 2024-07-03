@@ -25,13 +25,13 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
+        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
-    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Provide a URL to retrieve the artifact {#artifact-retrieval}
@@ -51,13 +51,13 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
+        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
-    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Resubmit an existing singing request {#resubmit}
@@ -76,13 +76,13 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
+        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
-    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~ 
 
 ## Description
