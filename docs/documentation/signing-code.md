@@ -80,4 +80,4 @@ A typical release scenarios would look like this:
 |    6 | Project manager                    | arbitrary              | Approves or denies based on test results and verified origin data from step 2.
 |    7 | SignPath                           | approval               | The release candidate is signed using the release certificate.
 
-Instead of manual approval using SigmPath (steps 5 and 6), a release management or workflow system might be used to submit the re-signing request and/or provide the approval using SignPath REST APIs. 
+Instead of manual approval using SignPath (steps 5 and 6), a release management or workflow system might be used to submit the re-signing request and/or provide the approval using SignPath REST APIs. 

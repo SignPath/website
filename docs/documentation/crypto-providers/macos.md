@@ -69,6 +69,18 @@ Using the `pluginkit` tool, the registration of the token driver can be verified
 pluginkit -m -v -p com.apple.ctk-tokens
 ~~~
 
+{:.panel.info}
+> **Info: Updated intermediate certificate**
+> 
+> When creating a certificate in the Apple Developer portal, the intermediate certificate can be selected. On some machines, the new intermediate certificate is still missing. You can download it [here](https://www.apple.com/certificateauthority/DeveloperIDG2CA.cer).
+
+{:.panel.warning}
+> **Warning: Produce correct timestamps**
+> 
+> When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
+
+[codesign]: https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html
+
 ## codesign {#codesign}
 
 _[codesign]_ is a command line tool by Apple.
@@ -85,9 +97,23 @@ Sample: sign `MyApp.app`
 codesign -s MyCertificateSubjectName MyApp.app
 ~~~
 
-{:.panel.warning}
-> **Warning: Produce correct timestamps**
-> 
-> When using codesign (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
+## productsign {#productsign}
 
-[codesign]: https://developer.apple.com/library/archive/documentation/Security/Conceptual/CodeSigningGuide/Procedures/Procedures.html
+_productsign_ is a command line tool by Apple.
+
+_productsign_ requires the following parameter to find the correct certificate:
+
+| Parameter          | Value                                   | Description
+|--------------------|-----------------------------------------|---------------------------------
+| `--sign`           | `$SigningIdentity`                      | A descriptor of the code signing identity that is stored in the keychain by the SignPath CryptoTokenKit. Provide the common name (or a substring) of the certificate.
+
+Sample: sign `MyInstaller.pkg`
+
+~~~powershell
+productsign --timestamp --sign "XX6NBJ3UUF" MyInstaller.pkg MyInstaller-signed.pkg
+~~~
+
+{:.panel.info}
+> **Info: using the right certificate**
+> 
+> `productsign` requires an "Apple Developer Installer" certificate.
