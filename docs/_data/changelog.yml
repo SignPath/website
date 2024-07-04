@@ -11,7 +11,7 @@
       version: 1.167.3
       improvements:
         - text: >-
-            Reduced memory overhead in all `signpath-signservice-<type>` hosted Pods by switching the entry point from PowerShell to CMD.
+            Reduced memory overhead in all Pods deployed by the `signpath-signservice-<type>` Chart by switching the entry point from PowerShell to CMD.
           issues: [SIGN-7081]
 - date: '2024-06-10'
   updates:
@@ -26,7 +26,7 @@
       version: 1.166.2
       improvements:
         - text: >-
-            Reduced memory overhead in all `signpath-application` hosted Pods by switching the entry point from PowerShell to CMD.
+            Reduced memory overhead in all Pods deployed by the `signpath-application` Chart by switching the entry point from PowerShell to CMD.
           issues: [SIGN-7054]
     powershell_module:
       version: 4.3.TODO
