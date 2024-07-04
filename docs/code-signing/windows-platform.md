@@ -126,7 +126,7 @@ The primary tool for code signing is SignTool.exe from the Windows SDK, which ca
 The digest algorithm defaults to SHA-1. However, you need to use at least SHA-2 for any practical purpose. The most common choice is SHA-256 (SHA-2 algorithm with 256-bit digests). The certificate can be a PFX file or a certificate from a Windows certificate store.
 
 * If a PFX file contains a password protected private key, the password must be specified using an additional parameter. Alternatively, the private key can be provided by a CSP (see below).
-* A certificate can be stored in a certificate store. In this case, you must provide the certificate name or thumbprint. (A certificate from the Windows certificate store  can be chosen automatically, but this is fragile and therefore not recommended.)
+* A certificate can be stored in a certificate store. In this case, you need to provide the certificate name or thumbprint. (A certificate from the Windows certificate store can be chosen automatically, but this is fragile and therefore not recommended.)
 * You can also use a hardware security module through the Windows certificate store.
   
 ### SHA-1 vs SHA-2
