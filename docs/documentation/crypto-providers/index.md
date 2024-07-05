@@ -128,8 +128,9 @@ Environment variables take precedence over the corresponding JSON values.
 | JSON setting                      | Environment variable                      | Default Value                 | Description
 |-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
 | `Log.Console.Level`               | `SIGNPATH_LOG_CONSOLE_LEVEL`              | `none`                        | Log level used for console logging (not available on macOS)
-| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `warning`                     | Log level used for file logging (not available on macOS)
-| `Log.File.Directory`              | `SIGNPATH_LOG_FILE_DIRECTORY`             | (optional)                    | Path to the folder to store log files (no file logging if not provided)
+| `Log.Console.OutputStream`        | `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM`      | `stderr`                      | Console stream to use (either `stderr` or `stdout`)
+| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `info`                        | Log level used for file logging (not available on macOS)
+| `Log.File.Directory`              | `SIGNPATH_LOG_FILE_DIRECTORY`             | Windows: `%TEMP%\SignPathLogs`, Linux: `/tmp/SignPathLogs` | Path to the folder to store log files
 
 Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `verbose`.
 
