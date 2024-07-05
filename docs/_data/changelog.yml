@@ -18,24 +18,24 @@
             The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.
 
             * See [install/uninstall docs](/documentation/crypto-providers/windows#installation). This also includes unattended installation options.
-            * To upgrade from a previous _manual_ installation / registration or from an `InstallCspKsp.ps1` installation:
-              * Install with the new MSI.
-              * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: Copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`.
-              * Delete the old installation target directory (incl. the old configuration file).
+            * To upgrade from a previous _manual_ installation/registration or from an `InstallCspKsp.ps1` installation:
+              * Install using the new MSI
+              * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`
+              * Delete the old installation target directory (including the old configuration file)
           issues: [SIGN-6741]
       improvements:
         - text: |-
             Linux container samples improvements:
             * Added a Bash port for the entry point script (`run_scenario.sh`) next to the existing PowerShell version (`RunScenario.ps1`).
             * The `GenerateGpgKey` scenario now allows to specify all key parameters like full name, email or expiration directly to the entry point script.
-            * The GPG scenarios (e.g. `SignRpm`) now allows to specify the key's ID (email) directly to the entry point script.
+            * The GPG scenarios (e.g. `SignRpm`) now allow to specify the key's ID (email) directly to the entry point script.
           issues: [SIGN-7051]
         - text: |-
             The CryptoProvider package now includes SBOM files.
           issues: [SIGN-6814, SIGN-6868]
       bug_fixes:
         - text: >-
-            Linux container samples: Fix incompatibility with recent RedHat 8 and 9 repository changes concerning `openssl` and `gnupg-pkcs11-scd`.
+             Linux container samples: fixed incompatibility with recent RedHat 8 and 9 repository changes concerning `openssl` and `gnupg-pkcs11-scd`.
           issues: [SIGN-7011, SIGN-7082]
 - date: '2024-06-10'
   updates:
