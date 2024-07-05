@@ -3,7 +3,7 @@ sub_header: Product Updates
 layout: resources
 show_toc: 0
 hide_sub_toc: true
-description: Product Changelog for all SignPath components.
+description: Product Changelog for all SignPath components
 datasource: changelog
 redirect_from:
   - /product/changelog
