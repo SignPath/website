@@ -7,19 +7,19 @@ show_toc: 3
 description: Creating GPG signatures with SignPath
 ---
 
-## General Instructions
+## Overview
 
 [Gnu Privacy Guard](https://gnupg.org/), also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.
 
-### Overview
+### Using GnuPG with PKCS #11
 
 GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs11-scd](https://github.com/alonbl/gnupg-pkcs11-scd/) project adds this capability as a daemon for the GnuPG ["Smartcard"](https://wiki.gnupg.org/SmartCard) interface.
 
 ![Figure: GPG signing flow](/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg)
 
-### Setup
+## Setup
 
-#### Configuring GnuPG {#configure-gnupg}
+### Configuring GnuPG {#configure-gnupg}
 
 Configure the [SignPath Cryptoki provider](/documentation/crypto-providers/cryptoki) for
 * GnuPG in `gpg-agent.conf`
@@ -29,7 +29,7 @@ For more details see
 * [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) documentation
 * `samples/Scenarios/Gpg` in the [Linux container samples] (details about configuration and necessary dependencies)
 
-#### Error logs {#gpg-error-logs}
+### Error logs {#gpg-error-logs}
 
 For `gnupg-pkcs11-scd`, `stdout` console output must be disabled. Use the log files for troubleshooting.
 
@@ -39,7 +39,7 @@ For the [Linux container samples], the following log file locations are configur
 * `gnupg-pkcs11` logs: `samples/Scenarios/temp/gnupg-pkcs11-scd.log`
 * GPG logs: `samples/Scenarios/temp/gpg-agent.log`
 
-#### GPG Key Generation {#gpg-key-generation}
+### GPG Key Generation {#gpg-key-generation}
 
 {:.panel.info}
 > **GPG terminology: public keys**
@@ -80,7 +80,7 @@ The reference is implemented as a ["shadowed private key"](https://github.com/gp
 >
 > In case errors appear, check out the [error logs](#gpg-error-logs).
 
-#### Prepare for signing
+### Prepare for signing
 
 1. Copy the generated public GPG key (`$Email.public.pgp`) to the target system.
 2. Execute `SCD LEARN` to restore the shadowed keys. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].

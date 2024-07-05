@@ -9,7 +9,7 @@ description: SignPath Cryptoki Crypto Providers
 
 ## General instructions
 
-The SignPath Cryptoki library is used to enables code signing using tools that support the Cryptoki/PKCS #11 standard.
+The SignPath Cryptoki library is used to enable code signing using tools that support the Cryptoki/PKCS #11 standard.
 
 {:.panel.info #about-cryptoki}
 > **Cryptoki and PKCS #11** 

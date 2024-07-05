@@ -7,11 +7,11 @@ show_toc: 3
 description: SignPath Windows CSP and KSP Crypto Providers
 ---
 
-## General instructions
+## Overview
 
-This section provides information to use SignPath with any tool that supports KSP or CSP providers.
+Signing tools secifically designed for Windows typicall use CNG KSP or CAPI CSP providers. Install and use the SignPath KSP and CSP providers to use this tools with SignPath.
 
-### Installation
+## Installation
 
 To install the Windows CNG KSP and CAPI CSP providers,
 
@@ -35,7 +35,7 @@ To install the Windows CNG KSP and CAPI CSP providers,
 CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP.
 In case you only want to install the KSP, you can de-select the "Windows CAPI CSP" in the "custom setup" installer step.
 
-#### Unattended installation
+### Unattended installation
 
 To install the MSI in an automated fashion, run the following command (in an elevated command prompt).
 
@@ -43,38 +43,41 @@ To install the MSI in an automated fashion, run the following command (in an ele
 msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log
 ~~~
 
-See [`msiexec` docs](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec) for documentation.
+See [`msiexec` documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec).
 
-Note that by default `msiexec` does not wait for installation finishing. To achieve this run in an PowerShell session the following command.
+#### Installing as a prerequisite for build steps
+
+If you want `msiexec` to terminate only after the installation has completed, run the following command in a PowerShell session:
 
 ~~~powershell
 msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
 ~~~
 
+#### Selecting components
+
 To install only parts, use the `ADDLOCAL` msiexec parameter with the following options (delimited by commas):
 
-   * `KSP` for the Windows CNG KSP installation and registration.
-   * `CSP` for the Windows CAPI CNG installation and registration.
-   * `Cryptoki` for the Cryptoki library installation.
+   * `KSP` for the Windows CNG KSP installation and registration
+   * `CSP` for the Windows CAPI CNG installation and registration
+   * `Cryptoki` for the Cryptoki library installation
    * `SignPathConfigAndEnv` for the default `CryptoProvidersConfig.json` configuration file in `%ProgramFiles%\SignPath\CryptoProviders`
-     and the system-wide `SIGNPATH_CONFIG_FILE` env variable.
+     and the system-wide `SIGNPATH_CONFIG_FILE` environment variable
 
-Example (KSP and config/env variable):
+Example: install KSP and configuration file variable
 
 ~~~powershell
 msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log ADDLOCAL=KSP,SignPathConfigAndEnv | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
 ~~~
 
-
-#### Update to a new version
+### Update to a new version
 
 Installing a new version will overwrite the existing installation.
 
-#### Uninstallation
+### Uninstallation
 
 Uninstall via Windows' "Apps & features" / "Installed apps" dialog.
 
-#### Unattended uninstallation
+### Unattended uninstallation
 
 To uninstall in an automated fashion, run the following command (in an elevated PowerShell session).
 
@@ -82,7 +85,7 @@ To uninstall in an automated fashion, run the following command (in an elevated 
 msiexec /x SignPathCryptoProviders-$Version.msi /qn /L* uninstall.log | Out-Host
 ~~~
 
-### KSP / CSP Parameters
+## Using KSP/CSP parameters of signing tools
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:
 
@@ -97,9 +100,9 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 >
 > The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
 
-### Error handling
+## Error handling
 
-The following table shows the KSP `HRESULT` result codes for the different error situations when calling the SignPath REST API.
+The following table shows the KSP `HRESULT` result codes for different error situations when calling the SignPath REST API.
 Note that the CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 | Situation                                                                                                | error code (KSP result code or CSP `GetLastError()` code)

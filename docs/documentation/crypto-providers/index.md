@@ -4,7 +4,7 @@ sub_header: Crypto Providers
 layout: resources
 toc: true
 show_toc: 3
-description: SignPath Crypto Providers (CSP, KSP, Cryptoki)
+description: SignPath Crypto Providers (Cryptoki, KSP, CSP, CryptoTokenKit)
 ---
 
 Available for Enterprise subscriptions
