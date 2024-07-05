@@ -42,14 +42,11 @@ This section provides general information about using the SignPath Cryptoki libr
 
 ### Installation
 
-Simply copy the library file from the Crypto Providers ZIP archive to a directory in your system's file path.
+On **Windows** the Cryptoki/PKCS #11 library file is installed to `%ProgramFiles%\SignPath\CryptoProviders\SignPath.Cryptoki.dll` by the [MSI installer](/documentation/crypto-providers/windows#installation).
+Alternatively, you can copy-deploy the DLL file from `Windows\SignPath.Cryptoki.dll` inside the Crypto Providers ZIP archive to your target system.
 
-* Windows: `Windows\SignPath.Cryptoki.dll` 
-* Linux: `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so`
-
+On **Linux**, copy-deploy `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` inside the Crypto Providers ZIP to your target system.
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
-
-On Windows you can alternatively run the [MSI installer](/documentation/crypto-providers/windows#installation), which drops the `SignPath.Cryptoki.dll` in `%ProgramFiles%\SignPath\CryptoProviders`.
 
 ### Parameters {#cryptoki-parameters}
 
