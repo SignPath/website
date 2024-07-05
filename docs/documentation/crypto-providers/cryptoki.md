@@ -49,7 +49,7 @@ Alternatively, you can copy-deploy the DLL file from `Windows\SignPath.Cryptoki.
 
 ### Linux
 
-Copy-deploy `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` inside the Crypto Providers ZIP archive to your target system.
+Copy-deploy the Cryptoki/PKCS #11 library from `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` inside the Crypto Providers ZIP archive to your target system.
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
 ### Parameters {#cryptoki-parameters}
