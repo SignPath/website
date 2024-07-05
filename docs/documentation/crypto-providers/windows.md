@@ -32,8 +32,7 @@ To install the Windows CNG KSP and CAPI CSP providers,
 >    * `Provider Name: SignPathCSP`
 >    * `Provider Name: SignPathKSP`
 
-CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP.
-In case you only want to install the KSP, you can de-select the "Windows CAPI CSP" in the "custom setup" installer step.
+CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers), so most up-to-date tools only require a KSP. You can deselect the "Windows CAPI CSP" in the "custom setup" installer step.
 
 ### Unattended installation
 
@@ -103,7 +102,6 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 ## Error handling
 
 The following table shows the KSP `HRESULT` result codes for different error situations when calling the SignPath REST API.
-Note that the CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 | Situation                                                                                                | error code (KSP result code or CSP `GetLastError()` code)
 |----------------------------------------------------------------------------------------------------------|----------------------------------------------------------
@@ -111,6 +109,8 @@ Note that the CSP error code has to be retrieved via [`GetLastError()`](https://
 | Non-transient service errors (e.g. 500 Internal Server Error)                                            | HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F4` for HTTP 500
 | User errors detected by service (4xx returned)                                                           | HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x80040190` for HTTP 400
 | Other unspecified errors (fall back)                                                                     | `NTE_FAIL` ("An internal error occurred.")
+
+The CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## SignTool.exe {#signtool}
 

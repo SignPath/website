@@ -44,12 +44,14 @@ This section provides general information about using the SignPath Cryptoki libr
 
 #### Windows
 
-The Cryptoki/PKCS #11 library file is installed to `%ProgramFiles%\SignPath\CryptoProviders\SignPath.Cryptoki.dll` by the [MSI installer](/documentation/crypto-providers/windows#installation).
-Alternatively, you can copy-deploy the DLL file from `Windows\SignPath.Cryptoki.dll` inside the Crypto Providers ZIP archive to your target system.
+The Cryptoki library is installed to `%ProgramFiles%\SignPath\CryptoProviders\SignPath.Cryptoki.dll` by the [MSI installer](/documentation/crypto-providers/windows#installation).
+
+Alternatively, you can copy-deploy `Windows\SignPath.Cryptoki.dll` from the Crypto Providers ZIP archive to your target system.
 
 ### Linux
 
-Copy-deploy the Cryptoki/PKCS #11 library from `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` inside the Crypto Providers ZIP archive to your target system.
+Copy-deploy the Cryptoki library `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` from the Crypto Providers ZIP archive to your target system.
+
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
 ### Parameters {#cryptoki-parameters}
@@ -102,7 +104,7 @@ _[OpenSSL]_ is a toolkit that provides a range of cryptographic operations, incl
 
 ### Setup
 
-_OpenSSL_ cannot directly communicate with a Cryptoki library. Instead, the [OpenSC pkcs11 OpenSSL engine](https://github.com/OpenSC/libp11) can be used as adapter between OpenSSL and the SignPath Cryptoki/PKCS #11 library.
+_OpenSSL_ cannot directly communicate with a Cryptoki library. Instead, the [OpenSC pkcs11 OpenSSL engine](https://github.com/OpenSC/libp11) can be used as adapter between OpenSSL and the SignPath Cryptoki library.
 
 **Windows:** Download `libp11-...-windows.zip ` from [OpenSC libp11 Releases](https://github.com/OpenSC/libp11/releases) and copy-deploy `pkcs11.dll` (x64 version).
 
