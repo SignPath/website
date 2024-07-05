@@ -9,6 +9,23 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Jun. 19, 2024'
+    range: 'Jun. 19, 2024 10:00 - 12:00 UTC'
+    type: warning
+    title: 'HSM maintenance'
+    description: |
+      Planned maintenance for SignPath's HSM cluster.
+      • Disabled Creating/importing certificates
+      • Slightly longer processing times for signing requests including and hash signing
+      Software certificates and Thales DPoD Cloud HSM certificates were not affected.
+  - date: 'Jun. 5, 2024'
+    range: 'Jun. 5, 2024 12:00 - 15:30 UTC'
+    type: warning
+    title: 'HSM maintenance'
+    description: |
+      Planned maintenance for SignPath's HSM cluster.
+      Limited certificate management (disabled certificate creation/import), expect slightly longer signing request processing times and hash signing response times.
+      Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Apr. 23, 2024'
     range: 'Apr. 23, 2024, 12:26 - 13:37 UTC'
     type: warning
@@ -71,9 +88,9 @@ incidents:
     type: warning
     title: 'HSM maintenance'
     description: |
-      Planned maintenance for SignPath's HSM farm.
+      Planned maintenance for SignPath's HSM cluster.
       Limited certificate management, slightly longer signing request processing times and hash signing response times.
-      Software certificates and Thales DPoD Cloud HSM certificates were not affected.  
+      Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Aug. 7, 2023'
     range: 'Aug. 7, 2023 14:00 - 16:10 UTC'
     type: critical
