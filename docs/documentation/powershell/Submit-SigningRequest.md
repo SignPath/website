@@ -192,8 +192,8 @@ Note: Use either slugs _or_ IDs, don't mix.
 | `-Parameters`                             | `Hashtable`       | Values for [parameters defined in the artifact configuration](https://about.signpath.io/documentation/artifact-configuration/syntax#parameters)
 | `-ServiceUnavailableTimeoutInSeconds`     | `Int32`           | Total time in seconds that the cmdlet will wait for a single service call to succeed (across several retries) | 600 seconds
 | `-UploadAndDownloadRequestTimeoutInSeconds` | `Int32`         | HTTP timeout used for upload and download HTTP requests       | 300 seconds
-| `-CancellationTimeoutInSeconds`           | `Int32`           | Timeout in seconds before the signing request gets cancelled (from submission; specify 0 for no timeout) | if `-WaitForCompletion` is specified: `-WaitForCompletionTimeoutInSeconds` value; otherwise: none
-{: .break-column-1 }
+| `-CancellationTimeoutInSeconds`           | `Int32`           | Timeout in seconds before the signing request gets cancelled (from submission; specify `0` for no timeout) | if `-WaitForCompletion` is specified: `-WaitForCompletionTimeoutInSeconds` value; otherwise: none
+{: .break-column-1.break-column-4 }
 
 ## Examples
 
