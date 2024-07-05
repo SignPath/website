@@ -25,13 +25,13 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
-        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
+    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Provide a URL to retrieve the artifact {#artifact-retrieval}
@@ -51,13 +51,13 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
-        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
+    [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
 ### Resubmit an existing singing request {#resubmit}
@@ -76,14 +76,14 @@ Submit-SigningRequest
         -OutputArtifactPath <String>
         [-Force]
         [-WaitForCompletionTimeoutInSeconds <Int32>] 
-        [-CancellationTimeoutInSeconds <Int32>] 
     ]
     -OrganizationId <String> -ApiToken <String> [-ClientCertificate <X509Certificate2>]
     [-ApiUrl <String>] 
     [-Description <String>] 
     [-Parameters <Hashtable>] 
     [-ServiceUnavailableTimeoutInSeconds <Int32>] [-UploadAndDownloadRequestTimeoutInSeconds <Int32>] 
-~~~ 
+    [-CancellationTimeoutInSeconds <Int32>] 
+~~~
 
 ## Description
 
@@ -178,7 +178,6 @@ Note: Use either slugs _or_ IDs, don't mix.
 | `-OutputArtifactPath`                     | `String`          | Specifies the target path for the downloaded signed artifact  | `InputArtifactPath` with an added `.signed` extension 
 | `-Force`                                  | Switch            | Allows the cmdlet to overwrite the file at OutputArtifactPath | `false`
 | `-WaitForCompletionTimeoutInSeconds`      | `Int32`           | Maximum time in seconds that the cmdlet will wait for the signing request to complete (upload and download have no specific timeouts) | 600 seconds
-| `-CancellationTimeoutInSeconds`           | `Int32`           | Maximum processing time in seconds (after submission) before the signing request gets cancelled | `WaitForCompletionTimeoutInSeconds` value
 {: .break-column-1 }
 
 ### Common parameters
@@ -193,6 +192,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 | `-Parameters`                             | `Hashtable`       | Values for [parameters defined in the artifact configuration](https://about.signpath.io/documentation/artifact-configuration/syntax#parameters)
 | `-ServiceUnavailableTimeoutInSeconds`     | `Int32`           | Total time in seconds that the cmdlet will wait for a single service call to succeed (across several retries) | 600 seconds
 | `-UploadAndDownloadRequestTimeoutInSeconds` | `Int32`         | HTTP timeout used for upload and download HTTP requests       | 300 seconds
+| `-CancellationTimeoutInSeconds`           | `Int32`           | Timeout in seconds before the signing request gets cancelled (from submission; specify 0 for no timeout) | if `-WaitForCompletion` is specified: `-WaitForCompletionTimeoutInSeconds` value; otherwise: none
 {: .break-column-1 }
 
 ## Examples
