@@ -36,7 +36,7 @@ For JS development (compiled JS is currently checked in):
 
 ### Running it using Docker
 You need to have Docker installed.
-Then, run the following comand (in PowerShell):
+Then, run the following command (in PowerShell):
 
 	docker run --rm -e JEKYLL_ENV=docker --label=jekyll --volume=${PWD}/docs:/srv/jekyll -it -p 127.0.0.1:4000:4000 jekyll/jekyll jekyll serve --force_polling
 

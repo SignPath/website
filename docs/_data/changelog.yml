@@ -35,6 +35,45 @@
             Signing requests are new automatically cancelled after `WaitForCompletionTimeoutInSeconds`.
             This can be overridden with the new `-CancellationTimeoutInSeconds` parameter.
           issues: [SIGN-1472]
+- date: '2024-07-04'
+  updates:
+    crypto_providers:
+      version: 5.0.7
+      breaking_changes:
+        - text: |-
+            Changed default logging behavior:
+
+            * File logging (with `info` level) is now enabled by default
+              * The target directory on Windows is `%TEMP%\SignPathLogs`, on Linux `/tmp/SignPathLogs`.
+              * Use `SIGNPATH_LOG_CONSOLE_LEVEL=none` to opt-out from file logging.
+            * Console logging (if enabled) now logs to stderr instead of stdout by default.
+              * Use the new `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM` configuration to switch back to `stdout`.
+            * See [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) for details.
+          issues: [SIGN-6987]
+      new_features:
+        - text: |-
+            The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.
+
+            * See [install/uninstall docs](/documentation/crypto-providers/windows#installation). This also includes unattended installation options.
+            * To upgrade from a previous _manual_ installation/registration or from an `InstallCspKsp.ps1` installation:
+              * Install using the new MSI
+              * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`
+              * Delete the old installation target directory (including the old configuration file)
+          issues: [SIGN-6741]
+      improvements:
+        - text: |-
+            Linux container samples improvements:
+            * Added a Bash port for the entry point script (`run_scenario.sh`) next to the existing PowerShell version (`RunScenario.ps1`).
+            * The `GenerateGpgKey` scenario now allows to specify all key parameters like full name, email or expiration directly to the entry point script.
+            * The GPG scenarios (e.g. `SignRpm`) now allow to specify the key's ID (email) directly to the entry point script.
+          issues: [SIGN-7051]
+        - text: |-
+            The CryptoProvider package now includes SBOM files.
+          issues: [SIGN-6814, SIGN-6868]
+      bug_fixes:
+        - text: >-
+             Linux container samples: fixed incompatibility with recent RedHat 8 and 9 repository changes concerning `openssl` and `gnupg-pkcs11-scd`.
+          issues: [SIGN-7011, SIGN-7082]
 - date: '2024-06-10'
   updates:
     application:
