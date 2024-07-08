@@ -20,5 +20,8 @@
 - text: Office macro signing
   path: office-macros
 
+- text: Thales DPoD Cloud HSM
+  path: thales-dpod
+
 - text: PKI Consortium best practices
   path: pkic-best-practices
