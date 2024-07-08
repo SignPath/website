@@ -13,6 +13,13 @@
         - text: >-
             Reduced memory overhead in all Pods deployed by the `signpath-signservice-<type>` charts by switching the entry point from PowerShell to CMD.
           issues: [SIGN-7081]
+    powershell_module:
+      version: 4.4.0
+      improvements:
+        - text: >-
+            Signing requests are new automatically cancelled after `WaitForCompletionTimeoutInSeconds`.
+            This can be overridden with the new `-CancellationTimeoutInSeconds` parameter.
+          issues: [SIGN-1472]
 - date: '2024-06-10'
   updates:
     application:
@@ -28,13 +35,6 @@
         - text: >-
             Reduced memory overhead in all Pods deployed by the `signpath-application` chart by switching the entry point from PowerShell to CMD.
           issues: [SIGN-7054]
-    powershell_module:
-      version: 4.3.TODO
-      improvements:
-        - text: >-
-            Signing requests are new automatically cancelled after `WaitForCompletionTimeoutInSeconds`.
-            This can be overridden with the new `-CancellationTimeoutInSeconds` parameter.
-          issues: [SIGN-1472]
 - date: '2024-07-04'
   updates:
     crypto_providers:
