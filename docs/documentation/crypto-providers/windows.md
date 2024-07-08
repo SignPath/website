@@ -7,24 +7,16 @@ show_toc: 3
 description: SignPath Windows CSP and KSP Crypto Providers
 ---
 
-## General instructions
+## Overview
 
-This section provides information to use SignPath with any tool that supports KSP or CSP providers.
+Signing tools secifically designed for Windows typicall use CNG KSP or CAPI CSP providers. Install and use the SignPath KSP and CSP providers to use this tools with SignPath.
 
-### Installation
+## Installation
 
-To install both CSP and KSP,
+To install the Windows CNG KSP and CAPI CSP providers,
 
-1. Copy the contents of the `Windows` directory of the Crypto Providers ZIP archive to the target system.
-1. Run the following command with Administrator privileges in the destination directory:
-
-   ~~~powershell
-   powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1
-   ~~~
-
+1. Run the MSI installer file from the `Windows` subdirectory of the Crypto Providers ZIP archive. (See below for unattended options.)
 1. Continue with the [general Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
-
-Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or PowerShell Core session.
 
 {:.panel.info}
 > **Verification**
@@ -40,27 +32,59 @@ Alternatively, you can also run `.\InstallCspKsp.ps1` within a PowerShell or Pow
 >    * `Provider Name: SignPathCSP`
 >    * `Provider Name: SignPathKSP`
 
-CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers) and therefore most tools only require a KSP. In case you only want to install the KSP, use the following command:
+CSPs [are deprecated by Microsoft](https://learn.microsoft.com/en-us/windows/win32/seccrypto/cryptographic-service-providers), so most up-to-date tools only require a KSP. You can deselect the "Windows CAPI CSP" in the "custom setup" installer step.
+
+### Unattended installation
+
+To install the MSI in an automated fashion, run the following command (in an elevated command prompt).
 
 ~~~powershell
-powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 -InstallParts KSP
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log
 ~~~
 
-#### Update to a new version
+See [`msiexec` documentation](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec).
+
+#### Installing as a prerequisite for build steps
+
+If you want `msiexec` to terminate only after the installation has completed, run the following command in a PowerShell session:
+
+~~~powershell
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
+~~~
+
+#### Selecting components
+
+To install only parts, use the `ADDLOCAL` msiexec parameter with the following options (delimited by commas):
+
+   * `KSP` for the Windows CNG KSP installation and registration
+   * `CSP` for the Windows CAPI CNG installation and registration
+   * `Cryptoki` for the Cryptoki library installation
+   * `SignPathConfigAndEnv` for the default `CryptoProvidersConfig.json` configuration file in `%ProgramFiles%\SignPath\CryptoProviders`
+     and the system-wide `SIGNPATH_CONFIG_FILE` environment variable
+
+Example: install KSP and configuration file variable
+
+~~~powershell
+msiexec /i SignPathCryptoProviders-$Version.msi /qn /L* install.log ADDLOCAL=KSP,SignPathConfigAndEnv | Out-Host; if ($LASTEXITCODE -ne 0) { throw "msiexec exited with $LASTEXITCODE" }
+~~~
+
+### Update to a new version
 
 Installing a new version will overwrite the existing installation.
 
-#### Uninstallation
+### Uninstallation
 
-Run the following command with Administrator privileges in the installation directory:
+Uninstall via Windows' "Apps & features" / "Installed apps" dialog.
+
+### Unattended uninstallation
+
+To uninstall in an automated fashion, run the following command (in an elevated PowerShell session).
 
 ~~~powershell
-powershell -ExecutionPolicy RemoteSigned .\InstallCspKsp.ps1 Uninstall
+msiexec /x SignPathCryptoProviders-$Version.msi /qn /L* uninstall.log | Out-Host
 ~~~
 
-This removes both the CSP and KSP version (in case they are installed).
-
-### Parameters
+## Using KSP/CSP parameters of signing tools
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:
 
@@ -75,10 +99,9 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 >
 > The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
 
-### Error handling
+## Error handling
 
-The following table shows the KSP `HRESULT` result codes for the different error situations when calling the SignPath REST API.
-Note that the CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
+The following table shows the KSP `HRESULT` result codes for different error situations when calling the SignPath REST API.
 
 | Situation                                                                                                | error code (KSP result code or CSP `GetLastError()` code)
 |----------------------------------------------------------------------------------------------------------|----------------------------------------------------------
@@ -86,6 +109,8 @@ Note that the CSP error code has to be retrieved via [`GetLastError()`](https://
 | Non-transient service errors (e.g. 500 Internal Server Error)                                            | HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x800401F4` for HTTP 500
 | User errors detected by service (4xx returned)                                                           | HTTP status code as an HRESULT in the `FACILITY_ITF`, e.g. `0x80040190` for HTTP 400
 | Other unspecified errors (fall back)                                                                     | `NTE_FAIL` ("An internal error occurred.")
+
+The CSP error code has to be retrieved via [`GetLastError()`](https://learn.microsoft.com/en-us/windows/win32/api/errhandlingapi/nf-errhandlingapi-getlasterror).
 
 ## SignTool.exe {#signtool}
 
