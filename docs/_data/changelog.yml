@@ -1,3 +1,40 @@
+- date: '2024-07-08'
+  updates:
+    application:
+      version: 1.167.3
+      improvements:
+        - text: >-
+            Added to organization page the number of "applied individual signatures" of the current month.
+          saas_only: true
+          issues: [SIGN-7097]
+    self_hosted_installations:
+      version: 1.167.3
+      improvements:
+        - text: >-
+            Reduced memory overhead in all Pods deployed by the `signpath-signservice-<type>` charts by switching the entry point from PowerShell to CMD.
+          issues: [SIGN-7081]
+    powershell_module:
+      version: 4.4.1
+      improvements:
+        - text: >-
+            Signing requests are new automatically cancelled after `WaitForCompletionTimeoutInSeconds`.
+            This can be overridden with the new `-CancellationTimeoutInSeconds` parameter.
+          issues: [SIGN-1472]
+- date: '2024-06-10'
+  updates:
+    application:
+      version: 1.166.2
+      improvements:
+        - text: >-
+            Added an optional `cancellationTimeoutInSeconds` parameter to the signing request submission REST APIs
+            to automatically cancel signing requests after the provided timeout.
+          issues: [SIGN-1472]
+    self_hosted_installations:
+      version: 1.166.2
+      improvements:
+        - text: >-
+            Reduced memory overhead in all Pods deployed by the `signpath-application` chart by switching the entry point from PowerShell to CMD.
+          issues: [SIGN-7054]
 - date: '2024-07-04'
   updates:
     crypto_providers:
