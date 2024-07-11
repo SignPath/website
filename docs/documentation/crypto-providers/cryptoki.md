@@ -48,7 +48,7 @@ The Cryptoki library is installed to `%ProgramFiles%\SignPath\CryptoProviders\Si
 
 Alternatively, you can copy-deploy `Windows\SignPath.Cryptoki.dll` from the Crypto Providers ZIP archive to your target system.
 
-### Linux
+#### Linux
 
 Copy-deploy the Cryptoki library `Linux/libSignPath.Cryptoki/$OpenSslVersion/libSignPath.Cryptoki.so` from the Crypto Providers ZIP archive to your target system.
 
