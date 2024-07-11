@@ -14,7 +14,7 @@
             Reduced memory overhead in all Pods deployed by the `signpath-signservice-<type>` charts by switching the entry point from PowerShell to CMD.
           issues: [SIGN-7081]
     powershell_module:
-      version: 4.4.0
+      version: 4.4.1
       improvements:
         - text: >-
             Signing requests are new automatically cancelled after `WaitForCompletionTimeoutInSeconds`.
