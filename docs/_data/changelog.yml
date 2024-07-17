@@ -1,3 +1,25 @@
+- date: '2024-07-22'
+  updates:
+    application:
+      version: 1.168.1
+      new_features:
+        - text: >-
+            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-append) (instead of overwriting input signatures).
+          issues: [SIGN-7004]
+      improvements:
+        - text: >-
+            Improved approval notification emails: Added more information to the email body like project/signing policy name, or artifact file name.
+          issues: [SIGN-7122]
+      bug_fixes:
+        - text: >-
+            Fixed a text display error in UI when the browser's language is configured to Chinese.
+          issues: [SIGN-7123]
+    self_hosted_installations:
+      version: 1.168.1
+      improvements:
+        - text: >-
+            Extended the auto-restart detection mechanism for a specific Luna Client startup error in `signpath-signservice-lunahsm`.
+          issues: [SIGN-7152]
 - date: '2024-07-08'
   updates:
     application:
@@ -127,7 +149,7 @@
       version: 1.163.0
       new_features:
         - text: >-
-            Authenticode files can now be signature _validated_ with the new `<authenticode-verify />` artifact configuration directive.
+            Authenticode files can now be signature _validated_ with the new [`<authenticode-verify />`](/documentation/artifact-configuration/reference#authenticode-verify) artifact configuration directive.
 
             Use to ensure that third-party components are properly signed in deep signing configurations.
           issues: [SIGN-2021]
