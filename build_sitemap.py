@@ -193,10 +193,12 @@ try:
         sitemap.write ('<?xml version="1.0" encoding="UTF-8"?>\n')
         sitemap.write ('<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
 
-        for file in glob.glob ('*.md', recursive=False) \
-                + glob.glob ('[a-z]*/**/*.md', recursive=True) \
+        files = glob.glob ('*.md', recursive=False) \
                 + glob.glob ('*.html', recursive=False) \
-                + glob.glob ('[a-z]*/**/*.html', recursive=True):
+                + glob.glob ('[a-z]*/**/*.md', recursive=True) \
+                + glob.glob ('[a-z]*/**/*.html', recursive=True)
+        files = [x for x in files if not x.startswith("blog\\_posts\\")]
+        for file in files:
             process (file, None)
         bloglocal='blog/_posts/'
         for file in glob.glob (f'{bloglocal}*.md'):
