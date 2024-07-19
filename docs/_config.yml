@@ -34,7 +34,7 @@ markdown: kramdown
 plugins:
   - jekyll-redirect-from
   - jekyll-feed
-  - jekyll-sitemap
+#  - jekyll-sitemap
 
 toc:
   min_level: 1

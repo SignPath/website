@@ -34,7 +34,7 @@ gem "wdm", "~> 0.1.0", :install_if => Gem.win_platform?
 
 ### plugins added
 gem 'jekyll-redirect-from'
-gem 'jekyll-sitemap'
+#gem 'jekyll-sitemap'
 
 gem "webrick", "~> 1.8"
 gem 'kramdown-parser-gfm', '~> 1.1'
