@@ -197,7 +197,7 @@ try:
                 + glob.glob ('*.html', recursive=False) \
                 + glob.glob ('[a-z]*/**/*.md', recursive=True) \
                 + glob.glob ('[a-z]*/**/*.html', recursive=True)
-        files = [x for x in files if not x.startswith("blog\\_posts\\")]
+        files = [x for x in files if not x.startswith("blog/_posts/")]
         for file in files:
             process (file, None)
         bloglocal='blog/_posts/'
