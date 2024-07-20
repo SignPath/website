@@ -39,7 +39,7 @@ See also:
 
 Some file formats support multiple Authenticode signatures. By default, signing will replace existing signatures. To _append_ a signature instead, use the `append` attribute: 
 
-~~~ xml ~~~
+~~~ xml
 <authenticode-sign append="true" />
 ~~~
 
