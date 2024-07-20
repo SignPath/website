@@ -35,25 +35,24 @@ See also:
 * Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
 * Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
-#### Signature appending {#authenticode-append}
+#### Appending signatures {#authenticode-append}
 
-Some Authenticode file formats support multiple signatures. To _append_ a signature instead of overwriting it, use the `append=true` attribute on `<authenticode-sign>`.
+Some file formats support multiple Authenticode signatures. By default, signing will replace existing signatures. To _append_ a signature instead, use the `append` attribute: 
 
-The following file formats are supported:
-
-* `pe-file` (.exe, .dll, ...)
-* `cab-file` (.cab)
-* `catalog-file` (.cat)
-
-##### Example
-
-~~~ xml
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <pe-file>
-    <authenticode-sign append="true" />
-  </pe-file>
-</artifact-configuration>
+~~~ xml ~~~
+<authenticode-sign append="true" />
 ~~~
+
+This feature is only needed for edge cases including
+
+* adding an signature to a file that's already signed using another certificate
+* adding a signature using different parameters, such as digest algorithm
+
+File formats that support appending signatures:
+
+* `<pe-file>` (.exe, .dll, ...)
+* `<cab-file>` (.cab)
+* `<catalog-file>` (.cat)
 
 ### `<clickonce-sign>`
 

@@ -4,21 +4,21 @@
       version: 1.168.1
       new_features:
         - text: >-
-            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-append) (instead of overwriting input signatures).
+            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-append).
           issues: [SIGN-7004]
       improvements:
         - text: >-
-            Improved approval notification emails: Added more information to the email body like project/signing policy name, or artifact file name.
+            Improved approval notification emails: added project, signing policy and artifact file name to email body.
           issues: [SIGN-7122]
       bug_fixes:
         - text: >-
-            Fixed a text display error in UI when the browser's language is configured to Chinese.
+            Fixed a display error if browser's language is configured to Chinese (zh-CHS).
           issues: [SIGN-7123]
     self_hosted_installations:
       version: 1.168.1
       improvements:
         - text: >-
-            Extended the auto-restart detection mechanism for a specific Luna Client startup error in `signpath-signservice-lunahsm`.
+            Auto-restart detection mechanism extended to include a specific Luna Client startup error in `signpath-signservice-lunahsm`.
           issues: [SIGN-7152]
 - date: '2024-07-08'
   updates:
