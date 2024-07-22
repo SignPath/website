@@ -8,7 +8,7 @@
           issues: [SIGN-6537]
       bug_fixes:
         - text: |-
-            Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid (non "Hash signing data") artifact configurations in the SignPath project configuration.
+            Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid (i.e. non "Hash signing data") artifact configurations in the SignPath project.
           issues: [SIGN-6833]
 - date: '2024-07-22'
   updates:
