@@ -1,3 +1,15 @@
+- date: '2024-07-23'
+  updates:
+    crypto_providers:
+      version: 5.0.11
+      improvements:
+        - text: |-
+            Improve the warning and error loggings for HTTP errors: Log message now includes details about the error incl. HTTP status and response body if available.
+          issues: [SIGN-6537]
+      bug_fixes:
+        - text: |-
+            Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid (non "Hash signing data") artifact configuration in the SignPath project configuration.
+          issues: [SIGN-6833]
 - date: '2024-07-22'
   updates:
     application:
