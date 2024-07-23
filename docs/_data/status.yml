@@ -15,7 +15,7 @@ planned:
     description: |
       Planned maintenance for SignPath HSM cluster's infrastructure.
       • Slightly longer processing times for signing requests including and hash signing
-      • Software certificates and Thales DPoD Cloud HSM certificates were not affected.
+      • Software certificates and Thales DPoD Cloud HSM certificates won't be affected.
 incidents:
   - date: 'Jun. 19, 2024'
     range: 'Jun. 19, 2024 10:00 - 12:00 UTC'
