@@ -4,11 +4,11 @@
       version: 5.0.11
       improvements:
         - text: |-
-            Improve warning and error loggings for HTTP call errors: Log message now includes details about the error incl. HTTP status and response body if available.
+            Improved warning and error logging for HTTP call errors: log message now includes details about the error incl. HTTP status and response body if available.
           issues: [SIGN-6537]
       bug_fixes:
         - text: |-
-            Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid (i.e. non "Hash signing data") artifact configurations in the SignPath project.
+            Fixed unnecessary retries for non-recoverable errors like authentication errors or invalid artifact configurations (anything but hash-signing) in the SignPath project.
           issues: [SIGN-6833]
 - date: '2024-07-22'
   updates:
