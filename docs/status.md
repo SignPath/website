@@ -43,10 +43,11 @@ datasource: status
 					<h3>{{ incident.date}}</h3>
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
-					<div>
-						{{ incident.description | newline_to_br }}
-						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
-					</div>
+					<div markdown="1">
+					
+{{ incident.description }}
+{% if incident.link %} <a href="{{ incident.link }}"> (Read more)</a> {% endif %}
+</div>
 				</li>
 			{%- endfor -%}
 		</ul>
@@ -58,10 +59,11 @@ datasource: status
 					<h3>{{ incident.date}}</h3>
 					<label>{{ incident.range }}</label>
 					<h4>{{ incident.title }}</h4>
-					<div>
-						{{ incident.description | newline_to_br }}
-						{%- if incident.link -%} <a href="{{ incident.link }}"> (Read more)</a> {%- endif -%}
-					</div>
+					<div markdown="1">
+
+{{ incident.description }}
+{% if incident.link %} <a href="{{ incident.link }}"> (Read more)</a> {% endif %}
+</div>
 				</li>
 			{%- endfor -%}
 		</ul>

@@ -17,11 +17,16 @@ section.status-section > div {
 		}
 	}
 
-	ul {
+	& > ul {
 		list-style-type: none;
 		margin-top: 4em;
 
-		li {
+		p {
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		& > li {
 			border-left: 4px solid $grey-border-color;
 			display: block;
 			padding-left: 2em;
@@ -29,7 +34,7 @@ section.status-section > div {
 
 			&.warning  { border-left-color: $warning-background-color; }
 			&.critical { border-left-color: $error-background-color; }
-
+			
 			h3 {
 				margin: 0px;
 			}
@@ -42,6 +47,10 @@ section.status-section > div {
 			h4 {
 				margin: 0px;
 				font-weight: bold;
+			}
+			
+			ul li {
+				list-style-type: disc;
 			}
 		}
 	}

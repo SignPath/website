@@ -14,8 +14,9 @@ planned:
     title: 'HSM infrastructure maintenance'
     description: |
       Planned maintenance for SignPath HSM cluster's infrastructure.
-      • Slightly longer processing times for signing requests including and hash signing
-      • Software certificates and Thales DPoD Cloud HSM certificates won't be affected.
+
+      * Slightly longer processing times for signing requests including and hash signing
+      * Software certificates and Thales DPoD Cloud HSM certificates won't be affected.
 incidents:
   - date: 'Jun. 19, 2024'
     range: 'Jun. 19, 2024 10:00 - 12:00 UTC'
@@ -23,8 +24,10 @@ incidents:
     title: 'HSM maintenance'
     description: |
       Planned maintenance for SignPath's HSM cluster.
-      • Disabled Creating/importing certificates
-      • Slightly longer processing times for signing requests including and hash signing
+
+      * Disabled Creating/importing certificates
+      * Slightly longer processing times for signing requests including and hash signing
+
       Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Jun. 5, 2024'
     range: 'Jun. 5, 2024 12:00 - 15:30 UTC'
@@ -32,8 +35,9 @@ incidents:
     title: 'HSM maintenance'
     description: |
       Planned maintenance for SignPath's HSM cluster.
-      Limited certificate management (disabled certificate creation/import), expect slightly longer signing request processing times and hash signing response times.
-      Software certificates and Thales DPoD Cloud HSM certificates were not affected.
+
+      * Limited certificate management (disabled certificate creation/import), expect slightly longer signing request processing times and hash signing response times.
+      * Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Apr. 23, 2024'
     range: 'Apr. 23, 2024, 12:26 - 13:37 UTC'
     type: warning
@@ -77,28 +81,26 @@ incidents:
     range: 'Jan. 11, 2024 19:00 - 21:00 UTC'
     type: warning
     title: 'Thales DPoD maintenance windows'
-    description: |
-      For all customers using their own Thales DPoD Cloud HSMs hosted in the EU, signing operations may briefly be interrupted due to maintenance operations by Thales.
+    description: For all customers using their own Thales DPoD Cloud HSMs hosted in the EU, signing operations may briefly be interrupted due to maintenance operations by Thales.
   - date: 'Nov. 26, 2023'
     range: 'Nov. 26, 2023 02:50 - 22:05 UTC'
     type: warning
     title: 'Infrastructure problems'
-    description: |
-      Problems in the database backend caused temporarily outdated lists and reports.
+    description: Problems in the database backend caused temporarily outdated lists and reports.
   - date: 'Nov. 8, 2023'
     range: 'Nov. 8, 2023 15:30 - Nov. 23, 2023 14:00 UTC'
     type: warning
     title: 'Problem importing PFX files into the HSM key store'
-    description: |
-      Importing private keys from PFX files into the HSM key store did not work (fixed in release 1.152).
+    description: Importing private keys from PFX files into the HSM key store did not work (fixed in release 1.152).
   - date: 'Nov. 8, 2023'
     range: 'Nov. 8, 2023 15:30 - 16:40 UTC'
     type: warning
     title: 'HSM maintenance'
     description: |
       Planned maintenance for SignPath's HSM cluster.
-      Limited certificate management, slightly longer signing request processing times and hash signing response times.
-      Software certificates and Thales DPoD Cloud HSM certificates were not affected.
+
+      * Limited certificate management, slightly longer signing request processing times and hash signing response times.
+      * Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Aug. 7, 2023'
     range: 'Aug. 7, 2023 14:00 - 16:10 UTC'
     type: critical
@@ -110,10 +112,12 @@ incidents:
     title: 'Performance degradation'
     description: |
       Performance issues due to a regression caused by a dependency. We noticed performance degradation in queue processing during the following periods: 
-      (1) May 11 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect
-      (2) May 11 17:12 - 18:25 UTC: same processing time, no API errors
-      (3) May 12 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors
-      As an initial reaction to (1) and (2), we allocated additional computing resources. Once the root cause was identified, we reverted the system to an old version of the component that caused the issue and deployed it as a hotfix.
+
+      1. May 11 13:00 - 15:36 UTC: 18 min. processing time in the top 95 percentile, some API calls returned HTTP 502 as a side effect
+      2. May 11 17:12 - 18:25 UTC: same processing time, no API errors
+      3. May 12 08:45 - 09:22 UTC: 15 min. processing time in the top 95 percentile, no API errors
+      
+      As an initial reaction to 1 and 2, we allocated additional computing resources. Once the root cause was identified, we reverted the system to an old version of the component that caused the issue and deployed it as a hotfix.
   - date: 'Mar. 12, 2023'
     range: 'Mar 12, 2023 10:00 - 12:00 UTC'
     type: critical
