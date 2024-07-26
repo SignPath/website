@@ -1,7 +1,7 @@
 {
-  "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('21236dad-c2dd-4115-a7c5-ba2e8492383f')/synchronization/jobs('scim.a11566781e524385a43bc0a5b414d402.15d09d02-dedc-41b2-99ee-ea459511be5c')/schema/$entity",
-  "id": "scim.a11566781e524385a43bc0a5b414d402.15d09d02-dedc-41b2-99ee-ea459511be5c",
-  "version": "Date:2023-08-02T12:51:06.1921701Z, ActivityId:b0a4c451-38a6-4e09-bbbf-d2e702c0f7e9",
+  "@odata.context": "https://graph.microsoft.com/beta/$metadata#servicePrincipals('2045d3ad-b99c-43cb-9500-c2d43c11ab0d')/synchronization/jobs('scim.4e3cbf0ec6524caebd1fca7a38924e91.62a7b0b0-6944-459f-8069-2a9db95822aa')/schema/$entity",
+  "id": "scim.4e3cbf0ec6524caebd1fca7a38924e91.62a7b0b0-6944-459f-8069-2a9db95822aa",
+  "version": "Date:2024-06-19T14:53:12.7416198Z, ActivityId:d0147501-641d-43af-86e6-8139fda68d3e",
   "synchronizationRules": [
     {
       "containerFilter": null,
@@ -10,7 +10,7 @@
       "id": "03f7d90d-bf71-41b1-bda6-aaf0ddbee5d8",
       "name": "USERGROUP_OUTBOUND_USERGROUP",
       "priority": 1,
-      "sourceDirectoryName": "Azure Active Directory",
+      "sourceDirectoryName": "Microsoft Entra ID",
       "targetDirectoryName": "customappsso",
       "metadata": [
         {
@@ -70,6 +70,20 @@
                 "expression": "[description]",
                 "name": "description",
                 "type": "Attribute",
+                "parameters": []
+              }
+            },
+            {
+              "defaultValue": "",
+              "exportMissingReferences": false,
+              "flowBehavior": "FlowWhenChanged",
+              "flowType": "Always",
+              "matchingPriority": 0,
+              "targetAttributeName": "urn:ietf:params:scim:schemas:extension:signpath:2.0:Group:isDirectorySynchronized",
+              "source": {
+                "expression": "\"true\"",
+                "name": "true",
+                "type": "Constant",
                 "parameters": []
               }
             }
@@ -238,6 +252,20 @@
                   }
                 ]
               }
+            },
+            {
+              "defaultValue": "",
+              "exportMissingReferences": false,
+              "flowBehavior": "FlowWhenChanged",
+              "flowType": "Always",
+              "matchingPriority": 0,
+              "targetAttributeName": "urn:ietf:params:scim:schemas:extension:signpath:2.0:User:isDirectorySynchronized",
+              "source": {
+                "expression": "\"true\"",
+                "name": "true",
+                "type": "Constant",
+                "parameters": []
+              }
             }
           ],
           "metadata": [
@@ -280,9 +308,9 @@
       "id": "66e4a8cc-1b7b-435e-95f8-f06cea133828",
       "discoveryDateTime": null,
       "discoverabilities": "AttributeNames,AttributeDataTypes",
-      "name": "Azure Active Directory",
+      "name": "Microsoft Entra ID",
       "readOnly": true,
-      "version": "Date:2023-08-02T12:51:06.1921701Z, ActivityId:b0a4c451-38a6-4e09-bbbf-d2e702c0f7e9",
+      "version": "Date:2024-06-19T14:53:12.7416198Z, ActivityId:d0147501-641d-43af-86e6-8139fda68d3e",
       "objects": [
         {
           "name": "User",
@@ -1658,6 +1686,20 @@
               "apiExpressions": [],
               "metadata": [],
               "referencedObjects": []
+            },
+            {
+              "anchor": false,
+              "caseExact": false,
+              "defaultValue": null,
+              "flowNullValues": false,
+              "multivalued": false,
+              "mutability": "ReadWrite",
+              "name": "applicationTemplateId",
+              "required": false,
+              "type": "String",
+              "apiExpressions": [],
+              "metadata": [],
+              "referencedObjects": []
             }
           ],
           "metadata": [
@@ -2117,7 +2159,7 @@
       "discoverabilities": "None",
       "name": "customappsso",
       "readOnly": false,
-      "version": "Date:2023-08-02T12:51:06.1921701Z, ActivityId:b0a4c451-38a6-4e09-bbbf-d2e702c0f7e9",
+      "version": "Date:2024-06-19T14:53:12.7416198Z, ActivityId:d0147501-641d-43af-86e6-8139fda68d3e",
       "objects": [
         {
           "name": "urn:ietf:params:scim:schemas:core:2.0:Group",
@@ -2191,6 +2233,20 @@
               "name": "description",
               "required": false,
               "type": "String",
+              "apiExpressions": [],
+              "metadata": [],
+              "referencedObjects": []
+            },
+            {
+              "anchor": false,
+              "caseExact": false,
+              "defaultValue": null,
+              "flowNullValues": false,
+              "multivalued": false,
+              "mutability": "ReadWrite",
+              "name": "urn:ietf:params:scim:schemas:extension:signpath:2.0:Group:isDirectorySynchronized",
+              "required": false,
+              "type": "Boolean",
               "apiExpressions": [],
               "metadata": [],
               "referencedObjects": []
@@ -2297,6 +2353,20 @@
               "name": "roles",
               "required": false,
               "type": "String",
+              "apiExpressions": [],
+              "metadata": [],
+              "referencedObjects": []
+            },
+            {
+              "anchor": false,
+              "caseExact": false,
+              "defaultValue": null,
+              "flowNullValues": false,
+              "multivalued": false,
+              "mutability": "ReadWrite",
+              "name": "urn:ietf:params:scim:schemas:extension:signpath:2.0:User:isDirectorySynchronized",
+              "required": false,
+              "type": "Boolean",
               "apiExpressions": [],
               "metadata": [],
               "referencedObjects": []

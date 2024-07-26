@@ -42,7 +42,7 @@ _Note: For more information about the permissions assigned to each role, see the
 
 #### 3. Create a synchronization user on SignPath
 
-In your SignPath organization, create a CI user, remember the _Api Token_ and change its role to _User Administrator_. This user will be the service account on SignPath that creates/updates the user and group entities.
+In your SignPath organization, create a CI user, remember the _Api Token_ and change its role to _Directory Synchronizer_. This user will be the service account on SignPath that creates/updates the user and group entities.
 
 #### 4. Configure provisioning for the enterprise application
 
