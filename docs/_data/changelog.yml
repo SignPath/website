@@ -1,3 +1,25 @@
+- date: '2024-08-01'
+  updates:
+    application:
+      version: 1.169.0
+      improvements:
+        - text: |-
+            Added support for JSON _request_ bodies in the REST API.
+
+            * Supported in all API routes except ones with file inputs like signing request submission or certificate upload.
+            * Backwards-compatible: Content type `multipart/form-data` is still accepted in all changed APIs (but not exposed to the API definition).
+            * See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+          issues: [SIGN-7043]
+    self_hosted_installations:
+      version: 1.169.0
+      breaking_changes:
+        - text: |-
+            Internal SignService API breaking change
+
+            * The file-based signing operations have been removed from the SignService API.
+            * (Since 1.165 all file-based signing operations are executed by `signing-processor-service`.)
+            * Ensure to follow the SignService breaking changes steps in the installation guide (see section "Version compatibility") in case you are upgrading from a version below 1.165.
+          issues: [SIGN-6589]
 - date: '2024-07-23'
   updates:
     crypto_providers:
