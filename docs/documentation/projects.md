@@ -152,7 +152,7 @@ You can create an artifact configuration by selecting one of the **predefined te
 
 In the latter case, you need to manually review the resulting artifact configuration and exclude all 3rd party libraries that you don't want to be signed with your certificate.
 
-For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration/screenshot.png).
+For details on how to create, generate or edit an artifact configuration, see [artifact configuration](/documentation/artifact-configuration).
 
 ## Trusted build systems {#trusted-build-systems}
 
