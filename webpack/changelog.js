@@ -74,6 +74,7 @@ export function changelog() {
 				}
 			}
 		});
+		document.getElementById('changelog-feed').href = `/documentation/changelog/feeds/${identifier}.xml`
 	}
 
 	function show_hide_change_types(identifier) {

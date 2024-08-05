@@ -33,6 +33,9 @@ redirect_from:
 			<option value='bug_fixes'>Bug fixes</option>
 		</select>
 	</div>
+	<a id='changelog-feed' href='/documentation/changelog/feeds/all.xml'>
+    Feed {% include rss.svg %}
+  </a>
 </div>
 
 {% assign today = site.time | date: '%s' %}
