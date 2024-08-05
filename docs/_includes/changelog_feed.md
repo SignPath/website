@@ -25,7 +25,14 @@
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>{{ updated | date: '%F' }}</updated>
 <id>{{ id }}</id>
-<title type="html">SignPath - Changelog</title>
+{%- case include.category -%}
+  {%- when "application" -%} {%- assign include_category_name = 'Application ' -%}
+  {%- when "self_hosted_installations" -%} {%- assign include_category_name = 'Self-hosted Installations ' -%}
+  {%- when "powershell_module" -%} {%- assign include_category_name = 'PowerShell Module ' -%}
+  {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
+  {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
+{%- endcase -%}
+<title type="html">SignPath - {{ include_category_name }}Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
