@@ -1,5 +1,6 @@
 ---
 permalink: /documentation/changelog/feed.xml
+layout: null
 ---
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
