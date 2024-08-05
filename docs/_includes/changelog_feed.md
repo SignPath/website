@@ -21,7 +21,7 @@
 {%- endif -%}
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
-<link href="https://about.signpath.io/documentation/changelog/feed.xml" rel="self" type="application/atom+xml"/>
+<link href="{{ id }}" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>{{ updated | date: '%F' }}</updated>
 <id>{{ id }}</id>
