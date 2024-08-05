@@ -2,7 +2,7 @@
 ---------------- find the last update for the passed in category (or take the latest entry)
 {%- endcomment -%}
 {%- if include.category -%}
-  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/{{ include.category }}.xml' -%}
+  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/' | append: include.category | append: '.xml' -%}
   {%- for entry in site.data.changelog -%}
     {%- if entry.updates -%}
       {%- for update in entry.updates -%}
@@ -47,7 +47,7 @@
         {%- endcase -%}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>
-        <link rel="alternate">https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' -}} </link>
+        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' }}" />
         {%- case component -%}
           {%- when "application" -%} {%- assign category_label = 'SignPath Application' -%}
           {%- when "self_hosted_installations" -%} {%- assign category_label = 'SignPath Self-hosted Installations' -%}
