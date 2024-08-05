@@ -1,13 +1,30 @@
----
-permalink: /documentation/changelog/feed.xml
-layout: null
----
+{%- comment -%} 
+---------------- find the last update for the passed in category (or take the latest entry)
+{%- endcomment -%}
+{%- if include.category -%}
+  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/{{ include.category }}.xml' -%}
+  {%- for entry in site.data.changelog -%}
+    {%- if entry.updates -%}
+      {%- for update in entry.updates -%}
+        {%- if update[0] == include.category -%}
+          {%- if updated -%}
+          {%- else -%}
+            {%- assign updated = entry.date -%}
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- else -%}
+  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/all.xml' -%}
+  {%- assign updated = site.data.changelog[0].date -%}
+{%- endif -%}
 <feed xmlns="http://www.w3.org/2005/Atom">
 <generator uri="https://jekyllrb.com/" version="3.9.3">Jekyll</generator>
 <link href="https://about.signpath.io/documentation/changelog/feed.xml" rel="self" type="application/atom+xml"/>
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
-<updated>{{ site.data.changelog[0].date | date: '%F' }}</updated>
-<id>https://about.signpath.io/documentaiton/changelog/feed.xml</id>
+<updated>{{ updated | date: '%F' }}</updated>
+<id>{{ id }}</id>
 <title type="html">SignPath - Changelog</title>
 <author>
   <name>SignPath GmbH</name>
@@ -18,6 +35,7 @@ layout: null
     {%- for update in entry.updates -%}
       {%- assign component = update[0] -%}
       {%- assign release = update[1] -%}
+      {%- if include.category == nil or include.category == component -%}
       <entry>
         <id>tag:about.signpath.io,{{ entry.date | date: '%F'}}:{{ component }}:{{ release.version }}</id>
         <title>{%- case component -%}
@@ -38,23 +56,10 @@ layout: null
           {%- when "crypto_providers" -%} {%- assign category_label = 'SignPath Crypto Providers' -%}
         {%- endcase -%}
         <category term="release/{{ component }}" label="{{ category_label }}" />
-        <summary type="html">New Release: {% case component -%}
-          {%- when "application" -%} SignPath Application {{ release.version }}
-          {%- when "self_hosted_installations" -%} SignPath Self-hosted Installations {{ release.version }}
-          {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
-          {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
-          {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
-        {%- endcase -%}</summary>
+        <summary type="html">New Release: {{ category_label }} {{ release.version }}</summary>
         <content type="html">
           &lt;div&gt;
-            &lt;h2&gt;New Release: {% case component -%}
-              {%- when "application" -%} SignPath Application {{ release.version }}
-              {%- when "self_hosted_installations" -%} SignPath Self-hosted Installations {{ release.version }}
-              {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
-              {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
-              {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
-            {%- endcase -%}
-            &lt;/h2&gt;
+            &lt;h2&gt;New Release: {{ category_label }} {{ release.version }}&lt;/h2&gt;
             {%- for changes_per_type in release -%}
               {%- assign change_type = changes_per_type[0] -%}
               {%- assign changes = changes_per_type[1] -%}
@@ -88,6 +93,7 @@ layout: null
           &lt;/div&gt;
         </content>
       </entry>
+      {%- endif -%}
     {%- endfor -%}
   {%- endif -%}
 {%- endfor -%}
