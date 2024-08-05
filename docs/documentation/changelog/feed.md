@@ -9,6 +9,10 @@ layout: null
 <updated>{{ site.data.changelog[0].date | date: '%F' }}</updated>
 <id>https://about.signpath.io/documentaiton/changelog/feed.xml</id>
 <title type="html">SignPath - Changelog</title>
+<author>
+  <name>SignPath GmbH</name>
+  <uri>https://about.signpath.io</uri>
+</author>
 {%- for entry in site.data.changelog -%}
   {%- if entry.updates -%}
     {%- for update in entry.updates -%}
@@ -24,41 +28,64 @@ layout: null
           {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
         {%- endcase -%}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
+        <published>{{ entry.date | date: '%F' }}</published>
         <link rel="alternate">https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' -}} </link>
-        <category>{{ component }}</category>
-        <content type="xhtml">
-          <div xmlns="http://www.w3.org/1999/xhtml">
+        {%- case component -%}
+          {%- when "application" -%} {%- assign category_label = 'SignPath Application' -%}
+          {%- when "self_hosted_installations" -%} {%- assign category_label = 'SignPath Self-hosted Installations' -%}
+          {%- when "powershell_module" -%} {%- assign category_label = 'SignPath SignPath PowerShell Module' -%}
+          {%- when "powershell_module_docker" -%} {%- assign category_label = 'SignPath Docker PowerShell Module' -%}
+          {%- when "crypto_providers" -%} {%- assign category_label = 'SignPath Crypto Providers' -%}
+        {%- endcase -%}
+        <category term="release/{{ component }}" label="{{ category_label }}" />
+        <summary type="html">New Release: {% case component -%}
+          {%- when "application" -%} SignPath Application {{ release.version }}
+          {%- when "self_hosted_installations" -%} SignPath Self-hosted Installations {{ release.version }}
+          {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
+          {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
+          {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
+        {%- endcase -%}</summary>
+        <content type="html">
+          &lt;div&gt;
+            &lt;h2&gt;New Release: {% case component -%}
+              {%- when "application" -%} SignPath Application {{ release.version }}
+              {%- when "self_hosted_installations" -%} SignPath Self-hosted Installations {{ release.version }}
+              {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
+              {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
+              {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
+            {%- endcase -%}
+            &lt;/h2&gt;
             {%- for changes_per_type in release -%}
               {%- assign change_type = changes_per_type[0] -%}
               {%- assign changes = changes_per_type[1] -%}
             
               {%- if change_type != "version" -%}
-                <h2>
+                &lt;h3&gt;
                 {%- case change_type -%}
-                  {%- when "breaking_changes" -%} # Breaking Changes / Manual migration steps:
-                  {%- when "upgrade_information" -%} # Upgrade Information:
-                  {%- when "new_features" -%} # New Features:
-                  {%- when "improvements" -%} # Improvements:
-                  {%- when "bug_fixes" -%} # Bug Fixes:
+                  {%- when "breaking_changes" -%} Breaking Changes / Manual migration steps:
+                  {%- when "upgrade_information" -%} Upgrade Information:
+                  {%- when "new_features" -%} New Features:
+                  {%- when "improvements" -%} Improvements:
+                  {%- when "bug_fixes" -%} Bug Fixes:
                 {%- endcase -%}
-                </h2>
+                &lt;/h3&gt;
                 {%- if change_type == "upgrade_information" -%}
-                  {{ changes | markdownify }}
+                  {{ changes | markdownify | xml_escape }}
                 {%- else -%}
-                  <ul>
+                  &lt;ul&gt;
                     {%- for note in changes -%}
-                      <li>
-                        {{ note.text | markdownify }}
+                      &lt;li&gt;
+                        {{ note.text | markdownify | xml_escape }}
                         {%- if note.saas_only -%}
-                          <span class='enterprise-only'>(SaaS only)</span>
+                          &lt;span class='enterprise-only'&gt;(SaaS only)&lt;/span&gt;
                         {%- endif -%}
-                      </li>
+                      &lt;/li&gt;
                     {%- endfor -%}
-                  </ul>
+                  &lt;/ul&gt;
                 {%- endif -%}
               {%- endif -%}
             {%- endfor -%}
-          </div>
+          &lt;/div&gt;
         </content>
       </entry>
     {%- endfor -%}
