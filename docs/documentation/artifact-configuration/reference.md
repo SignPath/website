@@ -30,6 +30,21 @@ For [file and directory sets](syntax#file-and-directory-sets), specify the signi
 
 Microsoft Authenticode is the primary signing method on the Windows platform. Authenticode is a versatile and extensible mechanism that works for many different file types. Using `<authenticode-sign>` is equivalent to using Microsoft's `SignTool.exe`.
 
+TODO: Document `hash-algorithm`:
+
+The used hash algorithm for the signature can be configured via the `hash-algorithm="sha1|sha256|sha384|sha512"` attribute (default is `sha256`):
+
+~~~ xml
+<authenticode-sign hash-algorithm="sha512" />
+~~~
+
+TODO: Document optional `description` and `url` attributes:
+
+~~~ xml
+<authenticode-sign description="ACME program" url="https://example.com" />
+~~~
+
+
 See also:
 
 * Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
