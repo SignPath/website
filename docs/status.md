@@ -3,15 +3,9 @@ title: Status
 header: Status
 description: SignPath SaaS environment operational status
 datasource: status
+layout: status
 ---
 
-{% include header.html %}
-
-<section class="bg-black font-white top-section">
-	<div>
-		<h1>{{ page.header }}</h1>
-	</div>
-</section>
 <section class="status-section">
 	<div>
 		<h2 class='{{ site.data.status.current.type }}'>
@@ -73,4 +67,4 @@ datasource: status
 		</p>
 	</div>
 </section>
-{% include footer.html %}
+
