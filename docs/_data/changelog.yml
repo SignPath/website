@@ -1,3 +1,64 @@
+- date: '2024-08-15'
+  updates:
+    application:
+      version: 1.170.1
+      new_features:
+        - text: |-
+            Moved all REST APIs routes except audit log routes from `v1-pre` to `v1`.
+
+            * The `v1` versions behave the same as the previous `v1-pre`, but there are a few contract changes:
+              * Changed the following routes from `PATCH` to `POST`:
+                * `/v1/{organizationId}/InteractiveUsers/{id}/Edit`
+                * `/v1/{organizationId}/InteractiveUsers/{id}/SetDirectorySynchronized`
+                * `/v1/{organizationId}/CIUsers/{id}/Edit`
+                * `/v1/{organizationId}/UserGroups/{id}/Edit`
+                * `/v1/{organizationId}/UserGroups/{id}/SetDirectorySynchronized`
+                * `/v1/{organizationId}/Certificates/{slug}/Edit`
+                * `/v1/{organizationId}/Projects/{slug}/Edit`
+                * `/v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations/{artifactConfigurationSlug}/Edit`
+                * `/v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Edit`
+                * `/v1/{organizationId}/TrustedBuildSystems/{slug}/Edit`
+              * Dropped the `metadata` "intermediate" model in all request/response models:
+                * The `metadata` properties `name`, `slug` and `description` have been moved "one level up", i.e. are now directly in the containing model.
+              * Renamed the `url` response property to `link` in the following routes:
+                * `GET /v1/{organizationId}/InteractiveUsers`
+                * `GET /v1/{organizationId}/CIUsers`
+                * `GET /v1/{organizationId}/UserGroups`
+              * Within the `GET /v1/{organizationId}/Projects/{slug}` response model:
+                * Renamed `artifactConfigurationXmlUrl` property to `artifactConfigurationXmlLink`.
+                * Renamed `certificateUrl` property to `certificateLink`.
+              * In the following routes, `artifactConfigurationXml` is now a simple string property instead of a `multipart/form-data` file.
+                This enables that these routes now can be called with JSON request bodies:
+                * `POST /v1/{organizationId}/Projects`
+                * `POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations`
+            * See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+            * Note that the now deprecated `v1-pre` route versions haven't been touched but aren't anymore included in the API definition. They will be removed in future versions.
+          issues: [SIGN-7050]
+        - text: |-
+            The [`<authenticode-sign>`](/documentation/artifact-configuration/reference#authenticode-sign) signing method now supports to specify:
+              * Optional `description` and `url` values.
+              * Override the default `hash-algorithm`.
+          issues: [SIGN-5410, SIGN-7177]
+      bug_fixes:
+        - text: |-
+            Fixed failed Jar signing operations for Jar files with many items (> 20,000).
+          issues: [SIGN-7177]
+        - text: |-
+            Fixed error during rendering of old failed signing request with specific (e.g. artifact retrieval) errors.
+          issues: [SIGN-7159]
+        - text: |-
+            Fixed missing response model of `GET /v1/{organizationId}/Projects/{projectSlug}/TrustedBuildSystemLink` in the [API definition](https://app.signpath.io/Api/swagger).
+          issues: [SIGN-7050]
+    self_hosted_installations:
+      version: 1.170.1
+      improvements:
+        - text: |-
+            Improve error reporting for authentication errors in Operator Client.
+          issues: [SIGN-6810]
+      bug_fixes:
+        - text: |-
+            Fixed missing error detection in pairing restore startup script in HSM SignService.
+          issues: [SIGN-7175]
 - date: '2024-08-01'
   updates:
     application:
