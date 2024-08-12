@@ -30,44 +30,52 @@ For [file and directory sets](syntax#file-and-directory-sets), specify the signi
 
 Microsoft Authenticode is the primary signing method on the Windows platform. Authenticode is a versatile and extensible mechanism that works for many different file types. Using `<authenticode-sign>` is equivalent to using Microsoft's `SignTool.exe`.
 
-TODO: Document `hash-algorithm`:
+#### Optional attributes {#authenticode-sign-attributes}
 
-The used hash algorithm for the signature can be configured via the `hash-algorithm="sha1|sha256|sha384|sha512"` attribute (default is `sha256`):
+| Attribute
+|-----------
+| `hash-algorithm`  | `sha256` | `sha1`, `sha256`, `sha384`, `sha512` | Hash algorithm used to calculate the signature digest
+| `description`     |          | text                                 | Description of the signed content
+| `description-url` |          | URL                                  | Uniform Resource Locator (URL) for the expanded description of the signed content
+| `append`          | `false`  | boolean                              | When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.
 
-~~~ xml
-<authenticode-sign hash-algorithm="sha512" />
-~~~
+> **Appending signatures**
+>
+> File formats that support appending signatures:
+> 
+> * `<pe-file>` (.exe, .dll, ...)
+> * `<cab-file>` (.cab)
+> * `<catalog-file>` (.cat)
+> 
+> Appending signatures is only needed for edge cases including
+> 
+> * adding an signature to a file that's already signed using another certificate
+> * adding a signature using different parameters, such as digest algorithm
+{.panel.info}
 
-TODO: Document optional `description` and `description-url` attributes:
-
-~~~ xml
-<authenticode-sign description="ACME program" description-url="https://example.com" />
-~~~
-
-
-See also:
-
-* Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
-* Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
-
-#### Appending signatures {#authenticode-append}
-
-Some file formats support multiple Authenticode signatures. By default, signing will replace existing signatures. To _append_ a signature instead, use the `append` attribute: 
+Example: append signature, preserving any existing signatures
 
 ~~~ xml
 <authenticode-sign append="true" />
 ~~~
 
-This feature is only needed for edge cases including
+Example: sign using SHA1 algoritm, then sign again using default SHA-256 algorithm (explicitly specified for clarity)
 
-* adding an signature to a file that's already signed using another certificate
-* adding a signature using different parameters, such as digest algorithm
+~~~ xml
+<authenticode-sign hash-algorithm="sha1" />
+<authenticode-sign hash-algorithm="sha256" append="true" />
+~~~
 
-File formats that support appending signatures:
+Example: provide description text and URL
 
-* `<pe-file>` (.exe, .dll, ...)
-* `<cab-file>` (.cab)
-* `<catalog-file>` (.cat)
+~~~ xml
+<authenticode-sign description="ACME program" description-url="https://example.com/about-acme-program" />
+~~~
+
+See also:
+
+* Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
+* Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
 ### `<clickonce-sign>`
 
