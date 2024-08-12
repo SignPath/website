@@ -32,13 +32,14 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 
 #### Optional attributes {#authenticode-sign-attributes}
 
-| Attribute
-|-----------
+| Attribute         | Default  |  Values                              | Description
+|-------------------|----------|--------------------------------------|--------------------------------------------------------
 | `hash-algorithm`  | `sha256` | `sha1`, `sha256`, `sha384`, `sha512` | Hash algorithm used to calculate the signature digest
 | `description`     |          | text                                 | Description of the signed content
 | `description-url` |          | URL                                  | Uniform Resource Locator (URL) for the expanded description of the signed content
 | `append`          | `false`  | boolean                              | When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.
 
+{:.panel.info}
 > **Appending signatures**
 >
 > File formats that support appending signatures:
@@ -51,7 +52,6 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 > 
 > * adding an signature to a file that's already signed using another certificate
 > * adding a signature using different parameters, such as digest algorithm
-{.panel.info}
 
 Example: append signature, preserving any existing signatures
 
