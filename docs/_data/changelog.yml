@@ -1,7 +1,7 @@
-- date: '2024-08-15'
+- date: '2024-08-13'
   updates:
     application:
-      version: 1.170.1
+      version: 1.170.2
       new_features:
         - text: |-
             Moved all REST APIs routes except audit log routes from `v1-pre` to `v1`.
@@ -50,7 +50,7 @@
             Fixed missing response model of `GET /v1/{organizationId}/Projects/{projectSlug}/TrustedBuildSystemLink` in the [API definition](https://app.signpath.io/Api/swagger).
           issues: [SIGN-7050]
     self_hosted_installations:
-      version: 1.170.1
+      version: 1.170.2
       improvements:
         - text: |-
             Improve error reporting for authentication errors in Operator Client.
