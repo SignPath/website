@@ -36,7 +36,7 @@
           issues: [SIGN-7050]
         - text: |-
             The [`<authenticode-sign>`](/documentation/artifact-configuration/reference#authenticode-sign) signing method now supports to specify:
-              * Optional `description` and `url` values.
+              * Optional `description` and `description-url` values.
               * Override the default `hash-algorithm`.
           issues: [SIGN-5410, SIGN-7177]
       bug_fixes:

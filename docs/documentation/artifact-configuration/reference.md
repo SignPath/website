@@ -38,10 +38,10 @@ The used hash algorithm for the signature can be configured via the `hash-algori
 <authenticode-sign hash-algorithm="sha512" />
 ~~~
 
-TODO: Document optional `description` and `url` attributes:
+TODO: Document optional `description` and `description-url` attributes:
 
 ~~~ xml
-<authenticode-sign description="ACME program" url="https://example.com" />
+<authenticode-sign description="ACME program" description-url="https://example.com" />
 ~~~
 
 
