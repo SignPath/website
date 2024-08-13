@@ -142,11 +142,16 @@ div.column-layout {
 			text-align: center;
 			vertical-align: middle;
 
-			// dirty workaround
+			// dirty workaround for 2-line headers (use &nbsp;)
 			height: 3.7em;
 			display: flex;
 			align-content: center;
 			flex-wrap: wrap;
+
+			// even dirtier workaround for sticky scrolling position
+			top: 75px;
+			position: sticky;
+			z-index: 100;
 		}
 
 		&:nth-child(2) > *:first-child { background-color: $pricing4-background-color; }
