@@ -1,3 +1,73 @@
+- date: '2024-08-13'
+  updates:
+    application:
+      version: 1.170.2
+      new_features:
+        - text: |-
+            All `v1-pre` REST API routes except audit log routes are now available as JSON APIs in `v1`.
+
+            Changes in `v1`:
+           
+            * Changed from `PATCH` to `POST`:
+              * `/v1/{organizationId}/InteractiveUsers/{id}/Edit`
+              * `/v1/{organizationId}/InteractiveUsers/{id}/SetDirectorySynchronized`
+              * `/v1/{organizationId}/CIUsers/{id}/Edit`
+              * `/v1/{organizationId}/UserGroups/{id}/Edit`
+              * `/v1/{organizationId}/UserGroups/{id}/SetDirectorySynchronized`
+              * `/v1/{organizationId}/Certificates/{slug}/Edit`
+              * `/v1/{organizationId}/Projects/{slug}/Edit`
+              * `/v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations/{artifactConfigurationSlug}/Edit`
+              * `/v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Edit`
+              * `/v1/{organizationId}/TrustedBuildSystems/{slug}/Edit`
+            * `url` response properties have been renamed to `link`:
+              * `GET /v1/{organizationId}/InteractiveUsers`
+              * `GET /v1/{organizationId}/CIUsers`
+              * `GET /v1/{organizationId}/UserGroups`
+              * `GET /v1/{organizationId}/Projects/{slug}` (`artifactConfigurationXmlUrl` and `certificateUrl`)
+            * These remaining routes support JSON request bodies now:
+              * `POST /v1/{organizationId}/Projects`
+              * `POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations`
+            * The `name`, `slug` and `description` properties are now in the request or response root object. 
+              * The `"metadata"` object has been dropped in all JSON requests and responss. 
+              * The `metadata.` prefix has been dropped in all multipart/form-data requests. 
+            
+            See the [API definition](https://app.signpath.io/Api/swagger) for more details.
+
+            The `v1-pre` routes are unchanged but deprecated. They are no longer included in the API definition and will be removed in a future version.
+
+            Note that these routes still use `multipart/form-data`:
+
+            * `POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate`
+            * `POST /v1/{organizationId}/SigningRequests`
+            * `POST /v1/{organizationId}/SigningRequests/SubmitWithArtifactRetrievalLink`
+
+            For all other `v1` APIs, `multipart/form-data` is no longer available.
+          issues: [SIGN-7050]
+        - text: |-
+            Authenticode signing now supports the following [optional attributes](/documentation/artifact-configuration/reference#authenticode-sign-attributes):
+              * `description` and `description-url`
+              * `hash-algorithm`
+          issues: [SIGN-5410, SIGN-7177]
+      bug_fixes:
+        - text: |-
+            Fixed failed Jar signing operations for Jar files with >20,000 items.
+          issues: [SIGN-7177]
+        - text: |-
+            Fixed error during rendering of old failed signing requests with specific errors (e.g. artifact retrieval).
+          issues: [SIGN-7159]
+        - text: |-
+            Added missing response body definition for `GET /v1/{organizationId}/Projects/{projectSlug}/TrustedBuildSystemLink` in the [API definition](https://app.signpath.io/Api/swagger).
+          issues: [SIGN-7050]
+    self_hosted_installations:
+      version: 1.170.2
+      improvements:
+        - text: |-
+            Improve error reporting for authentication errors in Operator Client.
+          issues: [SIGN-6810]
+      bug_fixes:
+        - text: |-
+            Fixed missing error detection in pairing restore startup script in HSM SignService.
+          issues: [SIGN-7175]
 - date: '2024-08-01'
   updates:
     application:
