@@ -82,7 +82,7 @@ div.column-layout {
 	div.features {
 		flex-grow: 2;
 		flex-basis: 25%;
-		min-width: 280px;
+		min-width: 300px;
 		
 		span.sub {
 			display: flex;
@@ -137,9 +137,16 @@ div.column-layout {
 		}
 
 		h3 {
-			padding: 1em;
+			padding-left: 1em;
+			padding-right: 1em;
 			text-align: center;
-			white-space: nowrap;
+			vertical-align: middle;
+
+			// dirty workaround
+			height: 3.7em;
+			display: flex;
+			align-content: center;
+			flex-wrap: wrap;
 		}
 
 		&:nth-child(2) > *:first-child { background-color: $pricing4-background-color; }

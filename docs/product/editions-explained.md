@@ -106,9 +106,7 @@ You can adjust the [artifact configuration](/documentation/artifact-configuratio
 
 Additional signing requests submitted from CI pipelines may be rejected and have to be repeated later.
 
-## Signing methods and file types {#signing-methods}
-
-### File-based signing {#file-signing}
+## Signing methods and file types {#file-based-signing}
 
 SignPath directly supports signing various file formats. See [the artifact configuration reference](/documentation/artifact-configuration/reference#file-elements) for details about available signing methods and file types.
 
@@ -120,7 +118,7 @@ With a policy-based code signing process, you can sign your company's Office mac
 
 See [Office macros](/product/office-macros) for more information.
 
-**Available for** _{{ site.data.editions | where: "signing_methods.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
+**Available for** _{{ site.data.editions | where: "file_based_signing.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
 
 ### XML Signing {#xml-signing}
 
@@ -128,13 +126,13 @@ SignPath supports signing XML files using [XMLDSIG](https://www.w3.org/TR/xmldsi
 
 See [artifact configuration](/documentation/artifact-configuration/reference#xml-sign) for details.
 
-**Available for** _{{ site.data.editions | where: "signing_methods.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
+**Available for** _{{ site.data.editions | where: "file_based_signing.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
 
 ### Container image signing {#container-signing}
 
 SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See [Signing Container Images](/documentation/signing-containers) for details.
 
-**Available for** _{{ site.data.editions | where: "signing_methods.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
+**Available for** _{{ site.data.editions | where: "file_based_signing.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
 
 ### Bills of Material {#sbom-signing}
 
@@ -147,9 +145,9 @@ Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-c
 
 See this [artifact configuration sample](/documentation/artifact-configuration/examples#sbom-restriction) for details.
 
-**Available for** _{{ site.data.editions | where: "signing_methods.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
+**Available for** _{{ site.data.editions | where: "file_based_signing.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
 
-### Hash-based signing {#hash-signing}
+## Hash-based signing {#hash-based-signing}
 
 Use any code signing tool that supports either of these interfaces:
 
@@ -162,16 +160,17 @@ Use any code signing tool that supports either of these interfaces:
 
 Note that with hash-based signing, artifacts are not transferred to and signed by the SignPath application, but locally on the user machine or build agent. The signing operation is always executed synchronously, typically through one of the cryptographic providers listed above.
 
-The following features are therefore not available for hash-based signing:
+{:.panel.info}
+> **Advanced usage scenarios**
+>
+> Certain features are not available for hash-based signing with these cryptographic providers. However, they may be used in certain scenarios when directly using SignPath REST APIs. Contact [SignPath Support](/support) for more information.
+>
+> * [Signing multiple files in a single signing request](/documentation/artifact-configuration/#signing-multiple-files)
+> * [User-defined parameters](#user-defined-parameters)
+> * [Manual approval](#manual-approval)
+> * [Origin verification](#origin-verification)
 
-* [Deep signing](#deep-signing)
-* [Metadata constraints](#metadata-constraints)
-* [User-defined parameters](#user-defined-parameters)
-* [Manual approval](#manual-approval)
-* [Origin verification](#origin-verification)
-* [Resubmit](#resubmit)
-
-**Available for** _{{ site.data.editions | where: "signing_methods.hash_based", "true" | map: "name" | join: ", " }}_ subscriptions.
+<!--TODO **Available for** _{{ site.data.editions | where: "hash_based_signing", "true" | map: "name" | join: ", " }}_ subscriptions. --> 
 
 ## Artifact configuration
 

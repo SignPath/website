@@ -30,9 +30,9 @@
       hint: 'Limits the number of parallel signing requests.'
       href: '/product/editions-explained#ci-pipelines'
 
-- name: signing_methods
+- name: file_based_signing
   title: 'Signing methods and file types'
-  href: '/product/editions-explained#signing-methods'
+  href: '/product/editions-explained#file-based-signing'
   features:
     - name: authenticode
       title: 'Windows Authenticode'
@@ -87,11 +87,23 @@
       hint: 'Software/SaaS/Hardware/... Bills of Material'
       sub: 'CycloneDX XML'
       href: '/product/editions-explained#sbom-signing'
-    - name: hash_based
-      title: 'Hash-based signing'
-      hint: 'Sign files using various tools with SignPath cryptographic providers'
-      sub: ' Windows, <br> Linux, macOS'
-      href: '/product/editions-explained#hash-signing'
+
+- name: hash_based_signing
+  title: 'Crypto providers (hash signing)'
+  href: '/product/editions-explained#hash-based-signing'
+  features:
+    - name: windows_providers
+      title: 'Windows KSP/CSP'
+      hint: 'Sign files using various Windows tools with SignPath KSP (CNG) and CSP (CAPI)'
+    - name: cryptoki_library
+      title: 'Cryptoki/PKCS #11'
+      hint: 'Sign files using various PKCS# 11 compliant tools with SignPath Cryptoki library for Windows, Linux and macOS'
+    - name: crypto_token_kit
+      title: 'Apple CryptoTokenKit'
+      hint: 'Sign files for macOS, iOS etc. using macOS signing tools with SignPath CTK library.'
+    - name: rest_api
+      title: 'REST API'
+      hint: 'Use the SignPath REST API for custom integration and advanced scenarios not supported by crypto providers'
 
 - name: artifact_configuration
   title: 'Artifact configuration'
@@ -128,6 +140,18 @@
       title: 'Signing policies per project'
       hint: 'For each project, signing policies define signing permissions and policies for a specific certificate.'
       href: '/product/editions-explained#signing-policies-per-project'
+    - name: resubmit
+      title: 'Resubmit'
+      hint: 'Resubmit signing requests for signing using different policies and/or certificates, e.g. for final signing of release candidates'
+      href: '/product/editions-explained#resubmit'
+    - name: policies_for_certs
+      title: 'Certificate policies'
+      hint: 'Specify minimum requirements e.g. for release certificates.'
+      href: '/product/editions-explained#certificate-policies'
+
+- name: pipeline_integrity
+  title: 'Pipeline Integrity'
+  features:
     - name: origin_verification
       title: 'Origin verification'
       hint: 'Source code repository and build metadata are automatically collected and verified.'
@@ -140,14 +164,6 @@
       title: 'Build validation'
       hint: 'Automatically checks build configurations for security weaknesses.'
       class: f sub
-    - name: resubmit
-      title: 'Resubmit'
-      hint: 'Resubmit signing requests for signing using different policies and/or certificates, e.g. for final signing of release candidates'
-      href: '/product/editions-explained#resubmit'
-    - name: policies_for_certs
-      title: 'Certificate policies'
-      hint: 'Specify minimum requirements e.g. for release certificates.'
-      href: '/product/editions-explained#certificate-policies'
 
 - name: user_management
   title: 'User Management'

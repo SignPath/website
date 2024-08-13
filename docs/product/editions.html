@@ -51,7 +51,7 @@ datasource: featuregroups,editions
 			</div>
 			{%- for edition in site.data.editions -%}
 				<div class='content col'>
-					<h3>{{- edition.name -}}</h3>
+					<h3>{{- edition.title -}}</h3>
 					<ul>
 						{%- for group in groups -%}
 							{%- for feature in group.features -%}
