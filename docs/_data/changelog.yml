@@ -40,6 +40,8 @@
             * `POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate`
             * `POST /v1/{organizationId}/SigningRequests`
             * `POST /v1/{organizationId}/SigningRequests/SubmitWithArtifactRetrievalLink`
+
+            For all other `v1` APIs, `multipart/form-data` is no longer available.
           issues: [SIGN-7050]
         - text: |-
             Authenticode signing now supports the following [optional attributes](/documentation/artifact-configuration/reference#authenticode-sign-attributes):
