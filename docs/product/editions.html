@@ -51,7 +51,7 @@ datasource: featuregroups,editions
 			</div>
 			{%- for edition in site.data.editions -%}
 				<div class='content col'>
-					<h3>{{- edition.name -}}</h3>
+					<h3>{{- edition.title -}}</h3>
 					<ul>
 						{%- for group in groups -%}
 							{%- for feature in group.features -%}
@@ -69,7 +69,7 @@ datasource: featuregroups,editions
 									{%- assign feature_hint = edition[group.name][feature_hint_name] -%}
 									{%- if feature_hint == 'quota-hint' -%} {%- assign feature_hint = 'Click "buy now" and add projects to adjust quota.' -%} {%- endif -%}
 									{% if feature_hint != null %}
-										<span aria-label='{{- feature_hint -}}' class='hint--top-right hint--medium'>
+										<span aria-label='{{- feature_hint -}}' class='hint--top-left hint--medium'>
 											{% include info.svg %}
 										</span>
 									{%- endif -%}

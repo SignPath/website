@@ -1,4 +1,5 @@
-- name: Starter
+- name: Code Signing Starter
+  title: Code&nbsp;Signing Starter
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
@@ -11,7 +12,7 @@
     signign_requests_test: 'up to 300'
     signign_requests_test-hint: quota-hint
     ci_pipelines: '1'
-  signing_methods:
+  file_based_signing:
     authenticode: true
     powershell: true
     windows_scripting_host: false
@@ -25,7 +26,6 @@
     office_macros: false
     xml: false
     docker: false
-    hash_based: false
     sbom: false
   artifact_configuration:
     deep_signing: true
@@ -38,10 +38,11 @@
     signing_policies_per_project: 'test & release'
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
+    resubmit: false
+  pipeline_integrity:
     origin_verification: false
     origin_policies: false
     build_validation: false
-    resubmit: false
   user_management:
     sso: false
     scim: false
@@ -56,7 +57,8 @@
     code_signing_consulting: false
   link_type: 'pricing_page'
 
-- name: Basic
+- name: Code Signing Basic
+  title: Code&nbsp;Signing Basic
   quotas:
     certificates: '1 EV'
     certificates-hint: 'Includes a single Extended Validation (EV) certificate'
@@ -69,7 +71,7 @@
     signign_requests_test: 'up to 2500'
     signign_requests_test-hint: quota-hint
     ci_pipelines: '1 per project'
-  signing_methods:
+  file_based_signing:
     authenticode: true
     powershell: true
     windows_scripting_host: false
@@ -83,7 +85,6 @@
     office_macros: false
     xml: false
     docker: false
-    hash_based: false
     sbom: false
   artifact_configuration:
     deep_signing: true
@@ -96,10 +97,11 @@
     signing_policies_per_project: 'test & release'
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
+    resubmit: false
+  pipeline_integrity:
     origin_verification: false
     origin_policies: false
     build_validation: false
-    resubmit: false
   user_management:
     sso: false
     scim: false
@@ -114,7 +116,8 @@
     code_signing_consulting: false
   link_type: 'pricing_page'
 
-- name: Enterprise
+- name: Advanced Code Signing
+  title: Advanced Code&nbsp;Signing
   quotas:
     certificates: 'unlimited'
     projects: 'unlimited'
@@ -122,7 +125,7 @@
     signign_requests_release: 'unlimited'
     signign_requests_test: 'unlimited'
     ci_pipelines: 'unlimited'
-  signing_methods:
+  file_based_signing:
     authenticode: true
     powershell: true
     windows_scripting_host: true
@@ -136,7 +139,6 @@
     office_macros: true
     xml: true
     docker: true
-    hash_based: true
     sbom: true
   artifact_configuration:
     deep_signing: true
@@ -148,10 +150,11 @@
     quorum_approval: true
     signing_policies_per_project: 'unlimited'
     policies_for_certs: true
-    origin_verification: true
+    resubmit: true
+  pipeline_integrity:
+    origin_verification: Optional
     origin_policies: true
     build_validation: true
-    resubmit: true
   user_management:
     sso: true
     scim: true
@@ -167,7 +170,57 @@
     code_signing_consulting: 'available'
   link_type: 'sales_email'
 
+- name: Code Signing Gateway
+  title: Code&nbsp;Signing Gateway
+  quotas:
+    certificates: 'unlimited'
+    projects: 'n/a'
+    users: 'unlimited'
+    signign_requests_release: 'unlimited'
+    signign_requests_test: 'unlimited'
+    ci_pipelines: 'unlimited'
+  file_based_signing: none # don't remove or filters in editions-explained will fail
+  hash_based_signing: 
+    windows_providers: true
+    cryptoki_library: true
+    crypto_token_kit: true
+    rest_api: true
+  artifact_configuration:
+    deep_signing: false
+    multiple_configurations_per_project: true
+    multiple_configurations_per_project-hint: Not supported by crypto providers
+    metadata_constraints: false
+    user_defined_parameters: true
+    user_defined_parameters-hint: Not supported by crypto providers
+  policy_enforcement:
+    manual_approval: true
+    manual_approval-hint: Not supported by crypto providers
+    quorum_approval: true
+    signing_policies_per_project: 'unlimited'
+    policies_for_certs: true
+    resubmit: false
+  pipeline_integrity:
+    origin_verification: Optional
+    origin_verification-hint: Not supported by crypto providers 
+    origin_policies: true
+    build_validation: true
+  user_management:
+    sso: true
+    scim: true
+    groups: true
+    admin_delegation: true
+  other:
+    malware_detection: false
+    hsm_key_storage: true
+    available_on_premises: true
+    cert_enrollment: true
+    support: 'priority'
+    support-hint: 'Priority support using email, phone and screen sharing'
+    code_signing_consulting: 'available'
+  link_type: 'sales_email'
+
 - name: Open Source
+  title: Open&nbsp;Source
   quotas:
     certificates: '1 standard'
     certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
@@ -177,7 +230,7 @@
     signign_requests_release: 'fair use'
     signign_requests_test: 'fair use'
     ci_pipelines: '1 per project'
-  signing_methods:
+  file_based_signing:
     authenticode: true
     powershell: true
     windows_scripting_host: true
@@ -192,7 +245,6 @@
     office_macros: false
     xml: false
     docker: true
-    hash_based: false
     sbom: false
   artifact_configuration:
     deep_signing: true
@@ -204,10 +256,11 @@
     quorum_approval: true
     signing_policies_per_project: 'unlimited'
     policies_for_certs: 'required'
+    resubmit: true
+  pipeline_integrity:
     origin_verification: 'required'
     origin_policies: 'required'
     build_validation: 'required'
-    resubmit: true
   user_management:
     sso: false
     scim: false

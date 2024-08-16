@@ -7,7 +7,7 @@ header { /** main header **/
 	color: $white-font-color;
 	background-color: rgba(0,0,0,0.0);
 	transition: background-color 0.3s linear;
-	z-index: 1;
+	z-index: 2;
 
 	& > div { /** header inner container **/
 		height: 100%;
@@ -162,7 +162,7 @@ nav > a#main-menu-toggle {
 @media only screen and (max-width: 1000px) {
 	header {
 		background-color: #000;
-		z-index: 1;
+		z-index: 2;
 
 		& > div {
 			margin-top: 0px;
