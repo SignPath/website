@@ -172,7 +172,7 @@
       title: 'Single sign-on'
       hint: 'Connect to your authentication provider using SAML or OpenID Connect.'
     - name: scim
-      title: 'Entra ID/Azure AD synchronization'
+      title: 'Entra ID/Azure AD sync'
       hint: >
         Synchronize users and groups from your organization´s Entra ID/Azure Active Directory using SCIM.
     - name: groups
