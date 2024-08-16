@@ -97,10 +97,10 @@
       hint: 'Sign files using various Windows tools with SignPath KSP (CNG) and CSP (CAPI)'
     - name: cryptoki_library
       title: 'Cryptoki/PKCS #11'
-      hint: 'Sign files using various PKCS# 11 compliant tools with SignPath Cryptoki library for Windows, Linux and macOS'
+      hint: 'Sign files using various PKCS# 11 compliant tools with SignPath Cryptoki library for Windows and Linux'
     - name: crypto_token_kit
       title: 'Apple CryptoTokenKit'
-      hint: 'Sign files for macOS, iOS etc. using macOS signing tools with SignPath CTK library.'
+      hint: 'Sign files for macOS, iOS etc. using macOS signing tools with SignPath CTK library'
     - name: rest_api
       title: 'REST API'
       hint: 'Use the SignPath REST API for custom integration and advanced scenarios not supported by crypto providers'
