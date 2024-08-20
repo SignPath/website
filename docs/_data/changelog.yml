@@ -106,7 +106,7 @@
       version: 1.168.1
       new_features:
         - text: >-
-            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-append).
+            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-sign-attributes).
           issues: [SIGN-7004]
       improvements:
         - text: >-
