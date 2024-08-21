@@ -116,6 +116,17 @@ section.resources-section {
 			}
 		}
 
+		table p.info {
+			margin-top: -1em;
+
+			&::before {
+				margin-right: 4px;
+				font-family: "Line Awesome Free";
+				font-weight: 800;
+				content: "\f05a";
+			}
+		}
+
 		/** HIGHLIGHTS **/
 		blockquote.panel {
 			border: 1px solid $grey-border-color;

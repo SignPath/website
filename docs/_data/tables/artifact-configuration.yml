@@ -43,9 +43,10 @@ signing-file-elements:
       isContainer: "Yes"
       directive: "[`<authenticode-sign>`](#authenticode-sign)"
       extensions: ".appx, .appxbundle"
-      description: >-
-        App packages for Microsoft Store/Universal Windows Platform<br>
-        <span style="font-family: 'Line Awesome Free'; font-weight: 800;">&#61530;</span> 
+      description: |
+        App packages for Microsoft Store/Universal Windows Platform
+
+        {:.p.info}
         The Common Name of the code signing certificate must match the `PublisherDisplayName` in the `AppxManifest.xml` file.
     - element: "`<msix-file>`"
       isContainer: "Yes"
@@ -97,6 +98,34 @@ signing-file-elements:
       isContainer: "No"
       directive: "[`<create-raw-signature>`](#create-raw-signature)"
       description: "Arbitrary files. This directive will create a detached raw signature file (available for Enterprise subscriptions)"
+
+authenticode-attributes:
+  headers:
+    attribute: Attribute
+    default: Default
+    values: Values
+    description: Description
+  body:
+    - attribute: "`hash-algorithm`"
+      default: "`sha-256`"
+      values: "`sha1`, `sha256`, `sha384`, `sha512`"
+      description: |
+        Hash algorithm used to calculate the signature digest.
+
+        {:.p.info}
+        `<appx-file>` and `<msix-file>` don't support `sha1` and require the `hash-algorithm` to match the one specified in the `AppxBlockMap.xml` file.
+    - attribute: "`description`"
+      default: ""
+      values: "text"
+      description: "Description of the signed content"
+    - attribute: "`description-url`"
+      default: ""
+      text: "URL"
+      description: "Uniform Resource Locator (URL) for the expanded description of the signed content"
+    - attribute: "`append`"
+      default: "`false`"
+      values: boolean
+      description: "When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats."
 
 directory-example:
   headers:
