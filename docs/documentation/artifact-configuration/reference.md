@@ -32,12 +32,7 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 
 #### Optional attributes {#authenticode-sign-attributes}
 
-| Attribute         | Default  |  Values                              | Description
-|-------------------|----------|--------------------------------------|--------------------------------------------------------
-| `hash-algorithm`  | `sha256` | `sha1`, `sha256`, `sha384`, `sha512` | Hash algorithm used to calculate the signature digest
-| `description`     |          | text                                 | Description of the signed content
-| `description-url` |          | URL                                  | Uniform Resource Locator (URL) for the expanded description of the signed content
-| `append`          | `false`  | boolean                              | When true, append the signature to any existing signatures. When false, replace any existing signatures. See below for supported formats.
+{%- include render-table.html table=site.data.tables.artifact-configuration.authenticode-attributes -%}
 
 {:.panel.info}
 > **Appending signatures**
