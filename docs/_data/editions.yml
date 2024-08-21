@@ -27,6 +27,8 @@
     xml: false
     docker: false
     sbom: false
+    raw: false
+  hash_based_signing: none
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: false
@@ -40,6 +42,7 @@
     policies_for_certs: false
     resubmit: false
   pipeline_integrity:
+    trusted_build_systems: false
     origin_verification: false
     origin_policies: false
     build_validation: false
@@ -86,6 +89,8 @@
     xml: false
     docker: false
     sbom: false
+    raw: false
+  hash_based_signing: none
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
@@ -99,6 +104,7 @@
     policies_for_certs: false
     resubmit: false
   pipeline_integrity:
+    trusted_build_systems: false
     origin_verification: false
     origin_policies: false
     build_validation: false
@@ -140,6 +146,8 @@
     xml: true
     docker: true
     sbom: true
+    raw: true
+  hash_based_signing: none
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
@@ -152,6 +160,7 @@
     policies_for_certs: true
     resubmit: true
   pipeline_integrity:
+    trusted_build_systems: Optional
     origin_verification: Optional
     origin_policies: true
     build_validation: true
@@ -179,7 +188,7 @@
     signign_requests_release: 'unlimited'
     signign_requests_test: 'unlimited'
     ci_pipelines: 'unlimited'
-  file_based_signing: none # don't remove or filters in editions-explained will fail
+  file_based_signing: none
   hash_based_signing: 
     windows_providers: true
     cryptoki_library: true
@@ -200,6 +209,7 @@
     policies_for_certs: true
     resubmit: false
   pipeline_integrity:
+    trusted_build_systems: Optional
     origin_verification: Optional
     origin_verification-hint: Not supported by crypto providers 
     origin_policies: true
@@ -219,8 +229,8 @@
     code_signing_consulting: 'available'
   link_type: 'sales_email'
 
-- name: Open Source
-  title: Open&nbsp;Source
+- name: Open Source Code Signing
+  title: Open&nbsp;Source Code&nbsp;Signing
   quotas:
     certificates: '1 standard'
     certificates-hint: 'Includes one standard (OV) code signing certificate issued to SignPath Foundation'
@@ -246,6 +256,8 @@
     xml: false
     docker: true
     sbom: false
+    raw: false
+  hash_based_signing: none
   artifact_configuration:
     deep_signing: true
     multiple_configurations_per_project: true
@@ -258,6 +270,7 @@
     policies_for_certs: 'required'
     resubmit: true
   pipeline_integrity:
+    trusted_build_systems: 'required'
     origin_verification: 'required'
     origin_policies: 'required'
     build_validation: 'required'

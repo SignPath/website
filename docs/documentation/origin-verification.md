@@ -8,8 +8,7 @@ description: Documentation for using Origin Verification in SignPath
 datasource: tables/origin-verification
 ---
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
 
 ## Abstract
 

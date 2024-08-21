@@ -7,8 +7,7 @@ show_toc: 3
 description: SignPath Crypto Providers (Cryptoki, KSP, CSP, CryptoTokenKit)
 ---
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="hash_based_signing.rest_api" %}
 
 ## Overview
 

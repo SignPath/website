@@ -27,8 +27,8 @@ Projects consist of these configuration sections:
 | **Name**                   | Display name
 | **Slug**                   | Project name/identfier used for URLs, APIs etc.
 | **Status**                 | *Valid*, *inactive*, or *invalid*
-| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | Enterprise
-| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | Enterprise
+| **Readers**                | Users or groups who can read all information of this project, including signing request artifacts of all signing policies | {{ site.data.editions | where: "user_management.admin_delegation", "true" | map: "name" | join: ", " }}
+| **Configurators**          | Users or groups who can modify artifact configurations and Webhooks                                                       | {{ site.data.editions | where: "user_management.admin_delegation", "true" | map: "name" | join: ", " }}
 | **Repository URL**         | URL of the source code repository, for information and/or [origin verification](#signing-policy-origin-verification) 
 | **Description**            | Free text description of the project
 
@@ -64,12 +64,11 @@ Select **Use approval process** if you want to require manual approval for each 
 | Property               | Value                                                                                                                                     | Editions
 |------------------------|-------------------------------------------------------------------------------------------------------------------------------------------|
 | **Approvers**          | Select the users that are allowed to approve signing requests. They will receive e-mail notifications for each request. 
-| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | Enterprise 
+| **Required approvals** | Set how many approvals are required. Note that a single *deny* will abort the request. (Also known as *quorum* or *k-out-of-n approval*.) | {{ site.data.editions | where: "policy_enforcement.quorum_approval", "true" | map: "name" | join: ", " }} 
 
 ### Trusted build system verification {#signing-policy-trusted-build-system}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="Optional" %}
 
 Define that this signing policy can only be used from the trusted build systems [defined for the project](#trusted-build-systems).
 
@@ -77,8 +76,7 @@ When trusted build system verification is enabled, interactive users cannot be d
 
 ### Origin verification restriction {#signing-policy-origin-verification}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="pipeline_integrity.origin_verification" %}
 
 Select **Verify origin** if you want to accept only signing requests with positive [origin verification](/documentation/origin-verification).
 
@@ -131,8 +129,7 @@ It is commonly necessary to sign files *and* files within those files. In this c
 
 ### Keeping versions of artifact configurations
 
-Available for Basic and Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="artifact_configuration.multiple_configurations_per_project" %}
 
 Create multiple artifact configurations for
 
@@ -156,8 +153,7 @@ For details on how to create, generate or edit an artifact configuration, see [a
 
 ## Trusted build systems {#trusted-build-systems}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="Optional" %}
 
 Define which [trusted build systems](/documentation/trusted-build-systems) may be used for this project. From your project configuration, you can link any trusted build system that your SignPath administrator has defined.
 

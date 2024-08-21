@@ -79,8 +79,7 @@ curl -H "Authorization: Bearer $API_TOKEN" \
 
 #### User-defined parameters
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="artifact_configuration.user_defined_parameters" %}
 
 Values for [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the artifact configuration can be provided by adding another multipart/form-data field prefixed with `Parameters.`
 

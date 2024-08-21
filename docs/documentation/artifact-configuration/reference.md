@@ -106,8 +106,7 @@ Although the NuGet Package format is based on OPC (see next section), it uses it
 
 ### `<office-macro-sign>`
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="file_based_signing.office_macros" %}
 
 Use this directive to sign Visual Basic for Applications (VBA) macros in Microsoft Office documents and templates.
 	
@@ -144,8 +143,7 @@ Note that not all OPC-based formats use OPC signatures:
 
 ### `<jar-sign>`
 
-Available for Basic and Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="file_based_signing.java" %}
 
 {%- include_relative render-ac-directive-table.inc directive="jar-sign" -%}
 
@@ -167,8 +165,7 @@ Add the `-verbose` option to see the certificate.
 
 ### `<xml-sign>`
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="file_based_signing.xml" %}
 
 {%- include_relative render-ac-directive-table.inc directive="xml-sign" -%}
 
@@ -201,8 +198,7 @@ See also:
 
 ### Detached raw signatures using `<create-raw-signature>` {#create-raw-signature}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="file_based_signing.raw" %}
 
 {%- include_relative render-ac-directive-table.inc directive="create-raw-signature" -%}
 

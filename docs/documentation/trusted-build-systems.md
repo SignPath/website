@@ -7,8 +7,7 @@ show_toc: 3
 description: Documentation for providing Trusted Build Systems to SignPath
 ---
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="Optional" %}
 
 ## Abstract
 

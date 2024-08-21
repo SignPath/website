@@ -30,8 +30,7 @@ SignPath provides multiple ways to be integrated into your pipeline. See the [do
 
 ## Resubmitting an existing signing request {#resubmit}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="policy_enforcement.resubmit" %}
 
 You can resubmit an existing signing request and specify a different signing policy. This is especially useful when you build a release candidate, and want to postpone the release decision until later.
 

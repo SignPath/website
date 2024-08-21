@@ -23,7 +23,7 @@ signing-file-elements:
       isContainer: "No"
       directive: "[`<authenticode-sign>`](#authenticode-sign)"
       extensions: ".wsf, ,vbs, .js"
-      description: "Windows scripts for Windows Scripting Host, typically VBScript and JScript[^jscript]. (Not available for Starter subscriptions.)"
+      description: "Windows scripts for Windows Scripting Host, typically VBScript and JScript[^jscript]. (Not available for Code Signing Starter.)"
     - element: "`<msi-file>`"
       isContainer: "Yes"
       directive: "[`<authenticode-sign>`](#authenticode-sign)"
@@ -59,7 +59,7 @@ signing-file-elements:
       extensions: ".vsix, .xps, hlkx, ..."
       description: >-
         Open Packaging Conventions (OPC) files including Visual Studio Extensions (VSIX) and Hardware Lab Kit driver signing packages. 
-        (Driver signing not available for Starter subscriptions.) File size limit: 40 MB.
+        (Driver signing not available for Code Signing Starter.) File size limit: 40 MB.
     - element: "`<nupkg-file>`"
       isContainer: "Yes"
       directive: "[`<nuget-sign>`](#nuget-sign)"
@@ -69,7 +69,7 @@ signing-file-elements:
       isContainer: "Yes"
       directive: "[`<jar-sign>`](#jar-sign)"
       extensions: ".jar, .war, .ear, .apk, .aab"
-      description: "Java archives and Android apps. (Not available for Starter subscriptions.)"
+      description: "Java archives and Android apps. (Not available for Code Signing Starter.)"
     - element: "[`<zip-file>`](syntax#zip-file-element)"
       isContainer: "Yes"
       directive: "[`<jar-sign>`](#jar-sign)"
@@ -79,17 +79,17 @@ signing-file-elements:
       isContainer: "No"
       directive: "[`<office-macro-sign>`](#office-macro-sign)"
       extensions: ".xlsm, .xltm, .docm, .dotm, .pptm, .potm, .vsdm, vstm, ... "
-      description: "Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)"
+      description: "Sign VBA macros in Microsoft Office Open XML files and templates: Excel, Word, PowerPoint and Visio (available for Advanced Code Signing)"
     - element: "`<office-binary-file>`"
       isContainer: "No"
       directive: "[`<office-macro-sign>`](#office-macro-sign)"
       extensions: ".xls, .xlt, .doc, .dot, .pot, .ppa, .pps, .ppt, .mpp, .mpt, .pub, .vsd, .vst, ... "
-      description: "Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Enterprise subscriptions)"
+      description: "Sign VBA macros in binary Microsoft Office files and templates: Project, Publisher, and legacy Excel, Word, PowerPoint and Visio (available for Advanced Code Signing)"
     - element: "`<xml-file>`"
       isContainer: "No"
       directive: "[`<xml-sign>`](#xml-sign)"
       extensions: ".xml"
-      description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Enterprise subscriptions). File size limit: 2 MB."
+      description: "Use this directive to sign XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/) (available for Advanced Code Signing). File size limit: 2 MB."
     - element: "[`<directory>`](syntax#directory-element)"
       isContainer: "Yes"
       directive: "[`<clickonce-sign>`](#clickonce-sign)"
@@ -97,7 +97,7 @@ signing-file-elements:
     - element: "`<file>`"
       isContainer: "No"
       directive: "[`<create-raw-signature>`](#create-raw-signature)"
-      description: "Arbitrary files. This directive will create a detached raw signature file (available for Enterprise subscriptions)"
+      description: "Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)"
 
 authenticode-attributes:
   headers:

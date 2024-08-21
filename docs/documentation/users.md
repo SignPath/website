@@ -25,11 +25,11 @@ To get access to an existing SignPath organizations, users must be [invited](#in
 
 Only [sign up][login page] for a new user account if you want to evaluate SignPath using a free trial subscrition.
 
-| User account type         | Provider                              | How to use                            | Editions   |
-|---------------------------|---------------------------------------|---------------------------------------|------------|
+| User account type         | Provider                              | How to use                            | Editions   
+|---------------------------|---------------------------------------|---------------------------------------|------------
 | Social account            | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
 | Username and password     | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
-| Enterprise single sing-on | Your Organization's identity provider | Enter email address as _Username_     | Enterprise |
+| Enterprise single sing-on | Your Organization's identity provider | Enter email address as _Username_     | {{ site.data.editions | where: "user_management.sso", "true" | map: "name" | join: ", " }}
 
 A user account may be used for one or more SignPath organizations. 
 
@@ -52,8 +52,7 @@ Accepting invitations:
 
 ### Directory synchronization {#directory-sync}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="user_management.scim" %}
 
 SignPath provides synchronization with Microsoft Entra ID/Azure Active Directory via SCIM. This allows you to perform user management in your organization's directory and use existing users and groups.
 
@@ -137,7 +136,7 @@ Please always mention your *Organization ID* in support requests.
 > 
 > This role can assign roles to itself or other users. Since most roles include some permissions beyond that of _User Administrator_, any person with this role can escalate their own permissions by assigning roles to their own account or to users accounts they create specifically for this purpose. While this will be visible and detectable in audit logs, we suggest assigning this role carefully. 
 >
-> For _Enterprise_ subscriptions, we suggest using [directory synchronization](#directory-sync) as the primary means of user and group administration.
+> We suggest using [directory synchronization](#directory-sync) as the primary means of user and group administration for large teams and organizations.
 
 {:.panel.tip}
 > **Role distribution hints**

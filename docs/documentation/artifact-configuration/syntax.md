@@ -206,8 +206,7 @@ Sets are especially useful if your artifacts contain repeating nested structures
 
 ## User-defined parameters {#parameters}
 
-Available for Enterprise subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="artifact_configuration.user_defined_parameters" %}
 
 You can define parameters for each signing request. Use this to create a more restrictive artifact configuration, track values, or include build-time values.
 

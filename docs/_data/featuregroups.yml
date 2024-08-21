@@ -87,9 +87,12 @@
       hint: 'Software/SaaS/Hardware/... Bills of Material'
       sub: 'CycloneDX XML'
       href: '/product/editions-explained#sbom-signing'
+    - name: raw
+      title: 'Raw signatures'
+      hint: 'Create detached raw signatures (signature blocks)'
 
 - name: hash_based_signing
-  title: 'Crypto providers (hash signing)'
+  title: 'Crypto providers and hash signing'
   href: '/product/editions-explained#hash-based-signing'
   features:
     - name: windows_providers
@@ -126,7 +129,7 @@
       href: '/product/editions-explained#user-defined-parameters'
 
 - name: policy_enforcement
-  title: 'Policy Enforcement'
+  title: 'Policy enforcement'
   features:
     - name: manual_approval
       title: 'Manual approval'
@@ -152,6 +155,9 @@
 - name: pipeline_integrity
   title: 'Pipeline Integrity'
   features:
+    - name: trusted_build_systems
+      title: 'Trusted Build Systems'
+      hint: 'Verify that signing requests originate from a trusted build system.'
     - name: origin_verification
       title: 'Origin verification'
       hint: 'Source code repository and build metadata are automatically collected and verified.'
@@ -166,7 +172,7 @@
       class: f sub
 
 - name: user_management
-  title: 'User Management'
+  title: 'User management'
   features:
     - name: sso
       title: 'Single sign-on'

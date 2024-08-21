@@ -9,8 +9,7 @@ redirect_from: /documentation/docker-signing
 datasource: tables/signing-containers
 ---
 
-Available for Enterprise and Open Source subscriptions
-{: .badge.icon-signpath}
+{% include editions.md feature="file_based_signing.docker" %}
 
 ## Overview
 

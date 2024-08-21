@@ -35,7 +35,7 @@ Test-signing is used to avoid the security implications of release-signing with 
 
 ### Projects
 
-*Starter* and *Basic* subscriptions are priced based on the number of projects you can create in SignPath. Choose the number of projects you need when you buy your subscription, or upgrade later. If you need more than *max. projects*, you need to upgrade to another the subscription type.
+*Code Signing Starter* and *Code Signing Basic* are priced based on the number of projects you can create in SignPath. Choose the number of projects you need when you buy your subscription, or upgrade later. If you need more than *max. projects*, you need to upgrade to another the subscription type.
 
 We recommend to use one SignPath *project* for each actual software project. 
 
@@ -43,11 +43,11 @@ If your project produces several artifacts, you have these options to handle the
 
 * Use deep signing: Sign an installer *and* the files it contains
 * Package your artifacts into a ZIP archive: Sign all artifacts that result from a single build job in one step
-* Use multiple artifact configurations within one project (not available for *Starter* subscriptions)
+* Use multiple artifact configurations within one project (not available for *Code Signing Starter*)
 
 ### Users
 
-*Starter* and *Basic* subscriptions are priced based on the number of active user accounts. Choose the number of users you need when you buy your subscription, or upgrade later. If you need more than *max. users*, you need to upgrade to another subscription type.
+*Code Signing Starter* and *Code Signing Basic* are priced based on the number of active user accounts. Choose the number of users you need when you buy your subscription, or upgrade later. If you need more than *max. users*, you need to upgrade to another subscription type.
 
 User accounts are required for all interactions with the SignPath user interface, including
 
@@ -61,7 +61,7 @@ This quota does not limit the number of CI user accounts or build agents you can
 
 ### Signing requests
 
-*Starter* and *Basic* subscriptions have an upper limit for the number of signing requests.
+*Code Signing Starter* and *Code Signing Basic* have an upper limit for the number of signing requests.
 
 Included signing requests per year and project:
 
@@ -70,7 +70,7 @@ Included signing requests per year and project:
 | release-signing | Extended Validation (EV) release certificate  |      20 |    50 |
 | test-signing    | Self-signed test certificate                  |     100 |   250 |
 
-**Example:** a *Basic* subscription with 3 *projects* allows you to complete 
+**Example:** a *Code Signing Basic* subscription with 3 *projects* allows you to complete 
 
 * 150 release-signing requests per year (50 &times; 3) 
 * 750 test-signing requests per year (250 &times; 3)
@@ -100,9 +100,9 @@ You can adjust the [artifact configuration](/documentation/artifact-configuratio
 
 ### CI pipelines
 
-*Starter* subscriptions: one CI pipeline at a time. 
+*Code Signing Starter*: one CI pipeline at a time. 
 
-*Basic* subscriptions: one CI pipeline per available project at a time.
+*Code Signing Basic*: one CI pipeline per available project at a time.
 
 Additional signing requests submitted from CI pipelines may be rejected and have to be repeated later.
 
@@ -112,29 +112,31 @@ SignPath directly supports signing various file formats. See [the artifact confi
 
 ### Microsoft Office macros {#office-macros}
 
+{% include editions.md feature="file_based_signing.office_macros" %}
+
 Sign Office macros to protect against macro malware.
 
 With a policy-based code signing process, you can sign your company's Office macros for internal and/or external use. As an immediate benefit, you can disable execution of unsigned macros, thus preventing macro viruses and other macro-based malware deterministically.
 
 See [Office macros](/product/office-macros) for more information.
 
-**Available for** _{{ site.data.editions | where: "file_based_signing.office_macros", "true" | map: "name" | join: ", " }}_ subscriptions.
-
 ### XML Signing {#xml-signing}
+
+{% include editions.md feature="file_based_signing.xml" %}
 
 SignPath supports signing XML files using [XMLDSIG](https://www.w3.org/TR/xmldsig-core1/). 
 
 See [artifact configuration](/documentation/artifact-configuration/reference#xml-sign) for details.
 
-**Available for** _{{ site.data.editions | where: "file_based_signing.xml", "true" | map: "name" | join: ", " }}_ subscriptions.
-
 ### Container image signing {#container-signing}
+
+{% include editions.md feature="file_based_signing.docker" %}
 
 SignPath supports signing Docker container images and tags using cosign and Docker Content Trust (DCT). See [Signing Container Images](/documentation/signing-containers) for details.
 
-**Available for** _{{ site.data.editions | where: "file_based_signing.docker", "true" | map: "name" | join: ", " }}_ subscriptions.
-
 ### Bills of Material {#sbom-signing}
+
+{% include editions.md feature="file_based_signing.sbom" %}
 
 Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-cyclonedx/) XML format. This includes
 
@@ -145,11 +147,11 @@ Sign Bills of Material (BOM) in the [Cyclone DX](https://owasp.org/www-project-c
 
 See this [artifact configuration sample](/documentation/artifact-configuration/examples#sbom-restriction) for details.
 
-**Available for** _{{ site.data.editions | where: "file_based_signing.sbom", "true" | map: "name" | join: ", " }}_ subscriptions.
+## Crypto providers and hash signing {#hash-based-signing}
 
-## Hash-based signing {#hash-based-signing}
+{% include editions.md feature="hash_based_signing.rest_api" %} 
 
-Use any code signing tool that supports either of these interfaces:
+Use SignPath cryptographic providers with any code signing tool that supports either of these interfaces:
 
 | SignPath Provider                    | Technology/Interface               | Supported Platforms  | Signing Tools
 |--------------------------------------|------------------------------------|----------------------|------------------------------------------------
@@ -170,8 +172,6 @@ Note that with hash-based signing, artifacts are not transferred to and signed b
 > * [Manual approval](#manual-approval)
 > * [Origin verification](#origin-verification)
 
-<!--TODO **Available for** _{{ site.data.editions | where: "hash_based_signing", "true" | map: "name" | join: ", " }}_ subscriptions. --> 
-
 ## Artifact configuration
 
 Artifact configurations define what artifacts to sign and how. They can either simply define the file type, or they can be detailed specifications of complex artifacts that contain other (nested) artifacts. See [setting up projects](/documentation/projects#artifact-configurations) for details.
@@ -182,14 +182,16 @@ Sign installers, packages etc. *and* their content in a single step. See [signin
 
 ### Multiple versions
 
+{% include editions.md feature="artifact_configuration.multiple_configurations_per_project" %}
+
 Create [multiple artifact configurations](/documentation/projects#keeping-versions-of-artifact-configurations) for
 
 * projects that create different artifact at different times, but you want to use the same signing policies
 * artifact configurations that change significantly over time (versioning)
 
-**Available for** _{{ site.data.editions | where: "artifact_configuration.multiple_configurations_per_project", "true" | map: "name" | join: ", " }}_ subscriptions.
-
 ### Metadata constraints
+
+{% include editions.md feature="artifact_configuration.metadata_constraints" %}
 
 You can restrict some [file attributes](/documentation/artifact-configuration/reference#metadata-restrictions) in the artifact configuration. 
 
@@ -199,9 +201,9 @@ This is useful if you want to
 * avoid unintentional signing of third-party components
 * defend against unauthorized signing (while this can be circumvented by aware parties, the attempt is reported and can be investigated)
 
-**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions.
-
 ### User-defined parameters
+
+{% include editions.md feature="artifact_configuration.user_defined_parameters" %}
 
 You can define [parameters](/documentation/artifact-configuration/syntax#parameters) for each signing request. 
 
@@ -210,34 +212,32 @@ Use this to
 * track arbitrary values across signing requests
 * include build-time values 
 
-**Available for** _{{ site.data.editions | where: "artifact_configuration.user_defined_parameters", "true" | map: "name" | join: ", " }}_ subscriptions.
-
 ## Policy enforcement
 
 ### Manual approval
+
+{% include editions.md feature="policy_enforcement.manual_approval" %}
 
 Specify that one or more approvals are required before a signing request is processed. 
 
 This is typically used for release-signing. Note that [origin verification](#origin-verification) allows to create secure signing policies without manual approval. 
 
-**Available for** _{{ site.data.editions | where: "policy_enforcement.manual_approval", "true" | map: "name" | join: ", " }}_ subscriptions. Required for _Open Source_ subscriptions.
-
 #### Quorum approval
 
-You may also specify that a certain number approvals is required (a.k.a. _k-out-of-n_ approval).
+{% include editions.md feature="policy_enforcement.quorum_approval" %}
 
-**Available for** _{{ site.data.editions | where: "policy_enforcement.quorum_approval", "true" | map: "name" | join: ", " }}_ subscriptions.
+You may also specify that a certain number approvals is required (a.k.a. _k-out-of-n_ approval).
 
 See [approval process](/documentation/projects#approval-process) for more information about manual approval.
 
 ### Signing policies per project
 
-For *Starter* and *Basic* subscriptions, you get two signing policies per project:
+For *Code Signing Starter* and *Code Signing Basic*, you get two signing policies per project:
 
 * a test-signing policy for testing the signing configuration and signing test builds
 * a release-signing policy for signing builds that will be delivered to end users
 
-*Enterprise* subscriptions allow to define any number of singing policies per project. You can use this to create policies with different levels of manual and automatic verification. 
+*Advanced Code Signing* and *Code Signing Gateway* allow to define any number of singing policies per project. You can use this to create policies with different levels of manual and automatic verification. 
 
 Example:
 
@@ -249,7 +249,29 @@ Example:
 
 See [code signing certificates](#code-signing-certificates).
 
+### Resubmit
+
+{% include editions.md feature="policy_enforcement.resubmit" %}
+
+Resubmit signing requests for signing using different policies and/or certificates.
+
+This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. 
+
+See [signing code](/documentation/signing-code#resubmit).
+
+### Certificate policies
+
+{% include editions.md feature="policy_enforcement.policies_for_certs" %}
+
+Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.
+
+See [managing certificates](/documentation/managing-certificates).
+
+## Pipeline Integrity
+
 ### Origin verification
+
+{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
 
 When a CI build is submitted to SignPath, certain metadata will be retrieved and verified by SignPath. This includes
 
@@ -272,8 +294,6 @@ For full security, make sure
 
 See [origin verfication](/documentation/origin-verification) for more information.
 
-**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions.
-
 #### Origin-based policies
 
 Specify the *source code repository* for a SignPath project, and (optionally) the *branch* name(s) for a signing policy. This ensures that only software from legitimate builds of these repositories can be signed using this policy.
@@ -285,21 +305,3 @@ When using manual approval on top of origin verification, approvers will have re
 #### Build validation
 
 For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.
-
-### Resubmit
-
-Resubmit signing requests for signing using different policies and/or certificates.
-
-This can be used to sign _release candidates_ with test certificates at first, and re-sign them with release certificates once they have been tested and approved for release. 
-
-See [signing code](/documentation/signing-code#resubmit).
-
-**Available for** _{{ site.data.editions | where: "policy_enforcement.resubmit", "true" | map: "name" | join: ", " }}_ subscriptions.
-
-### Certificate policies
-
-Specify that certain validation criteria must be enabled for specific certificates. This enforces these policies for all projects end their respective signing policies.
-
-See [managing certificates](/documentation/managing-certificates).
-
-**Available for** _Enterprise_ subscriptions. Required for _Open Source_ subscriptions. 
