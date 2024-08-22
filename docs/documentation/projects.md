@@ -76,7 +76,7 @@ When trusted build system verification is enabled, interactive users cannot be d
 
 ### Origin verification restriction {#signing-policy-origin-verification}
 
-{% include editions.md feature="pipeline_integrity.origin_verification" %}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
 
 Select **Verify origin** if you want to accept only signing requests with positive [origin verification](/documentation/origin-verification).
 
