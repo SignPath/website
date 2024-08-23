@@ -20,6 +20,7 @@ redirect_from:
 			<option value='self_hosted_installations'>Self-hosted Installations</option>
 			<option value='powershell_module'>PowerShell module</option>
 			<option value='crypto_providers'>Crypto Providers</option>
+			<option value='macos_cryptotokenkit'>macOS CryptoTokenKit</option>
 		</select>
 	</div>
 	<div>
@@ -108,6 +109,7 @@ redirect_from:
 					{% when "powershell_module" %} SignPath PowerShell Module {{ release.version }}
 					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ release.version }}
 					{% when "crypto_providers" %} Crypto Providers {{ release.version }}
+					{% when "macos_cryptotokenkit" %} macOS CryptoTokenKit {{ release.version }}
 				{% endcase %}
 			</h2>
 			

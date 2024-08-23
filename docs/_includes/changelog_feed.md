@@ -31,6 +31,7 @@
   {%- when "powershell_module" -%} {%- assign include_category_name = 'PowerShell Module ' -%}
   {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
   {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
+  {%- when "macos_cryptotokenkit" -%} {%- assign include_category_name = 'macOS CryptoTokenKit ' -%}
 {%- endcase -%}
 <title type="html">SignPath - {{ include_category_name }}Changelog</title>
 <author>
@@ -51,6 +52,7 @@
           {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
           {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
           {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
+          {%- when "macos_cryptotokenkit" -%} SignPath macOS CryptoTokenKit {{ release.version }}
         {%- endcase -%}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>

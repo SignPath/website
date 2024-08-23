@@ -20,7 +20,7 @@ The SignPath Crypto Providers do not access the crypto hardware directly. Instea
 {:.panel.info}
 > **Version info**
 >
-> This documentation contains information about the latest version of the CryptoProviders. See the [changelog](/documentation/changelog?component=crypto_providers) for updates.
+> This documentation contains information about the latest version of the CryptoProviders. See the [CryptoProvider changelog](/documentation/changelog?component=crypto_providers) or the [macOS CryptoTokenKit changelog](/documentation/changelog?component=macos_cryptotokenkit) for updates.
 
 ### Crypto Providers
 
