@@ -129,8 +129,8 @@ In case you used the [MSI installer](/documentation/crypto-providers/windows#ins
 | JSON setting                      | Environment variable                      | Default Value                 | Description
 |-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
 | `Log.Console.Level`               | `SIGNPATH_LOG_CONSOLE_LEVEL`              | `none`                        | Log level used for console logging (not available on macOS)
-| `Log.Console.OutputStream`        | `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM`      | `stderr`                      | Console stream to use (either `stderr` or `stdout`)
-| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `info`                        | Log level used for file logging (not available on macOS)
+| `Log.Console.OutputStream`        | `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM`      | `stderr`                      | Console stream to use (either `stderr` or `stdout`) (not available on macOS)
+| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `info`                        | Log level used for file logging 
 | `Log.File.Directory`              | `SIGNPATH_LOG_FILE_DIRECTORY`             | Windows: `%TEMP%\SignPathLogs`, Linux: `/tmp/SignPathLogs` | Path to the folder to store log files
 
 Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `verbose`.
@@ -139,9 +139,9 @@ Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `ver
 
 | JSON setting                      | Environment variable                      | Default Value                 | Description
 |-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
-| `Timeouts.HttpRequest`            | `SIGNPATH_TIMEOUTS_HTTP_REQUEST`          | `30`                          | Timeout for HTTP calls in seconds per attempt (not available on macOS)
-| `Timeouts.FirstRetryDelay`        | `SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY`     | `1.16`                        | Initial delay in seconds in case of failed API HTTP requests (not available on macOS)
-| `Timeouts.RetryCount`             | `SIGNPATH_TIMEOUTS_RETRY_COUNT`           | `10`                          | Maximum number of retries in case of failed API HTTP requests (not available on macOS)
+| `Timeouts.HttpRequest`            | `SIGNPATH_TIMEOUTS_HTTP_REQUEST`          | `30`                          | Timeout for HTTP calls in seconds per attempt
+| `Timeouts.FirstRetryDelay`        | `SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY`     | `1.16`                        | Initial delay in seconds in case of failed API HTTP requests
+| `Timeouts.RetryCount`             | `SIGNPATH_TIMEOUTS_RETRY_COUNT`           | `10`                          | Maximum number of retries in case of failed API HTTP requests
 {: .break-column-2}
 
 HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.
