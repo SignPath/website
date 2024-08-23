@@ -1,3 +1,23 @@
+- date: '2999-99-99'
+  updates:
+    macos_cryptotokenkit:
+      version: '2.0'
+      breaking_changes:
+        - text: 'Renamed the command-line parameters.'
+          issues: [3]
+      new_features:
+        - text: Added support for sha1 signatures required for productsign.
+          issues: []
+        - text: Added support for HTTP timeout and retry configuration.
+          issues: [6]
+      improvements:
+        - text: Improved logging and logging configuration.
+          issues: [5]
+      bug_fixes:
+        - text: Fixed a bug that prevented multiple certificates from being loaded at once.
+          issues: [14]
+        - text: Fixed a bug where the application failed when provided with an invalid configuration file.
+          issues: []
 - date: '2024-08-13'
   updates:
     application:
@@ -336,6 +356,13 @@
             The HSM SignServices watchdog doesn't require a TSA URL anymore. The previously mandatory SignService values
             config entry `appSettings.signService.cspWatchdogOptions.timestampingServerUrl` can be removed.
           issues: [SIGN-6825]
+- date: '2024-03-18'
+  updates:
+    macos_cryptotokenkit:
+      version: '1.0'
+      new_features:
+        - text: 'Initial release'
+          issues: []
 - date: '2024-03-14'
   updates:
     application:
