@@ -134,13 +134,15 @@ section.resources-section {
 			padding: 0px 20px;
 			margin: 10px 0px;
 
-			& > p:first-child::before {
+			& > p:first-child::before,
+			& > h6:first-child::before {
 				margin-right: 10px;
 				display: inline-block;
 			}
 
 			&.info, &.warning, &.tip {
-				& > p:first-child::before {
+				& > p:first-child::before,
+				& > h6:first-child::before {
 					font-family: "Line Awesome Free";
 					font-weight: 800;
 				}
@@ -148,33 +150,38 @@ section.resources-section {
 
 			&.info {
 				background-color: $light-grey-background-color;
-				& > p:first-child::before {
+				& > p:first-child::before,
+				& > h6:first-child::before {
 					content: "\f05a";
 				}
 			}
 			&.tip {
 				background-color: $light-grey-background-color;
-				& > p:first-child::before {
+				& > p:first-child::before,
+				& > h6:first-child::before {
 					content: "\f0eb";
 				}
 			}
 			
 			&.warning {
 				background-color: $light-orange-background-color;
-				& > p:first-child::before {
+				& > p:first-child::before,
+				& > h6:first-child::before {
 					content: "\f071";				
 				}
 			}
 
 			&.product {
 				background-color: $light-blue-background-color;
-				& > p:first-child::before {
+				& > p:first-child::before,
+				& > h6:first-child::before {
 					content: "\e808";
 					font-family: fontello;				
 				}
 			}
 
-			& > p:first-child {
+			& > p:first-child,
+			& > h6:first-child {
 				background-color: $grey-border-color;
 				margin: 0px;
 				padding: 5px 10px;

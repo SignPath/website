@@ -41,6 +41,7 @@
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
     resubmit: false
+    disable_malware_scanning: false
   pipeline_integrity:
     trusted_build_systems: false
     origin_verification: false
@@ -103,6 +104,7 @@
     signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
     policies_for_certs: false
     resubmit: false
+    disable_malware_scanning: false
   pipeline_integrity:
     trusted_build_systems: false
     origin_verification: false
@@ -159,6 +161,7 @@
     signing_policies_per_project: 'unlimited'
     policies_for_certs: true
     resubmit: true
+    disable_malware_scanning: true
   pipeline_integrity:
     trusted_build_systems: Optional
     origin_verification: Optional
@@ -208,6 +211,7 @@
     signing_policies_per_project: 'unlimited'
     policies_for_certs: true
     resubmit: false
+    disable_malware_scanning: 'n/a'
   pipeline_integrity:
     trusted_build_systems: Optional
     origin_verification: Optional
@@ -274,6 +278,7 @@
     origin_verification: 'required'
     origin_policies: 'required'
     build_validation: 'required'
+    disable_malware_scanning: false
   user_management:
     sso: false
     scim: false

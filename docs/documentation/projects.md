@@ -88,7 +88,7 @@ Select **Verify origin** if you want to accept only signing requests with positi
 | **Allowed branch names**   | For release-signing, it is recommended to restrict the signing policy to release branches, such as `main` or `release/*`. This helps to enforce a code review policy for release builds and prevents accidental or intentional release-signing of internal and test builds.
 
 {:.panel.tip}
-> **Create differentiated signing policies**
+> ###### Create differentiated signing policies {#differentiated-policies}
 > 
 > You can create multiple signing policies with any combination of manual approval and origin verification. Use this to draw a clear line between standard and exceptional procedures.
 > 
@@ -106,6 +106,15 @@ Select **Verify origin** if you want to accept only signing requests with positi
 > Approval is required if another branch is used for release signing, but origin verification is still available. Approvers might include project managers or senior team members.
 >
 > In some situations, it might even be necessary to sign any old release, e.g. via manual upload. This requires approval from two persons, maybe even from a reduced list that includes senior management.
+
+### Malware scanning {#malware-scanning}
+
+Contact [Support](/support) to activate this option. Not available for Open Source Code Signing.
+{:.badge.icon-signpath}
+
+Select **Disable malware scanning** to skip malware scanning for this policy.
+
+Use this option to sign releases that have been falsely identified as malware. For release signing, we recommend using this only in specific scenarios. Consider creating specific policies, optionally protected with approval rules (see [above](#differentiated-policies)).
 
 ## Artifact configurations {#artifact-configurations}
 
