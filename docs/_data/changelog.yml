@@ -4,7 +4,7 @@
       version: 1.171.0
       bug_fixes:
         - text: |-
-            Fixed missing response models and response status codes in the [API definition](https://app.signpath.io/Api/swagger) in the following REST API routes:
+            Fixed missing response models and response status codes in the [API definition](https://app.signpath.io/Api/swagger) for the following REST API routes:
             * `/v1/{organizationId}/CIUsers/{id}/RegenerateApiToken`
             * `/v1/{organizationId}/InteractiveUsers/{id}/RegenerateApiToken`
             * `/v1/{organizationId}/TrustedBuildSystems/{slug}/RegenerateTrustedBuildSystemToken`
