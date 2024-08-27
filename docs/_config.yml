@@ -61,3 +61,5 @@ sass:
 collections:
   jobs:
     output: true
+  events:
+    output: true

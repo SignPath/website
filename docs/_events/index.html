@@ -1,0 +1,29 @@
+---
+title: Events
+header: Upcoming events
+layout: default
+description: Get in touch with us
+---
+
+<ul class="card-container">
+  {%- assign events = site.events | sort: "start_date" -%}
+	{%- for event in events -%}
+
+    {%- if event.layout == 'event' -%}
+	    <li class='event'> 
+        <a href="{{event.url}}">
+          <div class="header" style="background-image:url(/assets/img/events/{{event.image}})">
+             
+          </div>
+        </a>
+        <div> {{ event.tagline }} </div>
+        <div>
+          <h3>When:</h3>
+          {{ event.when }}
+          <h3>Where:</h3>
+          {{ event.location }}
+        </div>
+      </li>  
+    {%- endif -%}
+	{%- endfor -%}
+</ul>

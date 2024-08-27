@@ -1,0 +1,31 @@
+{% include header.html %}
+
+<section class="bg-black font-white top-section">
+	<div>
+		<h1>{{ page.header }}</h1>
+		<h3>{{ page.tagline }}</h3>
+	</div>
+</section>
+<section class="event-section">
+	<div>
+		<article>
+			<div class='columns'>
+				<div>
+					<h2>When</h2>
+					<span>{{page.when}}</span>
+				</div>
+				<div>
+					<h2>Where</h2>
+					<span>{{page.location}}
+				</div>
+				<div>
+					<h2>More info</h2>
+					<span><a href='{{page.link}}'>Visit event page</a>
+				</div>
+			</div>
+			
+			{{ content }}
+		</article>
+	</div>
+</section>
+{% include footer.html %}    

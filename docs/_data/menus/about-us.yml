@@ -7,6 +7,9 @@
 - text: Blog
   path: blog
 
+- text: Events
+  path: events
+
 - text: Jobs
   path: jobs
 
