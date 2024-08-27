@@ -1,3 +1,21 @@
+- date: '2024-08-29'
+  updates:
+    application:
+      version: 1.171.0
+      bug_fixes:
+        - text: |-
+            Fixed missing response models and response status codes in the [API definition](https://app.signpath.io/Api/swagger) in the following REST API routes:
+            * `/v1/{organizationId}/CIUsers/{id}/RegenerateApiToken`
+            * `/v1/{organizationId}/InteractiveUsers/{id}/RegenerateApiToken`
+            * `/v1/{organizationId}/TrustedBuildSystems/{slug}/RegenerateTrustedBuildSystemToken`
+            * `/v1/{organizationId}/SigningRequests/Resubmit` (only status code was wrong)
+          issues: [SIGN-7186]
+    self_hosted_installations:
+      version: 1.171.0
+      bug_fixes:
+        - text: |-
+            All `signpath-application` Pods now correctly report `application_Version` to Application Insights (if enabled).
+          issues: [SIGN-6912]
 - date: '2024-08-13'
   updates:
     application:
@@ -28,7 +46,7 @@
               * `POST /v1/{organizationId}/Projects`
               * `POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations`
             * The `name`, `slug` and `description` properties are now in the request or response root object. 
-              * The `"metadata"` object has been dropped in all JSON requests and responss. 
+              * The `"metadata"` object has been dropped in all JSON requests and responses. 
               * The `metadata.` prefix has been dropped in all multipart/form-data requests. 
             
             See the [API definition](https://app.signpath.io/Api/swagger) for more details.
