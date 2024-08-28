@@ -71,4 +71,4 @@ Software supply chain attacks are on the rise. It's time to raise our collective
 By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
 Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud of playing a unique role in bringing code signing to DevSecOps.
 
-To experience the distinctive advantages SignPath offers, read more about our solutions and contact us for a free demo today.
+To experience the distinctive advantages SignPath offers, sign up for a [Free Trial](https://app.signpath.io/Web/Subscription/StartFreeTrial) today.
