@@ -1,0 +1,8 @@
+- text: DevOps
+  path: devops
+
+- text: InfoSec
+  path: infosec
+  
+- text: Open Source
+  path: open-source
