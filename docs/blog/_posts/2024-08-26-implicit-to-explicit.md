@@ -13,8 +13,9 @@ description: "description"
 
 "Trust, but verify": this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world's digital infrastructure, from satellites to web browsers.
 
-Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don't need to understand the behind-the-scenes process to benefit from it—a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
-However, there's an annoying truth for us software professionals who see how "the sausage is made": when it comes to assembling software for professional use, such as enterprise or server-side software, code signing across the software build pipelines is the exception rather than the rule.
+Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don't can remain blissfully unaware of the behind-the-scenes process to benefit from it -- a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
+
+However, there's an inconvenient truth for us software professionals who see how "the sausage is made": when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.
 
 In this blog post, I want to emphasize the importance of explicitly establishing trust in our software supply chains. As more DevSecOps initiatives launch to build a more resilient global digital infrastructure, we can no longer justify trusting without verifying the software components in our pipelines.
 
