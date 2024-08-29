@@ -8,6 +8,7 @@ current:
     #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
 planned:
+incidents:
   - date: 'Aug. 07, 2024'
     range: 'Aug. 07, 2024 17:00 - 20:00 UTC'
     type: warning
@@ -16,8 +17,7 @@ planned:
       Planned maintenance for SignPath HSM cluster's infrastructure.
 
       * Slightly longer processing times for signing requests including and hash signing
-      * Software certificates and Thales DPoD Cloud HSM certificates won't be affected.
-incidents:
+      * Software certificates and Thales DPoD Cloud HSM certificates were not affected.
   - date: 'Jun. 19, 2024'
     range: 'Jun. 19, 2024 10:00 - 12:00 UTC'
     type: warning
