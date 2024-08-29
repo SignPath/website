@@ -29,7 +29,7 @@ For hash data we recommend using a _fast signing request_. These requests are pe
 | JSON property        | Description 
 |----------------------|--------------
 | `SignatureAlgorithm` | For RSA certificates: `"RsaPkcs1"` for the PKCS #1 v1.5 padding mode, or `"RsaPss"` for PSS padding mode. For elliptic curve certificates: `Ecdsa`.
-| `RsaHashAlgorithm`"  | The OID for used hash algorithm with the following allowed values: `"1.2.840.113549.2.5"` (MD5), `"1.3.14.3.2.26"` (SHA1), `"2.16.840.1.101.3.4.2.1"` (SHA-256), `"2.16.840.1.101.3.4.2.2"` (SHA-384), `"2.16.840.1.101.3.4.2.3"` (SHA-512). _Note that this property is only used for RSA certificates._
+| `RsaHashAlgorithm`   | The OID for used hash algorithm with the following allowed values: `"1.2.840.113549.2.5"` (MD5), `"1.3.14.3.2.26"` (SHA1), `"2.16.840.1.101.3.4.2.1"` (SHA-256), `"2.16.840.1.101.3.4.2.2"` (SHA-384), `"2.16.840.1.101.3.4.2.3"` (SHA-512). _Note that this property is only used for RSA certificates._
 | `Base64EncodedHash`  | The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
 | `Metadata`           | Can contain arbitrary metadata JSON values. We recommend to include `CreatingProcess` metadata with `CommandLine` and `User` as shown in the example above.
 
