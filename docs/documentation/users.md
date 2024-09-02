@@ -124,6 +124,7 @@ Please always mention your *Organization ID* in support requests.
 | **Project Administrator**     | Project and policy configuration, Docker repository management                                   | Dev/DevOps policy owners
 | **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies | Auditors
 | **Regular User**              | No global permissions                                                                            | Team members and administrators
+| **Directory Synchronizer**    | User management                                                                                  | Service user for [directory synchronization](#directory-sync). 
 
 **Global Administrators** have the following permissions:
 
