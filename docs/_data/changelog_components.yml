@@ -13,7 +13,7 @@ details:
   application: 
     label: 'Application'
   self_hosted_installations: 
-    label: 'Self-hosted Installations'
+    label: 'Application (self-hosted only)'
   powershell_module: 
     label: 'PowerShell Module'
   powershell_module_docker: 
