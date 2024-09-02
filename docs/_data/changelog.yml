@@ -16,6 +16,12 @@
         - text: |-
             All `signpath-application` Pods now correctly report `application_Version` to Application Insights (if enabled).
           issues: [SIGN-6912]
+- date: '2024-08-16'
+  updates:
+    github_connector:
+      version: '1.0' # note is 0.8 in connectors release
+      new_features:
+        - text: 'Initial release: GitHub.com is now available as a [Trusted Build System](/documentation/trusted-build-systems).'
 - date: '2024-08-13'
   updates:
     application:
