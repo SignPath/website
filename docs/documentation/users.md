@@ -120,11 +120,11 @@ Please always mention your *Organization ID* in support requests.
 |-------------------------------|--------------------------------------------------------------------------------------------------|----------------------------
 | **Global Administrator**      | Control the entire SignPath organization                                                         | Subscription owner
 | **Certificate Administrator** | Certificate management                                                                           | PKI team
-| **User Administrator**        | User management                                                                                  | User management 
+| **User Administrator**        | User management (cannot modify synchronized objects)                                             | User management 
 | **Project Administrator**     | Project and policy configuration, Docker repository management                                   | Dev/DevOps policy owners
 | **Global Reader**             | Read all information, including signing requests artifacts for all projects and signing policies | Auditors
 | **Regular User**              | No global permissions                                                                            | Team members and administrators
-| **Directory Synchronizer**    | User management                                                                                  | Service user for [directory synchronization](#directory-sync). 
+| **Directory Synchronizer**    | User management                                                                                  | [Directory synchronization](#directory-sync) account
 
 **Global Administrators** have the following permissions:
 
