@@ -47,7 +47,7 @@
       {%- if include.category == nil or include.category == component -%}
       <entry>
         <id>tag:about.signpath.io,{{ entry.date | date: '%F'}}:{{ component }}:{{ release.version }}</id>
-        <title>{{ site.data.changelog_components.details[component].label }} {{ release.version }}</title>
+        <title>SignPath {{ site.data.changelog_components.details[component].label }} {{ release.version }}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>
         <link rel="alternate" href="https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' }}" />
