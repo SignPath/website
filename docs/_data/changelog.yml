@@ -585,6 +585,18 @@
         - text: >-
             Added `additionalApplicationInsightsOptions` section to `signpath-application` values which allows to configure Application Insights sampling options.
           issues: [SIGN-6456]
+- date: '2023-12-10'
+  updates:
+    jenkins_plugin:
+      version: 2.0.0
+      breaking_changes:
+        - text: Renamed `CIUserToken` to `ApiToken`.
+          issues: [SIGN-6406]
+      improvements:
+        - text: Added configurable timeouts for HTTP requests and signing request processing. 
+          issues: [SIGN-6629]
+        - text: Improved error messages.
+          issues: [SIGN-5536]
 - date: '2023-11-28'
   updates:
     application:
@@ -1115,6 +1127,16 @@
       bug_fixes:
         - text: Fixed a bug that set maximum number of certificates quota to zero when changing subscriptions in certain cases.
           issues: [SIGN-5650]
+- date: '2023-01-30'
+  updates:
+    jenkins_plugin:
+      version: 1.1.0
+      improvements:
+        - text: Removed PowerShell dependency.
+          issues: [SIGN-5420, SIGN-5419]
+      bug_fixes:
+        - text: Fixed a bug that allowed a potential attacker to submit files other than the build artifacts.
+          issues: [SIGN-5310]
 - date: '2023-01-12'
   updates:
     application:
@@ -1617,6 +1639,16 @@
       bug_fixes:
         - text: Fixed a bug that hid an error message when the configuration file could not be properly read.
           issues: [SIGN-4574]
+- date: '2021-11-19'
+  updates:
+    jenkins_plugin:
+      version: 1.0.6
+      improvements:
+        - text: Security-hardened handling of tokens and artifacts within the plugin.
+          issues: [SIGN-4215, SIGN-3862]
+      bug_fixes:
+        - text: Fixed a bug that caused Jenkins to run into timeouts when uploading large artifacts for signing.
+          issues: [SIGN-4516]
 - date: '2021-11-10'
   updates:
     application:
