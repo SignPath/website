@@ -10,18 +10,14 @@ redirect_from:
 ---
 
 <section class='changelog'>
-
 <div class='changelog-select-ctn'>
 	<div>
 		Component 
 		<select id='changelog-component-select'>
 			<option value='all'>All components</option>
-			<option value='application'>SignPath Application</option>
-			<option value='self_hosted_installations'>Self-hosted Installations</option>
-			<option value='powershell_module'>PowerShell Module</option>
-			<option value='crypto_providers'>Crypto Providers</option>
-			<option value='github_connector'>GitHub Connector</option>
-			<option value='jenkins_plugin'>Jenkins Plugin</option>
+			{%- for component in site.data.changelog_components.components -%}
+			  <option value='{{ component }}'>{{ site.data.changelog_components.details[component].label }}</option>
+			{%- endfor -%}
 		</select>
 	</div>
 	<div>
@@ -103,17 +99,7 @@ redirect_from:
 			{% endfor %}
 
 			<div class='component-{{ component }} {{ component_change_type_class_list }}'>
-			<h2>
-				{% case component %}
-					{% when "application" %} SignPath Application {{ release.version }}
-					{% when "self_hosted_installations" %} Self-hosted Installations {{ release.version }}
-					{% when "powershell_module" %} SignPath PowerShell Module {{ release.version }}
-					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ release.version }}
-					{% when "crypto_providers" %} Crypto Providers {{ release.version }}
-					{% when "github_connector" %} GitHub Connector {{ release.version }}
-					{% when "jenkins_plugin" %} Jenkins Plugin {{ release.version }}
-				{% endcase %}
-			</h2>
+			<h2>{{ site.data.changelog_components.details[component].label }} {{ release.version }}</h2>
 			
 			{% for changes_per_type in release %}
 				
