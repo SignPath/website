@@ -31,6 +31,8 @@
   {%- when "powershell_module" -%} {%- assign include_category_name = 'PowerShell Module ' -%}
   {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
   {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
+  {%- when "github_connector" -%} {%- assign include_category_name = 'GitHub Connector' -%}
+  {%- when "jenkins_plugin" -%} {%- assign include_category_name = 'Jenkins Plugin' -%}
 {%- endcase -%}
 <title type="html">SignPath - {{ include_category_name }}Changelog</title>
 <author>
@@ -51,6 +53,8 @@
           {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
           {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
           {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
+          {%- when "github_connector" -%} GitHub Connector {{ release.version }}
+          {%- when "jenkins_plugin" -%} Jenkins Plugin {{ release.version }}
         {%- endcase -%}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>
@@ -61,6 +65,8 @@
           {%- when "powershell_module" -%} {%- assign category_label = 'SignPath SignPath PowerShell Module' -%}
           {%- when "powershell_module_docker" -%} {%- assign category_label = 'SignPath Docker PowerShell Module' -%}
           {%- when "crypto_providers" -%} {%- assign category_label = 'SignPath Crypto Providers' -%}
+          {%- when "github_connector" -%} {%- assign category_label = 'GitHub Connector' -%}
+          {%- when "jenkins_plugin" -%} {%- assign category_label = 'Jenkins Plugin' -%}
         {%- endcase -%}
         <category term="release/{{ component }}" label="{{ category_label }}" />
         <summary type="html">New Release: {{ category_label }} {{ release.version }}</summary>
