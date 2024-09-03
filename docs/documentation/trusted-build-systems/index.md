@@ -24,7 +24,7 @@ Trusted build systems can also be used to simply restrict signing to certain bui
 
 See [below](#direct-use) for details.
 
-## Support build systems
+## Supported build systems
 
 The following build systems are currently supported by SignPath:
 
