@@ -1,6 +1,6 @@
 ---
 title: Jobs - Produktmanager:in und Product Owner m/w/d
-header: Produktmanager:in und Product Owner m/w/d
+header: Product Manager und Product Owner m/w/d
 sub-header: Werde Teil des SignPath Teams
 sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
@@ -15,7 +15,7 @@ description:
 
 SignPath ist ein Scale-Up im Bereich Code Integrity. Wir betreiben ein SaaS Service und Enterprise Software für Code Signing und Code Integrity. Wir arbeiten kontinuierlich daran, uns tiefer in bestehende Development- und DevOps-Prozesse zu integrieren und helfen unseren Kunden damit, sichere Release-Prozesse zu gestalten und sorgen für Transparenz in der Software Supply Chain. Wir haben uns als klares Ziel gesetzt, die Marktführerschaft im Bereich Code Integrity einzunehmen und zu verteidigen.
 
-Als Produktmanager:in und Product Owner benötigest du einen Hintergrund als Softwareentwickler:in oder DevOps-Engineer und übernimmst die Verantwortung für die Gestaltung unserer Code Integrity Plattform. Als Teil unseres Teams und in enger Abstimmung mit dem restlichen Produktmanagement trägst du dazu bei, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen. Du übernimmst dabei die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team wirkst du an der Erstellung technisch anspruchsvoller Features im Bereich Crypto/PKI mit und hilfst unserem innovativen Produkt, die Führungsposition auf einem wachsenden Markt zu festigen und auszubauen.
+Als Product Manager und Product Owner benötigest du einen Hintergrund als Softwareentwickler:in oder DevOps-Engineer und übernimmst die Verantwortung für die Gestaltung unserer Code Integrity Plattform. Als Teil unseres Teams und in enger Abstimmung mit dem restlichen Produktmanagement trägst du dazu bei, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen. Du übernimmst dabei die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team wirkst du an der Erstellung technisch anspruchsvoller Features im Bereich Crypto/PKI mit und hilfst unserem innovativen Produkt, die Führungsposition auf einem wachsenden Markt zu festigen und auszubauen.
 
 ## Deine Aufgaben
 
