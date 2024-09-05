@@ -8,7 +8,7 @@ tagline: Research and design new (technical) features for our code integrity pla
 #job_id: 6608417
 image: consultant
 locations: 
-    - 'Vienna: office, remote, hybrid'
+    - 'Vienna: office, hybrid'
 layout: job
 description:
 ---
