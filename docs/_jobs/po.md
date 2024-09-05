@@ -1,6 +1,6 @@
 ---
-title: Jobs - Product Owner m/w/d
-header: Product Owner m/w/d
+title: Jobs - Application Security: Product Owner m/w/d
+header: Application Security: Product Owner m/w/d
 sub-header: Werde Teil des SignPath Teams
 sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
