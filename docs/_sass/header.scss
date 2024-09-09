@@ -35,90 +35,168 @@ html:not([data-scroll='0']) {
 	}
 }
 
-nav > ul { /** main navigation **/
-	display: flex;
-	flex-direction: row;
-	list-style-type: none;
-	align-items: center;
-	font-size: 1em;
-	padding-inline-start: 0px;
+nav {
 
-	& > li {
-		margin: 0px 16px;
-		position: relative;
+	& > ul { /** main navigation **/
+		list-style-type: none;
+		padding-inline-start: 0px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		font-size: 1em;
 
-		&.login {
-			margin-right: 0px;
-		}
-
-		a {
-			color: inherit;
-			font-size: 1em;
-		}
-
-		& > a {
+		& > li {
+			margin: 0px 16px;
 			position: relative;
-		
-			&:after { /** line effect on hover **/
-				content: '';
+
+			&.login {
+				margin-right: 0px;
+			}
+
+			& > a {
+				cursor: default;
+			}
+
+			a {
+				color: inherit;
+				font-size: 1em;
+			}
+
+			& > a {
+				position: relative;
+			
+				&:after { /** line effect on hover **/
+					content: '';
+					position: absolute;
+					left: 0px;
+					bottom: -4px;
+					width: 0%;
+					border-bottom: 1px solid #fff;
+					transition: width 0.2s linear;
+				}
+
+				&:hover:after {
+					width: 100%;
+				}
+
+				&.btn:hover:after {
+					width: 0%;
+				}
+			}
+
+			&:hover > ul, &:hover > div {
+				visibility: visible;
+			}
+
+			& > div { /* contains groups */
+				visibility: visible;
 				position: absolute;
-				left: 0px;
-				bottom: -4px;
-				width: 0%;
-				border-bottom: 1px solid #fff;
-				transition: width 0.2s linear;
+				left: -420px;
+				top: 1em;
+				padding-top: 18px;
+				color: #000;
+				visibility: hidden;
+				display: flex;
+				flex-direction: row;
+				top: 1em;
+
+				& > * {
+					background-color: $white-background-color;
+					border-color: $grey-border-color;
+					border-bottom-width: 1px;
+					borderstyle: solid;	
+
+					&:first-child {
+						border-left-width: 1px;
+					}
+
+					&:last-child {
+						border-right-width: 1px;
+					}
+				}
+
+				h3,h4 {
+					margin: 0px;
+					padding-left: 20px;
+				}
+
+				h3 {
+					font-size: 1em;
+					color: $dark-grey-font-color;
+					text-transform: uppercase;
+					margin-bottom: 0.5em;
+					margin-top: 0.5em;
+				}
+
+				h4 {
+					font-size: 0.8em;
+					color: $dark-grey-font-color;
+					border-bottom: 1px solid $light-grey-border-color;
+
+				}
+
+				div.group {
+					padding-right: 1em;
+				}
+
+				div.group > ul.group {
+					display: flex;
+					flex-direction: row;
+				}
+
+				& > ul { /* submenu without group */
+					padding-top: 2.65em;
+				}
 			}
 
-			&:hover:after {
-				width: 100%;
-			}
+			ul {
+				list-style-type: none;
+				padding: 0px;
+			
+				& > li {
+					white-space: nowrap;
+					background-color: $white-background-color;
 
-			&.btn:hover:after {
-				width: 0%;
-			}
-		}
-
-		&:hover > ul {
-			visibility: visible;
-		}
-
-		& > ul { /** first level submenu **/
-			visibility: hidden;
-			list-style-type: none;
-			position: absolute;
-			left: -20px;
-			top: 1em;
-			padding: 0px;
-			padding-top: 16px;
-			color: #000;
-
-			& > li {
-				background-color: $white-background-color;
-				border-left: 1px solid $grey-border-color;
-				border-right: 1px solid $grey-border-color;
-				white-space: nowrap;
-
-				&:first-child {
-					border-top: 1px solid $grey-border-color;
-				}
-
-				&:last-child {
-					border-bottom: 1px solid $grey-border-color;
-				}
-
-				&:hover {
-					background-color: $grey-border-color;
-				}
-
-				& > a {
-					display: block;
-					padding: 5px 20px;
-				}
-
-				&.separator {
-					height: 10px;
 					&:hover {
+						background-color: $grey-border-color;
+					}
+
+					&.group:hover {
 						background-color: $white-background-color;
+					}
+
+					& > a {
+						display: block;
+						padding: 5px 20px;
+					}
+				}
+			}
+
+			& > ul { /** first level submenu **/
+				visibility: hidden;
+				position: absolute;
+				left: -20px;
+				top: 1em;
+				padding-top: 18px;
+				color: #000;
+
+				li {
+					border-left: 1px solid $grey-border-color;
+					border-right: 1px solid $grey-border-color;
+
+					&:first-child {
+						border-top: 1px solid $grey-border-color;
+					}
+
+					&:last-child {
+						border-bottom: 1px solid $grey-border-color;
+					}
+
+					&.separator {
+						height: 10px;
+						&:hover {
+							background-color: $white-background-color;
+						}
 					}
 				}
 			}
@@ -203,13 +281,62 @@ nav > a#main-menu-toggle {
 				margin: 10px 30px;
 			}
 
-			& > ul {
+			& > div, & > ul {
 				position: static;
-				background-color: initial;
-				color: inherit;
 				display: block;
+				color: inherit;
 				visibility: visible;
 				padding-top: 0px;
+				background-color: initial;
+			}
+
+			& > div {
+				& > * {
+					background-color: $black-background-color;
+				}
+
+				div.group > ul.group {
+					display: block;
+				}
+
+				div.group, li.group {
+					margin-top: 0.5em;
+
+					&:first-child {
+						margin-top: 0em;
+					}
+				}
+
+				div.group {
+					h4, a {
+						padding-left: 60px;
+					}
+				}
+
+				h3, h4 {
+					padding-left: 40px;
+					border-bottom-width: 0px;
+
+				}
+
+				h3 {
+					margin: 0px;
+				}
+
+				h4 {
+					font-size: 1em;
+				}
+
+				div.group {
+					padding-right: 0px;
+				}
+
+				ul {
+					padding-top: 0px;
+				}
+			}
+
+			ul {
 
 				& > li {
 					background-color: $black-background-color;

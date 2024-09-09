@@ -1,0 +1,121 @@
+- text: Product
+  entries:
+    - text: Features
+      path: /product/features
+    - text: Editions
+      path: /product/editions
+    - text: Thales DPod Cloud HSM
+      path: /product/thales-dpod
+- text: Use Cases
+  entries:
+    - text: DevOps
+      path: /use-cases/devops
+    - text: InfoSec
+      path: /use-cases/infosec
+    - text: Open Source
+      path: /use-cases/open-source
+    - text: Office Macro Signing
+      path: /use-cases/office-macros
+- text: Resources
+  groups:
+    - text: Documentation
+      groups:
+        - text: Configuring SignPath
+          entries:
+            - text: Getting started
+              path: /resources/documentation/config/getting-started
+            - text: Certificates
+              path: /resources/documentation/config/certificates
+            - text: Users
+              path: /resources/documentation/config/users
+            - text: Projects
+              path: /resources/documentation/config/projects
+            - text: Artifact configurations
+              path: /resources/documentation/config/artifact-configuration
+        - text: Signing code
+          entries:
+            - text: Overview
+              path: /resources/documentation/signing/code
+            - text: Signing container images
+              path: /resources/documentation/signing/containers
+              entries:
+                - text: Sigstore Cosign
+                  path: /resources/documentation/signing/containers/cosign
+                - text: Docker Content Trust (DCT)
+                  path: /resources/documentation/signing/containers/docker-content-trust
+            - text: Generic Integrations
+              entries:
+                - text: Overview
+                  path: /resources/documentation/signing/integrations/overview
+                - text: HTTP REST API
+                  path: /resources/documentation/signing/integrations/rest-api
+                - text: PowerShell Module
+                  path: /resources/documentation/signing/integrations/powershell
+                  entries:
+                    - text: Submit-SigningRequest
+                      path: /resources/documentation/signing/integrations/powershell/cmdlets/submit-signingrequest
+                    - text: Get-SignedArtifact
+                      path: /resources/documentation/signing/integrations/powershell/cmdlets/get-signedartifact
+                    - text: Get-CertificateByMicrosoftTemplateId
+                      path: /resources/documentation/signing/integrations/powershell/cmdlets/get-certificatebymicrosofttemplateid
+            - text: Trusted Build Systems
+              path: /resources/documentation/signing/integrations/trusted-build-systems
+              entries:
+                - text: GitHub
+                  path: /resources/documentation/signing/integrations/github
+                - text: Jenkins
+                  path: /resources/documentation/signing/integrations/jenkins
+                - text: AppVeyor
+                  path: /resources/documentation/signing/integrations/appveyor
+                - text: Azure DevOps
+                  path: /resources/documentation/signing/integrations/azure-devops
+                - text: Double Authentication Proxy
+                  path: /resources/documentation/signing/integrations/double-authentication-proxy
+            - text: Crypto Providers
+              path: /resources/documentation/signing/integrations/crypto-providers
+              entries:
+                - text: Windows CSP and KSP
+                  path: /resources/documentation/signing/integrations/crypto-providers/windows
+                - text: Cryptoki/PKCS#11
+                  path: /resources/documentation/signing/integrations/crypto-providers/cryptoki
+                - text: GPG
+                  path: /resources/documentation/signing/integrations/crypto-providers/gpg
+                - text: MacOS CryptoTokenKit
+                  path: /resources/documentation/signing/integrations/crypto-providers/macos
+                - text: REST API
+                  path: /resources/documentation/signing/integrations/crypto-providers/rest-api
+            - text: Webhook notifications
+              path: /resources/documentation/signing/integrations/webhook-notifications
+    - text: Knowledge Base
+      entries:
+        - text: Code Signing
+          path: /resources/code-signing/introduction
+        - text: Code Signing Theory
+          path: /resources/code-signing/theory
+        - text: Code Signing on Windows
+          path: /resources/code-signing/windows-platform
+        - text: Managing test certificates
+          path: /resources/code-signing/test-certificates
+        - text: Storage of Private Keys
+          path: /resources/code-signing/private-keys
+        - text: PKI Consortium Best Practices 
+          path: /resoruces/code-signing/pkic-best-practices
+        - text: Media Coverage
+          path: /resources/code-signing/media-coverage 
+  entries:
+    - text: Blog
+      path: /blog
+    - text: Product Updates
+      path: /changelog
+    - text: Support
+      path: /support
+- text: About us
+  entries:
+    - text: Company
+      path: /company
+    - text: Team
+      path: /team
+    - text: Jobs
+      path: /jobs
+    - text: Contact
+      path: /contact
