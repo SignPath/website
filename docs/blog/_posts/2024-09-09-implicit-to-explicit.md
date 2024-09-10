@@ -2,7 +2,7 @@
 layout: post
 title: "From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps"
 image: '2024-09-09-bg'
-date: 2024-09-10 08:00:00 +0000
+date: 2024-09-09 08:00:00 +0000
 author: Paul Savoie
 summary: "By eliminating complexity, SignPath delivers a robust and flexible mechanism that fits naturally in modern software supply chains"
 description: "description"
@@ -71,4 +71,4 @@ Software supply chain attacks are on the rise. It's time to raise our collective
 By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
 Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.
 
-To experience the distinctive advantages SignPath offers, [Request a Demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
+To experience the distinctive advantages SignPath offers, [schedule a demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
