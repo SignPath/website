@@ -13,7 +13,7 @@ description: "description"
 
 "Trust, but verify": this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world's digital infrastructure, from satellites to web browsers.
 
-Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don't can remain blissfully unaware of the behind-the-scenes process to benefit from it -- a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
+Thanks to modern cryptographic techniques,especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users can remain blissfully unaware of the behind-the-scenes process to benefit from it -- a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
 
 However, there's an inconvenient truth for us software professionals who see how "the sausage is made": when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.
 
@@ -44,17 +44,17 @@ The problem with this process arises when the build environment grows more compl
 - Code signing solutions must be selective about what they accept to sign. They can't simply sign anything presented to them. Instead, they need to verify that each signature request is valid and comes from a trusted source, following a specific set of rules.
 - As more developers need permission to sign software, encryption keys must be both accessible and carefully safeguarded. Key management is a huge challenge in itself: code signing must use keys that are protected on hardware. So-called hardware signing modules (HSMs) were simply not designed to support modern CI/CD pipelines, which require flexibility and agility.
 
-In short, traditional code signing demands complex security infrastructure, often beyond the capacity of all but the largest organizations teams to handle. For this reason, code signing adoption by DevSecOps teams has lagged other software supply chain security capabilties, such as software composition analysis (SCA).
+In short, traditional code signing demands complex security infrastructure, often beyond the capacity of all but the largest organizations teams to handle. For this reason, code signing adoption by DevSecOps teams has lagged behind other software supply chain security capabilties, such as software composition analysis (SCA).
 
 But source code integrity and trusted build systems don't have to be daunting. Let's explore a few simple, pragmatic solutions.
 
 ## How SignPath Brings Code Signing to DevSecOps
 
-At SignPath,our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.
+At SignPath, our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.
 
 We created a solution that enables teams to:
 
-- Neatly integrate code signing into your existing CI/CD pipelines: we enable fully automated code signing workflows. Our solution eliminates many maintenance headaches by avoiding cumbersome ad-hoc scripts that need to securely handle cryptographic providers and tools. Metadata from the CI system can easily be attached to signing requests, providing additional context. This allows you to know exactly what got signed and enhances transparency.
+- Neatly integrate code signing into existing CI/CD pipelines: we enable fully automated code signing workflows. Our solution eliminates many maintenance headaches by avoiding cumbersome ad-hoc scripts that need to securely handle cryptographic providers and tools. Metadata from the CI system can easily be attached to signing requests, providing additional context. This allows you to know exactly what got signed and enhances transparency.
 - Deep sign software packages: we allow enable to sign multiple artifacts—such as executables, packages, SBOMs, or files within packages—in a single request. This feature is particularly useful when both application files and the package (or installer) require signing, which often creates a challenging dependency between the build process and the code signing process.
 - Centrally manage signing policies: organizations can define comprehensive, fine-grained signing policies in a central location. These policies control permissions, approvals, and origin verification, ensuring every signing operation follows strict security guidelines. Regardless of the tech stack, build process, or signing methods used, all rules are declared in a single location.
 
@@ -69,6 +69,6 @@ As a result, you gain strong cryptographic assurance that every software release
 Software supply chain attacks are on the rise. It's time to raise our collective standards and apply the same security mantra when building software as when we deliver it: trust but verify, making the implicit explicit.
 
 By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
-Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.
+Thanks to years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.
 
 To experience the distinctive advantages SignPath offers, [schedule a demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
