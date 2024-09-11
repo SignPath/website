@@ -32,13 +32,5 @@
 
 - separator: true
 
-- text: PowerShell cmdlets
-  path: powershell
-
-- text: Crypto Providers
-  path: crypto-providers
-
-- separator: true
-
 - text: Product updates
   path: changelog

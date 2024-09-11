@@ -1,0 +1,132 @@
+---
+title:  SignPath for DevOps
+description: Using SignPath in a DevOps pipeline
+---
+
+{% include header.html %}
+
+<section class="bg-image font-white top-section" style='background-image:url(/assets/img/devops.jpg);'>
+  <div>
+    <h1>{{ page.title }}</h1>
+  </div>
+</section>
+
+<section class="bg-grey devops-section">
+  <div>
+    <div class='columns'>
+      {% include devops.svg %}
+      <div>
+        <h2>Code Signing in the pipeline</h2>
+        <p>
+        With SignPath.io, code signing can be integrated into your existing continous deployment pipeline with just a few steps. You don't need to worry about connecting usb tokens to build servers, handling passwords prompts or securing your private keys. Signing just becomes one more step in your process, even for nested artifacts. Thanks to a clear separation of concerns, DevOps engineers can focus on the build and deployment process and leave the security concerns to their InfoSec colleagues.</p>
+      </div>
+    </div>
+    <p class='center'><a class='btn btn-primary trial' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial'>Start free trial</a></p>
+  </div>
+</section>
+
+<section class='devops-section'>
+  <div>
+    <h2>Build process integration</h2>
+    <p>
+      SignPath.io is built with DevOps in mind. Adding a code signing step to your build process requires just a few lines of code by including our PowerShell script, calling the API directly or using one of our build system integrations. The artifact is then extracted, and all specified files are signed recursively. SignPath can be integrated in a synchronous and an asynchronous call, providing flexibility for different use cases. In the synchronous case, the build job waits for the uploaded artifact to be signed and continues with the following steps right away. In the asynchronous case, the signing request has to be approved and a second pipeline is then started for e.g. deploying the signed artifact. Deeper integration including origin verification is supported with AppVeyor, all other CI systems such as Jenkins, Travis, TeamCity or CircleCI can be integrated by using a generic REST call via PowerShell or cURL.
+    </p>
+    <p><a class='btn btn-primary' href='/documentation/build-system-integration'>View documentation</a></p>
+    <div class='tabs'>
+      <ul class='header'>
+        <li class='active'><a data-tabkey='powershell' href="#"><i class="icon-powershell"></i> <span>PowerShell</span></a></li>
+        <li><a data-tabkey='curl' href="#"><i class="icon-curl"></i> <span>cURL</span></a></li>
+        <li><a data-tabkey='jenkins' href="#"><i class="icon-jenkins"></i> <span>Jenkins</span></a></li>
+        <li><a data-tabkey='github-actions' href="#">{% include github.svg %} <span>GitHub Actions</span></a></li>
+        <li><a data-tabkey='appveyor' href="#"><i class="icon-appveyor"></i> <span>AppVeyor</span></a></li>
+        <li><a data-tabkey='azuredevops' href="#"><i class="icon-azure-devops"></i> <span>Azure DevOps</span></a></li>
+      </ul>
+      {% raw %}
+      <div class='panel'>
+        <code data-tabcontent='powershell' class='active'>
+          <span><span class='command'>Submit-SigningRequest</span> `</span>
+          <span>    <span class='parameter'>-OrganizationId</span> <span class='variable'>$SIGNPATH_ORGANIZATION_ID</span> `</span>
+          <span>    <span class='parameter'>-ApiToken</span> <span class='variable'>$SIGNPATH_API_TOKEN</span> `</span>
+          <span>    <span class='parameter'>-ProjectSlug</span> my_software `</span>
+          <span>    <span class='parameter'>-SigningPolicySlug</span> release-signing `</span>
+          <span>    <span class='parameter'>-InputArtifactPath</span> build/my-release.msi `</span>
+          <span>    <span class='parameter'>-OutputArtifactPath</span> build-signed/my-release.msi `</span>
+          <span>    <span class='parameter'>-WaitForCompletion</span></span>
+        </code>
+        <code data-tabcontent='curl'>
+          <span><span class="variable">result</span>=$(<span class='command'>curl</span> <span class='string'>"https://app.signpath.io/api/v1/</span><span class='variable'>${SIGNPATH_ORGANIZATION_ID}</span><span class='string'>/SigningRequests"</span> \</span>
+          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_API_TOKEN}</span><span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-F</span> <span class='string'>"ProjectSlug=</span>my_software<span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-F</span> <span class='string'>"SigningPolicySlug=</span>release-signing<span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>-F</span> <span class='string'>"Artifact=</span>@./build/my-release.msi<span class='string'>"</span> \</span>
+          <span>  <span class='parameter'>--retry</span> 20 <span class='parameter'>--retry-delay</span> 30 <span class='parameter'>--silent --verbose</span>)</span>
+          <span><span class='variable'>url</span>=$( echo <span class='string'>"<span class='variable'>$result</span>"</span> | grep -i <span class='string'>'^&lt; Location: '</span> | grep -io <span class='string'>'https://.*'</span> | tr -d <span class='string'>'\r'</span> )</span>
+          <span><span class='command'>curl</span> <span class='string'>"<span class='variable'>$url</span>/SignedArtifact"</span> <span class='parameter'>--output</span> <span class='string'>"build-signed/my-release.msi"</span> <span class='parameter'>--silent </span> \</span>
+          <span>  <span class='parameter'>-H</span> <span class='string'>"Authorization: Bearer </span><span class='variable'>${SIGNPATH_API_TOKEN}</span><span class='string'>"</span> </span>
+        </code>
+        <code data-tabcontent='jenkins'>
+          <span><span class='command'>submitSigningRequest</span>( </span>
+          <span>  <span class='parameter'>organizationId:</span> <span class='string'>"</span><span class='variable'>${params.SIGNPATH_ORGANIZATION_ID}</span><span class='string'>"</span>, </span>
+          <span>  <span class='parameter'>ciUserTokenCredentialId:</span> <span class='string'>"</span><span class='variable'>${params.SIGNPATH_CI_USER_CREDENTIAL_ID}</span><span class='string'>"</span>, </span>
+          <span>  <span class='parameter'>projectSlug:</span> <span class='string'>"my_software"</span>, </span>
+          <span>  <span class='parameter'>signingPolicySlug:</span> <span class='string'>"release-signing"</span>, </span>
+          <span>  <span class='parameter'>inputArtifactPath:</span> <span class='string'>"build/my-release.msi"</span>, </span>
+          <span>  <span class='parameter'>outputArtifactPath:</span> <span class='string'>"build-signed/my-release.msi"</span>, </span>
+          <span>  <span class='parameter'>waitForCompletion:</span> true </span>
+          <span>) </span>
+        </code>
+        <code data-tabcontent='github-actions'>
+          <span>- uses: <span class='command'>signpath/github-action-submit-signing-request@v0.4</span> </span>
+          <span>  with:</span>
+          <span>    <span class='parameter'>api-token</span>: <span class='string'>'</span><span class='variable'>${{ secrets.SIGNPATH_API_TOKEN }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>organization-id</span>: <span class='string'>'</span><span class='variable'>${{ vars.SIGNPATH_ORGANIZATION_ID }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>project-slug</span>: <span class='string'>'my_software'</span></span>
+          <span>    <span class='parameter'>signing-policy-slug</span>: <span class='string'>'release-signing'</span></span>
+          <span>    <span class='parameter'>github-artifact-id</span>: <span class='string'>'</span><span class='variable'>${{ steps.upload-unsigned-artifact.outputs.artifact-id }}</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>output-artifact-directory</span>: <span class='string'>'./build-signed'</span></span>
+          <span>    <span class='parameter'>wait-for-completion</span>: <span class='string'>'true'</span></span>
+        </code>
+        <code data-tabcontent='appveyor'>
+          <span><span class='command'>deploy:</span></span>
+          <span>  - <span class='parameter'>provider</span>: Webhook</span>
+          <span>  <span class='parameter'>url</span>: <span class='string'>https://app.signpath.io/API/v1/</span><span class='variable'>$(SIGNPATH_ORGANIZATION_ID)</span><span class='string'>/Integrations/AppVeyor?</span><span class='parameter'>ProjectSlug=</span>my_software<span class='string'>&</span><span class='parameter'>SigningPolicySlug=</span>release-siging</span>
+          <span>  <span class='parameter'>authorization</span>:</span>
+          <span>    <span class='parameter'>secure</span>: <span class='string'>VGhpcyBpcyBub3QgdGhlIHNlY3JldCB0b2tlbiB5b3UgYXJlIGxvb2tpbmcgZm9yLi4uIC0gU2lnblBhdGguaW8=</span></span>
+        </code>
+        <code data-tabcontent='azuredevops'>
+          <span>- task: <span class='command'>SignPathSubmitSigningRequest@2</span> </span>
+          <span>  <span class='parameter'>inputs</span>:</span>
+          <span>    <span class='parameter'>organizationId</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_ORGANIZATION_ID)</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>ciUserToken</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_API_TOKEN)</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>projectSlug</span>: <span class='string'>'my_software'</span></span>
+          <span>    <span class='parameter'>signingPolicySlug</span>: <span class='string'>'release-siging'</span></span>
+          <span>    <span class='parameter'>inputArtifactPath</span>: <span class='string'>'./build/my-release.msi'</span></span>
+          <span>    <span class='parameter'>outputArtifactPath</span>: <span class='string'>'./build-signed/my-release.msi'</span></span>
+          <span>    <span class='parameter'>waitForCompletion</span>: <span class='string'>'sync'</span></span>
+        </code>
+      </div>
+       {% endraw %}
+    </div>
+
+  </div>
+</section>
+
+<section class='font-white bg-blue'>
+  <div>
+    <div class='columns'>
+      <div>
+        <i class="icon icon-origin-verification header"></i>
+        <h2>Origin verification for enhanced security</h2>
+        <p>For selected CI systems, SignPath can provide even more transparency by verifying that each signed artifact stems from a specific code repository, branch and source code commit. By integrating the origin information in the signature, each signed artifact can be traced back to the source code that it was build from.</p>
+      </div>
+      <div>
+        {% include user_big.svg %}
+        <h2>Manual approval steps</h2>
+        <p>
+          Security critical tasks such as code signing often include manual approval steps in order to increase the security and avoid malicious code to be deployed into a production system. SignPath.io allows you to configure multiple security restrictions, including manual approvals. All details necessary to validate the artifact, such as its origin, SHA256 hash and contents are readily available in the web application.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% include footer.html %}
