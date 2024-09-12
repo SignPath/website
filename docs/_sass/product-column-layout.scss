@@ -18,9 +18,11 @@ div.column-layout {
 				padding: 10px 0.8em;
 				position: relative;
 				box-sizing: border-box;
+				min-height: 50px;
 
 				&.first-after-header {
-					margin-top: calc(1em + 30px);
+					margin-top: 50px;
+					min-height: 50px;
 
 					&.first-after-main-header {
 						margin-top: 0px;
