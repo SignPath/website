@@ -13,7 +13,7 @@ description: "description"
 
 "Trust, but verify": this is a well-known proverb that defined the Cold War era. Today, these powerful words alone could be used to describe the philosophy behind the security of the world's digital infrastructure, from satellites to web browsers.
 
-Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users don't can remain blissfully unaware of the behind-the-scenes process to benefit from it -- a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
+Thanks to modern cryptographic techniques, especially asymmetric key encryption, we can ensure the integrity and authenticity of billions of website visits and software downloads worldwide. Users can remain blissfully unaware of the behind-the-scenes process to benefit from it -- a hallmark of great security. This invisible protection works silently to keep our digital interactions safe and trustworthy.
 
 However, there's an inconvenient truth for us software professionals who see how "the sausage is made": when it comes to assembling software for professional use, the benefits of modern crytography, in the form of code signing, prove to be the exception rather than the rule.
 
@@ -50,7 +50,7 @@ But source code integrity and trusted build systems don't have to be daunting. L
 
 ## How SignPath Brings Code Signing to DevSecOps
 
-At SignPath,our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.
+At SignPath, our mission is to relentlessly simplify and abstract the complexity out of code signing infrastructure.  The result is automated, authenticated builds that eliminate friction from the development process, while significantly improving software supply chain security. Our robust and flexible mechanism is a natural fit for modern CI/CD pipelines and software development practices.
 
 We created a solution that enables teams to:
 
@@ -69,6 +69,7 @@ As a result, you gain strong cryptographic assurance that every software release
 Software supply chain attacks are on the rise. It's time to raise our collective standards and apply the same security mantra when building software as when we deliver it: trust but verify, making the implicit explicit.
 
 By making code signing an intrinsic part of the DevSecOps framework, organizations can significantly reduce the risk of tampering, ensure compliance, and build resilient software supply chains.
-Thanks to its years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.
 
-To experience the distinctive advantages SignPath offers, [Request a Demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
+Thanks to years of experience implementing code signing into the most complex infrastructure, SignPath is proud to play a unique role in bringing code signing to DevSecOps.
+
+To experience the distinctive advantages SignPath offers, [request a demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
