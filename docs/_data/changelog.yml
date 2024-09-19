@@ -1,3 +1,39 @@
+- date: '2024-09-26'
+  updates:
+    application:
+      version: 1.172.0
+      improvements:
+        - text: |-
+            Added origin information (branch and commit hash if available, else the name of the trusted build system) to the signing request list.
+          issues: [SIGN-7220]
+        - text: |-
+            Improved the quota display on the organization page.
+          saas_only: true
+          issues: [SIGN-7144]
+        - text: |-
+            Artifact configuration XML visualization: Improved the display of signing directives when using multiple directives on the same file (set) element.
+          issues: [SIGN-7219]
+        - text: |-
+            Archived signing requests (completion older than 31 days) now also show the processing log on the signing request detail page.
+          issues: [SIGN-7138]
+      bug_fixes:
+        - text: |-
+            Fixed disabled "Resubmit with current settings" button for archived signing requests (completion older than 31 days).
+          issues: [SIGN-7134]
+        - text: |-
+            Fixed interactive user invitation flow for newly registered users.
+          saas_only: true
+          issues: [SIGN-7178]
+    self_hosted_installations:
+      version: 1.172.0
+      breaking_changes:
+        - text: Changed the recommended Kubernetes version to 1.29 and the `signpathio/kubectl` image tag to `1.29`.
+          issues: [SIGN-7238]
+      improvements:
+        - text: |-
+            Added graceful shutdown for containers: When Pods are terminated, they wait (by default for 30 secs) to e.g. finish started HTTP requests
+            or transfer Application Insights data.
+          issues: [SIGN-7193, SIGN-7194]
 - date: '2024-08-29'
   updates:
     application:
