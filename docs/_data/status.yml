@@ -8,6 +8,16 @@ current:
     #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
     #link:
 planned:
+  - date: 'Oct. 13, 2024'
+    range: 'Oct. 13, 2024, 08:00 - 09:00 UTC'
+    type: warning
+    title: 'HTTP load balancer maintenance'
+    description: |
+      Planned maintenance for SignPath HTTP load balancer.
+
+      * During this time-range inbound REST API and UI requests may fail.
+      * This includes signing request submission and hash signing requests.
+      * The processing of accepted signing requests won't be affected.
 incidents:
   - date: 'Sep. 11, 2024'
     range: 'Sep. 11, 2024, 10:26 - 10:55 UTC'
