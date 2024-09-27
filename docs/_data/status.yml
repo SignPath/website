@@ -15,7 +15,7 @@ planned:
     description: |
       Planned maintenance for the gateway that handles incoming network traffic.
 
-      * During this time range inbound requestsrequests may fail, including REST API, Web UI, connectors and and crypto providers.
+      * During this time range inbound requests may fail, including REST API, Web UI, connectors and and crypto providers.
       * Processing of accepted signing requests will not be affected.
 incidents:
   - date: 'Sep. 11, 2024'
