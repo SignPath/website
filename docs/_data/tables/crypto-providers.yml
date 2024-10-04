@@ -1,0 +1,35 @@
+rest-artifact-format:
+  headers:
+    property: JSON property
+    value: Value
+    remarks: Remarks
+  body:
+    - property: "`SignatureAlgorithm`"
+      value: |
+        RSS keys:
+        * `RsaPkcs1`: PKCS #1 v1.5 padding mode
+        * `RsaPss`: keys PSS padding mode (PKCS #1 v2.1)
+
+        Elliptic curve keys: `Ecdsa`
+    - property: "`RsaHashAlgorithm`"
+      value: |
+        The OID for the hash algorithm used. Available values: 
+        * MD5: `1.2.840.113549.2.5`
+        * SHA1: `1.3.14.3.2.26`
+        * SHA-256: `2.16.840.1.101.3.4.2.1`
+        * SHA-384: `2.16.840.1.101.3.4.2.2`
+        * SHA-512: `2.16.840.1.101.3.4.2.3`
+      remarks: Only used for RSA keys.
+    - property: "`EcdsaSignatureFormat`"
+      value: |
+        * `Ieee` (default): IEEE P1363 fixed-size signature block
+        * `Asn1`: RFC 3279 ASN.1 sequence
+      remarks: Only used for ECDSA keys.
+    - property: "`Base64EncodedHash`"
+      value: |
+        The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
+    - property: "`Metadata`"
+      value: |
+        `CreatingProcess` object with `CommandLine` and `User` properties (see example below)
+      remarks: | 
+        Can contain arbitrary metadata JSON values. Specified values are used by SignPath crypto providers.
