@@ -28,7 +28,7 @@ For hash data we recommend using a _fast signing request_. These requests are pe
 
 | JSON property          | Description 
 |------------------------|--------------
-| `SignatureAlgorithm`   | In case the signing policy references an RSA certificate: `"RsaPkcs1"` for the PKCS #1 v1.5 padding mode, or `"RsaPss"` for PKCS#1 v2.1 PSS padding mode. In case it references an ECDSA certificate: `Ecdsa`.
+| `SignatureAlgorithm`   | In case the signing policy references an RSA certificate: `"RsaPkcs1"` for the PKCS#1 v1.5 padding mode, or `"RsaPss"` for PKCS#1 v2.1 PSS padding mode. In case it references an ECDSA certificate: `Ecdsa`.
 | `RsaHashAlgorithm`     | The OID for used hash algorithm with the following allowed values: `"1.2.840.113549.2.5"` (MD5), `"1.3.14.3.2.26"` (SHA1), `"2.16.840.1.101.3.4.2.1"` (SHA-256), `"2.16.840.1.101.3.4.2.2"` (SHA-384), `"2.16.840.1.101.3.4.2.3"` (SHA-512). _Note that this property is only used for RSA keys._
 | `EcdsaSignatureFormat` | Either `"Ieee"` (default) to request an IEEE P1363 fixed-size signature block, or `"Asn1"` to request an RFC 3279 ASN.1 sequence. _Note that this property is only used for ECDSA keys._
 | `Base64EncodedHash`    | The Base64 encoded hash value to sign. When using an RSA certificate this is the result of the used `RsaHashAlgorithm`.
