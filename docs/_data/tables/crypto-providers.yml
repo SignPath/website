@@ -27,7 +27,9 @@ rest-artifact-format:
       remarks: Only used for ECDSA keys.
     - property: "`Base64EncodedHash`"
       value: |
-        The Base64 encoded hash value to sign. I.e. the result of the used `RsaHashAlgorithm`.
+        The Base64 encoded hash value to sign.
+      remarks: |
+        For RSA, the result of the function specified as `RsaHashAlgorithm`.
     - property: "`Metadata`"
       value: |
         `CreatingProcess` object with `CommandLine` and `User` properties (see example below)
