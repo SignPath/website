@@ -6,9 +6,9 @@ rest-artifact-format:
   body:
     - property: "`SignatureAlgorithm`"
       value: |
-        RSS keys:
+        RSA keys:
         * `RsaPkcs1`: PKCS #1 v1.5 padding mode
-        * `RsaPss`: keys PSS padding mode (PKCS #1 v2.1)
+        * `RsaPss`: PSS padding mode (PKCS #1 v2.1)
 
         Elliptic curve keys: `Ecdsa`
     - property: "`RsaHashAlgorithm`"
