@@ -5,21 +5,32 @@
       breaking_changes:
         - text: |-
             Renamed the X.509 certificate creation/upload REST API routes:
-              * `POST /v1/{organizationId}/Certificates/CreateSelfSigned` => `.../CreateSelfSignedX509`
-              * `POST /v1/{organizationId}/Certificates/CreateCsrBased` => `.../CreateCsrBasedX509`
-              * `POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate` => `.../UploadX509Certificate`
-              * The request body models didn't change and the old routes are still present, but marked as deprecated.
+              * `POST /v1/{organizationId}/Certificates/CreateSelfSigned` → `CreateSelfSignedX509`
+              * `POST /v1/{organizationId}/Certificates/CreateCsrBased` → `CreateCsrBasedX509`
+              * `POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate` → `UploadX509Certificate`
 
-            Changed response properties in `GET /v1/{organizationId}/Certificates` and `GET /v1/{organizationId}/Certificates/{slug}`:
-              * Changed the existing top-level `type` property to now represent the certificate type (e.g. `X509`).
-              * Its previous value has been moved to `x509Certificate.creationMethod` (e.g. `SelfSigned`, `Csr`, ...).
+            Old routes are still available but deprecated. No changes in request bodies.
           issues: [SIGN-7248]
+        - text: |-
+            Breaking change in v1 response properties.
+            
+            Affected routes:
+              * `GET /v1/{organizationId}/Certificates` 
+              * `GET /v1/{organizationId}/Certificates/{slug}`
+              
+            Changes:
+              * Existing property `type` (top-level) now represents the certificate type (currently only 'X509`).
+              * Previous value of 'type' is now in `x509Certificate.creationMethod` (`SelfSigned`, `Csr`, `PfxImport`, `ImportedWithExistingKeyPair`).
+
+            (Rationale: we expect no external dependencies on the current value of 'type'.)
+          issues: [SIGN-7248]
+      new_features:
+        - text: |-
+            ECDSA hash signing: added support for signature block format "RFC 3279 ASN.1 sequence". See [artifact format for signing hash digests](/documentation/crypto-providers/rest-api#hash-signing-payload-json).
+          issues: [SIGN-7240]
       improvements:
         - text: |-
-            Added support for optionally generating "RFC 3279 ASN.1 sequence" formatted signature blocks for ECDSA hash signing. See [artifact format for signing hash digests](/documentation/crypto-providers/rest-api#hash-signing-payload-json).
-          issues: [SIGN-7240]
-        - text: |-
-            On the signing request detail page, the HTTP response status code is now displayed for failed artifact retrievals.
+            Signing request details page now shows HTTP response status code for failed artifact retrievals.
           issues: [SIGN-6033]
       bug_fixes:
         - text: |-
