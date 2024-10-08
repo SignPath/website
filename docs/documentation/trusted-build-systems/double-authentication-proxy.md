@@ -24,7 +24,7 @@ You may configure the system to accept certificates based on
 >
 > This is a very straightforward way to authorize specific groups of build nodes for SignPath:
 > 
-> * Include all buiild nodes with certain security properties in a computer group
+> * Include all build nodes with certain security properties in a computer group
 > * Use Microsoft Certificate Server to assign computer certificates to this group (we recommend using short-lived certificates, i.e. days or weeks, for security critical groups)
 > * Specify the template ID in the Double Authentication Proxy configuration
 > * Register the Double Authentication Proxy as trusted build system (see [configuration](#configuration))
