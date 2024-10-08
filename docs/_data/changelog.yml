@@ -19,8 +19,8 @@
               * `GET /v1/{organizationId}/Certificates/{slug}`
               
             Changes:
-              * Existing property `type` (top-level) now represents the certificate type (currently only 'X509`).
-              * Previous value of 'type' is now in `x509Certificate.creationMethod` (`SelfSigned`, `Csr`, `PfxImport`, `ImportedWithExistingKeyPair`).
+              * Existing property `type` (top-level) now represents the certificate type (currently only `X509`).
+              * Previous value of `type` is now in `x509Certificate.creationMethod` (`SelfSigned`, `Csr`, `PfxImport`, `ImportedWithExistingKeyPair`).
 
             (Rationale: we expect no external dependencies on the current value of `type`.)
           issues: [SIGN-7248]
