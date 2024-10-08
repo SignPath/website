@@ -24,6 +24,7 @@ The confusion is evident in the first line:
 > Code integrity is a measurement used in the software delivery lifecycle. It measures how high the source code's quality is when it is passed on to QA.
 
 The article also sources definitions from seemingly circular references and random web pages.  Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces the need for clarity and accuracy in defining such critical terms.
+
 In my view, such confusion has consequences, particularly keeping in mind the current state of software supply chain security. Words have specific meanings, and while their usage can evolve, stretching them too far often leads to confusion and miscommunication, especially in a technical context. Clarity in terms such as “integrity” and “quality” is essential for effective design and proper implementation of best practices.
 
 
