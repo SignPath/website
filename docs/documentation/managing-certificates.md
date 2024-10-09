@@ -23,6 +23,35 @@ With SignPath, you have three options for creating or importing a certificate:
 * **Certificate signing requests (CSRs)** can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.
 * **PFX files** can be imported into SignPath. If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)
 
+## Key algorithms and lengths
+
+{% include editions.md feature="other.supported_key_algorithms" value="All" %}
+
+The following key algorithms and key lengths are supported by SignPath:
+
+| RSA       | ECDSA NIST | ECDSA Brainpool |
+| :--:      | :--:       | :--:
+| 2048 bits | P256       | P256r1          |
+| 3072 bits | P384       | P384r1          |
+| 4096 bits | P512       | P512r1          |
+| 8192 bits |            |                 |
+
+* For RSA keys, the following padding modes are supported:
+  * PKCS #1 v1.5
+  * PSS (PKCS #1 v2.1)
+* For ECDSA keys, the following signature formats are supported:
+  * IEEE P1363 fixed-size
+  * RFC 3279 ASN.1
+
+{:.panel.info}
+> **Availability of key algorithms and lengths**
+> 
+> SignPath defaults to RSA keys with a length of 4096 bits, which are available to all editions.
+> 
+> Availability also depends on
+> * The HSM backend _(Our SaaS offering supports all key algorithms and lengths)_
+> * The specific signing method
+
 ## Restrictions
 
 SignPath allows you to configure restrictions for certificates. You can, for instance, specify that all signing requests that are using the certificate must be manually approved.
