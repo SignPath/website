@@ -55,7 +55,7 @@
   other:
     malware_detection: true
     hsm_key_storage: true
-    supported_key_algorithms: RSA 4096
+    select_key_algorithm: false
     available_on_premises: false
     cert_enrollment: false
     support: 'email'
@@ -119,7 +119,7 @@
   other:
     malware_detection: true
     hsm_key_storage: true
-    supported_key_algorithms: RSA 4096
+    select_key_algorithm: false
     available_on_premises: false
     cert_enrollment: false
     support: 'email'
@@ -177,7 +177,7 @@
   other:
     malware_detection: true
     hsm_key_storage: true
-    supported_key_algorithms: All
+    select_key_algorithm: true
     available_on_premises: true
     cert_enrollment: true
     support: 'priority'
@@ -229,7 +229,7 @@
   other:
     malware_detection: false
     hsm_key_storage: true
-    supported_key_algorithms: All
+    select_key_algorithm: true
     available_on_premises: true
     cert_enrollment: true
     support: 'priority'
@@ -291,7 +291,7 @@
   other:
     malware_detection: true
     hsm_key_storage: true
-    supported_key_algorithms: RSA 4096
+    select_key_algorithm: false
     available_on_premises: false
     cert_enrollment: false
     support: 'email'

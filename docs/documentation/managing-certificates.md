@@ -25,32 +25,19 @@ With SignPath, you have three options for creating or importing a certificate:
 
 ## Key algorithms and lengths
 
-{% include editions.md feature="other.supported_key_algorithms" value="All" %}
+All editions support the default key format RSA 4096.
 
-The following key algorithms and key lengths are supported by SignPath:
+{% include editions.md feature="other.select_key_algorithm" %}
 
-| RSA       | ECDSA NIST | ECDSA Brainpool |
-| :--:      | :--:       | :--:
-| 2048 bits | P256       | P256r1          |
-| 3072 bits | P384       | P384r1          |
-| 4096 bits | P512       | P512r1          |
-| 8192 bits |            |                 |
+In supported editions, the following key algorithms and lengths are available:
 
-* For RSA keys, the following padding modes are supported:
-  * PKCS #1 v1.5
-  * PSS (PKCS #1 v2.1)
-* For ECDSA keys, the following signature formats are supported:
-  * IEEE P1363 fixed-size
-  * RFC 3279 ASN.1
+* RSA: 2048, 3072, 4096, 8192 bits
+* ECDSA NIST: P256, P384, P512
+* ECDSA Brainpool: P256r1, P384r1, P512r1
 
-{:.panel.info}
-> **Availability of key algorithms and lengths**
-> 
-> SignPath defaults to RSA keys with a length of 4096 bits, which are available to all editions.
-> 
-> Availability also depends on
-> * The HSM backend _(Our SaaS offering supports all key algorithms and lengths)_
-> * The specific signing method
+The availability of keys may be limited for certain key stores/HSMs.
+
+Note that not all signing methods support all key algorithms and lenghts. SignPath shows known incompatibilities when selecting a key algorithm.
 
 ## Restrictions
 

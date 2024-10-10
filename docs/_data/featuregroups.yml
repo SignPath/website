@@ -197,9 +197,10 @@
     - name: hsm_key_storage
       title: 'HSM key storage'
       hint: 'Private keys are created and stored on a Hardware Security Module (HSM). Signatures are created by the HSM, private keys cannot be exported.'
-    - name: supported_key_algorithms
-      title: 'Supported key algorithms'
+    - name: select_key_algorithm
+      title: 'Key algorithm options'
       href: '/documentation/managing-certificates#key-algorithms-and-lengths'
+      hint: 'All editions support RSA 4096.'
     - name: available_on_premises
       title: 'Self-hosted option'
       hint: 'Deploy SignPath in your own organization on-premises or in a Private Cloud for full control, unlimited processing and reduced bandwith consumption.'
