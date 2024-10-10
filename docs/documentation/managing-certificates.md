@@ -32,7 +32,7 @@ All editions support the default key format RSA 4096.
 In supported editions, the following key algorithms and lengths are available:
 
 * RSA: 2048, 3072, 4096, 8192 bits
-* ECDSA NIST: P256, P384, P512
+* ECDSA NIST: P256, P384, P521
 * ECDSA Brainpool: P256r1, P384r1, P512r1
 
 The availability of keys may be limited for certain key stores/HSMs.
