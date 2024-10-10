@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "New year, new faces: SignPath expands the market going activities"
+title: "New year, new faces: Growing the team"
 image: '2024-02-19-bg'
 date: 2024-02-22 08:00:00 +0000
 author: Klaus Rathje
 published: true
-summary: "We will boost and expand the market going activities. With this move, we also grow our leadership team."
+summary: "To meet the growing needs of software supply chain security, we're expanding our leadership team and accelerating our marketing efforts."
 redirect_from: 
   - /blog/2024/02/19/new-year-new-faces
   - /blog/2024/02/22/new-funding-new-faces

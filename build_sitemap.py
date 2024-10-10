@@ -36,6 +36,7 @@ layout_dates: dict[str, datetime] = {}
 # quick&dirty hack. import dateutil didn't work
 def parse_datetime (str: str, file, key) -> datetime:
     str = str.split('+')[0].strip() # strip time zone info + whitespace
+    str = str.split(' -')[0].strip() # strip time zone info + whitespace
     try: return datetime.strptime(str, '%Y-%m-%d %H:%M:%S');
     except:
         try: return datetime.strptime(str, '%Y-%m-%d %H:%M');
