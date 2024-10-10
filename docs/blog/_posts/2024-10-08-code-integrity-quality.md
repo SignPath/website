@@ -22,7 +22,7 @@ The confusion is evident in the first line:
 
 > Code integrity is a measurement used in the software delivery lifecycle. It measures how high the source code's quality is when it is passed on to QA.
 
-Huh? Code integrity is a measure of code quality? Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces my point. The need for clarity and accuracy in defining such critical terms.
+Huh? Code integrity is a measure of code quality? Given that Wikipedia is often the “go-to” source for authoritative definitions, this article only reinforces my point -- the need for clarity and accuracy in defining such critical terms.
 
 It wouldn't be a big deal if the integrity/quality confusion were confined to a single Wikipedia article. But the article is just a symptom of a wider problem. The conflation crops up again and again, even on product pages of (otherwise sophisticated) technology companies.
 
