@@ -33,7 +33,7 @@ Keeping in mind the current state of software supply chain security, such confus
 
 In the general sense, integrity refers to the state of being whole, undivided, and uncorrupted. In the domain of software, “integrity” has a very precise meaning. By saying the software exhibits “integrity”, we mean that it remains unadulterated by any third parties, and is provably free of any unintended modifications. Some might argue that software integrity refers to the absence of any unauthorized changes in the delivered product. This interpretation aligns well with the concept of maintaining the original intent and design of the software. For example, some types of software supply chain attacks are referred to as “code integrity attacks”. 
 
-Quality, on the other hand, is a multifaceted concept. We usually think of quality as a qualitative, rather than a quantitative measure. Yet, in the domain of software, quality measures, as empirically as possible, a software deliverable's adherence to product requirements, performance metrics, scaling characteristics, UX/DX designs, and industry standards.
+Quality, on the other hand, is a multifaceted concept. We usually think of quality as a (surprise!) qualitative, rather than a quantitative, measure. Yet, in the domain of software, quality measures, as empirically as possible, a software deliverable's adherence to product requirements, performance metrics, scaling characteristics, UX/DX designs, and industry standards.
 
 ## What is “code integrity” after all?
 
