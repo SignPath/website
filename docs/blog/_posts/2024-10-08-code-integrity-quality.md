@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Misconception of Integrity as Quality
-<!-- image: '2024-10-08-bg' -->
+image: '2024-09-09-bg'
 date: 2024-10-08 08:00:00 +0000
 author: Stefan Wenig
 summary: "Code integrity and code quality: Two concepts that are often used interchangeably. That's not only inaccurate, but also potentially harmful."
