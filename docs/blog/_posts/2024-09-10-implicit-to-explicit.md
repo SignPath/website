@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps"
+title: "Why Code Signing is the Missing Link in DevSecOps"
 image: '2024-09-09-bg'
 date: 2024-09-10 08:00:00 +0000
 author: Paul Savoie
-summary: "As software supply chains grow ever more complex, we can no longer justify trusting without verifying the software components in our pipelines."
+summary: "As software supply chains grow ever more complex, we can no longer blindly trust software components in our pipelines. To stay safe, we must always verify."
 description: "description"
 ---
 

@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses"
+title: "The Misconception of Integrity as Quality
 image: '2024-10-08-bg'
 date: 2024-10-08 08:00:00 +0000
 author: Stefan Wenig
-summary: "By eliminating complexity, SignPath delivers a robust and flexible mechanism that fits naturally in modern software supply chains"
+summary: "Code integrity and code quality: Two concepts that are often used interchangeably. That's not only inaccurate, but also potentially harmful."
 description: "description"
 ---
 
