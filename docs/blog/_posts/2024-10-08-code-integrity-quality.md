@@ -12,7 +12,7 @@ description: "description"
 # The Misconception of Integrity as Quality: A Perspective on Definitions and Misuses
 
 
-I'm seeing far too many sources conflating the concepts of “code integrity” and “code quality”. As the founder of a startup that provides a code integrity problem, I see this as a problem! In software architecture and development, precise terminology is crucial. Conflating terms can, and often does, lead to mistakes, compromises, and system failures.
+I'm seeing far too many sources conflating the concepts of “code integrity” and “code quality”. As the founder of a startup that provides a code integrity platform, I see this as a problem! In software architecture and development, precise terminology is crucial. Conflating terms can, and often does, lead to mistakes, compromises, and system failures.
 
 {% include image.html url="/assets/posts/2024-10-08.jpg" %}
 
