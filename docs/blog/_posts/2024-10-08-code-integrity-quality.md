@@ -67,5 +67,4 @@ In fact, several working groups are tackling this issue of code integrity. The O
 In conclusion, while integrity and quality are related, they are far from synonymous. Integrity focuses on the preservation of the original state and authenticity, while quality encompasses a broader range of attributes. Clear and precise definitions are crucial, particularly in technical fields, to ensure effective communication and implementation of best practices. So, let's maintain the integrity of our language and use terms appropriately, especially when it comes to important concepts like code integrity.
 
 
-
-To experience the distinctive advantages SignPath offers, [Request a Demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
+To experience the distinctive advantages SignPath offers for code integrity, [Request a Demo](https://forms.gle/sAHSsxgASx2BYPzc9) today.
