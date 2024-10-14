@@ -6,22 +6,13 @@
 
 - separator: true
 
-- text: For DevOps teams
-  path: devops
+- text: Advanced Code Signing
+  path: advanced-code-signing
+  
+- text: Pipeline Integrity
+  path: pipeline-integrity
 
-- text: For InfoSec teams
-  path: infosec
+- text: Code Signing Gateway
+  path: code-signing-gateway
 
-- text: For Open Source projects
-  path: open-source
 
-- separator: true
-
-- text: Office macro signing
-  path: office-macros
-
-- text: Thales DPoD Cloud HSM
-  path: thales-dpod
-
-- text: PKI Consortium best practices
-  path: pkic-best-practices
