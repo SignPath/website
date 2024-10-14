@@ -22,11 +22,12 @@ html {
 }
 
 body, input {
-	font-family: 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
+	font-family: 'Mono Sans', SegoeUI, Helvetica, Arial, sans-serif;
 }
 
 h1, h2, h3 {
-	font-family: 'Roboto', 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
+	font-family: 'Mono Sans', 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
+	font-weight:bold;
 }
 
 h1 {
@@ -220,6 +221,7 @@ section.top-section > div {
 	}
 
 	& > p {
+		font-size: 1.2em;
 		font-size: 1.2em;
 	}
 }
