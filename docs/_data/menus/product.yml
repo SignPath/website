@@ -1,8 +1,5 @@
-- text: Features
-  path: features
-
-- text: Editions
-  path: editions
+- text: Code Integrity Platform
+  path: code-integrity-platform
 
 - separator: true
 
@@ -14,5 +11,8 @@
 
 - text: Code Signing Gateway
   path: code-signing-gateway
+  
+- separator: true
 
-
+- text: Editions
+  path: editions

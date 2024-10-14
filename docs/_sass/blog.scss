@@ -15,7 +15,7 @@ section.blog-section {
 		ul {
 
 			div.header {
-				background-color: $dark-grey-background-color;
+				background-color: $dark-blue-background-color;
 			}
 
 			div.info {
@@ -37,6 +37,7 @@ section.post-section {
 		& > ul {
 			list-style-type: none;
 			padding: 0px;
+			font-weight: bold;
 		}
 
 		& > ul > li {

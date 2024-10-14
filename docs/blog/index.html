@@ -1,7 +1,7 @@
 ---
-title: Blog
-header: Blog
-description: SignPath team blog
+title: SignPath Blog
+header: Thoughts on Code Integrity and the Software Supply Chain
+description: Thoughts on Code Integrity and the Software Supply Chain
 #featured_slugs:
 #    - 'welcome-to-jekyll'
 ---
@@ -10,7 +10,7 @@ description: SignPath team blog
 
 <section class="bg-blue font-white top-section">
   <div>
-    <h1>{{ page.header }}</h1>
+    <h1><b>{{ page.header }}</b></h1>
   </div>
 </section>
 <section class="blog-section bg-grey">
@@ -24,7 +24,7 @@ description: SignPath team blog
             <li>
               <a href='{{ post.url }}'>
                 <div class="header">
-                  {{ post.title }}
+                  <p>{{ post.title }}</p>
                 </div>
               </a>
               <div>
@@ -43,7 +43,7 @@ description: SignPath team blog
                     {{ post.excerpt | truncatewords: 15 }}
                   {% endif %}
                 </p>
-                <a class='btn btn-secondary' href='{{ post.url }}'>Read more</a>
+                <a class='btn btn-secondary' href='{{ post.url }}'>Read the post</a>
               </div>
             </li>
           {% endif %}
@@ -54,12 +54,12 @@ description: SignPath team blog
     <h2>Recent Posts<a href='/feed.xml'>Feed
       {% include rss.svg %}
     </a></h2>
-    <ul class='card-container'>
+    <ul class='card-container'>	
       {% for post in site.posts %}
         <li>
           <a href='{{ post.url }}'>
             <div class="header">
-              {{ post.title }}
+              <b>{{ post.title }}</b>
             </div>
           </a>
           <div>
@@ -72,13 +72,13 @@ description: SignPath team blog
                     {{ post.date | date: '%B %d, %Y' }}</span>
             </div>
             <p>
-              {% if post.summary %}
-                {{ post.summary }}
-              {% else %}
-                {{ post.excerpt | truncatewords: 15 }}
-              {% endif %}
+              <b>{% if post.summary %}
+                              {{ post.summary }}
+                            {% else %}
+                              {{ post.excerpt | truncatewords: 15 }}
+                            {% endif %}</b>
             </p>
-            <a class='btn btn-secondary' href='{{ post.url }}'>Read more</a>
+            <a class='btn btn-secondary' href='{{ post.url }}'><b>Read the post</b></a>
           </div>
         </li>
       {% endfor %}
