@@ -1,6 +1,6 @@
 ---
 title: Code Integrity Platform
-description: The security gateway for software supply chains
+description: The security gatekeeper for software supply chains
 ---
 
 {% include header.html %}
@@ -9,24 +9,87 @@ description: The security gateway for software supply chains
   <div>
 		<h1><b>Code Integrity Platform</b></h1>
 		<h3>
-			<b>The security gateway for software supply chains</b>
+			<b>The security gatekeeper for software supply chains</b>
 		</h3>
 	</div>
-</section>
+</section>				
 
-<section class='bg-grey'>
+<section>
 	<div>
 		<div class='columns'>
-			<div>
-				<h3>Advanced code signing</h3>
-				<p><ul>
-					<li>Core code signing capabilities</li>
-<li>Support for multiple file formats</li>
-<li>Content-based policies</li>
-<li>Malware scanning</li>
-<li>Generic automation and CI/CD integration (e.g. REST APIs, PowerShell modules)</li>
-<li>Basic CI/CD connectors and add-ins</li>
-				</ul></p>
+			<div class='column-stretched'>
+				<div>
+					{% include laptop.svg %}
+					<h3><b>User and permission management</b></h3>
+					<b>Beyond simple code signing gateways</b>
+					<p>
+					Relieves teams of tedious tasks, while guaranteeing correct implantation, provides authoritative logging and retention, and provides additional capabilities to harden the process against policy violations or attacks. SignPath automatically enforces well-defined policies and is easy to integrate into build processes. The deep security analysis that goes into each supported CI system ensures that development teams don’t have to think about all the ways that integrity can go wrong, through sloppiness, mistakes, or attacks.
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/advanced-code-signing'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include shield.svg %}
+					<h3><b>Key and certificate management</b></h3>
+					<p>
+					<p><b>Purpose-built for modern CI/CD pipelines</b></p>
+					<p>Deep integration and continuous policy-based control over code, build, deploy activities. SignPath enables DevSecOps and security engineers to focus on a few well-defined security controls, rather than securing every potential system, branch, configuration, and agent.</p>  
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/pipeline-integrity'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include code.svg %}
+					<h3><b>APIs, reporting and auditing </b></h3>
+					<b>Deployment flexibility</b>
+					<p>
+						SignPath supports cloud, on-prem, and hybrid deployments, and delivers broad support for cryptography providers and standard tools, as well as custom code signing for obscure or proprietary systems.   
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/code-signing-gateway'>Learn more</a>
+			</div>
+		</div>
+			<div class='column-stretched'>
+				<div>
+					{% include code.svg %}
+					<h3><b>SaaS and self-hosted options </b></h3>
+					<b>Deployment flexibility</b>
+					<p>
+						SignPath supports cloud, on-prem, and hybrid deployments, and delivers broad support for cryptography providers and standard tools, as well as custom code signing for obscure or proprietary systems.   
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/code-signing-gateway'>Learn more</a>
+			</div>
+		</div>
+	</div>
+</section>
+				
+				
+<h1>What Challenges does the Code Integrity Platform address?</h1>
+
+<p>Increasingly sophisticated attacks aim directly at software production, distribution,
+deployment, and update processes.</p>
+
+<p>Without a zero-trust approach to these processes, there are many ways to violate code
+integrity. Any breach of network boundaries or access to a user account or other credentials
+can be the starting point of an attack. Disgruntled employees, external accounts with far-
+reaching permissions or failure to deactivate these accounts, or simple social engineering can
+be used to take over software releases.</p>
+
+<p>Where security depends on carefulness and policy conformance, simple negligence can
+lead to potentially catastrophic results. Paper policies that are hard to execute or get in the
+way of agility and productivity cannot be relied upon.</p>
+
+<p>As in every IT security discipline, defenders must be thorough, but attackers only need to
+find a single way to succeed. However, the attack surface in software production is
+unproportionally large.</p>
+
+<p>The impact of code integrity violations is not limited to critical software. Any software can be
+exploited beyond the scope of its original purpose if it runs on sensitive systems or has
+access to sensitive data. And even seemingly harmless programs can be used to prepare
+attacks using lateral movement or social engineering techniques.</p>
 				
 				<p>
 					SignPath provides your organization with a simple and secure code signing process. Development teams can define workflows that integrate well with their existing software development lifecycle. Responsibilities, tasks, alerts and inventories of your private keys and certificates are well documented and transparent for the InfoSec teams.
