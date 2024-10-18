@@ -43,7 +43,7 @@ description: Thoughts on Code Integrity and the Software Supply Chain
                     {{ post.excerpt | truncatewords: 15 }}
                   {% endif %}
                 </p>
-                <a class='btn btn-secondary' href='{{ post.url }}'>Read the post</a>
+                <span><a class='btn btn-secondary' href='{{ post.url }}'>Read the post</a></span>
               </div>
             </li>
           {% endif %}
@@ -59,12 +59,12 @@ description: Thoughts on Code Integrity and the Software Supply Chain
         <li>
           <a href='{{ post.url }}'>
             <div class="header">
-              <b>{{ post.title }}</b>
+              {{ post.title }}
             </div>
           </a>
           <div>
             <div class='info'>
-              <span>
+              <span>	
                     {% include user.svg %}
                     {{ post.author }}</span>
               <span>
@@ -72,13 +72,13 @@ description: Thoughts on Code Integrity and the Software Supply Chain
                     {{ post.date | date: '%B %d, %Y' }}</span>
             </div>
             <p>
-              <b>{% if post.summary %}
+              {% if post.summary %}	
                               {{ post.summary }}
                             {% else %}
                               {{ post.excerpt | truncatewords: 15 }}
-                            {% endif %}</b>
+                            {% endif %}
             </p>
-            <a class='btn btn-secondary' href='{{ post.url }}'><b>Read the post</b></a>
+            <center><a class='btn btn-secondary' href='{{ post.url }}'><b>Read the post</b></a></center>
           </div>
         </li>
       {% endfor %}

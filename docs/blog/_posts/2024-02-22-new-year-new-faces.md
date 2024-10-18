@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "New year, new faces: SignPath expands the market going activities"
+title: "New year, new faces"
 image: '2024-02-19-bg'
 date: 2024-02-22 08:00:00 +0000
 author: Klaus Rathje

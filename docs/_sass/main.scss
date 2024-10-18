@@ -22,12 +22,17 @@ html {
 }
 
 body, input {
-	font-family: 'Mono Sans', SegoeUI, Helvetica, Arial, sans-serif;
+	font-family: 'Mono Sans', Helvetica, Arial, sans-serif;
 }
 
-h1, h2, h3 {
-	font-family: 'Mono Sans', 'Segoe UI', SegoeUI, Helvetica, Arial, sans-serif;
+h1, h2 {
+	font-family: 'Mono Sans', Helvetica, Arial, sans-serif;
 	font-weight:bold;
+}
+
+h3, h4 {
+	font-family:  'Cousine', Helvetica, Arial, sans-serif;
+    color: $orange-font-color;
 }
 
 h1 {
@@ -89,11 +94,13 @@ button {
 }
 
 a.btn, button.btn {
+    font-family: 'Cousine', serif, Arial, Helvetica;
 	display: inline-block;
 	padding: 6px 20px;
 	border: 1px solid transparent;
 	color: inherit;
 	box-shadow: $shadow;
+	border-radius: 4px;
 }
 
 a.btn-flat {
@@ -106,20 +113,23 @@ a.btn-flat {
 }
 
 a.btn-primary, button.btn-primary {
-	background-color: $primary-color;
+    font-family: 'Cousine', serif, Arial, Helvetica;
+	background-color: #570050;
 	color: $white-font-color;
 
 	&:hover {
-		background-color: $primary-darker-color;
+		color: $black-font-color;
+		background-color: $white-background-color;
 	}
 }
 
 a.btn-secondary, button.btn-secondary {
-	background-color: $secondary-color;
-	color: $black-font-color;
+	background-color: #003357;
+	color: $white-font-color;
 
 	&:hover {
-		background-color: $primary-color;
+		color: $black-font-color;
+		background-color: $white-background-color;
 	}
 }
 
@@ -153,6 +163,11 @@ main {
 			box-sizing: border-box;
 
 			& > h2 {
+				font-size: 2em;
+				margin-top: 0px;
+				text-align: center;
+			}
+			& > h3 {
 				font-size: 2em;
 				margin-top: 0px;
 				text-align: center;
@@ -282,6 +297,7 @@ section.error404 {
  * COLUMNS
  */
 div.columns {
+	font-family: 'Open Sans', serif, Arial, Helvetica;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
@@ -378,7 +394,6 @@ form {
 	}
 
 	& > button {
-
 	}
 }
 

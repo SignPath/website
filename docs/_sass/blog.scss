@@ -5,6 +5,7 @@ section.blog-section {
 		h2 {
 			margin-top: 20px;
 			text-align: left;
+			font-family: 'Cousine', serif, Arial, Helvetica;	
 
 			& > a {
 				float: right;
@@ -15,7 +16,8 @@ section.blog-section {
 		ul {
 
 			div.header {
-				background-color: $dark-blue-background-color;
+				background-color: #003357;
+
 			}
 
 			div.info {
@@ -23,6 +25,7 @@ section.blog-section {
 				justify-content: space-between;
 
 				& > span {
+
 					color: $dark-grey-font-color;
 					display: inline-block;
 					font-size: .8em;
@@ -35,6 +38,7 @@ section.blog-section {
 section.post-section {
 	div.sources {
 		& > ul {
+			
 			list-style-type: none;
 			padding: 0px;
 			font-weight: bold;

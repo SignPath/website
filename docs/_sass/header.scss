@@ -43,9 +43,11 @@ nav > ul { /** main navigation **/
 	font-size: 1em;
 	padding-inline-start: 0px;
 
+
 	& > li {
 		margin: 0px 16px;
 		position: relative;
+			    
 
 		&.login {
 			margin-right: 0px;
@@ -54,6 +56,7 @@ nav > ul { /** main navigation **/
 		a {
 			color: inherit;
 			font-size: 1em;
+			
 		}
 
 		& > a {
@@ -193,6 +196,7 @@ nav > a#main-menu-toggle {
 
 		& > li {
 			margin: 0px;
+			
 
 			& > a:hover:after {
 				width: 0%;
@@ -237,6 +241,7 @@ nav > a#main-menu-toggle {
 	}
 
 	nav > ul li > a {
+
 		border-top: 1px solid $dark-grey-border-color;
 		display: block;
 		padding: 10px 20px;

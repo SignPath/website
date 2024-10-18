@@ -14,7 +14,7 @@ SignPath is dedicated to software and code integrity. We provide leading-edge so
 
 SignPath was founded in 2017 by [RUBICON IT](https://www.rubicon.eu/en/), a leading European software company, providing software and related services to the public sector and enterprise customers in Central and Western Europe. Since 2023, SignPath is an independent private company.
 
-[Contact us](mailto:sales@signpath.io){: class="btn btn-primary"}
+[Contact us](mailto:sales@signpath.io){: class="btn btn-secondary"}
 
 </div> <div markdown="1">
 
@@ -22,7 +22,7 @@ SignPath was founded in 2017 by [RUBICON IT](https://www.rubicon.eu/en/), a lead
 
 At SignPath, we believe that signing code is crucial for secure distribution of software artifacts. Increased frequency of releases make it even more important that the origin of every shipped code is verifiable. Therefore we are developing the world's leading code signing solution to allow organizations of all sizes to reliably and securely sign their code - without compromising on their agility.
 
-[See open positions](https://www.karriere.at/jobs/signpath/){: class="btn btn-primary"}
+[See open positions](https://www.karriere.at/jobs/signpath/){: class="btn btn-secondary"}
 
 </div> </div>
 

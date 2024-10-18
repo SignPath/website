@@ -1,6 +1,6 @@
 ---
 title: Team
-header: Our Team
+header: The SignPath Team
 layout: default
 description: About SignPath GmbH
 ---
@@ -8,6 +8,8 @@ description: About SignPath GmbH
 <div class='columns'>
 
 <div markdown="1">
+	
+	
 {% include image.html url="/assets/img/team/stefan.jpg" description="**Stefan Wenig** <br/>CEO / Chief Executive Officer" %}
 
 Stefan founded SignPath in 2017 out of RUBICON IT, where he had served as head of R&D since 2001. Stefan developed the vision for SignPath based on the need for secure code signing integrated with a secure software build and release process for security-sensitive customers.

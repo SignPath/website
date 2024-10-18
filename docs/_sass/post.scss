@@ -4,6 +4,7 @@ section.post-section {
 	}
 
 	& > div {
+
 		a:hover {
 			text-decoration: underline;
 		}
@@ -13,12 +14,14 @@ section.post-section {
 
 			thead {
 				background-color: $light-grey-background-color;
+
 			}
 
 			td, th {
 				border: 1px solid $grey-border-color;
 				padding: 5px 10px;
 				vertical-align: top;
+				
 			}
 
 			td {

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Cybernews interview with our CEO: supply chains and code signing"
+title: "Cybernews interview with our CEO"
 image: '2022-03-21_01-bg'
 date: 2022-02-21 16:00:00 +0000
 author: Stefan Wenig
