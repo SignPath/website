@@ -1,0 +1,26 @@
+# required for lists
+components:
+  - application
+  - self_hosted_installations
+  - powershell_module
+  - powershell_module_docker
+  - crypto_providers
+  - github_connector
+  - jenkins_plugin
+
+# used for lookup
+details:
+  application: 
+    label: 'Application'
+  self_hosted_installations: 
+    label: 'Application (self-hosted only)'
+  powershell_module: 
+    label: 'PowerShell Module'
+  powershell_module_docker: 
+    label: 'Docker PowerShell Module'
+  crypto_providers: 
+    label: 'Crypto Providers'
+  github_connector: 
+    label: 'GitHub Connector'
+  jenkins_plugin: 
+    label: 'Jenkins Plugin'

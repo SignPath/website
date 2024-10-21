@@ -32,6 +32,8 @@
   {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
   {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
   {%- when "macos_cryptotokenkit" -%} {%- assign include_category_name = 'macOS CryptoTokenKit ' -%}
+  {%- when "github_connector" -%} {%- assign include_category_name = 'GitHub Connector' -%}
+  {%- when "jenkins_plugin" -%} {%- assign include_category_name = 'Jenkins Plugin' -%}
 {%- endcase -%}
 <title type="html">SignPath - {{ include_category_name }}Changelog</title>
 <author>
@@ -46,25 +48,11 @@
       {%- if include.category == nil or include.category == component -%}
       <entry>
         <id>tag:about.signpath.io,{{ entry.date | date: '%F'}}:{{ component }}:{{ release.version }}</id>
-        <title>{%- case component -%}
-          {%- when "application" -%} SignPath Application {{ release.version }}
-          {%- when "self_hosted_installations" -%} SignPath Self-hosted Installations {{ release.version }}
-          {%- when "powershell_module" -%} SignPath SignPath PowerShell Module {{ release.version }}
-          {%- when "powershell_module_docker" -%} SignPath Docker PowerShell Module {{ release.version }}
-          {%- when "crypto_providers" -%} SignPath Crypto Providers {{ release.version }}
-          {%- when "macos_cryptotokenkit" -%} SignPath macOS CryptoTokenKit {{ release.version }}
-        {%- endcase -%}</title>
+        <title>SignPath {{ site.data.changelog_components.details[component].label }} {{ release.version }}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>
         <link rel="alternate" href="https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' }}" />
-        {%- case component -%}
-          {%- when "application" -%} {%- assign category_label = 'SignPath Application' -%}
-          {%- when "self_hosted_installations" -%} {%- assign category_label = 'SignPath Self-hosted Installations' -%}
-          {%- when "powershell_module" -%} {%- assign category_label = 'SignPath SignPath PowerShell Module' -%}
-          {%- when "powershell_module_docker" -%} {%- assign category_label = 'SignPath Docker PowerShell Module' -%}
-          {%- when "crypto_providers" -%} {%- assign category_label = 'SignPath Crypto Providers' -%}
-        {%- endcase -%}
-        <category term="release/{{ component }}" label="{{ category_label }}" />
+        <category term="release/{{ component }}" label="{{ site.data.changelog_components.details[component].label }}" />
         <summary type="html">New Release: {{ category_label }} {{ release.version }}</summary>
         <content type="html">
           &lt;div&gt;

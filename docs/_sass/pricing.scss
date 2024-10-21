@@ -11,6 +11,7 @@ section.pricing-start {
 }
 
 section.pricing {
+
 	& > div {
 		padding: 40px;
 	}
@@ -158,6 +159,9 @@ section.pricing {
 				line-height: 1.8em;
 				text-align: center;
 				padding-top: 1rem;
+				display: block !important;
+				height: auto;
+				z-index: auto;
 
 				& > span.price-sub {
 					display: block;

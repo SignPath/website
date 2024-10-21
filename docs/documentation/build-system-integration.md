@@ -192,20 +192,19 @@ curl -H "Authorization: Bearer $API_TOKEN" \
 
 ## CI integrations with origin verification
 
-Origin verification ensures that a signed artifact is the result of building a specific source code version.
+[Origin Verification](origin-verification) ensures that a signed artifact is the result of building a specific source code version.
 
 It provides verified origin metadata including:
 
 * The repository, branch and commit ID of the source code that was built
 * The URL and configuration of the build that created the signing request
 
-SignPath provides CI connectors with origin verification for these CI systems:
+SignPath supports the following Trusted Build Systems with origin verification:
 
-* [Jenkins](origin-verification#jenkins-ci)
-* [AppVeyor](origin-verification#appveyor)
-* [Azure DevOps](origin-verification#azure-devops)
-
-See [Origin Verification](origin-verification) for more information.
+* [GitHub](trusted-build-systems/github)
+* [Jenkins](trusted-build-systems/jenkins)
+* [AppVeyor](trusted-build-systems/appveyor)
+* [Azure DevOps](trusted-build-systems/azure-devops)
 
 ## Other CI integrations
 
