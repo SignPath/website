@@ -55,6 +55,10 @@ open SignPathCryptoTokenKit.app --args \
 
 ### Troubleshooting
 
+Loading the certificates and making them available in the MacOS keychain can take up to 20 seconds.
+
+#### Logs
+
 Unless specified otherwise, the log files are stored in `~/Library/Logs/SignPathCryptoTokenKit/` and `~/Library/Containers/io.signpath.apps.CryptoTokenKit/Data/Library/Logs/ctk/` respectively.
 
 #### Useful commands:
@@ -76,7 +80,7 @@ If the certificates cannot be loaded, it helps to stop the smartcard service on 
 
 ~~~bash
 killall ctkd
-~~ 
+~~~
 
 {:.panel.info}
 > **Info: Updated intermediate certificate**
@@ -105,6 +109,11 @@ Sample: sign `MyApp.app`
 ~~~powershell
 codesign -s MyCertificateSubjectName MyApp.app
 ~~~
+
+{:.panel.info}
+> **Info: Using the right certificate**
+> 
+> `codesign` requires an "Apple Developer Application" certificate.
 
 ## productsign {#productsign}
 

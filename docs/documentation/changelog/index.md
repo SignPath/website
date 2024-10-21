@@ -99,20 +99,7 @@ redirect_from:
 			{% endfor %}
 
 			<div class='component-{{ component }} {{ component_change_type_class_list }}'>
-<<<<<<< HEAD
-			<h2>
-				{% case component %}
-					{% when "application" %} SignPath Application {{ release.version }}
-					{% when "self_hosted_installations" %} Self-hosted Installations {{ release.version }}
-					{% when "powershell_module" %} SignPath PowerShell Module {{ release.version }}
-					{% when "powershell_module_docker" %} SignPathDocker PowerShell Module {{ release.version }}
-					{% when "crypto_providers" %} Crypto Providers {{ release.version }}
-					{% when "macos_cryptotokenkit" %} macOS CryptoTokenKit {{ release.version }}
-				{% endcase %}
-			</h2>
-=======
 			<h2>{{ site.data.changelog_components.details[component].label }} {{ release.version }}</h2>
->>>>>>> main
 			
 			{% for changes_per_type in release %}
 				
