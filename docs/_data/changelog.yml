@@ -7,7 +7,7 @@
           issues: [3]
       new_features:
         - text: Added support for sha1 signatures required for productsign.
-          issues: []
+          issues: [17]
         - text: Added support for HTTP timeout and retry configuration.
           issues: [6]
       improvements:
@@ -17,7 +17,7 @@
         - text: Fixed a bug that prevented multiple certificates from being loaded at once.
           issues: [14]
         - text: Fixed a bug where the application failed when provided with an invalid configuration file.
-          issues: []
+          issues: [18]
 - date: '2024-10-08'
   updates:
     application:
