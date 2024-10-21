@@ -55,7 +55,7 @@ open SignPathCryptoTokenKit.app --args \
 
 ### Troubleshooting
 
-Loading the certificates and making them available in the MacOS keychain can take up to 20 seconds.
+Loading the certificates and making them available in the macOS keychain can take up to 20 seconds.
 
 #### Logs
 
@@ -76,7 +76,7 @@ Using the `pluginkit` tool, the registration of the token driver can be verified
 pluginkit -m -v -p com.apple.ctk-tokens
 ~~~
 
-If the certificates cannot be loaded, it helps to stop the smartcard service on MacOS (it is restarted automatically) by running:
+The smartcard service on macOS sometimes has issues. If the certificates cannot be loaded, the service can be restarted by running the following command:
 
 ~~~bash
 killall ctkd

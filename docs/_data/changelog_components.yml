@@ -22,7 +22,7 @@ details:
   crypto_providers: 
     label: 'Crypto Providers'
   macos_cryptotokenkit:
-    label: 'MacOS CryptoTokenKit'
+    label: 'macOS CryptoTokenKit'
   github_connector: 
     label: 'GitHub Connector'
   jenkins_plugin: 
