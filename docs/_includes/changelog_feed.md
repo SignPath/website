@@ -31,6 +31,7 @@
   {%- when "powershell_module" -%} {%- assign include_category_name = 'PowerShell Module ' -%}
   {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
   {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
+  {%- when "macos_cryptotokenkit" -%} {%- assign include_category_name = 'MacOS CryptoTokenKit ' -%}
   {%- when "github_connector" -%} {%- assign include_category_name = 'GitHub Connector' -%}
   {%- when "jenkins_plugin" -%} {%- assign include_category_name = 'Jenkins Plugin' -%}
 {%- endcase -%}
