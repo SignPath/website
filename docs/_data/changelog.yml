@@ -3,7 +3,7 @@
     macos_cryptotokenkit:
       version: '2.0'
       breaking_changes:
-        - text: 'Renamed the command-line parameters.'
+        - text: 'Renamed the command-line parameters to align with the other client tools.'
           issues: [3]
       new_features:
         - text: Added support for sha1 signatures required for productsign.
