@@ -41,7 +41,7 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 >
 > When using a file-based [configuration](/documentation/crypto-providers#crypto-provider-configuration), the macOS CryptoTokenKit Crypto Provider requires the config file to be
 > * named `config.json` and placed in the same directory as the `SignPathCryptoTokenKit.app` application or
-> * its path to be specified via the `-config` parameter
+> * its path to be specified via the `--config` parameter
 
 Example call starting the application:
 
