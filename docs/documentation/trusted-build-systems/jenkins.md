@@ -100,7 +100,7 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
     }
 ```
 
-#### Example: Submit an asynchronous signing request
+#### Example: Submit an asynchronous signing request with parameters
 
 ```scala
     stage('Sign with SignPath') {
@@ -113,7 +113,11 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
             artifactConfigurationSlug: "${ARTIFACT_CONFIGURATION_SLUG}",
             inputArtifactPath: "build-output/my-artifact.exe",
             outputArtifactPath: "build-output/my-artifact.signed.exe",
-            waitForCompletion: false
+            waitForCompletion: false,
+            parameters: [
+              "version": "1.0",
+              "my-param": "another param"
+            ]
           )
         }
       }
