@@ -1,3 +1,15 @@
+- date: '2024-10-22'
+  updates:
+    jenkins_plugin:
+      version: '2.1.0'
+      new_features:
+        - text: Added support for [user-defined parameters](/documentation/artifact-configuration/syntax#parameters).
+          issues: [SIGN-6986]
+      improvements:
+        - text: The _API Token Credential_ can now be stored either in th _System_ or a _Global_ (recommended) scope.
+          issues: [SIGN-6984]
+        - text: Improved error messages.
+          issues: [SIGN-6606]
 - date: '2024-10-21'
   updates:
     macos_cryptotokenkit:
