@@ -1,3 +1,11 @@
+- date: '2024-10-24'
+  updates:
+    application:
+      version: 1.174.1
+      improvements:
+        - text: |-
+            Improved certificate list UI: added new "type" and key store information columns, dropped "valid from" column.
+          issues: [SIGN-7249]
 - date: '2024-10-21'
   updates:
     macos_cryptotokenkit:
