@@ -44,15 +44,16 @@
 				</ul>
 			</nav>
 		{%- endif -%}
-		<article>
-			{%- if page.show_toc -%}
-				{%- include toc.html class="article-toc" html=content h_max=page.show_toc -%}
-			{%- else -%}
-				{%- include toc.html class="article-toc.mobile-only" html=content h_max=2 -%}
-			{%- endif -%}
-
-			{{ content }}
-		</article>
+			<div class='content'>
+				{%- if page.show_toc -%}
+					{%- include toc.html class="article-toc" html=content h_max=page.show_toc -%}
+				{%- else -%}
+					{%- include toc.html class="article-toc.mobile-only" html=content h_max=2 -%}
+				{%- endif -%}
+				<article>
+					{{ content }}
+				</article>
+			</div>
 	</div>
 </section>
 {%- include footer.html -%}
