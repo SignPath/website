@@ -15,17 +15,47 @@
 
 - text: Signing Container Images
   path: signing-containers
+  items:
+    - text: Sigstore Cosign
+      path: cosign
+
+    - text: Docker Content Trust (DCT)
+      path: docker-content-trust
 
 - separator: true
 
 - text: Artifact Configuration
   path: artifact-configuration
+  items:
+    - text: Syntax
+      path: syntax
+
+    - text: Reference
+      path: reference
+
+    - text: Examples
+      path: examples
 
 - text: Build System Integration
   path: build-system-integration
 
 - text: Trusted Build Systems
   path: trusted-build-systems
+  items:
+    - text: GitHub
+      path: github
+
+    - text: Jenkins
+      path: jenkins
+
+    - text: AppVeyor
+      path: appveyor
+
+    - text: Azure DevOps
+      path: azure-devops
+
+    - text: Double Authentication Proxy
+      path: double-authentication-proxy
 
 - text: Origin Verification
   path: origin-verification
@@ -34,9 +64,33 @@
 
 - text: PowerShell cmdlets
   path: powershell
+  items:
+    - text: Submit-SigningRequest
+      path: Submit-SigningRequest
+
+    - text: Get-SignedArtifact
+      path: Get-SignedArtifact
+
+    - text: Get-CertificateBy&shy;Microsoft&shy;TemplateId
+      path: Get-CertificateByMicrosoftTemplateId
 
 - text: Crypto Providers
   path: crypto-providers
+  items:
+    - text: Windows CSP and KSP
+      path: windows
+
+    - text: Cryptoki/PKCS#11
+      path: cryptoki
+
+    - text: GPG
+      path: gpg
+
+    - text: macOS CryptoTokenKit
+      path: macos
+
+    - text: REST API
+      path: rest-api
 
 - separator: true
 

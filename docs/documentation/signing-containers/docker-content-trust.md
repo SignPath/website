@@ -3,7 +3,7 @@ main_header: Container Signing
 sub_header: Docker Content Trust (DCT)
 layout: resources
 toc: true
-show_toc: 0
+show_toc: 3
 description: Documentation for signing Docker images with SignPath using Docker Content Trust (Notary v1)
 ---
 

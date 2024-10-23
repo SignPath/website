@@ -2,8 +2,8 @@
 main_header: PowerShell
 sub_header: Submit-SigningRequest
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 3
 description: Submit-SigningRequest cmdlet
 ---
 
@@ -195,7 +195,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 
 ## Examples
 
-### Example 1: Submit a signing request and wait for completion
+#### Example 1: Submit a signing request and wait for completion
 
 ~~~ powershell
 Submit-SigningRequest `
@@ -205,7 +205,7 @@ Submit-SigningRequest `
     -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
-### Example 2: Submit a signing request with an artifact retrieval link and wait for completion
+#### Example 2: Submit a signing request with an artifact retrieval link and wait for completion
 ~~~ powershell
 Submit-SigningRequest `
     -ArtifactRetrievalLink "https://files.acme.com/my+program.exe" `
@@ -219,7 +219,7 @@ Submit-SigningRequest `
     -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
-### Example 3: Separate calls for submission and retrieval 
+#### Example 3: Separate calls for submission and retrieval 
 
 Submit a signing request and get a signing request ID without waiting for completion ...
 
@@ -239,7 +239,7 @@ Get-SignedArtifact `
     -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~ 
 
-### Example 4: Resubmit an existing signing request with a different signing policy
+#### Example 4: Resubmit an existing signing request with a different signing policy
 
 ~~~ powershell
   Submit-SigningRequestResubmit `
@@ -250,7 +250,7 @@ Get-SignedArtifact `
     -OrganizationId $ORGANIZATION_ID -ApiToken $API_TOKEN 
 ~~~
 
-### Example 5: Provide user-defined parameters and origin verification {#example-params-origin}
+#### Example 5: Provide user-defined parameters and origin verification {#example-params-origin}
 
 {% include editions.md feature="artifact_configuration.user_defined_parameters" %}
 
