@@ -1,4 +1,4 @@
-section.resources-section {
+main > section.resources-section {
 	& > div {
 		text-align: left;
 		padding-top: 30px;
@@ -6,7 +6,7 @@ section.resources-section {
 		padding-right: 16px;
 		display: flex;
 		align-items: flex-start;
-		max-width: $content-width;
+		max-width: none;
 
 		& > aside {
 			background-color: $light-grey-background-color;
