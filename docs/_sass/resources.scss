@@ -8,7 +8,7 @@ main > section.resources-section {
 		align-items: flex-start;
 		max-width: none;
 
-		& > aside {
+		& > nav {
 			background-color: $light-grey-background-color;
 			border-radius: 6px;
 			font-size: 0.9em;
@@ -287,7 +287,7 @@ ul.article-toc.mobile-only {
 		margin-left: auto;
 		flex-direction: column;
 
-		& > aside {
+		& > nav {
 			width: 100%;
 			position: relative;
 			top: 0px;

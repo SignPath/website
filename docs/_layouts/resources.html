@@ -17,7 +17,7 @@
 		{%- assign parent = parts[-2] -%}
 		{%- assign parentpath = parts | slice: 0, pathlen | join: "/" -%}
 		{%- if site.data.menus contains parts[-2] -%}
-			<aside>
+			<nav>
 				<ul>
 					{%- for entry in site.data.menus[parent] -%}
 						{%- assign className = nil -%}
@@ -42,7 +42,7 @@
 						{%- endif -%}
 					{%- endfor -%}
 				</ul>
-			</aside>
+			</nav>
 		{%- endif -%}
 		<article>
 			{%- if page.show_toc -%}
