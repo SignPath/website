@@ -59,63 +59,34 @@ main > section.resources-section {
 			align-items: flex-start;
 			flex-grow: 2;
 
-			/* duplicate start */
 			& > ul.article-toc {
-				background-color: $light-grey-background-color;
-				border-radius: 6px;
-				font-size: 0.9em;
-				
+				font-size: 0.9em;				
 				margin-bottom: 30px;
-				margin-right: 20px;
-
-				& > ul {
-					margin: 10px 0px;
-
-				}
+				border-left: 2px solid $light-grey-border-color;
+				list-style-type: none;
+				top: 100px;
+				position: sticky;
+				order: 4;
+				margin-left: 20px;
+				min-width: 300px;
+				padding: 0px;
 
 				ul {
 					padding: 0px;
 					list-style-type: none;
 				}
 
-				ul > li, & > li {
+				li {
+					padding: 0px;
+				}
+
+				a {
 					padding: 5px 20px;
-
-					&.separator {
-						padding: 0px;
-						border-top: 1px solid $grey-border-color;
-						margin: 5px 0px;
-						overflow: hidden;
-					}
-
-					&.active > a {
-						font-weight: bold;
-					}
-
-					&:last-child {
-						padding-bottom: 0px;
-					}
+					display: block;
 				}
 
-				& > ul > li > ul > li {
-					padding-left: 20px;
-				}
-			}
-			/* duplicate end */
-
-			& > ul.article-toc {
-				margin: 0px 0px;
-				padding: 10px 0px;
-				list-style-type: none;
-				display: inline-block;
-				top: 100px;
-				position: sticky;
-				order: 4;
-				margin-left: 20px;
-				min-width: 300px;
-
-				ul {
-					padding:0px;
+				li > ul > li > a {
+					padding-left: 40px;
 				}
 			}
 
@@ -328,10 +299,6 @@ main > section.resources-section {
  *
  * MOBILE
  * **/
-ul.article-toc.mobile-only {
-	display: none;
-}
-
 @media only screen and (max-width: 1200px) {
 	main > section.resources-section > div > div.content {
 		margin-left: auto;
@@ -347,12 +314,6 @@ ul.article-toc.mobile-only {
 }
 
 @media only screen and (max-width: 1000px) {
-	ul.article-toc.mobile-only {
-		display: inherit;
-	}
-	.no-mobile {
-		display: none;
-	}
 	main > section.resources-section > div {
 		margin-left: auto;
 		flex-direction: column;
