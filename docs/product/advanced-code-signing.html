@@ -15,90 +15,62 @@ description: Code signing gateways are relatively easy to implement and have the
 		</h3>
 	</div>
 </section>
-
-<section class='bg-grey'>
-	<div>
-		<div class='columns'>
-			<div>
-				<h3>Advanced code signing</h3>
-				<p><ul>
-					<li>Core code signing capabilities</li>
-<li>Support for multiple file formats</li>
-<li>Content-based policies</li>
-<li>Malware scanning</li>
-<li>Generic automation and CI/CD integration (e.g. REST APIs, PowerShell modules)</li>
-<li>Basic CI/CD connectors and add-ins</li>
-				</ul></p>
-				
-				<p>
-					SignPath provides your organization with a simple and secure code signing process. Development teams can define workflows that integrate well with their existing software development lifecycle. Responsibilities, tasks, alerts and inventories of your private keys and certificates are well documented and transparent for the InfoSec teams.
-				</p>
-			</div>
-			<div>
-				<h3>Security matters</h3>
-				<p>
-					Code Signing is a cornerstone of anti-malware protection. Operating systems, app stores, add-ins, systems and management software rely on the validity of signatures and certificates. That’s why code signing keys and processes are under constant attack. SignPath turns code signing into a controlled and repeatable process that aligns the needs of both development teams and InfoSec experts. SignPath fulfills the recommendations of the <a href='https://casecurity.org/wp-content/uploads/2016/12/CASC-Code-Signing.pdf' target='_blank'>CA Security Council</a>. 
-				</p>
+	
+	
+	<section class='bg-grey'>
+		<div>
+			<div class='columns'>
+				<div>
+					<h4>
+	SignPath Advanced Code Signing streamlines and secures the code signing process by handling complex cryptographic tasks, ensuring the correct implementation, and relieving project teams of the burden of using platform-specific signing tools. It enforces central security policies, maintains detailed logging, and protects against attacks, allowing development teams to focus on flexibility while providing security teams the control they need. With deep integration into CI systems, SignPath safeguards code integrity without requiring teams to worry about potential vulnerabilities or policy violations.
+					</h4>
+				</div>
 			</div>
 		</div>
-	</div>
-</section>
+	</section>
+	
+	
 
-<section class='feature'>
-	<div class='img'><div><img src='/assets/img/product/features/certificate-management.png' title='Certificate management' /></div></div>
-	<div class='description'>
-		<h2>Certificate management</h2>
-		<h3>Don't hassle with USB tokens or HSM setups</h3>
-		<p>
-			In SignPath all your organization's code signing certificates are centrally managed. The InfoSec teams have full control over what code is signed and which certificate was used. They can view the entire history in case of an incident and define clear policies to restrict how each certificate may be used. SignPath allows you to import your own certificates or create a certificate signing request (CSR) for your certificate authority (CA). You are also notified on time before your certificate expires.
-		</p>
+<section>
+	<div>
+		<div class='columns'>
+			<div class='column-stretched'>
+				<div>
+					{% include laptop.svg %}
+					<h3><b>Comprehensive Code Signing</b></h3>
+					<b>Beyond simple code signing gateways</b>
+					<p>
+					Supports multiple formats, native platform tools, and automatic time-stamping for signing code, manifests, and SBOMs.
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/advanced-code-signing'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include shield.svg %}
+					<h3><b>Security and Policy Enforcement</b></h3>
+					<p>
+					<p><b>Purpose-built for modern CI/CD pipelines</b></p>
+					<p>	Automatically applies authorization-based policies to harden processes and protect against policy violations.
+</p>  
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/pipeline-integrity'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include code.svg %}
+					<h3><b>Seamless Integration</b></h3>
+					<b>Deployment flexibility</b>
+					<p>
+					Easily integrates into CI/CD pipelines, reducing complexity for development teams while enhancing security through deep artifact analysis.  
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/code-signing-gateway'>Learn more</a>
+			</div>
+		</div>
+		</div>
 	</div>
-</section>
-
-<section class='feature right'>
-	<div class='img'><div><img src='/assets/img/product/features/policy-enforcement.png' title='Policy enforcement' /></div></div>
-	<div class='description'>
-		<h2>Policy enforcement</h2>
-		<h3>Take control over your code signing process</h3>
-		<p>
-			SignPath enables development teams to stay agile by allowing them to automate the code signing process as long as they stay within the boundaries of their organization's policies. Administrators can define which kind of software may be signed, who is allowed to submit a signing request and how many approvers must authorize it before it is signed. Additionally, SignPath offers origin verification, which ensures that a software artifact was built from a specific commit in your source code repository.
-		</p>
-	</div>
-</section>
-
-<section class='feature'>
-	<div class='img'><div><img src='/assets/img/product/features/deep-signing.png' title='Deep signing' /></div></div>
-	<div class='description'>
-		<h2>Deep signing of nested files</h2>
-		<h3>Sign executables and libraries within your installers and packages</h3>
-		<p>
-			Signing the installer or library package alone means that the software installed on your customer's systems is not digitally secured any more once the shipped installer has been unpacked and disposed. In order to continously ensure the authenticity and integrity of your software components, SignPath signs all files within the installation package and then automatically repackages the installer and signs the entire package.
-		</p>
-	</div>
-</section>
-
-
-<section class='feature right'>
-	<div class='img'><div><img src='/assets/img/product/features/build-integration.png' title='Build integration' /></div></div>
-	<div class='description'>
-		<h2>Build integration</h2>
-		<h3>Automate your code signing process</h3>
-		<p>
-			Software development processes are increasingly automated to cope with the demand for more agility and frequent releases. SignPath allows code signing to be part of the build pipeline by providing a modern API, third party integrations and tools for seamless CI integration.
-		</p>
-	</div>
-</section>
-
-<section class='feature'>
-	<div class='img'><div><img src='/assets/img/product/features/malware-scanning.png' title='Malware scanning' /></div></div>
-	<div class='description'>
-		<h2>Malware scanning of artifacts</h2>
-		<h3 class='subtitle'>Know that there's another layer of security</h3>
-		<p>
-			All artifacts you upload to SignPath are checked for malware. Even if your build server is infected, SignPath adds an additional barrier to prevent shipping viruses to your users and customers.
-		</p>
-	</div>
-</section>
 
 <section class='feature right'>
 	<div class='img'><div class='no-shadow'><img src='/assets/img/product/features/secure-private-keys.png' title='Secure private keys' /></div></div>

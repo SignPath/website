@@ -97,10 +97,10 @@ a.btn, button.btn {
     font-family: 'Cousine', serif, Arial, Helvetica;
 	display: inline-block;
 	padding: 6px 20px;
-	border: 1px solid transparent;
-	color: inherit;
+	border: 1px solid ;
+	color: #FFFFFF;
 	box-shadow: $shadow;
-	border-radius: 4px;
+	border-radius: 1px;
 }
 
 a.btn-flat {

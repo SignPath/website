@@ -19,20 +19,6 @@ description: End-to-end integrity for CI/CD pipelines
 	<div>
 		<div class='columns'>
 			<div>
-				<h3><b>Code Signing in the cloud</b></h3>
-				<p>
-CI/CD systems are the integration platforms of software production. They act as the main interface to
-anything from source code management to release, including code signing. One of their main tasks is
-building the final artifacts for each release (executable code and installable packages). This task is
-usually performed on build agents, (virtual) machines executing build scripts provided by software
-project teams. Integration tasks beyond building can also be performed by these build scripts (e.g.
-using command line tools or APIs), or specific mechanisms can be used to explicitly invoke these
-integrations in the build pipeline. Specific mechanisms may include plug-ins or add-ins, depending on
-the CI/CD system.
-				</p>
-			</div>
-			<div>
-				<h3><b>Security matters</b></h3>
 				<p>
 SignPath Pipeline integrity continuously verifies the production pipeline integrity from source code to
 binary package for every single release. Only software versions that pass the basic integrity criteria
@@ -43,6 +29,55 @@ the promise of integrity that they implicitly convey.
 		</div>
 	</div>
 </section>
+
+
+<section>
+	<div>
+		<div class='columns'>
+			<div class='column-stretched'>
+				<div>
+					{% include laptop.svg %}
+					<h3><b>Pipeline Integrity Verification</b></h3>
+					<b>Beyond simple code signing gateways</b>
+					<p>
+Guarantees that signed software is secure and trustworthy, delivering on the implicit promise of code integrity to users and customers.
+
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/advanced-code-signing'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include shield.svg %}
+					<h3><b>Security and Policy Enforcement</b></h3>
+					<p>
+					<p><b>CI/CD-Aware Signing Controls</b></p>
+					<p>	Ensures that code signing is tightly aligned with automated build workflows, enabling secure, policy-driven signing within dynamic CI/CD environments.
+
+</p>  
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/pipeline-integrity'>Learn more</a>
+			</div>
+			<div class='column-stretched'>
+				<div>
+					{% include code.svg %}
+					<h3><b>Simplified Security Controls</b></h3>
+					<b>Deployment flexibility</b>
+					<p>
+Reduces the complexity of managing security while ensuring consistent and reliable builds with full integrity.
+ 
+					</p>
+				</div>
+				<a class='btn btn-secondary' href='/product/code-signing-gateway'>Learn more</a>
+			</div>
+		</div>
+		</div>
+	</div>
+	
+</section>
+
+
 
 <section class='feature'>
 	<div class='img'><div><img src='/assets/img/product/features/certificate-management.png' title='Certificate management' /></div></div>
