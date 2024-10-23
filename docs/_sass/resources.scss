@@ -57,6 +57,7 @@ main > section.resources-section {
 		& > div.content {
 			display: flex;
 			align-items: flex-start;
+			flex-grow: 2;
 
 			/* duplicate start */
 			& > ul.article-toc {
@@ -120,6 +121,7 @@ main > section.resources-section {
 
 			& > article {
 				order: 3;
+				flex-grow: 2;
 
 				& > h2:first-child {
 					margin-top: 0px;

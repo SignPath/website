@@ -13,30 +13,36 @@
 <section class="resources-section">
 	<div>
 		{%- assign parts = page.path | split:"/" -%}
-		{%- assign pathlen = parts | size | minus: 1 -%}
-		{%- assign parent = parts[-2] -%}
-		{%- assign parentpath = parts | slice: 0, pathlen | join: "/" -%}
-		{%- if site.data.menus contains parts[-2] -%}
+		{%- assign root_group = parts[0] -%}
+		{%- if site.data.menus contains root_group -%}
 			<nav>
 				<ul>
-					{%- for entry in site.data.menus[parent] -%}
+					{%- for entry in site.data.menus[root_group] -%}
 						{%- assign className = nil -%}
-						{%- if parts.size > 1 -%}
-							{%- assign tail = parts[-1] | split:"." -%}
-							{%- if tail[0] == entry.path or tail[0] == "index" and entry.path == null -%} {%- assign is_current = true -%} {%- else -%} {%- assign is_current = false -%} {%- endif -%}
-							{%- if is_current -%}
-								{%- assign className = 'active' -%}
-							{%- endif -%}
+						{%- assign tail = parts[-1] | split: "." -%}
+						{%- if tail[0] == entry.path or tail[0] == "index" and parts[-2] == entry.path -%}
+						  {%- assign className = 'active' -%}
 						{%- endif -%}
 						{%- if entry.separator -%}
 						<li class='separator' />
 						{%- else -%}
 						<li class='{{ className }}'>
-							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{%- if is_current and page.hide_sub_toc != true -%}
-								<div class="no-mobile" >
-									{%- include toc.html html=content h_max=2 -%}
-								</div>
+							<a href='/{{root_group}}/{{entry.path}}#'>{{ entry.text }}</a>
+							{%- if parts[1] == entry.path and entry.items -%}
+								<ul>
+								{%- for sub in entry.items -%}
+									{%- if parts.size > 1 -%}
+										{%- if tail[0] == sub.path and parts[-2] == entry.path -%}
+									    	{%- assign className = 'active' -%}
+									    {%- else -%}
+									    	{%- assign className = '' -%}
+									    {%- endif -%}
+									{%- endif -%}
+									<li class='{{ className }}'>
+										<a href='/{{root_group}}/{{entry.path}}/{{sub.path}}'>{{ sub.text }}</a>
+									</li>
+								{%- endfor -%}
+								</ul>
 							{%- endif -%}
 						</li>
 						{%- endif -%}
