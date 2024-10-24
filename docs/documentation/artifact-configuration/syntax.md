@@ -26,7 +26,7 @@ They contain exactly one file element representing the artifact.
 {:.panel.info}
 > **XML editor schema support**
 >
-> If autocomplete does not work in your schema-aware editor, try adding this `xsi:schemaLocation` attribute to the root element.
+> If autocomplete does not work in your schema-aware editor, try adding the `xsi:schemaLocation` attribute to the root element.
 >
 > ~~~xml
 > <?xml version="1.0" encoding="utf-8"?>
