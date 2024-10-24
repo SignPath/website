@@ -8,7 +8,7 @@ description: Artifact Configuration Syntax and Structure
 datasource: tables/artifact-configuration
 ---
 
-## Artifcat configuration syntax {#syntax}
+## Artifact configuration syntax {#syntax}
 
 Artifact configurations are XML files with the schema `http://signpath.io/artifact-configuration/v1"`. You can download the schema file when you edit an artifact configuration in SignPath.
 
@@ -21,6 +21,21 @@ They contain exactly one file element representing the artifact.
     ...
   </root-file-element>
 </artifact-configuration>
+~~~
+
+{:.panel.info}
+> **XML editor schema support**
+>
+> Some XML editors will only download the schema if an `xsi:schemaLocation` attribute is set on the root element.
+>
+> ~~~xml
+> <?xml version="1.0" encoding="utf-8"?>
+> <artifact-configuration
+>   xmlns="http://signpath.io/artifact-configuration/v1"
+>   xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+>   xsi:schemaLocation="http://signpath.io/artifact-configuration/v1 https://app.signpath.io/Web/artifact-configuration/v1.xsd">
+> ...
+> </artifact-configuration>
 ~~~
 
 ## Basic artifact structure {#structure}
