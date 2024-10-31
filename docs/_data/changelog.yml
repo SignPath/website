@@ -1,3 +1,17 @@
+- date: '2024-11-07'
+  updates:
+    application:
+      version: 1.175.1
+      improvements:
+        - text: |-
+            Improved performance of event audit log REST API (`GET /v1-pre/{organizationId}/AuditLog/Events`) for organizations with high signing request volume.
+          issues: [SIGN-7332]
+    self_hosted_installations:
+      version: 1.175.1
+      breaking_changes:
+        - text: |-
+            In the `signpath-application` chart, the `appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions` configuration section has been renamed to `fastSigningServiceClientOptions` (its content stays the same).
+          issues: [SIGN-7250]
 - date: '2024-10-24'
   updates:
     application:
