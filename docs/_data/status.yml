@@ -1,14 +1,20 @@
 # possible types are good, warning, critical
 current:
-    type: warning
-    #title: 'All systems are operational' # always restore this message when going back to 'good'
+    type: good
+    title: 'All systems are operational' # always restore this message when going back to 'good'
     #type: good | warning | critical
-    title: 'GitHub.com integration is temporarily unavailable'
-    description: |
-      Using the SignPath GitHub Actions submit-signing-request action does currently not work as intended. We are working on a fix.
+    #title: 'GitHub.com integration is temporarily unavailable'
+    #description: |
+    #  Using the SignPath GitHub Actions submit-signing-request action does currently not work as intended. We are working on a fix.
     #link:
 planned:
 incidents:
+  - date: 'Nov. 6, 2024'
+    range: 'Nov. 5, 2024, 18:00 - Nov. 6 12:30 UTC,
+    type: warning
+    title: 'GitHub.com integration unavailable'
+    description: |
+      Using the SignPath GitHub Actions submit-signing-request action did not work.
   - date: 'Oct. 13, 2024'
     range: 'Oct. 13, 2024, 08:00 - 09:00 UTC'
     type: warning
