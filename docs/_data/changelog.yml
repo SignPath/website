@@ -1,3 +1,10 @@
+- date: '2024-11-06'
+  updates:
+    github_connector:
+      version: 1.0.1
+      bug_fixes:
+        - text: Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.
+          issues: [SIGN-7377]
 - date: '2024-10-24'
   updates:
     application:
