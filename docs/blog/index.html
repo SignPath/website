@@ -17,7 +17,6 @@ description: Thoughts on Code Integrity and the Software Supply Chain
   <div>
 
     {% if page.featured_slugs %}
-      <h2>Featured Posts</h2>
       <ul class='card-container'>
         {% for post in site.posts %}
           {% if page.featured_slugs contains post.slug %}
@@ -43,13 +42,14 @@ description: Thoughts on Code Integrity and the Software Supply Chain
                     {{ post.excerpt | truncatewords: 15 }}
                   {% endif %}
                 </p>
-                <span><a class='btn btn-secondary' href='{{ post.url }}'>Read the post</a></span>
               </div>
             </li>
           {% endif %}
         {% endfor %}
+		<a class='btn btn-secondary' href='{{ post.url }}'>Read the post</a>
       </ul>
     {% endif %}
+
 
     <h2>Recent Posts<a href='/feed.xml'>Feed
       {% include rss.svg %}

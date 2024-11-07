@@ -41,12 +41,14 @@ nav > ul { /** main navigation **/
 	list-style-type: none;
 	align-items: center;
 	font-size: 1em;
+    font-family: 'Cousine' ;
 	padding-inline-start: 0px;
 
 
 	& > li {
 		margin: 0px 16px;
 		position: relative;
+
 			    
 
 		&.login {
@@ -56,6 +58,7 @@ nav > ul { /** main navigation **/
 		a {
 			color: inherit;
 			font-size: 1em;
+
 			
 		}
 
@@ -70,6 +73,7 @@ nav > ul { /** main navigation **/
 				width: 0%;
 				border-bottom: 1px solid #fff;
 				transition: width 0.2s linear;
+
 			}
 
 			&:hover:after {
@@ -95,11 +99,13 @@ nav > ul { /** main navigation **/
 			padding-top: 16px;
 			color: #000;
 
+
 			& > li {
 				background-color: $white-background-color;
 				border-left: 1px solid $grey-border-color;
 				border-right: 1px solid $grey-border-color;
 				white-space: nowrap;
+
 
 				&:first-child {
 					border-top: 1px solid $grey-border-color;
@@ -116,12 +122,13 @@ nav > ul { /** main navigation **/
 				& > a {
 					display: block;
 					padding: 5px 20px;
+
 				}
 
 				&.separator {
 					height: 10px;
 					&:hover {
-						background-color: $white-background-color;
+						background-color: $blue-background-color;
 					}
 				}
 			}
