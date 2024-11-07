@@ -14,7 +14,7 @@ incidents:
     type: warning
     title: 'GitHub.com integration unavailable'
     description: |
-      Using the SignPath GitHub Actions submit-signing-request action did not work.
+      Using the SignPath GitHub Actions submit-signing-request action did not work. (A globally scoped ID value has passed the max-int boundary at GitHub.com.)
   - date: 'Oct. 13, 2024'
     range: 'Oct. 13, 2024, 08:00 - 09:00 UTC'
     type: warning
