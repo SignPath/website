@@ -7,7 +7,7 @@
             Improved performance of event audit log REST API (`GET /v1-pre/{organizationId}/AuditLog/Events`) for organizations with high signing request volume.
           issues: [SIGN-7332]
         - text: |-
-            Improved error handling for invalid paths in archive files
+            Improved error handling for invalid paths in archive files:
           issues: [SIGN-7290]
     self_hosted_installations:
       version: 1.175.1
