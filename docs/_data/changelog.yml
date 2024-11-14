@@ -4,7 +4,7 @@
       version: 1.176.0
       bug_fixes:
         - text: |-
-            Jar signing: Fixed missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
+            JAR signing: Fixed missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
           issues: [SIGN-7308]
         - text: |-
             Fixed display of validation errors in the user invitation UI.
@@ -221,7 +221,7 @@
           issues: [SIGN-5410, SIGN-7177]
       bug_fixes:
         - text: |-
-            Fixed failed Jar signing operations for Jar files with >20,000 items.
+            Fixed failed JAR signing operations for JAR files with >20,000 items.
           issues: [SIGN-7177]
         - text: |-
             Fixed error during rendering of old failed signing requests with specific errors (e.g. artifact retrieval).
@@ -843,7 +843,7 @@
       version: 1.151.0
       improvements:
         - text: >-
-            Dropped the JCE key "retargeting" when creating certificates on nShield HSMs (previously required for Jar signing).
+            Dropped the JCE key "retargeting" when creating certificates on nShield HSMs (previously required for JAR signing).
           issues: [SIGN-6365]
       bug_fixes:
         - text: >-
@@ -1071,7 +1071,7 @@
     self_hosted_installations:
       version: 1.143.2
       improvements:
-        - text: Reduced memory consumption when signing jar files.
+        - text: Reduced memory consumption when signing JAR files.
           issues: [SIGN-6088]
       bug_fixes:
         - text: Fixed aborted SignService deployments in cases using descheduler for Kubernetes with `RemovePodsViolatingTopologySpreadConstraint`.
