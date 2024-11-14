@@ -1,3 +1,24 @@
+- date: '2099-01-01'
+  updates:
+    application:
+      version: 1.TODO
+      new_features:
+        - text: |-
+            Added [GPG key management](/documentation/managing-certificates):
+            * GPG keys can now be created directly in the SignPath UI.
+            * They can be stored either in the software key store, or on the HSM.
+          issues: [SIGN-7247]
+- date: '2099-01-01'
+  updates:
+    crypto_providers:
+      version: 5.TODO
+      new_features:
+        - text: |-
+            Added support for GPG keys generated in the [SignPath certificate management](/documentation/managing-certificates):
+            * It's not anymore required to locally generate GPG keys (with backing X.509 certificates), you can create GPG keys directly in the SignPath UI.
+            * (Requires SignPath version 1.TODO+.)
+            * Adapted and simplified the Linux container samples for [GPG hash signing](/documentation/crypto-providers/gpg).
+          issues: [SIGN-7341, SIGN-7318]
 - date: '2024-11-11'
   updates:
     application:

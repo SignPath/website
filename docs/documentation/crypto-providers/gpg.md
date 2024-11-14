@@ -9,7 +9,7 @@ description: Creating GPG signatures with SignPath
 
 ## Overview
 
-[Gnu Privacy Guard](https://gnupg.org/), also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.
+[GNU Privacy Guard](https://gnupg.org/), also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.
 
 ### Using GnuPG with PKCS #11
 
@@ -21,13 +21,12 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 ### Configuring GnuPG {#configure-gnupg}
 
-Configure the [SignPath Cryptoki provider](/documentation/crypto-providers/cryptoki) for
-* GnuPG in `gpg-agent.conf`
-* gnupg-pkcs11-scd in `gnupg-pkcs11-scd.conf`
+To configure GnuPG to perform hash signing via SignPath you need to:
+* Configure the [SignPath Crypto Provider](/documentation/crypto-providers#crypto-provider-configuration)
+* Configure `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
+* Configure GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 
-For more details see
-* [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) documentation
-* `samples/Scenarios/Gpg` in the [Linux container samples] (details about configuration and necessary dependencies)
+For more details and necessary dependencies see `samples/Scenarios/Gpg` in the [Linux container samples].
 
 ### Error logs {#gpg-error-logs}
 
@@ -39,77 +38,39 @@ For the [Linux container samples], the following log file locations are configur
 * `gnupg-pkcs11` logs: `samples/Scenarios/temp/gnupg-pkcs11-scd.log`
 * GPG logs: `samples/Scenarios/temp/gpg-agent.log`
 
-### GPG Key Generation {#gpg-key-generation}
-
-{:.panel.info}
-> **GPG terminology: public keys**
->
-> GPG uses the term _public key_ for a specific file format that includes the actual public key key, the holder's identity (name, email address), expiration, and other data. It is therefore more similar to a certificate than just a public key.
->
-> This sometimes creates confusion about whether the term public key refers to just the public part of the cryptographic key pair, or an entire GPG public key.
-
-To use GPG with SignPath, you need to create an X.509 certificate for the cryptographic key pair, and a separate GPG public key on your computer. The GPG public key will _contain_ the cryptographic public key from the certificate and _reference_ the private key, which will remain with SignPath.
-
-The reference is implemented as a ["shadowed private key"](https://github.com/gpg/gnupg/blob/STABLE-BRANCH-2-2/agent/keyformat.txt#shadowed-private-key-format) and references a SignPath _project_ slug and _signing policy_ slug. (It is stored in `$GNUPGHOME/private-keys-v1.d/$KeyGrip.key` and can be restored from the GPG public key.)
-
-{:.panel.tip}
-> **Tip: Create a self-signed certificate in SignPath**
->
-> We recommend that you create a self-signed certificate in SignPath for each GPG public key. While the certificate's metadata is not used, you might want to use similar values as for the GPG public key for clarity.
->
-> However, technically you can use any code signing certificate, including those issued by Certificate Authorities, with arbitrary metadata
-
-{:.panel.tip}
-> **Sample code to create a GPG public key**
-> 
-> The [Linux container samples] contain scripts to generate a GPG key. Sample invocation:
-> 
-> ```bash
-> run_scenario.sh ... -Scenario GenerateGpgKey \
->     -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing" \
->     -GpgKeyName "Test GPG Key" -GpgKeyEmail "gpg-signing@example.com" -GpgKeyExpiry "1y"
-> ```
-> 
-> Result: 
-> * A GPG key exported to `samples/Scenarios/Gpg/Keys` including the public key 
-> * A corresponding revocation certificate in the `openpgp-revocs.d` subdirectory
-> 
-> GPG key generation causes two SignPath hash signing operations: 
-> * self-sign the key 
-> * sign the revocation certificate
->
-> In case errors appear, check out the [error logs](#gpg-error-logs).
-
 ### Prepare for signing
 
-1. Copy the generated public GPG key (`$Email.public.pgp`) to the target system.
-2. Execute `SCD LEARN` to restore the shadowed keys. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
-3. Import the GPG key . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
+1. Create a [GPG key in SignPath](/documentation/managing-certificates), download the GPG public key file and copy it into the `samples/Scenarios/Gpg/Keys` directory.
+1. Create a [hash signing project and signing policy](/documentation/crypto-providers#signpath-project-configuration) in SignPath.
+1. Execute `SCD LEARN` to fetch the private key references. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
+1. Import the key into the GPG key chain with `gpg --import` . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
+
+For referencing a specific GPG key in the later signing commands (`-GpgKeyId` parameter), you can use the GPG key's fingerprint, key ID, the full user ID, or the email address.
 
 ## Signing code with GPG
 
 ### GPG File Signing {#gpg-file-signing}
 
-The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `run_scenario.sh ... -Scenario GpgSignFile -GpgKeyEmail "gpg-signing@example.com"`. The used GPG key is referenced via its email address.
+The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `run_scenario.sh ... -Scenario GpgSignFile -GpgKeyId "<gpg-signing@example.com>"`.
 
-During `gpg --sign`, SignPath is called to perform a hash based signing operation with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `gpg --sign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### RPM Signing (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a RPM file in `run_scenario.sh ... -Scenario SignRpm -GpgKeyEmail "gpg-signing@example.com"`. The used GPG key is referenced via its email address. See `SignRpm.ps1` for details.
+The [Linux container samples] contain a full example to sign and verify a RPM file in `run_scenario.sh ... -Scenario SignRpm -GpgKeyId "<gpg-signing@example.com>"`. See `SignRpm.ps1` for details.
 
-During `rpm --addsign`, SignPath is called to perform a hash based signing operation with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `rpm --addsign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### DEB Signing via dpkg-sig (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ in `run_scenario.sh ... -Scenario SignDeb -GpgKeyEmail "gpg-signing@example.com"`. The used GPG key is referenced via its email address. Note the passed default "sign role" value of `"builder"`.
+The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ in `run_scenario.sh ... -Scenario SignDeb -GpgKeyId "<gpg-signing@example.com>"`. Note the passed default "sign role" value of `"builder"`.
 
-During `dpkg-sig --sign`, SignPath is called to perform a hash based signing operation with the project / signing policy referenced in the shadowed private key. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `dpkg-sig --sign`, SignPath is called to perform a hash based signing operation. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### Maven Artifact Signing (Linux)
 
-The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ in `run_scenario.sh ... -Scenario SignMaven -GpgKeyEmail "gpg-signing@example.com"`. The used GPG key is referenced via its email address.
+The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ in `run_scenario.sh ... -Scenario SignMaven -GpgKeyId "<gpg-signing@example.com>"`. The used GPG key is referenced via its email address.
 
-During `mvn install`, SignPath is called to perform a hash based signing operations with the _Project_ / _Signing Policy_ referenced in the shadowed private key. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
+During `mvn install`, SignPath is called to perform a hash based signing operations. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 [Linux container samples]: /documentation/crypto-providers#linux-docker-samples

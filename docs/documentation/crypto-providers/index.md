@@ -122,6 +122,7 @@ In case you used the [MSI installer](/documentation/crypto-providers/windows#ins
 | `ApiUrl`                          | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
 | `HttpProxy`                       | `http_proxy`                              | (optional)                    | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
 | `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`    | Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option 
+| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  | `false`    | Enables compatibility with `gnupg-pkcs11-scd` for [GPG hash signing](/documentation/crypto-providers/gpg) because `gnupg-pkcs11-scd` requires X.509 objects internally for its key discovery
 {: .break-code}
 
 **Logging settings:**
