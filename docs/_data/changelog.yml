@@ -2,12 +2,13 @@
   updates:
     application:
       version: 1.176.0
+      improvements:
+        - text: |-
+            JAR signing: Added missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
+          issues: [SIGN-7308]
       bug_fixes:
         - text: |-
-            JAR signing: Fixed missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
-          issues: [SIGN-7308]
-        - text: |-
-            Fixed display of validation errors in the user invitation UI.
+            Fixed handling of validation errors in the user invitation UI: Previously only the browser's validation errors were displayed when leaving the text boxes, instead of rendering the error message below the text field.
           issues: [SIGN-7397]
     self_hosted_installations:
       version: 1.176.0
