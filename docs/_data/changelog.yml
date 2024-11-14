@@ -1,3 +1,24 @@
+- date: '2024-11-21'
+  updates:
+    application:
+      version: 1.176.0
+      bug_fixes:
+        - text: |-
+            Jar signing: Fixed missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
+          issues: [SIGN-7308]
+        - text: |-
+            Fixed display of validation errors in the user invitation UI.
+          issues: [SIGN-7397]
+    self_hosted_installations:
+      version: 1.176.0
+      new_features:
+        - text: |-
+            Added support for (optionally) using Azure Workload Identity authentication for Azure Blob Storage and SQL Server connections. For prerequisites and configuration instructions see "Azure Workload Identity" section in installation guide.
+          issues: [SIGN-7362]
+      improvements:
+        - text: |-
+            Reduced image size of the `signpathio/signservice-setup-db` container image and startup time of the SignService migration jobs.
+          issues: [SIGN-7261]
 - date: '2024-11-11'
   updates:
     application:
