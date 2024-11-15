@@ -38,7 +38,7 @@ For the [Linux container samples], the following log file locations are configur
 * `gnupg-pkcs11` logs: `samples/Scenarios/temp/gnupg-pkcs11-scd.log`
 * GPG logs: `samples/Scenarios/temp/gpg-agent.log`
 
-### Prepare for signing
+### Prepare for signing {#prepare-signing}
 
 1. Create a [GPG key in SignPath](/documentation/managing-certificates), download the GPG public key file and copy it into the `samples/Scenarios/Gpg/Keys` directory.
 1. Create a [hash signing project and signing policy](/documentation/crypto-providers#signpath-project-configuration) in SignPath.
