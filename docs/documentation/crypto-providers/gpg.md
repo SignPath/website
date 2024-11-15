@@ -51,25 +51,25 @@ For referencing a specific GPG key in the later signing commands (`-GpgKeyId` pa
 
 ### GPG File Signing {#gpg-file-signing}
 
-The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `run_scenario.sh ... -Scenario GpgSignFile -GpgKeyId "<gpg-signing@example.com>"`.
+The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `run_scenario.sh ... -Scenario GpgSignFile -GpgKeyId "my-gpg-key@example.com"`.
 
 During `gpg --sign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### RPM Signing (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a RPM file in `run_scenario.sh ... -Scenario SignRpm -GpgKeyId "<gpg-signing@example.com>"`. See `SignRpm.ps1` for details.
+The [Linux container samples] contain a full example to sign and verify a RPM file in `run_scenario.sh ... -Scenario SignRpm -GpgKeyId "my-gpg-key@example.com"`. See `SignRpm.ps1` for details.
 
 During `rpm --addsign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### DEB Signing via dpkg-sig (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ in `run_scenario.sh ... -Scenario SignDeb -GpgKeyId "<gpg-signing@example.com>"`. Note the passed default "sign role" value of `"builder"`.
+The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ in `run_scenario.sh ... -Scenario SignDeb -GpgKeyId "my-gpg-key@example.com"`. Note the passed default "sign role" value of `"builder"`.
 
 During `dpkg-sig --sign`, SignPath is called to perform a hash based signing operation. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### Maven Artifact Signing (Linux)
 
-The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ in `run_scenario.sh ... -Scenario SignMaven -GpgKeyId "<gpg-signing@example.com>"`. The used GPG key is referenced via its email address.
+The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ in `run_scenario.sh ... -Scenario SignMaven -GpgKeyId "my-gpg-key@example.com"`. The used GPG key is referenced via its email address.
 
 During `mvn install`, SignPath is called to perform a hash based signing operations. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
