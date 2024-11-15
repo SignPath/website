@@ -24,11 +24,14 @@ This section provides general information about using the SignPath Cryptoki libr
 
 ### Supported Linux distributions {#supported-linux-distributions}
 
-| Distribution | Version         | Comment
-|--------------|-----------------|-------------------
-| Debian       | 11
-| Ubuntu       | 20.04           | Except [osslsigncode](#osslsigncode)
-| RedHat       | 8 (latest minor) 
+| Distribution | Version            | Comment
+|--------------|--------------------|------------------------
+| Debian       | 11 "bullseye"
+| Debian       | 12 "bookworm"
+| Ubuntu       | 20.04              | Except [osslsigncode](#osslsigncode)
+| Ubuntu       | 22.04              |
+| Ubuntu       | 24.04              |
+| RedHat       | 8 (latest minor)
 | RedHat       | 9 (latest minor)
 
 > **OpenSSL 3.0.0 - 3.0.8 incompatibility**
