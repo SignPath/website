@@ -41,9 +41,9 @@ For the [Linux container samples], the following log file locations are configur
 ### Prepare for signing {#prepare-signing}
 
 1. Create a [GPG key in SignPath](/documentation/managing-certificates), download the GPG public key file and copy it into the `samples/Scenarios/Gpg/Keys` directory.
-1. Create a [hash signing project and signing policy](/documentation/crypto-providers#signpath-project-configuration) in SignPath.
-1. Execute `SCD LEARN` to fetch the private key references. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
-1. Import the key into the GPG key chain with `gpg --import` . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
+2. Create a [hash signing project and signing policy](/documentation/crypto-providers#signpath-project-configuration) in SignPath.
+3. Execute `SCD LEARN` to fetch the private key references. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
+4. Import the key into the GPG key chain with `gpg --import` . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
 
 For referencing a specific GPG key in the later signing commands (`-GpgKeyId` parameter), you can use the GPG key's fingerprint, key ID, the full user ID, or the email address.
 
