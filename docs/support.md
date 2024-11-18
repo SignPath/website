@@ -28,5 +28,5 @@ There are two ways to contact our support team:
 {:.panel.info}
 > **Sharing operational secrets**
 >
-> In case you need to share operational secrets with us, please encrypt them using our [public Operations GPG key](/assets/other/signpath_ops_gpg_public_key.asc). If you don't have GPG tooling installed, you can use the [keybase.io](https://keybase.io/encrypt#signpath_ops) service (encryption is performed on the client).
+> In case you need to share operational secrets with us, please encrypt them using this [GPG public key](/assets/other/signpath_ops_gpg_public_key.asc). If you don't have GPG tooling installed, you can use the [keybase.io](https://keybase.io/encrypt#signpath_ops) service (encryption is performed on the client).
 
