@@ -23,6 +23,22 @@ With SignPath, you have three options for creating or importing a certificate:
 * **Certificate signing requests (CSRs)** can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.
 * **PFX files** can be imported into SignPath. If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)
 
+## Key algorithms and lengths
+
+All editions support the default key format RSA 4096.
+
+{% include editions.md feature="other.select_key_algorithm" %}
+
+In supported editions, the following key algorithms and lengths are available:
+
+* RSA: 2048, 3072, 4096, 8192 bits
+* ECDSA NIST: P256, P384, P521
+* ECDSA Brainpool: P256r1, P384r1, P512r1
+
+The availability of keys may be limited for certain key stores/HSMs.
+
+Note that not all signing methods support all key algorithms and lenghts. SignPath shows known incompatibilities when selecting a key algorithm.
+
 ## Restrictions
 
 SignPath allows you to configure restrictions for certificates. You can, for instance, specify that all signing requests that are using the certificate must be manually approved.
