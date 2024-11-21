@@ -1,14 +1,18 @@
 - text: Product
   path: product
   subdir: true
-
-- text: Code Signing
-  path: code-signing
+  
+- text: Use Cases
+  path: use-cases
   subdir: true
 
 - text: Documentation
   path: documentation
   subdir: true
+  
+- text: Blog
+  path: blog
+  subdir: false
 
 - text: About us
   path: about-us
