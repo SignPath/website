@@ -71,6 +71,15 @@ main > section.resources-section {
 				min-width: 300px;
 				padding: 0px;
 
+				&::before {
+					content: 'On this page';
+					display: block;
+					padding-left: 20px;
+					padding-bottom: 5px;
+					padding-top: 5px;
+					background-color: $light-grey-border-color;
+				}
+
 				ul {
 					padding: 0px;
 					list-style-type: none;
