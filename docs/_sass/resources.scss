@@ -318,6 +318,10 @@ main > section.resources-section {
 			top:0;
 			order: 1;
 			margin-left: 0px;
+
+			ul {
+				display: none;
+			}
 		}	
 	}
 }
