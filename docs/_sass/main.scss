@@ -215,6 +215,9 @@ section.top-section > div {
 
 		span.no-break {
 			white-space: nowrap;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
 			svg{
 				position: relative;
