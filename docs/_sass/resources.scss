@@ -436,6 +436,30 @@ div.language-powershell {
 	}
 }
 
+@media only screen and (max-width: 1000px) {
+	main > section.resources-section > div > nav {
+		max-width: none;
+
+		& > ul {
+			li {
+				display: none;
+			}
+			li.current-group {
+				display: list-item;
+
+				& li {
+					display: list-item;
+				}
+			}
+		}
+	}
+
+	main > section.resources-section > div > nav.hidden-on-mobile {
+		display: none;
+	}
+}
+
+
 @media only screen and (max-width: 999px) {
 	:not(pre) > code {
 			word-break: break-all;

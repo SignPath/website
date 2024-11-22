@@ -7,6 +7,7 @@
 -f
 {%- assign parts = page.path | split:"/" -%}
 {%- assign root_group = parts[0] -%}
+{%- assign hideNavOnMobile = 'hidden-on-mobile' -%}
 
 <section class="bg-blue font-white top-section">
 	<div>
@@ -23,6 +24,9 @@
 		  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
 		  	  {%- if entry.path == part1_cleaned[0] -%}
 		  	  	{%- assign entry_found = 1 -%}
+		  	  	{%- if entry.items -%}
+		  	  	  {%- assign hideNavOnMobile = nil -%}
+		  	  	{%- endif -%}
 		  	  	<span class='no-break'>
 		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
 		  	  		  <a href='/{{parts[0]}}/{{parts[1]}}'>
@@ -62,30 +66,34 @@
 <section class="resources-section">
 	<div>
 		{%- if site.data.menus contains root_group -%}
-			<nav>
+			<nav class='{{ hideNavOnMobile }}'>
 				<ul>
 					{%- for entry in site.data.menus[root_group] -%}
-						{%- assign className = nil -%}
+						{%- assign activeClass = nil -%}
+						{%- assign currentGroup = nil -%}
 						{%- assign tail = parts[-1] | split: "." -%}
 						{%- if tail[0] == entry.path or tail[0] == "index" and parts[-2] == entry.path -%}
-						  {%- assign className = 'active' -%}
+						  {%- assign activeClass = 'active' -%}
+						{%- endif -%}
+						{%- if parts[-2] == entry.path -%}
+						  {%- assign currentGroup = 'current-group' -%}
 						{%- endif -%}
 						{%- if entry.separator -%}
 						<li class='separator' />
 						{%- else -%}
-						<li class='{{ className }}'>
+						<li class='{{ activeClass }} {{ currentGroup }}'>
 							<a href='/{{root_group}}/{{entry.path}}#'>{{ entry.text }}</a>
 							{%- if parts[1] == entry.path and entry.items -%}
 								<ul>
 								{%- for sub in entry.items -%}
 									{%- if parts.size > 1 -%}
 										{%- if tail[0] == sub.path and parts[-2] == entry.path -%}
-									    	{%- assign className = 'active' -%}
+									    	{%- assign activeClass = 'active' -%}
 									    {%- else -%}
-									    	{%- assign className = '' -%}
+									    	{%- assign activeClass = '' -%}
 									    {%- endif -%}
 									{%- endif -%}
-									<li class='{{ className }}'>
+									<li class='{{ activeClass }}'>
 										<a href='/{{root_group}}/{{entry.path}}/{{sub.path}}'>{{ sub.text }}</a>
 									</li>
 								{%- endfor -%}
