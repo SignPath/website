@@ -14,7 +14,7 @@
 		{%- if site.data.menus contains root_group -%}
 		  {%- for main in site.data.menus.menus -%}
 		    {%- if main.path == root_group -%}
-		    	<span class='no-break'>{{ main.text }}&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
+		    	<span class='no-break'><a href='/{{parts[0]}}'>{{ main.text }}</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
 		    {%- endif -%}
 		  {%- endfor -%}
 		  {%- if parts.size > 1 -%}
@@ -24,8 +24,12 @@
 		  	  {%- if entry.path == part1_cleaned[0] -%}
 		  	  	{%- assign entry_found = 1 -%}
 		  	  	<span class='no-break'>
+		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+		  	  		  <a href='/{{parts[0]}}/{{parts[1]}}'>
+		  	  		{%- endif -%}
 		  	  		{{ entry.text }}
 		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+		  	  	      </a>
 		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;
 		  	  		{%- endif -%}
 		  	  	</span>
