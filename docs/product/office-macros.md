@@ -1,5 +1,5 @@
 ---
-sub_header: Microsoft Office Macro Signing
+header: Microsoft Office Macro Signing
 layout: resources
 toc: true
 description: Protecting from malicious Office macros through policy restrictions and signing

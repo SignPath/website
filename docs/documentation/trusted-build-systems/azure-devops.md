@@ -1,6 +1,5 @@
 ---
-main_header: Trusted Build Systems
-sub_header: Azure DevOps
+header: Azure DevOps
 layout: resources
 toc: true
 show_toc: 3

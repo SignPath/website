@@ -1,6 +1,5 @@
 ---
-main_header: Crypto Providers
-sub_header: Cryptoki/PKCS #11
+header: Cryptoki/PKCS #11
 layout: resources
 toc: true
 show_toc: 3

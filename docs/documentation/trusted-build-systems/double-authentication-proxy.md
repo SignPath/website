@@ -1,6 +1,5 @@
 ---
-main_header: Trusted Build Systems
-sub_header: Double Authentication Proxy
+header: Double Authentication Proxy
 layout: resources
 toc: true
 show_toc: 3

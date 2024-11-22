@@ -1,6 +1,5 @@
 ---
-main_header: PowerShell
-sub_header: Get&#8209;CertificateByMicrosoftTemplateId
+header: Get&#8209;CertificateByMicrosoftTemplateId
 layout: resources
 toc: true
 show_toc: 3

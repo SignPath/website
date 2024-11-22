@@ -1,6 +1,5 @@
 ---
-main_header: PowerShell
-sub_header: Get-SignedArtifact
+header: Get-SignedArtifact
 layout: resources
 toc: true
 show_toc: 3

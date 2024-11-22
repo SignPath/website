@@ -1,7 +1,6 @@
 ---
 title: Editions
-main_header: Product
-sub_header: Editions and Pricing explained
+header: Editions and Pricing explained
 layout: resources
 toc: true
 show_toc: 3

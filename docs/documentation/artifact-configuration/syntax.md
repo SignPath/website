@@ -1,6 +1,5 @@
 ---
-main_header: Artifact Configuration
-sub_header: Syntax and Structure
+header: Syntax and Structure
 layout: resources
 toc: true
 show_toc: 3

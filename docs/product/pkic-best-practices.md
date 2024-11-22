@@ -1,5 +1,5 @@
 ---
-sub_header: PKI Consortium Best Practices for Code Signing
+header: PKI Consortium Best Practices for Code Signing
 layout: resources
 toc: true
 description: Mapping SignPath features to the code signing recommendations of the PKI Consortium

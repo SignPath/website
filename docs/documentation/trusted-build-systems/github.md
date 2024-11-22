@@ -1,6 +1,5 @@
 ---
-main_header: Trusted Build Systems
-sub_header: GitHub
+header: GitHub
 layout: resources
 toc: true
 show_toc: 3

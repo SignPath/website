@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Setting up Projects
+header: Setting up Projects
 layout: resources
 toc: true
 show_toc: 3

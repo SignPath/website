@@ -1,6 +1,5 @@
 ---
-main_header: Code Signing
-sub_header: Media Coverage of Breaches
+header: Media Coverage of Breaches
 layout: resources
 toc: true
 show_toc: 3

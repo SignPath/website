@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Signing Code
+header: Signing Code
 layout: resources
 toc: true
 show_toc: 3

@@ -1,19 +1,62 @@
 {%- if page.main_header != null -%}
-	{%- assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' -%}
+	{%- assign title = page.main_header | append: " - " | append: page.header | append: ' | SignPath' -%}
 {%- else -%}
-	{%- assign title = page.sub_header | append: ' | SignPath' -%}
+	{%- assign title = page.header | append: ' | SignPath' -%}
 {%- endif -%}
 {%- include header.html -%}
+-f
+{%- assign parts = page.path | split:"/" -%}
+{%- assign root_group = parts[0] -%}
 
 <section class="bg-blue font-white top-section">
 	<div>
-		<h1>{% if page.main_header %}<span class='no-break'>{{ page.main_header }} &nbsp;❯&nbsp; </span>{% endif %} {{ page.sub_header }}</h1>
+		<h1>
+		{%- if site.data.menus contains root_group -%}
+		  {%- for main in site.data.menus.menus -%}
+		    {%- if main.path == root_group -%}
+		    	<span class='no-break'>{{ main.text }}&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
+		    {%- endif -%}
+		  {%- endfor -%}
+		  {%- if parts.size > 1 -%}
+		  	{%- assign entry_found = 0 -%}
+		  	{%- for entry in site.data.menus[root_group] -%}
+		  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
+		  	  {%- if entry.path == part1_cleaned[0] -%}
+		  	  	{%- assign entry_found = 1 -%}
+		  	  	<span class='no-break'>
+		  	  		{{ entry.text }}
+		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;
+		  	  		{%- endif -%}
+		  	  	</span>
+		  	  	{%- if parts.size > 2 -%}
+		  	  	{% assign part2_cleaned = parts[2] | split: "." -%}
+		  	  	{%- if part2_cleaned[0] != "index" -%}
+		  	  	   {%- for subentry in entry.items -%}
+		  	  	     {%- if subentry.path == part2_cleaned[0] -%}
+		  	  	       <span class='no-break'>
+		  	  	         {{ subentry.text }}
+		  	  	       </span>
+		  	  	     {%- endif -%}
+		  	  	   {%- endfor -%}
+		  	  	{%- endif -%}
+		  	  	{%- endif -%}
+		  	  {%- endif -%}
+		  	{%- endfor -%}
+		  	{%- if entry_found == 0 -%}
+		  	  <span class='no-break'>
+	  	         {{ page.header }}
+	  	      </span>
+		  	{%- endif -%}
+		  {%- endif -%}
+		{%- else -%}
+		  {{ page.header }}
+		{%- endif -%}	
+		</h1>
 	</div>
 </section>
 <section class="resources-section">
 	<div>
-		{%- assign parts = page.path | split:"/" -%}
-		{%- assign root_group = parts[0] -%}
 		{%- if site.data.menus contains root_group -%}
 			<nav>
 				<ul>

@@ -1,6 +1,5 @@
 ---
-main_header: Code Signing
-sub_header: Theory
+header: Theory
 layout: resources
 toc: true
 show_toc: 4

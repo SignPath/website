@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Build System Integration
+header: Build System Integration
 layout: resources
 toc: true
 show_toc: 3

@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Trusted Build Systems
+header: Trusted Build Systems
 layout: resources
 toc: true
 show_toc: 3

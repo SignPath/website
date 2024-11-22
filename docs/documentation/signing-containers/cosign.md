@@ -1,6 +1,5 @@
 ---
-main_header: Container Signing
-sub_header: Sigstore Cosign
+header: Sigstore Cosign
 layout: resources
 toc: true
 show_toc: 3

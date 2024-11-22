@@ -1,5 +1,5 @@
 ---
-sub_header: SignPath with Thales DPoD Cloud HSM
+header: SignPath with Thales DPoD Cloud HSM
 layout: resources
 toc: true
 description: Keep your keys on a dedicated Thales Data Protection on Demand (DPoD) Cloud HSM

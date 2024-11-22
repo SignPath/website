@@ -1,6 +1,5 @@
 ---
-main_header: Crypto Providers
-sub_header: Windows CSP and KSP
+header: Windows CSP and KSP
 layout: resources
 toc: true
 show_toc: 3

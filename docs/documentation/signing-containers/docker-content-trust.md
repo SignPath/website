@@ -1,6 +1,5 @@
 ---
-main_header: Container Signing
-sub_header: Docker Content Trust (DCT)
+header: Docker Content Trust (DCT)
 layout: resources
 toc: true
 show_toc: 3

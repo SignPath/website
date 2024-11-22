@@ -1,6 +1,5 @@
 ---
-main_header: PowerShell
-sub_header: Submit-SigningRequest
+header: Submit-SigningRequest
 layout: resources
 toc: true
 show_toc: 3

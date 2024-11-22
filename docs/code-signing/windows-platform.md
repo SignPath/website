@@ -1,6 +1,5 @@
 ---
-main_header: Code Signing
-sub_header: Windows Platform
+header: Windows Platform
 layout: resources
 toc: true
 show_toc: 5
