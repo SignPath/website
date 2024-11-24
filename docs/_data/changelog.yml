@@ -4,7 +4,7 @@
       version: 1.176.0
       improvements:
         - text: |-
-            JAR signing: Added missing cross-signed certificate in certificate chain for GlobalSign-issued code signing certificates. The missing cross-signed certificate previously prevented that `jarsigner -verify` treated GlobalSign-issued certificates as trusted.
+            JAR signing: Added a workaround for Java code signing using recent GlobalSign code signing certificates. (The default root certificate is not in the Java root trust list, so a special cross-signed certificate must be applied.)
           issues: [SIGN-7308]
         - text: |-
             Improved display of validation errors in the user invitation UI.
@@ -13,7 +13,7 @@
       version: 1.176.0
       new_features:
         - text: |-
-            Added support for (optionally) using Azure Workload Identity authentication for Azure Blob Storage and SQL Server connections. For prerequisites and configuration instructions see "Azure Workload Identity" section in installation guide.
+            Azure Blob Storage and SQL Server connections: added support for Azure Workload Identity authentication. See "Azure Workload Identity" in the installation guide for details.
           issues: [SIGN-7362]
       improvements:
         - text: |-
@@ -34,14 +34,14 @@
       version: 1.175.1
       breaking_changes:
         - text: |-
-            In the `signpath-application` chart, the `appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions` configuration section has been renamed to `fastSigningServiceClientOptions` (its content stays the same).
+            In the `signpath-application` chart, the `appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions` configuration section has been renamed to `fastSigningServiceClientOptions` (value unchanged).
           issues: [SIGN-7250]
 - date: '2024-11-06'
   updates:
     github_connector:
       version: 1.0.1
       bug_fixes:
-        - text: Fixed an integer overflow bug that prevented signing of artifacts with high GitHub artifact IDs.
+        - text: Fixed a bug that prevented signing of artifactsf from GitHub.com. (GitHub's global ID values crossed the max-int threshold on Nov. 5, 2024.)
           issues: [SIGN-7377]
 - date: '2024-10-24'
   updates:
