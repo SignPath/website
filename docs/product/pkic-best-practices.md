@@ -3,6 +3,7 @@ header: PKI Consortium Best Practices for Code Signing
 layout: resources
 toc: true
 description: Mapping SignPath features to the code signing recommendations of the PKI Consortium
+hide_nav: true
 ---
 
 The [PKI Consortium](https://pkic.org/) (PKIC, formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.

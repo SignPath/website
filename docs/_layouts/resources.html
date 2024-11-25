@@ -12,7 +12,7 @@
 <section class="bg-blue font-white top-section">
 	<div>
 		<h1>
-		{%- if site.data.menus contains root_group -%}
+		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
 		  {%- for main in site.data.menus.menus -%}
 		    {%- if main.path == root_group -%}
 		    	<span class='no-break'><a href='/{{parts[0]}}'>{{ main.text }}</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
@@ -63,9 +63,12 @@
 		</h1>
 	</div>
 </section>
-<section class="resources-section">
+{%- if page.hide_nav -%}
+  {%- assign hide_nav_class = "nav-hidden" -%}
+{%- endif -%}
+<section class="resources-section {{ hide_nav_class }}">
 	<div>
-		{%- if site.data.menus contains root_group -%}
+		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
 			<nav class='{{ hideNavOnMobile }}'>
 				<ul>
 					{%- for entry in site.data.menus[root_group] -%}
