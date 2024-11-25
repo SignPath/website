@@ -2,7 +2,7 @@
 header: Jenkins Plugin
 layout: resources
 toc: true
-show_toc: 3
+show_toc: 2
 description: Jenkins Plugin
 ---
 

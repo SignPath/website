@@ -2,7 +2,7 @@
 header: Theory
 layout: resources
 toc: true
-show_toc: 4
+show_toc: 2
 description: An in-depth look into general code signing technologies and procedures
 ---
 
