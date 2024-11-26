@@ -470,6 +470,16 @@ div.language-powershell {
 				}
 			}
 		}
+
+		& > ul.show {
+			li {
+				display: list-item;
+
+				ul {
+					display: none;
+				}
+			}
+		}
 	}
 
 	main > section.resources-section > div > nav.hidden-on-mobile {
