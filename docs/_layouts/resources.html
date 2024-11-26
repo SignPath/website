@@ -26,14 +26,14 @@
 		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
 		  {%- for main in site.data.menus.menus -%}
 		    {%- if main.path == root_group -%}
-		    	{%- if parts.size > 1 and parts[-1] != "index.md" -%}
+		    	{%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md" -%}
 		    		<span class='no-break'><a href='/{{parts[0]}}'>{{ main.text }}</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
 		    	{%- else -%}
 		    		<span class='no-break'>{{ main.text }}</span>
 		    	{%- endif -%}
 		    {%- endif -%}
 		  {%- endfor -%}
-		  {%- if parts.size > 1 and parts[-1] != "index.md" -%}
+		  {%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md"-%}
 		  	{%- assign entry_found = 0 -%}
 		  	{%- for entry in site.data.menus[root_group] -%}
 		  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
