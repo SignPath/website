@@ -11,7 +11,7 @@
 	{%- assign title = page.header | append: ' | SignPath' -%}
 {%- endif -%}
 {%- include header.html -%}
--f
+
 {%- assign parts = page.path | split:"/" -%}
 {%- assign root_group = parts[0] -%}
 {%- if page.nav_on_small_screen -%}
@@ -20,7 +20,7 @@
 	{%- assign hideNavOnMobile = 'hidden-on-mobile' -%}
 {%- endif -%}
 
-<section class="bg-blue font-white top-section">
+<section class="bg-blue font-white top-section resources-header">
 	<div>
 		<h1>
 		{%- if site.data.menus contains root_group and page.hide_nav != true -%}

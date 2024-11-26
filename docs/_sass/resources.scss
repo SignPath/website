@@ -1,3 +1,11 @@
+main > section.resources-header {
+	& > div {
+		box-sizing: content-box;
+		max-width: calc(#{$content-width} - 80px);
+		width: calc(100% - 80px);
+	}
+}
+
 main > section.resources-section {
 
 	&.nav-hidden > div {

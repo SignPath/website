@@ -196,6 +196,7 @@ section.font-white {
 }
 
 section.top-section > div {
+	margin: auto;
 	padding-bottom: 20px;
 	padding-top: 90px;
 
@@ -203,6 +204,7 @@ section.top-section > div {
 		font-size: 2em;
 		margin: 0px;
 		text-align: left;
+		line-height: 1.3;
 
 
 		span {
@@ -478,7 +480,9 @@ ul.locations {
 	section.top-section > div {
 
 		padding-bottom: 20px;
-		padding-top: 90px;
+		padding-top: 100px;
+		padding-left: 40px;
+		padding-right: 40px;
 
 		& > h1 {
 			font-size: 2em;
