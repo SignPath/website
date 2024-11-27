@@ -1,8 +1,10 @@
 main > section.resources-header {
+	padding-left: 40px;
+	padding-right: 40px;
+
 	& > div {
-		box-sizing: content-box;
-		max-width: calc(#{$content-width} - 80px);
-		width: calc(100% - 80px);
+		padding-left: 0px;
+		padding-right: 0px;
 	}
 }
 
