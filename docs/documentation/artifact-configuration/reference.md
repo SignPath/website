@@ -1,6 +1,5 @@
 ---
-main_header: Artifact Configuration
-sub_header: Reference
+header: Reference
 layout: resources
 toc: true
 show_toc: 3

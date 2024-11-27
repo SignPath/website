@@ -1,8 +1,8 @@
 ---
-main_header: Documentation
-sub_header: Trusted Build Systems
+header: Trusted Build Systems
 layout: resources
-toc: false
+toc: true
+show_toc: 3
 description: Documentation for providing Trusted Build Systems to SignPath
 ---
 
