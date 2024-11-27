@@ -33,19 +33,20 @@ Microsoft Authenticode is the primary signing method on the Windows platform. Au
 
 {%- include render-table.html table=site.data.tables.artifact-configuration.authenticode-attributes -%}
 
-{:.panel.info}
-> **Appending signatures**
->
-> File formats that support appending signatures:
-> 
-> * `<pe-file>` (.exe, .dll, ...)
-> * `<cab-file>` (.cab)
-> * `<catalog-file>` (.cat)
-> 
-> Appending signatures is only needed for edge cases including
-> 
-> * adding an signature to a file that's already signed using another certificate
-> * adding a signature using different parameters, such as digest algorithm
+##### _append_ attribute
+
+File formats that support appending signatures:
+
+* `<pe-file>` (.exe, .dll, ...)
+* `<cab-file>` (.cab)
+* `<catalog-file>` (.cat)
+
+Appending signatures is only needed for edge cases including
+
+* adding an signature to a file that's already signed using another certificate
+* adding a signature using different parameters, such as digest algorithm
+
+##### Authenticode examples
 
 Example: append signature, preserving any existing signatures
 
