@@ -14,7 +14,7 @@ incidents:
     type: warning
     title: 'HSM signing interruptions'
     description: |
-      Internal network connectivity issues to SignPath's HSM cluster.
+      Temporary HSM network performance degradation led to automatic service restart escalation.
 
       * Delayed signing request processing.
       * Possible client-side timeouts concerning hash signing.
