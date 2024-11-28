@@ -1,11 +1,11 @@
 ---
 title: Editions
-main_header: Product
-sub_header: Editions and Pricing explained
+header: Editions and Pricing explained
 layout: resources
 toc: true
-show_toc: 3
+show_toc: 2
 description: 'Detailed description of SignPath editions: features and quotas'
+hide_nav: true
 ---
 
 This page explains how the quotas and features of all [SignPath Editions](/product/editions).

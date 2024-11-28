@@ -1,9 +1,8 @@
 ---
-main_header: PowerShell
-sub_header: Get-SignedArtifact
+header: Get-SignedArtifact
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 3
 description: Get-SignedArtifact
 ---
 
@@ -47,7 +46,7 @@ This cmdlet throws an exception if the signing request does not successfully com
 
 ## Examples
 
-### Example 1: Download an artifact from a previously submitted signing request
+#### Example 1: Download an artifact from a previously submitted signing request
 
 ~~~ powershell
 $signingRequestID = Submit-SigningRequest `

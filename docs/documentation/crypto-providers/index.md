@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Crypto Providers
+header: Crypto Providers
 layout: resources
 toc: true
 show_toc: 3

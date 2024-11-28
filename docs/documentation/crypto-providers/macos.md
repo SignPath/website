@@ -1,6 +1,5 @@
 ---
-main_header: Crypto Providers
-sub_header: macOS CryptoTokenKit
+header: macOS CryptoTokenKit
 layout: resources
 toc: true
 show_toc: 3

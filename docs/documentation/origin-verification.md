@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Origin Verification
+header: Origin Verification
 layout: resources
 toc: false
 description: Documentation for using Origin Verification in SignPath
