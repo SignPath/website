@@ -21,7 +21,7 @@ main > section.resources-section {
 		padding-right: 16px;
 		display: flex;
 		align-items: flex-start;
-		max-width: none;
+		max-width: calc(#{$content-width} + 240px + 320px - 46px); /* nav bar + toc bar - padding */
 
 		& > nav {
 			position: sticky;
