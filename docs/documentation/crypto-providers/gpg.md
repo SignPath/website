@@ -25,7 +25,7 @@ To configure GnuPG to perform hash signing via SignPath you need to:
 * Configure `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
 * Configure GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 
-For more details and necessary dependencies see `samples/Scenarios/Gpg` in the [Linux container samples].
+For more details and necessary dependencies, see `samples/Scenarios/Gpg` in the [Linux container samples].
 
 ### Error logs {#gpg-error-logs}
 
@@ -44,7 +44,14 @@ For the [Linux container samples], the following log file locations are configur
 3. Execute `SCD LEARN` to fetch the private key references. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
 4. Import the key into the GPG key chain with `gpg --import` . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
 
-For referencing a specific GPG key in the later signing commands (`-GpgKeyId` parameter), you can use the GPG key's fingerprint, key ID, the full user ID, or the email address.
+For referencing a specific GPG key in the later signing commands (`-GpgKeyId` parameter), you can use the GPG key's fingerprint, key ID, the full user ID, or email address.
+
+> **CI user <-> signing policy assignment**
+>
+> We strongly recommend to use an **isolated CI user** for GPG signing, which is **assigned to exactly one signing policy as submitter**.
+>
+> Reasoning: When performing a GPG signing operation (e.g. `gpg --sign -u my-gpg-key@example.com`), a GPG _public key_ is selected. Internally (via `gnupg-pkcs11`), the corresponding SignPath project / signing policy is selected via the GPG key's _public key hash_ (a "keygrip" in the [GnuPG lingo](https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html)). This means that when two or more signing policies are referencing _the same GPG key_, the signing policy cannot be determined unambiguously. Instead `gnupg-pkcs11` would just filter out all signing policies and the `gpg --sign` command errors with "signing failed: No secret key".
+{:.panel.warning}
 
 ## Signing code with GPG
 
