@@ -2,7 +2,7 @@
 layout: post
 title: "Building trusted software for macOS"
 image: '2024-09-09-bg'
-date: 2024-10-25 06:00:00 +0000
+date: 2024-11-29 06:00:00 +0000
 author: Paul Savoie
 summary: "Distributing trusted Apple applications beyond the App Store"
 description: "description"
