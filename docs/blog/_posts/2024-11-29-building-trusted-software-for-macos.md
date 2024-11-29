@@ -91,70 +91,55 @@ When signing your software with a hardened runtime, you need to add the `–-opt
 
 When building the software automatically using the `xcodebuild` tool, there is another special setting to consider: Apple automatically injects an entitlement used for debugging at build time which is incompatible with the notarization process. You can disable this behavior by passing the `CODE_SIGN_INJECT_BASE_ENTITLEMENTS=NO` flag to your `xcodebuild` call. See [here](https://developer.apple.com/documentation/security/resolving-common-notarization-issues#Avoid-the-get-task-allow-entitlement) for more technical details.
 
-## Sample Workflow
+## Sample
 Let’s get hands on! First you'll need a Free Trial account on Signpath. Sign up here: https://login.signpath.io/ 
 
-Below is an extract of a GitHub Actions workflow which signs and notarizes an application. For a full working sample, visit the [demo repository](https://github.com/SignPath/demo-macos).
+Below is a code snippet that highlights how to sign and notarizes an application. For a full working sample, visit the [demo repository](https://github.com/SignPath/demo-macos).
 
 {% raw %}
-~~~yaml
-name: Signs and notarizes a sample app
+~~~bash
 
-on:
-  workflow_dispatch:
+###  Install SignPath MacOSCryptoTokenKit
+curl -o SignPathCryptoTokenKit.dmg https://download.signpath.io/cryptoproviders/macos-cryptotokenkit/2.0.0/SignPathCryptoTokenKit.dmg
+codesign -dv --verbose SignPathCryptoTokenKit.dmg               # check signature
+hdiutil attach ./SignPathCryptoTokenKit.dmg -mountroot ./tools  # mount the disk image
 
-jobs:
-  sign_and_notarize:
-    steps:
-     # other steps for building the software
+### Register the CryptoTokenKit
+open "./tools/SignPathCryptoTokenKit/SignPathCryptoTokenKit.app" --args \
+  --organization-id $SIGNPATH_ORGANIZATION_ID \
+  --project-slug $SIGNPATH_PROJECT_SLUG \
+  --signing-policy-slug $SIGNPATH_SIGNING_POLICY_SLUG
 
-      - name: Sign .app file
-        env:
-          SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
-        run: |
-          open "./tools/SignPathCryptoTokenKit/SignPathCryptoTokenKit.app" --args \
-            --organization-id ${{ vars.SIGNPATH_ORGANIZATION_ID }} \
-            --project-slug ${{ vars.SIGNPATH_PROJECT_SLUG }} \
-            --signing-policy-slug ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+sleep 20 # wait for token to be registered
 
-          sleep 20 # wait for token to be registered
+### Sign the sample.app file
+codesign -f --timestamp --options=runtime \
+  -s $CERTIFICATE_SUBJECT_NAME \
+  --entitlements sample/sample/sample.entitlements \
+  ./build/sample.app
 
-          # sign
-          codesign -f --timestamp --options=runtime \
-            -s "${{ vars.CERTIFICATE_SUBJECT_NAME }}" \
-            --entitlements sample/sample/sample.entitlements \
-            ./build/sample.app
+codesign -dv --verbose ./build/sample.app   # check signature
 
-          # check signature
-          codesign -dv --verbose ./build/sample.app
+### Create and sign a .dmg file
+hdiutil create -format UDZO -srcfolder ./build/sample.app ./build/sample.dmg
 
-      - name: Create .dmg file
-        run: |
-          hdiutil create -format UDZO -srcfolder ./build/sample.app ./build/sample.dmg
+codesign -f --timestamp --options=runtime \
+  -s $CERTIFICATE_SUBJECT_NAME \
+  --entitlements sample/sample/sample.entitlements \
+  ./build/sample.dmg
 
-      - name: Sign .dmg file
-        run: |
-          # sign
-          codesign -f --timestamp --options=runtime \
-            -s "${{ vars.CERTIFICATE_SUBJECT_NAME }}" \
-            --entitlements sample/sample/sample.entitlements \
-            ./build/sample.dmg
+codesign -dv --verbose ./build/sample.dmg   # check signature
 
-          # check signature
-          codesign -dv --verbose ./build/sample.dmg
+### Notarize the .dmg file
+xcrun notarytool submit ./build/sample.dmg \
+  --apple-id $APPLE_ID \
+  --team-id $APPLE_TEAM_ID \
+  --password $APPLE_NOTARIZATION_APP_SPECIFIC_PASSWORD \
+  --wait \
+  --timeout 15m
 
-      - name: Notarize .dmg file
-        run: |
-          # submit the software to Apple
-          xcrun notarytool submit ./build/sample.dmg \
-            --apple-id ${{ vars.APPLE_ID }} \
-            --team-id ${{ vars.APPLE_TEAM_ID }} \
-            --password ${{ secrets.APPLE_NOTARIZATION_APP_SPECIFIC_PASSWORD }} \
-            --wait \
-            --timeout 15m
+xcrun stapler staple ./build/sample.dmg # staple the notarization result
 
-          # staple the notarization result
-          xcrun stapler staple ./build/sample.dmg
 ~~~ 
 {% endraw %}
 
