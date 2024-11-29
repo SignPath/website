@@ -1,9 +1,8 @@
 ---
-main_header: Documentation
-sub_header: Signing Container Images
+header: Signing Container Images
 layout: resources
 toc: true
-show_toc: 0
+show_toc: 2
 description: Documentation for signing container images with SignPath
 redirect_from: /documentation/docker-signing
 datasource: tables/signing-containers

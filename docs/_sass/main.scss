@@ -196,21 +196,30 @@ section.font-white {
 }
 
 section.top-section > div {
-	padding-bottom: 50px;
-	padding-top: 120px;
+	margin: auto;
+	padding-bottom: 20px;
+	padding-top: 90px;
 
 	& > h1 {
-		font-size: 3em;
+		font-size: 2em;
 		margin: 0px;
 		text-align: left;
+		line-height: 1.3;
 
 
 		span {
 			display: inline-block;
+
+			a {
+				color: inherit;
+			}
 		}
 
 		span.no-break {
 			white-space: nowrap;
+			max-width: 100%;
+			overflow: hidden;
+			text-overflow: ellipsis;
 
 			svg{
 				position: relative;
@@ -470,6 +479,11 @@ ul.locations {
 @media only screen and (max-width: 1000px) {
 	section.top-section > div {
 
+		padding-bottom: 20px;
+		padding-top: 100px;
+		padding-left: 40px;
+		padding-right: 40px;
+
 		& > h1 {
 			font-size: 2em;
 		}
@@ -502,6 +516,13 @@ ul.locations {
 }
 
 @media only screen and (max-width: 760px) {
+	section.top-section > div {
+
+		& > h1 {
+			font-size: 1.6em;
+		}
+	}
+
 	div#cookie-info{
 		padding: 10px 20px 0 20px;
 		height: 230px;

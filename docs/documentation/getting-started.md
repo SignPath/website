@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Getting Started
+header: Getting Started
 layout: resources
 toc: true
 description: A quick introduction into setting up SignPath

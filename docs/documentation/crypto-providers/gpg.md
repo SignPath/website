@@ -1,6 +1,5 @@
 ---
-main_header: Crypto Providers
-sub_header: GPG
+header: GPG
 layout: resources
 toc: true
 show_toc: 3

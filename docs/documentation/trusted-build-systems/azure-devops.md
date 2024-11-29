@@ -1,9 +1,8 @@
 ---
-main_header: Trusted Build Systems
-sub_header: Azure DevOps
+header: Azure DevOps
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 3
 description: Azure DevOps
 ---
 

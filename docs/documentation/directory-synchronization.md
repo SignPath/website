@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Directory synchronization
+header: Directory synchronization
 layout: resources
 toc: false
 description: Documentation for SignPath directory synchronization using Microsoft Entra ID

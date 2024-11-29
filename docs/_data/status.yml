@@ -3,12 +3,28 @@ current:
     type: good
     title: 'All systems are operational' # always restore this message when going back to 'good'
     #type: good | warning | critical
-    #title: 'Problem importing PFX files into the HSM key store'
+    #title: 'GitHub.com integration is temporarily unavailable'
     #description: |
-    #  Importing private keys from PFX files into the HSM key store does currently not work as intended. We are investigating the root cause.
+    #  Using the SignPath GitHub Actions submit-signing-request action does currently not work as intended. We are working on a fix.
     #link:
 planned:
 incidents:
+  - date: 'Nov. 27, 2024'
+    range: 'Nov. 27, 2024, 22:40 - Nov. 28, 2024, 05:45 UTC'
+    type: warning
+    title: 'HSM signing interruptions'
+    description: |
+      Temporary HSM network performance degradation led to automatic service restart escalation.
+
+      * Delayed signing request processing.
+      * Possible client-side timeouts concerning hash signing.
+      * DPoD Cloud HSM and software certificates were not affected.
+  - date: 'Nov. 6, 2024'
+    range: 'Nov. 5, 2024, 18:00 - Nov. 6 12:30 UTC'
+    type: warning
+    title: 'GitHub.com integration unavailable'
+    description: |
+      Using the SignPath GitHub Actions submit-signing-request action did not work. (A globally scoped ID value has passed the max-int boundary at GitHub.com.)
   - date: 'Oct. 13, 2024'
     range: 'Oct. 13, 2024, 08:00 - 09:00 UTC'
     type: warning

@@ -1,7 +1,6 @@
 ---
 title: FAQ - SignPath.io
-main_header: Product
-sub_header: Frequently asked Questions
+header: Frequently asked Questions
 layout: resources
 toc: true
 show_toc: 3

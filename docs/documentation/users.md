@@ -1,6 +1,5 @@
 ---
-main_header: Documentation
-sub_header: Managing Users
+header: Managing Users
 layout: resources
 toc: true
 show_toc: 3
@@ -29,7 +28,7 @@ Only [sign up][login page] for a new user account if you want to evaluate SignPa
 |---------------------------|---------------------------------------|---------------------------------------|------------
 | Social account            | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
 | Username and password     | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
-| Enterprise single sing-on | Your Organization's identity provider | Enter email address as _Username_     | {{ site.data.editions | where: "user_management.sso", "true" | map: "name" | join: ", " }}
+| Enterprise single sign-on | Your Organization's identity provider | Enter email address as _Username_     | {{ site.data.editions | where: "user_management.sso", "true" | map: "name" | join: ", " }}
 
 A user account may be used for one or more SignPath organizations. 
 
