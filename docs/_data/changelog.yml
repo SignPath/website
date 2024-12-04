@@ -1,3 +1,12 @@
+- date: '2024-12-XX'
+  updates:
+    jenkins_plugin:
+      breaking_changes:
+        - text: The `apiUrl` parameter in the `submitSigningRequest` and `getSignedArtifact` steps has been removed.
+          issues: [SIGN-7466]
+      new_features:
+        - text: The SignPath API URL, default trusted build system token credential ID and default organization ID can be configured centrally in the Jenkins system configuration.
+          issues: [SIGN-7342]
 - date: '2024-11-21'
   updates:
     application:

@@ -6,15 +6,6 @@ show_toc: 2
 description: Jenkins Plugin
 ---
 
-## Prerequisites
-
-* The Jenkins plugin has been installed on the respective Jenkins instance (Jenkins 2.359 or higher are supported).
-* The plugin has been registered as a _custom_ Trusted Build System within SignPath and linked to the respective project (see the [configuration](/documentation/trusted-build-systems#configuration) section).
-* The following plugins are installed on the Jenkins server: 
-  * [Credentials binding](https://plugins.jenkins.io/credentials-binding/)
-  * [Git](https://plugins.jenkins.io/git/)
-  * [Pipeline (Workflow aggregator)](https://plugins.jenkins.io/workflow-aggregator/)
-
 ## Performed checks
 
 The plugin ensures that 
@@ -28,8 +19,14 @@ See the [official plugin page](https://plugins.jenkins.io/signpath/) on how the 
 
 ### Configuration
 
+On SignPath: See the respective [configuration section](/documentation/trusted-build-systems#configuration).
+
+On Jenkins:
+
+* Under _Manage Jenkins_ and _System_ in the plugin's configuration section, the default values for the endpoint and credential ID can be set
 * The _Trusted Build System Token_ needs to be stored in a _System_ Credential (Under _Manage Jenkins / Manage Credentials_)
-* The _Api Token_ of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects.
+* The _Api Token_ of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects
+
 
 ## Usage
 
@@ -51,7 +48,6 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
 
 | Parameter                                             | Default Value     | Description |
 | ----------------------------------------------------- | -                 | ----        |
-| `apiUrl`                                   | `https://app.signpath.io/Api`      | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.
 | `apiTokenCredentialId`                     | `SignPath.ApiToken`                | The ID of the credential containing the **API Token**. Recommended in scope "Global".
 | `trustedBuildSytemTokenCredentialId`       | `SignPath.TrustedBuildSystemToken` | The ID of the credential containing the **Trusted Build System Token**. Needs to be in scope "System".
 | `serviceUnavailableTimeoutInSeconds`       | `600`                              | Total time in seconds that the step will wait for a single service call to succeed (across several retries).
