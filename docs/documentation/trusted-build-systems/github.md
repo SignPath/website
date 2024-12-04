@@ -1,16 +1,17 @@
 ---
-main_header: Trusted Build Systems
-sub_header: GitHub
+header: GitHub
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 2
 description: GitHub
 ---
 
 ## Prerequisites
 
-* The _GitHub.com_ Trusted Build System must be enabled in the organization and linked to the respective project (see the [configuration](/documentation/trusted-build-systems#configuration) section).
-* The used [artifact configuration](/documentation/artifact-configuration) must have a `<zip-file>` element at its root, as all artifacts are packaged as ZIP archives on GitHub by default.
+* Use the predefined Trusted Build System _GitHub.com_ (see [configuration](/documentation/trusted-build-systems#configuration))
+  *  add it to the Organization
+  *  link it to each SignPath Project for GitHub
+* Specify `<zip-file>` as root element of your [Artifact Configurations](/documentation/artifact-configuration) (GitHub packages all artifacts as ZIP archives)
 
 {:.panel.info}
 > **GitHub Enterprise**
@@ -63,7 +64,7 @@ steps:
 | `project-slug`                                | (mandatory)                   | The SignPath project slug.
 | `signing-policy-slug`                         | (mandatory)                   | The SignPath signing policy slug.
 | `artifact-configuration-slug`                 |                               | The SignPath artifact configuration slug. If not specified, the default is used.
-| `github-artifact-id`                          | (mandatory)                   | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact](https://github.com/actions/upload-artifact) v4+ action before it can be signed. Use {% raw %}`{{ steps.<step-id>.outputs.artifact-id }}`{% endraw %} from the preceding actions/upload-artifact action step.
+| `github-artifact-id`                          | (mandatory)                   | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact](https://github.com/actions/upload-artifact) v4+ action before it can be signed. Use {% raw %}`${{ steps.<step-id>.outputs.artifact-id }}`{% endraw %} from the preceding actions/upload-artifact action step.
 | `wait-for-completion`                         | (mandatory)                   | If true, the action will wait for the signing request to complete. Defaults to `true`.
 | `output-artifact-directory`                   |                               | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
 | `github-token`                                |                               | GitHub access token used to read job details and download the artifact. Defaults to the [`secrets.GITHUB_TOKEN`](https://docs.github.com/en/actions/security-guides/automatic-token-authentication). Requires the `action:read` and `content:read` permissions.

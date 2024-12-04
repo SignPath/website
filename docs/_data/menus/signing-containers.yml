@@ -1,8 +1,0 @@
-- text: Signing Container Images 
-  path: 
-
-- text: Sigstore Cosign
-  path: cosign
-
-- text: Docker Content Trust (DCT)
-  path: docker-content-trust

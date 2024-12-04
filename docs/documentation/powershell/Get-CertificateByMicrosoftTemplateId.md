@@ -1,9 +1,8 @@
 ---
-main_header: PowerShell
-sub_header: Get&#8209;CertificateByMicrosoftTemplateId
+header: Get&#8209;CertificateByMicrosoftTemplateId
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 3
 description: Get-CertificateByMicrosoftTemplateId
 ---
 
@@ -36,7 +35,7 @@ This can be used to authenticate group memberships via mTLS client certificates:
 
 ## Examples
 
-### Example 1: Submit a signing request using a template-based machine client certificate
+#### Example 1: Submit a signing request using a template-based machine client certificate
 
 ~~~ powershell
 $clientcert = Get-CertificateByMicrosoftTemplateId -Store LocalMachine -TemplateId "1.2.3.4"

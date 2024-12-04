@@ -35,7 +35,7 @@ html:not([data-scroll='0']) {
 	}
 }
 
-nav > ul { /** main navigation **/
+header nav > ul { /** main navigation **/
 	display: flex;
 	flex-direction: row;
 	list-style-type: none;
@@ -142,7 +142,7 @@ nav > ul { /** main navigation **/
  *
  **/
 
-nav > a#main-menu-toggle {
+header nav > a#main-menu-toggle {
 	display: none;
 	width: 30px;
 	height: 30px;
@@ -179,11 +179,11 @@ nav > a#main-menu-toggle {
 		}
 	}
 
-	nav > a#main-menu-toggle {
+	header nav > a#main-menu-toggle {
 		display: flex;
 	}
 
-	nav > ul {
+	header nav > ul {
 		display: none;
 		position: fixed;
 		left: 0px;
@@ -247,8 +247,7 @@ nav > a#main-menu-toggle {
 		}
 	}
 
-	nav > ul li > a {
-
+	header nav > ul li > a {
 		border-top: 1px solid $dark-grey-border-color;
 		display: block;
 		padding: 10px 20px;

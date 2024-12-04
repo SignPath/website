@@ -59,7 +59,7 @@ We expect candidates to have practical experience in at least one of the followi
 You will work with customers using the following technologies:
 
 * Kubernetes with Linux and Windows nodes (Azure AKS for SaaS, various for self-hosted installations)
-* Developer PCs and CI Windows, Linux, and soon MacOS
+* Developer PCs and CI Windows, Linux, and soon macOS
 * CI platforms from various vendors (Cloud and self-hosted) with build nodes using various platforms
 * Software tools used for signing executable files, scripts, macros, packages, containers, etc.
 * Technologies used by SignPath include Microsoft SQL Server (Azure SQL) and Hardware Security Modules (HSMs) from Thales, Fortanix and Entrust

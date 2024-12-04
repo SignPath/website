@@ -1,6 +1,5 @@
 ---
-main_header: Code Signing
-sub_header: Managing Test Certificates
+header: Managing Test Certificates
 layout: resources
 toc: true
 show_toc: 3

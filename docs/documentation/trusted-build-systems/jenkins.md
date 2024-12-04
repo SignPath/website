@@ -1,9 +1,8 @@
 ---
-main_header: Trusted Build Systems
-sub_header: Jenkins Plugin
+header: Jenkins Plugin
 layout: resources
-toc: false
-show_toc: 0
+toc: true
+show_toc: 2
 description: Jenkins Plugin
 ---
 
@@ -11,6 +10,10 @@ description: Jenkins Plugin
 
 * The Jenkins plugin has been installed on the respective Jenkins instance (Jenkins 2.359 or higher are supported).
 * The plugin has been registered as a _custom_ Trusted Build System within SignPath and linked to the respective project (see the [configuration](/documentation/trusted-build-systems#configuration) section).
+* The following plugins are installed on the Jenkins server: 
+  * [Credentials binding](https://plugins.jenkins.io/credentials-binding/)
+  * [Git](https://plugins.jenkins.io/git/)
+  * [Pipeline (Workflow aggregator)](https://plugins.jenkins.io/workflow-aggregator/)
 
 ## Performed checks
 
@@ -21,11 +24,7 @@ The plugin ensures that
 
 ## Installation
 
-* The Jenkins Plugin is available for download from the [GitHub releases](https://github.com/jenkinsci/signpath-plugin/releases) page.
-* The following additional plugins must be installed:
-  * [Credentials binding](https://plugins.jenkins.io/credentials-binding/)
-  * [Git](https://plugins.jenkins.io/git/)
-  * [Pipeline (Workflow aggregator)](https://plugins.jenkins.io/workflow-aggregator/)
+See the [official plugin page](https://plugins.jenkins.io/signpath/) on how the plugin can be installed.
 
 ### Configuration
 
@@ -100,7 +99,7 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
     }
 ```
 
-#### Example: Submit an asynchronous signing request
+#### Example: Submit an asynchronous signing request with parameters
 
 ```scala
     stage('Sign with SignPath') {
@@ -113,7 +112,11 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
             artifactConfigurationSlug: "${ARTIFACT_CONFIGURATION_SLUG}",
             inputArtifactPath: "build-output/my-artifact.exe",
             outputArtifactPath: "build-output/my-artifact.signed.exe",
-            waitForCompletion: false
+            waitForCompletion: false,
+            parameters: [
+              "version": "1.0",
+              "my-param": "another param"
+            ]
           )
         }
       }
@@ -132,4 +135,3 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
       }
     }
 ```
-

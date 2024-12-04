@@ -1,58 +1,137 @@
+{%- if page.forward_on_big_screens -%}
+  <script>
+  	if (window.innerWidth > 1000) {
+      document.location.replace(`${document.location.origin}{{ page.forward_on_big_screens }}`);
+  	}
+  </script>
+{%- endif -%}
 {%- if page.main_header != null -%}
-	{%- assign title = page.main_header | append: " - " | append: page.sub_header | append: ' | SignPath' -%}
+	{%- assign title = page.main_header | append: " - " | append: page.header | append: ' | SignPath' -%}
 {%- else -%}
-	{%- assign title = page.sub_header | append: ' | SignPath' -%}
+	{%- assign title = page.header | append: ' | SignPath' -%}
 {%- endif -%}
 {%- include header.html -%}
 
-<section class="bg-blue font-white top-section">
+{%- assign parts = page.path | split:"/" -%}
+{%- assign root_group = parts[0] -%}
+{%- if page.nav_on_small_screen -%}
+  {%- assign hideNavOnMobile = nil -%}
+{%- else -%}
+	{%- assign hideNavOnMobile = 'hidden-on-mobile' -%}
+{%- endif -%}
+
+<section class="bg-blue font-white top-section resources-header">
 	<div>
-		<h1>{% if page.main_header %}<span class='no-break'>{{ page.main_header }} &nbsp;❯&nbsp; </span>{% endif %} {{ page.sub_header }}</h1>
+		<h1>
+		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
+		  {%- for main in site.data.menus.menus -%}
+		    {%- if main.path == root_group -%}
+		    	{%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md" -%}
+		    		<span class='no-break'><a href='/{{parts[0]}}'>{{ main.text }}</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
+		    	{%- else -%}
+		    		<span class='no-break'>{{ main.text }}</span>
+		    	{%- endif -%}
+		    {%- endif -%}
+		  {%- endfor -%}
+		  {%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md"-%}
+		  	{%- assign entry_found = 0 -%}
+		  	{%- for entry in site.data.menus[root_group] -%}
+		  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
+		  	  {%- if entry.path == part1_cleaned[0] -%}
+		  	  	{%- assign entry_found = 1 -%}
+		  	  	{%- if entry.items -%}
+		  	  	  {%- assign hideNavOnMobile = nil -%}
+		  	  	{%- endif -%}
+		  	  	<span class='no-break'>
+		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+		  	  		  <a href='/{{parts[0]}}/{{parts[1]}}'>
+		  	  		{%- endif -%}
+		  	  		{{ entry.text }}
+		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+		  	  	      </a>
+		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;
+		  	  		{%- endif -%}
+		  	  	</span>
+		  	  	{%- if parts.size > 2 -%}
+		  	  	{% assign part2_cleaned = parts[2] | split: "." -%}
+		  	  	{%- if part2_cleaned[0] != "index" -%}
+		  	  	   {%- for subentry in entry.items -%}
+		  	  	     {%- if subentry.path == part2_cleaned[0] -%}
+		  	  	       <span class='no-break'>
+		  	  	         {{ subentry.text }}
+		  	  	       </span>
+		  	  	     {%- endif -%}
+		  	  	   {%- endfor -%}
+		  	  	{%- endif -%}
+		  	  	{%- endif -%}
+		  	  {%- endif -%}
+		  	{%- endfor -%}
+		  	{%- if entry_found == 0 -%}
+		  	  <span class='no-break'>
+	  	         {{ page.header }}
+	  	      </span>
+		  	{%- endif -%}
+		  {%- endif -%}
+		{%- else -%}
+		  {{ page.header }}
+		{%- endif -%}	
+		</h1>
 	</div>
 </section>
-<section class="resources-section">
+{%- if page.hide_nav -%}
+  {%- assign hide_nav_class = "nav-hidden" -%}
+{%- endif -%}
+<section class="resources-section {{ hide_nav_class }}">
 	<div>
-		{%- assign parts = page.path | split:"/" -%}
-		{%- assign pathlen = parts | size | minus: 1 -%}
-		{%- assign parent = parts[-2] -%}
-		{%- assign parentpath = parts | slice: 0, pathlen | join: "/" -%}
-		{%- if site.data.menus contains parts[-2] -%}
-			<aside>
-				<ul>
-					{%- for entry in site.data.menus[parent] -%}
-						{%- assign className = nil -%}
-						{%- if parts.size > 1 -%}
-							{%- assign tail = parts[-1] | split:"." -%}
-							{%- if tail[0] == entry.path or tail[0] == "index" and entry.path == null -%} {%- assign is_current = true -%} {%- else -%} {%- assign is_current = false -%} {%- endif -%}
-							{%- if is_current -%}
-								{%- assign className = 'active' -%}
-							{%- endif -%}
+		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
+			<nav class='{{ hideNavOnMobile }}'>
+				{%- if page.nav_on_small_screen -%}
+				  {%- assign show_nav = 'show' -%}
+				{%- endif -%}
+				<ul class='{{ show_nav }}'>
+					{%- for entry in site.data.menus[root_group] -%}
+						{%- assign activeClass = nil -%}
+						{%- assign currentGroup = nil -%}
+						{%- assign tail = parts[-1] | split: "." -%}
+						{%- if tail[0] == entry.path or tail[0] == "index" and parts[-2] == entry.path -%}
+						  {%- assign activeClass = 'active' -%}
+						{%- endif -%}
+						{%- if parts[-2] == entry.path -%}
+						  {%- assign currentGroup = 'current-group' -%}
 						{%- endif -%}
 						{%- if entry.separator -%}
 						<li class='separator' />
 						{%- else -%}
-						<li class='{{ className }}'>
-							<a href='/{{parentpath}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{%- if is_current and page.hide_sub_toc != true -%}
-								<div class="no-mobile" >
-									{%- include toc.html html=content h_max=2 -%}
-								</div>
+						<li class='{{ activeClass }} {{ currentGroup }}'>
+							<a href='/{{root_group}}/{{entry.path}}#'>{{ entry.text }}</a>
+							{%- if parts[1] == entry.path and entry.items -%}
+								<ul>
+								{%- for sub in entry.items -%}
+									{%- if parts.size > 1 -%}
+										{%- if tail[0] == sub.path and parts[-2] == entry.path -%}
+									    	{%- assign activeClass = 'active' -%}
+									    {%- else -%}
+									    	{%- assign activeClass = '' -%}
+									    {%- endif -%}
+									{%- endif -%}
+									<li class='{{ activeClass }}'>
+										<a href='/{{root_group}}/{{entry.path}}/{{sub.path}}'>{{ sub.text }}</a>
+									</li>
+								{%- endfor -%}
+								</ul>
 							{%- endif -%}
 						</li>
 						{%- endif -%}
 					{%- endfor -%}
 				</ul>
-			</aside>
+			</nav>
 		{%- endif -%}
-		<article>
-			{%- if page.show_toc -%}
+			<div class='content'>
 				{%- include toc.html class="article-toc" html=content h_max=page.show_toc -%}
-			{%- else -%}
-				{%- include toc.html class="article-toc.mobile-only" html=content h_max=2 -%}
-			{%- endif -%}
-
-			{{ content }}
-		</article>
+				<article>
+					{{ content }}
+				</article>
+			</div>
 	</div>
 </section>
 {%- include footer.html -%}

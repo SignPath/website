@@ -1,5 +1,5 @@
 ---
-sub_header: Product Updates
+header: Product Updates
 layout: resources
 show_toc: 0
 hide_sub_toc: true

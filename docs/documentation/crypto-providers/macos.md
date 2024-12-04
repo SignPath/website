@@ -1,6 +1,5 @@
 ---
-main_header: Crypto Providers
-sub_header: macOS CryptoTokenKit
+header: macOS CryptoTokenKit
 layout: resources
 toc: true
 show_toc: 3
@@ -13,7 +12,7 @@ This section provides information to use SignPath with any tool that supports ma
 
 ### Supported versions
 
-macOS 11.0 or higher
+macOS 12.0 or higher
 
 ### Installation
 
@@ -27,34 +26,41 @@ macOS allows CryptoTokenKit extensions to be registered in the system. Through t
 
 The `SignPathCryptoTokenKit.app` application loads all available certificates for the given parameters and makes them avaialble in the macOS keychain through a CryptoTokenKit extension. The application supports the following parameters (all of them are optional):
 
-| Parameter          | Value                                   | Description
-|--------------------|-----------------------------------------|---------------------------------
-| `-config`          | `/path/to/config/file.json`             | Path to config file
-| `-s`               | `$SigningPolicySlug`                    | If not specified, the certificates from all available signing policies will be loaded
-| `-p`               | `$ProjectSlug`                          | If not specified, the certificates from all available projects will be loaded
-| `-u`               | `$ApiUrl`                               | The base URL of the SignPath API, e.g. `https://app.signpath.io/Api`
-| `-o`               | `$OrganizationId`                       | The id of the organization to use
-| `-t`               | `$ApiToken`                             | The API token for a CI or Interactive User (can be created in the "Users and Groups" UI)
+| Parameter               | Value                                   | Description
+|-------------------------|-----------------------------------------|---------------------------------
+| `--config`              | `/path/to/config/file.json`             | Path to config file
+| `--api-url`             | `$ApiUrl`                               | The base URL of the SignPath API, e.g. `https://app.signpath.io/Api`
+| `--project-slug`        | `$ProjectSlug`                          | If not specified, the certificates from all available projects will be loaded
+| `--signing-policy-slug` | `$SigningPolicySlug`                    | If not specified, the certificates from all available signing policies will be loaded
+| `--organization-id`     | `$OrganizationId`                       | The id of the organization to use
+| `--api-token`           | `$ApiToken`                             | The API token for a CI or Interactive User (can be created in the "Users and Groups" UI)
 
 {:.panel.info}
 > **Keys are not specified directly**
 >
 > When using a file-based [configuration](/documentation/crypto-providers#crypto-provider-configuration), the macOS CryptoTokenKit Crypto Provider requires the config file to be
 > * named `config.json` and placed in the same directory as the `SignPathCryptoTokenKit.app` application or
-> * its path to be specified via the `-config` parameter
+> * its path to be specified via the `--config` parameter
 
 Example call starting the application:
 
 ~~~bash
 export SIGNPATH_API_TOKEN=...
 open SignPathCryptoTokenKit.app --args \
-  -p MyProject \
-  -s release-signing \
-  -u https://app.signpath.io/Api \
-  -o 0241f767-69c8-448d-ad5e-8bd453916068
+  --project-slug MyProject \
+  --signing-policy-slug release-signing \
+  --organization-id 0241f767-69c8-448d-ad5e-8bd453916068
 ~~~
 
 ### Troubleshooting
+
+Loading the certificates and making them available in the macOS keychain can take up to 20 seconds.
+
+#### Logs
+
+Unless specified otherwise, the log files are stored in `~/Library/Logs/SignPathCryptoTokenKit/` and `~/Library/Containers/io.signpath.apps.CryptoTokenKit/Data/Library/Logs/ctk/` respectively.
+
+#### Useful commands:
 
 The following commands are helpful to make sure the setup is correct:
 
@@ -67,6 +73,12 @@ Using the `pluginkit` tool, the registration of the token driver can be verified
 
 ~~~bash
 pluginkit -m -v -p com.apple.ctk-tokens
+~~~
+
+The smartcard service on macOS sometimes has issues. If the certificates cannot be loaded, the service can be restarted by running the following command:
+
+~~~bash
+killall ctkd
 ~~~
 
 {:.panel.info}
@@ -97,6 +109,11 @@ Sample: sign `MyApp.app`
 codesign -s MyCertificateSubjectName MyApp.app
 ~~~
 
+{:.panel.info}
+> **Info: Using the right certificate**
+> 
+> `codesign` requires an "Apple Developer Application" certificate.
+
 ## productsign {#productsign}
 
 _productsign_ is a command line tool by Apple.
@@ -114,6 +131,6 @@ productsign --timestamp --sign "XX6NBJ3UUF" MyInstaller.pkg MyInstaller-signed.p
 ~~~
 
 {:.panel.info}
-> **Info: using the right certificate**
+> **Info: Using the right certificate**
 > 
 > `productsign` requires an "Apple Developer Installer" certificate.

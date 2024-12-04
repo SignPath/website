@@ -1,3 +1,162 @@
+- date: '2024-11-21'
+  updates:
+    application:
+      version: 1.176.0
+      improvements:
+        - text: |-
+            JAR signing: Added a workaround for Java code signing using recent GlobalSign code signing certificates. (The default root certificate is not in the Java root trust list, so a special cross-signed certificate must be applied.)
+          issues: [SIGN-7308]
+        - text: |-
+            Improved display of validation errors in the user invitation UI.
+          issues: [SIGN-7397]
+    self_hosted_installations:
+      version: 1.176.0
+      new_features:
+        - text: |-
+            Azure Blob Storage and SQL Server connections: added support for Azure Workload Identity authentication. See "Azure Workload Identity" in the installation guide for details.
+          issues: [SIGN-7362]
+      improvements:
+        - text: |-
+            Reduced image size of the `signpathio/signservice-setup-db` container image and startup time of the SignService migration jobs.
+          issues: [SIGN-7261]
+- date: '2024-11-11'
+  updates:
+    application:
+      version: 1.175.1
+      improvements:
+        - text: |-
+            Improved performance of event audit log REST API (`GET /v1-pre/{organizationId}/AuditLog/Events`) for organizations with high signing request volume.
+          issues: [SIGN-7332]
+        - text: |-
+            Improved error handling for invalid paths in archive files.
+          issues: [SIGN-7290]
+    self_hosted_installations:
+      version: 1.175.1
+      breaking_changes:
+        - text: |-
+            In the `signpath-application` chart, the `appSettings/appSecrets.shared.fastSigningRequestProcessorServiceClientOptions` configuration section has been renamed to `fastSigningServiceClientOptions` (value unchanged).
+          issues: [SIGN-7250]
+- date: '2024-11-06'
+  updates:
+    github_connector:
+      version: 1.0.1
+      bug_fixes:
+        - text: Fixed a bug that prevented signing of artifactsf from GitHub.com. (GitHub's global ID values crossed the max-int threshold on Nov. 5, 2024.)
+          issues: [SIGN-7377]
+- date: '2024-10-24'
+  updates:
+    application:
+      version: 1.174.1
+      improvements:
+        - text: |-
+            Improved certificate list UI: added new "type" and key store information columns, dropped "valid from" column.
+          issues: [SIGN-7249]
+- date: '2024-10-22'
+  updates:
+    jenkins_plugin:
+      version: '2.1.0'
+      new_features:
+        - text: Added support for [user-defined parameters](/documentation/artifact-configuration/syntax#parameters).
+          issues: [SIGN-6986]
+      improvements:
+        - text: The _API Token Credential_ can now be stored either in th _System_ or a _Global_ (recommended) scope.
+          issues: [SIGN-6984]
+        - text: Improved error messages.
+          issues: [SIGN-6606]
+- date: '2024-10-21'
+  updates:
+    macos_cryptotokenkit:
+      version: '2.0'
+      breaking_changes:
+        - text: 'Renamed the command-line parameters to align with the other client tools.'
+          issues: [3]
+      new_features:
+        - text: Added support for sha1 signatures required for productsign.
+          issues: [17]
+        - text: Added support for HTTP timeout and retry configuration.
+          issues: [6]
+      improvements:
+        - text: Improved logging and logging configuration.
+          issues: [5]
+      bug_fixes:
+        - text: Fixed a bug that prevented multiple certificates from being loaded at once.
+          issues: [14]
+        - text: Fixed a bug where the application failed when provided with an invalid configuration file.
+          issues: [18]
+- date: '2024-10-08'
+  updates:
+    application:
+      version: 1.173.0
+      breaking_changes:
+        - text: |-
+            Renamed the X.509 certificate creation/upload REST API routes:
+              * `POST /v1/{organizationId}/Certificates/CreateSelfSigned` → `CreateSelfSignedX509`
+              * `POST /v1/{organizationId}/Certificates/CreateCsrBased` → `CreateCsrBasedX509`
+              * `POST /v1/{organizationId}/Certificates/{slug}/UploadCertificate` → `UploadX509Certificate`
+
+            Old routes are still available but deprecated. No changes in request bodies.
+          issues: [SIGN-7248]
+        - text: |-
+            Breaking change in v1 response properties.
+            
+            Affected routes:
+              * `GET /v1/{organizationId}/Certificates` 
+              * `GET /v1/{organizationId}/Certificates/{slug}`
+              
+            Changes:
+              * Existing property `type` (top-level) now represents the certificate type (currently only `X509`).
+              * Previous value of `type` is now in `x509Certificate.creationMethod` (`SelfSigned`, `Csr`, `PfxImport`, `ImportedWithExistingKeyPair`).
+
+            (Rationale: we expect no external dependencies on the current value of `type`.)
+          issues: [SIGN-7248]
+      new_features:
+        - text: |-
+            ECDSA hash signing: added support for signature block format "RFC 3279 ASN.1 sequence". See [artifact format for signing hash digests](/documentation/crypto-providers/rest-api#hash-signing-payload-json).
+          issues: [SIGN-7240]
+      improvements:
+        - text: |-
+            Signing request details page now shows HTTP response status code for failed artifact retrievals.
+          issues: [SIGN-6033]
+      bug_fixes:
+        - text: |-
+            Fixed broken base URL in Swagger UI (affected version 1.172).
+          issues: [SIGN-7298]
+- date: '2024-09-24'
+  updates:
+    application:
+      version: 1.172.0
+      improvements:
+        - text: |-
+            Added origin information to the signing request list (verified origin or trusted build system name).
+          issues: [SIGN-7220]
+        - text: |-
+            Improved quota display on the organization page.
+          saas_only: true
+          issues: [SIGN-7144]
+        - text: |-
+            Artifact configuration visualization: multiple signing directives now displayed separately.
+          issues: [SIGN-7219]
+        - text: |-
+            Signing request processing history now displayed indefinitely (was not displayed for "archived" signing requests, i.e. 31 days after completion in SaaS).
+          issues: [SIGN-7138]
+      bug_fixes:
+        - text: |-
+            Fixed disabled "Resubmit with current settings" button for archived signing requests (completion older than 31 days).
+          issues: [SIGN-7134]
+        - text: |-
+            Fixed interactive user invitation flow for newly registered users.
+          saas_only: true
+          issues: [SIGN-7178]
+    self_hosted_installations:
+      version: 1.172.0
+      breaking_changes:
+        - text: Changed recommended Kubernetes version to 1.29 and `signpathio/kubectl` image tag to 1.29.
+          issues: [SIGN-7238]
+      improvements:
+        - text: |-
+            Graceful container shutdown: termination of Pods is now delayed (default of 30 secs). 
+            This allows for request drain-out and safe shutdown (e.g. flushing Application Insights data).
+          issues: [SIGN-7193, SIGN-7194]
 - date: '2024-08-29'
   updates:
     application:
@@ -74,7 +233,7 @@
           issues: [SIGN-5410, SIGN-7177]
       bug_fixes:
         - text: |-
-            Fixed failed Jar signing operations for Jar files with >20,000 items.
+            Fixed failed JAR signing operations for JAR files with >20,000 items.
           issues: [SIGN-7177]
         - text: |-
             Fixed error during rendering of old failed signing requests with specific errors (e.g. artifact retrieval).
@@ -360,6 +519,13 @@
             The HSM SignServices watchdog doesn't require a TSA URL anymore. The previously mandatory SignService values
             config entry `appSettings.signService.cspWatchdogOptions.timestampingServerUrl` can be removed.
           issues: [SIGN-6825]
+- date: '2024-03-18'
+  updates:
+    macos_cryptotokenkit:
+      version: '1.0'
+      new_features:
+        - text: 'Initial release'
+          issues: []
 - date: '2024-03-14'
   updates:
     application:
@@ -689,7 +855,7 @@
       version: 1.151.0
       improvements:
         - text: >-
-            Dropped the JCE key "retargeting" when creating certificates on nShield HSMs (previously required for Jar signing).
+            Dropped the JCE key "retargeting" when creating certificates on nShield HSMs (previously required for JAR signing).
           issues: [SIGN-6365]
       bug_fixes:
         - text: >-
@@ -917,7 +1083,7 @@
     self_hosted_installations:
       version: 1.143.2
       improvements:
-        - text: Reduced memory consumption when signing jar files.
+        - text: Reduced memory consumption when signing JAR files.
           issues: [SIGN-6088]
       bug_fixes:
         - text: Fixed aborted SignService deployments in cases using descheduler for Kubernetes with `RemovePodsViolatingTopologySpreadConstraint`.
