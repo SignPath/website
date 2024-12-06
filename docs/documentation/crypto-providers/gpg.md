@@ -46,36 +46,36 @@ For the [Linux container samples], the following log file locations are configur
 
 For referencing a specific GPG key in the later signing commands (`-GpgKeyId` parameter), you can use the GPG key's fingerprint, key ID, the full user ID, or email address.
 
-> **CI user <-> signing policy assignment**
+> **CI user ↔ signing policy assignment**
 >
-> We strongly recommend to use an **isolated CI user** for GPG signing, which is **assigned to exactly one signing policy as submitter**.
+> We strongly recommend to use an **isolated CI user** for GPG signing, which is **assigned to exactly one signing policy as submitter**. Else the SignPath project / signing policy could not be determined unambiguously and GPG signing commands may fail with "signing failed: No secret key" errors.
 >
-> Reasoning: When performing a GPG signing operation (e.g. `gpg --sign -u my-gpg-key@example.com`), a GPG _public key_ is selected. Internally (via `gnupg-pkcs11`), the corresponding SignPath project / signing policy is selected via the GPG key's _public key hash_ (a "keygrip" in the [GnuPG lingo](https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html)). This means that when two or more signing policies are referencing _the same GPG key_, the signing policy cannot be determined unambiguously. Instead `gnupg-pkcs11` would just filter out all signing policies and the `gpg --sign` command errors with "signing failed: No secret key".
+> Background: When performing a GPG signing operation (e.g. `gpg --sign -u my-gpg-key@example.com`), a GPG _public key_ is selected. Internally (via `gnupg-pkcs11`), the corresponding SignPath project / signing policy is selected via the GPG key's _public key hash_ (a "keygrip" in the [GnuPG lingo](https://www.gnupg.org/documentation/manuals/gnupg/Glossary.html)). This means that when two or more signing policies are referencing _the same GPG key_, the signing policy cannot not be determined unambiguously and `gnupg-pkcs11` would just filter out these signing policies, resulting in "missing key" errors.
 {:.panel.warning}
 
 ## Signing code with GPG
 
 ### GPG File Signing {#gpg-file-signing}
 
-The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) in `run_scenario.sh ... -Scenario GpgSignFile -GpgKeyId "my-gpg-key@example.com"`.
+The [Linux container samples] contain a full example to sign and verify a file with a detached signature (including the mentioned preparation steps) within `Scenarios/Gpg/GpgSignFile.ps1`.
 
 During `gpg --sign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### RPM Signing (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a RPM file in `run_scenario.sh ... -Scenario SignRpm -GpgKeyId "my-gpg-key@example.com"`. See `SignRpm.ps1` for details.
+The [Linux container samples] contain a full example to sign and verify a RPM file within `Scenarios/RpmPackages/SignRpm.ps1`.
 
 During `rpm --addsign`, SignPath is called to perform a hash based signing operation. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### DEB Signing via dpkg-sig (Linux)
 
-The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ in `run_scenario.sh ... -Scenario SignDeb -GpgKeyId "my-gpg-key@example.com"`. Note the passed default "sign role" value of `"builder"`.
+The [Linux container samples] contain a full example to sign and verify a DEB file using _[dpkg-sig](https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html)_ within `Scenarios/DebPackages/SignDeb.ps1`. Note the passed default "sign role" value of `"builder"`.
 
 During `dpkg-sig --sign`, SignPath is called to perform a hash based signing operation. Note that OrganizationId and the ApiToken still need to be passed to the SignPath Crypto Provider to authenticate the request.
 
 ### Maven Artifact Signing (Linux)
 
-The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ in `run_scenario.sh ... -Scenario SignMaven -GpgKeyId "my-gpg-key@example.com"`. The used GPG key is referenced via its email address.
+The [Linux container samples] contain a full example to build, sign and verify Maven artifacts using the _[Apache maven-gpg-plugin](https://maven.apache.org/plugins/maven-gpg-plugin/)_ within `Scenarios/Maven/SignMaven.ps1`. The used GPG key is referenced via its email address.
 
 During `mvn install`, SignPath is called to perform a hash based signing operations. Note that the _OrganizationId_ and the _ApiToken_ still need to be passed to the SignPath Crypto Provider to authenticate the request.
 

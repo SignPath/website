@@ -72,7 +72,10 @@ As always, the private key does not leave the boundaries of the HSM.
 
 For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.
 
-See the `Linux/samples` directory in the Crypto Provider package. It contains a `README.md` file with further information and details how to use the `run_scenario.sh` / `RunScenario.ps1` entry point scripts.
+See the `Linux/samples` directory in the Crypto Provider package:
+
+* It contains a `README.md` file with further information and details how to use the `run_scenario.sh` / `RunScenario.ps1` entry point scripts. 
+* The sample scripts can be found in the `Scenarios` subdirectories (e.g. `Scenarios/OpenSSL/OpenSSL.ps1`, see the `README.md` for the full list and sample invocations).
 
 All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.
 

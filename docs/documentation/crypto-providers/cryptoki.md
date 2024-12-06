@@ -165,7 +165,7 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples]. Sample invocation:
+> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples] within `Scenarios/OpenSSL/OpenSSL.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario OpenSSL -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -281,7 +281,7 @@ osslsigncode sign `
 {:.panel.tip}
 > **Tip**
 >
-> This invocation is also provided in the [Linux container samples]:
+> This invocation is also provided in the [Linux container samples] within `Scenarios/osslsigncode/osslsigncode.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario osslsigncode -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -305,7 +305,7 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 {:.panel.tip}
 > **Tip**
 >
-> The following invocation examples are also provided in the [Linux container samples]:
+> The following invocation examples are also provided in the [Linux container samples] within `Scenarios/Pkcs11Tool/Pkcs11Tool.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario Pkcs11Tool -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -372,7 +372,7 @@ slot=1
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration and invocation examples are provided in the [Linux container samples]. Sample invocation:
+> For *Linux*, configuration and invocation examples are provided in the [Linux container samples] within `Scenarios/Jar/JarSigner.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario JarSigner -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
