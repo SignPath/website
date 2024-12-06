@@ -109,7 +109,7 @@ github-policies:
             require_code_owner_review: true
       allow_bypass_actors: false                 # no-one is allowed to bypass this rule
       enforced_from: EARLIEST                    # rule enforcement history is checked
-    - conditions:
+    - condition:
         rules:
         - require_code_scanning:                 # code scanning must not reveal problems
             tools:
