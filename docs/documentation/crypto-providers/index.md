@@ -72,7 +72,10 @@ As always, the private key does not leave the boundaries of the HSM.
 
 For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.
 
-See the `Linux/samples` directory in the Crypto Provider package. It contains a `README.md` file with further information.
+See the `Linux/samples` directory in the Crypto Provider package:
+
+* It contains a `README.md` file with further information and details how to use the `run_scenario.sh` / `RunScenario.ps1` entry point scripts. 
+* The sample scripts can be found in the `Scenarios` subdirectories (e.g. `Scenarios/OpenSSL/OpenSSL.ps1`, see the `README.md` for the full list and sample invocations).
 
 All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.
 
@@ -121,6 +124,7 @@ In case you used the [MSI installer](/documentation/crypto-providers/windows#ins
 | `ApiUrl`                          | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
 | `HttpProxy`                       | `http_proxy`                              | (optional)                    | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
 | `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`    | Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option 
+| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  | `false`    | Enables compatibility with `gnupg-pkcs11-scd` for [GPG hash signing](/documentation/crypto-providers/gpg) because `gnupg-pkcs11-scd` requires X.509 objects internally for its key discovery
 {: .break-code}
 
 **Logging settings:**
