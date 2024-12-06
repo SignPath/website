@@ -9,8 +9,7 @@
         {%- for header in include.table.headers | where: -%}
             {% assign columnId = header[0] %}
             {%- unless columnId == "_attributes" or table-omit-columns contains columnId -%}
-                <th markdown="1" {% for attribute in table.headers._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
-
+                <th markdown="1" {% for attribute in include.table.headers._attributes[columnId] %} {{ attribute[0] }}="{{ attribute[1] }}" {% endfor %} >
 {{ header[1] }} 
 </th>
             {%- endunless -%}
