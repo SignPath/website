@@ -25,7 +25,7 @@ To configure GnuPG to perform hash signing via SignPath you need to:
 * Configure `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
 * Configure GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 
-For more details and necessary dependencies, see `samples/Scenarios/Gpg` in the [Linux container samples].
+For more details and necessary dependencies, see the `samples/Scenarios/Gpg/GpgShared.ps1` script in the [Linux container samples].
 
 ### Error logs {#gpg-error-logs}
 

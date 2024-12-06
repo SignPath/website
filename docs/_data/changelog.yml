@@ -10,10 +10,10 @@
           issues: [SIGN-7247]
       improvements:
         - text: |-
-            REST API additions and improvements.
+            REST API additions and improvements regarding certificates and signing policies:
             * New route to retrieve signing policy details:
               * `GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}`
-            * New route to retrieve certificate metadata and to directly download a X.509 certificate or GPG Key file for a _signing policy_:
+            * New route to retrieve certificate metadata and to directly download a X.509 certificate or GPG public key file for a _signing policy_:
               * `GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate`
               * `GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/X509Certificate`
               * `GET /v1/{organizationId}/Projects/{projectSlug}/SigningPolicies/{signingPolicySlug}/Certificate/GpgPublicKey`
@@ -24,7 +24,7 @@
             * For details see [API definition](https://app.signpath.io/Api/swagger).
           issues: [SIGN-7048]
         - text: |-
-            Improved error reporting for misconfigured projects with enabled manual approval for hash signing with the SignPath Crypto Providers. The error reason is now logged to the Crypto Provider logs/console output.
+            Improved error reporting for misconfigured projects with enabled manual approval when hash-signing with the SignPath Crypto Providers. The error reason is now logged to the Crypto Provider logs/console output instead of a generic "cannot find key" error message.
           issues: [SIGN-7112]
       bug_fixes:
         - text: |-
@@ -35,7 +35,7 @@
       version: 1.177.0
       breaking_changes:
         - text: |-
-            JAR signing is now disabled by default. To enable it, you need to deploy the new `javasigningmethodservice` component via the `chartSettings.javaSigningMethodService.replicaCount` configuration.
+            JAR signing is now disabled by default. To enable it, you need to deploy the new `javasigningmethodservice` component via the `chartSettings.javaSigningMethodService.replicaCount` value and set up authentication configuration.
           issues: [SIGN-7158]
       improvements:
         - text: |-
