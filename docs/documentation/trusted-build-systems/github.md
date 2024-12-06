@@ -8,8 +8,10 @@ description: GitHub
 
 ## Prerequisites
 
-* The _GitHub.com_ Trusted Build System must be enabled in the organization and linked to the respective project (see the [configuration](/documentation/trusted-build-systems#configuration) section).
-* The used [artifact configuration](/documentation/artifact-configuration) must have a `<zip-file>` element at its root, as all artifacts are packaged as ZIP archives on GitHub by default.
+* Use the predefined Trusted Build System _GitHub.com_ (see [configuration](/documentation/trusted-build-systems#configuration))
+  *  add it to the Organization
+  *  link it to each SignPath Project for GitHub
+* Specify `<zip-file>` as root element of your [Artifact Configurations](/documentation/artifact-configuration) (GitHub packages all artifacts as ZIP archives)
 
 {:.panel.info}
 > **GitHub Enterprise**
