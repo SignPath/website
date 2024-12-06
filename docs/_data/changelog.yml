@@ -1,3 +1,15 @@
+- date: '2024-12-XX'
+  updates:
+    github_connector:
+      version: 1.1.0
+      new_features:
+        - text: Policy checks for branch rulesets, build and build runner are supported. See the [documentation](/documentation/trusted-build-systems/github#build-and-source-code-policies).
+          issues: [SIGN-7266, SIGN-7285, SIGN-2792, SIGN-7424, SIGN-7433, SIGN-7266, SIGN-7199, SIGN-7198]
+      bug_fixes:
+        - text: Fixed a bug that prevented signing requests from being submitted when the "re-run failed jobs" feature of workflows was used for workflows with multiple jobs.
+          issues: [SIGN-7351]
+        - text: Fixed an integer overflow bug caused by large artifact IDs.
+          issues: [SIGN-7377]
 - date: '2024-11-21'
   updates:
     application:

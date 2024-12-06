@@ -81,3 +81,84 @@ The action supports the following output parameters:
 - `signpath-api-url`: The base API url of the SignPath API
 - `signed-artifact-download-url`: The url of the signed artifact in SignPath
 
+## Build and source code policies
+
+{% include editions.md feature="pipeline_integrity.extended_policies" value="Optional" %}
+
+By granting the [SignPath GitHub App](TODO) access to the source code repositories, continous enforcement of branch rulesets, build and runner configuration can be guaranteed.
+
+A policy configuration file needs to be stored at `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` in the `default` branch of the source code repository. It is recommended to restrict access to the policy files using GitHub's [code owners] feature.
+
+### Example
+
+```yaml
+# .signpath/policies/my-project-slug/release-signing.yml
+
+github-policies:
+  runners:
+    allowed_groups:
+      - 'GitHub Actions'                         # all jobs need to run on GitHub-hosted runners
+  build:
+    disallow_reruns: true
+  branch_rulesets:
+    - condition:
+        rules:
+        - block_force_pushes:                    # force pushes are prevented
+        - pull_request:                          # code reviews are required
+            min_required_approvals: 1
+            require_code_owner_review: true
+      allow_bypass_actors: false                 # no-one is allowed to bypass this rule
+      enforced_from: EARLIEST                    # rule enforcement history is checked
+    - conditions:
+        rules:
+        - require_code_scanning:                 # code scanning must not reveal problems
+            tools:
+              - tool: CodeQL
+                min_alerts_threshold: errors
+                min_security_alerts_threshold: medium
+      allow_bypass_actors: true                  # some people may bypass these rules
+      enforced_from: '2025-01-01 00:00'          # had to be reset at some point
+```
+
+### Available policies
+
+The following policies can be configured:
+
+#### `runners` policies
+
+The policies in the `runners` section restrict the build runners used in the workflow run.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-runners -%}
+
+#### `build` policies
+
+The policies in the `build` section configure parameters of the build run that creates the artifact to be signed.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-build -%}
+
+#### `branch_rulesets` policies
+
+The policies in the `branch_rulests` section configure which [GitHub branch rulesets] need to be active for the specified repository. The branch rulesets may be configured on an organization or repository level.
+
+##### How `branch_rulesets` policies are evaluated
+
+Different sets of policies can be configured, each with its own conditions, exceptions and enforcement date. The individual rules may be split up into different rulesets in GitHub.
+
+* Each set defines a `condition` that include the `rules` that need to be active. See below for all possible options.
+* An `allow_bypass_actors` flag specifies whether bypassers are allowed for the current set.
+* The `enforced_from` value defines a point in time from which the associated rules have to be continuously enforced. SignPath ensures that there was always at least one ruleset active that enforced the rules at any given time. Possible values are ISO-8601 formatted timestamps (e.g. `2024-12-05T11:51:29Z`) or `EARLIEST`. If no value is provided, the conditions are only evaluated at the time of signing.
+
+{:.panel.info}
+> **Info about enforcable timespans**
+> 
+> Depending on the GitHub subscription, the continuous enforcement of policies is either based on:
+> * **Audit log events** for _GitHub Enterprise_ subscriptions. Audit log events are only available for the last 180 days, any prior policy violations cannot be detected.
+> * The **last modified date** of the branch rulesets for all other subscriptions.
+
+##### Available `branch_rulesets` policies
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-branch-ruleset-rules -%}
+
+
+[code owners]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+[GitHub branch rulesets]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets

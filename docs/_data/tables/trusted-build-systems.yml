@@ -51,3 +51,96 @@ appveyor-setup:
         | `$ENCRYPTED_SIGNPATH_API_TOKEN`                          | ③ The encrypted value from the previous step
       _attributes:
         steps: {colspan: 2}
+
+github-extended-policies-runners:
+  headers:
+    policy: Policy
+    description: Description
+    _attributes: 
+      policy: {style: "width: 50%"}
+      description: {style: "width: 50%"}
+  body:
+    - policy: |
+        ```yaml
+          allowed_groups:
+            - 'GitHub Actions'
+        ```
+      description: Ensures that all jobs of the workflow are executed on runners from one of the listed groups. Note that the `GitHub Actions` group is predefined and represents GitHub-hosted runners.
+
+github-extended-policies-build:
+  headers:
+    policy: Policy
+    description: Description
+    _attributes: 
+      policy: {style: "width: 50%"}
+      description: {style: "width: 50%"}
+  body:
+    - policy: |
+        ```yaml
+          disallow_reruns: true
+        ```
+      description: Prevents signing builds from re-runs. By enforcing this policy, old, temporarily failed builds cannot be re-run and signed under the false impression that they include recent changes, such as vulnerability fixes. These builds would still be identified by their branch name, e.g. `main`.
+
+github-extended-policies-branch-ruleset-rules:
+  headers:
+    policy: Policy
+    description: Description
+    _attributes: 
+      policy: {style: "width: 50%"}
+      description: {style: "width: 50%"}
+  body:
+    - policy: |
+        ```yaml
+          restrict_creations: true
+        ```
+      description: Only allow users with bypass permission to create matching refs.
+    - policy: |
+        ```yaml
+          restrict_updates: true
+        ```
+      description: Only allow users with bypass permission to update matching refs.
+    - policy: |
+        ```yaml
+          restrict_deletions: true
+        ```
+      description: Only allow users with bypass permissions to delete matching refs.
+    - policy: |
+        ```yaml
+          require_linear_history: true
+        ```
+      description: Prevent merge commits from being pushed to matching refs.
+    - policy: |
+        ```yaml
+          require_pull_request:
+              min_required_approvals: 2
+              dismiss_stale_reviews_on_push: true
+              require_code_owner_review: true
+              require_last_push_approval: true
+              require_review_thread_resolution: true
+        ```
+      description: |
+        Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. Can be set to `true` or defined as a block with the following parameters:
+        * `min_required_approvals`: The minimum number of required approvals.
+        * `dismiss_stale_reviews_on_push`: Dismiss stale pull request approvals when new commits are pushed.
+        * `require_code_owner_review`: Require review from Code Owners.
+        * `require_last_push_approval`: Require approval of the most recent reviewable push.
+        * `require_review_thread_resolution`: Require conversation resolution before merging.
+    - policy: |
+        ```yaml
+          block_force_pushes: true
+        ```
+      description: Prevent users with push access from force pushing to refs.
+    - policy: |
+        ```yaml
+          require_code_scanning:
+            tools:
+              - tool: CodeQL
+                min_alerts_threshold: errors
+                min_security_alerts_threshold: high
+        ```
+      description: |
+        Choose which tool must provide code scanning results. Provides the following options for each tool:
+        * `min_alerts_threshold`: one of `none`, `errors` or `warnings`
+        * `min_security_alerts_threshold`: one of `none`, `critical`, `high`, `medium` or `all`
+
+

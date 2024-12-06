@@ -47,6 +47,7 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+    extended_policies: false
   user_management:
     sso: false
     scim: false
@@ -110,6 +111,7 @@
     origin_verification: false
     origin_policies: false
     build_validation: false
+    extended_policies: false
   user_management:
     sso: false
     scim: false
@@ -167,6 +169,7 @@
     origin_verification: Optional
     origin_policies: true
     build_validation: true
+    extended_policies: Optional
   user_management:
     sso: true
     scim: true
@@ -218,6 +221,7 @@
     origin_verification-hint: Not supported by crypto providers 
     origin_policies: true
     build_validation: true
+    extended_policies: false
   user_management:
     sso: true
     scim: true
@@ -279,6 +283,7 @@
     origin_policies: 'required'
     build_validation: 'required'
     disable_malware_scanning: false
+    extended_policies: true
   user_management:
     sso: false
     scim: false

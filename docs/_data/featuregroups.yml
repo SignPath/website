@@ -170,6 +170,10 @@
       title: 'Build validation'
       hint: 'Automatically checks build configurations for security weaknesses.'
       class: f sub
+    - name: extended_policies
+      title: 'Build and source code policies'
+      hint: 'Policy control for CI/CD workflows and SCM settings'
+      href: '/product/editions-explained#extended_policies'
 
 - name: user_management
   title: 'User management'

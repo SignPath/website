@@ -171,6 +171,7 @@ Note that with hash-based signing, artifacts are not transferred to and signed b
 > * [User-defined parameters](#user-defined-parameters)
 > * [Manual approval](#manual-approval)
 > * [Origin verification](#origin-verification)
+> * [Build and source code policies](#extended-policies)
 
 ## Artifact configuration
 
@@ -305,3 +306,7 @@ When using manual approval on top of origin verification, approvers will have re
 #### Build validation
 
 For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.
+
+## Build and source code policies
+
+TODO (also: should build validatio be removed then? Why is it enabled for the code signing gateway?)
