@@ -59,6 +59,8 @@
     cert_enrollment: false
     support: 'email'
     code_signing_consulting: false
+  no_display:
+    gpg_key_management: false
   link_type: 'pricing_page'
 
 - name: Code Signing Basic

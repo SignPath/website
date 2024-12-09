@@ -24,10 +24,10 @@ With SignPath, you have the following options for creating or importing a certif
 * **PFX-imported X.509 certificates**: If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)
 * **GPG keys** are certificates based on the OpenPGP standard, also known as GPG or GnuPG. They can be used to sign arbitrary files using GPG detached signature file. It is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.
 
-{% include editions.md feature="TODO!!" %}
-
 {:.panel.info}
 > **GPG keys and certificates**
+>
+> {% include editions.md feature="no_display.gpg_key_management" %}
 >
 > In the world of GPG, certificates are known under various names:
 >
