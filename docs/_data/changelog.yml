@@ -6,7 +6,7 @@
         - text: |-
             Added [GPG key management](/documentation/managing-certificates):
             * GPG keys can now be created directly in the SignPath UI.
-            * TODO: Document that GPG key mgmt is only avail/used for for hash signing and `create-raw-signature`??
+            * They can currently be used for hash signing and `create-raw-signature`
           issues: [SIGN-7247]
       improvements:
         - text: |-
@@ -24,7 +24,7 @@
             * For details see [API definition](https://app.signpath.io/Api/swagger).
           issues: [SIGN-7048]
         - text: |-
-            Improved error reporting for misconfigured projects with enabled manual approval when hash-signing with the SignPath Crypto Providers. The error reason is now logged to the Crypto Provider logs/console output instead of a generic "cannot find key" error message.
+            Improved error reporting for projects with manual approval enabled (not available for hash-signing) for SignPath Crypto Providers.
           issues: [SIGN-7112]
       bug_fixes:
         - text: |-
@@ -35,7 +35,7 @@
       version: 1.177.0
       breaking_changes:
         - text: |-
-            JAR signing is now disabled by default. To enable it, you need to deploy the new `javasigningmethodservice` component via the `chartSettings.javaSigningMethodService.replicaCount` value and set up authentication configuration.
+            JAR signing is now disabled by default because it requires dedicated service instances. To enable it, you need to deploy the new `javasigningmethodservice` component via the `chartSettings.javaSigningMethodService.replicaCount` value and set up authentication configuration.
           issues: [SIGN-7158]
       improvements:
         - text: |-
