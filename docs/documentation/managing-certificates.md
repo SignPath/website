@@ -36,9 +36,9 @@ With SignPath, you have the following options for creating or importing a certif
 >
 > SignPath uses the term _GPG key_ to denote this type of _Certificate_.
 >
-> These terms all refer to a specific file format that includes the actual public key, the key holder's identity (name and email address),  expiration, and other data.
+> These terms all refer to a specific file format that includes the actual public key, the key holder's identity (name and email address), expiration, and other data.
 >
-> Unlike X.509, GPG does not define a Public Key Infrastructure (PKI) based on Certificate Authoities (CAs). Instead, GPG certificates are usually provided as downloads on a separate channel and/or published on an [OpenPGP Key server](https://en.wikipedia.org/wiki/Key_server_(cryptographic). 
+> Unlike X.509, GPG does not define a Public Key Infrastructure (PKI) based on Certificate Authoities (CAs). Instead, GPG certificates are usually provided as downloads on a separate channel and/or published on an [OpenPGP Key server](https://en.wikipedia.org/wiki/Key_server_(cryptographic)).
 
 ## Restrictions
 

@@ -6,7 +6,7 @@
         - text: |-
             Added [GPG key management](/documentation/managing-certificates):
             * GPG keys can now be created directly in the SignPath UI.
-            * They can currently be used for hash signing and `create-raw-signature`
+            * They can currently be used for hash signing and `create-raw-signature`.
           issues: [SIGN-7247]
       improvements:
         - text: |-
@@ -43,6 +43,7 @@
             * Password hash and salt (server-side) have been combined into a single configuration value (`passwordHash` value).
             * Updated the `Generate-Secret` tool to generate the new format (see "Generate basic authentication passwords and hashes" in the installation guide).
             * Added an optional new `previousPasswordHash` value to allow zero-downtime rotation.
+            
             This change is backwards-compatible. The legacy `passwordSalt` can be still used.
           issues: [SIGN-7323]
 - date: '2024-12-10'
