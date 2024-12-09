@@ -20,12 +20,13 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 ### Configuring GnuPG {#configure-gnupg}
 
-To configure GnuPG to perform hash signing via SignPath you need to:
+Configure GnuPG to perform hash signing via SignPath:
+
 * Configure the [SignPath Crypto Provider](/documentation/crypto-providers#crypto-provider-configuration)
 * Configure `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
 * Configure GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 
-For more details and necessary dependencies, see the `samples/Scenarios/Gpg/GpgShared.ps1` script in the [Linux container samples].
+For more details and prerequisites, see the `samples/Scenarios/Gpg/GpgShared.ps1` script in the [Linux container samples].
 
 ### Error logs {#gpg-error-logs}
 
@@ -39,8 +40,8 @@ For the [Linux container samples], the following log file locations are configur
 
 ### Prepare for signing {#prepare-signing}
 
-1. Create a [GPG key in SignPath](/documentation/managing-certificates), download the GPG public key file and copy it into the `samples/Scenarios/Gpg/Keys` directory.
-2. Create a [hash signing project and signing policy](/documentation/crypto-providers#signpath-project-configuration) in SignPath.
+1. Create a [GPG key in SignPath](/documentation/managing-certificates), download the GPG public key file, and copy it into the `samples/Scenarios/Gpg/Keys` directory.
+2. Create a [hash signing project and signing policy](/documentation/crypto-providers/#signpath-project-configuration) in SignPath.
 3. Execute `SCD LEARN` to fetch the private key references. For details, see the `UseSignPathCryptokiGpgConfiguration` function in the GPG scenario of the [Linux container samples].
 4. Import the key into the GPG key chain with `gpg --import` . See the `ImportGpgKeys` function in the GPG scenario of the [Linux container samples].
 

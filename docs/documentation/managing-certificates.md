@@ -22,16 +22,23 @@ With SignPath, you have the following options for creating or importing a certif
 * **Self-signed X.509 certificates** are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.
 * **X.509 certificate signing requests (CSRs)** can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.
 * **PFX-imported X.509 certificates**: If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)
-* **GPG keys** are OpenPGP/[RCF4880](https://datatracker.ietf.org/doc/html/rfc4880) compliant TODO TODO TODO. Their trust is gained by distributing the public key, or by publishing it on an [OpenPGP Key server](https://en.wikipedia.org/wiki/Key_server_(cryptographic)). They can be used for arbitrary file signing (GPG signature files) and GPG based signing formats like RPM packages, Debian packages, Maven artifacts, ...
+* **GPG keys** are certificates based on the OpenPGP standard, also known as GPG or GnuPG. They can be used to sign arbitrary files using GPG detached signature file. It is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.
 
 {% include editions.md feature="TODO!!" %}
 
 {:.panel.info}
-> **GPG terminology: public keys**
+> **GPG keys and certificates**
 >
-> GPG uses the term _public key_ for a specific file format that includes the actual public key key, the holder's identity (name, email address),  expiration,   and other data. It is therefore more similar to a certificate than just a public key.
+> In the world of GPG, certificates are known under various names:
 >
-> This sometimes creates confusion about whether the term public key refers to just the public part of the cryptographic key pair, or an entire GPG public key.
+> * Certificate or Transferable Public Keys according to [OpenPGP](https://datatracker.ietf.org/doc/html/rfc4880) 
+> * GPG keys or GPG public keys in everyday usage (which can be confusing as _public key_ usually means the public part of an asymmetfic cryptographic key pair)
+>
+> SignPath uses the term _GPG key_ to denote this type of _Certificate_.
+>
+> These terms all refer to a specific file format that includes the actual public key, the key holder's identity (name and email address),  expiration, and other data.
+>
+> Unlike X.509, GPG does not define a Public Key Infrastructure (PKI) based on Certificate Authoities (CAs). Instead, GPG certificates are usually provided as downloads on a separate channel and/or published on an [OpenPGP Key server](https://en.wikipedia.org/wiki/Key_server_(cryptographic). 
 
 ## Restrictions
 
