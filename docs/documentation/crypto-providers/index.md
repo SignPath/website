@@ -70,11 +70,11 @@ As always, the private key does not leave the boundaries of the HSM.
 
 ### Linux Docker container samples {#linux-docker-samples}
 
-For the supported Linux distributions we provide Docker container based example scripts to demonstrate the different signing tool scenarios, their configuration and the required dependencies.
+The Crypto Provider package contains Linux sample scripts that demonstrate the different signing tool scenarios, their configuration, and the required dependencies in the `Scenarios` directory. See the `README.md` for the full list. 
 
-See the `Linux/samples` directory in the Crypto Provider package. It contains a `README.md` file with further information.
+For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the `Linux/samples` directory in the Crypto Provider package. See `README.md` for further information and details how to use the `run_scenario.sh` and `RunScenario.ps1` entry point scripts to invoke samples.
 
-All of the provided scripts can also be executed outside of a Docker container. However, we recommend to perform the signing operations in a container to keep the dependencies in one manageable place, especially for GPG based signing tools.
+All scripts can also be executed without containers. We recommend using containers when possible to easily manage dependencies, especially for GPG based signing tools.
 
 ### Timestamps {#timestamps}
 
@@ -113,14 +113,15 @@ Configuration options:
 
 In case you used the [MSI installer](/documentation/crypto-providers/windows#installation), a `SIGNPATH_CONFIG_FILE` system env variable is created and set to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` which points to a skeleton JSON file you can use to provide your own (default) values.
 
-| JSON setting                      | Environment variable                      | Default Value                 | Description
-|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
-| `OrganizationId`                  | `SIGNPATH_ORGANIZATION_ID`                | (mandatory)                   | ID of your organization
-| `ApiToken`                        | `SIGNPATH_API_TOKEN`                      | (mandatory)                   | API token for a CI or Interactive User (see below for options)
-| `TlsClientCertificate`            | `SIGNPATH_TLS_CLIENT_CERTIFICATE`         | (optional)                    | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint` (Windows only)
-| `ApiUrl`                          | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
-| `HttpProxy`                       | `http_proxy`                              | (optional)                    | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
-| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`    | Enables compatibility with Cryptoki/PKCS #11 clients which open sessions with read/write option 
+| JSON setting                            | Environment variable                                   | Default Value    | Description
+|-----------------------------------      |--------------------------------------------------------|------------------|--------------------------
+| `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             | (mandatory)      | ID of your organization
+| `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   | (mandatory)      | API token for a CI or Interactive User (see below for options)
+| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | (optional)       | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint` (Windows only)
+| `ApiUrl`                                | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
+| `HttpProxy`                             | `http_proxy`                                           | (optional)       | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
+| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
+| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
 {: .break-code}
 
 **Logging settings:**
@@ -218,10 +219,15 @@ In case this configuration value is set, it overrides the system's proxy setting
 
 In order to perform hash-based signing with the Crypto Providers, perform the following steps in the SignPath UI:
 
-1. Create a new _Project_ with an _Artifact Configuration_ of type _Hash signing data_ and remember the _Project slug_.
-<!-- TODO must be default artifact configuration? -->
-1. Create an dedicated CI User (recommended) or generate an API Token for your own Interactive User and remember the API token.
-1. Create a _Signing Policy_ for the _Project_ and add a _the CI or Interactive User_ as a _Submitter_. Remember _Signing Policy slug_.
+1. Create or open a _Project_ 
+   * Add an _Artifact Configuration_ of type _Hash signing data_ 
+   * Set this _Artifact Configuration_ as _Default_
+   * Remember the _Project slug_
+2. Create an dedicated CI User (recommended) or generate an API Token for your own Interactive User 
+   * Remember the API token
+3. Create or open a _Signing Policy_ for the _Project_ 
+   * Add the _CI User_ or _Interactive User_ as a _Submitter_
+   * Remember the _Signing Policy slug_
 
 
 [PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
