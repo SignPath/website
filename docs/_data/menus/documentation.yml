@@ -6,6 +6,9 @@
 
 - text: Managing Users
   path: users
+  items:
+    - text: Directory synchronization
+      path: directory-synchronization
 
 - text: Setting up Projects
   path: projects

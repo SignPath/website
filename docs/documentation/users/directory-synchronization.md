@@ -3,11 +3,12 @@ header: Directory synchronization
 layout: resources
 toc: false
 description: Documentation for SignPath directory synchronization using Microsoft Entra ID
+redirect_from: /documentation/directory-synchronization
 ---
 
 ## Directory synchronization with Microsoft Entra ID/Azure Active Directory
 
-Directory synchronization is supported via the SCIM protocol. This page describes the configuration for Microsoft Entra ID (previously Azure Active Directory). 
+Directory synchronization is supported via the SCIM protocol. This page describes the configuration for Microsoft Entra ID (previously Azure Active Directory). Directory synchronization requires Single Sign-On with OpenIdConnect.
 
 ### Steps
 
