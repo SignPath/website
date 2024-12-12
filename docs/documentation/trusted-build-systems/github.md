@@ -116,8 +116,8 @@ github-policies:
               - tool: CodeQL
                 min_alerts_threshold: errors
                 min_security_alerts_threshold: medium
-      allow_bypass_actors: true                  # some people may bypass these rules
-      enforced_from: '2025-01-01 00:00'          # had to be reset at some point
+        allow_bypass_actors: true                # some people may bypass these rules
+        enforced_from: '2025-01-01 00:00'        # had to be reset at some point
 ```
 
 ### Available policies
@@ -142,11 +142,12 @@ The policies in the `branch_rulests` section configure which [GitHub branch rule
 
 ##### How `branch_rulesets` policies are evaluated
 
-Different sets of policies can be configured, each with its own conditions, exceptions and enforcement date. The individual rules may be split up into different rulesets in GitHub.
+Different conditions can be configured, each with its own rules, exceptions and enforcement date. The individual rules may be split up into different rulesets in GitHub.
 
-* Each set defines a `condition` that include the `rules` that need to be active. See below for all possible options.
-* An `allow_bypass_actors` flag specifies whether bypassers are allowed for the current set.
-* The `enforced_from` value defines a point in time from which the associated rules have to be continuously enforced. SignPath ensures that there was always at least one ruleset active that enforced the rules at any given time. Possible values are ISO-8601 formatted timestamps (e.g. `2024-12-05T11:51:29Z`) or `EARLIEST`. If no value is provided, the conditions are only evaluated at the time of signing.
+Each `condition` specifies 
+* the `rules` that need to be active (see below for all possible options)
+* the `allow_bypass_actors` flag defining whether bypassers are allowed for the current set.
+* the `enforced_from` value defining a point in time from which the associated rules have to be continuously enforced. SignPath ensures that there was always a combination of rulesets active that enforced the rules at any given time. Possible values are ISO-8601 formatted timestamps (e.g. `2024-12-05T11:51:29Z`) or `EARLIEST`. If no value is provided, the conditions are only evaluated at the time of signing.
 
 {:.panel.info}
 > **Info about enforcable timespans**
