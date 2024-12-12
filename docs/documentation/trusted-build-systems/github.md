@@ -85,7 +85,7 @@ The action supports the following output parameters:
 
 {% include editions.md feature="pipeline_integrity.extended_policies" value="Optional" %}
 
-By granting the [SignPath GitHub App](TODO) access to the source code repositories, continous enforcement of branch rulesets, build and runner configuration can be guaranteed.
+By granting the [SignPath GitHub App](https://github.com/apps/signpath) access to the source code repositories, continous enforcement of branch rulesets, build and runner configuration can be guaranteed.
 
 A policy configuration file needs to be stored at `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` in the `default` branch of the source code repository. It is recommended to restrict access to the policy files using GitHub's [code owners] feature.
 
