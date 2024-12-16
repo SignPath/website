@@ -272,7 +272,7 @@ See [managing certificates](/documentation/managing-certificates).
 
 ### Origin verification
 
-{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="optional" %}
 
 When a CI build is submitted to SignPath, certain metadata will be retrieved and verified by SignPath. This includes
 
@@ -307,6 +307,6 @@ When using manual approval on top of origin verification, approvers will have re
 
 For some CI systems, SignPath offers connectors that can validate software builds for security. This ensures that development teams do not use or enable inherently insecure mechanisms in their release build configurations. Insecure practices include caching on build nodes, interactive access to build nodes, ad-hoc build configuration changes and more.
 
-## Build and source code policies
+#### SCM and CI policy control
 
-TODO (also: should build validatio be removed then? Why is it enabled for the code signing gateway?)
+For some CI systems, SignPath allows defining detailed policies for Source Code Management (SCM) and CI/CD policies. You can set requirements for branch protection, build agents and other properties per Signing Policy.

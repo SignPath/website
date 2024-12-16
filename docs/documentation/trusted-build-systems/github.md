@@ -18,7 +18,7 @@ description: GitHub
 >
 > SignPath hosts an instance of the GitHub connector which is linked to GitHub.com For integrating self-hosted GitHub Enterprise instances, contact our [support](/support) team.
 
-## Performed checks
+## Checks performed by SignPath
 
 The GitHub connector performs the following checks:
 
@@ -56,8 +56,8 @@ steps:
 
 ### Action input parameters
 
-| Parameter                                     | Default Value                 | Description |
-| ----                                          | -                             | ------      |
+| Parameter                                     | Default Value                 | Description 
+|-----------------------------------------------|-------------------------------|---------------------------
 | `connector-url`                               | `https://app.signpath.io/Api` | The URL of the SignPath connector. Required if self-hosted.
 | `api-token`                                   | (mandatory)                   | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
 | `organization-id`                             | (mandatory)                   | The SignPath organization ID.
@@ -81,13 +81,68 @@ The action supports the following output parameters:
 - `signpath-api-url`: The base API url of the SignPath API
 - `signed-artifact-download-url`: The url of the signed artifact in SignPath
 
-## Build and source code policies
+## Define policies for source code and builds
 
-{% include editions.md feature="pipeline_integrity.extended_policies" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.extended_policies" value="optional" %}
 
-By granting the [SignPath GitHub App](https://github.com/apps/signpath) access to the source code repositories, continous enforcement of branch rulesets, build and runner configuration can be guaranteed.
+You can define specific source code and build policies for your repository per Signing Policy:
 
-A policy configuration file needs to be stored at `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` in the `default` branch of the source code repository. It is recommended to restrict access to the policy files using GitHub's [code owners] feature.
+* `runners`: define which runners may be used by GitHub Actions
+* `build`: define conditions for GitHub Actions workflows and runs
+* `branch_rulesets`: define minimum requirements for branch rulesets including conditions for integrity, reviews, and code scanning
+
+<!-- TODO insert app instructions in correct section
+grant the [SignPath GitHub App](https://github.com/apps/signpath) access to the [?] source code repositories
+-->
+
+Steps to create a policy file:
+
+* create the policy file in the `default` branch of the source code repository
+* name it `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` 
+* restrict write permissions to the policy files using GitHub's [code owners] feature.
+
+### Policy sections
+
+#### `runners` section
+
+Use the `runners` section to define which runners may be used in the workflow run.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-runners -%}
+
+#### `build` section
+
+Use the `build` section to configure rules for the build run.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-build -%}
+
+#### `branch_rulesets` section
+
+Use the `branch_rulests` section to configure conditions for [GitHub branch rulesets].
+
+* You can configure branch rulesets in GitHub on an organization or repository level. SignPath verifies that there is at least one branch ruleset for each specified condition.
+* Rules define minimum requirements that may be exceeded by the actual branch ruleset.
+
+##### How `branch_rulesets` conditions are evaluated
+
+You can group your policy requirements into multiple conditions, each containing a combination of rules, bypassers, and enforcement date:
+
+| Section                 | Values                         | Description
+|-------------------------|--------------------------------|----------------------------
+| `rules`                 | See below                      | Rules that must be implemented by one ore more active branch rulesets
+| `allow_bypass_actors`   | boolean                        | If `true`, the branche ruleset is allowed to define bypassers 
+| `enforced_from`         | None, timestamp, or `EARLIEST` | By default, the rules are only evaluated at the time of signing. When provided, defines that these rules must have been in place from the specified date (YAML ISO timestamp) or **TODO define*** (`EARLIEST`). 
+
+{:.panel.info}
+> **About `enforced_from` evaluation**
+> 
+> Depending on your GitHub subscription, the continuous enforcement of policies is either based on:
+>
+> * **Audit log events** for _GitHub Enterprise_ subscriptions. Audit log events are only available for the last 180 days, any prior policy violations will not be detected.
+> * The **last modified date** of the branch rulesets for all other subscriptions. At least one branch ruleset that has not been modified since the specified timestap must implement the rule.
+
+##### Available `branch_rulesets` rules
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-branch-ruleset-rules -%}
 
 ### Example
 
@@ -119,47 +174,6 @@ github-policies:
         allow_bypass_actors: true                # some people may bypass these rules
         enforced_from: '2025-01-01 00:00'        # had to be reset at some point
 ```
-
-### Available policies
-
-The following policies can be configured:
-
-#### `runners` policies
-
-The policies in the `runners` section restrict the build runners used in the workflow run.
-
-{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-runners -%}
-
-#### `build` policies
-
-The policies in the `build` section configure parameters of the build run that creates the artifact to be signed.
-
-{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-build -%}
-
-#### `branch_rulesets` policies
-
-The policies in the `branch_rulests` section configure which [GitHub branch rulesets] need to be active for the specified repository. The branch rulesets may be configured on an organization or repository level.
-
-##### How `branch_rulesets` policies are evaluated
-
-Different conditions can be configured, each with its own rules, exceptions and enforcement date. The individual rules may be split up into different rulesets in GitHub.
-
-Each `condition` specifies 
-* the `rules` that need to be active (see below for all possible options)
-* the `allow_bypass_actors` flag defining whether bypassers are allowed for the current set.
-* the `enforced_from` value defining a point in time from which the associated rules have to be continuously enforced. SignPath ensures that there was always a combination of rulesets active that enforced the rules at any given time. Possible values are ISO-8601 formatted timestamps (e.g. `2024-12-05T11:51:29Z`) or `EARLIEST`. If no value is provided, the conditions are only evaluated at the time of signing.
-
-{:.panel.info}
-> **Info about enforcable timespans**
-> 
-> Depending on the GitHub subscription, the continuous enforcement of policies is either based on:
-> * **Audit log events** for _GitHub Enterprise_ subscriptions. Audit log events are only available for the last 180 days, any prior policy violations cannot be detected.
-> * The **last modified date** of the branch rulesets for all other subscriptions.
-
-##### Available `branch_rulesets` policies
-
-{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-branch-ruleset-rules -%}
-
 
 [code owners]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
 [GitHub branch rulesets]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets

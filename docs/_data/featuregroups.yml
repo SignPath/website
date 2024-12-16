@@ -171,9 +171,9 @@
       hint: 'Automatically checks build configurations for security weaknesses.'
       class: f sub
     - name: extended_policies
-      title: 'Build and source code policies'
-      hint: 'Policy control for CI/CD workflows and SCM settings'
-      href: '/product/editions-explained#extended_policies'
+      title: 'SCM and CI policy control'
+      hint: 'Define specific SCM and CI/CD policy requirements, e.g. branch protection or build agents'
+      class: f sub
 
 - name: user_management
   title: 'User management'

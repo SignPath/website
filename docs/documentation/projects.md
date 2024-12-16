@@ -67,7 +67,7 @@ Select **Use approval process** if you want to require manual approval for each 
 
 ### Trusted build system verification {#signing-policy-trusted-build-system}
 
-{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="optional" %}
 
 Define that this signing policy can only be used from the trusted build systems [defined for the project](#trusted-build-systems).
 
@@ -75,7 +75,7 @@ When trusted build system verification is enabled, interactive users cannot be d
 
 ### Origin verification restriction {#signing-policy-origin-verification}
 
-{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="optional" %}
 
 Select **Verify origin** if you want to accept only signing requests with positive [origin verification](/documentation/origin-verification).
 
@@ -161,7 +161,7 @@ For details on how to create, generate or edit an artifact configuration, see [a
 
 ## Trusted build systems {#trusted-build-systems}
 
-{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.trusted_build_systems" value="optional" %}
 
 Define which [trusted build systems](/documentation/trusted-build-systems) may be used for this project. From your project configuration, you can link any trusted build system that your SignPath administrator has defined.
 
