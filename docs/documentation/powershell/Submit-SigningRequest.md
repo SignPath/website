@@ -137,7 +137,7 @@ Processing a signing request may take several minutes, or even longer if manual 
 > * **Artifact configuration: version management**. Create new versions of your artifact configuration for breaking changes and let your code determine the version to use. This ensures that signing will continue to work for older versions of your application while the artifact configuration evolves. If the script that invokes this cmdlet is under version control, it might be a better idea to have the artifact configuration slug hard coded in the script than to get it from a CI variable.
 > * **Signing policy: CI parameter**. If you take the signing policy from a Continuous Integration/Build Automation parameter, you can use the same script and cmdlet invocation for different build configurations, such as test and release.
 
-#### `-Origin` values
+#### Values for `-Origin` parameter
 
 {% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
 
