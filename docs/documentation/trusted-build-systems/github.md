@@ -12,6 +12,7 @@ description: GitHub
   *  add it to the Organization
   *  link it to each SignPath Project for GitHub
 * Specify `<zip-file>` as root element of your [Artifact Configurations](/documentation/artifact-configuration) (GitHub packages all artifacts as ZIP archives)
+* Install the [SignPath GitHub App](https://github.com/apps/signpath) and allow access to the code repositories.
 
 {:.panel.info}
 > **GitHub Enterprise**
@@ -83,23 +84,19 @@ The action supports the following output parameters:
 
 ## Define policies for source code and builds
 
-{% include editions.md feature="pipeline_integrity.extended_policies" value="optional" %}
+{% include editions.md feature="pipeline_integrity.extended_policies" %}
 
-You can define specific source code and build policies for your repository per Signing Policy:
+You can define specific source code and build policies for your repository per signing policy:
 
 * `runners`: define which runners may be used by GitHub Actions
 * `build`: define conditions for GitHub Actions workflows and runs
 * `branch_rulesets`: define minimum requirements for branch rulesets including conditions for integrity, reviews, and code scanning
 
-<!-- TODO insert app instructions in correct section
-grant the [SignPath GitHub App](https://github.com/apps/signpath) access to the [?] source code repositories
--->
-
 Steps to create a policy file:
 
 * create the policy file in the `default` branch of the source code repository
 * name it `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` 
-* restrict write permissions to the policy files using GitHub's [code owners] feature.
+* restrict write permissions to the policy files using GitHub's [code owners] feature
 
 ### Policy sections
 
@@ -130,7 +127,7 @@ You can group your policy requirements into multiple conditions, each containing
 |-------------------------|--------------------------------|----------------------------
 | `rules`                 | See below                      | Rules that must be implemented by one ore more active branch rulesets
 | `allow_bypass_actors`   | boolean                        | If `true`, the branche ruleset is allowed to define bypassers 
-| `enforced_from`         | None, timestamp, or `EARLIEST` | By default, the rules are only evaluated at the time of signing. When provided, defines that these rules must have been in place from the specified date (YAML ISO timestamp) or **TODO define*** (`EARLIEST`). 
+| `enforced_from`         | None, timestamp, or `EARLIEST` | By default, the rules are only evaluated at the time of signing. When provided, defines that these rules must have been in place from the specified date (YAML ISO timestamp) or earliest availability of audit log entries (`EARLIEST`). 
 
 {:.panel.info}
 > **About `enforced_from` evaluation**

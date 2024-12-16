@@ -309,4 +309,4 @@ For some CI systems, SignPath offers connectors that can validate software build
 
 #### SCM and CI policy control
 
-For some CI systems, SignPath allows defining detailed policies for Source Code Management (SCM) and CI/CD policies. You can set requirements for branch protection, build agents and other properties per Signing Policy.
+For some CI systems, SignPath allows defining detailed policies for Source Code Management (SCM) and CI/CD policies. You can set requirements for branch protection, build agents and other properties per signing policy.
