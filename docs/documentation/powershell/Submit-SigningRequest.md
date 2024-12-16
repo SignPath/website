@@ -139,7 +139,7 @@ Processing a signing request may take several minutes, or even longer if manual 
 
 #### Values for `-Origin` parameter
 
-{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="optional" %}
 
 This parameter should only be used from a [Trusted Build System](/documentation/trusted-build-systems).
 

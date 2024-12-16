@@ -12,13 +12,14 @@ description: GitHub
   *  add it to the Organization
   *  link it to each SignPath Project for GitHub
 * Specify `<zip-file>` as root element of your [Artifact Configurations](/documentation/artifact-configuration) (GitHub packages all artifacts as ZIP archives)
+* Install the [SignPath GitHub App](https://github.com/apps/signpath) and allow access to the code repositories.
 
 {:.panel.info}
 > **GitHub Enterprise**
 >
 > SignPath hosts an instance of the GitHub connector which is linked to GitHub.com For integrating self-hosted GitHub Enterprise instances, contact our [support](/support) team.
 
-## Performed checks
+## Checks performed by SignPath
 
 The GitHub connector performs the following checks:
 
@@ -42,7 +43,7 @@ steps:
     path: path/to/your/artifact
 
 - id: optional_step_id
-  uses: signpath/github-action-submit-signing-request@v1
+  uses: signpath/github-action-submit-signing-request@v1.1
   with:
     api-token: '${{ secrets.SIGNPATH_API_TOKEN }}'
     organization-id: '<SignPath organization id>'
@@ -56,8 +57,8 @@ steps:
 
 ### Action input parameters
 
-| Parameter                                     | Default Value                 | Description |
-| ----                                          | -                             | ------      |
+| Parameter                                     | Default Value                 | Description 
+|-----------------------------------------------|-------------------------------|---------------------------
 | `connector-url`                               | `https://app.signpath.io/Api` | The URL of the SignPath connector. Required if self-hosted.
 | `api-token`                                   | (mandatory)                   | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
 | `organization-id`                             | (mandatory)                   | The SignPath organization ID.
@@ -81,3 +82,95 @@ The action supports the following output parameters:
 - `signpath-api-url`: The base API url of the SignPath API
 - `signed-artifact-download-url`: The url of the signed artifact in SignPath
 
+## Define policies for source code and builds
+
+{% include editions.md feature="pipeline_integrity.extended_policies" %}
+
+You can define specific source code and build policies for your repository per signing policy:
+
+* `runners`: define which runners may be used by GitHub Actions
+* `build`: define conditions for GitHub Actions workflows and runs
+* `branch_rulesets`: define minimum requirements for branch rulesets including conditions for integrity, reviews, and code scanning
+
+Steps to create a policy file:
+
+* create the policy file in the `default` branch of the source code repository
+* name it `.signpath/policies/<project-slug>/<signing-policy-slug>.yml` 
+* restrict write permissions to the policy files using GitHub's [code owners] feature
+
+### Policy sections
+
+#### `runners` section
+
+Use the `runners` section to define which runners may be used in the workflow run.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-runners -%}
+
+#### `build` section
+
+Use the `build` section to configure rules for the build run.
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-build -%}
+
+#### `branch_rulesets` section
+
+Use the `branch_rulests` section to configure conditions for [GitHub branch rulesets].
+
+* You can configure branch rulesets in GitHub on an organization or repository level. SignPath verifies that there is at least one branch ruleset for each specified condition.
+* Rules define minimum requirements that may be exceeded by the actual branch ruleset.
+
+##### How `branch_rulesets` conditions are evaluated
+
+You can group your policy requirements into multiple conditions, each containing a combination of rules, bypassers, and enforcement date:
+
+| Section                 | Values                         | Description
+|-------------------------|--------------------------------|----------------------------
+| `rules`                 | See below                      | Rules that must be implemented by one ore more active branch rulesets
+| `allow_bypass_actors`   | boolean                        | If `true`, the branche ruleset is allowed to define bypassers 
+| `enforced_from`         | None, timestamp, or `EARLIEST` | By default, the rules are only evaluated at the time of signing. When provided, defines that these rules must have been in place from the specified date (YAML ISO timestamp) or earliest availability of audit log entries (`EARLIEST`). 
+
+{:.panel.info}
+> **About `enforced_from` evaluation**
+> 
+> Depending on your GitHub subscription, the continuous enforcement of policies is either based on:
+>
+> * **Audit log events** for _GitHub Enterprise_ subscriptions. Audit log events are only available for the last 180 days, any prior policy violations will not be detected.
+> * The **last modified date** of the branch rulesets for all other subscriptions. At least one branch ruleset that has not been modified since the specified timestap must implement the rule.
+
+##### Available `branch_rulesets` rules
+
+{%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-branch-ruleset-rules -%}
+
+### Example
+
+```yaml
+# .signpath/policies/my-project-slug/release-signing.yml
+
+github-policies:
+  runners:
+    allowed_groups:
+      - 'GitHub Actions'                         # all jobs need to run on GitHub-hosted runners
+  build:
+    disallow_reruns: true
+  branch_rulesets:
+    - condition:
+        rules:
+        - block_force_pushes:                    # force pushes are prevented
+        - pull_request:                          # code reviews are required
+            min_required_approvals: 1
+            require_code_owner_review: true
+      allow_bypass_actors: false                 # no-one is allowed to bypass this rule
+      enforced_from: EARLIEST                    # rule enforcement history is checked
+    - condition:
+        rules:
+        - require_code_scanning:                 # code scanning must not reveal problems
+            tools:
+              - tool: CodeQL
+                min_alerts_threshold: errors
+                min_security_alerts_threshold: medium
+        allow_bypass_actors: true                # some people may bypass these rules
+        enforced_from: '2025-01-01 00:00'        # had to be reset at some point
+```
+
+[code owners]: https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+[GitHub branch rulesets]: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets

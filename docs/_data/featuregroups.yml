@@ -170,6 +170,10 @@
       title: 'Build validation'
       hint: 'Automatically checks build configurations for security weaknesses.'
       class: f sub
+    - name: extended_policies
+      title: 'SCM and CI policy control'
+      hint: 'Define specific SCM and CI/CD policy requirements, e.g. branch protection or build agents'
+      class: f sub
 
 - name: user_management
   title: 'User management'

@@ -51,3 +51,69 @@ appveyor-setup:
         | `$ENCRYPTED_SIGNPATH_API_TOKEN`                          | ③ The encrypted value from the previous step
       _attributes:
         steps: {colspan: 2}
+
+github-extended-policies-runners:
+  headers:
+    policy: Policy
+    description: Description
+    _attributes: 
+      policy: {style: "width: 25%"}
+      description: {style: "width: 75%"}
+  body:
+    - policy: |
+        `allowed_groups`
+      description: Provide a list of GitHub runner group names. Ensures that all jobs of the workflow are executed on runners from one of the listed groups. Note that the `GitHub Actions` group is predefined and represents GitHub-hosted runners.
+
+github-extended-policies-build:
+  headers:
+    policy: Policy
+    description: Description
+    _attributes: 
+      policy: {style: "width: 25%"}
+      description: {style: "width: 75%"}
+  body:
+    - policy: |
+        `disallow_reruns`
+      description: Set to `true` to prevent signing builds from re-runs. By enforcing this policy, old, temporarily failed builds cannot be re-run and signed under the false impression that they include recent changes, such as vulnerability fixes. These builds would still be identified by their branch name, e.g. `main`.
+
+github-extended-policies-branch-ruleset-rules:
+  headers:
+    policy: Rule
+    description: Description
+    _attributes: 
+      policy: {style: "width: 25%"}
+      description: {style: "width: 75%"}
+  body:
+    - policy: |
+        `restrict_creations`
+      description: Set to `true` to allow only users with bypass permission to create matching refs.
+    - policy: |
+        `restrict_updates`
+      description: Set to `true` to allow only  users with bypass permission to update matching refs.
+    - policy: |
+        `restrict_deletions`
+      description: Set to `true` to allow only users with bypass permissions to delete matching refs.
+    - policy: |
+        `require_linear_history`
+      description: Set to `true` to prevent merge commits from being pushed to matching refs.
+    - policy: |
+        `require_pull_request`
+      description: |
+        Require all commits be made to a non-target branch and submitted via a pull request before they can be merged. Can be set to `true` or defined as a block with the following parameters:
+        * `min_required_approvals`: The minimum number of required approvals.
+        * `dismiss_stale_reviews_on_push`: Set to `true` to dismiss stale pull request approvals when new commits are pushed.
+        * `require_code_owner_review`: Set to `true` to require review from Code Owners.
+        * `require_last_push_approval`: Set to `true` to require approval of the most recent reviewable push.
+        * `require_review_thread_resolution`: Set to `true` to require conversation resolution before merging.
+    - policy: |
+        `block_force_pushes`
+      description: Set to `true` to prevent users with push access from force pushing to refs.
+    - policy: |
+        `require_code_scanning`
+      description: |
+        Configure a list of code scanning `tools` which must provide scan results with the following entries:
+        * `tool`: The name of the code scanning tool, e.g. `CodeQL`
+        * `min_alerts_threshold`: one of `none`, `errors` or `warnings`
+        * `min_security_alerts_threshold`: one of `none`, `critical`, `high`, `medium` or `all`
+
+

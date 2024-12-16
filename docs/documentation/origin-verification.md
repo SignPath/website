@@ -6,7 +6,7 @@ description: Documentation for using Origin Verification in SignPath
 datasource: tables/origin-verification
 ---
 
-{% include editions.md feature="pipeline_integrity.origin_verification" value="Optional" %}
+{% include editions.md feature="pipeline_integrity.origin_verification" value="optional" %}
 
 Origin verification allows trusted build systems to provide reliable origin metadata with your signing requests, so that SignPath can execute advanced policies based on trusted information. 
 
