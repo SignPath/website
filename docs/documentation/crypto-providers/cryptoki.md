@@ -23,11 +23,14 @@ This section provides general information about using the SignPath Cryptoki libr
 
 ### Supported Linux distributions {#supported-linux-distributions}
 
-| Distribution | Version         | Comment
-|--------------|-----------------|-------------------
-| Debian       | 11
-| Ubuntu       | 20.04           | Except [osslsigncode](#osslsigncode)
-| RedHat       | 8 (latest minor) 
+| Distribution | Version            | Comment
+|--------------|--------------------|------------------------
+| Debian       | 11 "bullseye"
+| Debian       | 12 "bookworm"
+| Ubuntu       | 20.04              | Except [osslsigncode](#osslsigncode)
+| Ubuntu       | 22.04              |
+| Ubuntu       | 24.04              |
+| RedHat       | 8 (latest minor)
 | RedHat       | 9 (latest minor)
 
 > **OpenSSL 3.0.0 - 3.0.8 incompatibility**
@@ -162,7 +165,7 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples]. Sample invocation:
+> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples] within `Scenarios/OpenSSL/OpenSSL.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario OpenSSL -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -237,11 +240,6 @@ Sample: sign the file `artifact.bin` using `certificate.pem`, write the detached
 openssl cms -engine pkcs11 -signer "certificate.pem" -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -keyform engine -sign -binary -in "artifact.bin" -noattr -out "artifact.sig" -outform PEM
 ~~~
 
-{:.panel.warning}
-> **Important**
->
-> _OpenSSL_ fails to verify signatures that were created using X.509 certificates with the Extended Key Usage Code Signing (1.3.6.1.5.5.7.3.3).
-
 ## osslsigncode {#osslsigncode}
 
 _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the [OpenSSL](#openssl) section for details.
@@ -278,7 +276,7 @@ osslsigncode sign `
 {:.panel.tip}
 > **Tip**
 >
-> This invocation is also provided in the [Linux container samples]:
+> This invocation is also provided in the [Linux container samples] within `Scenarios/osslsigncode/osslsigncode.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario osslsigncode -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -302,7 +300,7 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 {:.panel.tip}
 > **Tip**
 >
-> The following invocation examples are also provided in the [Linux container samples]:
+> The following invocation examples are also provided in the [Linux container samples] within `Scenarios/Pkcs11Tool/Pkcs11Tool.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario Pkcs11Tool -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -369,7 +367,7 @@ slot=1
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration and invocation examples are provided in the [Linux container samples]. Sample invocation:
+> For *Linux*, configuration and invocation examples are provided in the [Linux container samples] within `Scenarios/Jar/JarSigner.ps1`. Sample invocation:
 > 
 > ```bash
 > run_scenario.sh ... -Scenario JarSigner -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"

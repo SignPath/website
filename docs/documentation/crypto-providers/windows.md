@@ -15,7 +15,7 @@ Signing tools secifically designed for Windows typicall use CNG KSP or CAPI CSP 
 To install the Windows CNG KSP and CAPI CSP providers,
 
 1. Run the MSI installer file from the `Windows` subdirectory of the Crypto Providers ZIP archive. (See below for unattended options.)
-1. Continue with the [general Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
+2. Continue with the [general Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
 
 {:.panel.info}
 > **Verification**
