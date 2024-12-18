@@ -240,6 +240,11 @@ Sample: sign the file `artifact.bin` using `certificate.pem`, write the detached
 openssl cms -engine pkcs11 -signer "certificate.pem" -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -keyform engine -sign -binary -in "artifact.bin" -noattr -out "artifact.sig" -outform PEM
 ~~~
 
+{:.panel.info}
+> **File-based approach**
+>
+> Detached CMS signatures can also be created by uploading the file to SignPath. See [`create-cms-signature`](/documentation/artifact-configuration/reference#create-cms-signature).
+
 ## osslsigncode {#osslsigncode}
 
 _[osslsigncode]_ is a tool that allows applying Windows Authenticode signatures on Linux systems using OpenSSL. Accordingly, it also requires an OpenSC pkcs11 OpenSSL engine installation. See the [OpenSSL](#openssl) section for details.

@@ -236,6 +236,53 @@ There are multiple tools and solutions that support handling of raw signature bl
 openssl dgst -verify pubkey.pem -signature file.sig file
 ~~~
 
+### Detached CMS signatures using `<create-cms-signature>` {#create-cms-signature}
+
+{% include editions.md feature="file_based_signing.cms" %}
+
+{%- include_relative render-ac-directive-table.inc directive="create-cms-signature" -%}
+
+**Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
+
+Detached CMS signatures can be used to sign any binary or text file.
+
+The `create-cms-signature` directive supports the following parameters:
+
+| Parameter          | Required      | Values                       | Description
+|--------------------|---------------|------------------------------|-------------------------------------------------
+| `output-file-name` | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
+| `output-encoding`  | Yes           | `pem`, `der`                 | The encoding of the output file containing the signature.
+| `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
+| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
+
+#### Example
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <zip-file>
+    <file path="myfile.bin">
+      <create-cms-signature output-encoding="pem" output-file-name="${file.name}.cms.pem" hash-algorithm="sha256" rsa-padding="pkcs1" />
+    </pe-file>
+  </zip-file>
+</artifact-configuration>
+~~~
+
+The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.cms.pem`.
+
+#### Detached signature verification
+
+There are multiple tools and solutions that support handling of CMS signatures. One popular option is `openssl cms`. The signature can be verified using the following call:
+
+~~~ bash
+openssl cms -verify -purpose codesign -content myfile.bin -inform PEM -in myfile.cms.pem -out /dev/null
+~~~
+
+{:.panel.warning}
+> **OpenSSL CMS verification**
+>
+> * Prior to OpenSSL 3.2, the `-purpose` flag does not support `codesign`, you can use `any` instead
+> * When signing with a certificate that is not trusted on the respective platform, use the `-CAFile` and pass in a path to the root certificate
+
 ## Verification methods {#verification}
 
 Verification directives are used to ensure that files in a singing request are already properly signed by their respective publisher.

@@ -98,6 +98,10 @@ signing-file-elements:
       isContainer: "No"
       directive: "[`<create-raw-signature>`](#create-raw-signature)"
       description: "Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)"
+    - element: "`<file>`"
+      isContainer: "No"
+      directive: "[`<create-cms-signature>`](#create-cms-signature)"
+      description: "Arbitrary files. This directive will create a detached CMS signature file (available for Advanced Code Signing)"
 
 authenticode-attributes:
   headers:
