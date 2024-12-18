@@ -81,7 +81,6 @@ function moveCarousel(ul, moveRight, numCarouselItems) {
 	let leftItem = ul.children[normalizeIndex(currentIndex-1)];
 	let showItems = Array.from({length: numCarouselItems - 1}, (_, i) => ul.children[normalizeIndex(currentIndex + 1 + i)]);
 	let rightItem = ul.children[normalizeIndex(currentIndex + numCarouselItems)];
-	console.log(showItems);
 
 	leftItem.classList.remove('out-left');
 	if (moveRight) leftItem.classList.add('active');
