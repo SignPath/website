@@ -156,6 +156,12 @@ header nav > a#main-menu-toggle {
  li.search {
  	display: flex;
 
+ 	&:focus-within {
+ 		& > div {
+ 			visibility: visible;
+ 		}
+ 	}
+
  	span {
  		padding-top:5px;
 
@@ -192,6 +198,10 @@ header nav > a#main-menu-toggle {
 		top: 1em;
 		padding: 0px;
 		padding-top: 16px;
+
+		&.with-search-term {
+			visibility: visible;
+		}
 
 		div {
 			background-color: $white-background-color;
@@ -256,7 +266,8 @@ header nav > a#main-menu-toggle {
 		background-color: $black-background-color;
 
 		&.open {
-			display: block;
+			display: flex;
+			flex-direction: column;
 		}
 
 		& > li {
@@ -314,6 +325,7 @@ header nav > a#main-menu-toggle {
 		display: flex;
 		flex-direction: row;
 		padding: 15px 30px;
+		order: -1;
 
 		span {
 			display: none;
