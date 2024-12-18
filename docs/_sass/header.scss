@@ -199,11 +199,11 @@ header nav > a#main-menu-toggle {
 			border-right: 1px solid $grey-border-color;
 	
 			input {
-		 		border: 0px solid transparent;
+		 		border: 1px solid transparent;
 		 		font-size: 16px;
-		 		line-height: 1.65;;
-
-		 		padding: 0px 5px;
+		 		line-height: 1.65;
+		 		padding: 6px;
+		 		min-width: 210px;
 
 		 		&:focus {
 		 			outline: none;
@@ -297,7 +297,7 @@ header nav > a#main-menu-toggle {
 					}
 
 					&:last-child {
-						/*border-bottom: 0px solid transparent;*/
+						border-bottom: 0px solid transparent;
 					}
 				}
 			}
@@ -328,7 +328,7 @@ header nav > a#main-menu-toggle {
 			& > div {
 
 				input {
-					
+					min-width: auto;
 				}
 			}
 		}
