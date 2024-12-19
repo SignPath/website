@@ -1,0 +1,16 @@
+div.search-input {
+	padding: 0em 1em;
+
+	input {
+ 		border: 1px solid $grey-border-color;
+ 		font-size: 16px;
+ 		line-height: 1.65;
+ 		padding: 6px;
+ 		min-width: 210px;
+ 		width: 100%;
+
+ 		&:focus {
+ 			outline: none;
+ 		}
+ 	}
+}
