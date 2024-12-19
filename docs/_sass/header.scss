@@ -44,7 +44,7 @@ header nav > ul { /** main navigation **/
 	padding-inline-start: 0px;
 
 	& > li {
-		margin: 0px 16px;
+		margin: 0px 12px;
 		position: relative;
 
 		&.login {
@@ -149,9 +149,87 @@ header nav > a#main-menu-toggle {
 
 /**
  *
- * SUBMENU
+ * SEARCH
  *
  **/
+
+ li.search {
+ 	display: flex;
+
+ 	&:focus-within {
+ 		& > div {
+ 			visibility: visible;
+ 		}
+ 	}
+
+ 	span {
+ 		padding-top:5px;
+
+ 		svg {
+ 			width: 16px;
+ 			height: 16px;
+ 			fill: #fff;
+
+ 			path {
+ 				stroke-width: 2;
+ 				stroke: #fff;
+ 			}
+ 		}
+
+ 		&:after { /** line effect on hover **/
+			content: '';
+			position: absolute;
+			left: 0px;
+			bottom: -4px;
+			width: 0%;
+			border-bottom: 1px solid #fff;
+			transition: width 0.2s linear;
+		}
+
+		&:hover:after {
+			width: 100%;
+		}
+ 	}
+
+ 	& > div {
+		visibility: hidden;
+		position: absolute;
+		right: -5px;
+		top: 1em;
+		padding: 0px;
+		padding-top: 16px;
+
+		&.with-search-term {
+			visibility: visible;
+		}
+
+		div {
+			background-color: $white-background-color;
+			border-left: 1px solid $grey-border-color;
+			border-right: 1px solid $grey-border-color;
+	
+			input {
+		 		border: 1px solid transparent;
+		 		font-size: 16px;
+		 		line-height: 1.65;
+		 		padding: 6px;
+		 		min-width: 210px;
+
+		 		&:focus {
+		 			outline: none;
+		 		}
+		 	}
+		}
+	}
+
+	&:hover {
+		div {
+			visibility: visible;
+		}
+	}
+ 	
+ }
+
 
 /**
  *
@@ -188,7 +266,8 @@ header nav > a#main-menu-toggle {
 		background-color: $black-background-color;
 
 		&.open {
-			display: block;
+			display: flex;
+			flex-direction: column;
 		}
 
 		& > li {
@@ -221,7 +300,7 @@ header nav > a#main-menu-toggle {
 					}
 
 					&:hover {
-						background-color: initial;;
+						background-color: initial;
 					}
 
 					&:first-child {
@@ -240,5 +319,33 @@ header nav > a#main-menu-toggle {
 		border-top: 1px solid $dark-grey-border-color;
 		display: block;
 		padding: 10px 20px;
+	}
+
+	header nav > ul > li.search {
+		display: flex;
+		flex-direction: row;
+		padding: 15px 30px;
+		order: -1;
+
+		span {
+			display: none;
+		}
+
+		& > div {
+			position: static;
+			padding-top: 0px;
+			visibility: visible;
+			flex-grow: 1;
+
+			& > div {
+
+				input {
+					min-width: auto;
+					width: 100%;
+				}
+			}
+		}
+
+		
 	}
 }

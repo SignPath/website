@@ -33,9 +33,9 @@
   <meta name="description" content="{{description}}"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>
-  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-11-28">
+  <link rel="stylesheet" href="/assets/css/index.css?cache=2024-12-18">
   <link rel="alternate" type="application/atom+xml" title="SignPath.io Blog" href="/feed.xml">
-  <script src='/assets/index.js?cache=2024-03-07'></script>
+  <script src='/assets/index.js?cache=2024-12-18'></script>
   <script src='/assets/js/main-bundle.js?cache=2024-08-05'></script>
   {%- if page.redirhack != null -%}
   <!-- 404 redirect -->
@@ -78,6 +78,18 @@
               </ul>
             </li>
           {%- endfor -%}
+          <li class='search'>
+            <div>
+              <div>
+                <form method="get" target="_self" action="/search">
+                  <input type='search' name='q' placeholder="Search SignPath.io" />
+                </form>
+              </div>
+            </div>
+            <span tabindex='0'>
+              {% include search.svg %}
+            </span>
+          </li>
           <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Home/Login'>Login</a>
           <li class='login'><a href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
