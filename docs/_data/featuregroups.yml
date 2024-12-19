@@ -90,6 +90,9 @@
     - name: raw
       title: 'Raw signatures'
       hint: 'Create detached raw signatures (signature blocks)'
+    - name: cms 
+      title: 'CMS signatures'
+      hint: 'Created detached CMS signatures'
 
 - name: hash_based_signing
   title: 'Crypto providers and hash signing'
