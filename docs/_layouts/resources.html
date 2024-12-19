@@ -6,9 +6,9 @@
   </script>
 {%- endif -%}
 {%- if page.main_header != null -%}
-	{%- assign title = page.main_header | append: " - " | append: page.header | append: ' | SignPath' -%}
+	{%- assign title = page.main_header | append: " - " | append: page.header -%}
 {%- else -%}
-	{%- assign title = page.header | append: ' | SignPath' -%}
+	{%- assign title = page.header -%}
 {%- endif -%}
 {%- include header.html -%}
 
