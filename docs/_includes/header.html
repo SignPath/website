@@ -1,10 +1,13 @@
 <!-- last_modified_at:  -->
 {%- if title == null -%}
   {%- if page.title != null -%}
-    {%- assign title = page.title | append: ' | SignPath' -%}
+    {%- assign title = page.title -%}
   {%- else -%}
-    {%- assign title = "SignPath - Code Signing Simple and Secure" -%}
+    {%- assign title = "SignPath.io" -%}
   {%- endif -%}
+{%- endif -%}
+{%- if title != "SignPath.io" -%}
+  {%- assign title = title | append: ' | SignPath' -%}
 {%- endif -%}
 
 {%- if page.description != null -%}
@@ -29,7 +32,7 @@
   <meta property="og:locale" content="en_US" />
   <meta property="og:description" content="{{description}}" />
   <meta property="og:url" content="{{ site.data.hosts.web[site.target_environment] }}{{page.url}}" />
-  <meta property="og:site_name" content="SignPath - Code Signing Simple and Secure" />
+  <meta property="og:site_name" content="SignPath.io" />
   <meta name="description" content="{{description}}"/>
   <!-- End Jekyll SEO tag -->
   <link rel='stylesheet' href='/assets/css/hint.min.css'>

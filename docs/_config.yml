@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: SignPath - Code Signing simple and secure
+title: SignPath.io
 url: "https://about.signpath.io"
 email_sales: sales@signpath.io?subject=Enterprise%20subscription
 email_oss: oss-support@signpath.org?subject=OSS%20subscription
