@@ -74,7 +74,7 @@ signing-file-elements:
       isContainer: "Yes"
       directive: "[`<jar-sign>`](#jar-sign)"
       extensions: ".zip"
-      description: "Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the [JAR format](#jar-sign)"
+      description: "Use ZIP archives to sign multiple files at once. (ZIP archives can also be signed and verified using the [JAR format](#jar-sign).)"
     - element: "`<office-oxml-file>`"
       isContainer: "No"
       directive: "[`<office-macro-sign>`](#office-macro-sign)"
@@ -96,8 +96,11 @@ signing-file-elements:
       description: "Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files."
     - element: "`<file>`"
       isContainer: "No"
-      directive: "[`<create-raw-signature>`](#create-raw-signature)"
-      description: "Arbitrary files. This directive will create a detached raw signature file (available for Advanced Code Signing)"
+      directive: |
+        [`<create-cms-signature>`](#create-cms-signature),
+        [`<create-raw-signature>`](#create-raw-signature)
+      extensions: "*"
+      description: "Arbitrary files. Create detached [CMS](#create-cms-signature) or [raw](#create-raw-signature) signatures (available for Advanced Code Signing)."
 
 authenticode-attributes:
   headers:

@@ -87,9 +87,12 @@
       hint: 'Software/SaaS/Hardware/... Bills of Material'
       sub: 'CycloneDX XML'
       href: '/product/editions-explained#sbom-signing'
+    - name: cms 
+      title: 'CMS signatures'
+      hint: 'Create Cryptographic Message Syntax (CMS) signatures'
     - name: raw
       title: 'Raw signatures'
-      hint: 'Create detached raw signatures (signature blocks)'
+      hint: 'Create raw signature files'
 
 - name: hash_based_signing
   title: 'Crypto providers and hash signing'
