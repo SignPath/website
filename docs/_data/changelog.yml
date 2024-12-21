@@ -3,7 +3,7 @@
     application:
       version: 1.177.2
       new_features:
-        - text: Added support for [detached CMS](/documentation/artifact-configuration/reference#create-cms-signature) signatures.
+        - text: Added support for [Cryptographic Message Syntax (CMS) signatures](/documentation/artifact-configuration/reference#create-cms-signature).
           issues: [SIGN-7477]
 - date: '2024-12-16'
   updates:

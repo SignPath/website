@@ -27,8 +27,8 @@
     xml: false
     docker: false
     sbom: false
-    raw: false
     cms: false
+    raw: false
   hash_based_signing: none
   artifact_configuration:
     deep_signing: true
@@ -94,8 +94,8 @@
     xml: false
     docker: false
     sbom: false
-    raw: false
     cms: false
+    raw: false
   hash_based_signing: none
   artifact_configuration:
     deep_signing: true
@@ -156,8 +156,8 @@
     xml: true
     docker: true
     sbom: true
-    raw: true
     cms: true
+    raw: true
   hash_based_signing: none
   artifact_configuration:
     deep_signing: true
@@ -275,8 +275,8 @@
     xml: false
     docker: true
     sbom: false
-    raw: false
     cms: false
+    raw: false
   hash_based_signing: none
   artifact_configuration:
     deep_signing: true

@@ -23,7 +23,7 @@ Specify signing directives in file and directory elements.
 
 For [file and directory sets](syntax#file-and-directory-sets), specify the signing directive in the `<for-each>` element.
 
-### `<authenticode-sign>`
+### `<authenticode-sign>`: Authenticode (Windows) {#authenticode-sign}
 
 {%- include_relative render-ac-directive-table.inc directive="authenticode-sign" -%}
 
@@ -72,7 +72,7 @@ See also:
 * Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
 * Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
-### `<clickonce-sign>`
+### `<clickonce-sign>`: Microsoft ClickOnce {#clickonce-sign}
 
 {%- include_relative render-ac-directive-table.inc directive="clickonce-sign" -%}
 
@@ -90,7 +90,7 @@ ClickOnce signing applies to directories, not to individual files. Therefore, yo
 </artifact-configuration>
 ~~~
 
-### `<nuget-sign>`
+### `<nuget-sign>`: NuGet packages {#nuget-sign}
 
 {%- include_relative render-ac-directive-table.inc directive="nuget-sign" -%}
 
@@ -104,7 +104,7 @@ Publisher signing has the following additional security advantages:
 
 Although the NuGet Package format is based on OPC (see next section), it uses its own specific signing format.
 
-### `<office-macro-sign>`
+### `<office-macro-sign>`: Microsoft Office VBA macros {#office-macro-sign}
 
 {% include editions.md feature="file_based_signing.office_macros" %}
 
@@ -128,7 +128,7 @@ Use `<office-binary-file>` for binary Microsoft Office files:
 
 Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files. 
 
-### `<opc-sign>`
+### `<opc-sign>`: Open Packaging Convention {#opc-sign}
 
 {%- include_relative render-ac-directive-table.inc directive="opc-sign" -%}
 
@@ -141,7 +141,7 @@ Note that not all OPC-based formats use OPC signatures:
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->
 
-### `<jar-sign>`
+### `<jar-sign>`: Java Archives {#jar-sign}
 
 {% include editions.md feature="file_based_signing.java" %}
 
@@ -163,7 +163,7 @@ jarsigner -verify -strict <file>.zip
 
 Add the `-verbose` option to see the certificate.
 
-### `<xml-sign>`
+### `<xml-sign>`: XML Digital Signature {#xml-sign}
 
 {% include editions.md feature="file_based_signing.xml" %}
 
@@ -196,15 +196,75 @@ See also:
 
 * Use [metadata restrictions](#metadata-restrictions) for `<xml-file>` to restrict root element and namespace.
 
-### Detached raw signatures using `<create-raw-signature>` {#create-raw-signature}
+### `<create-cms-signature>`: Cryptographic Message Syntax (CMS) {#create-cms-signature}
+
+{% include editions.md feature="file_based_signing.cms" %}
+
+{%- include_relative render-ac-directive-table.inc directive="create-cms-signature" -%}
+
+Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.509 certificates. Tools like `openssl cms` can be used to verify these signatures.
+
+{:.panel.note}
+> **This directive creates a detached signature file**
+> 
+> This directive adds a file to the output and is therefore only available within a [`<zip-file>`](syntax#zip-file-element) element. 
+
+The `create-cms-signature` directive supports the following parameters:
+
+| Parameter          | Required      | Values                       | Description
+|--------------------|---------------|------------------------------|-------------------------------------------------
+| `output-file-name` | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
+| `output-encoding`  | Yes           | `pem`, `der`                 | The encoding of the output file containing the signature.
+| `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+
+#### CMS example
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <zip-file>
+    <file path="myfile.bin">
+      <create-cms-signature output-encoding="pem" output-file-name="${file.name}.cms.pem"
+         hash-algorithm="sha256" rsa-padding="pkcs1" />
+    </pe-file>
+  </zip-file>
+</artifact-configuration>
+~~~
+
+The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.bin.cms.pem`.
+
+#### CMS signature verification
+
+Multiple tools support verification of CMS signature. One popular option is `openssl cms`:
+
+~~~ bash
+openssl cms -verify -purpose codesign -content myfile.bin -inform PEM -in myfile.cms.pem -out /dev/null
+~~~
+
+{:.panel.warning}
+> **OpenSSL CMS verification**
+>
+> * Prior to OpenSSL 3.2, the `-purpose` flag does not support `codesign`. Use `any` instead.
+> * When the certificate is not trusted on the target system, specify `-CAFile` with the path of the root certificate. Make sure that the root certificate is distributed in a secure way.
+
+### `<create-raw-signature>`: Detached raw signature files {#create-raw-signature}
 
 {% include editions.md feature="file_based_signing.raw" %}
 
 {%- include_relative render-ac-directive-table.inc directive="create-raw-signature" -%}
 
-**Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
+Create raw signatures for any binary or text file. A raw signature is the output of the key algorithm, or cipher (e.g. RSA, ECDSA), without any additional data. 
 
-Detached raw signatures can be used to sign any binary or text file. They can also be used to [sign _Cosign_ metadata files](/documentation/signing-containers/cosign).
+Use cases for raw signatures include:
+
+* Signing for lightweight verification, e.g. on embedded systems 
+* Creating signature blocks for subsequent use with other tools and formats
+* [Signing _Cosign_ metadata files](/documentation/signing-containers/cosign)
+
+{:.panel.note}
+> **This directive creates a detached signature file**
+> 
+> This directive adds a file to the output and is therefore only available within a [`<zip-file>`](syntax#zip-file-element) element. 
 
 The `create-raw-signature` directive supports the following parameters:
 
@@ -212,9 +272,9 @@ The `create-raw-signature` directive supports the following parameters:
 |--------------------|---------------|------------------------------|-------------------------------------------------
 | `file-name`        | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
 | `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
-| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
+| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
 
-#### Example
+#### Raw signature example
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
@@ -228,60 +288,22 @@ The `create-raw-signature` directive supports the following parameters:
 
 The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.bin.sig`.
 
-#### Detached signature verification
+#### Raw signature verification
 
-There are multiple tools and solutions that support handling of raw signature blocks. One popular option is `openssl dgst`. As the command does not support X.509 certificates, the public key has to be extracted before the signature can be verified using the following call:
+Extract the public key from the certificate, then use any tool that can process raw signature blocks to verify the detached signature. 
+
+Extract the public key:
+~~~ bash
+openssl x509 -in certificate.cer -inform DER -pubkey -out pubkey.pem -noout
+~~~
+
+Verify the signature using the public key:
 
 ~~~ bash
-openssl dgst -verify pubkey.pem -signature file.sig file
+openssl dgst -verify pubkey.pem -signature file.sig
 ~~~
 
-### Detached CMS signatures using `<create-cms-signature>` {#create-cms-signature}
-
-{% include editions.md feature="file_based_signing.cms" %}
-
-{%- include_relative render-ac-directive-table.inc directive="create-cms-signature" -%}
-
-**Note: Since the detached signatures are placed in a separate file, this directive is only available within a [`<zip-file>`](syntax#zip-file-element) element.**
-
-Detached CMS signatures can be used to sign any binary or text file.
-
-The `create-cms-signature` directive supports the following parameters:
-
-| Parameter          | Required      | Values                       | Description
-|--------------------|---------------|------------------------------|-------------------------------------------------
-| `output-file-name` | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
-| `output-encoding`  | Yes           | `pem`, `der`                 | The encoding of the output file containing the signature.
-| `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
-| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (RSA keys only)
-
-#### Example
-
-~~~ xml
-<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
-  <zip-file>
-    <file path="myfile.bin">
-      <create-cms-signature output-encoding="pem" output-file-name="${file.name}.cms.pem" hash-algorithm="sha256" rsa-padding="pkcs1" />
-    </pe-file>
-  </zip-file>
-</artifact-configuration>
-~~~
-
-The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.cms.pem`.
-
-#### Detached signature verification
-
-There are multiple tools and solutions that support handling of CMS signatures. One popular option is `openssl cms`. The signature can be verified using the following call:
-
-~~~ bash
-openssl cms -verify -purpose codesign -content myfile.bin -inform PEM -in myfile.cms.pem -out /dev/null
-~~~
-
-{:.panel.warning}
-> **OpenSSL CMS verification**
->
-> * Prior to OpenSSL 3.2, the `-purpose` flag does not support `codesign`, you can use `any` instead
-> * When signing with a certificate that is not trusted on the respective platform, use the `-CAFile` and pass in a path to the root certificate
+If you use this method directly to verify signatures, make sure that the public key is distributed in a secure way and independently from the file to be verified. 
 
 ## Verification methods {#verification}
 
