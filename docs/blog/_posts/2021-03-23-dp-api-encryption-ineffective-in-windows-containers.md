@@ -10,7 +10,7 @@ description:
 
 We recently discovered a vulnerability in the key management of Windows containers. Windows containers used publicly available cryptographic keys when encrypting with the Windows Data Protection API (DP API). Furthermore, keys used in different containers by different organizations were the same. This vulnerability allowed attackers to decrypt any data that was encrypted with DP API keys in Windows containers. The vulnerability was confirmed by Microsoft and assigned [CVE-2021-1645](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-1645).
 
-In this blog post we describe CVE-2021-1645. This vulnerability was discovered in close cooperation with Marc Nimmerrichter from [Certitude Consulting GmbH](https://certitude.consulting/en). To understand the vulnerability, one has to have a basic understanding of DP API.
+In this blog post we describe CVE-2021-1645. This vulnerability was [discovered in close cooperation](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2021-1645#acknowledgements) with Marc Nimmerrichter from [Certitude Consulting GmbH](https://certitude.consulting/en). To understand the vulnerability, one has to have a basic understanding of DP API.
 
 ## DP API
 
