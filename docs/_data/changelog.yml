@@ -1,3 +1,17 @@
+- date: '2099-01-01'
+  updates:
+    application:
+      version: 1.178.0
+      bug_fixes:
+        - text: |-
+            REST API: Fixes signing request approval/deny APIs with empty request body (before they required a dummy `{}` body).
+          issues: [SIGN-7173]
+    self_hosted_installations:
+      version: 1.178.0
+      improvements:
+        - text: |-
+            Reduced image size of the `signpathio/signservice-software` container image and startup time.
+          issues: [SIGN-7385]
 - date: '2024-12-18'
   updates:
     application:
