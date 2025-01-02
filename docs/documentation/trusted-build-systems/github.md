@@ -112,7 +112,7 @@ Use the `build` section to configure rules for the build run.
 
 {%- include render-table.html table=site.data.tables.trusted-build-systems.github-extended-policies-build -%}
 
-#### `branch_rulesets` section
+#### `branch_rulesets` section {#branch_rulesets}
 
 Use the `branch_rulests` section to configure conditions for [GitHub branch rulesets].
 
