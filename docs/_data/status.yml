@@ -1,16 +1,24 @@
 # possible types are good, warning, critical
 current:
-    #type: good
-    #title: 'All systems are operational' # always restore this message when going back to 'good'
-    type: warning # good | warning | critical
-    title: 'Network performance degradation'
-    description: |
-      Since Jan. 2, 2025 04:20 UTC, a HSM network performance degradation causes delayed signing request processing and possible client-side timeouts concerning hash signing for all keys stored on the HSM (DPoD cloud HSMs are not affected).
-
-      We implemented a workaround at 08:30 UTC and are working on a permanent solution.
+    type: good
+    title: 'All systems are operational' # always restore this message when going back to 'good'
+    #type: good | warning | critical
+    #title: 'Network performance degradation'
+    #description: |
+    #  Since Jan. 2, 2025 04:20 UTC, a HSM network performance degradation causes delayed signing request processing and possible client-side timeouts concerning hash signing for all keys stored on the HSM (DPoD cloud HSMs are not affected).#
     #link:
 planned:
 incidents:
+  - date: 'Jan. 2, 2025'
+    range: 'Jan. 2, 2025, 04:20 - 09:25 UTC'
+    type: warning
+    title: 'HSM signing interruptions'
+    description: |
+      Temporary HSM network performance degradation led to automatic service restart escalation.
+
+      * Delayed signing request processing.
+      * Possible client-side timeouts concerning hash signing.
+      * DPoD Cloud HSM and software certificates were not affected. 
   - date: 'Nov. 27, 2024'
     range: 'Nov. 27, 2024, 22:40 - Nov. 28, 2024, 05:45 UTC'
     type: warning
