@@ -1,11 +1,13 @@
 # possible types are good, warning, critical
 current:
-    type: good
-    title: 'All systems are operational' # always restore this message when going back to 'good'
-    #type: good | warning | critical
-    #title: 'GitHub.com integration is temporarily unavailable'
-    #description: |
-    #  Using the SignPath GitHub Actions submit-signing-request action does currently not work as intended. We are working on a fix.
+    #type: good
+    #title: 'All systems are operational' # always restore this message when going back to 'good'
+    type: warning # good | warning | critical
+    title: 'Network performance degradation'
+    description: |
+      Since Jan. 2, 2025 04:20 UTC, a HSM network performance degradation causes delayed signing request processing and possible client-side timeouts concerning hash signing for all keys stored on the HSM (DPoD cloud HSMs are not affected).
+
+      We implemented a workaround at 08:30 UTC and are working on a permanent solution.
     #link:
 planned:
 incidents:
