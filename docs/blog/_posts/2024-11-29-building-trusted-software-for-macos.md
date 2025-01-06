@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "Building trusted software for macOS"
+title: "Building trusted software for macOS: A how-go guide for digital signing"
 image: '2024-09-09-bg'
 date: 2024-11-29 06:00:00 +0000
 author: Paul Savoie
-summary: "Distributing trusted Apple applications beyond the App Store"
+summary: "To provide a great user experience, you must prevent annoying pop-ups and alerts by digitally signing your app to make it trusted by macOS."
 description: "description"
 ---
 

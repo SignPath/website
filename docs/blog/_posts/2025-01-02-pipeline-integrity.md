@@ -4,7 +4,7 @@ title: "Zero-Trust Pipelines: Rethinking Software Supply Chain Security"
 image: '2025-01-01'
 date: 2025-01-01 06:00:00 +0000
 author: Stefan Wenig
-summary: "Zero-Trust Pipelines: Rethinking Software Supply Chain Security"
+summary: "It’s urgent that we shed traditional trust models and embrace a modern and holistic zero-trust approach to build pipelines."
 description: "description"
 ---
 
@@ -34,7 +34,7 @@ Current approaches to code signing operate on a dangerous assumption: that if th
 
 Consider the implications: a properly signed application could contain malicious code inserted through a compromised build agent, an unreviewed branch, or a poisoned cache. The signature, meant to be a seal of trust, becomes instead a shield for potential attacks. The SolarWinds incident demonstrated this vulnerability with devastating clarity – properly signed software, “trustworthy” served as the vector for one of the most significant supply chain attacks in history.
 
-If we want to adapt to this new reality, It’s urgent that we shed traditional trust models and embrace a modern and holistic zero-trust approach to build pipelines.
+If we want to adapt to this new reality, it’s urgent that we shed traditional trust models and embrace a modern and holistic zero-trust approach to build pipelines.
 
 
 ## The Case for Zero-Trust Pipelines
