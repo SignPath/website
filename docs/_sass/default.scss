@@ -12,7 +12,6 @@ section.default-section {
 
 			& > h1 {
 				font-size: 2em;
-							    font-family: "Cousine";
 			}
 
 			& > h2 {
@@ -22,6 +21,13 @@ section.default-section {
 
 			& > h3 {
 				text-align: left;
+			}
+			
+			& > ul {
+		    font-size: 1.5em;
+		    background: #f9f9f9;
+		    margin: 2em 10px;
+		    padding: 0.5em 10px;
 			}
 			
 			blockquote {
@@ -44,6 +50,8 @@ section.default-section {
 			blockquote p {
 			  display: inline;
 			}
+			
+
 			
 			& > p {
 				text-align: left;

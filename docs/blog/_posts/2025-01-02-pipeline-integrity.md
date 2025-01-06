@@ -53,9 +53,9 @@ This separation of concerns empowers  development teams to maintain their agilit
 
 In practice, this means every build must undergo rigorous validation before receiving a signature. The verification process reaches back to the source code repository, confirming not just the code's origin but its review status, branch protection rules, and build environment configuration. Each component in the pipeline must continuously prove its trustworthiness rather than receiving it by default. This way:
 
-1. Everything is verified server-side (because you cannot trust client-side credentials).
-2. The build platform is continuously authenticated using robust mechanisms, rather than simply relying on one-time checks.
-3. Security policies are defined once, stored securely outside the build environment, and enforced consistently across all build pipelines - including build configurations, branch protection rules, code reviews, and provenance tracking.
+- Everything is verified server-side (because you cannot trust client-side credentials).
+- The build platform is continuously authenticated using robust mechanisms, rather than simply relying on one-time checks.
+- Security policies are defined once, stored securely outside the build environment, and enforced consistently across all build pipelines - including build configurations, branch protection rules, code reviews, and provenance tracking.
 
 Rather than dispersing signing operations throughout build scripts, a zero-trust approach centralizes verification in a controlled environment. Such as environment is strongly bound to one or more   trusted build platforms,  enabling the verification  of build origins and configurations, external to and independent of the build process itself.
 
@@ -67,6 +67,8 @@ This approach fundamentally reshapes the relationship between development veloci
 ## Looking Ahead: The Evolution of Build Security
 As our build systems continue to evolve, becoming more distributed and complex, the need for zero-trust pipelines will only grow. Future challenges will include integrating with emerging cloud-native platforms, supporting increasingly complex multi-architecture builds, and adapting to new regulatory frameworks.
 
-Yet the fundamental principle remains constant: trust must be earned through verification, not assumed through authentication. By embracing zero-trust pipelines, organizations can finally deliver on the true promise of code signing: ensuring that every signed artifact represents exactly what developers intended and security teams approved - nothing more, nothing less.
+Yet the fundamental principle remains constant: trust must be earned through verification, not assumed through authentication. 
+
+> By embracing zero-trust pipelines, organizations can finally deliver on the true promise of code signing: ensuring that every signed artifact represents exactly what developers intended and security teams approved - nothing more, nothing less.
 
 The journey to secure software supply chains is complex, but the destination is clear. Zero-trust pipelines provide the architectural foundation needed to face the security challenges of modern software development with confidence and clarity.
