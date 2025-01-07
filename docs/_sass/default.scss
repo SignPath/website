@@ -24,10 +24,7 @@ section.default-section {
 			}
 			
 			& > ul {
-		    font-size: .8em;
-		    background: #f9f9f9;
-		    margin: 2em 10px;
-		    padding: 0.5em 10px;
+		    font-size: .9em;
 			}
 			
 			blockquote {
@@ -36,8 +33,7 @@ section.default-section {
 			  margin: 1.5em 10px;
 			  padding: 0.5em 10px;
 			  quotes: "\201C""\201D""\2018""\2019";
-			  font-size: 14px;
-			  #font-family: "Lora";
+			  font-size: 1em;
 			  font-style: italic;
 			}
 			blockquote:before {
@@ -56,7 +52,7 @@ section.default-section {
 			
 			& > p {
 				text-align: left;
-				font-size: 12px;
+				font-size: .9em;
 			}
 		}
 	}

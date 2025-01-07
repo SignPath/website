@@ -57,7 +57,7 @@ In practice, this means every build must undergo rigorous validation before rece
 - The build platform is continuously authenticated using robust mechanisms, rather than simply relying on one-time checks.
 - Security policies are defined once, stored securely outside the build environment, and enforced consistently across all build pipelines - including build configurations, branch protection rules, code reviews, and provenance tracking.
 
-Rather than dispersing signing operations throughout build scripts, a zero-trust approach centralizes verification in a controlled environment. Such as environment is strongly bound to one or more   trusted build platforms,  enabling the verification  of build origins and configurations, external to and independent of the build process itself.
+Rather than dispersing signing operations throughout build scripts, a zero-trust approach centralizes verification in a controlled environment. The controlled environment is strongly bound to one or more trusted build platforms, enabling the verification of build origins and configurations, external to and independent of the build process itself.
 
 The magic happens in how this system interfaces with existing development workflows. For developers, the complexity of signing disappears behind a simple interface – they focus on building software, while the zero-trust pipeline handles security validation automatically. Security teams gain unprecedented visibility and control, defining policies at the system level that are automatically enforced for every build.
 
