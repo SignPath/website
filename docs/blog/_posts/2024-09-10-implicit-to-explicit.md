@@ -4,7 +4,7 @@ title: "From Implicit to Explicit: Why Code Signing is the Missing Link in DevSe
 image: '2024-09-09-bg'
 date: 2024-09-10 08:00:00 +0000
 author: Paul Savoie
-summary: "By eliminating complexity, SignPath delivers a robust and flexible mechanism that fits naturally in modern software supply chains"
+summary: "By eliminating complexity, SignPath delivers a robust and flexible mechanism that fits naturally in modern software supply chains."
 description: "description"
 ---
 
@@ -36,7 +36,7 @@ Code signing is the only surefire way to guarantee that pipelines haven't been t
 
 ## The Problem with Traditional Code Signing
 
-Code-signing means attaching a digital certificate to software. Traditionally, within a Public Key Infrastructure (PKI), a certificate authority (CA) verifies the developer's identity and adds its public key to the certificate. The developer then hashes the source code, encrypts the hash (digest) with their private key, and combines this with the certificate and hash function to create a signature block. This block is then inserted into the software, completing the code-signing process.
+Code-signing involves applying digital signtures to software. Traditionally, within a Public Key Infrastructure (PKI), a certificate authority (CA) verifies a developer's identity and adds its public key to a certificate. The developer then hashes the source code, encrypts the hash (digest) with their private key, and combines this with the certificate and hash function to create a signature block. This block is then inserted into the software, completing the code-signing process.
 
 The problem with this process arises when the build environment grows more complex and dynamic:
 

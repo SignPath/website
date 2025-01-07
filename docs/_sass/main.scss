@@ -113,7 +113,6 @@ a.btn-primary, button.btn-primary {
 a.btn-secondary, button.btn-secondary {
 	background-color: $secondary-color;
 	color: $black-font-color;
-
 	&:hover {
 		background-color: $primary-color;
 	}
@@ -124,6 +123,7 @@ div.horizontal-top {
     display: inline-block;
     margin: 10px 20px;
     vertical-align: top;
+
 }
 
 /*
