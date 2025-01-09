@@ -260,16 +260,16 @@ Create detached GPG signatures to sign any file with a GPG key.
 > **Detached signature files and GPG key reference**
 > 
 > * This directive adds a file to the output and is therefore only available within a [`<zip-file>`](syntax#zip-file-element) element.
-> * This artifact configuration requires to reference a [GPG key](/documentation/managing-certificates#certificate-types) in the project's signing policy.
+> * This signing directive requires a [signing policy](/documentation/projects#signing-policies) with a [GPG key](/documentation/managing-certificates#certificate-types) reference.
 
 The `create-gpg-signature` directive supports the following parameters:
 
 | Parameter          | Required      | Values                       | Description
 |--------------------|---------------|------------------------------|-------------------------------------------------
 | `output-file-name` | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
-| `output-encoding`  | No            | `ascii-armored`, `binary`    | The encoding of the output file containing the signature. Either [ASCII armored/text-only (default)](https://datatracker.ietf.org/doc/html/rfc4880#section-6.2) or binary (Open GPG packet format).
+| `output-encoding`  | No            | `ascii-armored`, `binary`    | The encoding of the output file containing the signature. Either [ASCII armored, i.e. text-only](https://datatracker.ietf.org/doc/html/rfc4880#section-6.2) (default) or the binary OpenPGP packet format.
 | `hash-algorithm`   | No            | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature (default: `sha256`).
-| `version`          | No            | `4`                          | Specifies the [signature version](https://datatracker.ietf.org/doc/html/rfc4880#section-5.2). Currently only `4` is supported, the attribute is intended to fixate the version in case the default version will be changed in the future.
+| `version`          | No            | `4`                          | Specifies the [signature version](https://datatracker.ietf.org/doc/html/rfc4880#section-5.2). Currently only `4` is supported, the attribute is intended to allow to fixate the version in case the default version will be changed in the future.
 
 #### Example
 
@@ -287,13 +287,13 @@ The resulting artifact will contain both the original file `myfile.bin` and the 
 
 #### GPG signature verification
 
-Signature verification can be performed with any [OpenPGP-compliant](https://datatracker.ietf.org/doc/html/rfc4880) tool. Example using GnuPG:
+Signature verification can be performed with any [OpenPGP-compliant](https://datatracker.ietf.org/doc/html/rfc4880) tool. Example using [GnuPG](https://www.gnupg.org/):
 
 ~~~ bash
-# Import the GPG key (if not already happened):
+# Import the GPG key (unless happened before):
 gpg --import my_key.asc
 
-# Verify `myfile.bin` against the detached signature `myfile.bin.asc` file:
+# Verify `myfile.bin` against the detached signature file `myfile.bin.asc`:
 gpg --verify myfile.bin.asc myfile.bin
 ~~~
 
