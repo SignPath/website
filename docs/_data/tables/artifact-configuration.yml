@@ -98,9 +98,10 @@ signing-file-elements:
       isContainer: "No"
       directive: |
         [`<create-cms-signature>`](#create-cms-signature),
+        [`<create-gpg-signature>`](#create-gpg-signature),
         [`<create-raw-signature>`](#create-raw-signature)
       extensions: "*"
-      description: "Arbitrary files. Create detached [CMS](#create-cms-signature) or [raw](#create-raw-signature) signatures (available for Advanced Code Signing)."
+      description: "Arbitrary files. Create detached [CMS](#create-cms-signature), [GPG](#create-gpg-signature) or [raw](#create-raw-signature) signatures (available for Advanced Code Signing)."
 
 authenticode-attributes:
   headers:

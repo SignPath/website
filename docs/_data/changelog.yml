@@ -1,13 +1,30 @@
-- date: '2099-01-01'
+- date: '2025-01-14'
   updates:
     application:
-      version: 1.178.0
+      version: 1.179.0
+      new_features:
+        - text: |-
+            Added support for [detached GPG file signing](/documentation/artifact-configuration/reference#create-gpg-signature).
+          issues: [SIGN-7455]
+        - text: |-
+            The signing request details page now presents details of detected malware including threat names and file location information in case of archive formats like ZIP.
+          issues: [SIGN-7454]
+      improvements:
+        - text: |-
+            [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature): renamed `file-name` attribute to `output-file-name` (the old name is still accepted for backwards compatibility).
+          issues: [SIGN-7490]
+        - text: |-
+            [`<create-cms-signature>`](/documentation/artifact-configuration/reference#create-cms-signature): made `hash-algorithm` attribute optional.
+          issues: [SIGN-7507]
       bug_fixes:
         - text: |-
             REST API: Fixes signing request approval/deny APIs with empty request body (before they required a dummy `{}` body).
           issues: [SIGN-7173]
     self_hosted_installations:
-      version: 1.178.0
+      version: 1.179.0
+      breaking_changes:
+        - text: Changed recommended Kubernetes version to 1.30 and `signpathio/kubectl` image tag to 1.30.
+          issues: [SIGN-7238]
       improvements:
         - text: |-
             Reduced image size of the `signpathio/signservice-software` container image and startup time.
