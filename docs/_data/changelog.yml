@@ -7,18 +7,18 @@
             Added support for [detached GPG file signing](/documentation/artifact-configuration/reference#create-gpg-signature).
           issues: [SIGN-7455]
         - text: |-
-            The signing request details page now presents detected malware details including threat names and for archive formats like ZIP the exact file location.
+            The signing request details page now displays details of detected malware including threat names and the exact file location in container files like ZIP archives.
           issues: [SIGN-7454]
       improvements:
         - text: |-
-            [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature): renamed `file-name` attribute to `output-file-name` (the old name is still accepted for backwards compatibility).
+            [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature): renamed `file-name` attribute to `output-file-name`. (`file-name` is still supported for backwards compatibility.)
           issues: [SIGN-7490]
         - text: |-
-            [`<create-cms-signature>`](/documentation/artifact-configuration/reference#create-cms-signature): made `hash-algorithm` attribute optional.
+            [`<create-cms-signature>`](/documentation/artifact-configuration/reference#create-cms-signature): `hash-algorithm` attribute is now optional.
           issues: [SIGN-7507]
       bug_fixes:
         - text: |-
-            REST API: Fixed signing request approve/deny APIs with _empty_ request body (before they failed with status 400 unless passing a dummy `{}` body).
+            REST API: Fixed error in signing request approve/deny APIs when providing _empty_ request body. (Used to fail unless passing a dummy `{}` body.)
           issues: [SIGN-7173]
     self_hosted_installations:
       version: 1.179.0
