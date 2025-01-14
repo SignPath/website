@@ -28,6 +28,7 @@
     docker: false
     sbom: false
     cms: false
+    gpg: false
     raw: false
   hash_based_signing: none
   artifact_configuration:
@@ -95,6 +96,7 @@
     docker: false
     sbom: false
     cms: false
+    gpg: false
     raw: false
   hash_based_signing: none
   artifact_configuration:
@@ -157,6 +159,7 @@
     docker: true
     sbom: true
     cms: true
+    gpg: true
     raw: true
   hash_based_signing: none
   artifact_configuration:
@@ -276,6 +279,7 @@
     docker: true
     sbom: false
     cms: false
+    gpg: false
     raw: false
   hash_based_signing: none
   artifact_configuration:

@@ -15,7 +15,7 @@ SignPath helps you control access to your code signing certificates. You have to
 * Use **test certificates** during the development process. You can test your release process and sign every build. Test certificates are not created by a commercial CA and are therefore not trusted by operating systems or browsers. Artifacts that were mistakenly or even maliciously signed by a test certificate cannot affect your users and customers. You can read more about how to roll out and manage test certificates in your infrastructure in the [knowledge base](/code-signing/test-certificates).
 * Use dedicated **release certificates** for each published version of your software. SignPath allows you to enforce stricter policies for release certificates.
 
-## Certificate types
+## Certificate types {#certificate-types}
 
 With SignPath, you have the following options for creating or importing a certificate:
 

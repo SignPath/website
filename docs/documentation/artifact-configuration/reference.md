@@ -54,7 +54,7 @@ Example: append signature, preserving any existing signatures
 <authenticode-sign append="true" />
 ~~~
 
-Example: sign using SHA1 algoritm, then sign again using default SHA-256 algorithm (explicitly specified for clarity)
+Example: sign using SHA1 algorithm, then sign again using default SHA-256 algorithm (explicitly specified for clarity)
 
 ~~~ xml
 <authenticode-sign hash-algorithm="sha1" />
@@ -211,12 +211,12 @@ Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.5
 
 The `create-cms-signature` directive supports the following parameters:
 
-| Parameter          | Required      | Values                       | Description
-|--------------------|---------------|------------------------------|-------------------------------------------------
-| `output-file-name` | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
-| `output-encoding`  | Yes           | `pem`, `der`                 | The encoding of the output file containing the signature.
-| `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
-| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| Parameter          | Default value             | Available values             | Description
+|--------------------|---------------------------|------------------------------|-------------------------------------------------
+| `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
+| `output-encoding`  | (mandatory)               | `pem`, `der`                 | The encoding of the output file containing the signature.
+| `hash-algorithm`   | `sha256`                  | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature 
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
 
 #### CMS example
 
@@ -247,6 +247,56 @@ openssl cms -verify -purpose codesign -content myfile.bin -inform PEM -in myfile
 > * Prior to OpenSSL 3.2, the `-purpose` flag does not support `codesign`. Use `any` instead.
 > * When the certificate is not trusted on the target system, specify `-CAFile` with the path of the root certificate. Make sure that the root certificate is distributed in a secure way.
 
+
+### `<create-gpg-signature>`: Detached GPG signing {#create-gpg-signature}
+
+{% include editions.md feature="file_based_signing.gpg" %}
+
+{%- include_relative render-ac-directive-table.inc directive="create-gpg-signature" -%}
+
+Create detached GPG signatures to sign any file with a GPG key.
+
+{:.panel.note}
+> **Detached signature files and GPG key reference**
+> 
+> * This directive adds a file to the output and is therefore only available within a [`<zip-file>`](syntax#zip-file-element) element.
+> * Only available for [signing policies](/documentation/projects#signing-policies) with a [GPG key](/documentation/managing-certificates#certificate-types) certificate.
+
+The `create-gpg-signature` directive supports the following parameters:
+
+| Parameter          | Default value   | Available values             | Description
+|--------------------|-----------------|------------------------------|-------------------------------------------------
+| `output-file-name` | (mandatory)     |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
+| `output-encoding`  | `ascii-armored` | `ascii-armored`, `binary`    | The encoding of the output file containing the signature. Either [ASCII armored, i.e. text-only](https://datatracker.ietf.org/doc/html/rfc4880#section-6.2) (default) or the binary OpenPGP packet format.
+| `hash-algorithm`   | `sha256`        | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `version`          | `4`             | `4`                          | Specifies the [signature version](https://datatracker.ietf.org/doc/html/rfc4880#section-5.2). Currently only `4` is supported, the attribute is intended to allow to fixate the version in case the default version will be changed in the future.
+
+#### Example
+
+~~~ xml
+<artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <zip-file>
+    <file path="myfile.bin">
+      <create-gpg-signature output-encoding="ascii-armored" output-file-name="${file.name}.asc" />
+    </file>
+  </zip-file>
+</artifact-configuration>
+~~~
+
+The resulting artifact will contain both the original file `myfile.bin` and the detached signature in `myfile.bin.asc`.
+
+#### GPG signature verification
+
+Signature verification can be performed with any [OpenPGP-compliant](https://datatracker.ietf.org/doc/html/rfc4880) tool. Example using [GnuPG](https://www.gnupg.org/):
+
+~~~ bash
+# Import the GPG key (unless done before):
+gpg --import my_key.asc
+
+# Verify `myfile.bin` against the detached signature file `myfile.bin.asc`:
+gpg --verify myfile.bin.asc myfile.bin
+~~~
+
 ### `<create-raw-signature>`: Detached raw signature files {#create-raw-signature}
 
 {% include editions.md feature="file_based_signing.raw" %}
@@ -268,11 +318,11 @@ Use cases for raw signatures include:
 
 The `create-raw-signature` directive supports the following parameters:
 
-| Parameter          | Required      | Values                       | Description
-|--------------------|---------------|------------------------------|-------------------------------------------------
-| `file-name`        | Yes           |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
-| `hash-algorithm`   | Yes           | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature
-| `rsa-padding`      | For RSA keys  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| Parameter          | Default value             | Values                      | Description
+|--------------------|---------------------------|------------------------------|-------------------------------------------------
+| `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
+| `hash-algorithm`   | (mandatory))              | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
 
 #### Raw signature example
 
@@ -280,7 +330,7 @@ The `create-raw-signature` directive supports the following parameters:
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <zip-file>
     <file path="myfile.bin">
-      <create-raw-signature file-name="${file.name}.sig" hash-algorithm="sha256" />
+      <create-raw-signature output-file-name="${file.name}.sig" hash-algorithm="sha256" />
     </pe-file>
   </zip-file>
 </artifact-configuration>
