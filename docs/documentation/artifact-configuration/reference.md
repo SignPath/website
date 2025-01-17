@@ -318,11 +318,13 @@ Use cases for raw signatures include:
 
 The `create-raw-signature` directive supports the following parameters:
 
-| Parameter          | Default value             | Values                      | Description
+| Parameter          | Default value             | Values                       | Description
 |--------------------|---------------------------|------------------------------|-------------------------------------------------
 | `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
-| `hash-algorithm`   | (mandatory))              | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `hash-algorithm`   | (mandatory)               | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
 | `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+
+(All cryptographic parameters are mandatory because raw signatures contain no metadata for agnostic verification.)
 
 #### Raw signature example
 
