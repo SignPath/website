@@ -27,6 +27,9 @@ Als Product Owner bringst du Erfahrung mit Software-Prozessen (z.B. als Software
 * Du erstellst User Stories und das zugehörige Product Backlog und pflegst dieses
 * Du kümmerst dich darum, dass unsere interne Spezifikation aktuell bleibt
 * Als Schnittstelle zwischen Stakeholdern, Vertrieb, Marketing und dem Entwicklungsteam bist Du erster Ansprechpartner zu Produktentwicklung, Anforderungen, Status und organisatorischen Fragen
+
+## Dein Profil
+
 * Du hast eine schnelle Auffassungsgabe und die Fähigkeit, dich rasch in eine sehr technische Businessdomäne einzuarbeiten (Integration in CI-Systeme; Event-basierte, verteilte Architektur; On-Premise Deployment auf Basis von (Windows) Docker Containern; Signaturformate und Methoden)
 * Dein Hintergrund (z.B. in einer technischen Softwareentwicklungsrolle) ermöglicht es dir, die Anforderungen an unser Produkt nachzuvollziehen, das sich an Softwarehersteller richtet: Du traust dir zu, nach Anleitung einen CI/CD-Server aufzusetzen, beim Design eines REST-APIs mitzureden, gemeinsam ein Konzept für OAuth-Integration zu entwickeln und zu reflektieren, wie Software in einer containerisierten Umgebung betrieben werden kann
 * Du kannst Ideen und Visionen verinnerlichen und sie präzise kommunizieren
