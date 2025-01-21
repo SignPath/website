@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "Building trusted software for macOS"
+title: "Building Trusted Software for macOS: A how-to guide for digital signing"
 image: '2024-09-09-bg'
 date: 2024-11-29 06:00:00 +0000
 author: Paul Savoie
-summary: "Distributing trusted Apple applications beyond the App Store"
-description: "description"
+summary: "To provide a great user experience, you must prevent annoying pop-ups and alerts by digitally signing your app to make it trusted by macOS."
 ---
 
 The App Store is a powerful force in the digital world, serving as a portal to a massive user base.  Today, there are over 2.2 billion active Apple devices worldwide. Apple’s App Store alone attracts more than [650 million](https://www.apple.com/newsroom/2023/05/developers-generated-one-point-one-trillion-in-the-app-store-ecosystem-in-2022/) weekly active users worldwide. Often, however, it makes sense to bypass the App Store and deliver your applications directly to your users, for example, via a download from your web site. 
