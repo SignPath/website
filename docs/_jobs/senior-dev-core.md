@@ -1,7 +1,7 @@
 ---
 title: Jobs - Full-Stack Senior C# Developer
 header: Full-Stack Senior C# Developer 
-sub-header: Join our our CQRS/ES core product team 
+sub-header: Join our CQRS/ES core product team 
 sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
 tagline: Join our core devlopment team building a Cloud-first code signing service (K8S, CQRS, Event Sourcing; German speakers)
