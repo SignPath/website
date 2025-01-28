@@ -1,3 +1,13 @@
+- date: '2025-01-30'
+  updates:
+    github_connector:
+      version: 1.2.0
+      improvements:
+        - text: The SignPath GitHub app is only required for use-cases that verify source code and build policies.
+          issues: [SIGN-7506]
+      bug_fixes:
+        - text: Workflow runs with skipped jobs are no longer prevented from signing.
+          issues: [SIGN-7513, SIGN-7514]
 - date: '2025-01-28'
   updates:
     application:
