@@ -1,3 +1,14 @@
+- date: '2025-01-28'
+  updates:
+    application:
+      version: 1.180.0
+      bug_fixes:
+        - text: |-
+            GPG Key Creation: fixed a rounding error, which led to expiry dates which were 1 sec off and an overflow error for expiry dates later than year 2161
+          issues: [SIGN-7441, SIGN-7450]
+        - text: |-
+            Signing Request CSV Report: fixed failed report download when querying large time spans
+          issues: [SIGN-7546]
 - date: '2025-01-14'
   updates:
     application:
