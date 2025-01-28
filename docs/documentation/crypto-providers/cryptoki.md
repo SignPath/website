@@ -168,7 +168,7 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 > For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples] within `Scenarios/OpenSSL/OpenSSL.ps1`. Sample invocation:
 > 
 > ```bash
-> run_scenario.sh ... -Scenario OpenSSL -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ./RunScenario.sh -Scenario OpenSSL -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing" -OpenSslDgst
 > ```
 > 
 
@@ -279,7 +279,7 @@ osslsigncode sign `
 > This invocation is also provided in the [Linux container samples] within `Scenarios/osslsigncode/osslsigncode.ps1`. Sample invocation:
 > 
 > ```bash
-> run_scenario.sh ... -Scenario osslsigncode -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ./RunScenario.sh -Scenario osslsigncode -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
 > ```
 
 ## OpenSC pkcs11-tool (Linux)
@@ -303,7 +303,7 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 > The following invocation examples are also provided in the [Linux container samples] within `Scenarios/Pkcs11Tool/Pkcs11Tool.ps1`. Sample invocation:
 > 
 > ```bash
-> run_scenario.sh ... -Scenario Pkcs11Tool -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ./RunScenario.sh -Scenario Pkcs11Tool -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
 > ```
 > 
 
@@ -370,7 +370,7 @@ slot=1
 > For *Linux*, configuration and invocation examples are provided in the [Linux container samples] within `Scenarios/Jar/JarSigner.ps1`. Sample invocation:
 > 
 > ```bash
-> run_scenario.sh ... -Scenario JarSigner -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
+> ./RunScenario.sh -Scenario JarSigner  -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
 > ```
 > 
 

@@ -72,7 +72,7 @@ As always, the private key does not leave the boundaries of the HSM.
 
 The Crypto Provider package contains Linux sample scripts that demonstrate the different signing tool scenarios, their configuration, and the required dependencies in the `Scenarios` directory. See the `README.md` for the full list. 
 
-For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the `Linux/samples` directory in the Crypto Provider package. See `README.md` for further information and details how to use the `run_scenario.sh` and `RunScenario.ps1` entry point scripts to invoke samples.
+For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the `Linux/Samples` directory in the Crypto Provider package. See `README.md` for further information and details how to use the `RunScenario.sh` and `RunScenario.ps1` entry point scripts to invoke samples.
 
 All scripts can also be executed without containers. We recommend using containers when possible to easily manage dependencies, especially for GPG based signing tools.
 
