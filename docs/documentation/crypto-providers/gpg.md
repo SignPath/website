@@ -26,7 +26,7 @@ Configure GnuPG to perform hash signing via SignPath:
 * Configure `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
 * Configure GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 
-These steps are performed by the `InitializeSignPathCryptoProviderGpgConfiguration` function within the `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` script in the [Linux container samples].
+These steps are performed by the `InitializeSignPathCryptoProviderGpgConfiguration` function in the `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` script in the [Linux container samples].
 
 ### Error logs {#gpg-error-logs}
 
@@ -42,9 +42,9 @@ For the [Linux container samples], the following log file locations are configur
 
 1. Create a [GPG key in SignPath](/documentation/managing-certificates).
 2. Create a [hash signing project and signing policy](/documentation/crypto-providers/#signpath-project-configuration) in SignPath.
-3. Initialize GPG hash signing using the helper functions of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` script of the [Linux container samples]:
+3. Initialize GPG hash signing using the helper functions of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` of the [Linux container samples]:
     1. Use the `InitializeSignPathCryptoProviderGpgConfiguration` function to configure GPG and fetch the private key references.
-    2. Import a specific key into the GPG key chain via the `ImportSignPathGpgPublicKey` function. This function returns the GPG key ID, which you can use to select the key in the signing commands.
+    2. Import a specific key into the GPG key chain via the `ImportSignPathGpgPublicKey` function. This function returns the GPG key ID, which you can use to select the key in the later signing commands.
 
 > **CI user ↔ signing policy assignment**
 >
