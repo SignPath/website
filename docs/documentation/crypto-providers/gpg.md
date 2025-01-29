@@ -43,8 +43,8 @@ For the [Linux container samples], the following log file locations are configur
 1. Create a [GPG key in SignPath](/documentation/managing-certificates).
 2. Create a [hash signing project and signing policy](/documentation/crypto-providers/#signpath-project-configuration) in SignPath.
 3. Initialize GPG hash signing using the helper functions of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` script of the [Linux container samples]:
-    1. Use `InitializeSignPathCryptoProviderGpgConfiguration "$SignPathApiUrl" "$OrganizationId" "$ApiToken"` to configure GPG and fetch the private key references.
-    2. Import a specific key into the GPG key chain via `ImportSignPathGpgPublicKey "$SignPathApiUrl" "$OrganizationId" "$ApiToken" "$ProjectSlug" "$SigningPolicySlug"`. This function returns the GPG key ID, which you can use to select the key in the signing commands.
+    1. Use the `InitializeSignPathCryptoProviderGpgConfiguration` function to configure GPG and fetch the private key references.
+    2. Import a specific key into the GPG key chain via the `ImportSignPathGpgPublicKey` function. This function returns the GPG key ID, which you can use to select the key in the signing commands.
 
 > **CI user ↔ signing policy assignment**
 >
