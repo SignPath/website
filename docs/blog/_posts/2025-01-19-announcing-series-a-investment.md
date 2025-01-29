@@ -1,29 +1,40 @@
 ---
 layout: post
-title: "Announcing our Series A Investment"
+title: "SignPath Raises €5M to Strengthen Software Supply Chain Security"
 image: '2025-01-19-bg'
 date: 2025-01-19 06:00:00 +0000
 author: Stefan Wenig
-summary: "Announcing our Series A Investment"
-description: "description"
+summary: "TIN Capital, a leading cybersecurity fund, joins us on our mission to deliver code integrity and secure software supply chains."
+description: "TIN Capital, a leading cybersecurity fund, joins us on our mission to deliver code integrity and secure software supply chains."
 ---
 
-TIN Capital, a leading cybersecurity investor from The Netherlands, has announced a €5M Series A investment in SignPath from Austria; pioneers in secure, automated code-signing solutions. This investment underlines TIN Capital’s focus on boosting cybersecurity companies across Europe, and highlights SignPath’s reputation as a trusted partner for securing software supply chains and maintaining compliance. 
+We are beyond thrilled to announce that TIN Capital has joined us in our mission to enhance software supply chain security and ensure the integrity of software throughout the entire development process.
+
+This investment represents a significant milestone for SignPath. Since our launch, we’ve gained traction across companies in a wide range of industries on several continents. Now, with the assistance of TIN Capital, we’re ready to embark on our next phase of growth.
 
 
-{% include image.html url="/assets/posts/2025-01-19-tin-graphic.png" description="TIN designed a nice graphic to accompany the announcement." %}
+{% include image.html url="/assets/posts/2025-01-19-tin-graphic.png" %}
 
+The timing couldn’t be better. Organizations are more aware than ever that software breaches can have catastrophic consequences – far beyond the boundaries of any single company. Built on a foundation of advanced code signing, the SignPath code integrity platform secures existing software delivery pipelines from end-to-end and enables organizations to deliver software that’s authenticated, tamper-proof and compliant with industry standards.
 
-The €5M Series A investment from TIN Capital’s European Cyber Tech Fund will enable SignPath to expand its platform, accelerate its European go-to-market efforts, and grow its customer base in the USA. “This investment is a significant milestone for SignPath,” said Stefan Wenig, CEO and CTO of SignPath. 
+[Reinout vander Meulen](https://www.linkedin.com/in/reinoutvandermeulen/), Partner at TIN Capital, explains TIN's investment thesis:
 
-> As regulatory requirements like Executive Order 14028 in the U.S., the Cyber Resilience Act in the EU and sector-specific standards evolve, customers increasingly rely on us to ensure the integrity and quality of their software development and security processes. With TIN Capital’s support, we’re positioned to grow our team and scale operations to keep up with demand.
+> “We are strong believers in the necessity of robust cybersecurity solutions and the value of European pioneers like SignPath. Both governments and enterprises realize that software breaches have very nasty, far-reaching consequences for users and vendors alike. A single-minded focus on code vulnerabilities is no longer adequate to defend against professional cybercriminals or state actors. We see SignPath’s code signing and pipeline integrity solutions as an essential piece of the puzzle to ensure secure and resilient software supply chains.
+
+TIN Capital’s support will provide the fuel we need to expand the team and scale operations to keep up with demand. Their dedicated cybersecurity expertise and network will enable us to capitalize on the huge potential for growth over the coming two years, while contributing to a more resilient digital future for everyone.
+
+Our CSO, Stephan Brack, commented on t the raise, saying:
+
+> We are excited to work with the team at TIN Capital. Leveraging TIN Capital’s expertise and connections across the European cybersecurity ecosystem, on top of our existing network of customer, and strategic partners will open many doors to attract top talent and deliver on the growth we envisage over the coming two years.
 
 {% include image.html url="/assets/posts/2025-01-19-signpath-team.png" description="The SignPath Team" %}
 
-SignPath’s solutions combine automated integrity checks with code signing mechanisms directly into customers’ development pipelines, ensuring all software components are authenticated, tamper-proof, and compliant with industry standards. By streamlining these processes, SignPath enhances security, reliability, and trustworthiness in software products. SignPath has rapidly emerged as a trusted partner for well-known companies, including Hitachi Energy, Airbus, and SolarWinds.
+You can read the full release here: [€5M Investment in SignPath to Advance Software Supply Chain Security](https://www.tincapital.vc/tin-capital-invests-in-signpath).
 
-For TIN Capital, this marks the second investment from its European Cyber Tech Fund, one of Europe’s premier cybersecurity funds dedicated to supporting startups and scale-ups. 
+🙏 We’re grateful to all the developers, customers and partners who’ve helped us to reach this milestone.
 
-<!-- {% include image.html url="/assets/posts/2025-01-19-reinout.png" description="Reinout vander Meulen" %} -->
+🎉 Huge thanks to [Reinout vander Meulen](https://www.linkedin.com/in/reinoutvandermeulen/), [Roel Reijnen](https://www.linkedin.com/in/roel-reijnen-99a2a93/), [Bart Houlleberghs](https://www.linkedin.com/in/houlleberghs/) and the entire team at [TIN Capital](https://www.linkedin.com/company/tincapital/)!
 
-> “We are strong believers in the necessity of robust cybersecurity solutions and the value of European pioneers like SignPath,” said Reinout vander Meûlen, Partner at TIN Capital. “Both governments and enterprises realize that software breaches have very nasty, far-reaching consequences for users and vendors alike. A single-minded focus on code vulnerabilities is no longer adequate to defend against professional cybercriminals or state actors. We see SignPath’s code signing and pipeline integrity solutions as an essential piece of the puzzle to ensure secure and resilient software supply chains.”
+Want to learn more about how SignPath can protect your software supply chain? [Get in touch with us](https://www.signpath.io) today.
+
+
