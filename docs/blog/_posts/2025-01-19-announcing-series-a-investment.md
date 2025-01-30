@@ -8,7 +8,7 @@ summary: "TIN Capital, a leading cybersecurity fund, joins us on our mission to 
 description: "TIN Capital, a leading cybersecurity fund, joins us on our mission to deliver code integrity and secure software supply chains."
 ---
 
-We are beyond thrilled to announce that TIN Capital has joined us in our mission to enhance software supply chain security and ensure the integrity of software throughout the entire development process.
+We are quite thrilled to announce that TIN Capital has joined us in our mission to enhance software supply chain security and ensure the integrity of software throughout the entire development process.
 
 This investment represents a significant milestone for SignPath. Since our launch, we’ve gained traction across companies in a wide range of industries on several continents. Now, with the assistance of TIN Capital, we’re ready to embark on our next phase of growth.
 
@@ -23,7 +23,7 @@ The timing couldn’t be better. Organizations are more aware than ever that sof
 
 TIN Capital’s support will provide the fuel we need to expand the team and scale operations to keep up with demand. Their dedicated cybersecurity expertise and network will enable us to capitalize on the huge potential for growth over the coming two years, while contributing to a more resilient digital future for everyone.
 
-Our CSO, Stephan Brack, commented on t the raise, saying:
+Our CSO, Stephan Brack, commented on the raise, saying:
 
 > We are excited to work with the team at TIN Capital. Leveraging TIN Capital’s expertise and connections across the European cybersecurity ecosystem, on top of our existing network of customer, and strategic partners will open many doors to attract top talent and deliver on the growth we envisage over the coming two years.
 
