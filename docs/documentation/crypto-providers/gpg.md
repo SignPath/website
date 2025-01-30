@@ -27,7 +27,7 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 Initialize GPG hash signing using the helper functions of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` of the [Linux samples]:
 
-1. Call the `InitializeSignPathCryptoProviderGpgConfiguration` function to configure GPG and fetch the private key references
+1. Call the `InitializeSignPathCryptoProviderGpgSigning` function to configure GPG and fetch the private key references
   * Configures the [SignPath Crypto Provider](/documentation/crypto-providers#crypto-provider-configuration)
   * Configures `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
   * Configures GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
@@ -44,10 +44,10 @@ Initialize GPG hash signing using the helper functions of `Samples/Scenarios/Sig
 
 The [Linux samples] contain complete example scripts (including all preparation steps) to sign and verify files using the following formats and tools:
 
-| Format                  | Signing tool           | Sample script                        | Note
+| Format                  | Signing invocation     | Sample script                        | Note
 |-------------------------|------------------------|--------------------------------------|---------
 | GPG detached signature  | `gpg --sign`           | `Scenarios/Gpg/GpgSignFile.sh`     
-| RPM (RedHat package)    | `rpm --addsign   `     | `Scenarios/RpmPackages/SignRpm.sh`  
+| RPM (RedHat package)    | `rpmsign --resign`     | `Scenarios/RpmPackages/SignRpm.sh`  
 | DEB (Debian package)    | [`dpkg-sig`]` --sign`  | `Scenarios/DebPackages/SignDeb.sh`   | "builder" is used as _sign role_
 | Maven artifact          | `mvn install`          | `Scenarios/Maven/SignMaven.sh`       | Requires the [Maven GPG plugin]
 
