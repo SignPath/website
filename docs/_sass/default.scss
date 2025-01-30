@@ -22,38 +22,6 @@ section.default-section {
 			& > h3 {
 				text-align: left;
 			}
-			
-			& > ul {
-		    font-size: .9em;
-			}
-			
-			blockquote {
-			  background: $light-grey-background-color;
-			  border-left: 10px solid $blockquote-line-color;
-			  margin: 1.5em 10px;
-			  padding: 0.5em 10px;
-			  quotes: "\201C""\201D""\2018""\2019";
-			  font-size: 1.2em;
-			  font-style: italic;
-			}
-			blockquote:before {
-			  color: #ccc;
-			  font-size: 2em;
-			  line-height: 0.1em;
-			  margin-right: 0.25em;
-			  vertical-align: -0.4em;
-			}
-			
-			blockquote p {
-			  display: inline;
-			}
-			
-
-			
-			& > p {
-				text-align: left;
-				font-size: .9em;
-			}
 		}
 	}
 }

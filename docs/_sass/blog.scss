@@ -48,4 +48,20 @@ section.post-section {
 			word-wrap: break-word;
 		}
 	}
+
+	& > div > article {
+		
+			blockquote {
+				background: $light-grey-background-color;
+				border-left: 10px solid $blockquote-line-color;
+				margin: 1.5em 10px;
+				padding: 0.5em 10px;
+				quotes: "\201C""\201D""\2018""\2019";
+				font-style: italic;
+			
+				& > p {
+					margin: 0px;
+				}
+			}
+	}
 }
