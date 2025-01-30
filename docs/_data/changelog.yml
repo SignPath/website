@@ -6,8 +6,11 @@
         - text: |-
             Improved Linux container samples:
             * Ported all scenario scripts and helper functions to Bash.
-            * Additionally improved support for running the scenario scripts outside of a Docker container: moved Organization ID and API token parameters to the "inner" scenario scripts, improved Cryptoki library discovery, and various minor improvements.
-            * [GPG-based hash signing](/documentation/crypto-providers/gpg): It's no longer required to manually download the public key file in advance. Therefore the `-GpgKeyId` parameter of the scenario scripts has been replaced with `-ProjectSlug` and `-SigningPolicySlug` which are used to automatically download and import the GPG public key.
+            * Improved support for running the scenario scripts outside of a Docker container: 
+              * moved Organization ID and API token parameters to the "inner" scenario scripts 
+              * improved Cryptoki library discovery
+              * various minor improvements
+            * [GPG-based hash signing](/documentation/crypto-providers/gpg): GPG public key file is now downloaded automatically. Therefore the `-GpgKeyId` parameter of the scenario scripts has been replaced with `-ProjectSlug` and `-SigningPolicySlug`.
             * Changed work directory from `Samples/Scenarios/temp` to `Samples/Scenarios/Work` and logs directory to `Samples/Scenarios/Work/Logs`.
             * Added detached CMS signing sample to the OpenSSL scenario.
           issues: [SIGN-7410, SIGN-7497]

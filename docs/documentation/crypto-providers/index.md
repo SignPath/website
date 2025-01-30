@@ -68,27 +68,6 @@ With small platform-specific variations, the general flow of a signing operation
 
 As always, the private key does not leave the boundaries of the HSM.
 
-### Linux Docker container samples {#linux-docker-samples}
-
-The Crypto Provider package contains Linux sample scripts that demonstrate the different signing tool scenarios, their configuration, and the required dependencies in the `Scenarios` directory. See the `README.md` for the full list. 
-
-For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the `Linux/Samples` directory in the Crypto Provider package. See `README.md` for further information and details how to use the `RunScenario.sh` and `RunScenario.ps1` entry point scripts to invoke samples.
-
-All scripts can also be executed without containers. We recommend using containers when possible to easily manage dependencies, especially for GPG based signing tools.
-
-### Timestamps {#timestamps}
-
-When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:
-
-* You may use the timestamp authority (TSA) provided by the certificate authority that issued your code signing certificate or any other CA that provides a free public TSA.
-* TSAs may impose quota limits, and free TSAs usually don't provide any SLA level.
-* TSAs may ignore the parameters you provide, e.g. the hashing algorithm. This may result in invalid timestamps. Depending on the platform, that might only lead to problems after the certificate becomes invalid.
-* TSAs may use certificates with a short lifetime. Some platforms, such as Authenticode, accept expired TSA certificates. For other platforms, your signatures might become invalid after the TSA certificate has expired. A good TSA certificate should have a remaining lifetime of about 10 years or more.
-
-Always check your signatures and timestamps to ensure that they will be valid after your certificate expires or gets revoked. Otherwise, your signatures may become invalid. Another problem is that revocation for compromised certificates becomes a much harder decision if you cannot rely on timestamps.
-
-If you use the file-based signing method of SignPath, timestamps will be managed automatically.
-
 ## Installation and usage
 
 Depending on the signing tool you're using, the corresponding Crypto Provider needs to be installed (on all build nodes). See the respective pages:
@@ -229,6 +208,26 @@ In order to perform hash-based signing with the Crypto Providers, perform the fo
    * Add the _CI User_ or _Interactive User_ as a _Submitter_
    * Remember the _Signing Policy slug_
 
+### Linux samples {#linux-docker-samples}
+
+The Crypto Provider package contains Linux sample scripts that demonstrate the use of different signing tools, their configuration, and the required dependencies in the `Scenarios` directory. See the `README.md` for the full list. 
+
+For supported Linux distributions, you can execute the samples using the provided Docker container configurations. See the `Linux/Samples` directory in the Crypto Provider package. See `README.md` for further information and details how to use the `RunScenario.sh` and `RunScenario.ps1` entry point scripts to invoke samples.
+
+In order to execute scripts directly, see the `Dockerfile` in `Samples/DebianBased/` or `Samples/RedHat/` respectively for prerequisites. (Not all prerequisites are required for all tools.)
+
+### Timestamps {#timestamps}
+
+When using SignTool.exe (or any other signing tool) directly, you are responsible for correct time stamping. Here are a few hints:
+
+* You may use the timestamp authority (TSA) provided by the certificate authority that issued your code signing certificate or any other CA that provides a free public TSA.
+* TSAs may impose quota limits, and free TSAs usually don't provide any SLA level.
+* TSAs may ignore the parameters you provide, e.g. the hashing algorithm. This may result in invalid timestamps. Depending on the platform, that might only lead to problems after the certificate becomes invalid.
+* TSAs may use certificates with a short lifetime. Some platforms, such as Authenticode, accept expired TSA certificates. For other platforms, your signatures might become invalid after the TSA certificate has expired. A good TSA certificate should have a remaining lifetime of about 10 years or more.
+
+Always check your signatures and timestamps to ensure that they will be valid after your certificate expires or gets revoked. Otherwise, your signatures may become invalid. Another problem is that revocation for compromised certificates becomes a much harder decision if you cannot rely on timestamps.
+
+If you use the file-based signing method of SignPath, timestamps will be managed automatically.
 
 [PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
 [CNG]: https://docs.microsoft.com/en-us/windows/win32/seccng/key-storage-and-retrieval

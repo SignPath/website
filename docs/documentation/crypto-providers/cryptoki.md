@@ -165,7 +165,7 @@ _OpenSSL_ provides a variety of commands that can be used for signing. In this s
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux container samples] within `Scenarios/OpenSSL/OpenSSL.ps1`. Sample invocation:
+> For *Linux*, configuration, signing invocation and verification examples are provided in the [Linux samples] within `Scenarios/OpenSSL/OpenSSL.sh`. Sample invocation:
 > 
 > ```bash
 > ./RunScenario.sh -Scenario OpenSSL -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing" -OpenSslDgst
@@ -276,7 +276,7 @@ osslsigncode sign `
 {:.panel.tip}
 > **Tip**
 >
-> This invocation is also provided in the [Linux container samples] within `Scenarios/osslsigncode/osslsigncode.ps1`. Sample invocation:
+> This invocation is also provided in the [Linux samples] within `Scenarios/osslsigncode/osslsigncode.sh`. Sample invocation:
 > 
 > ```bash
 > ./RunScenario.sh -Scenario osslsigncode -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -300,7 +300,7 @@ The [OpenSC](https://github.com/OpenSC/OpenSC) [`pkcs11-tool`](https://linux.die
 {:.panel.tip}
 > **Tip**
 >
-> The following invocation examples are also provided in the [Linux container samples] within `Scenarios/Pkcs11Tool/Pkcs11Tool.ps1`. Sample invocation:
+> The following invocation examples are also provided in the [Linux samples] within `Scenarios/Pkcs11Tool/Pkcs11Tool.sh`. Sample invocation:
 > 
 > ```bash
 > ./RunScenario.sh -Scenario Pkcs11Tool -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -367,7 +367,7 @@ slot=1
 {:.panel.tip}
 > **Tip**
 >
-> For *Linux*, configuration and invocation examples are provided in the [Linux container samples] within `Scenarios/Jar/JarSigner.ps1`. Sample invocation:
+> For *Linux*, configuration and invocation examples are provided in the [Linux samples] within `Scenarios/Jar/JarSigner.sh`. Sample invocation:
 > 
 > ```bash
 > ./RunScenario.sh -Scenario JarSigner  -OrganizationId "$OrganizationId" -ApiToken "$ApiToken" -ProjectSlug "hash-signing" -SigningPolicySlug "test-signing"
@@ -409,4 +409,4 @@ jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.S
 [openssl-cms]: https://www.openssl.org/docs/man1.1.1/man1/cms.html
 [oracle-install]: https://docs.oracle.com/en/java/javase/14/security/pkcs11-reference-guide1.html#GUID-C4ABFACB-B2C9-4E71-A313-79F881488BB9
 [osslsigncode]: https://github.com/mtrojnar/osslsigncode
-[Linux container samples]: /documentation/crypto-providers#linux-docker-samples
+[Linux samples]: /documentation/crypto-providers#linux-docker-samples
