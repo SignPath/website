@@ -117,8 +117,8 @@ In case you used the [MSI installer](/documentation/crypto-providers/windows#ins
 |-----------------------------------      |--------------------------------------------------------|------------------|--------------------------
 | `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             | (mandatory)      | ID of your organization
 | `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   | (mandatory)      | API token for a CI or Interactive User (see below for options)
-| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | (optional)       | The project slug. (MacOS only)
-| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | (optional)       | The signing policy slug. (MacOS only)
+| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | (optional)       | The project slug. Used for filtering available certificates/keys. (MacOS only)
+| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | (optional)       | The signing policy slug. Used for filtering available certificates/keys. (MacOS only)
 | `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | (optional)       | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint` (Windows only)
 | `ApiUrl`                                | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
 | `HttpProxy`                             | `http_proxy`                                           | (optional)       | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
