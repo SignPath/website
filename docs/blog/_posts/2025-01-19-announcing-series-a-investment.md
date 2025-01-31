@@ -35,6 +35,6 @@ You can read the full release here: [€5M Investment in SignPath to Advance Sof
 
 🎉 Huge thanks to [Reinout vander Meulen](https://www.linkedin.com/in/reinoutvandermeulen/), [Roel Reijnen](https://www.linkedin.com/in/roel-reijnen-99a2a93/), [Bart Houlleberghs](https://www.linkedin.com/in/houlleberghs/) and the entire team at [TIN Capital](https://www.linkedin.com/company/tincapital/)!
 
-Want to learn more about how SignPath can protect your software supply chain? [Get in touch with us](https://www.signpath.io) today.
+Want to learn more about how SignPath can protect your software supply chain? [Get in touch with us](https://about.signpath.io/contact) today.
 
 
