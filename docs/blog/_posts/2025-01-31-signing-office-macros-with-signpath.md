@@ -11,7 +11,7 @@ description: "Microsoft Office Macros' convenience makes them an easy target for
 
 Microsoft Office Macros have long been a staple in business workflows, automating repetitive tasks and streamlining complex operations. However, despite their convenience, Office macros pose a significant security risk. Their convenience makes them an easy target. Cybercriminals frequently exploit Macros to gain unauthorized access to systems, deploy malware, and execute targeted attacks such as ransomware and spear phishing. 
 
-<a href='/assets/collateral/SignPathOfficeMacros.pdf' class='btn btn-primary' style="text-align: center;">Download the Datasheet</a>
+<p class='center'><a href='/assets/collateral/SignPathOfficeMacros.pdf' class='btn btn-primary' style="text-align: center;">Download the Datasheet</a></p>
 
 ## The Security Threat of Office Macros 
 
@@ -139,6 +139,6 @@ SignPath simplifies the macro signing process, ensuring that organizations can e
 By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.
 
 
-Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact) today.
+Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](/contact) today.
 
 
