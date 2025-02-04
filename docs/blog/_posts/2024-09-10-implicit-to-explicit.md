@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "From Implicit to Explicit: Why Code Signing is the Missing Link in DevSecOps"
+title: "From Implicit to Explicit: Why code signing is the missing link in DevSecOps"
 image: '2024-09-09-bg'
 date: 2024-09-10 08:00:00 +0000
 author: Paul Savoie

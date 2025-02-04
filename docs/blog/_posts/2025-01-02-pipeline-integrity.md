@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Zero-Trust Pipelines: Rethinking Software Supply Chain Security"
+title: "Zero-Trust Pipelines: Rethinking software supply chain security"
 image: '2025-01-01'
 date: 2025-01-01 06:00:00 +0000
 author: Stefan Wenig
