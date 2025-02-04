@@ -70,7 +70,7 @@ For end users, this process is seamless:
 
 
 <div align="center">
-	<iframe  width="560" height="315" src="https://www.youtube.com/embed/-wOFkVUtjFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+	<iframe style="max-width:530px; max-height:315px; width:80%" width="530" height="315" src="https://www.youtube.com/embed/-wOFkVUtjFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
 </iframe>
 </div>
 
