@@ -132,7 +132,7 @@ Office macros pose a significant security risk, making them a preferred attack v
 
 SignPath simplifies the macro signing process, ensuring that organizations can enforce secure policies without burdening users. By adopting a structured, certificate-based approach, businesses can safeguard their environments while continuing to leverage the efficiency of Office macros.
 
-By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.\\
+By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.
 
 
 Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact)today.
