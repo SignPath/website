@@ -135,6 +135,6 @@ SignPath simplifies the macro signing process, ensuring that organizations can e
 By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.
 
 
-Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact)today.
+Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact) today.
 
 
