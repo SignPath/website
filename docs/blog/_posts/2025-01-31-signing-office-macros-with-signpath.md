@@ -11,17 +11,20 @@ description: "Microsoft Office Macros' convenience makes them an easy target for
 
 Microsoft Office Macros have long been a staple in business workflows, automating repetitive tasks and streamlining complex operations. However, despite their convenience, Office macros pose a significant security risk. Their convenience makes them an easy target. Cybercriminals frequently exploit Macros to gain unauthorized access to systems, deploy malware, and execute targeted attacks such as ransomware and spear phishing. 
 
-<p class='center'><a href='/assets/collateral/SignPathOfficeMacros.pdf' class='btn btn-primary' style="text-align: center;">Download the Datasheet</a></p>
+<div align="center">
+	<iframe style="max-width:530px; max-height:315px; width:80%" width="530" height="315" src="https://www.youtube.com/embed/-wOFkVUtjFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+</iframe>
+</div>
 
-## The Security Threat of Office Macros 
+## Office Macros: Tailor made for compromise
 
-Macros are small programs written in Visual Basic for Applications (VBA) that execute within Office documents. When a user opens a document containing a macro, it runs with the same permissions as the user, potentially allowing attackers to compromise systems. Worse still, some macros leverage additional exploits to escalate privileges, making them an even greater threat. 
+If you use Microsoft Office (and who doesn't these days?), you're familiar with macros -- tiny programs written in Visual Basic for Applications (VBA) that execute in Office documents. They are purely designed to make our lives easier, and that makes them vulnerable. When a user opens a document containing a macro, the macro inherits the same permissions as the user.  Worse still, some macros leverage exploits that actually escalate privileges, making them an even greater threat. 
 
-## Why Are Macros a Preferred Attack Vector? 
+Why do hackers love them?
 
-- Social Engineering: Unlike executable files, which users are often cautious about opening, Office documents are typically considered safe. Attackers exploit this trust by embedding malicious Macros into documents and persuading users to enable them through social engineering tactics. 
+- Social Engineering: Unlike executable files, whcih look scary, Office documents seem innocuous. Attackers exploit this trust by embedding malicious macros into documents and persuading users to enable them through social engineering tactics. "Trust me!"
 - Ease of Execution: Enabling macros requires just a single click, often facilitated by deceptive instructions embedded within phishing emails or the document itself. 
-- Difficulties in Policy Enforcement: Traditional security measures such as application whitelisting and malware scanning are ineffective at fully mitigating Macro threats. 
+- Difficulties in Policy Enforcement: Traditional security measures, such as application whitelisting and malware scanning, are ineffective at fully mitigating macro threats. 
 
 Given these risks, it's important to adopt a secure yet pragmatic approach to managing macros. 
 
@@ -67,13 +70,6 @@ Using SignPath, organizations can implement a robust macro signing process that 
 For end users, this process is seamless:
 - They can create new documents and edit existing ones without affecting signed macros.
 - Documents can be stored anywhere and shared via email without security concerns.
-
-
-<div align="center">
-	<iframe style="max-width:530px; max-height:315px; width:80%" width="530" height="315" src="https://www.youtube.com/embed/-wOFkVUtjFQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-</iframe>
-</div>
-
 
 ## Fine-Tuning Execution Permissions with Certificate Scopes
 To further enhance security, organizations can assign different macro signing certificates to various departments. This ensures that only trusted macros run within specific groups, reducing the attack surface.
@@ -136,9 +132,9 @@ Office macros pose a significant security risk, making them a preferred attack v
 
 SignPath simplifies the macro signing process, ensuring that organizations can enforce secure policies without burdening users. By adopting a structured, certificate-based approach, businesses can safeguard their environments while continuing to leverage the efficiency of Office macros.
 
-By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.
+By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.\\
 
 
-Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](/contact) today.
+Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact)today.
 
 
