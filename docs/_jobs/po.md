@@ -5,7 +5,7 @@ sub-header: Werde Teil des SignPath Teams
 sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
 tagline: Research and design new (technical) features for our code integrity platform
-#job_id: 6608417
+job_id: 1934971
 image: consultant
 locations: 
     - 'Vienna: office, hybrid'
@@ -39,14 +39,12 @@ Als Product Owner bringst du Erfahrung mit Software-Prozessen (z.B. als Software
 
 # Wir bieten dir
 
-* Eine zentrale Rolle bei der Entwicklung eines innovativen, spannenden Produkts, das Kunden dabei hilft, ihre bestehenden Softwareentwicklungsprozesse sicherer zu gestalten
+* Ein spannendes Cybersecurity SaaS Produkt entwickelt für Software-Entwickler mit kurzen Release-Zyklen
 * Einen Aufgabenbereich, der persönliche Stärken und Interessen berücksichtigt
-* Eine außergewöhnliche, teamorientierte Arbeitsweise, gemeinsame Verantwortung mit gelebter Hilfsbereitschaft und ein starkes Teamgefühl
-* Einen agilen Entwicklungsprozess, der nicht vorgegeben, sondern vom Team selbst definiert wurde und uns den Freiraum einräumt, ihn ständig weiterzuentwickeln,
+* Ein starkes Team mit flachen Hierarchien, direkter Kommunikation, und der Möglichkeit, viel zu bewegen
+* Einen agilen Entwicklungsprozess, der nicht vorgegeben, sondern vom Team selbst definiert wurde und uns den Freiraum einräumt, ihn ständig weiterzuentwickeln
 * Ein Team auf hohem technischen Niveau, das danach strebt, immer besser zu werden
-* Flache Hierarchien, direkte Kommunikation und eine exzellente Gesprächsbasis bis hin zum Geschäftsführer
-* Flexible Arbeitszeiten und die Möglichkeit, einen Teil der Arbeitszeit im Home-Office zu arbeiten
-* Die Möglichkeit, in einem Team Teilzeit zu arbeiten, wo dies nicht als Ausnahme gesehen, sondern voll akzeptiert wird
-* Freiraum und die Möglichkeit, eigene Ideen zu verwirklichen (z.B. im Rahmen unserer regelmäßigen Exploration Days)
 * Weiterentwicklungsmöglichkeiten in einem wachsenden Unternehmen, z.B. zum Product Manager
+* Flexible Arbeitszeiten, Teilzeitmöglichkeit und optional viele Home-Office Zeiten
 * Diverse Benefits wie z.B. Gratis-Jahreskarte der Wiener Linien, Bezahlung der privaten Internetanbindung, tägliches Frühstück, Gratis-Getränke uvm.
+
