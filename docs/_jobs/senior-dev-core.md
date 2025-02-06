@@ -1,26 +1,24 @@
 ---
-title: Jobs - Developer für Application Security Platform (C#/modern .NET stack)
-header: Developer für Application Security Platform (C#/modern .NET stack)
+title: Jobs - Developer for Application Security Platform (C#/modern .NET stack)
+header: Developer for Application Security Platform (C#/modern .NET stack)
 sub-header: Shape the future of secure development practices
-
 sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
-tagline: Join our core development team building a cloud-first code signing and pipeline integrity service (K8s, CQRS, Event Sourcing, German speakers)
+tagline: Join our team to build a cloud-first code signing and pipeline integrity service (K8s, CQRS, Event Sourcing)
 job_id: 1940294
 image: developer
 locations: 
-    - 'Vienna: office, remote, hybrid'
+    - 'Vienna: office, hybrid'
+languages: German and English required
 layout: job
 description:
 ---
 
 Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Developer schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
 
-**German: CEFR C1 or better required for this position.**
+Einmal in der Woche treffen wir uns in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office. 
 
-**Home Office:** Bis zu 4 Tage pro Woche.
-
-Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office. Mündliche Kommunikation erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
+Inerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
 
 ## Deine Aufgaben
 

@@ -7,7 +7,7 @@
 </section>
 <section class="job-section">
 	<div>
-		<article>
+		<article style="display: flex; flex-direction: column;">
 			<h1>{{ page.sub-header }}</h1>			
 			<ul class="checkmarks">
 				<li>Equal opportunity employment, all genders</li>
@@ -16,12 +16,26 @@
 				{%- endfor -%}
 			</ul>
 
-			<h2>Locations</h2>
-			<ul class="locations">
-				{%- for location in page.locations -%}
-					<li> {{location}} </li>
-				{%- endfor -%}
-			</ul>
+			<div style="display: flex;">
+				<div>
+					<h2>Locations</h2>
+					<ul class="locations">
+						{%- for location in page.locations -%}
+							<li> {{location}} </li>
+						{%- endfor -%}
+					</ul>
+				</div>
+				<div style="margin-left: 3em;">
+					<h2>Languages</h2>
+					<ul class="languages">
+						{%- if page.languages -%}
+							{%- for language in page.languages -%}
+								<li> {{language}} </li>
+							{%- endfor -%}
+						{%- endif -%}
+					</ul>
+				</div>
+			</div>
 
 			<h2>{{page.header}}</h2>
 			{{ content }}

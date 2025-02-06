@@ -10,6 +10,9 @@ image: consultant
 locations: 
     - 'Vienna: office, remote, hybrid'
     - 'United States, Canada: remote'
+languages:
+    - English (required)
+    - German (optional)
 layout: job
 description:
 ---

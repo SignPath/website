@@ -23,6 +23,16 @@ description: Open jobs and positions for SignPath GmbH
               <li> {{location}} </li>
             {%- endfor -%}
           </ul>
+
+          {%- if job.languages -%}
+          <h3>Languages:</h3>
+          <ul class="languages">
+            {%- for language in job.languages -%}
+              <li> {{language}} </li>
+            {%- endfor -%}
+          </ul>
+          {%- endif -%}
+
         </div>
       </li>  
     {%- endif -%}

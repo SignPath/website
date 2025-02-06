@@ -1,19 +1,24 @@
 ---
-title: Jobs - Product Owner für Application Security Platform
-header: Product Owner für Application Security Platform
-sub-header: Vollzeit/Teilzeit ab 30 Wochenstunden
-tagline: Gestalte technisch anspruchsvolle Features unserer Application Security Platform
+title: Jobs - Product Owner for Application Security Platform
+header: Product Owner for Application Security Platform
+sub-header: Shape the future of secure development practices
+sub-header-items:
+    - 'Full-time or part-time (from 30 hrs per week)'
+tagline: Design advanced technical features for our products
 job_id: 1934971
 image: consultant
 locations: 
     - 'Vienna: office, hybrid'
+languages: German and English required
 layout: job
 description:
 ---
 
 Als Product Owner übernimmst du die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team erstellst du technisch anspruchsvolle Features, die dazu beitragen, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen.
 
-Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office. Mündliche Kommunikation erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
+Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office
+
+Inerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
 
 ## Deine Aufgaben
 
