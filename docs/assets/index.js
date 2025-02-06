@@ -94,7 +94,7 @@ if (window.NodeList && !NodeList.prototype.forEach) {
 document.addEventListener('DOMContentLoaded', function() {
 
   // add data-label attributes
-  var tables = document.body.querySelectorAll('section.resources-section table');
+  var tables = document.body.querySelectorAll('section.resources-section table, section.post-section table');
   for (var i = 0; i<tables.length; i++) {
     var headers = tables[i].querySelectorAll('th');
     var rows = tables[i].querySelectorAll('tbody > tr');

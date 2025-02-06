@@ -342,20 +342,8 @@ main > section.resources-section {
 }
 
 @media only screen and (max-width: 1000px) {
-	main > section.resources-section > div {
-		margin-left: auto;
-		flex-direction: column;
-
-		& > nav {
-			width: 100%;
-			position: relative;
-			top: 0px;
-		}
-
-		table, tr, tbody, td {
-			display: block;
-		}
-
+	main > section.resources-section > div,
+	main > section.post-section > div {
 		table {
 
 			thead {
@@ -412,6 +400,26 @@ main > section.resources-section {
 					}
 				}
 			}
+		}
+	}
+
+	main > section.resources-section > div {
+		margin-left: auto;
+		flex-direction: column;
+
+		& > nav {
+			width: 100%;
+			position: relative;
+			top: 0px;
+		}
+
+		
+	}
+
+	main > section.resources-section > div,
+	main > section.post-section > div {
+		table, tr, tbody, td {
+			display: block;
 		}
 	}
 }
