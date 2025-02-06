@@ -1,10 +1,8 @@
 ---
-title: Jobs - Product Owner for Application Security m/w/d
-header: Product Owner for Application Security m/w/d
-sub-header: Werde Teil des SignPath Teams
-sub-header-items:
-    - 'Full-time or part-time (from 30 hrs per week)'
-tagline: Research and design new (technical) features for our code integrity platform
+title: Jobs - Product Owner für Application Security Platform
+header: Product Owner für Application Security Platform
+sub-header: Vollzeit/Teilzeit ab 30 Wochenstunden
+tagline: Gestalte technisch anspruchsvolle Features unserer Application Security Platform
 job_id: 1934971
 image: consultant
 locations: 
@@ -13,38 +11,43 @@ layout: job
 description:
 ---
 
-SignPath ist ein internationales Scale-Up für Application Security mit der führenden Lösung für Code Integrity und Code Signing. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps. SignPath gewährleistet Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. 
+Als Product Owner übernimmst du die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team erstellst du technisch anspruchsvolle Features, die dazu beitragen, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen.
+
+## Über uns
+
+Wir sind SignPath ein internationales Scale-Up für Application Security aus Wien. SignPath bietet die führende Lösung für Code Integrity und Code Signing an. Wir gewährleisten Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps.
 
 Unser Kernteam ist in Wien. Einmal in der Woche trifft das Team sich im Büro für Planung und Face-to-Face Meetings, der Großteils des Kernteams arbeitet sonst im Home Office. Mündliche Kommunikation im Kernteam erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
 
-Als Product Owner bringst du Erfahrung mit Software-Prozessen (z.B. als Software Developer oder DevOps Engineer) und übernimmst die Verantwortung für die Gestaltung unserer Code Integrity Plattform. Als Teil unseres Teams und in enger Abstimmung mit dem restlichen Produktmanagement trägst du dazu bei, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen. Du übernimmst dabei die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team wirkst du an der Erstellung technisch anspruchsvoller Features im Bereich Crypto/PKI mit und hilfst unserem innovativen Produkt, die Führungsposition auf einem wachsenden Markt zu festigen und auszubauen.
-
 ## Deine Aufgaben
 
-* Du erarbeitest gemeinsam mit den Stakeholdern Vision, strategische Ausrichtung und Business-Pläne für das Produkt und entwickelst sie kontinuierlich weiter
-* Du bist verantwortlich für die Entwicklung von Produktplänen und Roadmaps, stimmst diese mit dem Development-Team und den restlichen Stakeholdern ab und begleitest die Umsetzung
-* Du erforschst neue Technologien, bereitest technisch komplexe Aufgabenstellungen vor, sammelst die notwendigen Informationen und erstellst daraus umsetzbare Anforderungen
+* Du erarbeitest mit dem Proukt-Team Vision und strategische Ausrichtung für das Produkt 
+* Du bist verantwortlich für die Entwicklung von Produktplänen und Roadmaps, stimmst diese mit dem Development-Team und den restlichen Stakeholdern ab, und begleitest die Umsetzung
 * Du erstellst User Stories und das zugehörige Product Backlog und pflegst dieses
 * Du kümmerst dich darum, dass unsere interne Spezifikation aktuell bleibt
+* Du beschäftigst dich aktiv mit Technologie und Integration, insbesondere im Bereich CI/CD und DevOps
+* Du bereitest technisch komplexe Aufgabenstellungen vor, sammelst die notwendigen Informationen und erstellst daraus umsetzbare Anforderungen
 * Als Schnittstelle zwischen Stakeholdern, Vertrieb, Marketing und dem Entwicklungsteam bist Du erster Ansprechpartner zu Produktentwicklung, Anforderungen, Status und organisatorischen Fragen
 
 ## Dein Profil
 
-* Du hast eine schnelle Auffassungsgabe und die Fähigkeit, dich rasch in eine sehr technische Businessdomäne einzuarbeiten (Integration in CI-Systeme; Event-basierte, verteilte Architektur; On-Premise Deployment auf Basis von (Windows) Docker Containern; Signaturformate und Methoden)
-* Dein Hintergrund (z.B. in einer technischen Softwareentwicklungsrolle) ermöglicht es dir, die Anforderungen an unser Produkt nachzuvollziehen, das sich an Softwarehersteller richtet: Du traust dir zu, nach Anleitung einen CI/CD-Server aufzusetzen, beim Design eines REST-APIs mitzureden, gemeinsam ein Konzept für OAuth-Integration zu entwickeln und zu reflektieren, wie Software in einer containerisierten Umgebung betrieben werden kann
+* Du hast eine schnelle Auffassungsgabe und die Fähigkeit, dich rasch in eine sehr technische Domäne einzuarbeiten 
+* Du bist mit den Arbeitsabläufen und Technologien von Entwicklungsteams vertraut und kannst so die Anforderungen an unser Produkt nachvollziehen und dich beim * Design von Schnittstellen aktiv einbringen
 * Du kannst Ideen und Visionen verinnerlichen und sie präzise kommunizieren
-* Du hast Erfahrung mit der Erarbeitung, Strukturierung und Kommunikation von Kundenanforderungen, idealerweise im Rahmen eines agilen Prozesses wie XP oder Scrum
+* Du hast Erfahrung mit der Erarbeitung, Strukturierung und Kommunikation von Anforderungen, idealerweise im Rahmen eines agilen Prozesses wie XP oder Scrum
 * Du verfügst über eine organisierte und strukturierte Arbeitsweise
-* Du arbeitest selbstständig und im Team, bringst dich aktiv in Entscheidungsprozesse ein und erforschst gerne neue Technologien
+* Du arbeitest selbstständig und im Team, bringst dich aktiv in Entscheidungsprozesse ein und erforschst gerne neue Technologienn
 
 # Wir bieten dir
 
-* Ein spannendes Cybersecurity SaaS Produkt entwickelt für Software-Entwickler mit kurzen Release-Zyklen
+* Ein spannendes Cybersecurity SaaS-Produkt, entwickelt für Software-Entwickler, mit kurzen Release-Zyklen
 * Einen Aufgabenbereich, der persönliche Stärken und Interessen berücksichtigt
 * Ein starkes Team mit flachen Hierarchien, direkter Kommunikation, und der Möglichkeit, viel zu bewegen
-* Einen agilen Entwicklungsprozess, der nicht vorgegeben, sondern vom Team selbst definiert wurde und uns den Freiraum einräumt, ihn ständig weiterzuentwickeln
 * Ein Team auf hohem technischen Niveau, das danach strebt, immer besser zu werden
+* Strukturierte Entwicklungsprozesse, die regelmäßig gemeinsam evaluiert und weiterentwickelt werden
 * Weiterentwicklungsmöglichkeiten in einem wachsenden Unternehmen, z.B. zum Product Manager
-* Flexible Arbeitszeiten, Teilzeitmöglichkeit und optional viele Home-Office Zeiten
-* Diverse Benefits wie z.B. Gratis-Jahreskarte der Wiener Linien, Bezahlung der privaten Internetanbindung, tägliches Frühstück, Gratis-Getränke uvm.
+* Flexible Arbeitszeiten, Teilzeitmöglichkeit und je nach Präferenz bis zu 4 Tage/Woche Home-Office
+* Wiener Linien Jahreskarte, regelmäßige Teamevents, Frühstück, uvm.
+
+Für diese Position bieten wir je nach Qualifikation ein attraktives Gehalt von EUR 4.000 bis 5.000 brutto pro Monat an.
 
