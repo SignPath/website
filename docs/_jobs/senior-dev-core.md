@@ -20,11 +20,7 @@ Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, 
 
 **Home Office:** Bis zu 4 Tage pro Woche.
 
-## Über uns
-
-Wir sind SignPath ein internationales Scale-Up für Application Security aus Wien. SignPath bietet die führende Lösung für Code Integrity und Code Signing an. Wir gewährleisten Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps.
-
-Unser Kernteam ist in Wien. Einmal in der Woche trifft das Team sich im Büro für Planung und Face-to-Face Meetings, der Großteils des Kernteams arbeitet sonst im Home Office. Mündliche Kommunikation im Kernteam erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
+Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office. Mündliche Kommunikation erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
 
 ## Deine Aufgaben
 
@@ -55,3 +51,9 @@ Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, 
 * Wiener Linien Jahreskarte, regelmäßige Teamevents, Frühstück, uvm.
 
 Für diese Position bieten wir je nach Qualifikation ein attraktives Gehalt von EUR 3.500 bis 5.500 brutto pro Monat an.Frühstück, uvm.
+
+
+## Über uns
+
+Wir sind SignPath – ein internationales Scale-Up für Application Security aus Wien. SignPath bietet die führende Lösung für Code Integrity und Code Signing an. Wir gewährleisten Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps.
+
