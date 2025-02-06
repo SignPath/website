@@ -22,7 +22,7 @@ Du bist leidenschaftliche/r C# Developer:in, async/await und LINQ sind dein Fach
 
 ## Über SignPath
 
-SignPath ist ein internationales Scale-Up für Application Security. Wir betreiben ein SaaS Service und Enterprise Software für Code Integrity und Code Signing. Unsere Produkte integrieren sich tief in bestehende Development- und DevOps-Prozesse, unterstützen unsere Kunden bei Zero-Trust Prozessen für Software-Entwicklung und Releases, und sorgen für Transparenz in der gesamten Software Supply Chain. Unser Ziel ist die Marktführerschaft für Code Integrity.
+SignPath ist ein internationales Scale-Up für Application Security mit der führenden Lösung für Code Integrity und Code Signing. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps. SignPath gewährleistet Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. 
 
 Unser Kernteam ist in Wien. Einmal in der Woche trifft das Team sich im Büro für Planung und Face-to-Face Meetings, der Großteils des Kernteams arbeitet sonst im Home Office. Mündliche Kommunikation im Kernteam erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
 
