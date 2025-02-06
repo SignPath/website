@@ -1,6 +1,6 @@
 ---
-title: Jobs - C# Developer for Application Security Product (up-to-date .NET stack)
-header: C# Developer for Application Security Product (up-to-date .NET stack)
+title: Jobs - Developer für Application Security Platform (C#/modern .NET stack)
+header: Developer für Application Security Platform (C#/modern .NET stack)
 sub-header: Shape the future of secure development practices
 
 sub-header-items:
@@ -14,15 +14,15 @@ layout: job
 description:
 ---
 
+Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Developer schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
+
 **German: CEFR C1 or better required for this position.**
 
-Du bist leidenschaftliche/r C# Developer:in, async/await und LINQ sind dein Fachvokabular und TDD und Clean Code deine Wohlfühlzone? Dann unterstütze uns dabei, unser Produkt SignPath zu entwickeln!
+**Home Office:** Bis zu 4 Tage pro Woche.
 
-**Home Office:** Home Office: Bis zu 4 Tage pro Woche.
+## Über uns
 
-## Über SignPath
-
-SignPath ist ein internationales Scale-Up für Application Security mit der führenden Lösung für Code Integrity und Code Signing. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps. SignPath gewährleistet Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. 
+Wir sind SignPath ein internationales Scale-Up für Application Security aus Wien. SignPath bietet die führende Lösung für Code Integrity und Code Signing an. Wir gewährleisten Zero-Trust Sicherheit für Entwicklungsprozessen und Releases und sorgen für Transparenz in der gesamten Software Supply Chain. Unsere SaaS-Services und Software-Produkte integrieren sich in bestehende Systeme und Prozesse für Software Development und DevOps.
 
 Unser Kernteam ist in Wien. Einmal in der Woche trifft das Team sich im Büro für Planung und Face-to-Face Meetings, der Großteils des Kernteams arbeitet sonst im Home Office. Mündliche Kommunikation im Kernteam erfolgt weitgehend auf Deutsch, schriftliche und unternehmensweite Kommunikation (insbes. Spezifikationen) auf Englisch.
 
@@ -30,7 +30,7 @@ Unser Kernteam ist in Wien. Einmal in der Woche trifft das Team sich im Büro f�
 
 Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, Architektur, Design, Implementierung, Testing und Deployment im gesamten Entwicklungszyklus involviert. In deiner Rolle als Developer schreckst du nicht vor komplexen und herausfordernden Aufgaben zurück und stellst einen hohen Qualitätsanspruch an die Umsetzung. Du bringst Kreativität und technische Kompetenz in ein hochqualifiziertes Team ein und trägst so dazu bei, unser Produkt erfolgreich zu machen.
 
-* Du arbeitest an technisch anspruchsvollen Problemen - von der Konzeption über die Entwicklung bis zum Deployment. Eingebettet in das Development Team entwickelst du in Sprints unsere Application Security Plattform SignPath.io weiter.
+* Du arbeitest an technisch anspruchsvollen Problemen - von der Konzeption über die Entwicklung bis zum Deployment. Eingebettet in das Development Team entwickelst du in Sprints unsere Code-Signing-Plattform SignPath.io weiter.
 * Im TDD-Modus erstellst du hochwertigen, automatisiert getesteten, sicheren und wartbaren Code.
 * Mängel im Bereich Clean Code motivieren dich sofort zu Refactorings.
 * Durch Peer Reviews, Pair Programming und offenes Feedback entwickelst du dich gemeinsam mit dem Team weiter.
@@ -47,9 +47,11 @@ Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, 
 
 ## Wir bieten dir
 
-* Ein spannendes Cybersecurity SaaS Produkt entwickelt für Software-Entwickler mit kurzen Release-Zyklen
-* Einen modernen Technologie-Stack (.Net, Kubernetes, Azure, etwas C++)
+* Ein spannendes Cybersecurity SaaS-Produkt, entwickelt für Software-Entwickler, mit kurzen Release-Zyklen
+* Ein moderner Technologie-Stack (.NET, Kubernetes, Azure)
 * Ein starkes Team mit flachen Hierarchien, direkter Kommunikation, und der Möglichkeit, viel zu bewegen
 * Strukturierte Entwicklungsprozesse, die regelmäßig gemeinsam evaluiert und weiterentwickelt werden
-* Flexible Arbeitszeiten, Teilzeitmöglichkeit und optional viele Home-Office Zeiten
-* Wiener Linien Jahreskarte, Firmenhandy, regelmäßige Teamevents, Frühstück, uvm.
+* Flexible Arbeitszeiten, Teilzeitmöglichkeit und je nach Präferenz bis zu 4 Tage/Woche Home-Office
+* Wiener Linien Jahreskarte, regelmäßige Teamevents, Frühstück, uvm.
+
+Für diese Position bieten wir je nach Qualifikation ein attraktives Gehalt von EUR 3.500 bis 5.500 brutto pro Monat an.Frühstück, uvm.
