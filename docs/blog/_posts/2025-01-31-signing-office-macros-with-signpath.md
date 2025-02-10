@@ -49,7 +49,7 @@ Clearly, no single approach effectively balances security and usability. This is
 
 ## Implementing Macro Signing for Secure End-User Policies
 
-Digitally signing macros allows organizations to enforce strict security policies without disrupting workflows. With macro signing, organizations can:
+Digitally signing macros allows organizations to enforce strict security policies without disrupting workflows. With secure macro signing, organizations can:
 
 - Use Group Policy settings to allow execution only for macros signed with trusted certificates.
 - Assign trusted certificates to specific users and groups based on their roles.
