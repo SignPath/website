@@ -18,14 +18,14 @@ Microsoft Office Macros have long been a staple in business workflows, automatin
 
 ## Office Macros: Tailor made for compromise
 
-If you use Microsoft Office (and who doesn't these days?), you're familiar with macros -- tiny programs written in Visual Basic for Applications (VBA) that execute in Office documents. They are purely designed to make our lives easier, and that makes them vulnerable. When a user opens a document containing a macro, the macro inherits the same permissions as the user.  You might be surprised to find out that macros can use the VBA SHELL command to run arbitrary commands and programs. The also have access to the VBA KILL command, which can be used to delete files. Even worse, macro bugs spread easily, hijacking commands such as "AutoOpen" to run whenever you open a file. Worse still, some macros leverage exploits that actually escalate privileges, making them an even greater threat. 
+If you use Microsoft Office (and who doesn't these days?), you're familiar with macros -- those tiny programs written in Visual Basic for Applications (VBA) that execute in Office documents. They are purely designed to make our lives easier, and that actually makes them vulnerable. When a user opens a document containing a macro, the macro inherits the same permissions as the user.  You might be surprised to find out that macros can use the VBA SHELL command to run arbitrary commands and programs. The also have access to the VBA KILL command, which can be used to delete files. Even worse, macro bugs spread easily, hijacking commands such as "AutoOpen" to run whenever you open a file. Worse still, some macros leverage exploits that actually escalate privileges, making them an even greater threat. 
 
 
 Modern versions of Microsoft Office much more restrictive. Office 2013 is set to disable all macros by default, providing a notification that the macro wasn't allowed to run.
 
 Why do hackers love them?
 
-- Social Engineering: Unlike executable files, whcih look scary, Office documents seem innocuous. Attackers exploit this trust by embedding malicious macros into documents and persuading users to enable them through social engineering tactics. "Trust me!"
+- Social Engineering: Unlike executable files, which look scary, Office documents seem innocuous. Attackers exploit this trust by embedding malicious macros into documents and persuading users to enable them through social engineering tactics. "Trust me!"
 - Ease of Execution: Enabling macros requires just a single click, often facilitated by deceptive instructions embedded within phishing emails or the document itself. 
 - Difficulties in Policy Enforcement: Traditional security measures, such as application whitelisting and malware scanning, are ineffective at fully mitigating macro threats. 
 
@@ -45,7 +45,7 @@ Organizations have attempted various methods to secure Office macros, but most s
 | Disable except for certain storage locations | 🟡 Medium | 🟡 Moderate | 🟡 Moderate | Prevents internet/email attacks but is vulnerable to insider threats | 
 | Disable for everyone | 🟢 High | 🟢 Easy | 🔴 High | Secure but often unrealistic for business needs | 
 
-Clearly, no single approach effectively balances security and usability. This is where macro signing becomes a game-changing solution. 
+Clearly, no single approach effectively balances security and usability. This is where *secure* macro signing becomes a game-changing solution. 
 
 ## Implementing Macro Signing for Secure End-User Policies
 
@@ -135,7 +135,6 @@ Office macros pose a significant security risk, making them a preferred attack v
 SignPath simplifies the macro signing process, ensuring that organizations can enforce secure policies without burdening users. By adopting a structured, certificate-based approach, businesses can safeguard their environments while continuing to leverage the efficiency of Office macros.
 
 By taking proactive measures today, organizations can significantly reduce their risk exposure and protect themselves from the ever-evolving landscape of cyber threats.
-
 
 Want to learn more about how SignPath can protect your Office macros? [Get in touch with us](https://about.signpath.io/contact) today.
 
