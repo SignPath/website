@@ -18,7 +18,10 @@ Microsoft Office Macros have long been a staple in business workflows, automatin
 
 ## Office Macros: Tailor made for compromise
 
-If you use Microsoft Office (and who doesn't these days?), you're familiar with macros -- tiny programs written in Visual Basic for Applications (VBA) that execute in Office documents. They are purely designed to make our lives easier, and that makes them vulnerable. When a user opens a document containing a macro, the macro inherits the same permissions as the user.  Worse still, some macros leverage exploits that actually escalate privileges, making them an even greater threat. 
+If you use Microsoft Office (and who doesn't these days?), you're familiar with macros -- tiny programs written in Visual Basic for Applications (VBA) that execute in Office documents. They are purely designed to make our lives easier, and that makes them vulnerable. When a user opens a document containing a macro, the macro inherits the same permissions as the user.  You might be surprised to find out that macros can use the VBA SHELL command to run arbitrary commands and programs. The also have access to the VBA KILL command, which can be used to delete files. Even worse, macro bugs spread easily, hijacking commands such as "AutoOpen" to run whenever you open a file. Worse still, some macros leverage exploits that actually escalate privileges, making them an even greater threat. 
+
+
+Modern versions of Microsoft Office much more restrictive. Office 2013 is set to disable all macros by default, providing a notification that the macro wasn't allowed to run.
 
 Why do hackers love them?
 
@@ -85,7 +88,6 @@ For example:
 | Everyone Else | Global |
 
 By defining signing policies accordingly, organizations can ensure that only authorized users can create macros for their respective departments.
-
 
 ## Implementing Macro Signing for Secure End-User Policies
 
