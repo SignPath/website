@@ -33,7 +33,7 @@ Inerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und team�
 ## Dein Profil
 
 * Du hast eine schnelle Auffassungsgabe und die F채higkeit, dich rasch in eine sehr technische Dom채ne einzuarbeiten 
-* Du bist mit den Arbeitsabl채ufen und Technologien von Entwicklungsteams vertraut und kannst so die Anforderungen an unser Produkt nachvollziehen und dich beim * Design von Schnittstellen aktiv einbringen
+* Du bist mit den Arbeitsabl채ufen und Technologien von Entwicklungsteams vertraut und kannst so die Anforderungen an unser Produkt nachvollziehen und dich beim Design von Schnittstellen aktiv einbringen
 * Du kannst Ideen und Visionen verinnerlichen und sie pr채zise kommunizieren
 * Du hast Erfahrung mit der Erarbeitung, Strukturierung und Kommunikation von Anforderungen, idealerweise im Rahmen eines agilen Prozesses wie XP oder Scrum
 * Du verf체gst 체ber eine organisierte und strukturierte Arbeitsweise
