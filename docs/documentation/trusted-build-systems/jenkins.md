@@ -30,6 +30,7 @@ See the [official plugin page](https://plugins.jenkins.io/signpath/) on how the 
 
 * The _Trusted Build System Token_ needs to be stored in a _System_ Credential (Under _Manage Jenkins / Manage Credentials_)
 * The _Api Token_ of a SignPath user with submitter permissions needs to be available to the build pipelines of the respective projects.
+* The default credential ID for the _Trusted Build System Token_, the default organization ID and the SignPath API endpoint can be configured in the plugin configuration (under _System_ in the _Code Signing with SignPath_ section).
 
 ## Usage
 
@@ -49,35 +50,36 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
 
 #### General parameters
 
-| Parameter                                             | Default Value     | Description |
-| ----------------------------------------------------- | -                 | ----        |
-| `apiUrl`                                   | `https://app.signpath.io/Api`      | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations.
-| `apiTokenCredentialId`                     | `SignPath.ApiToken`                | The ID of the credential containing the **API Token**. Recommended in scope "Global".
-| `trustedBuildSytemTokenCredentialId`       | `SignPath.TrustedBuildSystemToken` | The ID of the credential containing the **Trusted Build System Token**. Needs to be in scope "System".
-| `serviceUnavailableTimeoutInSeconds`       | `600`                              | Total time in seconds that the step will wait for a single service call to succeed (across several retries).
-| `uploadAndDownloadRequestTimeoutInSeconds` | `300`                              | HTTP timeout used for upload and download HTTP requests. Defaults to 300.
-| `waitForCompletionTimeoutInSeconds`        | `600`                              | Maximum time in seconds that the step will wait for the signing request to complete.
+| Parameter                                             | Default Value                  | Description |
+| ----------------------------------------------------- | -                              | ----        |
+| `apiTokenCredentialId`                     | `SignPath.ApiToken`                       | The ID of the credential containing the **API Token**. Recommended in scope "Global".
+| `trustedBuildSytemTokenCredentialId`       | Configured in global plugin configuration | The ID of the credential containing the **Trusted Build System Token**. Needs to be in scope "System".
+| `serviceUnavailableTimeoutInSeconds`       | `600`                                     | Total time in seconds that the step will wait for a single service call to succeed (across several retries).
+| `uploadAndDownloadRequestTimeoutInSeconds` | `300`                                     | HTTP timeout used for upload and download HTTP requests. Defaults to 300.
+| `waitForCompletionTimeoutInSeconds`        | `600`                                     | Maximum time in seconds that the step will wait for the signing request to complete.
+| `apiUrl`                                   |                                           | Deprecated. Must match the global plugin configuration. SignPath API endpoint to use.
+
 
 #### Parameters for the `submitSigningRequest` step
 
-| Parameter                    | Default Value | Description |
-| -----------------------------| -             | ----        |
-| `organizationId`             | (mandatory)   | The ID of the SignPath organization
-| `projectSlug`                | (mandatory)   | The slug of the SignPath project 
-| `signingPolicySlug`          | (mandatory)   | The slug of the SignPath signing policy
-| `artifactConfigurationSlug`  |               | The SignPath artifact configuration slug. If not specified, the default is used.
-| `inputArtifactPath`          | (mandatory)   | The relative path of the artifact to be signed
-| `outputArtifactPath`         |               | The relative path where the signed artifact is stored after signing
-| `waitForCompletion`          | (mandatory)   | Set to `true` for synchronous and `false` for asynchronous signing requests
-| `parameters`                 |               | A `Map<String, String>` with key/value pairs that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration.
+| Parameter                    | Default Value                             | Description |
+| -----------------------------| -                                         | ----        |
+| `organizationId`             | Configured in global plugin configuration | The ID of the SignPath organization
+| `projectSlug`                | (mandatory)                               | The slug of the SignPath project 
+| `signingPolicySlug`          | (mandatory)                               | The slug of the SignPath signing policy
+| `artifactConfigurationSlug`  |                                           | The SignPath artifact configuration slug. If not specified, the default is used.
+| `inputArtifactPath`          | (mandatory)                               | The relative path of the artifact to be signed
+| `outputArtifactPath`         |                                           | The relative path where the signed artifact is stored after signing
+| `waitForCompletion`          | (mandatory)                               | Set to `true` for synchronous and `false` for asynchronous signing requests
+| `parameters`                 |                                           | A `Map<String, String>` with key/value pairs that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration.
 
 #### Parameters for the `getSignedArtifact` step
 
-| Parameter                    | Default Value | Description |
-| -----------------------------| -             | ----        |
-| `organizationId`             | (mandatory)   | The ID of the SignPath organization
-| `signingRequestId`           | (mandatory)   | The ID of the signing request (is returned by the `submitSigningRequest` step)
-| `outputArtifactPath`         | (mandatory)   | The relative path where the signed artifact is stored after signing
+| Parameter                    | Default Value                             | Description |
+| -----------------------------| -                                         | ----        |
+| `organizationId`             | Configured in global plugin configuration | The ID of the SignPath organization
+| `signingRequestId`           | (mandatory)                               | The ID of the signing request (is returned by the `submitSigningRequest` step)
+| `outputArtifactPath`         | (mandatory)                               | The relative path where the signed artifact is stored after signing
 
 ### Examples
 
@@ -87,7 +89,6 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
     stage('Sign with SignPath') {
       steps {
         submitSigningRequest(
-          organizationId: "${ORGANIZATION_ID}",
           projectSlug: "${PROJECT_SLUG}",
           signingPolicySlug: "${SIGNING_POLICY_SLUG}",
           artifactConfigurationSlug: "${ARTIFACT_CONFIGURATION_SLUG}",
@@ -106,7 +107,6 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
       steps {
         script {
           signingRequestId = submitSigningRequest(
-            organizationId: "${ORGANIZATION_ID}",
             projectSlug: "${PROJECT_SLUG}",
             signingPolicySlug: "${SIGNING_POLICY_SLUG}",
             artifactConfigurationSlug: "${ARTIFACT_CONFIGURATION_SLUG}",
@@ -128,7 +128,6 @@ Include the `submitSigningRequest` and optionally, the `getSignedArtifact` steps
       }
       steps{
         getSignedArtifact( 
-          organizationId: "${ORGANIZATION_ID}",
           signingRequestId: "${signingRequestId}",
           outputArtifactPath: "build-output/my-artifact.exe"
         )
