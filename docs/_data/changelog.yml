@@ -1,3 +1,17 @@
+- date: '2025-02-12'
+  updates:
+    jenkins_plugin:
+      version: 3.0.1
+      breaking_changes:
+        - text: |
+            The SignPath _API URL_ must now be configured globally in the Jenkins system settings. The parameter in the Pipeline step has been marked as deprecated and must match the global configuration.
+     
+            _This fix removes a risk of introducing insecure configurations through individual Jenkins projects. All potentially affected customers have been informed._
+          issues: [SIGN-7342, SIGN-7466, SIGN-7489, SIGN-7522]
+      new_features:
+        - text: |
+            A default _Trusted Build System Token Credential ID_ and a default _Organization ID_ can now be configured globally in the Jenkins system settings.
+          issues: [SIGN-7342, SIGN-7466, SIGN-7489, SIGN-7522]
 - date: '2025-01-31'
   updates:
     crypto_providers:
