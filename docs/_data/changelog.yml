@@ -4,9 +4,9 @@
       version: 3.0.1
       breaking_changes:
         - text: |
-            The SignPath _API URL_ must now be configured globally in the Jenkins system settings. The parameter in the Pipeline step has been marked as deprecated and must match the global configuration.
+            The SignPath _Api URL_ must now be configured globally in the Jenkins system settings. The parameter in the Pipeline step has been marked as deprecated. (It is ignored if it matches the global setting.)
      
-            _This fix removes a risk of introducing insecure configurations through individual Jenkins projects. All potentially affected customers have been informed._
+            _This fix removes a risk of introducing insecure configurations through individual Jenkins projects. All potentially affected customers have previously been informed._
           issues: [SIGN-7342, SIGN-7466, SIGN-7489, SIGN-7522]
       new_features:
         - text: |
