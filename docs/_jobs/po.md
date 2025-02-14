@@ -17,9 +17,9 @@ description:
 
 Als Product Owner übernimmst du die Verantwortung für die Planung und koordinierst unseren zweiwöchentlichen Releasezyklus. Gemeinsam mit dem restlichen Team erstellst du technisch anspruchsvolle Features, die dazu beitragen, die Entwicklungsprozesse von Softwareunternehmen aller Größen sicherer und einfacher zu machen.
 
-Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office
+Einmal in der Woche trifft das Team sich in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office.
 
-Inerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
+Innerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
 
 ## Deine Aufgaben
 
