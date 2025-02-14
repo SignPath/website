@@ -19,7 +19,7 @@ Als Developer bist du für unser Produkt von der Feature-Idee über Konzeption, 
 
 Einmal in der Woche treffen wir uns in Wien im Büro für Planung und Face-to-Face Meetings, der Großteils des Teams arbeitet sonst im Home Office. 
 
-Inerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
+Innerhalb des Teams sprechen wir Deutsch. Code, Issues, Spezifikationen und teamübergreifende Kommunikation in Englisch.
 
 ## Deine Aufgaben
 
