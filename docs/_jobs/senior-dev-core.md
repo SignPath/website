@@ -6,6 +6,7 @@ sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
 tagline: Join our team to build a cloud-first code signing and pipeline integrity service (K8s, CQRS, Event Sourcing)
 job_id: 1940294
+requires_german: true
 image: developer
 locations: 
     - 'Vienna: office, hybrid'

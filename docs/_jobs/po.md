@@ -6,6 +6,7 @@ sub-header-items:
     - 'Full-time or part-time (from 30 hrs per week)'
 tagline: Design advanced technical features for our products
 job_id: 1934971
+requires_german: true
 image: consultant
 locations: 
     - 'Vienna: office, hybrid'

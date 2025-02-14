@@ -43,15 +43,21 @@
 
 		<div>
 			{%- if page.job_id -%}
-				<div class="horizontal-top">
-					<div>
+				<div>
+					<p class='center'>
+						{%- if page.requires_german -%}
+						<a class="btn btn-secondary" href="https://signpath.jobs.personio.com/job/{{page.job_id}}?language=de&display=de#apply">
+							Jetzt bewerben
+						</a>
+						{%- else -%}
 						<a class="btn btn-secondary" href="https://signpath.jobs.personio.com/job/{{page.job_id}}#apply">
 							Apply now
-						</a> 
-					</div>
+						</a>
+						{%- endif -%} 
+					</p>
 				</div>
 			{%- else -%}
-				<div class="horizontal-top">
+				<div>
 					<a class="btn btn-secondary" href="mailto:jobs@signpath.io?subject=Job application: {{page.header}}">
 						Apply at <i>jobs@signpath.io</i>
 					</a>
