@@ -8,7 +8,7 @@
   path: blog
 
 - text: Jobs
-  path: jobs
+  path: $job_portal_url
 
 - text: Support
   path: support
