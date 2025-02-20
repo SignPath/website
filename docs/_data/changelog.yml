@@ -1,4 +1,4 @@
-- date: '2025-01-30'
+- date: '2025-02-20'
   updates:
     github_connector:
       version: 1.2.0
@@ -8,6 +8,36 @@
       bug_fixes:
         - text: Fixed bug for workflow runs with skipped jobs.
           issues: [SIGN-7513, SIGN-7514]
+- date: '2025-02-12'
+  updates:
+    jenkins_plugin:
+      version: 3.0.1
+      breaking_changes:
+        - text: |
+            The SignPath _Api URL_ must now be configured globally in the Jenkins system settings. The parameter in the Pipeline step has been marked as deprecated. (It is ignored if it matches the global setting.)
+     
+            _This fix removes a risk of introducing insecure configurations through individual Jenkins projects. All potentially affected customers have previously been informed._
+          issues: [SIGN-7342, SIGN-7466, SIGN-7489, SIGN-7522]
+      new_features:
+        - text: |
+            A default _Trusted Build System Token Credential ID_ and a default _Organization ID_ can now be configured globally in the Jenkins system settings.
+          issues: [SIGN-7342, SIGN-7466, SIGN-7489, SIGN-7522]
+- date: '2025-01-31'
+  updates:
+    crypto_providers:
+      version: 5.2.0
+      improvements:
+        - text: |-
+            Improved Linux container samples:
+            * Ported all scenario scripts and helper functions to Bash.
+            * Improved support for running the scenario scripts outside of a Docker container: 
+              * moved Organization ID and API token parameters to the "inner" scenario scripts 
+              * improved Cryptoki library discovery
+              * various minor improvements
+            * [GPG-based hash signing](/documentation/crypto-providers/gpg): GPG public key file is now downloaded automatically. Therefore the `-GpgKeyId` parameter of the scenario scripts has been replaced with `-ProjectSlug` and `-SigningPolicySlug`.
+            * Changed work directory from `Samples/Scenarios/temp` to `Samples/Scenarios/Work` and logs directory to `Samples/Scenarios/Work/Logs`.
+            * Added detached CMS signing sample to the OpenSSL scenario.
+          issues: [SIGN-7410, SIGN-7497]
 - date: '2025-01-28'
   updates:
     application:

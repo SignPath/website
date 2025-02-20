@@ -65,16 +65,22 @@
         <ul>
           {%- for entry in site.data.menus.menus -%}
             <li>
-              <a href='/{{entry.path}}'> {{entry.text}} </a>
+              <a href='/{{entry.path}}'> {{entry.text}}</a>
               <ul>
                 {%- for subentry in site.data.menus[entry.path] -%}
                   {%- if subentry.separator -%}
                     <li class='separator' />
                   {%- else -%}
+                    {%- assign subentry_path = "/" | append: subentry.path -%}
+                    {%- assign is_variable = subentry.path | split: '$' -%}
+                    {%- if is_variable[0] == '' -%}
+                      {%- assign site_var_name = is_variable[1] -%}
+                      {%- assign subentry_path = site[site_var_name] -%}
+                    {%- endif -%}
                     {%- if entry.subdir -%}
-                      <li> <a href='/{{entry.path}}/{{subentry.path}}'> {{subentry.text}} </a> </li>
+                      <li> <a href='/{{entry.path}}{{subentry_path}}'> {{subentry.text}} </a> </li>
                     {%- else -%}
-                      <li> <a href='/{{subentry.path}}'> {{subentry.text}} </a> </li>
+                      <li> <a href='{{subentry_path}}'> {{subentry.text}} {{site[subentry_path]}}</a> </li>
                     {%- endif -%}
                   {%- endif -%}
                 {%- endfor -%}

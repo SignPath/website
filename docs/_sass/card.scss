@@ -51,6 +51,15 @@ ul.card-container {
 		}
 
 		& h3 {
+			margin-top: .5em;
+			margin-bottom: 0;
+		}
+
+		& h3:first-child {
+			margin-top: 0;
+		}
+
+		& p {
 			margin: 0;
 		}
 

@@ -54,6 +54,8 @@ description: SignPath team blog
     <h2>Recent Posts<a href='/feed.xml'>Feed
       {% include rss.svg %}
     </a></h2>
+   
+   
     <ul class='card-container'>
       {% for post in site.posts %}
         <li>
@@ -78,6 +80,8 @@ description: SignPath team blog
                 {{ post.excerpt | truncatewords: 15 }}
               {% endif %}
             </p>
+		</div>
+		<div align="center">
             <a class='btn btn-secondary' href='{{ post.url }}'>Read more</a>
           </div>
         </li>

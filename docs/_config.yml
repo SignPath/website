@@ -26,6 +26,7 @@ target_environment: "production"
 
 sp_web_url: "https://app.signpath.io/Web"
 sp_api_url: "https://app.signpath.io/api"
+job_portal_url: "https://signpath.jobs.personio.com"
 
 #url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
@@ -57,7 +58,3 @@ exclude:
 
 sass:
   style: compressed
-
-collections:
-  jobs:
-    output: true

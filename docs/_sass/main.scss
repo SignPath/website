@@ -119,13 +119,6 @@ a.btn-secondary, button.btn-secondary {
 	}
 }
 
-div.horizontal-top {
-	text-align: center;
-    display: inline-block;
-    margin: 10px 20px;
-    vertical-align: top;
-}
-
 /*
 *
 * SECTIONS
@@ -470,7 +463,15 @@ ul.checkmarks {
 
 ul.locations {
 	& > li {
-		list-style-type: '🌐';
+		list-style-type: '🌍';
+		margin-left: -0.5em;
+		padding-left: 0.5em;
+	}
+}
+
+ul.languages {
+	& > li {
+		list-style-type: '🗩';
 		margin-left: -0.5em;
 		padding-left: 0.5em;
 	}
