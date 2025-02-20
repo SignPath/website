@@ -12,7 +12,7 @@ description: GitHub
   *  add it to the Organization
   *  link it to each SignPath Project for GitHub
 * Specify `<zip-file>` as root element of your [Artifact Configurations](/documentation/artifact-configuration) (GitHub packages all artifacts as ZIP archives)
-* Install the [SignPath GitHub App](https://github.com/apps/signpath) and allow access to the code repositories.
+* Required for [source code and build policies](#define-policies-for-source-code-and-builds): Install the [SignPath GitHub App](https://github.com/apps/signpath) and allow access to the code repositories.
 
 {:.panel.info}
 > **GitHub Enterprise**

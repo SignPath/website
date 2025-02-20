@@ -1,3 +1,13 @@
+- date: '2025-02-20'
+  updates:
+    github_connector:
+      version: 1.2.0
+      improvements:
+        - text: The [SignPath GitHub App](/documentation/trusted-build-systems/github) is only required if source code and build policy verification is used.
+          issues: [SIGN-7506]
+      bug_fixes:
+        - text: Fixed bug for workflow runs with skipped jobs.
+          issues: [SIGN-7513, SIGN-7514]
 - date: '2025-02-12'
   updates:
     jenkins_plugin:
