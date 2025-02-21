@@ -1,4 +1,4 @@
 ---
 permalink: /jobs
-redirect_to: {{ site.job_portal_url }}
+redirect_to: https://signpath.jobs.personio.com
 ---

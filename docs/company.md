@@ -22,7 +22,7 @@ SignPath was founded in 2017 by [RUBICON IT](https://www.rubicon.eu/en/), a lead
 
 At SignPath, we believe that signing code is crucial for secure distribution of software artifacts. Increased frequency of releases make it even more important that the origin of every shipped code is verifiable. Therefore we are developing the world's leading code signing solution to allow organizations of all sizes to reliably and securely sign their code - without compromising on their agility.
 
-[See open positions]({{ site.job_portal_url }}){: class="btn btn-primary"}
+[See open positions](/jobs){: class="btn btn-primary"}
 
 </div> </div>
 
