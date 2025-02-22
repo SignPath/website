@@ -57,22 +57,28 @@ steps:
 
 ### Action input parameters
 
-| Parameter                                     | Default Value                 | Description 
-|-----------------------------------------------|-------------------------------|---------------------------
-| `connector-url`                               | `https://app.signpath.io/Api` | The URL of the SignPath connector. Required if self-hosted.
-| `api-token`                                   | (mandatory)                   | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
-| `organization-id`                             | (mandatory)                   | The SignPath organization ID.
-| `project-slug`                                | (mandatory)                   | The SignPath project slug.
-| `signing-policy-slug`                         | (mandatory)                   | The SignPath signing policy slug.
-| `artifact-configuration-slug`                 |                               | The SignPath artifact configuration slug. If not specified, the default is used.
-| `github-artifact-id`                          | (mandatory)                   | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact](https://github.com/actions/upload-artifact) v4+ action before it can be signed. Use {% raw %}`${{ steps.<step-id>.outputs.artifact-id }}`{% endraw %} from the preceding actions/upload-artifact action step.
-| `wait-for-completion`                         | (mandatory)                   | If true, the action will wait for the signing request to complete. Defaults to `true`.
-| `output-artifact-directory`                   |                               | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
-| `github-token`                                |                               | GitHub access token used to read job details and download the artifact. Defaults to the [`secrets.GITHUB_TOKEN`](https://docs.github.com/en/actions/security-guides/automatic-token-authentication). Requires the `action:read` and `content:read` permissions.
-| `wait-for-completion-timeout-in-seconds`      | `600`                         | Maximum time in seconds that the action will wait for the signing request to complete.
-| `service-unavailable-timeout-in-seconds`      | `600`                         | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
-| `download-signed-artifact-timeout-in-seconds` | `300`                         | HTTP timeout when downloading the signed artifact. Defaults to 5 minutes.
-| `parameters`                                  |                               | Multiline-string of values that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
+{% raw %}
+| Parameter                                     | Default Value                        | Description 
+|-----------------------------------------------|--------------------------------------|-------------------------------------------------------------
+| `connector-url`                               | `https://app.signpath.io/Api`        | The URL of the SignPath connector. Required if self-hosted.
+| `api-token`                                   | (mandatory)                          | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
+| `organization-id`                             | (mandatory)                          | The SignPath organization ID.
+| `project-slug`                                | (mandatory)                          | The SignPath project slug.
+| `signing-policy-slug`                         | (mandatory)                          | The SignPath signing policy slug.
+| `artifact-configuration-slug`                 | default artifact configuration       | The SignPath artifact configuration slug.
+| `github-artifact-id`                          | (mandatory)                          | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact] v4+ action before it can be signed. Use `${{ steps.<step-id>.outputs.artifact-id }}` from the preceding actions/upload-artifact action step.
+| `wait-for-completion`                         | `true`                               | Wait for the signing request to complete.
+| `output-artifact-directory`                   |                                      | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
+| `github-token`                                | [`secrets.GITHUB_TOKEN`][token-auth] | GitHub access token for reading job details and downloading the artifact. Requires the `action:read` and `content:read` permissions.
+| `wait-for-completion-timeout-in-seconds`      | `600`                                | Maximum time in seconds that the action will wait for the signing request to complete.
+| `service-unavailable-timeout-in-seconds`      | `600`                                | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
+| `download-signed-artifact-timeout-in-seconds` | `300`                                | HTTP timeout when downloading the signed artifact.
+| `parameters`                                  |                                      | Multiline-string of values that map to [user-defined parameters] in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
+{% endraw %}
+
+[token-auth]: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
+[actions/upload-artifact]: https://github.com/actions/upload-artifact
+[user-defined parameters]: /documentation/artifact-configuration/syntax#parameters
 
 ### Action output parameters
 
