@@ -58,22 +58,22 @@ steps:
 ### Action input parameters
 
 {% raw %}
-| Parameter                                     | Default Value                        | Description 
-|-----------------------------------------------|--------------------------------------|-------------------------------------------------------------
-| `connector-url`                               | `https://app.signpath.io/Api`        | The URL of the SignPath connector. Required if self-hosted.
-| `api-token`                                   | (mandatory)                          | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
-| `organization-id`                             | (mandatory)                          | The SignPath organization ID.
-| `project-slug`                                | (mandatory)                          | The SignPath project slug.
-| `signing-policy-slug`                         | (mandatory)                          | The SignPath signing policy slug.
-| `artifact-configuration-slug`                 | default artifact configuration       | The SignPath artifact configuration slug.
-| `github-artifact-id`                          | (mandatory)                          | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact] v4+ action before it can be signed. Use `${{ steps.<step-id>.outputs.artifact-id }}` from the preceding actions/upload-artifact action step.
-| `wait-for-completion`                         | `true`                               | Wait for the signing request to complete.
-| `output-artifact-directory`                   |                                      | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
-| `github-token`                                | [`secrets.GITHUB_TOKEN`][token-auth] | GitHub access token for reading job details and downloading the artifact. Requires the `action:read` and `content:read` permissions.
-| `wait-for-completion-timeout-in-seconds`      | `600`                                | Maximum time in seconds that the action will wait for the signing request to complete.
-| `service-unavailable-timeout-in-seconds`      | `600`                                | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
-| `download-signed-artifact-timeout-in-seconds` | `300`                                | HTTP timeout when downloading the signed artifact.
-| `parameters`                                  |                                      | Multiline-string of values that map to [user-defined parameters] in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
+| Parameter                                     | Default Value                                  | Description 
+|-----------------------------------------------|----------------------------                    |-------------------------------------------------------------
+| `connector-url`                               | `https://githubactions.connectors.signpath.io` | The URL of the SignPath connector. Required if self-hosted.
+| `api-token`                                   | (mandatory)                                    | The _Api Token_ for a user with submitter permissions in the specified project/signing policy.
+| `organization-id`                             | (mandatory)                                    | The SignPath organization ID.
+| `project-slug`                                | (mandatory)                                    | The SignPath project slug.
+| `signing-policy-slug`                         | (mandatory)                                    | The SignPath signing policy slug.
+| `artifact-configuration-slug`                 | default artifact configuration                 | The SignPath artifact configuration slug.
+| `github-artifact-id`                          | (mandatory)                                    | ID of the Github Actions artifact. Must be uploaded using the [actions/upload-artifact] v4+ action before it can be signed. Use `${{ steps.<step-id>.outputs.artifact-id }}` from the preceding actions/upload-artifact action step.
+| `wait-for-completion`                         | `true`                                         | Wait for the signing request to complete.
+| `output-artifact-directory`                   |                                                | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
+| `github-token`                                | [`secrets.GITHUB_TOKEN`][token-auth]           | GitHub access token for reading job details and downloading the artifact. Requires the `action:read` and `content:read` permissions.
+| `wait-for-completion-timeout-in-seconds`      | `600`                                          | Maximum time in seconds that the action will wait for the signing request to complete.
+| `service-unavailable-timeout-in-seconds`      | `600`                                          | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
+| `download-signed-artifact-timeout-in-seconds` | `300`                                          | HTTP timeout when downloading the signed artifact.
+| `parameters`                                  |                                                | Multiline-string of values that map to [user-defined parameters] in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
 {% endraw %}
 
 [token-auth]: https://docs.github.com/en/actions/security-guides/automatic-token-authentication
