@@ -1,3 +1,23 @@
+- date: '2025-02-27'
+  updates:
+    application:
+      version: 1.182.0
+      new_features:
+        - text: ECDSA keys can now be created on custom HSMs with the "Exportable" flag turned on, which allows those keys to be synchronized to a self-hosted backup HSM.
+          issues: [SIGN-7585]
+      improvements:
+        - text: Certificate signing requests (CSRs) and self-signed X.509 certificates now set the key usage _Code Signing_ as _critical_ to align with the CA/Browser forum requirements.
+          issues: [SIGN-4416]
+        - text: Improved performance when dealing with large user groups or many artifact configurations.
+          issues: [SIGN-7444, SIGN-7537]
+      bug_fixes:
+        - text: Fixed a bug that did not allow saving artifact configurations containing detached signature (Raw, CMS or GPG) directives within `<file-set>` elements.
+          issues: [SIGN-7589]
+    self_hosted_installations:
+      version: 1.182.0
+      improvements:
+        - text: Reduced image size of the `signpathio/signservice-lunahsm` container image and startup time of the SignService migration jobs.
+          issues: [SIGN-7516]
 - date: '2025-02-20'
   updates:
     github_connector:
