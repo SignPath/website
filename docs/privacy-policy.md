@@ -83,6 +83,10 @@ In order to make our website more attractive, we use Google Ads, a service provi
 
 dealfront is a web analytics service and evaluation tool operated by Liidio Oy / dealfront (Mikonkatu 17 C, 00100 Helsinki). For this purpose, dealfront collects the IP address of visitors. dealfront uses a cookie called "\_lfa" and has an expiry date of two years from when it was first set. The cookie can only be set for this website domain and requires your consent. For more information, please refer to the [privacy policy of dealfront].
 
+### HubSpot
+
+HubSpot is a marketing and sales service. HubSpot collects the IP address, browser type, operating system, access time, referring internet website adresses, internet service providers (ISP) and pages viewed on our website. For more information, please refer to the [privacy policy of HubSpot].
+
 # Your rights
 
 When we process your personal data, you have the following rights under applicable European and Austrian data protection laws:
@@ -100,3 +104,4 @@ If you believe that the processing of your data constitutes a violation of data 
 [Google Ads]: https://policies.google.com/technologies/ads?hl=en
 [Google Analytics]: https://support.google.com/analytics/answer/6004245
 [privacy policy of dealfront]: https://www.dealfront.com/privacy-notice/
+[privacy policy of HubSpot]: https://legal.hubspot.com/privacy-policy
