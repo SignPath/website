@@ -52,6 +52,9 @@ steps:
     github-artifact-id: '${{ steps.upload-unsigned-artifact.outputs.artifact-id }}'
     wait-for-completion: true
     output-artifact-directory: '/path/to/signed/artifact/directory'
+    parameters: |
+      version: ${{ toJSON(some.userinput) }}
+      myparam: "another param"
 ```
 {% endraw %}
 
