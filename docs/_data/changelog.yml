@@ -4,9 +4,7 @@
       version: 1.183.0
       new_features:
         - text: |-
-            Added support for storing and resolving full X.509 certificate chains:
-            * TODO: Explain, update docs?
-            * Added new REST API routes like `GET /v1/{organizationId}/Certificates/{slug}/X509Certificate/Chain` to download certificate chains.
+            Added support for storing and retrieving X.509 certificate chains (for e.g. certificates issued by in-house PKIs).
           issues: [SIGN-7423]
         - text: Added support for `file-version`, `company-name`, `copyright`, and `original-filename` to [`<pe-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
           issues: [SIGN-7395]
