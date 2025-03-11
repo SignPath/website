@@ -215,8 +215,8 @@ The `create-cms-signature` directive supports the following parameters:
 |--------------------|---------------------------|------------------------------|-------------------------------------------------
 | `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
 | `output-encoding`  | (mandatory)               | `pem`, `der`                 | The encoding of the output file containing the signature.
-| `hash-algorithm`   | `sha256`                  | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature 
-| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| `hash-algorithm`   | `sha256`                  | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (ignored for non-RSA keys).
 
 #### CMS example
 
@@ -322,7 +322,7 @@ The `create-raw-signature` directive supports the following parameters:
 |--------------------|---------------------------|------------------------------|-------------------------------------------------
 | `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
 | `hash-algorithm`   | (mandatory)               | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
-| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (ignored for non-RSA keys).
 
 (All cryptographic parameters are mandatory because raw signatures contain no metadata for agnostic verification.)
 
@@ -408,10 +408,10 @@ Some element types support restricting certain metadata values.
 
 The restrictions can be applied to file elements, [file set elements](syntax#file-and-directory-sets), or `<include>` elements. Attributes on `<include>` elements override those on file set elements.
 
-| File element | Supported restriction attributes                                                | Example
-|--------------|---------------------------------------------------------------------------------|--------
-| `<pe-file>`  | PE file headers: `product-name`, `product-version`                              | [PE file restrictions](examples#pe-restriction)
-| `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`  | [SBOM restrictions](examples#sbom-restriction)
+| File element | Supported restriction attributes                                                                                        | Example
+|--------------|-------------------------------------------------------------------------------------------------------------------------|--------
+| `<pe-file>`  | PE file headers: `product-name`, `product-version`, `file-version`, `company-name`, `copyright`, `original-filename`    | [PE file restrictions](examples#pe-restriction)
+| `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`                                          | [SBOM restrictions](examples#sbom-restriction)
 
 
 **Footnotes:**

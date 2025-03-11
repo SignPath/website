@@ -1,3 +1,22 @@
+- date: '2025-03-11'
+  updates:
+    application:
+      version: 1.183.0
+      new_features:
+        - text: |-
+            Added support for storing and retrieving X.509 certificate chains (for e.g. certificates issued by in-house PKIs).
+          issues: [SIGN-7423]
+        - text: Added support for `file-version`, `company-name`, `copyright`, and `original-filename` to [`<pe-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
+          issues: [SIGN-7395]
+      improvements:
+        - text: |-
+            The `rsa-padding` attribute in `create-cms-signature` or `create-raw-signature` doesn't lead to validation errors when signing with an ECDSA certificate (it will be just ignored).
+          issues: [SIGN-7568]
+    bug_fixes:
+      version: 1.183.0
+      improvements:
+        - text: Fixed a memory leak in SignService with enabled HSM watchdog.
+          issues: [SIGN-7606]
 - date: '2025-02-25'
   updates:
     application:
