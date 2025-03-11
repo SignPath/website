@@ -90,15 +90,16 @@ Example of a directory structure that would match this configuration:
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
+  <parameters>
+    <parameter name="version" required="true" />
+  </parameters>
   <msi-file>
     <!-- requires all pe-files to have the respective attributes set -->
-    <pe-file-set
-      product-name="YourProductName" product-version="1.0.0.0" file-version="1.0.0.0"
-      company-name="ACME" copyright="Copyright ACME" original-filename="${file.name}">
-
+    <pe-file-set product-name="MyProduct" product-version="${version}" file-version="${version}"
+                 company-name="ACME Inc." copyright="Copyright ACME Inc." original-filename="${file.name}">
       <include path="main.exe" />
-      <!-- overrides the value of the parent pe-file-set -->
-      <include path="resources*.resource.dll" max-matches="unbounded" product-version="1.0.1.0" />
+      <!-- for mylibrary, override product name, interit all other attributes from parent pe-file-set -->
+      <include path="mylibrary.dll" max-matches="unbounded" product-name="MyLibrary" />
       <for-each>
         <authenticode-sign />
       </for-each>

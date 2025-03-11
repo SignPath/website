@@ -215,8 +215,8 @@ The `create-cms-signature` directive supports the following parameters:
 |--------------------|---------------------------|------------------------------|-------------------------------------------------
 | `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
 | `output-encoding`  | (mandatory)               | `pem`, `der`                 | The encoding of the output file containing the signature.
-| `hash-algorithm`   | `sha256`                  | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature 
-| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| `hash-algorithm`   | `sha256`                  | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (ignored for non-RSA keys).
 
 #### CMS example
 
