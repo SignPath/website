@@ -408,10 +408,10 @@ Some element types support restricting certain metadata values.
 
 The restrictions can be applied to file elements, [file set elements](syntax#file-and-directory-sets), or `<include>` elements. Attributes on `<include>` elements override those on file set elements.
 
-| File element | Supported restriction attributes                                                | Example
-|--------------|---------------------------------------------------------------------------------|--------
-| `<pe-file>`  | PE file headers: `product-name`, `product-version`                              | [PE file restrictions](examples#pe-restriction)
-| `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`  | [SBOM restrictions](examples#sbom-restriction)
+| File element | Supported restriction attributes                                                                                        | Example
+|--------------|-------------------------------------------------------------------------------------------------------------------------|--------
+| `<pe-file>`  | PE file headers: `product-name`, `product-version`, `file-version`, `company-name`, `copyright`, `original-filename`    | [PE file restrictions](examples#pe-restriction)
+| `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`                                          | [SBOM restrictions](examples#sbom-restriction)
 
 
 **Footnotes:**

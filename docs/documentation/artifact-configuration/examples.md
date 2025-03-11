@@ -92,7 +92,10 @@ Example of a directory structure that would match this configuration:
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <msi-file>
     <!-- requires all pe-files to have the respective attributes set -->
-    <pe-file-set product-name="YourProductName" product-version="1.0.0.0"> 
+    <pe-file-set
+      product-name="YourProductName" product-version="1.0.0.0" file-version="1.0.0.0"
+      company-name="ACME" copyright="Copyright ACME" original-filename="${file.name}">
+
       <include path="main.exe" />
       <!-- overrides the value of the parent pe-file-set -->
       <include path="resources*.resource.dll" max-matches="unbounded" product-version="1.0.1.0" />
