@@ -322,7 +322,7 @@ The `create-raw-signature` directive supports the following parameters:
 |--------------------|---------------------------|------------------------------|-------------------------------------------------
 | `output-file-name` | (mandatory)               |                              | Name of the output file containing the signature. Use `${file.name}` to reference the source file name.
 | `hash-algorithm`   | (mandatory)               | `sha256`, `sha384`, `sha512` | Hash algorithm used to create the signature.
-| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (supported only when using RSA keys).
+| `rsa-padding`      | (mandatory for RSA keys)  | `pkcs1`, `pss`               | Padding algorithm (ignored for non-RSA keys).
 
 (All cryptographic parameters are mandatory because raw signatures contain no metadata for agnostic verification.)
 
