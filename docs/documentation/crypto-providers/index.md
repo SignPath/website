@@ -130,6 +130,7 @@ HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are tre
 The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.
 
 **Sample configuration file:**
+{: #sample-configuration-file}
 
 ~~~json
 {
