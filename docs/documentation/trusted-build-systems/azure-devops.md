@@ -23,14 +23,15 @@ description: Azure DevOps
     </artifact-configuration>
     ```
     See [Artifact Configurations](/documentation/artifact-configuration) for more details.
+
+    {:.panel.info}
+    > **Root folder in artifact configuration**
+    >
+    > Azure DevOps allows to publish whole directories as artifacts. When downloading the artifacts, they provide a zip archive including a folder with the name of artifact as specified in the pipeline definition. The artifact configuration needs to map this format.
+
 * In your Azure DevOps organization, install the [SignPath Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
 * In your Azure DevOps project, add a Service Connection of type SignPath
 * Use the provided task in your build pipelines to sign the artifact
-
-{:.panel.info}
-> **Root folder in artifact configuration**
->
-> Azure DevOps allows to publish whole directories as artifacts. When downloading the artifacts, they provide a zip archive including a folder with the name of artifact as specified in the pipeline definition. The artifact configuration needs to map this format.
 
 
 {:.panel.info}
@@ -45,7 +46,7 @@ The Azure DevOps connector performs the following checks:
 
 * A build was actually performed by an Azure DevOps pipeline, not by some other entity in possession of the API token
 * [Origin metadata](/documentation/origin-verification) is provided by Azure DevOps, not the build script, and can therefore not be forged
-* The artifact is stored as an Azure DevOps pipeline artifact before it is submitted for signing
+* The artifact is stored on the Azure DevOps server before it is submitted for signing
 
 ## Usage
 
@@ -68,7 +69,10 @@ steps:
     projectSlug: '<SignPath project slug>'
     artifactConfigurationSlug: 'azure-devops'
     signingPolicySlug: '<SignPath signing policy slug>'
-    artifactName: 'unsigned-artifact'
+    parameters: |
+      version: ${{ convertToJson(parameters.someUserInput) }}
+      myparam: "another param"
+    azureDevOpsArtifactName: 'unsigned-artifact'
     waitForCompletion: true
     outputArtifactDirectory: '$(Build.SourcesDirectory)/signed'
 ```
@@ -87,6 +91,8 @@ steps:
 | `waitForCompletion`                           | (mandatory)                   | If true, the action will wait for the signing request to complete. Defaults to `true`.
 | `outputArtifactDirectory`                     |                               | Path to where the signed artifact will be extracted. If not specified, the task will not download the signed artifact from SignPath.
 | `waitForCompletionTimeoutInSeconds`           | `600`                         | Maximum time in seconds that the action will wait for the signing request to complete.
+| `serviceUnavailableTimeoutInSeconds`          | `600`                         | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
+
 | `downloadSignedArtifactTimeoutInSeconds`      | `300`                         | HTTP timeout when downloading the signed artifact. Defaults to 5 minutes.
 | `parameters`                                  |                               | Multiline-string of values that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
 
