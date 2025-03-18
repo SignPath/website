@@ -65,7 +65,6 @@ steps:
 - task: SubmitSigningRequest@1
   inputs:
     serviceConnectionName: 'my-signpath-service-connection'
-    organizationId: '<SignPath organization id>'
     projectSlug: '<SignPath project slug>'
     artifactConfigurationSlug: 'azure-devops'
     signingPolicySlug: '<SignPath signing policy slug>'
@@ -83,7 +82,6 @@ steps:
 | Parameter                                     | Default Value                 | Description 
 |-----------------------------------------------|-------------------------------|---------------------------
 | `serviceConnectionName`                       | (mandatory)                   | The name of the service connection used for authentication.
-| `organizationId`                              | (mandatory)                   | The SignPath organization ID.
 | `projectSlug`                                 | (mandatory)                   | The SignPath project slug.
 | `signingPolicySlug`                           | (mandatory)                   | The SignPath signing policy slug.
 | `artifactConfigurationSlug`                   |                               | The SignPath artifact configuration slug. If not specified, the default is used.
