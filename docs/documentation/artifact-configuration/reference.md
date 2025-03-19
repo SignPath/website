@@ -2,7 +2,7 @@
 header: Reference
 layout: resources
 toc: true
-show_toc: 3
+show_toc: 2
 description: Artifact Configuration Reference
 datasource: tables/artifact-configuration
 ---
@@ -19,9 +19,11 @@ Container elements such as directories, archives, installers and package formats
 
 <!-- markdownlint-disable MD026 no trailing punctuation -->
 
-Specify signing directives in file and directory elements. 
+Signing methods are used in:
 
-For [file and directory sets](syntax#file-and-directory-sets), specify the signing directive in the `<for-each>` element.
+* file elements (e.g. `<authenticode-sign` in `<pe-file>`)
+* directory elements (`<clickonce-sign>` in `<directory`)
+* [file and directory sets](syntax#file-and-directory-sets) (in the `<for-each>` element)
 
 ### `<authenticode-sign>`: Authenticode (Windows) {#authenticode-sign}
 
