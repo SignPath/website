@@ -20,7 +20,7 @@ SignPath helps you control access to your code signing certificates. You have to
 With SignPath, you have the following options for creating or importing a certificate:
 
 * **Self-signed X.509 certificates** are not signed by any certificate authority and therefore not trusted. You can use them for testing your release process.
-* **X.509 certificate signing requests (CSRs)** can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process.
+* **X.509 certificate signing requests (CSRs)** can be created using SignPath. You can use the CSR to purchase a certificate from a trusted certificate authority (CA). By creating a CSR, you ensure that the private key is created directly on our hardware security module (HSM) and cannot be compromised. This is the recommended way for securing your code signing process. Once issued, you can [upload the certificate](#ca-issued-x509-certificates) to SignPath.
 * **PFX-imported X.509 certificates**: If you already own a certificate, you can simply upload it. However, as your private key may have already been exposed, we recommend to use PFX imports only as a temporary solution. (Only available for RSA keys.)
 * **GPG keys** are certificates based on the OpenPGP standard, also known as GPG or GnuPG. They can be used to sign arbitrary files using GPG detached signature file. It is also the foundation of many Linux and Open Source signing formats including RPM and Debian package signing.
 
@@ -43,3 +43,23 @@ With SignPath, you have the following options for creating or importing a certif
 ## Restrictions
 
 SignPath allows you to configure restrictions for certificates. You can, for instance, specify that all signing requests that are using the certificate must be manually approved.
+
+## CA issued X.509 certificates
+X.509 certificates issued by a certificate authority (CA) can be uploaded to SignPath.
+
+### Certificate chains
+
+**Publisher certificates** (also know as the leaf certificates) identify the publisher and contain the public key of the key pair that is actually used for signing.
+**[Certificate chains](/code-signing/theory#certificate-chains)** also contain the issuers of the publisher certificate (often an intermediary certificate, which is in turn issued by a root certificate). They can be complete (from publisher to root) or incomplete.
+
+### File formats and encoding
+X.509 certificates can be uploaded in several formats. Some of these formats can only contain the publisher certificate. Other formats can also contain complete or partial certificate chains. SignPath supports the following formats:
+
+| Format        | Common extensions       | Content                      
+|---------------|-------------------------|------------------------------
+| PEM           | `.pem`, `.cer`          | Base64 encoded certificate(s). Multiple certificates are simply appended.
+| DER           | `.cer`, `.crt`, `.der`  | A single certificate in binary format.
+| PKCS#7 (CMS)  | `.p7b`                  | A collection of certificates, wrapped in a PKCS#7 structure.
+
+### Uploading certificates
+When a publisher certificate or a partial certificate chain is uploaded, SignPath tries to complete the certificate chain using publicly available information. This usually works well for certificates issued by commercial Certificate Authorities. For private certificates issued by private PKIs, we recommend uploading the entire certificate chain.
