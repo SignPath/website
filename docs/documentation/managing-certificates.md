@@ -44,7 +44,7 @@ With SignPath, you have the following options for creating or importing a certif
 
 SignPath allows you to configure restrictions for certificates. You can, for instance, specify that all signing requests that are using the certificate must be manually approved.
 
-## CA issued X.509 certificates
+## CA-issued X.509 certificates
 X.509 certificates issued by a certificate authority (CA) can be uploaded to SignPath.
 
 ### Certificate chains
@@ -57,7 +57,7 @@ X.509 certificates can be uploaded in several formats. Some of these formats can
 
 | Format        | Common extensions       | Content                      
 |---------------|-------------------------|------------------------------
-| PEM           | `.pem`, `.cer`          | Base64 encoded certificate(s). Multiple certificates are simply appended.
+| PEM           | `.pem`, `.cer`          | Base64-encoded certificate(s). Multiple certificates are simply appended.
 | DER           | `.cer`, `.crt`, `.der`  | A single certificate in binary format.
 | PKCS#7 (CMS)  | `.p7b`                  | A collection of certificates, wrapped in a PKCS#7 structure.
 
