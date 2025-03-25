@@ -1,3 +1,13 @@
+- date: '2025-03-25'
+  updates:
+    application:
+      version: 1.184.0
+      new_features:
+        - text: Certificate chains are now automatically resolved. See the [documentation](/documentation/managing-certificates#uploading-certificates).
+          issues: [SIGN-7551]
+      improvements:
+        - text: Uploaded X.509 certificate chains are now embedded in the signature when using the `<authenticode-sign>` directive.
+          issues: [SIGN-7552]
 - date: '2025-03-19'
   updates:
     github_connector:
