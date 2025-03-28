@@ -2,15 +2,13 @@
 header: Azure DevOps
 layout: resources
 toc: true
-show_toc: 2
+show_toc: 3
 description: Azure DevOps
 ---
 
 ## Prerequisites
 
-* On SignPath.io: Use the predefined Trusted Build System _Azure DevOps (dev.azure.com)_ (see [configuration](/documentation/trusted-build-systems#configuration))
-  *  add it to the Organization
-  *  link it to the respective Projects
+* On SignPath.io: [Use the predefined Trusted Build System](/documentation/trusted-build-systems#configuration) _Azure DevOps (dev.azure.com)_.
 * Create an artifact configuration with the following format:
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>
@@ -50,7 +48,7 @@ The Azure DevOps connector performs the following checks:
 
 ## Usage
 
-We provide a `SubmitSigningRequest` task that can be integrated into a Azure DevOps pipeline definition:
+The SignPath extension provides a `SubmitSigningRequest` task that can be integrated into a Azure DevOps pipeline definition:
 
 {% raw %}
 ```yaml
