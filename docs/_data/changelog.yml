@@ -1,3 +1,13 @@
+- date: '2025-04-15'
+  updates:
+    teamcity_plugin:
+      version: '1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
+    teamcity_connector:
+      version: '1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
 - date: '2025-03-11'
   updates:
     application:

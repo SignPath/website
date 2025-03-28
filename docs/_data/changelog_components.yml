@@ -8,6 +8,8 @@ components:
   - macos_cryptotokenkit
   - github_connector
   - jenkins_plugin
+  - teamcity_plugin
+  - teamcity_connector
 
 # used for lookup
 details:
@@ -27,3 +29,7 @@ details:
     label: 'GitHub Connector'
   jenkins_plugin: 
     label: 'Jenkins Plugin'
+  teamcity_plugin:
+    label: 'TeamCity Plugin'
+  teamcity_connector:
+    label: 'TeamCity Connector'
