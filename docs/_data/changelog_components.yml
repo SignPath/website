@@ -8,6 +8,7 @@ components:
   - macos_cryptotokenkit
   - github_connector
   - jenkins_plugin
+  - azure_devops_extension
 
 # used for lookup
 details:
@@ -27,3 +28,5 @@ details:
     label: 'GitHub Connector'
   jenkins_plugin: 
     label: 'Jenkins Plugin'
+  azure_devops_extension:
+    label: 'Azure DevOps Extension'

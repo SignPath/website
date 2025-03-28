@@ -1,3 +1,9 @@
+- date: '2025-04-15'
+  updates:
+    azure_devops_extension:
+      version: '4.0.0'
+      new_features:
+        - text: 'Azure DevOps is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
 - date: '2025-02-12'
   updates:
     jenkins_plugin:
