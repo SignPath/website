@@ -48,9 +48,13 @@ project {
                 apiToken = "<Signpath api token>"
                 projectSlug = "<SignPath project slug>"
                 signingPolicySlug = "<SignPath signing policy slug>"
-                inputArtifactPath = "path/to/your/artifact"
+                inputArtifactPath = "path/to/your/artifact => tc_artifact_name"
                 outputArtifactPath = "path/to/store/the/signed/artifact"
                 waitForCompletion = true
+                parameters = """
+                    version: 1.0.0
+                    other_param: other value
+                """
             }
         }
     }
@@ -72,17 +76,15 @@ Add a build step of type _SignPath: Submit Signing Request_
 | `projectSlug`                                     | (mandatory)                   | The SignPath project slug.
 | `signingPolicySlug`                               | (mandatory)                   | The SignPath signing policy slug.
 | `artifactConfigurationSlug`                       |                               | The SignPath artifact configuration slug. If not specified, the default is used.
-| `inputArtifactPath`                               | (mandatory)                   | The path to the artifact to be signed. Both absolute paths and relative paths from the working directory are accepted.
+| `inputArtifactPath`                               | (mandatory)                   | The path to the artifact to be signed. Both absolute paths and relative paths from the working directory are accepted. You can also use the TeamCity syntax `<path> => <published_artifact_name>` to map a file path to the name of a published artifact. 
 | `waitForCompletion`                               | (mandatory)                   | If true, the action will wait for the signing request to complete. Defaults to `true`.
 | `outputArtifactPath`                              |                               | Path to where the signed artifact will be stored. Both absolute paths and relative paths from the working directory are accepted.
+| `parameters`                                      |                               | Multiline-string of values that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration. Use one line per parameter with the format `<name>: <value>`.
 | `waitForCompletionTimeoutInSeconds`               | `600`                         | Maximum time in seconds that the action will wait for the signing request to complete.
 | `serviceUnavailableTimeoutInSeconds`              | `600`                         | Total time in seconds that the action will wait for a single service call to succeed (across several retries).
 | `uploadAndDownloadSignedArtifactTimeoutInSeconds` | `300`                         | HTTP timeout used for upload or download of the artifact.Defaults to 5 minutes.
 | `publishUnsignedArtifactTimeoutInSeconds`         | `300`                         | Timeout used for publishing the unsigned artifact to the TeamCity server before sending the signing request.
 
-<!-- TODO
-| `parameters`                                      |                               | Multiline-string of values that map to [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) in the Artifact Configuration. Use one line per parameter with the format `<name>: "<value>"` where `<value>` needs to be a valid JSON string.
--->
 
 ### Build step output parameters
 
