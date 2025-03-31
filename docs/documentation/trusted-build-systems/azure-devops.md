@@ -28,7 +28,7 @@ description: Azure DevOps
     > Azure DevOps allows to publish whole directories as artifacts. When downloading the artifacts, they provide a zip archive including a folder with the name of artifact as specified in the pipeline definition. The artifact configuration needs to map this format.
 
 * In your Azure DevOps organization, install the [SignPath Azure DevOps Extension](https://marketplace.visualstudio.com/items?itemName=SignPath.signpath-tasks)
-* In the Azure DevOps project settings, add a Service Connection of type SignPath
+* In the Azure DevOps project settings, create a Service Connection of type SignPath
 * Use the provided task in your build pipelines to sign the artifact
 
 
