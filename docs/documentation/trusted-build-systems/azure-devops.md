@@ -95,7 +95,7 @@ steps:
 ### Action output variables
 
 The action supports the following output parameters:
-- `SigningRequestId`: The id of the newly created signing request. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNINGREQUESTID`
-- `SigningRequestWebUrl`: The url of the signing request in SignPath. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNINGREQUESTWEBURL``.
+- `SigningRequestId`: The id of the newly created signing request. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNINGREQUESTID`.
+- `SigningRequestWebUrl`: The url of the signing request in SignPath. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNINGREQUESTWEBURL`.
 - `SignPathApiUrl`: The base API url of the SignPath API. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNPATHAPIURL`.
 - `SignedArtifactDownloadUrl`: The url of the signed artifact in SignPath. Available to subsequent tasks as an environment variable `<TASKNAME>_SIGNEDARTIFACTDOWNLOADURL`.
