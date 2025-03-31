@@ -54,7 +54,7 @@ project {
                 parameters = """
                     version: 1.0.0
                     other_param: other value
-                """
+                """.trimIndent()
             }
         }
     }
