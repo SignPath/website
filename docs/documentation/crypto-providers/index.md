@@ -180,7 +180,7 @@ $ApiTokenRegistryValueName = "MyEncryptedApiToken"
 
 # Write encrypted & encoded ApiToken to registry
 New-Item -Path "HKCU:\SOFTWARE\" -Name SignPath
-New-ItemProperty -Path "HKCU:\SOFTWARE\SignPath" -Name "$ApiTokenRegistryValueName" -Value "$EncryptedBase64EncodedApiToken" -PropertyType "String"
+New-ItemProperty -Path "HKCU:\SOFTWARE\SignPath" -Name $ApiTokenRegistryValueName -Value $EncryptedBase64EncodedApiToken -PropertyType "String"
 ~~~
 
 ### HTTP Proxy {#http-proxy-config}
