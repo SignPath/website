@@ -9,6 +9,15 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Apr. 8, 2025'
+    range: 'Apr. 8, 2025, 12:00 - 14:00 UTC'
+    type: warning
+    title: 'Login portal migration'
+    description: |
+      Planned migration within our login portal infrastructure.
+
+      * User login requests incl. SSO logins may not work during this period.
+      * Existing UI sessions as well as REST API requests won't be affected.
   - date: 'Jan. 2, 2025'
     range: 'Jan. 2, 2025, 04:20 - 09:25 UTC'
     type: warning
