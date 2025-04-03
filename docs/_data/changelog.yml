@@ -3,9 +3,9 @@
     application:
       version: 1.185.0
       improvements:
-        - text: (Personal) API tokens of interactive users can now be used in combination with trusted build systems/origin verification.
+        - text: Personal API tokens of interactive users can now be used in combination with trusted build systems/origin verification.
           issues: [SIGN-7693]
-        - text: Performance improve group membership changes especially for groups with frequent changes.
+        - text: Performance improvement for group membership changes (especially for groups with frequent changes).
           issues: [SIGN-7532]
 - date: '2025-03-25'
   updates:
