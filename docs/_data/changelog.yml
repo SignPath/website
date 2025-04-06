@@ -3,7 +3,7 @@
     application:
       version: 1.184.0
       new_features:
-        - text: Certificate chains are now automatically resolved. See the [documentation](/documentation/managing-certificates#uploading-certificates).
+        - text: Certificate chains are now automatically resolved. See the [documentation](/managing-certificates#uploading-certificates).
           issues: [SIGN-7551]
       improvements:
         - text: Uploaded X.509 certificate chains are now embedded in the signature when using the `<authenticode-sign>` directive.
@@ -23,7 +23,7 @@
         - text: |-
             Added support for storing and retrieving X.509 certificate chains (for e.g. certificates issued by in-house PKIs).
           issues: [SIGN-7423]
-        - text: Added support for `file-version`, `company-name`, `copyright`, and `original-filename` to [`<pe-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
+        - text: Added support for `file-version`, `company-name`, `copyright`, and `original-filename` to [`<pe-file>` metadata restrictions](/artifact-configuration/reference#metadata-restrictions).
           issues: [SIGN-7395]
       improvements:
         - text: |-
@@ -59,7 +59,7 @@
     github_connector:
       version: 1.2.0
       improvements:
-        - text: The [SignPath GitHub App](/documentation/trusted-build-systems/github) is only required if source code and build policy verification is used.
+        - text: The [SignPath GitHub App](/trusted-build-systems/github) is only required if source code and build policy verification is used.
           issues: [SIGN-7506]
       bug_fixes:
         - text: Fixed bug for workflow runs with skipped jobs.
@@ -90,7 +90,7 @@
               * moved Organization ID and API token parameters to the "inner" scenario scripts 
               * improved Cryptoki library discovery
               * various minor improvements
-            * [GPG-based hash signing](/documentation/crypto-providers/gpg): GPG public key file is now downloaded automatically. Therefore the `-GpgKeyId` parameter of the scenario scripts has been replaced with `-ProjectSlug` and `-SigningPolicySlug`.
+            * [GPG-based hash signing](/crypto-providers/gpg): GPG public key file is now downloaded automatically. Therefore the `-GpgKeyId` parameter of the scenario scripts has been replaced with `-ProjectSlug` and `-SigningPolicySlug`.
             * Changed work directory from `Samples/Scenarios/temp` to `Samples/Scenarios/Work` and logs directory to `Samples/Scenarios/Work/Logs`.
             * Added detached CMS signing sample to the OpenSSL scenario.
           issues: [SIGN-7410, SIGN-7497]
@@ -111,17 +111,17 @@
       version: 1.179.0
       new_features:
         - text: |-
-            Added support for [detached GPG file signing](/documentation/artifact-configuration/reference#create-gpg-signature).
+            Added support for [detached GPG file signing](/artifact-configuration/reference#create-gpg-signature).
           issues: [SIGN-7455]
         - text: |-
             The signing request details page now displays details of detected malware including threat names and the exact file location in container files like ZIP archives.
           issues: [SIGN-7454]
       improvements:
         - text: |-
-            [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature): renamed `file-name` attribute to `output-file-name`. (`file-name` is still supported for backwards compatibility.)
+            [`<create-raw-signature>`](/artifact-configuration/reference#create-raw-signature): renamed `file-name` attribute to `output-file-name`. (`file-name` is still supported for backwards compatibility.)
           issues: [SIGN-7490]
         - text: |-
-            [`<create-cms-signature>`](/documentation/artifact-configuration/reference#create-cms-signature): `hash-algorithm` attribute is now optional.
+            [`<create-cms-signature>`](/artifact-configuration/reference#create-cms-signature): `hash-algorithm` attribute is now optional.
           issues: [SIGN-7507]
       bug_fixes:
         - text: |-
@@ -141,14 +141,14 @@
     application:
       version: 1.177.2
       new_features:
-        - text: Added support for [Cryptographic Message Syntax (CMS) signatures](/documentation/artifact-configuration/reference#create-cms-signature).
+        - text: Added support for [Cryptographic Message Syntax (CMS) signatures](/artifact-configuration/reference#create-cms-signature).
           issues: [SIGN-7477]
 - date: '2024-12-16'
   updates:
     github_connector:
       version: 1.1.0
       new_features:
-        - text: Policy checks for branch rulesets, build and build runner are supported. See the [documentation](/documentation/trusted-build-systems/github#build-and-source-code-policies).
+        - text: Policy checks for branch rulesets, build and build runner are supported. See the [documentation](/trusted-build-systems/github#build-and-source-code-policies).
           issues: [SIGN-7266, SIGN-7285, SIGN-2792, SIGN-7424, SIGN-7433, SIGN-7266, SIGN-7199, SIGN-7198]
       bug_fixes:
         - text: Fixed a bug that prevented signing requests from being submitted when the "re-run failed jobs" feature of workflows was used for workflows with multiple jobs.
@@ -161,7 +161,7 @@
       version: 1.177.0
       new_features:
         - text: |-
-            Added [GPG key management](/documentation/managing-certificates):
+            Added [GPG key management](/managing-certificates):
             * GPG keys can now be created directly in the SignPath UI.
             * They can currently be used for hash signing and `create-raw-signature`.
           issues: [SIGN-7247]
@@ -207,10 +207,10 @@
       version: 5.1.0
       new_features:
         - text: |-
-            Added support for using GPG keys generated by [SignPath certificate management](/documentation/managing-certificates):
+            Added support for using GPG keys generated by [SignPath certificate management](/managing-certificates):
             * It is no longer required to locally generate GPG keys based on backing X.509 certificates. You can create GPG keys directly in the SignPath UI.
             * Requires SignPath version 1.177 or higher.
-            * Adapted and simplified the Linux container samples for [GPG hash signing](/documentation/crypto-providers/gpg).
+            * Adapted and simplified the Linux container samples for [GPG hash signing](/crypto-providers/gpg).
           issues: [SIGN-7341, SIGN-7318]
       improvements:
         - text: |-
@@ -274,7 +274,7 @@
     jenkins_plugin:
       version: '2.1.0'
       new_features:
-        - text: Added support for [user-defined parameters](/documentation/artifact-configuration/syntax#parameters).
+        - text: Added support for [user-defined parameters](/artifact-configuration/syntax#parameters).
           issues: [SIGN-6986]
       improvements:
         - text: The _API Token Credential_ can now be stored either in th _System_ or a _Global_ (recommended) scope.
@@ -329,7 +329,7 @@
           issues: [SIGN-7248]
       new_features:
         - text: |-
-            ECDSA hash signing: added support for signature block format "RFC 3279 ASN.1 sequence". See [artifact format for signing hash digests](/documentation/crypto-providers/rest-api#hash-signing-payload-json).
+            ECDSA hash signing: added support for signature block format "RFC 3279 ASN.1 sequence". See [artifact format for signing hash digests](/crypto-providers/rest-api#hash-signing-payload-json).
           issues: [SIGN-7240]
       improvements:
         - text: |-
@@ -398,7 +398,7 @@
     github_connector:
       version: '1.0' # note is 0.8 in connectors release
       new_features:
-        - text: 'Initial release: GitHub.com is now available as a [Trusted Build System](/documentation/trusted-build-systems).'
+        - text: 'Initial release: GitHub.com is now available as a [Trusted Build System](/trusted-build-systems).'
 - date: '2024-08-13'
   updates:
     application:
@@ -445,7 +445,7 @@
             For all other `v1` APIs, `multipart/form-data` is no longer available.
           issues: [SIGN-7050]
         - text: |-
-            Authenticode signing now supports the following [optional attributes](/documentation/artifact-configuration/reference#authenticode-sign-attributes):
+            Authenticode signing now supports the following [optional attributes](/artifact-configuration/reference#authenticode-sign-attributes):
               * `description` and `description-url`
               * `hash-algorithm`
           issues: [SIGN-5410, SIGN-7177]
@@ -507,7 +507,7 @@
       version: 1.168.1
       new_features:
         - text: >-
-            Added support for [appending Authenticode signatures](/documentation/artifact-configuration/reference#authenticode-sign-attributes).
+            Added support for [appending Authenticode signatures](/artifact-configuration/reference#authenticode-sign-attributes).
           issues: [SIGN-7004]
       improvements:
         - text: >-
@@ -573,13 +573,13 @@
               * Use `SIGNPATH_LOG_CONSOLE_LEVEL=none` to opt-out from file logging.
             * Console logging (if enabled) now logs to stderr instead of stdout by default.
               * Use the new `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM` configuration to switch back to `stdout`.
-            * See [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) for details.
+            * See [Crypto Provider configuration](/crypto-providers#crypto-provider-configuration) for details.
           issues: [SIGN-6987]
       new_features:
         - text: |-
             The Windows Crypto Providers (incl. KSP, CSP and Cryptoki library) now are delivered with a Windows MSI installer.
 
-            * See [install/uninstall docs](/documentation/crypto-providers/windows#installation). This also includes unattended installation options.
+            * See [install/uninstall docs](/crypto-providers/windows#installation). This also includes unattended installation options.
             * To upgrade from a previous _manual_ installation/registration or from an `InstallCspKsp.ps1` installation:
               * Install using the new MSI
               * In case you used a `SIGNPATH_CONFIG_FILE` JSON file: copy its content to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json`
@@ -652,7 +652,7 @@
       version: 1.163.0
       new_features:
         - text: >-
-            Authenticode files can now be signature _validated_ with the new [`<authenticode-verify />`](/documentation/artifact-configuration/reference#authenticode-verify) artifact configuration directive.
+            Authenticode files can now be signature _validated_ with the new [`<authenticode-verify />`](/artifact-configuration/reference#authenticode-verify) artifact configuration directive.
 
             Use to ensure that third-party components are properly signed in deep signing configurations.
           issues: [SIGN-2021]
@@ -715,7 +715,7 @@
       version: 1.160.1
       improvements:
         - text: |-
-            Artifact configuration: [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature) supports input filename substitution via `${file.name}`.
+            Artifact configuration: [`<create-raw-signature>`](/artifact-configuration/reference#create-raw-signature) supports input filename substitution via `${file.name}`.
           issues: [SIGN-6771]
         - text: |-
             "Resubmit with current settings" now also works for signing requests which fail due to an _artifact retrieval_ error.
@@ -1106,12 +1106,12 @@
       version: 1.149.2
       new_features:
         - text: >-
-            Added limited administrator roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/documentation/users#roles).
+            Added limited administrator roles: _User Administrator_, _Project Administrator_ and _Certificate Administrator. For more details, see the [user roles documentation](/users#roles).
           issues: [SIGN-6305]
         - text: >-
-            [Select multiple files](/documentation/artifact-configuration/syntax#zip-file-element) is now generally available.
+            [Select multiple files](/artifact-configuration/syntax#zip-file-element) is now generally available.
           issues: []
-        - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/documentation/artifact-configuration#deep-signing-of-nested-files).
+        - text: Added support for deep signing of APPX and MSIX files. Read more about [deep signing](https://about.signpath.io/artifact-configuration#deep-signing-of-nested-files).
           issues: [SIGN-6150]
       bug_fixes:
         - text: Fixes incorrect display of malware scanning status for old signing requests.
@@ -1147,7 +1147,7 @@
     application:
       version: 1.148.2
       new_features:
-        - text: Added support for personal API tokens for interactive users. See [authentication](/documentation/build-system-integration#authentication).
+        - text: Added support for personal API tokens for interactive users. See [authentication](/build-system-integration#authentication).
           issues: [SIGN-6246]
       improvements:
         - text: >-
@@ -1158,7 +1158,7 @@
             (Existing spelling is still valid for the current schema version.)
           issues: [SIGN-6000]
         - text: >-
-            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/documentation/artifact-configuration/syntax#zip-file-element).
+            The zip archive created when uploading multiple files for signing is now named `bundle.zip`. See [`ui-multifile-upload`](/artifact-configuration/syntax#zip-file-element).
           issues: [SIGN-6271]
         - text: Renamed "Initial Login Email Address" of interactive users to "Account email address" in the user interface and `InteractiveUser` pre-release APIs.
           issues: [SIGN-6069]
@@ -1226,7 +1226,7 @@
     application:
       version: 1.146.0
       new_features:
-        - text: Added [`ui-multifile-upload`](/documentation/artifact-configuration/syntax#zip-file-element) feature to upload multiple files in signing request web client UI (preview).
+        - text: Added [`ui-multifile-upload`](/artifact-configuration/syntax#zip-file-element) feature to upload multiple files in signing request web client UI (preview).
           issues: [SIGN-5936]
         - text: Added "Multiple Office files with macros" default artifact configuration which allows to upload multiple Office files in the user interface.
           issues: [SIGN-5936]

@@ -2,7 +2,7 @@
 ---------------- find the last update for the passed in category (or take the latest entry)
 {%- endcomment -%}
 {%- if include.category -%}
-  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/' | append: include.category | append: '.xml' -%}
+  {%- assign id = 'https://about.signpath.io/changelog/feeds/' | append: include.category | append: '.xml' -%}
   {%- for entry in site.data.changelog -%}
     {%- if entry.updates -%}
       {%- for update in entry.updates -%}
@@ -16,7 +16,7 @@
     {%- endif -%}
   {%- endfor -%}
 {%- else -%}
-  {%- assign id = 'https://about.signpath.io/documentation/changelog/feeds/all.xml' -%}
+  {%- assign id = 'https://about.signpath.io/changelog/feeds/all.xml' -%}
   {%- assign updated = site.data.changelog[0].date -%}
 {%- endif -%}
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -51,7 +51,7 @@
         <title>SignPath {{ site.data.changelog_components.details[component].label }} {{ release.version }}</title>
         <updated>{{ entry.date | date: '%F' }}</updated>
         <published>{{ entry.date | date: '%F' }}</published>
-        <link rel="alternate" href="https://about.signpath.io/documentation/changelog#{{ entry.date | date: '%F' }}" />
+        <link rel="alternate" href="https://about.signpath.io/changelog#{{ entry.date | date: '%F' }}" />
         <category term="release/{{ component }}" label="{{ site.data.changelog_components.details[component].label }}" />
         <summary type="html">New Release: {{ category_label }} {{ release.version }}</summary>
         <content type="html">

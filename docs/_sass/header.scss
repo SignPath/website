@@ -36,7 +36,6 @@ html:not([data-scroll='0']) {
 }
 
 header nav > ul { /** main navigation **/
-	display: flex;
 	flex-direction: row;
 	list-style-type: none;
 	align-items: center;
@@ -44,11 +43,16 @@ header nav > ul { /** main navigation **/
 	padding-inline-start: 0px;
 
 	& > li {
+		display: none;
 		margin: 0px 12px;
 		position: relative;
 
 		&.login {
 			margin-right: 0px;
+		}
+
+		&.login {
+			display: block;
 		}
 
 		a {
@@ -163,16 +167,18 @@ header nav > a#main-menu-toggle {
  	}
 
  	span {
- 		padding-top:5px;
+ 		position: absolute;
+ 		right: 5px;
+ 		top: 10px;
 
  		svg {
  			width: 16px;
  			height: 16px;
- 			fill: #fff;
+ 			fill: $grey-font-color;
 
  			path {
  				stroke-width: 2;
- 				stroke: #fff;
+ 				stroke: $grey-font-color;
  			}
  		}
 
@@ -192,17 +198,6 @@ header nav > a#main-menu-toggle {
  	}
 
  	& > div {
-		visibility: hidden;
-		position: absolute;
-		right: -5px;
-		top: 1em;
-		padding: 0px;
-		padding-top: 16px;
-
-		&.with-search-term {
-			visibility: visible;
-		}
-
 		div {
 			background-color: $white-background-color;
 			border-left: 1px solid $grey-border-color;
@@ -214,6 +209,7 @@ header nav > a#main-menu-toggle {
 		 		line-height: 1.65;
 		 		padding: 6px;
 		 		min-width: 210px;
+		 		padding-right: 24px;
 
 		 		&:focus {
 		 			outline: none;
@@ -271,6 +267,7 @@ header nav > a#main-menu-toggle {
 		}
 
 		& > li {
+			display: block;
 			margin: 0px;
 
 			& > a:hover:after {

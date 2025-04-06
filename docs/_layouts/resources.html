@@ -13,7 +13,6 @@
 {%- include header.html -%}
 
 {%- assign parts = page.path | split:"/" -%}
-{%- assign root_group = parts[0] -%}
 {%- if page.nav_on_small_screen -%}
   {%- assign hideNavOnMobile = nil -%}
 {%- else -%}
@@ -23,9 +22,12 @@
 <section class="bg-blue font-white top-section resources-header">
 	<div>
 		<h1>
-		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
-		  {%- for main in site.data.menus.menus -%}
-		    {%- if main.path == root_group -%}
+		{%- assign part0_cleaned = parts[0] | split: "." | first -%}
+		{%- if parts.size == 1 and parts[0] == "index.md" -%}
+			<span class='no-break'>{{ page.header }}</span>
+		{%- else -%}
+		  {%- for main in site.data.menus.documentation -%}
+		    {%- if main.path == part0_cleaned -%}
 		    	{%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md" -%}
 		    		<span class='no-break'><a href='/{{parts[0]}}'>{{ main.text }}</a>&nbsp;&nbsp;❯&nbsp;&nbsp;</span>
 		    	{%- else -%}
@@ -33,48 +35,46 @@
 		    	{%- endif -%}
 		    {%- endif -%}
 		  {%- endfor -%}
-		  {%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md"-%}
-		  	{%- assign entry_found = 0 -%}
-		  	{%- for entry in site.data.menus[root_group] -%}
-		  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
-		  	  {%- if entry.path == part1_cleaned[0] -%}
-		  	  	{%- assign entry_found = 1 -%}
-		  	  	{%- if entry.items -%}
-		  	  	  {%- assign hideNavOnMobile = nil -%}
-		  	  	{%- endif -%}
-		  	  	<span class='no-break'>
-		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
-		  	  		  <a href='/{{parts[0]}}/{{parts[1]}}'>
-		  	  		{%- endif -%}
-		  	  		{{ entry.text }}
-		  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
-		  	  	      </a>
-		  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;
-		  	  		{%- endif -%}
-		  	  	</span>
-		  	  	{%- if parts.size > 2 -%}
-		  	  	{% assign part2_cleaned = parts[2] | split: "." -%}
-		  	  	{%- if part2_cleaned[0] != "index" -%}
-		  	  	   {%- for subentry in entry.items -%}
-		  	  	     {%- if subentry.path == part2_cleaned[0] -%}
-		  	  	       <span class='no-break'>
-		  	  	         {{ subentry.text }}
-		  	  	       </span>
-		  	  	     {%- endif -%}
-		  	  	   {%- endfor -%}
-		  	  	{%- endif -%}
-		  	  	{%- endif -%}
-		  	  {%- endif -%}
-		  	{%- endfor -%}
-		  	{%- if entry_found == 0 -%}
-		  	  <span class='no-break'>
-	  	         {{ page.header }}
-	  	      </span>
-		  	{%- endif -%}
-		  {%- endif -%}
-		{%- else -%}
-		  {{ page.header }}
-		{%- endif -%}	
+		{%- endif -%}
+	  {%- if parts.size > 2 or parts.size == 2 and parts[-1] != "index.md"-%}
+	  	{%- assign entry_found = 0 -%}
+	  	{%- for entry in site.data.documentation -%}
+	  	  {%- assign part1_cleaned = parts[1] | split: "." -%}
+	  	  {%- if entry.path == part1_cleaned[0] -%}
+	  	  	{%- assign entry_found = 1 -%}
+	  	  	{%- if entry.items -%}
+	  	  	  {%- assign hideNavOnMobile = nil -%}
+	  	  	{%- endif -%}
+	  	  	<span class='no-break'>
+	  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+	  	  		  <a href='/{{parts[0]}}/{{parts[1]}}'>
+	  	  		{%- endif -%}
+	  	  		{{ entry.text }}
+	  	  		{%- if parts.size > 2 and parts[2] != "index.md" and parts[2] != "index.html" -%}
+	  	  	      </a>
+	  	  		  &nbsp;&nbsp;❯&nbsp;&nbsp;
+	  	  		{%- endif -%}
+	  	  	</span>
+	  	  	{%- if parts.size > 2 -%}
+	  	  	{% assign part2_cleaned = parts[2] | split: "." -%}
+	  	  	{%- if part2_cleaned[0] != "index" -%}
+	  	  	   {%- for subentry in entry.items -%}
+	  	  	     {%- if subentry.path == part2_cleaned[0] -%}
+	  	  	       <span class='no-break'>
+	  	  	         {{ subentry.text }}
+	  	  	       </span>
+	  	  	     {%- endif -%}
+	  	  	   {%- endfor -%}
+	  	  	{%- endif -%}
+	  	  	{%- endif -%}
+	  	  {%- endif -%}
+	  	{%- endfor -%}
+	  	{%- if entry_found == 0 -%}
+	  	  <span class='no-break'>
+  	         {{ page.header }}
+  	      </span>
+	  	{%- endif -%}
+	  {%- endif -%}
 		</h1>
 	</div>
 </section>
@@ -83,13 +83,12 @@
 {%- endif -%}
 <section class="resources-section {{ hide_nav_class }}">
 	<div>
-		{%- if site.data.menus contains root_group and page.hide_nav != true -%}
 			<nav class='{{ hideNavOnMobile }}'>
 				{%- if page.nav_on_small_screen -%}
 				  {%- assign show_nav = 'show' -%}
 				{%- endif -%}
 				<ul class='{{ show_nav }}'>
-					{%- for entry in site.data.menus[root_group] -%}
+					{%- for entry in site.data.menus.documentation -%}
 						{%- assign activeClass = nil -%}
 						{%- assign currentGroup = nil -%}
 						{%- assign tail = parts[-1] | split: "." -%}
@@ -103,8 +102,8 @@
 						<li class='separator' />
 						{%- else -%}
 						<li class='{{ activeClass }} {{ currentGroup }}'>
-							<a href='/{{root_group}}/{{entry.path}}#'>{{ entry.text }}</a>
-							{%- if parts[1] == entry.path and entry.items -%}
+							<a href='/{{entry.path}}#'>{{ entry.text }}</a>
+							{%- if part0_cleaned == entry.path and entry.items -%}
 								<ul>
 								{%- for sub in entry.items -%}
 									{%- if parts.size > 1 -%}
@@ -115,7 +114,7 @@
 									    {%- endif -%}
 									{%- endif -%}
 									<li class='{{ activeClass }}'>
-										<a href='/{{root_group}}/{{entry.path}}/{{sub.path}}'>{{ sub.text }}</a>
+										<a href='/{{entry.path}}/{{sub.path}}'>{{ sub.text }}</a>
 									</li>
 								{%- endfor -%}
 								</ul>
@@ -125,7 +124,6 @@
 					{%- endfor -%}
 				</ul>
 			</nav>
-		{%- endif -%}
 			<div class='content'>
 				{%- include toc.html class="article-toc" html=content h_max=page.show_toc -%}
 				<article>

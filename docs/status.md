@@ -63,7 +63,7 @@ layout: status
 		</ul>
 		<p>
 			Note that system updates and SignPath software updates are not listed here unless they may result in more than 5 minutes of downtime.
-			We recommend that you set a retry limit for <i>unavailable service</i> errors of 10 minutes. This is also the default for our <a href="/documentation/build-system-integration#powershell">PowerShell scripts</a>.
+			We recommend that you set a retry limit for <i>unavailable service</i> errors of 10 minutes. This is also the default for our <a href="/build-system-integration#powershell">PowerShell scripts</a>.
 		</p>
 	</div>
 </section>

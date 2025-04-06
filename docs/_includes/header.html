@@ -63,44 +63,33 @@
       <a href='/'><img src='/assets/signpath-logo-white.svg' width="181" height="36" alt='SignPath'></a>
       <nav>
         <ul>
-          {%- for entry in site.data.menus.menus -%}
-            <li>
-              <a href='/{{entry.path}}'> {{entry.text}}</a>
-              <ul>
-                {%- for subentry in site.data.menus[entry.path] -%}
-                  {%- if subentry.separator -%}
-                    <li class='separator' />
-                  {%- else -%}
-                    {%- assign subentry_path = "/" | append: subentry.path -%}
-                    {%- assign is_variable = subentry.path | split: '$' -%}
-                    {%- if is_variable[0] == '' -%}
-                      {%- assign site_var_name = is_variable[1] -%}
-                      {%- assign subentry_path = site[site_var_name] -%}
-                    {%- endif -%}
-                    {%- if entry.subdir -%}
-                      <li> <a href='/{{entry.path}}{{subentry_path}}'> {{subentry.text}} </a> </li>
-                    {%- else -%}
-                      <li> <a href='{{subentry_path}}'> {{subentry.text}} {{site[subentry_path]}}</a> </li>
-                    {%- endif -%}
-                  {%- endif -%}
-                {%- endfor -%}
-              </ul>
-            </li>
+          {%- for entry in site.data.menus.documentation -%}
+            {%- if entry.separator -%}
+              <li class='separator' />
+            {%- else -%}
+              <li>
+                <a href='/{{entry.path}}'> {{entry.text}} </a>
+                {%- if entry.items -%}
+                  <ul>
+                    {%- for subentry in entry.items -%}
+                      <li> <a href='/{{entry.path}}/{{subentry.path}}'> {{ subentry.text }} </a> </li>
+                    {%- endfor -%}
+                  </ul>
+                {%- endif -%}
+              </li>
+            {%- endif -%}
           {%- endfor -%}
           <li class='search'>
             <div>
               <div>
                 <form method="get" target="_self" action="/search">
-                  <input type='search' name='q' placeholder="Search SignPath.io" />
+                  <input type='search' name='q' placeholder="Search Documentation" tabindex='0' />
                 </form>
               </div>
             </div>
-            <span tabindex='0'>
+            <span>
               {% include search.svg %}
             </span>
-          </li>
-          <li class='login'><a class='btn btn-flat' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Home/Login'>Login</a>
-          <li class='login'><a href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial' class='btn btn-primary trial'>Start free trial</a></li>
           </li>
         </ul>
         <a id='main-menu-toggle' href='#' onclick='document.querySelector("header > div > nav > ul").classList.toggle("open")'>

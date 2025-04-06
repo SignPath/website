@@ -209,7 +209,7 @@ similar-directories-example:
           </msi-file>
         </artifact-configuration>
         ~~~
-      image: "![graphical artifact configuration](/assets/img/resources/documentation/artifact-configuration/artifact-configuration_similar-definition.png)"
+      image: "![graphical artifact configuration](/assets/img/resources/artifact-configuration/artifact-configuration_similar-definition.png)"
 
 similar-directories-example-match:
   headers:
@@ -232,4 +232,4 @@ similar-directories-example-match:
         ~~~
 
         (All `msi`, `exe` and `dll` files are signed with Authenticode.)
-      image: "![graphical resolved artifacts](/assets/img/resources/documentation/artifact-configuration/artifact-configuration_similar-resolved.png)"
+      image: "![graphical resolved artifacts](/assets/img/resources/artifact-configuration/artifact-configuration_similar-resolved.png)"
