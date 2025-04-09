@@ -1,7 +1,7 @@
 - date: '2025-04-09'
   updates:
     azure_devops_extension:
-      version: '4.0.0'
+      version: '4.0.1'
       new_features:
         - text: 'Azure DevOps (dev.azure.com) is now supported as a [Trusted Build System](/documentation/trusted-build-systems) (In Preview).'
 - date: '2025-04-08'
