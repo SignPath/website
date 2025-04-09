@@ -3,6 +3,7 @@
 import analytics from "./analytics.js";
 import leadfeeder from "./leadfeeder.js";
 import {setGoogleAdGroup} from "./adGroup";
+import hubspot from './hubspot.js';
 
 export function setCookie(cname, cvalue, exdays) {
     const d = new Date();
@@ -53,7 +54,7 @@ function toggleMobile() {
 export const cookieConsentCookieName = 'acknowledged-cookies2';
 
 export function cookieBanner() {
-    if (!isCookieSet(cookieConsentCookieName)) {
+    if (!isCookieConsent(cookieConsentCookieName)) {
         isUserFromEu()
     } else {
         loadResources()
@@ -70,11 +71,11 @@ function isUserFromEu() {
             if(xhr.status == 200){
                 var response = JSON.parse(xhr.responseText);
                 if (response.continentCode === 'EU') {
-                showCookieBanner()
+                    showCookieBanner()
+                } else {
+                    loadResources()
+                }
             } else {
-                loadResources()
-            }
-            }else{
                 console.error('query failed');
                 showCookieBanner()
             }
@@ -125,4 +126,5 @@ function loadResources() {
     setGoogleAdGroup()
     analytics()
     leadfeeder()
+    hubspot()
 }

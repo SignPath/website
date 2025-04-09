@@ -1,9 +1,85 @@
-- date: '2025-04-15'
+- date: '2025-04-09'
   updates:
     azure_devops_extension:
       version: '4.0.0'
       new_features:
-        - text: 'Azure DevOps is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
+        - text: 'Azure DevOps (dev.azure.com) is now supported as a [Trusted Build System](/documentation/trusted-build-systems) (In Preview).'
+- date: '2025-04-08'
+  updates:
+    application:
+      version: 1.185.0
+      improvements:
+        - text: Personal API tokens of interactive users can now be used in combination with trusted build systems/origin verification.
+          issues: [SIGN-7693]
+        - text: Performance improvement for group membership changes (especially for groups with frequent changes).
+          issues: [SIGN-7532]
+- date: '2025-03-25'
+  updates:
+    application:
+      version: 1.184.0
+      new_features:
+        - text: Certificate chains are now automatically resolved. See the [documentation](/documentation/managing-certificates#uploading-certificates).
+          issues: [SIGN-7551]
+      improvements:
+        - text: Uploaded X.509 certificate chains are now embedded in the signature when using the `<authenticode-sign>` directive.
+          issues: [SIGN-7552]
+- date: '2025-03-19'
+  updates:
+    github_connector:
+      version: 1.3.1
+      improvements:
+        - text: Performance improvements.
+          issues: [SIGN-7630, SIGN-7558, SIGN-7326, SIGN-6229]
+- date: '2025-03-11'
+  updates:
+    application:
+      version: 1.183.0
+      new_features:
+        - text: |-
+            Added support for storing and retrieving X.509 certificate chains (for e.g. certificates issued by in-house PKIs).
+          issues: [SIGN-7423]
+        - text: Added support for `file-version`, `company-name`, `copyright`, and `original-filename` to [`<pe-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
+          issues: [SIGN-7395]
+      improvements:
+        - text: |-
+            The `rsa-padding` attribute in `create-cms-signature` or `create-raw-signature` doesn't lead to validation errors when signing with an ECDSA certificate (it will be just ignored).
+          issues: [SIGN-7568]
+    self_hosted_installations:
+      version: 1.183.0
+      bug_fixes:
+        - text: Fixed a memory leak in SignService with enabled HSM watchdog.
+          issues: [SIGN-7606]
+- date: '2025-02-25'
+  updates:
+    application:
+      version: 1.182.0
+      new_features:
+        - text: ECDSA keys can now be created on custom HSMs with the "Exportable" flag turned on, which allows those keys to be synchronized to a self-hosted backup HSM.
+          issues: [SIGN-7585]
+      improvements:
+        - text: Certificate signing requests (CSRs) and self-signed X.509 certificates now set the key usage _Code Signing_ as _critical_ to align with the CA/Browser forum requirements.
+          issues: [SIGN-4416]
+        - text: Improved performance when dealing with large user groups or many artifact configurations.
+          issues: [SIGN-7444, SIGN-7537]
+      bug_fixes:
+        - text: Fixed a bug that did not allow saving artifact configurations containing detached signature (Raw, CMS or GPG) directives within `<file-set>` elements.
+          issues: [SIGN-7589]
+    self_hosted_installations:
+      version: 1.182.0
+      improvements:
+        - text: Reduced image size of the `signpathio/signservice-lunahsm` container image and startup time of the SignService migration jobs.
+          issues: [SIGN-7516]
+- date: '2025-02-20'
+  updates:
+    github_connector:
+      version: 1.2.0
+      improvements:
+        - text: The [SignPath GitHub App](/documentation/trusted-build-systems/github) is only required if source code and build policy verification is used.
+          issues: [SIGN-7506]
+      bug_fixes:
+        - text: Fixed bug for workflow runs with skipped jobs.
+          issues: [SIGN-7513, SIGN-7514]
+>>>>>>> main
 - date: '2025-02-12'
   updates:
     jenkins_plugin:
