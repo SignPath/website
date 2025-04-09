@@ -79,7 +79,6 @@
       bug_fixes:
         - text: Fixed bug for workflow runs with skipped jobs.
           issues: [SIGN-7513, SIGN-7514]
->>>>>>> main
 - date: '2025-02-12'
   updates:
     jenkins_plugin:
