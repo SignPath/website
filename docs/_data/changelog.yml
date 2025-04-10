@@ -1,3 +1,13 @@
+- date: '2025-04-10'
+  updates:
+    teamcity_plugin:
+      version: '0.1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
+    teamcity_connector:
+      version: '0.1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
 - date: '2025-04-09'
   updates:
     azure_devops_extension:
