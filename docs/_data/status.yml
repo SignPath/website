@@ -9,6 +9,12 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'Apr. 8, 2025'
+    range: 'Apr. 8, 2025, 12:00 - 12:05 UTC'
+    type: warning
+    title: 'Login/identity provider migration'
+    description: |
+      Planned migration within our login/identity provider infrastructure (Okta): upgrade to a new "identity engine".
   - date: 'Jan. 2, 2025'
     range: 'Jan. 2, 2025, 04:20 - 09:25 UTC'
     type: warning

@@ -1,13 +1,45 @@
-- date: '2025-04-15'
+- date: '2025-04-10'
   updates:
     teamcity_plugin:
-      version: '1.0'
+      version: '0.1.0'
       new_features:
         - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
     teamcity_connector:
-      version: '1.0'
+      version: '0.1.0'
       new_features:
         - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
+- date: '2025-04-09'
+  updates:
+    azure_devops_extension:
+      version: '4.0.1'
+      new_features:
+        - text: 'Azure DevOps (dev.azure.com) is now supported as a [Trusted Build System](/documentation/trusted-build-systems) (In Preview).'
+- date: '2025-04-08'
+  updates:
+    application:
+      version: 1.185.0
+      improvements:
+        - text: Personal API tokens of interactive users can now be used in combination with trusted build systems/origin verification.
+          issues: [SIGN-7693]
+        - text: Performance improvement for group membership changes (especially for groups with frequent changes).
+          issues: [SIGN-7532]
+- date: '2025-03-25'
+  updates:
+    application:
+      version: 1.184.0
+      new_features:
+        - text: Certificate chains are now automatically resolved. See the [documentation](/documentation/managing-certificates#uploading-certificates).
+          issues: [SIGN-7551]
+      improvements:
+        - text: Uploaded X.509 certificate chains are now embedded in the signature when using the `<authenticode-sign>` directive.
+          issues: [SIGN-7552]
+- date: '2025-03-19'
+  updates:
+    github_connector:
+      version: 1.3.1
+      improvements:
+        - text: Performance improvements.
+          issues: [SIGN-7630, SIGN-7558, SIGN-7326, SIGN-6229]
 - date: '2025-03-11'
   updates:
     application:
@@ -22,9 +54,9 @@
         - text: |-
             The `rsa-padding` attribute in `create-cms-signature` or `create-raw-signature` doesn't lead to validation errors when signing with an ECDSA certificate (it will be just ignored).
           issues: [SIGN-7568]
-    bug_fixes:
+    self_hosted_installations:
       version: 1.183.0
-      improvements:
+      bug_fixes:
         - text: Fixed a memory leak in SignService with enabled HSM watchdog.
           issues: [SIGN-7606]
 - date: '2025-02-25'

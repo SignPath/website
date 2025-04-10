@@ -10,6 +10,7 @@ components:
   - jenkins_plugin
   - teamcity_plugin
   - teamcity_connector
+  - azure_devops_extension
 
 # used for lookup
 details:
@@ -33,3 +34,5 @@ details:
     label: 'TeamCity Plugin'
   teamcity_connector:
     label: 'TeamCity Connector'
+  azure_devops_extension:
+    label: 'Azure DevOps Extension'
