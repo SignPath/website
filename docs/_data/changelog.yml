@@ -1,10 +1,33 @@
 - date: '2025-04-10'
   updates:
+    teamcity_plugin:
+      version: '0.1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
+    teamcity_connector:
+      version: '0.1.0'
+      new_features:
+        - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
     github_connector:
       version: 1.3.2
       bug_fixes:
         - text: Fixed a bug in branch ruleset policy evaluation (potential skipping of rules; evaluation of system logs confirmed that this codepath was not executed in production)
           issues: [SIGN-7710]
+- date: '2025-04-09'
+  updates:
+    azure_devops_extension:
+      version: '4.0.1'
+      new_features:
+        - text: 'Azure DevOps (dev.azure.com) is now supported as a [Trusted Build System](/documentation/trusted-build-systems) (In Preview).'
+- date: '2025-04-08'
+  updates:
+    application:
+      version: 1.185.0
+      improvements:
+        - text: Personal API tokens of interactive users can now be used in combination with trusted build systems/origin verification.
+          issues: [SIGN-7693]
+        - text: Performance improvement for group membership changes (especially for groups with frequent changes).
+          issues: [SIGN-7532]
 - date: '2025-03-25'
   updates:
     application:
