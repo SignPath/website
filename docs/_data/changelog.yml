@@ -1,3 +1,10 @@
+- date: '2025-04-14'
+  updates:
+    github_connector:
+      version: 1.3.2
+      bug_fixes:
+        - text: Fixed a bug in branch ruleset policy evaluation (potential skipping of rules; evaluation of system logs confirmed that this codepath was not executed in production)
+          issues: [SIGN-7710]
 - date: '2025-04-10'
   updates:
     teamcity_plugin:
@@ -8,11 +15,6 @@
       version: '0.1.0'
       new_features:
         - text: 'Initial release: TeamCity Plugin is now supported as a [Trusted Build System](/documentation/trusted-build-systems).'
-    github_connector:
-      version: 1.3.2
-      bug_fixes:
-        - text: Fixed a bug in branch ruleset policy evaluation (potential skipping of rules; evaluation of system logs confirmed that this codepath was not executed in production)
-          issues: [SIGN-7710]
 - date: '2025-04-09'
   updates:
     azure_devops_extension:
