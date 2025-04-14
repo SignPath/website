@@ -55,7 +55,7 @@ Accepting invitations:
 
 SignPath provides synchronization with Microsoft Entra ID/Azure Active Directory via SCIM. This allows you to perform user management in your organization's directory and use existing users and groups.
 
-See [directory synchronization](/documentation/directory-synchronization). 
+See [directory synchronization](/documentation/users/directory-synchronization). 
 
 ### API tokens {#interactive-api-token}
 
