@@ -406,6 +406,19 @@ jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.S
 >
 > When using jarsigner (or any other signing tool) directly, you are responsible for correct time stamping. See [Timestamps](/documentation/crypto-providers#timestamps)
 
+{:.panel.warning}
+> **Warning: GlobalSign certificates not trusted**
+>
+> The root certificate used by GlobalSign to issue code signing certificates (_GlobalSign Code Signing Root 45_ with the serial number _7653feac75464893f5e5d74a483a4ef8_) is not included in the default Java Truststore. When signing Java Archives with GlobalSign certificate, a certificate chain file needs to be specified that links the leaf certificate to the trusted _GlobalSign Root CA - R3_ root certificate. You can download the partial chain file [here](/assets/other/globalsign-java-chain/partial-chain.pem).
+>
+> ~~~ bash
+> cat your-leaf.pem > certchain.pem      # your leaf certificate needs to be first
+> cat partial-chain.pem >> certchain.pem # append the downloaded partial chain
+> jarsigner ... -certchain certchain.pem
+> ~~~
+>
+> _Note: When using [file-based JAR signing], the certificate chain is automatically appended for you._
+
 [PKCS #11]: https://docs.oasis-open.org/pkcs11/pkcs11-base/v2.40/os/pkcs11-base-v2.40-os.html
 
 [OpenSSL]: https://www.openssl.org/
@@ -415,3 +428,4 @@ jarsigner -keystore NONE -storetype PKCS11 -providerClass "sun.security.pkcs11.S
 [oracle-install]: https://docs.oracle.com/en/java/javase/14/security/pkcs11-reference-guide1.html#GUID-C4ABFACB-B2C9-4E71-A313-79F881488BB9
 [osslsigncode]: https://github.com/mtrojnar/osslsigncode
 [Linux container samples]: /documentation/crypto-providers#linux-docker-samples
+[file-based JAR signing]: /documentation/artifact-configuration/reference#jar-sign
