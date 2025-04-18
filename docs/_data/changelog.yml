@@ -1,3 +1,26 @@
+- date: '2025-04-22'
+  updates:
+    application:
+      version: 1.186.1
+      new_features:
+        - text: |
+            X.509 certificate chains:
+             * Certificates are now displayed with their full chain of issuers (root and intermediate certificates). This works automatically for certificate chains from public Certificate Authorities and if the chain was uploaded.
+             * The `GET /v1/{organizationId}/Certificates/{slug}` REST API contains a new `x509CertificateChain` property (contains the available full chain).
+          issues: [SIGN-1483]
+      improvements:
+        - text: |
+            PFX import now also supports uploading X.509 certificate chains.
+          issues: [SIGN-7626]
+        - text: |
+            REST API additions:
+             * New `POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations/{artifactConfigurationSlug}/EditXml` route.
+             * New `GET /v1/Meta/SystemInfo` route to retrieve the application version and UI base URL.
+          issues: [SIGN-7626, SIGN-6689]
+      bug_fixes:
+        - text: |
+            Fixed caching issue that prevented project configurators from editing recently created artifact configurations.
+          issues: [SIGN-7745]
 - date: '2025-04-14'
   updates:
     github_connector:
