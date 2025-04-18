@@ -1,3 +1,26 @@
+- date: '2025-04-22'
+  updates:
+    application:
+      version: 1.186.1
+      new_features:
+        - text: |
+            X.509 certificate chains:
+             * Now full certificate chains are displayed for CA-issued certificates in the SignPath UI. Also for in-house PKI-issued certificates in case the chain was uploaded.
+             * The `GET /v1/{organizationId}/Certificates/{slug}` REST API contains a new `x509CertificateChain` property (contains the full chain starting at the root).
+          issues: [SIGN-1483]
+      improvements:
+        - text: |
+            PFX import: if present, now also intermediate and root X.509 certificates (only the public key part) are imported.
+          issues: [SIGN-7626]
+        - text: |
+            REST API additions:
+             * New `POST /v1/{organizationId}/Projects/{projectSlug}/ArtifactConfigurations/{artifactConfigurationSlug}/EditXml` route.
+             * New `GET /v1/Meta/SystemInfo` route to retrieve the application version and UI base URL.
+          issues: [SIGN-7626, SIGN-6689]
+      bug_fixes:
+        - text: |
+            Fixed caching issue which prevented project configurators to edit recently created artifact configurations.
+          issues: [SIGN-7745]
 - date: '2025-04-14'
   updates:
     github_connector:
