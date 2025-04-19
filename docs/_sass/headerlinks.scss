@@ -1,0 +1,8 @@
+.headerlink {
+	cursor: pointer;
+
+	&:hover::after {
+		color: $dark-grey-font-color;
+		content: " #";
+	}
+}
