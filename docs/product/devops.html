@@ -40,6 +40,7 @@ description: Using SignPath in a DevOps pipeline
         <li><a data-tabkey='github-actions' href="#">{% include github.svg %} <span>GitHub Actions</span></a></li>
         <li><a data-tabkey='appveyor' href="#"><i class="icon-appveyor"></i> <span>AppVeyor</span></a></li>
         <li><a data-tabkey='azuredevops' href="#"><i class="icon-azure-devops"></i> <span>Azure DevOps</span></a></li>
+        <li><a data-tabkey='teamcity' href="#"><i class="icon-teamcity"></i> <span>TeamCity</span></a></li>
       </ul>
       {% raw %}
       <div class='panel'>
@@ -94,15 +95,26 @@ description: Using SignPath in a DevOps pipeline
           <span>    <span class='parameter'>secure</span>: <span class='string'>VGhpcyBpcyBub3QgdGhlIHNlY3JldCB0b2tlbiB5b3UgYXJlIGxvb2tpbmcgZm9yLi4uIC0gU2lnblBhdGguaW8=</span></span>
         </code>
         <code data-tabcontent='azuredevops'>
-          <span>- task: <span class='command'>SignPathSubmitSigningRequest@2</span> </span>
+          <span>- task: <span class='command'>SubmitSigningRequest@1</span> </span>
           <span>  <span class='parameter'>inputs</span>:</span>
-          <span>    <span class='parameter'>organizationId</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_ORGANIZATION_ID)</span><span class='string'>'</span></span>
-          <span>    <span class='parameter'>ciUserToken</span>: <span class='string'>'</span><span class='variable'>$(SIGNPATH_API_TOKEN)</span><span class='string'>'</span></span>
+          <span>    <span class='parameter'>serviceConnectionName</span>: <span class='string'>'my-signpath-service-connection'</span></span>
           <span>    <span class='parameter'>projectSlug</span>: <span class='string'>'my_software'</span></span>
           <span>    <span class='parameter'>signingPolicySlug</span>: <span class='string'>'release-siging'</span></span>
-          <span>    <span class='parameter'>inputArtifactPath</span>: <span class='string'>'./build/my-release.msi'</span></span>
-          <span>    <span class='parameter'>outputArtifactPath</span>: <span class='string'>'./build-signed/my-release.msi'</span></span>
-          <span>    <span class='parameter'>waitForCompletion</span>: <span class='string'>'sync'</span></span>
+          <span>    <span class='parameter'>azureDevOpsArtifactName</span>: <span class='string'>'my-artifact'</span></span>
+          <span>    <span class='parameter'>outputArtifactDirectory</span>: <span class='string'>'./build-signed'</span></span>
+          <span>    <span class='parameter'>waitForCompletion</span>: true</span>
+        </code>
+        <code data-tabcontent='teamcity'>
+          <span><span class='command'>signPathSubmitSigningRequest</span> {</span>
+          <span>  <span class='parameter'>connectorUrl</span> = <span class='string'>"https://your-teamcity-connector-instance-base.url"</span></span>
+          <span>  <span class='parameter'>organizationId</span> = <span class='string'>"%SignPath.OrganizationId%"</span></span>
+          <span>  <span class='parameter'>apiToken</span> = <span class='string'>"credentialsJSON:a03ec855-c92c-4f33-8877-b8ab1726afd4"</span></span>
+          <span>  <span class='parameter'>projectSlug</span> = <span class='string'>"my_software"</span></span>
+          <span>  <span class='parameter'>signingPolicySlug</span> = <span class='string'>"release-siging"</span></span>
+          <span>  <span class='parameter'>inputArtifactPath</span> = <span class='string'>"./build/my-release.msi => my_release"</span></span>
+          <span>  <span class='parameter'>outputArtifactPath</span> = <span class='string'>"./build-signed/my-release.msi"</span></span>
+          <span>  <span class='parameter'>waitForCompletion</span> = true</span>
+          <span>}</span>
         </code>
       </div>
        {% endraw %}
