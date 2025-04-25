@@ -129,7 +129,11 @@ You can now assign all users and groups that you want to synchronize.
 > When an Entra ID user is removed from all groups that are synchronized, the SignPath user will be deactivated.
 > 
 > **Group synchronization:**
-> 
+>
+> **Important: Group synchronization is deactivated by default**
+> Microsoft Entra disables a performance-improvement feature by default. Due to this limitation, we only enable group synchronization for organizations where we can ensure that our system can cope with the number of requests. Microsoft has currently stopped onboarding new Entra apps due to a reorganization. We are actively trying to resolve this issue with Microsoft. If you want groups to be synchronized, please contact our [support team](/support).
+> _Note: Roles assigned via groups (see "Role groups") below are still assigned to individual users, but the group object itself is not synchronized._
+>
 > * Groups are initially mapped using their `displayName` attribute. If a group does not exist in SignPath yet, it will be created.
 > * Nested groups are not supported by Microsoft by Microsoft Entra. However, if a user is both in a first- and second-level group, their group assignment (but not role assignment) is correctly resolved. See the [official Microsoft documentation on scoping].
 > * We suggest creating two "types" of groups:
