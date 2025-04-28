@@ -3,9 +3,11 @@ export function headerlinks() {
 		let headerId = headerElem.id;
 		if (headerId) {
 			headerElem.classList.add("headerlink");
-			headerElem.addEventListener("click", () => {
-				location.hash = headerId;
-			});
+			var a = document.createElement('a');
+			a.className = 'link';
+			a.innerHTML = '#';
+			a.href=`#${headerId}`
+			headerElem.appendChild(a);
 		}
 	});
 }

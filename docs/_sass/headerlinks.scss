@@ -1,8 +1,16 @@
 .headerlink {
-	cursor: pointer;
-
-	&:hover::after {
+	a.link {
+		display:none;
 		color: $dark-grey-font-color;
-		content: " #";
+		text-decoration: none;
+		margin-left: 5px;
 	}
+
+	&:hover {
+		a.link {
+			display: inline-block;
+		}
+	}
+
+	cursor: pointer;
 }
