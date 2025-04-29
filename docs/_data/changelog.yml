@@ -1,3 +1,10 @@
+- date: '2025-04-29'
+  updates:
+    github_actions_action:
+      version: '1.2'
+      improvements:
+        - text: The `output-artifact-directory` path now also supports absolute paths. 
+          issues: [SIGN-7496]
 - date: '2025-04-22'
   updates:
     application:

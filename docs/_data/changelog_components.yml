@@ -7,6 +7,7 @@ components:
   - crypto_providers
   - macos_cryptotokenkit
   - github_connector
+  - github_actions_action
   - jenkins_plugin
   - teamcity_plugin
   - teamcity_connector
@@ -28,6 +29,8 @@ details:
     label: 'macOS CryptoTokenKit'
   github_connector: 
     label: 'GitHub Connector'
+  github_actions_action:
+    label: 'GitHub Actions Action'
   jenkins_plugin: 
     label: 'Jenkins Plugin'
   teamcity_plugin:
