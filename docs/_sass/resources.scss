@@ -188,7 +188,7 @@ main > section.resources-section {
 				margin-right: 4px;
 				font-family: "Line Awesome Free";
 				font-weight: 800;
-				content: "\e814";
+				content: "\f05a";
 			}
 		}
 
@@ -217,7 +217,7 @@ main > section.resources-section {
 				background-color: $light-grey-background-color;
 				& > p:first-child::before,
 				& > h6:first-child::before {
-					content: "\e814";
+					content: "\f05a";
 				}
 			}
 			&.tip {
@@ -240,7 +240,7 @@ main > section.resources-section {
 				background-color: $light-blue-background-color;
 				& > p:first-child::before,
 				& > h6:first-child::before {
-					content: "\e808";
+					content: "\e814";
 					font-family: fontello;				
 				}
 			}
