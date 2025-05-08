@@ -24,11 +24,11 @@ To get access to an existing SignPath organizations, users must be [invited](#in
 
 Only [sign up][login page] for a new user account if you want to evaluate SignPath using a free trial subscrition.
 
-| User account type         | Provider                              | How to use                            | Editions   
-|---------------------------|---------------------------------------|---------------------------------------|------------
-| Social account            | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
-| Username and password     | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
-| Enterprise single sign-on | Your Organization's identity provider | Enter email address as _Username_     | {{ site.data.editions | where: "user_management.sso", "true" | map: "name" | join: ", " }}
+| User account type               | Provider                              | How to use                            | Editions   
+|---------------------------------|---------------------------------------|---------------------------------------|------------
+| Social account                  | Google or Microsoft                   | Click _Google_ or _Microsoft_ to use an existing user account
+| Username and password           | [Okta] provided by SignPath           | Click _Sign up_ at first use, then enter email address as _Username_
+| Enterprise single sign-on (SSO) | Your Organization's identity provider | Enter email address as _Username_     | {{ site.data.editions | where: "user_management.sso", "true" | map: "name" | join: ", " }}
 
 A user account may be used for one or more SignPath organizations. 
 
