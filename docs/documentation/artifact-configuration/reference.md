@@ -106,6 +106,11 @@ Publisher signing has the following additional security advantages:
 
 Although the NuGet Package format is based on OPC (see next section), it uses its own specific signing format.
 
+{:.panel.info}
+> **Certificate chain support for NuGet**
+>
+> Only self-signed certificates or certificates issued by a publicly trusted Certificate Authority are currently supported. If available, certificate chains are resolved at signing time and embedded in the signature.
+
 ### `<office-macro-sign>`: Microsoft Office VBA macros {#office-macro-sign}
 
 {% include editions.md feature="file_based_signing.office_macros" %}
@@ -128,7 +133,12 @@ Use `<office-binary-file>` for binary Microsoft Office files:
 * **Visio:** .vdw, .vdx, .vsd, .vss, .vst, .vsx, .vtx
 * **Word:** .doc, .dot, .wiz
 
-Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files. 
+Macro signatures apply only to the macros within the document files and are not affected by any other changes in the signed document files.
+
+{:.panel.info}
+> **Certificate chain support for Office Macros**
+>
+> Only the publisher certificate is included in the signature.
 
 ### `<opc-sign>`: Open Packaging Convention {#opc-sign}
 
@@ -140,6 +150,11 @@ Note that not all OPC-based formats use OPC signatures:
 
 * Office Open XML files (Microsoft Office): OPC signatures are only partially recognized by Office applications
 * NuGet packages: ignored, use `<nuget-sign>` instead
+
+{:.panel.info}
+> **Certificate chain support for Open Packaging Convention**
+>
+> Only the publisher certificate is included in the signature.
 
 <!-- markdownlint-enable MD026 no trailing punctuation -->
 

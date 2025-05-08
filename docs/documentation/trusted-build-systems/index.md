@@ -51,7 +51,6 @@ To use a trusted build system in a project:
 * find the **Trusted build systems** section
 * click **Link**
 * select one of the trusted build systems of your organization
-* depending on the type of build system, you might need to add authentication information and/or an artifact path
 
 The build system can now be used to submit signing requests with origin metadata. A trusted build system is required for signing policies with origin verification enabled.
 

@@ -1,3 +1,28 @@
+- date: '2025-05-08'
+  updates:
+    application:
+      version: 1.187.0
+      improvements:
+        - text: 'Custom certificate chains are now embedded in Authenticode, ClickOnce, CMS and XML signatures.'
+          issues: [SIGN-7625]
+        - text: 'Improved the user experience by removing unused Trusted Build System Link details.'
+          issues: [SIGN-7731]
+        - text: 'The email notifications for administrators now include whether users accepted the invitation using a SSO account.'
+          issues: [SIGN-7730]
+      bug_fixes:
+        - text: 'Changes of the purpose property of certificates and signing policies are now included in the history view.'
+          issues: [SIGN-7171]
+        - text: 'Proper error messages are now displayed when invalid certificate files are uploaded.'
+          issues: [SIGN-7663]
+        - text: |
+            The following REST APIs now return the correct error codes when no artifact is available:
+              * `GET /SigningRequests/{signingRequestId}/UnsignedArtifact`
+              * `GET /SigningRequests/{signingRequestId}/SignedArtifact`
+    self_hosted_installations:
+      version:  1.187.0
+      improvements:
+        - text: 'All (non-secret) configuration settings of each container instance are now dumped into a file at startup to make debugging issues easier.'
+          issues: [SIGN-7545]
 - date: '2025-04-29'
   updates:
     github_actions_action:
