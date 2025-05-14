@@ -14,10 +14,10 @@ incidents:
     type: warning
     title: 'File-based signing interruptions'
     description: |
-      Due to an error state in the component handling file-based signing, some signing requests ran into unexpected "processing errors".
+      Some file-based signing requests ran into unexpected "processing errors".
 
-      * The issue mainly affected MSI and MSIX files.
-      * Hash-based signing not affected.
+      * The issue mainly affected MSI and MSIX files with deep-signing configurations.
+      * Hash-based signing was not affected.
   - date: 'Apr. 8, 2025'
     range: 'Apr. 8, 2025, 12:00 - 12:05 UTC'
     type: warning
