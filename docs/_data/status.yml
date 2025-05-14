@@ -9,6 +9,15 @@ current:
     #link:
 planned:
 incidents:
+  - date: 'May. 13, 2025'
+    range: 'May. 13, 2025, 15:10 - May. 14, 2025 08:35 UTC'
+    type: warning
+    title: 'File-based signing interruptions'
+    description: |
+      Due to an error state in the component handling file-based signing, some signing requests ran into unexpected "processing errors".
+
+      * The issue mainly affected MSI and MSIX files.
+      * Hash-based signing not affected.
   - date: 'Apr. 8, 2025'
     range: 'Apr. 8, 2025, 12:00 - 12:05 UTC'
     type: warning
