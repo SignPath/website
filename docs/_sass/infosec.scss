@@ -22,7 +22,7 @@ svg.chain {
 	}
 
 	path.orange {
-		fill: #00b1e6;
+		fill: #9929EA;
 	}
 }
 
@@ -32,15 +32,15 @@ svg.incident-management {
 	}
 	
 	path.ring.outer {
-		fill: #bff0ff;
+		fill: $pricing4-background-color;
 	}
 
 	path.ring.middle {
-		fill: #22ccff;
+		fill: $pricing3-background-color;
 	}
 
 	path.ring.inner {
-		fill: #006a8a;
+		fill: $pricing2-background-color;
 	}
 
 	path.lock {
@@ -48,7 +48,7 @@ svg.incident-management {
 		stroke: #ffffff;
 
 		&.hole {
-			fill: #006a8a;
+			fill: $pricing2-background-color;
 		}
 	}
 }

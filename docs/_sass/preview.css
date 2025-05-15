@@ -18,7 +18,7 @@ div.panel.warning {
 	background-color: lightsalmon;
 }
 div.panel.product {
-	background-color: lightblue;
+	background-color: $light-blue-background-color;
 }
 div.panel > div.panel-header {
 	background-color: grey;
