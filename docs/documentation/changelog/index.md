@@ -28,6 +28,7 @@ redirect_from:
 			<option value='upgrade_information'>Upgrade information</option>
 			<option value='new_features'>New features</option>
 			<option value='improvements'>Improvements</option>
+			<option value='changes'>Changes</option>
 			<option value='bug_fixes'>Bug fixes</option>
 		</select>
 	</div>
@@ -119,6 +120,7 @@ redirect_from:
 							{% when "upgrade_information" %} Upgrade Information:
 							{% when "new_features" %} New Features:
 							{% when "improvements" %} Improvements:
+							{% when "changes" %} Changes:
 							{% when "bug_fixes" %} Bug Fixes:
 						{% endcase %}
 					</h3>

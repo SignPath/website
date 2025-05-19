@@ -68,6 +68,7 @@
                   {%- when "upgrade_information" -%} Upgrade Information:
                   {%- when "new_features" -%} New Features:
                   {%- when "improvements" -%} Improvements:
+                  {%- when "changes" -%} Changes:
                   {%- when "bug_fixes" -%} Bug Fixes:
                 {%- endcase -%}
                 &lt;/h3&gt;
