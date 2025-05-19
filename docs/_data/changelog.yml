@@ -1,3 +1,16 @@
+- date: '2025-05-20'
+  updates:
+    application:
+      version: 1.188.0
+      improvements:
+        - text: |
+            Allow usage of [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) for `hash-algorithm` attribute of [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature).
+          issues: [SIGN-6928]
+    self_hosted_installations:
+      version: 1.188.0
+      breaking_changes:
+        - text: Changed recommended Kubernetes version to 1.31 and `signpathio/kubectl` image tag to 1.31.
+          issues: [SIGN-7776]
 - date: '2025-05-08'
   updates:
     application:
@@ -20,6 +33,10 @@
               * `GET /SigningRequests/{signingRequestId}/SignedArtifact`
     self_hosted_installations:
       version:  1.187.0
+      breaking_changes:
+        - text: |
+            Minimum required version to upgrade from is *1.140*. In case you have an older version, you need to upgrade to e.g. *1.186* first (contact support).
+          issues: [SIGN-7723]
       improvements:
         - text: 'All configuration settings of each container instance are now dumped into a file at startup for easier troubleshooting (except secrets).'
           issues: [SIGN-7545]
@@ -218,7 +235,7 @@
       version: 1.179.0
       breaking_changes:
         - text: Changed recommended Kubernetes version to 1.30 and `signpathio/kubectl` image tag to 1.30.
-          issues: [SIGN-7238]
+          issues: [SIGN-7436]
       improvements:
         - text: |-
             Reduced image size of the `signpathio/signservice-software` container image and startup time.
