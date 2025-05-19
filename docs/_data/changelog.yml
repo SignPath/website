@@ -6,6 +6,10 @@
         - text: |
             Support [user-defined parameters](/documentation/artifact-configuration/syntax#parameters) for `hash-algorithm` attribute of [`<create-raw-signature>`](/documentation/artifact-configuration/reference#create-raw-signature).
           issues: [SIGN-6928]
+      changes:
+        - text: |
+            Removed the "user feedback" button (rationale: was mainly used for support requests).
+          issues: [SIGN-7740]
     self_hosted_installations:
       version: 1.188.0
       breaking_changes:
