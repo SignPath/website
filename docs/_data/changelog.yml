@@ -1,3 +1,35 @@
+- date: '2025-05-26'
+  updates:
+    scim_connector:
+      version: '1.5.0'
+      improvements:
+        - text: 'Improved the matching algorithm of users during the initial synchronization'
+          issues: [SIGN-7718]
+      bug_fixes:
+        - text: 'Fixed a bug where the group synchronization could end up in an inconsistent state (not relevant for Microsoft Entra ID).'
+          issues: [SIGN-7714]
+    azure_devops_connector:
+      version: '0.2.0'
+      bug_fixes:
+        - text: 'Fixed a bug that ignored when the HTTP connection had been canceled by a client and continued to collect data and create signing requests.'
+          issues: [SIGN-7761]
+    github_connector:
+      version: '1.4.0'
+      bug_fixes:
+        - text: 'Fixed a bug where the group name of runners was not evaluated properly.'
+          issues: [SIGN-7785]
+        - text: 'Fixed a bug that ignored when the HTTP connection had been canceled by a client and continued to collect data and create signing requests.'
+          issues: [SIGN-7761]
+    teamcity_connector:
+      version: '0.2.0'
+      bug_fixes:
+        - text: 'Fixed a bug that ignored when the HTTP connection had been canceled by a client and continued to collect data and create signing requests.'
+          issues: [SIGN-7761]
+    teamcity_plugin:
+      version: '0.1.1'
+      bug_fixes:
+        - text: 'Fixed a bug where the root cause of certain error cases was not properly displayed.'
+          issues: [SIGN-7767]
 - date: '2025-05-08'
   updates:
     application:
