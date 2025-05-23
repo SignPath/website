@@ -25,17 +25,9 @@
 <link href="https://about.signpath.io/" rel="alternate" type="text/html"/>
 <updated>{{ updated | date: '%F' }}</updated>
 <id>{{ id }}</id>
-{%- case include.category -%}
-  {%- when "application" -%} {%- assign include_category_name = 'Application ' -%}
-  {%- when "self_hosted_installations" -%} {%- assign include_category_name = 'Self-hosted Installations ' -%}
-  {%- when "powershell_module" -%} {%- assign include_category_name = 'PowerShell Module ' -%}
-  {%- when "powershell_module_docker" -%} {%- assign include_category_name = 'Docker PowerShell Module ' -%}
-  {%- when "crypto_providers" -%} {%- assign include_category_name = 'Crypto Providers ' -%}
-  {%- when "macos_cryptotokenkit" -%} {%- assign include_category_name = 'MacOS CryptoTokenKit ' -%}
-  {%- when "github_connector" -%} {%- assign include_category_name = 'GitHub Connector' -%}
-  {%- when "jenkins_plugin" -%} {%- assign include_category_name = 'Jenkins Plugin' -%}
-{%- endcase -%}
-<title type="html">SignPath - {{ include_category_name }}Changelog</title>
+{%- assign category = include.category -%}
+{%- assign include_category_name = site.data.changelog_components.details[category].label -%}
+<title type="html">SignPath - {{ include_category_name }} Changelog</title>
 <author>
   <name>SignPath GmbH</name>
   <uri>https://about.signpath.io</uri>
