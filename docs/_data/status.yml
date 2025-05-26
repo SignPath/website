@@ -1,14 +1,21 @@
 # possible types are good, warning, critical
 current:
-    #type: good
-    #title: 'All systems are operational' # always restore this message when going back to 'good'
-    type: warning
-    title: 'GitHub integration degradation'
-    description: |
-      Since May 26, 2025 07:21 UTC, GitHub REST APIs are degraded. GitHub integrations may therefore not work as expected. 
+    type: good
+    title: 'All systems are operational' # always restore this message when going back to 'good'
+    #type: good | warning | error
+    #title: 'GitHub integration degradation'
+    #description: |
+    #  Since May 26, 2025 07:21 UTC, GitHub REST APIs are degraded. GitHub integrations may therefore not work as expected. 
     #link:
 planned:
 incidents:
+  - date: 'May. 26, 2025'
+    range: 'May, 26, 2025, 07:21 - 10:17 UTC'
+    type: warning
+    title: 'GitHub integration degradation'
+    description: |
+      GitHub APIs experienced degraded performance which may have affected SignPath's GitHub integration.
+    link: 'https://www.githubstatus.com/incidents/d0nm3xcdc5jw'
   - date: 'May. 13, 2025'
     range: 'May. 13, 2025, 15:10 - May. 14, 2025 08:35 UTC'
     type: warning
