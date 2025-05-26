@@ -1,11 +1,11 @@
 # possible types are good, warning, critical
 current:
-    type: good
-    title: 'All systems are operational' # always restore this message when going back to 'good'
-    #type: good | warning | critical
-    #title: 'Network performance degradation'
-    #description: |
-    #  Since Jan. 2, 2025 04:20 UTC, a HSM network performance degradation causes delayed signing request processing and possible client-side timeouts concerning hash signing for all keys stored on the HSM (DPoD cloud HSMs are not affected).#
+    #type: good
+    #title: 'All systems are operational' # always restore this message when going back to 'good'
+    type: warning
+    title: 'GitHub integration degradation'
+    description: |
+      Since May 26, 2025 07:21 UTC, GitHub REST APIs are degraded. GitHub integrations may therefore not work as expected. 
     #link:
 planned:
 incidents:
