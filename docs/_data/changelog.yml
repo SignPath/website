@@ -1,3 +1,10 @@
+- date: '2025-05-27'
+  updates:
+    jenkins_plugin:
+      version: '3.1.0'
+      improvements:
+        - text: Added support for subscriptions without the origin verification feature.'
+          issues: [SIGN-7326]
 - date: '2025-05-22'
   updates:
     scim_connector:
