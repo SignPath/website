@@ -1,3 +1,43 @@
+- date: '2025-05-27'
+  updates:
+    jenkins_plugin:
+      version: '3.1.0'
+      improvements:
+        - text: Added support for subscriptions without the origin verification feature.'
+          issues: [SIGN-7326]
+- date: '2025-05-22'
+  updates:
+    scim_connector:
+      version: '1.5.0'
+      improvements:
+        - text: 'Improved the matching algorithm of users during the initial synchronization'
+          issues: [SIGN-7718]
+      bug_fixes:
+        - text: 'Fixed a potential inconsistent state bug for group synchronization (not relevant for supported scenarios).'
+          issues: [SIGN-7714]
+    azure_devops_connector:
+      version: '0.2.0'
+      improvements:
+        - text: 'Processing now aborts immediately when client aborts HTTP connection.'
+          issues: [SIGN-7761]
+    github_connector:
+      version: '1.4.0'
+      improvements:
+        - text: 'Processing now aborts immediately when client aborts HTTP connection.'
+          issues: [SIGN-7761]
+      bug_fixes:
+        - text: 'Fixed incorrect group name evaluation for GitHub runners due to unannounced GitHub API change.'
+          issues: [SIGN-7785]
+    teamcity_connector:
+      version: '0.2.0'
+      improvements:
+        - text: 'Processing now aborts immediately when client aborts HTTP connection.'
+          issues: [SIGN-7761]
+    teamcity_plugin:
+      version: '0.1.1'
+      bug_fixes:
+        - text: 'Fixed a bug where the root cause of certain error cases was not properly displayed.'
+          issues: [SIGN-7767]
 - date: '2025-05-20'
   updates:
     application:

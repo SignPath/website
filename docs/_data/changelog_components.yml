@@ -11,7 +11,9 @@ components:
   - jenkins_plugin
   - teamcity_plugin
   - teamcity_connector
+  - azure_devops_connector
   - azure_devops_extension
+  - scim_connector
 
 # used for lookup
 details:
@@ -39,3 +41,7 @@ details:
     label: 'TeamCity Connector'
   azure_devops_extension:
     label: 'Azure DevOps Extension'
+  azure_devops_connector:
+    label: 'Azure DevOps Connector'
+  scim_connector:
+    label: 'SCIM Connector'
