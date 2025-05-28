@@ -1,3 +1,13 @@
+- date: '2099-01-01'
+  updates:
+    crypto_providers:
+      version: 5.3.0
+      improvements:
+        - text: |
+            Added optional project and signing policy filters to the Cryptoki / PKCS#11 Crypto Provider:
+            * See [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) how to configure the filter.
+            * Adapted the GPG signing samples and [`InitializeSignPathCryptoProviderGpgSigning`](/documentation/crypto-providers/gpg#configure-gnupg) helper function to use the new filter to drop the requirement that the API token's user has to be assigned to exactly one signing policy.
+          issues: [SIGN-7580, SIGN-7581]
 - date: '2025-05-27'
   updates:
     jenkins_plugin:
