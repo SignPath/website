@@ -165,7 +165,7 @@ github-policies:
     - condition:
         rules:
         - block_force_pushes:                    # force pushes are prevented
-        - pull_request:                          # code reviews are required
+        - require_pull_request:                  # code reviews are required
             min_required_approvals: 1
             require_code_owner_review: true
       allow_bypass_actors: false                 # no-one is allowed to bypass this rule
