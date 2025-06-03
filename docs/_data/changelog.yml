@@ -4,17 +4,17 @@
       version: 1.189.0
       improvements:
         - text: |-
-            Changed the `GET /v1/{organizationId}/SigningRequests/{id}` REST API to always return a `signedArtifactLink`. Note that the returned URL will respond with status 400 until the signed artifact is available, i.e. the signing request is complete.
+            Changed the `GET /v1/{organizationId}/SigningRequests/{id}` REST API to always return a `signedArtifactLink`. Note that the returned URL will respond with status 400 while the signing request is being processed.
           issues: [SIGN-7599]
       bug_fixes:
         - text: |-
             Fixed processing errors for specific MSI files when performing deep signing.
           issues: [SIGN-7791, SIGN-6604]
         - text: |-
-            Fixed that "Resubmit with current settings" button was visible for users without submission privileges (and later led to an "not allowed" error message).
+            Fixed that "Resubmit with current settings" button was visible for users without submission privileges (which later led to an "not allowed" error message).
           issues: [SIGN-7592]
         - text: |-
-            Fixed error handling of invalid input of `POST /v1/{organizationId}/TrustedBuildSystems/AddCustom` REST API (now the correct status code 400 instead of 500 is responded).
+            Fixed error handling of invalid input of `POST /v1/{organizationId}/TrustedBuildSystems/AddCustom` REST API (now the correct status code 400 instead of 500 is returned).
           issues: [SIGN-6856]
     self_hosted_installations:
       version: 1.189.0
@@ -22,7 +22,7 @@
         # issue: SIGN-7672
       breaking_changes:
         - text: |-
-            Renamed `appSecrets.setupDb.connectionStrings.reportModelDatabaseDdl`/`appSecrets.shared.connectionStrings.reportModelDatabase` to `signingRequestDatabaseDdl`/`signingRequestDatabase` in `signpath-application` chart. Note: only the values _paths_ changed; keep the value as it is.
+            `signpath-application` chart: renamed `appSecrets.setupDb.connectionStrings.reportModelDatabaseDdl` to `signingRequestDatabaseDdl` and `appSecrets.shared.connectionStrings.reportModelDatabase` to `signingRequestDatabase`. Note: only the values' _paths_ have changed; keep the values as they are.
           issues: [SIGN-7793]
 - date: '2025-05-27'
   updates:
