@@ -144,6 +144,12 @@
           issues: [SIGN-7693]
         - text: Performance improvement for group membership changes (especially for groups with frequent changes).
           issues: [SIGN-7532]
+    self_hosted_installations:
+      version: 1.185.0
+      breaking_changes:
+        - text: |
+            Custom notification email styling: changed `_MailLayout.cshtml`. In case you have overridden the template, compare your customized file with the Helm chart's version. **[Updated 2025-06-03]**
+          issues: [SIGN-7656]
 - date: '2025-03-25'
   updates:
     application:
