@@ -1,3 +1,29 @@
+- date: '2025-06-09'
+  updates:
+    application:
+      version: 1.189.0
+      improvements:
+        - text: |-
+            Changed the `GET /v1/{organizationId}/SigningRequests/{id}` REST API to always return a `signedArtifactLink`. Note that the returned URL will respond with status 400 until the signed artifact is available, i.e. the signing request is complete.
+          issues: [SIGN-7599]
+      bug_fixes:
+        - text: |-
+            Fixed processing errors for specific MSI files when performing deep signing.
+          issues: [SIGN-7791, SIGN-6604]
+        - text: |-
+            Fixed that "Resubmit with current settings" button was visible for users without submission privileges (and later led to an "not allowed" error message).
+          issues: [SIGN-7592]
+        - text: |-
+            Fixed error handling of invalid input of `POST /v1/{organizationId}/TrustedBuildSystems/AddCustom` REST API (now the correct status code 400 instead of 500 is responded).
+          issues: [SIGN-6856]
+    self_hosted_installations:
+      version: 1.189.0
+      upgrade_information: Additional migration steps happen in final application migration phase. **Expect longer downtime than usual** (exact downtime depends on number of total signing requests and database performance; contact support for details).
+        # issue: SIGN-7672
+      breaking_changes:
+        - text: |-
+            Renamed `appSecrets.setupDb.connectionStrings.reportModelDatabaseDdl`/`appSecrets.shared.connectionStrings.reportModelDatabase` to `signingRequestDatabaseDdl`/`signingRequestDatabase` in `signpath-application` chart. Note: only the values _paths_ changed; keep the value as it is.
+          issues: [SIGN-7793]
 - date: '2025-05-27'
   updates:
     jenkins_plugin:
