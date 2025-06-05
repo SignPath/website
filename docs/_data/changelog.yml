@@ -1,3 +1,29 @@
+- date: '2025-06-05'
+  updates:
+    application:
+      version: 1.189.0
+      improvements:
+        - text: |-
+            Changed the `GET /v1/{organizationId}/SigningRequests/{id}` REST API to always return a `signedArtifactLink`. Note that the returned URL will respond with status 400 while the signing request is being processed.
+          issues: [SIGN-7599]
+      bug_fixes:
+        - text: |-
+            Fixed processing errors for specific MSI files when performing deep signing.
+          issues: [SIGN-7791, SIGN-6604]
+        - text: |-
+            Fixed that "Resubmit with current settings" button was visible for users without submission privileges (which later led to an "not allowed" error message).
+          issues: [SIGN-7592]
+        - text: |-
+            Fixed error handling of invalid input of `POST /v1/{organizationId}/TrustedBuildSystems/AddCustom` REST API (now the correct status code 400 instead of 500 is returned).
+          issues: [SIGN-6856]
+    self_hosted_installations:
+      version: 1.189.0
+      upgrade_information: Additional migration steps happen in final application migration phase. **Expect longer downtime than usual** (exact downtime depends on number of total signing requests and database performance; contact support for details).
+        # issue: SIGN-7672
+      breaking_changes:
+        - text: |-
+            `signpath-application` chart: renamed `appSecrets.setupDb.connectionStrings.reportModelDatabaseDdl` to `signingRequestDatabaseDdl` and `appSecrets.shared.connectionStrings.reportModelDatabase` to `signingRequestDatabase`. Note: only the values' _paths_ have changed; keep the values as they are.
+          issues: [SIGN-7793]
 - date: '2025-05-27'
   updates:
     jenkins_plugin:
@@ -144,6 +170,12 @@
           issues: [SIGN-7693]
         - text: Performance improvement for group membership changes (especially for groups with frequent changes).
           issues: [SIGN-7532]
+    self_hosted_installations:
+      version: 1.185.0
+      breaking_changes:
+        - text: |
+            Custom notification email styling: changed `_MailLayout.cshtml`. In case you have overridden the template, compare your customized file with the Helm chart's version. **[Updated 2025-06-03]**
+          issues: [SIGN-7656]
 - date: '2025-03-25'
   updates:
     application:
