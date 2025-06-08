@@ -4,9 +4,9 @@
       version: 5.3.0
       improvements:
         - text: |
-            Added optional project and signing policy filters to the Cryptoki / PKCS#11 Crypto Provider:
-            * See [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration) how to configure the filter.
-            * Adapted the GPG signing samples and [`InitializeSignPathCryptoProviderGpgSigning`](/documentation/crypto-providers/gpg#configure-gnupg) helper function to use the new filter to drop the requirement that the API token's user has to be assigned to exactly one signing policy.
+            Cryptoki/PKCS#11: project and signing policy can now be specified via environment variables or config file.
+            * GPG: This removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.
+            * Configuration: see [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
           issues: [SIGN-7580, SIGN-7581]
 - date: '2025-06-05'
   updates:

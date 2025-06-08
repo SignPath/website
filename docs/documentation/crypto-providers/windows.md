@@ -90,13 +90,13 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 | Parameter             | Value                                | Description
 |-----------------------|--------------------------------------|---------------------------------------
 | Crypto Provider       | `SignPathKSP` or `SignPathCSP`       | SignPath KSP (preferred) or CSP
-| Key container name    | `$ProjectSlug/$SigningPolicySlug`    | _Project_ and _Signing Policy_ slugs, separated by a forward slash 
+| Key container name    | `$ProjectSlug/$SigningPolicySlug`    | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash 
 | Certificate file      | Path to the x.509 certificate file   | Download the respective certificate file from SignPath
 
 {:.panel.info}
-> **Keys are not specified directly**
+> **Use _Project_ and _Signing Policy_ slugs to speficy a key**
 >
-> The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the KSP and CSP interfaces.
 
 ## Error handling
 

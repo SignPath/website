@@ -26,21 +26,21 @@ macOS allows CryptoTokenKit extensions to be registered in the system. Through t
 
 The `SignPathCryptoTokenKit.app` application loads all available certificates for the given parameters and makes them avaialble in the macOS keychain through a CryptoTokenKit extension. The application supports the following parameters (all of them are optional):
 
-| Parameter               | Value                                   | Description
-|-------------------------|-----------------------------------------|---------------------------------
-| `--config`              | `/path/to/config/file.json`             | Path to config file
-| `--api-url`             | `$ApiUrl`                               | The base URL of the SignPath API, e.g. `https://app.signpath.io/Api`
-| `--project-slug`        | `$ProjectSlug`                          | If not specified, the certificates from all available projects will be loaded
-| `--signing-policy-slug` | `$SigningPolicySlug`                    | If not specified, the certificates from all available signing policies will be loaded
-| `--organization-id`     | `$OrganizationId`                       | The id of the organization to use
-| `--api-token`           | `$ApiToken`                             | The API token for a CI or Interactive User (can be created in the "Users and Groups" UI)
+| Parameter               | Value                        | Default                       | Description
+|-------------------------|------------------------------|-------------------------------|---------------------------------------
+| `--config`              | `path/to/configfile.json`    |                               | Path to SignPath [configuration file](index#crypto-provider-configuration)
+| `--api-url`             | `$ApiUrl`                    | `https://app.signpath.io/Api` | Base URL of the SignPath API
+| `--project-slug`        | `$ProjectSlug`               |                               | Slug of the SignPath _Project_
+| `--signing-policy-slug` | `$SigningPolicySlug`         |                               | Slug of the SignPath _Signing Policy_
+| `--organization-id`     | `$OrganizationId`            |                               | ID of the SignPath _Organization_
+| `--api-token`           | `$ApiToken`                  |                               | API token for a SignPath _User_
 
 {:.panel.info}
-> **Keys are not specified directly**
+> **Use _Project_ and _Signing Policy_ slugs to speficy a key**
 >
-> When using a file-based [configuration](/documentation/crypto-providers#crypto-provider-configuration), the macOS CryptoTokenKit Crypto Provider requires the config file to be
-> * named `config.json` and placed in the same directory as the `SignPathCryptoTokenKit.app` application or
-> * its path to be specified via the `--config` parameter
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. SignPath will select the certificate of that Signing Policy and pass it to the CryptoTokenKit.
+>
+> When you specify neither, SignPath will load all certificates available for the _API Token_'s user. When you specify only one, SignPath will load the certificates of all available _Signing Policies_ for the specified project, or all Signing Policies with that slug for any project, respectively. This may result in ambiguities when referencing a certificate that is available through more than on available _Signing Policy_.
 
 Example call starting the application:
 

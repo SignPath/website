@@ -16,6 +16,8 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 ![Figure: GPG signing flow](/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg)
 
+Configuration options for the [SignPath PKCS #11/Cryptoki provider](/documentation/crypto-providers/cryptoki) apply.
+
 ## Setup {#prepare-signing}
 
 ### SignPath configuration
@@ -39,8 +41,8 @@ The [Linux samples] contain complete example scripts (including all preparation 
 
 | Format                  | Signing invocation     | Sample script                        | Note
 |-------------------------|------------------------|--------------------------------------|---------
-| GPG detached signature  | `gpg --sign`           | `Scenarios/Gpg/GpgSignFile.sh`     
-| RPM (RedHat package)    | `rpmsign --resign`     | `Scenarios/RpmPackages/SignRpm.sh`  
+| GPG detached signature  | `gpg --sign`           | `Scenarios/Gpg/GpgSignFile.sh`       |
+| RPM (RedHat package)    | `rpmsign --resign`     | `Scenarios/RpmPackages/SignRpm.sh`   |
 | DEB (Debian package)    | [`dpkg-sig`]` --sign`  | `Scenarios/DebPackages/SignDeb.sh`   | "builder" is used as _sign role_
 | Maven artifact          | `mvn install`          | `Scenarios/Maven/SignMaven.sh`       | Requires the [Maven GPG plugin]
 
