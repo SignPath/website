@@ -83,6 +83,10 @@ To uninstall in an automated fashion, run the following command (in an elevated 
 msiexec /x SignPathCryptoProviders-$Version.msi /qn /L* uninstall.log | Out-Host
 ~~~
 
+### Configuration
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for general configuration options.
+
 ## Using KSP/CSP parameters of signing tools
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:

@@ -16,8 +16,6 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 ![Figure: GPG signing flow](/assets/img/resources/documentation/crypto-providers/gpg-signing-flow.svg)
 
-Configuration options for the [SignPath PKCS #11/Cryptoki provider](/documentation/crypto-providers/cryptoki) apply.
-
 ## Setup {#prepare-signing}
 
 ### SignPath configuration
@@ -34,6 +32,8 @@ Initialize GPG hash signing using the helper functions of `Samples/Scenarios/Sig
   * Configures `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
   * Configures GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
 2. Import a specific key into the GPG key chain via the `ImportSignPathGpgPublicKey` function (returns the GPG key ID for subsequent use in signing commands)
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for additional configuration options.
 
 ## Signing code with GPG
 

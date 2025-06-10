@@ -18,6 +18,10 @@ macOS 12.0 or higher
 
 Simply copy-deploy the `SignPathCryptoTokenKit.app` application to the target system.
 
+### Configuration
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for general configuration options.
+
 ### Background
 
 macOS allows CryptoTokenKit extensions to be registered in the system. Through these extensions, key material and certificates can be provided. An extension is only available while the application that provides the extension is running. Therefore, before calling signing tools like `codesign`, the `SignPathCryptoTokenKit.app` needs to be started.

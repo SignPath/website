@@ -56,6 +56,10 @@ Copy-deploy the Cryptoki library `Linux/libSignPath.Cryptoki/$OpenSslVersion/lib
 
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
+### Configuration
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for general configuration options.
+
 ### Parameters {#cryptoki-parameters}
 
 Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:

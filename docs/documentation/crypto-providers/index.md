@@ -86,18 +86,18 @@ This section describes how to specify configuration values for all Crypto Provid
 
 You can specify values via individual environment variables or a JSON config file specified in `SIGNPATH_CONFIG_FILE`. If you specify both, environment variables take precedence.
 
-| JSON setting                            | Environment variable                                   | Supported for    | Default Value    | Description
-|-----------------------------------------|--------------------------------------------------------|------------------|------------------|--------------------------
-|                                         | `SIGNPATH_CONFIG_FILE`                                 |                  |                  | Path to the JSON configuration file
-| `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             |                  |                  | ID of SignPath Organization
-| `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   |                  |                  | API token for a SignPath User (CI or Interactive User; see [below](#api-token-options) for options)
-| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                |                  |                  | Slug of the SignPath _Project_
-| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         |                  |                  | Slug of the SignPath _Signing Policy_
-| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows          |                  | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
-| `ApiUrl`                                | `SIGNPATH_API_URL`                                     |     | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
-| `HttpProxy`                             | `http_proxy`                                           |                  |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
-| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | Windows, Linux   | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
-| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  |                  | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
+| JSON setting                            | Environment variable                                   | Supported platforms | Default Value    | Description
+|-----------------------------------------|--------------------------------------------------------|---------------------|------------------|--------------------------
+|  n/a                                    | `SIGNPATH_CONFIG_FILE`                                 |                     |                  | Path to the JSON configuration file
+| `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             |                     |                  | ID of SignPath Organization
+| `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   |                     |                  | API token for a SignPath User (CI or Interactive User; see [below](#api-token-options) for options)
+| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                |                     |                  | Slug of the SignPath _Project_
+| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         |                     |                  | Slug of the SignPath _Signing Policy_
+| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             |                  | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
+| `ApiUrl`                                | `SIGNPATH_API_URL`                                     |        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
+| `HttpProxy`                             | `http_proxy`                                           |                     |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
+| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | Windows, Linux      | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
+| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  |                     | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
 {: .break-code}
 
 The [MSI installer](/documentation/crypto-providers/windows#installation) for Windows creates a skeleton JSON file `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` you can use to provide your own (default) values and sets `SIGNPATH_CONFIG_FILE` accordingly.
