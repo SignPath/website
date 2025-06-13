@@ -53,14 +53,7 @@ open SignPathCryptoTokenKit.app --args \
 
 Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath CryptoTokenKit provider will select that policy's certificate.
 
-In addition to the `SignPathCryptoTokenKit.app` parameters, we recommend that you also specify Project and Signing Policy slug to the signing tool. This avoids situations where a certificate does not unambiguously identify a signing policy, resulting in an error. See [project and signing policy slug settings](index#crypto-provider-config-values-project-signingpolicy).
-
-~~~bash
-export SIGNPATH_PROJECT_SLUG="MyProject"
-export SIGNPATH_SIGNING_POLICY_SLUG="release-signging"
-
-codesign MyApp.app
-~~~
+Default values can be provided as [configuration values](index#crypto-provider-config-values-project-signingpolicy).
 
 {:.panel.tip}
 > **Always specify _Project_ and _Signing Policy_ slugs**
