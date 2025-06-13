@@ -91,8 +91,6 @@ You can specify values via individual environment variables or a JSON config fil
 |  n/a                                    | `SIGNPATH_CONFIG_FILE`                                 |                     |                  | Path to the JSON configuration file
 | `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             |                     |                  | ID of SignPath Organization
 | `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   |                     |                  | API token for a SignPath User (CI or Interactive User; see [below](#api-token-options) for options)
-| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                |                     |                  | Slug of the SignPath _Project_
-| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         |                     |                  | Slug of the SignPath _Signing Policy_
 | `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             |                  | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
 | `ApiUrl`                                | `SIGNPATH_API_URL`                                     |        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
 | `HttpProxy`                             | `http_proxy`                                           | Windows, Linux      |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
@@ -102,12 +100,20 @@ You can specify values via individual environment variables or a JSON config fil
 
 The [MSI installer](/documentation/crypto-providers/windows#installation) for Windows creates a skeleton JSON file `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` you can use to provide your own (default) values and sets `SIGNPATH_CONFIG_FILE` accordingly.
 
-{:.panel.info}
-> **Project and signing policy slugs**
->
-> Use these parameters for signing tools that don't provide a key parameter (e.g. GPG) or to provide defaults where a key parameter is optional (e.g. macOS CryptoTokenKit).
->
-> If only one or neither are specified, signing policy (and therefore certificate and key) will be resolved at runtime. Signing operations will fail if your account is a submitter for more than one matching signing policy.
+**Project and signing policy filtering settings:**
+
+The Cryptoki and macOS CryptoTokenKit interfaces expose multiple certificate/key objects and the SignPath implementations by default return all objects which are accessible by the used API Token (i.e. in all signing policies where the API token's user is entered as submitter in SignPath).
+
+To be able to filter the returned objects, you can use the following settings to either filter for a specific project (only use the project filter) or when using both project and signing policy slug to filter down to exactly one certificate/key.
+
+This is important for signing tools which cannot cope with multiple provided key objects in specific situations like GPG.
+
+
+| JSON setting                            | Environment variable                                   | Description
+|-----------------------------------------|--------------------------------------------------------|--------------------------
+| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | Slug of the SignPath _Project_
+| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | Slug of the SignPath _Signing Policy_
+
 
 **Logging settings:**
 
