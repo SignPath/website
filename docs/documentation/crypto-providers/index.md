@@ -91,9 +91,9 @@ You can specify values via individual environment variables or a JSON config fil
 |  n/a                                    | `SIGNPATH_CONFIG_FILE`                                 |                     |                  | Path to the JSON configuration file
 | `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             |                     |                  | ID of SignPath Organization
 | `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   |                     |                  | API token for a SignPath User (CI or Interactive User; see [below](#api-token-options) for options)
-| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             |                  | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
+| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             | (optional)       | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
 | `ApiUrl`                                | `SIGNPATH_API_URL`                                     |        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
-| `HttpProxy`                             | `http_proxy`                                           | Windows, Linux      |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
+| `HttpProxy`                             | `http_proxy`                                           | Windows, Linux      | (optional)       | Address of an [HTTP (web) proxy](#http-proxy-config) 
 | `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` |                     | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
 | `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  |                     | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
 {: .break-code}
