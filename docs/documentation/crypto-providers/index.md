@@ -135,9 +135,9 @@ Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `ver
 | `Timeouts.RetryCount`       | `SIGNPATH_TIMEOUTS_RETRY_COUNT`       | `10`              | Maximum number of retries in case of failed API HTTP requests
 {: .break-column-2}
 
-HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.
+HTTP timeouts and 5xx server errors (e.g. 503 Service Unavailable errors) are treated as failed requests.
 
-The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.
+The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minutes.
 
 **Sample configuration file:**
 {: #sample-configuration-file}
