@@ -44,7 +44,9 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 >
 > Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath CryptoTokenKit Crypto Provider will select the certificate of that Signing Policy for the signing operations.
 >
-> When you specify neither, SignPath will load all certificates available for the _API Token_'s user. When you specify only the project, SignPath will load the certificates of all available _Signing Policies_ for the specified project. This may result in ambiguities when referencing a certificate that is available through more than on available _Signing Policy_.
+> When you specify neither, SignPath will load all certificates available for the _API Token_'s user. When you specify only the project, SignPath will load the certificates of all available _Signing Policies_ for the specified project.
+>
+> If multiple _Signing Policies_ (referencing the same certificate) match, this may result in ambiguities.
 
 Example call starting the application:
 
