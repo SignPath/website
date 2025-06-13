@@ -40,7 +40,7 @@ This function sets up GPG using the specified parameters:
   * Imports the GPG key and exposes its key ID via the `GPG_KEY_ID` environment variable
   * Installs a Bash EXIT trap which cleans up the isolated GPG configuration
 
-{.panel.tip}
+{:.panel.tip}
 > **Use $GPG_KEY_ID to reference the public key**
 >
 > While you can use any key attribute supported by GPG, we recommend using the `GPG_KEY_ID` environment variable provided by SignPath. This will make your scripts robust in case you select another Signing Policy or the policy is assigned another GPG key. Example: `gpg --sign -u "$GPG_KEY_ID" ...`
