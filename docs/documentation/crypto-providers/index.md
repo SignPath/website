@@ -84,50 +84,61 @@ Depending on the signing tool you're using, the corresponding Crypto Provider ne
 
 This section describes how to specify configuration values for all Crypto Providers.
 
-Configuration options:
+You can specify values via individual environment variables or a JSON config file specified in `SIGNPATH_CONFIG_FILE`. If you specify both, environment variables take precedence.
 
-* Provide individual environment variables per setting
-* Specify the path to a JSON configuration file via the `SIGNPATH_CONFIG_FILE` environment variable
-* Combine both approaches (individual environment variables take precedence over the corresponding JSON file values)
+#### General configuration settings {#crypto-provider-config-values-general}
 
-In case you used the [MSI installer](/documentation/crypto-providers/windows#installation), a `SIGNPATH_CONFIG_FILE` system env variable is created and set to `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` which points to a skeleton JSON file you can use to provide your own (default) values.
-
-| JSON setting                            | Environment variable                                   | Default Value    | Description
-|-----------------------------------      |--------------------------------------------------------|------------------|--------------------------
-| `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             | (mandatory)      | ID of your organization
-| `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   | (mandatory)      | API token for a CI or Interactive User (see below for options)
-| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | (optional)       | The project slug. Used for filtering available certificates/keys. (MacOS only)
-| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | (optional)       | The signing policy slug. Used for filtering available certificates/keys. (MacOS only)
-| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | (optional)       | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint` (Windows only)
-| `ApiUrl`                                | `SIGNPATH_API_URL`                        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
-| `HttpProxy`                             | `http_proxy`                                           | (optional)       | Address of an [HTTP (web) proxy](#http-proxy-config) (not available on macOS)
-| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
-| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
+| JSON setting                            | Environment variable                                   | Supported platforms | Default Value    | Description
+|-----------------------------------------|--------------------------------------------------------|---------------------|------------------|--------------------------
+|  n/a                                    | `SIGNPATH_CONFIG_FILE`                                 |                     |                  | Path to the JSON configuration file
+| `OrganizationId`                        | `SIGNPATH_ORGANIZATION_ID`                             |                     |                  | ID of SignPath Organization
+| `ApiToken`                              | `SIGNPATH_API_TOKEN`                                   |                     |                  | API token for a SignPath User (CI or Interactive User; see [below](#api-token-options) for options)
+| `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             | (optional)       | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
+| `ApiUrl`                                | `SIGNPATH_API_URL`                                     |        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
+| `HttpProxy`                             | `http_proxy`                                           | Windows, Linux      | (optional)       | Address of an [HTTP (web) proxy](#http-proxy-config) 
+| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` |                     | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
+| `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  |                     | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
 {: .break-code}
 
-**Logging settings:**
+The [MSI installer](/documentation/crypto-providers/windows#installation) for Windows creates a skeleton JSON file `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` you can use to provide your own (default) values and sets `SIGNPATH_CONFIG_FILE` accordingly.
 
-| JSON setting                      | Environment variable                      | Default Value                 | Description
-|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
-| `Log.Console.Level`               | `SIGNPATH_LOG_CONSOLE_LEVEL`              | `none`                        | Log level used for console logging (not available on macOS)
-| `Log.Console.OutputStream`        | `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM`      | `stderr`                      | Console stream to use (either `stderr` or `stdout`) (not available on macOS)
-| `Log.File.Level`                  | `SIGNPATH_LOG_FILE_LEVEL`                 | `info`                        | Log level used for file logging 
-| `Log.File.Directory`              | `SIGNPATH_LOG_FILE_DIRECTORY`             | Windows: `%TEMP%\SignPathLogs`, Linux: `/tmp/SignPathLogs` | Path to the folder to store log files
+#### Project and signing policy settings {#crypto-provider-config-values-project-signingpolicy}
+
+You will usually specifiy the Project and Signing Policy and let SignPath select the matching certificate.
+
+The following values
+* should be provieded for other [PKCS #11/Cryptoki](cryptoki) signing tools that don't accept a _key ID_ parameter
+* are internally used for GPG signing via PKCS #11 (see [GPG](gpg#configure-gnupg))
+* can be provided for macOS CryptoTokenKit as default values (see [macOS](macos#usage-project-siging-policy))
+
+| JSON setting                            | Environment variable                                   | Description
+|-----------------------------------------|--------------------------------------------------------|--------------------------
+| `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | Slug of the SignPath _Project_
+| `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | Slug of the SignPath _Signing Policy_
+
+#### Logging settings {#crypto-provider-config-values-logging}
+
+| JSON setting                | Environment variable                  | Default Value     | Description
+|-----------------------------|---------------------------------------|-------------------|----------------------
+| `Log.Console.Level`         | `SIGNPATH_LOG_CONSOLE_LEVEL`          | `none`            | Log level used for console logging (not available on macOS)
+| `Log.Console.OutputStream`  | `SIGNPATH_LOG_CONSOLE_OUTPUT_STREAM`  | `stderr`          | Console stream to use (either `stderr` or `stdout`) (not available on macOS)
+| `Log.File.Level`            | `SIGNPATH_LOG_FILE_LEVEL`             | `info`            | Log level used for file logging 
+| `Log.File.Directory`        | `SIGNPATH_LOG_FILE_DIRECTORY`         | Windows: `%TEMP%\SignPathLogs`, Linux: `/tmp/SignPathLogs` | Path to the folder to store log files
 
 Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `verbose`.
 
-**Timeout settings:**
+#### Timeout settings
 
-| JSON setting                      | Environment variable                      | Default Value                 | Description
-|-----------------------------------|-------------------------------------------|-------------------------------|--------------------------
-| `Timeouts.HttpRequest`            | `SIGNPATH_TIMEOUTS_HTTP_REQUEST`          | `30`                          | Timeout for HTTP calls in seconds per attempt
-| `Timeouts.FirstRetryDelay`        | `SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY`     | `1.16`                        | Initial delay in seconds in case of failed API HTTP requests
-| `Timeouts.RetryCount`             | `SIGNPATH_TIMEOUTS_RETRY_COUNT`           | `10`                          | Maximum number of retries in case of failed API HTTP requests
+| JSON setting                | Environment variable                  | Default Value     | Description
+|-----------------------------|---------------------------------------|-------------------|-------------------------
+| `Timeouts.HttpRequest`      | `SIGNPATH_TIMEOUTS_HTTP_REQUEST`      | `30`              | Timeout for HTTP calls in seconds per attempt
+| `Timeouts.FirstRetryDelay`  | `SIGNPATH_TIMEOUTS_FIRST_RETRY_DELAY` | `1.16`            | Initial delay in seconds in case of failed API HTTP requests
+| `Timeouts.RetryCount`       | `SIGNPATH_TIMEOUTS_RETRY_COUNT`       | `10`              | Maximum number of retries in case of failed API HTTP requests
 {: .break-column-2}
 
-HTTP timeouts and 5xx server erros (e.g. 503 Service Unavailable errors) are treated as failed requests.
+HTTP timeouts and 5xx server errors (e.g. 503 Service Unavailable errors) are treated as failed requests.
 
-The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minuntes.
+The delay between retries increases exponentially. For the default values this sums up to a total delay time of 10 minutes.
 
 **Sample configuration file:**
 {: #sample-configuration-file}

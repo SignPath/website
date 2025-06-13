@@ -25,13 +25,13 @@ This section provides general information about using the SignPath Cryptoki libr
 
 | Distribution | Version            | Comment
 |--------------|--------------------|------------------------
-| Debian       | 11 "bullseye"
-| Debian       | 12 "bookworm"
+| Debian       | 11 "bullseye"      |
+| Debian       | 12 "bookworm"      |
 | Ubuntu       | 20.04              | Except [osslsigncode](#osslsigncode)
 | Ubuntu       | 22.04              |
 | Ubuntu       | 24.04              |
-| RedHat       | 8 (latest minor)
-| RedHat       | 9 (latest minor)
+| RedHat       | 8 (latest minor)   |
+| RedHat       | 9 (latest minor)   |
 
 > **OpenSSL 3.0.0 - 3.0.8 incompatibility**
 >
@@ -56,6 +56,10 @@ Copy-deploy the Cryptoki library `Linux/libSignPath.Cryptoki/$OpenSslVersion/lib
 
 Check the output of `openssl version` on your target system to select the correct OpenSSL version.
 
+### Configuration
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for general configuration options.
+
 ### Parameters {#cryptoki-parameters}
 
 Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameters. These are passed to the respective Cryptoki provider. For SignPath, provide the following values:
@@ -68,9 +72,9 @@ Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameter
 Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only [indirectly](#about-cryptoki), parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
 {:.panel.info}
-> **Keys are not specified directly**
+> **Use _Project_ and _Signing Policy_ slugs to specify a key**
 >
-> The Cryptoki API expects you to identify a _key_, but SignPath requires you to specify a _Project_ and a _Signing Policy_. SignPath will select the key or certificate of the specified _Signing Policy_.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath Cryptoki CryptoProvider will select that policy's key or certificate.
 
 ### Error handling
 
@@ -269,7 +273,7 @@ osslsigncode sign `
 
 | Parameter          | Value                              | Description
 |--------------------|------------------------------------|-----------------------------
-| `--pkcs11module`   | `/path/to/libSignPath.Cryptoki.so` | Path to the SignPath Cryptoki library
+| `--pkcs11module`   | `path/to/libSignPath.Cryptoki.so`  | Path to the SignPath Cryptoki library
 | `--key`            | `pkcs11:id=...`                    | A PKCS #11 URI as shown in the example above including _Project_ and _Signing Policy_ slugs and the "pin" value (see also [Cryptoki parameters](#cryptoki-parameters))
 | `--certs`          | `certificate.pem`                  | Certificate of the used signing policy in PEM format
 
@@ -388,7 +392,7 @@ jarsigner <parameters> <jar-files> <keystore-alias>
 | `-providerArg`     | Path to `pkcs11.config`                 | The SunPKCS11 provider expects a path to the config file
 | `-sigalg`          | `SHA256withRSA`, `SHA384withRSA`, `SHA512withRSA`, `SHA256withECDSA`, `SHA384withECDSA`, or `SHA512withECDSA` | Digest and signature algorithm
 | `-storepass`       | `CONFIG` or `$OrganizationId:$ApiToken` | See ["PIN" parameter](#cryptoki-parameters)
-| _keystore-alias_   | `$ProjectSlug/$SigningPolicySlug`       | _Project_ and _Signing Policy_ slug, separated by a forward slash
+| _keystore-alias_   | `$ProjectSlug/$SigningPolicySlug`       | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash
 
 Sample: sign `myapp.jar`
 
