@@ -25,15 +25,17 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 ### Configure GPG for signing {#configure-gnupg}
 
-Initialize GPG hash signing using the helper functions of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` of the [Linux samples]:
+Initialize GPG hash signing using the helper function `InitializeSignPathCryptoProviderGpgSigning` of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` of the [Linux samples].
 
-1. Call the `InitializeSignPathCryptoProviderGpgSigning` function to configure GPG and fetch the private key references
-  * Configures the [SignPath Crypto Provider](/documentation/crypto-providers#crypto-provider-configuration)
-  * Configures `gnupg-pkcs11-scd` via `gnupg-pkcs11-scd.conf`
-  * Configures GnuPG (`gpg-agent`) to use `gnupg-pkcs11-scd`
-2. Import a specific key into the GPG key chain via the `ImportSignPathGpgPublicKey` function (returns the GPG key ID for subsequent use in signing commands)
+This function internally:
+  * Configures the SignPath Crypto Provider with the given organization ID, API token, ...
+  * Isolates GnuPG's home dir (`GNUPGHOME` env var) into a temp directory (=> isolates GnuPG configuration and key store).
+  * Configure GPG and `gnupg-pkcs11-scd` and fetches the private key reference for the given project / signing policy.
+  * Downloads and GPG public key for the given project and signing policy from SignPath.
+  * Imports the GPG key and exposes its key ID as `GPG_KEY_ID` env var which can be used for later GPG invocations like, e.g. using `gpg -u "$GPG_KEY_ID" ...`
+  * Installs a Bash EXIT trap which cleans up the isolated GPG configuration.
 
-See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for additional configuration options.
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for additional configuration options like logging settings.
 
 ## Signing code with GPG
 
@@ -52,11 +54,13 @@ While executing each signing tool, SignPath is called to perform a hash-based si
 
 For `gnupg-pkcs11-scd`, `stdout` console output must be disabled. Use the log files for troubleshooting.
 
-For the [Linux samples], the following log file locations are configured:
+The [`InitializeSignPathCryptoProviderGpgSigning` helper function](/documentation/crypto-providers/gpg#configure-gnupg) uses the following logging directories:
 
-* SignPath Cryptoki logs: `Samples/Scenarios/Work/Logs/SignPathLogs/*.log`
-* `gnupg-pkcs11-scd` logs: `Samples/Scenarios/Work/Logs/gnupg-pkcs11-scd.log`
-* GPG logs: `Samples/Scenarios/Work/Logs/gpg-agent.log`
+* SignPath Cryptoki logs: `/tmp/SignPathLogs/<timestamp>.log`
+* `gnupg-pkcs11-scd` logs: `/tmp/SignPathLogs/gnupg-pkcs11-scd.log`
+* GPG logs: `/tmp/SignPathLogs/gpg-agent.log`
+
+When using the [Linux samples], the `/tmp/SignPathLogs` is container volume mounted to `Samples/SignPathLogs`.
 
 [Linux samples]: /documentation/crypto-providers#linux-docker-samples
 [`dpkg-sig`]: https://manpages.debian.org/bullseye/dpkg-sig/dpkg-sig.1.en.html

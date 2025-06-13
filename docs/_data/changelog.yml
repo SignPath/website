@@ -5,9 +5,13 @@
       improvements:
         - text: |
             Cryptoki/PKCS#11: project and signing policy can now be specified via environment variables or config file.
-            * GPG: This removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.
+            * GPG: this removes the need to provide a dedicated CI user for each signing policy. GPG signing samples now use these parameters.
+            * GPG: the [`InitializeSignPathCryptoProviderGpgSigning` helper function](/documentation/crypto-providers/gpg#configure-gnupg) now fully configures GPG; no more need to run `ImportSignPathGpgPublicKey` anymore.
             * Configuration: see [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration).
           issues: [SIGN-7580, SIGN-7581]
+        - text: |
+            Improved the default logging locations for GPG signing, see [GPG docs](/documentation/crypto-providers/gpg#gpg-error-logs).
+          issues: [SIGN-7581]
 - date: '2025-06-05'
   updates:
     application:
