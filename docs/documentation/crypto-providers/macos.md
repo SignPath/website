@@ -39,15 +39,6 @@ The `SignPathCryptoTokenKit.app` application loads all available certificates fo
 | `--organization-id`     | `$OrganizationId`            |                               | ID of the SignPath _Organization_
 | `--api-token`           | `$ApiToken`                  |                               | API token for a SignPath _User_
 
-{:.panel.info}
-> **Use _Project_ and _Signing Policy_ slugs to specify a key**
->
-> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath CryptoTokenKit Crypto Provider will select the certificate of that Signing Policy for the signing operations.
->
-> When you specify neither, SignPath will load all certificates available for the _API Token_'s user. When you specify only the _Project_, SignPath will load the certificates of all available _Signing Policies_ for the specified project.
->
-> If a loaded certificate is referenced by more than one available _Signing Policy_, using it will result in an ambiguous reference error.
-
 Example call starting the application:
 
 ~~~bash
@@ -57,6 +48,26 @@ open SignPathCryptoTokenKit.app --args \
   --signing-policy-slug release-signing \
   --organization-id 0241f767-69c8-448d-ad5e-8bd453916068
 ~~~
+
+#### Project and signing policy {#usage-project-siging-policy}
+
+Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath CryptoTokenKit provider will select that policy's certificate.
+
+In addition to the `SignPathCryptoTokenKit.app` parameters, we recommend that you also specify Project and Signing Policy slug to the signing tool. This avoids situations where a certificate does not unambiguously identify a signing policy, resulting in an error. See [project and signing policy slug settings](index#crypto-provider-config-values-project-signingpolicy).
+
+~~~bash
+export SIGNPATH_PROJECT_SLUG="MyProject"
+export SIGNPATH_SIGNING_POLICY_SLUG="release-signging"
+
+codesign MyApp.app
+~~~
+
+{:.panel.tip}
+> **Always specify _Project_ and _Signing Policy_ slugs**
+>
+> When you specify neither, SignPath will load all certificates available for the _API Token_'s user. When you specify only the _Project_, SignPath will load the certificates of all available _Signing Policies_ for the specified project.
+>
+> This works fine if a certificate clearly identifies a single Signing Policy. However, if a certificate is referenced by more than one available _Signing Policy_, using it will result in an ambiguous reference error.
 
 ### Troubleshooting
 
@@ -111,7 +122,7 @@ _codesign_ requires the following parameter to find the correct certificate:
 
 Sample: sign `MyApp.app`
 
-~~~powershell
+~~~bash
 codesign -s MyCertificateSubjectName MyApp.app
 ~~~
 
@@ -132,7 +143,7 @@ _productsign_ requires the following parameter to find the correct certificate:
 
 Sample: sign `MyInstaller.pkg`
 
-~~~powershell
+~~~bash
 productsign --timestamp --sign "XX6NBJ3UUF" MyInstaller.pkg MyInstaller-signed.pkg
 ~~~
 

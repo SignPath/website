@@ -86,6 +86,8 @@ This section describes how to specify configuration values for all Crypto Provid
 
 You can specify values via individual environment variables or a JSON config file specified in `SIGNPATH_CONFIG_FILE`. If you specify both, environment variables take precedence.
 
+#### General configuration settings {#crypto-provider-config-values-general}
+
 | JSON setting                            | Environment variable                                   | Supported platforms | Default Value    | Description
 |-----------------------------------------|--------------------------------------------------------|---------------------|------------------|--------------------------
 |  n/a                                    | `SIGNPATH_CONFIG_FILE`                                 |                     |                  | Path to the JSON configuration file
@@ -100,22 +102,20 @@ You can specify values via individual environment variables or a JSON config fil
 
 The [MSI installer](/documentation/crypto-providers/windows#installation) for Windows creates a skeleton JSON file `%ProgramFiles%\SignPath\CryptoProviders\CryptoProvidersConfig.json` you can use to provide your own (default) values and sets `SIGNPATH_CONFIG_FILE` accordingly.
 
-**Project and signing policy filtering settings:**
+#### Project and signing policy settings {#crypto-provider-config-values-project-signingpolicy}
 
-The Cryptoki and macOS CryptoTokenKit interfaces expose multiple certificate/key objects and the SignPath implementations by default return all objects which are accessible by the used API Token (i.e. in all signing policies where the API token's user is entered as submitter in SignPath).
+You will usually specifiy the Project and Signing Policy and let SignPath select the matching certificate.
 
-To be able to filter the returned objects, you can use the following settings to either filter for a specific project (only use the project filter) or when using both project and signing policy slug to filter down to exactly one certificate/key.
-
-This is important for signing tools which cannot cope with multiple provided key objects in specific situations like GPG.
-
+The following values
+* should be provided for macOS CryptoTokenKit to avoid ambuguities (see [macOS](macos#usage-project-siging-policy))
+* are internally used for GPG signing via PKCS #11 (see [GPG](gpg#configure-gnupg))
 
 | JSON setting                            | Environment variable                                   | Description
 |-----------------------------------------|--------------------------------------------------------|--------------------------
 | `ProjectSlug`                           | `SIGNPATH_PROJECT_SLUG`                                | Slug of the SignPath _Project_
 | `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         | Slug of the SignPath _Signing Policy_
 
-
-**Logging settings:**
+#### Logging settings {#crypto-provider-config-values-logging}
 
 | JSON setting                | Environment variable                  | Default Value     | Description
 |-----------------------------|---------------------------------------|-------------------|----------------------
@@ -126,7 +126,7 @@ This is important for signing tools which cannot cope with multiple provided key
 
 Supported log levels: `none`, `fatal`, `error`, `warning`, `info`, `debug`, `verbose`.
 
-**Timeout settings:**
+#### Timeout settings
 
 | JSON setting                | Environment variable                  | Default Value     | Description
 |-----------------------------|---------------------------------------|-------------------|-------------------------

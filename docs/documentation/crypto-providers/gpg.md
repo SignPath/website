@@ -10,6 +10,10 @@ description: Creating GPG signatures with SignPath
 
 [GNU Privacy Guard](https://gnupg.org/), also known as GPG or GnuPG, is an Open Source implementation of the OpenPGP standard. This section provides information about using GPG with SignPath, as well as some code signing tools that build on GPG.
 
+## Terminology
+
+GPG uses various terms for certificates. We use the term **_GPG key_** in our GPG documentation, but keep in mind that other parts of the SignPath documentation will use the general term _certificate_. See [Managing Certificates](/documentation/managing-certificates#certificate-types) for more information.
+
 ### Using GnuPG with PKCS #11
 
 GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs11-scd](https://github.com/alonbl/gnupg-pkcs11-scd/) project adds this capability as a daemon for the GnuPG ["Smartcard"](https://wiki.gnupg.org/SmartCard) interface.
@@ -27,15 +31,21 @@ GnuPG does not directly support the PKCS #11/Cryptoki interface. The [gnupg-pkcs
 
 Initialize GPG hash signing using the helper function `InitializeSignPathCryptoProviderGpgSigning` of `Samples/Scenarios/SignPathCryptoProviderHelpers.sh` of the [Linux samples].
 
-This function internally:
-  * Configures the SignPath Crypto Provider with the given organization ID, API token, ...
-  * Isolates GnuPG's home dir (`GNUPGHOME` env var) into a temp directory (=> isolates GnuPG configuration and key store).
-  * Configure GPG and `gnupg-pkcs11-scd` and fetches the private key reference for the given project / signing policy.
-  * Downloads and GPG public key for the given project and signing policy from SignPath.
-  * Imports the GPG key and exposes its key ID as `GPG_KEY_ID` env var which can be used for later GPG invocations like, e.g. using `gpg -u "$GPG_KEY_ID" ...`
-  * Installs a Bash EXIT trap which cleans up the isolated GPG configuration.
+This function sets up GPG using the specified parameters:
+  * Configures the SignPath Crypto Provider
+  * Sets GnuPG's home dir (`GNUPGHOME` environment variable) to a temporary directory to isolate GnuPG configuration and key store changes
+  * Configures GPG and `gnupg-pkcs11-scd` and fetches the private key reference
+  * Downloads the transferable GPG public key 
+  * Sets the `SIGNPATH_PROJECT_SLUG` and `SIGNPATH_SIGNING_POLICY_SLUG` environment variables to avoid ambiguities in the PKCS #11/Cryptoki provider (see [Configuration](index/#crypto-provider-config-values-signingpolicy))
+  * Imports the GPG key and exposes its key ID via the `GPG_KEY_ID` environment variable
+  * Installs a Bash EXIT trap which cleans up the isolated GPG configuration
 
-See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for additional configuration options like logging settings.
+{.panel.tip}
+> **Use $GPG_KEY_ID to reference the public key**
+>
+> While you can use any key attribute supported by GPG, we recommend using the `GPG_KEY_ID` environment variable provided by SignPath. This will make your scripts robust in case you select another Signing Policy or the policy is assigned another GPG key. Example: `gpg --sign -u "$GPG_KEY_ID" ...`
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for additional configuration options including logging.
 
 ## Signing code with GPG
 

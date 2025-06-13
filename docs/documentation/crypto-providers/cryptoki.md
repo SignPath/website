@@ -74,7 +74,7 @@ Name and synopsis for these parameters depend on the tool. For tools that suppor
 {:.panel.info}
 > **Use _Project_ and _Signing Policy_ slugs to specify a key**
 >
-> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath Cryptoki CryptoProvider will select the key or certificate of that Signing Policy for the signing operations.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath Cryptoki CryptoProvider will select that policy's key or certificate.
 
 ### Error handling
 
