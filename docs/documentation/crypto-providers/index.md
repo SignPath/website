@@ -95,8 +95,8 @@ You can specify values via individual environment variables or a JSON config fil
 | `SigningPolicySlug`                     | `SIGNPATH_SIGNING_POLICY_SLUG`                         |                     |                  | Slug of the SignPath _Signing Policy_
 | `TlsClientCertificate`                  | `SIGNPATH_TLS_CLIENT_CERTIFICATE`                      | Windows             |                  | Reference to a TLS/SSL client authentication certificate in the format `thumbprint:$HexThumbprint`
 | `ApiUrl`                                | `SIGNPATH_API_URL`                                     |        | `https://app.signpath.io/Api` | SignPath API endpoint to use. Needs to be set if for self-hosted SignPath installations   
-| `HttpProxy`                             | `http_proxy`                                           |                     |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
-| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` | Windows, Linux      | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
+| `HttpProxy`                             | `http_proxy`                                           | Windows, Linux      |                  | Address of an [HTTP (web) proxy](#http-proxy-config) 
+| `Cryptoki.DoNotFailOnReadWriteSessions` | `SIGNPATH_CRYPTOKI_DO_NOT_FAIL_ON_READ_WRITE_SESSIONS` |                     | `false`          | Enables compatibility with Cryptoki/PKCS #11 clients that open sessions with read/write option 
 | `IncludeDummyX509CertificateForGpgKeys` | `SIGNPATH_INCLUDE_DUMMY_X509CERTIFICATE_FOR_GPG_KEYS`  |                     | `false`          | Enables compatibility with clients that require X.509 objects (required for [GPG hash signing](/documentation/crypto-providers/gpg) due to `gnupg-pkcs11-scd` X.509-based key discovery)
 {: .break-code}
 
