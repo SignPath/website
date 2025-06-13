@@ -72,9 +72,9 @@ Signing tools with Cryptoki support usually provide _PIN_ and _key ID_ parameter
 Name and synopsis for these parameters depend on the tool. For tools that support Cryptoki only [indirectly](#about-cryptoki), parameters may also be passed indirectly or using a specific syntax for an existing tool parameter (see below).
 
 {:.panel.info}
-> **Use _Project_ and _Signing Policy_ slugs to speficy a key**
+> **Use _Project_ and _Signing Policy_ slugs to specify a key**
 >
-> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the Cryptoki API.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath Cryptoki CryptoProvider will select the key or certificate of that Signing Policy for the signing operations.
 
 ### Error handling
 

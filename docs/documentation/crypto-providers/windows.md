@@ -100,7 +100,7 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 {:.panel.info}
 > **Use _Project_ and _Signing Policy_ slugs to speficy a key**
 >
-> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. SignPath will select the key or certificate of that Signing Policy and pass it to the KSP and CSP interfaces.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath KSP/CSP will select the key or certificate of that Signing Policy for the signing operations.
 
 ## Error handling
 
