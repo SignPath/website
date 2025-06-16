@@ -11,7 +11,7 @@
       breaking_changes:
         - text: |-
             `signpath-application` chart: moved `smtpServerOptions` section from `appSecrets/appSettings.notificationsProcessorService` to `appSecrets/appSettings.shared`.
-          issues: [SIGN-????]
+          issues: [SIGN-7621]
       improvements:
         - text: |-
             Improved general database query performance when using multiple organizations with uneven signing request data distribution.
