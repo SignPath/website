@@ -83,6 +83,10 @@ To uninstall in an automated fashion, run the following command (in an elevated 
 msiexec /x SignPathCryptoProviders-$Version.msi /qn /L* uninstall.log | Out-Host
 ~~~
 
+### Configuration
+
+See [SignPath Crypto Providers](/documentation/crypto-providers/#crypto-provider-configuration) for general configuration options.
+
 ## Using KSP/CSP parameters of signing tools
 
 Additionally to the general [Crypto Provider configuration](/documentation/crypto-providers#crypto-provider-configuration), specify the following values using the parameters provided by your signing tool:
@@ -90,13 +94,13 @@ Additionally to the general [Crypto Provider configuration](/documentation/crypt
 | Parameter             | Value                                | Description
 |-----------------------|--------------------------------------|---------------------------------------
 | Crypto Provider       | `SignPathKSP` or `SignPathCSP`       | SignPath KSP (preferred) or CSP
-| Key container name    | `$ProjectSlug/$SigningPolicySlug`    | _Project_ and _Signing Policy_ slugs, separated by a forward slash 
+| Key container name    | `$ProjectSlug/$SigningPolicySlug`    | SignPath _Project_ and _Signing Policy_ slugs, separated by a forward slash 
 | Certificate file      | Path to the x.509 certificate file   | Download the respective certificate file from SignPath
 
 {:.panel.info}
-> **Keys are not specified directly**
+> **Use _Project_ and _Signing Policy_ slugs to speficy a key**
 >
-> The KSP and CSP interfaces expect you to identify a key, but SignPath requires you to specify _Project_ and _Signing Policy_. SignPath will select the correct key or certificate based on the _Project_ and _Signing Policy_ you specify.
+> Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath KSP/CSP will select that policy's certificate.
 
 ## Error handling
 
