@@ -36,7 +36,7 @@ This function sets up GPG using the specified parameters:
   * Sets GnuPG's home dir (`GNUPGHOME` environment variable) to a temporary directory to isolate GnuPG configuration and key store changes
   * Configures GPG and `gnupg-pkcs11-scd` and fetches the private key reference
   * Downloads the transferable GPG public key 
-  * Sets the `SIGNPATH_PROJECT_SLUG` and `SIGNPATH_SIGNING_POLICY_SLUG` environment variables to avoid ambiguities in the PKCS #11/Cryptoki provider (see [Configuration](index/#crypto-provider-config-values-signingpolicy))
+  * Sets the `SIGNPATH_PROJECT_SLUG` and `SIGNPATH_SIGNING_POLICY_SLUG` environment variables to avoid ambiguities in the PKCS #11/Cryptoki provider (see [Configuration](index/#crypto-provider-config-values-project-signingpolicy))
   * Imports the GPG key and exposes its key ID via the `GPG_KEY_ID` environment variable
   * Installs a Bash EXIT trap which cleans up the isolated GPG configuration
 
