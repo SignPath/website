@@ -204,6 +204,7 @@ SignPath supports the following Trusted Build Systems with origin verification:
 * [Jenkins](trusted-build-systems/jenkins)
 * [AppVeyor](trusted-build-systems/appveyor)
 * [Azure DevOps](trusted-build-systems/azure-devops)
+* [TeamCity](trusted-build-systems/teamcity)
 
 ## Other CI integrations
 
