@@ -3,7 +3,7 @@
     github_connector:
       version: 1.6.0
       bug_fixes:
-        - text: Fixed a bug where skipped GitHub jobs were considered to violate the allowed runner groups policy.
+        - text: Fixed a bug that considered skipped GitHub jobs as violations of the allowed runner groups policy.
           issues: [SIGN-7861]
 - date: '2025-06-17'
   updates:
