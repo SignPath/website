@@ -1,3 +1,25 @@
+- date: '2025-06-17'
+  updates:
+    application:
+      version: 1.190.1
+      new_features:
+        - text: |-
+            Added a dedicated _Verificatons_ panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.
+          issues: [SIGN-7773]
+    self_hosted_installations:
+      version: 1.190.1
+      breaking_changes:
+        - text: |-
+            `signpath-application` chart: moved `smtpServerOptions` section from `appSecrets/appSettings.notificationsProcessorService` to `appSecrets/appSettings.shared`.
+          issues: [SIGN-7621]
+      improvements:
+        - text: |-
+            Improved general database query performance when using multiple organizations with uneven signing request data distribution.
+          issues: [SIGN-7839]
+      bug_fixes:
+        - text: |-
+            Fixed Fortanix HSM SignService connections to Fortanix DSM clusters with in-house PKI TLS certificates.
+          issues: [SIGN-7796]
 - date: '2025-06-05'
   updates:
     application:
