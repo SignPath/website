@@ -1,3 +1,10 @@
+- date: '2025-06-19'
+  updates:
+    github_connector:
+      version: 1.6.0
+      bug_fixes:
+        - text: Fixed a bug that considered skipped GitHub jobs as violations of the allowed runner groups policy.
+          issues: [SIGN-7861]
 - date: '2025-06-18'
   updates:
     crypto_providers:
@@ -12,13 +19,6 @@
         - text: |
             Improved the default logging locations for GPG signing, see [GPG docs](/documentation/crypto-providers/gpg#gpg-error-logs).
           issues: [SIGN-7581]
-- date: '2025-06-19'
-  updates:
-    github_connector:
-      version: 1.6.0
-      bug_fixes:
-        - text: Fixed a bug that considered skipped GitHub jobs as violations of the allowed runner groups policy.
-          issues: [SIGN-7861]
 - date: '2025-06-17'
   updates:
     application:
