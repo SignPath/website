@@ -25,7 +25,7 @@
       version: 1.190.1
       new_features:
         - text: |-
-            Added a dedicated _Verificatons_ panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.
+            Added a dedicated _Verifications_ panel on the signing request page to provide a comprehensive overview of all the checks that were performed by SignPath.
           issues: [SIGN-7773]
     self_hosted_installations:
       version: 1.190.1
