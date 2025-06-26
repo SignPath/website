@@ -431,15 +431,18 @@ table.break-code code {
 	white-space: inherit;
 }
 
-table.break-column-1 tr td:nth-child(1),
-table.break-column-2 tr td:nth-child(2),
-table.break-column-3 tr td:nth-child(3),
-table.break-column-4 tr td:nth-child(4),
-table.break-column-5 tr td:nth-child(5) {
-	word-break: break-all;
-	min-width: 10em;
-	code {
-		white-space: inherit;
+
+@for $i from 1 through 5 {
+	table.break-column-#{$i} tr td:nth-child(#{$i}) {
+		word-break: break-all;
+		min-width: 10em;
+		code {
+			white-space: inherit;
+		}
+	}
+
+	table.nowrap-code-column-#{$i} tr td:nth-child(#{$i}) code {
+		white-space: nowrap;
 	}
 }
 

@@ -10,6 +10,7 @@ datasource: tables/artifact-configuration
 ## File and directory elements {#file-elements}
 
 {%- include render-table.html table=site.data.tables.artifact-configuration.signing-file-elements -%}
+{:.nowrap-code-column-3}
 
 ### Container formats {#containers}
 
