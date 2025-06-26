@@ -47,7 +47,7 @@
       sub: '.wsh .vbs .js'
     - name: clickonce
       title: 'ClickOnce applications'
-      sub: '.manifest'
+      sub: '.application .manifest'
     - name: device_drivers
       title: 'Windows device drivers'
       hint: 'EV signing (attestation and HLK) and cross-signing'
@@ -56,8 +56,9 @@
       title: 'NuGet packages'
       sub: '.nupkg'
     - name: office_add_ins
-      title: 'Office add-ins'
-      sub: '.manifest'
+      title: 'VSTO Office add-ins'
+      hint: 'Sign Microsoft Office add-ins created with Visual Studio Tools for Office (VSTO)'
+      sub: '.vsto .manifest'
     - name: opc
       title: 'Visual Studio extensions'
       sub: '.vsix'

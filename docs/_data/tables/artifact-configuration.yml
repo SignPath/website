@@ -93,7 +93,7 @@ signing-file-elements:
     - element: "[`<directory>`](syntax#directory-element)"
       isContainer: "Yes"
       directive: "[`<clickonce-sign>`](#clickonce-sign)"
-      description: "Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files."
+      description: "Directories within container files. This directive is primarily used to structure further elements within containers, e.g. ZIP, MSI, or other directories. It can also be used to sign ClickOnce files and VSTO add-ins."
     - element: "`<file>`"
       isContainer: "No"
       directive: |

@@ -75,11 +75,11 @@ See also:
 * Verify existing signatures using [`authenticode-verify`](#authenticode-verify).
 * Use [metadata restrictions](#metadata-restrictions) for `<pe-file>` to restrict product name and version.
 
-### `<clickonce-sign>`: Microsoft ClickOnce {#clickonce-sign}
+### `<clickonce-sign>`: Microsoft ClickOnce and VSTO Office add-ins {#clickonce-sign}
 
 {%- include_relative render-ac-directive-table.inc directive="clickonce-sign" -%}
 
-ClickOnce signing, also called 'manifest signing', is a method used for ClickOnce applications and Microsoft Office Add-ins. Using `<clickonce-sign>` is equivalent to using Microsoft's `mage.exe`.
+ClickOnce signing, also called 'manifest signing', is a method used for ClickOnce applications and Microsoft Office Add-ins created using Visual Studio Tools for Office (VSTO). Using `<clickonce-sign>` is equivalent to using Microsoft's `mage.exe`.
 
 ClickOnce signing applies to directories, not to individual files. Therefore, you need to specify a `<directory>` element for this method. If you want to sign files in the root directory of a container, specify `path="."`.
 
