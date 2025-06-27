@@ -1036,8 +1036,8 @@
       version: 1.157.0
       improvements:
         - text: >-
-            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
-            a new signing request (linking back to the "original singing request") instead of retrying the same signing request.
+            For failed signing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
+            a new signing request (linking back to the "original signing request") instead of retrying the same signing request.
           issues: [SIGN-6744]
         - text: >-
             Stricter validation of email address input.
@@ -1988,7 +1988,7 @@
         - text: The console logging was disabled by default (`SIGNPATH_LOG_CONSOLE_LEVEL=none`).
           issues: [SIGN-5154]
       new_features:
-        - text: 'Cryptoki: Added compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP singing.'
+        - text: 'Cryptoki: Added compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP signing.'
           issues: [SIGN-5154]
     self_hosted_installations:
       version: 1.121.0

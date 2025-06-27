@@ -382,7 +382,7 @@ If you use this method directly to verify signatures, make sure that the public 
 
 ## Verification methods {#verification}
 
-Verification directives are used to ensure that files in a singing request are already properly signed by their respective publisher.
+Verification directives are used to ensure that files in a signing request are already properly signed by their respective publisher.
 
 Use this to
 
