@@ -200,6 +200,14 @@ openssl dgst -engine pkcs11 -keyform engine -sign "pkcs11:id=$ProjectSlug/$Signi
 >
 > The following digests are supported: `sha256`, `sha384`, `sha512`
 
+**Verification:**
+To verify the signature, run the following command:
+
+~~~ powershell
+# Extract the public key of the certificate to a separate file first
+openssl dgst -verify "/path/to/public_key.pem" -sha256 -signature "artifact.sig" "artifact.bin"
+~~~
+
 ##### openssl pkeyutl
 
 The _[pkeyutl][openssl-pkeyutl]_ command performs low-level cryptographic operations, such as signing.
@@ -228,6 +236,13 @@ Sample: sign the hash code in `artifact.hash.bin` using PSS padding, write the s
 openssl pkeyutl -engine pkcs11 -keyform engine -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -sign -in "artifact.hash.bin" -out "artifact.sig" -pkeyopt digest:sha256 -pkeyopt rsa_padding_mode:pss -pkeyopt rsa_pss_saltlen:-1 -pkeyopt rsa_mgf1_md:sha256
 ~~~
 
+**Verification:**
+To verify the signature, run the following command:
+
+~~~ powershell
+openssl pkeyutl -verify -certin "/path/to/certificate.der" -inform DER -pkeyopt ... (same as above) -in "artifact.sig" -sigfile "artifact.sig"
+~~~
+
 #### openssl cms
 
 The _[cms][openssl-cms]_ command can be used to create embedded S/MIME or detached PEM/DER signatures. It uses the Cryptographic Message Syntax format (CMS, formerly known as PKCS#7).
@@ -243,6 +258,19 @@ Sample: sign the file `artifact.bin` using `certificate.pem`, write the detached
 ~~~ powershell
 openssl cms -engine pkcs11 -signer "certificate.pem" -inkey "pkcs11:id=$ProjectSlug/$SigningPolicySlug;type=private" -keyform engine -sign -binary -in "artifact.bin" -noattr -out "artifact.sig" -outform PEM
 ~~~
+
+**Verification:**
+To verify the signature, run the following command:
+
+~~~ powershell
+openssl cms -verify -purpose codesign -in "artifact.sig" -out "restored.bin"
+~~~
+
+{:.panel.warning}
+> **OpenSSL CMS verification**
+>
+> * Prior to OpenSSL 3.2, the `-purpose any` flag has to be used
+> * When signing with a certificate that is not trusted on the respective platform, the `-CAFile ./path/to/root.cer` has to be provided
 
 ## osslsigncode {#osslsigncode}
 
