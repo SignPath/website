@@ -433,7 +433,8 @@ The restrictions can be applied to file elements, [file set elements](syntax#fil
 
 | File element | Supported restriction attributes                                                                                        | Example
 |--------------|-------------------------------------------------------------------------------------------------------------------------|--------
-| `<pe-file>`  | PE file headers: `product-name`, `product-version`, `file-version`, `company-name`, `copyright`, `original-filename`    | [PE file restrictions](examples#pe-restriction)
+| `<pe-file>`  | PE file headers: `product-name`, `product-version`, `file-version`, `company-name`, `copyright`, `original-filename`    | [PE file restrictions](examples#msi-and-pe-restriction)
+| `<msi-file>` | MSI properties: `subject`, `author`                                                                                     | [MSI file restrictions](examples#msi-and-pe-restriction)
 | `<xml-file>` | Root element name and namespace: `root-element-name`, `root-element-namespace`                                          | [SBOM restrictions](examples#sbom-restriction)
 
 

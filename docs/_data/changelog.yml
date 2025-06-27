@@ -1,3 +1,23 @@
+- date: '2025-07-01'
+  updates:
+    application:
+      version: 1.191.0
+      new_features:
+        - text: |-
+            REST API: New signing request submission APIs, which allow to separate metadata submission from artifact upload:
+            * `POST /v1/{organizationId}/SigningRequests/SubmitWithoutArtifact` creates a signing request in a "waiting for artifact upload" status.
+            * `POST /v1/{organizationId}/SigningRequests/{id}/UploadUnsignedArtifact` (afterwards) uploads the artifact.
+            * For details see [API definition](https://app.signpath.io/Api/swagger) of the new routes.
+          issues: [SIGN-7786]
+        - text: |-
+            Added `subject` and `author` [`<msi-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
+          issues: [SIGN-7695]
+    self_hosted_installations:
+      version: 1.191.0
+      improvements:
+        - text: |-
+            Improved performance for the signing policy-filtered signing request list as well as the "waiting for your approval" list on the dashboard UI.
+          issues: [SIGN-7883]
 - date: '2025-06-19'
   updates:
     github_connector:
