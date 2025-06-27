@@ -35,7 +35,7 @@ Projects consist of these configuration sections:
 
 Signing policies define the rules and permissions for signing and the certificate that will be used. Each signing request must use a specific signing policy. The signing request will then be processed according to this policy.
 
-Typically, a project contains these two singing policies:
+Typically, a project contains these two signing policies:
 
 * **test-signing** is used for internal builds that will be used for testing. It usually uses a self-signed certificate that is installed on test systems. Since this certificate is typically unknown on customer systems, test-signing often has wide permissions and few restrictions, if any.
 * **release-signing** is used for release builds that are shipped to customers and used on production systems. It typically uses a certificate purchased from a public Certificate Authority (CA). Software releases are sensitive and must be done in a secure, controlled and reproducible manner. Therefore, release-signing is often configured with few permissions and additional restrictions.

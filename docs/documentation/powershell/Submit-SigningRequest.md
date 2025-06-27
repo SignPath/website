@@ -59,7 +59,7 @@ Submit-SigningRequest
     [-CancellationTimeoutInSeconds <Int32>] 
 ~~~
 
-### Resubmit an existing singing request {#resubmit}
+### Resubmit an existing signing request {#resubmit}
 
 {% include editions.md feature="policy_enforcement.resubmit" %}
 

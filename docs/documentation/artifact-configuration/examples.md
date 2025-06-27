@@ -86,14 +86,14 @@ Example of a directory structure that would match this configuration:
 
 ## Metadata restrictions
 
-### PE file metadata restriction {#pe-restriction}
+### MSI and PE file metadata restriction {#msi-and-pe-restriction}
 
 ~~~ xml
 <artifact-configuration xmlns="http://signpath.io/artifact-configuration/v1">
   <parameters>
     <parameter name="version" required="true" />
   </parameters>
-  <msi-file>
+  <msi-file subject="MyProduct" author="ACME Inc.">
     <!-- requires all pe-files to have the respective attributes set -->
     <pe-file-set product-name="MyProduct" product-version="${version}" file-version="${version}"
                  company-name="ACME Inc." copyright="Copyright ACME Inc." original-filename="${file.name}">
