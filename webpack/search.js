@@ -17,7 +17,8 @@ export function search() {
 
 	const url = new URL(location);
 	if (url.pathname == '/search') {
-		document.querySelectorAll('main section.top-section h1')[0].innerHTML += ` for <i>${ url.searchParams.get('q') }</i>`;
-		document.querySelectorAll('main input[type=search]')[0].value = url.searchParams.get('q');
+		const searchText = url.searchParams.get('q');
+		document.querySelectorAll('main section.top-section h1')[0].innerText += ` for "${ searchText }"`;
+		document.querySelectorAll('main input[type=search]')[0].value = searchText;
 	}
 }
