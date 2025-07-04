@@ -1,3 +1,10 @@
+- date: '2025-07-04'
+  updates:
+    teamcity_plugin:
+      version: '0.2.0'
+      improvements:
+        - text: Improved performance and logging.
+          issues: [SIGN-7681, SIGN-7735]
 - date: '2025-07-01'
   updates:
     application:
