@@ -1,4 +1,4 @@
-- date: '2025-07-07'
+- date: '2025-07-08'
   updates:
     azure_devops_connector:
       version: '0.4.0'
