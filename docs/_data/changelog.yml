@@ -1,5 +1,10 @@
 - date: '2025-07-08'
   updates:
+    jenkins_plugin:
+      version: '3.2.0'
+      improvements:
+        - text: Improved the performance and logging.
+          issues: [SIGN-7681, SIGN-7735, SIGNm-7910]
     azure_devops_connector:
       version: '0.4.0'
       bug_fixes:
