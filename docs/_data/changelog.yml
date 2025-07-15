@@ -1,3 +1,52 @@
+- date: '2025-07-08'
+  updates:
+    jenkins_plugin:
+      version: '3.2.0'
+      improvements:
+        - text: Improved the performance and logging.
+          issues: [SIGN-7681, SIGN-7735, SIGNm-7910]
+    azure_devops_connector:
+      version: '0.4.0'
+      bug_fixes:
+        - text: Fixed a bug that prevented the use of API tokens of interactive users.
+          issues: [SIGN-7884]
+    github_connector:
+      version: '1.7.0'
+      bug_fixes:
+        - text: Fixed a bug that prevented the use of API tokens of interactive users.
+          issues: [SIGN-7884]
+    teamcity_connector:
+      version: '0.4.0'
+      bug_fixes:
+        - text: Fixed a bug that prevented the use of API tokens of interactive users.
+          issues: [SIGN-7884]
+- date: '2025-07-04'
+  updates:
+    teamcity_plugin:
+      version: '0.2.0'
+      improvements:
+        - text: Improved performance and logging.
+          issues: [SIGN-7681, SIGN-7735]
+- date: '2025-07-01'
+  updates:
+    application:
+      version: 1.191.0
+      new_features:
+        - text: |-
+            REST API: New signing request submission APIs, which allow to separate metadata submission from artifact upload:
+            * `POST /v1/{organizationId}/SigningRequests/SubmitWithoutArtifact` creates a signing request in a "waiting for artifact upload" status.
+            * `POST /v1/{organizationId}/SigningRequests/{id}/UploadUnsignedArtifact` (afterwards) uploads the artifact.
+            * For details see [API definition](https://app.signpath.io/Api/swagger) of the new routes.
+          issues: [SIGN-7786]
+        - text: |-
+            Added `subject` and `author` [`<msi-file>` metadata restrictions](/documentation/artifact-configuration/reference#metadata-restrictions).
+          issues: [SIGN-7695]
+    self_hosted_installations:
+      version: 1.191.0
+      improvements:
+        - text: |-
+            Improved performance for the signing policy-filtered signing request list as well as the "waiting for your approval" list on the dashboard UI.
+          issues: [SIGN-7883]
 - date: '2025-06-19'
   updates:
     github_connector:
@@ -1036,8 +1085,8 @@
       version: 1.157.0
       improvements:
         - text: >-
-            For failed singing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
-            a new signing request (linking back to the "original singing request") instead of retrying the same signing request.
+            For failed signing requests, the "Retry with current settings" feature was replaced with "_Resubmit_ with current settings". This feature creates
+            a new signing request (linking back to the "original signing request") instead of retrying the same signing request.
           issues: [SIGN-6744]
         - text: >-
             Stricter validation of email address input.
@@ -1988,7 +2037,7 @@
         - text: The console logging was disabled by default (`SIGNPATH_LOG_CONSOLE_LEVEL=none`).
           issues: [SIGN-5154]
       new_features:
-        - text: 'Cryptoki: Added compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP singing.'
+        - text: 'Cryptoki: Added compatibility with `gnupg-pkcs11-scd` to support GnuPG PGP signing.'
           issues: [SIGN-5154]
     self_hosted_installations:
       version: 1.121.0
