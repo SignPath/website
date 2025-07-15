@@ -69,7 +69,7 @@ Use Group Policy Objects (GPOs) to add certificates to computers. The following 
 * To trust a certificate, create a GPO for `Trusted Root Certification Authorities`
 * In order to explicitly un-trust a certificate, create a GPO for `Untrusted Certificates`
 
-### Trusted publishers {#trusted-publishers}
+## Trusted publishers {#trusted-publishers}
 
 For some use cases, the certificate must also be registered as a _Trusted Publisher_ in addition to basic PKI trust:
 
@@ -79,6 +79,13 @@ For some use cases, the certificate must also be registered as a _Trusted Publis
 * some GPO-driven MSI installation scenarios
 * legacy ActiveX controls
 * some device drivers
+
+{.panel.warning}
+> ** Never rely on _Trusted Publishers_ alone for restricting certificate scope
+>
+> You can use _Trusted Publishers_ to fine-tune permissions for the use cases listed above. However, be aware that other signing schemes including Windows executables do _not_ require the certificate to be in _Trusted Publishers_. 
+>
+> SignPath allows you to control file access to certificates based on file types. E.g. if you allow a SignPath user to use a SignPath _Project_ with a PowerShell _Artifact Configuration_, they will not be able to use that certificate to sign Windows executables.
 
 The certificate is often presented in a user prompt (depending on user permissions):
 
