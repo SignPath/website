@@ -49,7 +49,7 @@ On Windows, you can install certificates by following these steps:
 3. Select *Current User* or *Local Machine* location
 4. Select the *Trusted Root Certification Authorities* store
 
-### Using scripts and batch files
+### Using scripts and batch files {#scripts}
 
 * In PowerShell scripts, use 
   ~~~ powershell
@@ -62,15 +62,31 @@ On Windows, you can install certificates by following these steps:
 
 These commands require administrative permissions.
 
-### Auto-enrollment
+### GPO auto-enrollment {#gpo}
 
-Use Group Policy Objects (GPOs) to add certificates to computers.
+Use Group Policy Objects (GPOs) to add certificates to computers. The following GPOs are available in `Windows Settings` › `Security Settings` › `Public Key Policies`
 
-* In order to trust a certificate, create a GPO for
-  * `Windows Settings`
-  * `Security Settings`
-  * `Public Key Policies/Trusted Root Certification Authorities`
-* In order to explicitly un-trust a certificate, create a GPO for
-  * `Windows Settings`
-  * `Security Settings`
-  * `Public Key Policies/Untrusted Certificates`
+* To trust a certificate, create a GPO for `Trusted Root Certification Authorities`
+* In order to explicitly un-trust a certificate, create a GPO for `Untrusted Certificates`
+
+### Trusted publishers {#trusted-publishers}
+
+For some use cases, the certificate must also be registered as a _Trusted Publisher_ in addition to basic PKI trust:
+
+* PowerShell scripts
+* Microsoft Office macros
+* ClickOnce applications
+* some GPO-driven MSI installation scenarios
+* legacy ActiveX controls
+* some device drivers
+
+The certificate is often presented in a user prompt (depending on user permissions):
+
+* _Trust once_ will enable execution once
+* _Always trust_ will add the certificate to _Trusted Publishers_
+
+You can also pre-load the certificate to _Trusted Publishers_ using the methods described above:
+
+* PowerShell [scripts](#scripts): `-CertStoreLocation Cert:\LocalMachine\TrustedPublisher` 
+* Batch files: `-addstore TrustedPublisher`
+* [GPOs](#gpo): `Windows Settings` › `Security Settings` › `Public Key Policies` › `Trusted Publishers`
