@@ -81,11 +81,11 @@ For some use cases, the certificate must also be registered as a _Trusted Publis
 * certain device drivers
 
 {:.panel.warning}
-> ** Never rely on _Trusted Publishers_ alone for restricting certificate scope
+> **Don't rely solely on _Trusted Publishers_ for restricting certificate scope**
 >
 > You can use _Trusted Publishers_ to fine-tune permissions for the use cases listed above. However, be aware that other signing schemes including Windows executables do _not_ require the certificate to be in _Trusted Publishers_. 
 >
-> SignPath allows you to control file access to certificates based on file types. E.g. if you allow a SignPath user to use a SignPath _Project_ with a PowerShell _Artifact Configuration_, they will not be able to use that certificate to sign Windows executables.
+> SignPath allows you to control file access to certificates based on file types. For instance, if you a SignPath user is _Submitter_ for a SignPath _Project_ with a PowerShell _Artifact Configuration_, they will not be able to use that certificate to sign Windows executables too.
 
 The certificate is often presented in a user prompt (depending on user permissions):
 
