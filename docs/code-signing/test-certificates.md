@@ -76,11 +76,11 @@ For some use cases, the certificate must also be registered as a _Trusted Publis
 * PowerShell scripts
 * Microsoft Office macros
 * ClickOnce applications
-* some GPO-driven MSI installation scenarios
+* certain GPO-driven MSI installation scenarios
 * legacy ActiveX controls
-* some device drivers
+* certain device drivers
 
-{.panel.warning}
+{:.panel.warning}
 > ** Never rely on _Trusted Publishers_ alone for restricting certificate scope
 >
 > You can use _Trusted Publishers_ to fine-tune permissions for the use cases listed above. However, be aware that other signing schemes including Windows executables do _not_ require the certificate to be in _Trusted Publishers_. 
