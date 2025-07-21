@@ -62,6 +62,9 @@
 
 - text: Origin Verification
   path: origin-verification
+  items:
+    - text: SLSA Build Levels
+      path: slsa-build-levels
 
 - separator: true
 
