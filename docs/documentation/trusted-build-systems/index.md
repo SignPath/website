@@ -29,6 +29,7 @@ See [below](#direct-use) for details.
 The following build systems are currently supported by SignPath:
 
 * [GitHub](/documentation/trusted-build-systems/github)
+* [GitLab](/documentation/trusted-build-systems/gitlab)
 * [Jenkins](/documentation/trusted-build-systems/jenkins)
 * [Azure DevOps](/documentation/trusted-build-systems/azure-devops)
 * [AppVeyor](/documentation/trusted-build-systems/appveyor)

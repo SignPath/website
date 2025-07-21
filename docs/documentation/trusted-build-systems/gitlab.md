@@ -122,3 +122,5 @@ The action supports the following output parameters:
 - `signed-artifact-download-url`: The url of the signed artifact in SignPath
 
 TODO: the term _Pipeline Integrity_ is already used by GitLab: https://docs.gitlab.com/ci/pipeline_security/#pipeline-integrity
+
+TODO: on the devops page, the snippet should be added

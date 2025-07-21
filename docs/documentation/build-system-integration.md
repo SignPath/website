@@ -201,6 +201,7 @@ It provides verified origin metadata including:
 SignPath supports the following Trusted Build Systems with origin verification:
 
 * [GitHub](trusted-build-systems/github)
+* [GitLab](trusted-build-systems/gitlab)
 * [Jenkins](trusted-build-systems/jenkins)
 * [AppVeyor](trusted-build-systems/appveyor)
 * [Azure DevOps](trusted-build-systems/azure-devops)
