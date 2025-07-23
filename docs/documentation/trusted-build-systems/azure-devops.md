@@ -8,7 +8,7 @@ description: Azure DevOps
 
 ## Prerequisites
 
-* On SignPath.io: [Use the predefined Trusted Build System](/documentation/trusted-build-systems#configuration) _Azure DevOps (dev.azure.com)_.
+* In SignPath: [Use the predefined Trusted Build System](/documentation/trusted-build-systems#configuration) _Azure DevOps (dev.azure.com)_.
 * Create an artifact configuration with the following format:
     ```xml
     <?xml version="1.0" encoding="utf-8" ?>

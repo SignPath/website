@@ -252,7 +252,7 @@ incidents:
     range: 'Nov. 18, 2020 6:00 - 8:00 UTC'
     type: warning
     title: 'Payment provider: Planned maintenance'
-    description: 'Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath.io will not be affected.'
+    description: 'Our payment provider will do some maintenance, resulting in possible intermittent availability impact to platform services summing 1 hour. Service to existing customers of SignPath will not be affected.'
   - date: 'Nov. 4, 2020'
     range: 'Nov. 4, 2020 23:00 - Nov. 5, 2020 5:00 UTC'
     title: 'Planned maintenance'

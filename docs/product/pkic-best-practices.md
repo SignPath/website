@@ -8,7 +8,7 @@ hide_nav: true
 
 The [PKI Consortium](https://pkic.org/) (PKIC, formerly known as CA Security Council) is a consortium of several [PKI](https://en.wikipedia.org/wiki/Public_key_infrastructure)-related organizations. One of its goals is to advance code signing practices in the industry. The PKI Consortium has released a [white paper](https://pkic.org/uploads/2016/12/CASC-Code-Signing.pdf) that contains several best practices for code signing.
 
-This is good and valuable advice, and SignPath.io supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)
+This is good and valuable advice, and SignPath supports these recommendations. However, it can be quite difficult and expensive to set up and repeatedly execute a code signing process that meets these criteria. If you use SignPath, it will take care of these recommendations for you. (SignPath organization administrators will be able to opt out of some security practices.)
 
 This page outlines how SignPath ensures that these recommendations are fulfilled.
 
@@ -34,11 +34,11 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > SignPath stores keys on hardware security modules (HSMs) and strictly limits access to those based on authentication, rules, permissions and approvals.
 
-| PKIC recommendation details                                         | Compliance    | Remarks |
-|---------------------------------------------------------------------|---------------|---------|
-| Allow minimal connections to computers with keys                    | **Automatic** | No computers (including SignPath.io servers) can read HSM-based keys. Authorized build agents are authenticated before submitting signing requests.
-| Minimize the number of users who have key access                    | **Automatic** | No users (including SignPath.io administrators) can read HSM-based keys. Authorized users are authenticated before submitting signing requests.
-| Use physical security controls to reduce access to keys             | **Automatic** | Access to HSMs is restricted to dedicated SignPath.io servers that execute fully authorized signing requests.
+| PKIC recommendation details                                         | Compliance    | Remarks 
+|---------------------------------------------------------------------|---------------|---------
+| Allow minimal connections to computers with keys                    | **Automatic** | No computers (including SignPath servers) can read HSM-based keys. Authorized build agents are authenticated before submitting signing requests.
+| Minimize the number of users who have key access                    | **Automatic** | No users (including SignPath administrators) can read HSM-based keys. Authorized users are authenticated before submitting signing requests.
+| Use physical security controls to reduce access to keys             | **Automatic** | Access to HSMs is restricted to dedicated SignPath servers that execute fully authorized signing requests.
 
 [2]: #2-protect-private-keys-with-cryptographic-hardware-products
 
@@ -48,10 +48,10 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Keys for release signing are stored on a hardware security module (HSM) by default.
 
-| PKIC recommendation details                                                                              | Compliance    | Remarks |
-|----------------------------------------------------------------------------------------------------------|---------------|---------|
+| PKIC recommendation details                                                                              | Compliance    | Remarks 
+|----------------------------------------------------------------------------------------------------------|---------------|---------
 | Cryptographic hardware does not allow export of the private key to software where it could be attacked   | **Automatic** | SignPath always creates HSM-based keys as *non-exportable*.
-| Use a FIPS 140 Level 2-certified product (or better)                                                     | **Automatic** | SignPath.io uses SafeNet Luna Network HSMs [validated][luna fips] for FIPS 140-1 and FIPS 140-2 Level 3, and certified for Common Criteria (ISO/IEC15408).
+| Use a FIPS 140 Level 2-certified product (or better)                                                     | **Automatic** | SignPath uses SafeNet Luna Network HSMs [validated][luna fips] for FIPS 140-1 and FIPS 140-2 Level 3, and certified for Common Criteria (ISO/IEC15408).
 | Use an EV code signing certificate which requires the private key to be generated and stored in hardware | **Automatic** | SignPath will create a certificate signing request (CSR) from your HSM key. Use this CSR to purchase a certificate from any Certificate Authority. While this is required only for EV certificates, SignPath ensures the same security for normal (OV) certificates.
 
 [3]: #3-time-stamp-code
@@ -62,8 +62,8 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > All signatures will be counter-signed with SHA256 time stamps by a reliable time stamping server.
 
-| PKIC recommendation details                                                                | Compliance    | Remarks |
-|--------------------------------------------------------------------------------------------|---------------|---------|
+| PKIC recommendation details                                                                | Compliance    | Remarks 
+|--------------------------------------------------------------------------------------------|---------------|---------
 | Time-stamping allows code to be verified after the certificate has expired or been revoked | **n/a**       | *(informational)*
 
 [4]: #4-understand-the-difference-between-test-signing-and-release-signing
@@ -76,11 +76,11 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 >
 > SignPath advises you to create at least one signing policy for test-signing and one for release-signing.
 
-| PKIC recommendation details                                                                             | Compliance    | Remarks |
-|---------------------------------------------------------------------------------------------------------|---------------|---------|
+| PKIC recommendation details                                                                             | Compliance    | Remarks 
+|---------------------------------------------------------------------------------------------------------|---------------|---------
 | Test-signing private keys and certificates requires less security access controls than production code signing private keys and certificates | **Automatic** | Signing policies for test-signing and release-signing have different permissions and approval requirements.
 | Test-signing certificates can be self-signed or come from an internal test CA                           | **Guidance**  | Create a self-signed certificate from the setup wizard, or create a CSR for an in-house CA.
-| Establish a separate test code signing infrastructure to test-sign pre-release builds of software       | **Guidance**  | SignPath.io allows you to use dedicated credentials and build agents for each signing policy. We recommend to share the essential build configuration in order to avoid confusion and configuration errors.
+| Establish a separate test code signing infrastructure to test-sign pre-release builds of software       | **Guidance**  | SignPath allows you to use dedicated credentials and build agents for each signing policy. We recommend to share the essential build configuration in order to avoid confusion and configuration errors.
 
 [5]: #5-authenticate-code-to-be-signed
 
@@ -90,8 +90,8 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Signing requires a signing policy and authenticated signing requests. Release-signing additionally requires authenticated approvals.
 
-| PKIC recommendation details                                                                                     | Compliance    | Remarks |
-|-----------------------------------------------------------------------------------------------------------------|---------------|---------|
+| PKIC recommendation details                                                                                     | Compliance    | Remarks 
+|-----------------------------------------------------------------------------------------------------------------|---------------|---------
 | Any code that is submitted for signing should be strongly authenticated before it is signed and released        | **Automatic** | Signing request must be submitted from authenticated users or build agents.
 | Implement a code signing submission and approval process to prevent the signing of unapproved or malicious code | **Automatic** | Define submission and approval permissions per signing configuration.
 | Log all code signing activities for auditing and/or incident-response purposes                                  | **Automatic** | All activities including submission and approval (or denial) are logged and easily accessible from the user interface. Also, submitted and signed code is retained for later use including auditing, incident response, forensics, and re-signing. (Retention period depends on subscription type.)
@@ -104,8 +104,8 @@ This page outlines how SignPath ensures that these recommendations are fulfilled
 
 > Every signing request will be scanned for malware first.
 
-| PKIC recommendation details                                               | Compliance    | Remarks |
-|---------------------------------------------------------------------------|---------------|---------|
+| PKIC recommendation details                                               | Compliance    | Remarks 
+|---------------------------------------------------------------------------|---------------|---------
 | Code Signing does not confirm the safety or quality of the code; it confirms the publisher and whether or not the code has been changed | **n/a** | *(informational)*
 | Implement virus-scanning to help improve the quality of the released code | **Automatic** | *See above*
 

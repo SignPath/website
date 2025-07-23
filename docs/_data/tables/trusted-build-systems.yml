@@ -19,7 +19,7 @@ appveyor-setup:
         3. On [SignPath.io](https://app.signpath.io)
           * Navigate to your *project*, scroll down to the *Trusted Build Systems* section and add a link to *AppVeyor*
           * In the dialog, enter the ① **API key** you just acquired
-      remarks: SignPath.io must authenticate against Appveyor to retrieve the build artifacts
+      remarks: SignPath must authenticate against Appveyor to retrieve the build artifacts
     - action: Encrypt the SignPath API token in AppVeyor
       steps: |
         1. On [SignPath.io](https://app.signpath.io)

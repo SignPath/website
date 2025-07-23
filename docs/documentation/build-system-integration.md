@@ -37,7 +37,7 @@ In case the PowerShell module is not sufficient, you can communicate directly wi
 
 ### Base URL and authentication
 
-SignPath.io uses bearer authentication.
+SignPath uses bearer authentication.
 
 | Common API arguments      |  Value                                      
 |---------------------------|-------------------------------------------- 

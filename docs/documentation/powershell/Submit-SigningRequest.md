@@ -183,7 +183,7 @@ Note: Use either slugs _or_ IDs, don't mix.
 |-------------------------------------------|-------------------|---------------------------------------------------------------|-------------------------------------------------|---------
 | `-OrganizationId`                         | `String`          | ID of your SignPath organization
 | `-ApiToken`                               | `String`          | API token of an interactive or CI user
-| `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not supported by SignPath.io directly, use for proxies. | | {{ site.data.editions | where: "pipeline_integrity.trusted_build_systems", "Optional" | map: "name" | join: ", " }}
+| `-ClientCertificate`                      | `X509Certificate2`| Client certificate used for a secure Web API request. Not directly supported by SignPath, use for proxies. | | {{ site.data.editions | where: "pipeline_integrity.trusted_build_systems", "Optional" | map: "name" | join: ", " }}
 | `-ApiUrl`                                 | `String`          | URL to the SignPath REST API                                  | `https://app.signpath.io/api/`
 | `-Description`                            | `String`          | Optional description of the signing request
 | `-Parameters`                             | `Hashtable`       | Values for [parameters defined in the artifact configuration](https://about.signpath.io/documentation/artifact-configuration/syntax#parameters)

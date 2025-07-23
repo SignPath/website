@@ -56,15 +56,15 @@ There are two ways to gain **SmartScreen reputation**:
 > Renewed standard (OV) certificates do not inherit reputation. Therefore, using OV certificates will result in warnings at least every three years (the maximum validity for code-signing certificates).
 
 {:.panel.product}
-> **SignPath.io: use EV certificates without USB tokens**
+> **SignPath: use EV certificates without USB tokens**
 >
 > EV code-signing certificates must be stored on secure hardware. Normally this means that you will receive a USB token from the CA. These tokens are difficult to use in team scenarios and automated builds &ndash; you will have to store them safely and attach them to build computers when needed. They usually require installation of device drivers, CSPs, and often password entry for each signature. The need to build on a physical computer also defies the goal of having safe, reproducable build environments. 
 > 
-> **SignPath.io** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
+> **SignPath** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
 > 
-> * Request an attested certificate signing request (CSR) from SignPath.io
+> * Request an attested certificate signing request (CSR) from SignPath
 > * Buy an EV certificate from your favorite CA
-> * Download the certificate from the CA, upload it to SignPath.io (does not include private key)
+> * Download the certificate from the CA, upload it to SignPath (does not include private key)
 
 ### Verifications for all programs
 

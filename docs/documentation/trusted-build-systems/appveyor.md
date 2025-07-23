@@ -23,7 +23,7 @@ In order to ensure Origin Verification, you cannot submit a signing request from
 The following checks are performed:
 
 * No additional scripts may be executed during the build step and no cache entries may be used (so that the build remains fully traceable and is only built from the repository). The scripts must be all set to off at the bottom of the project settings page on AppVeyor.
-* The build settings may not be modified between starting the AppVeyor build and calling SignPath.io
+* The build settings may not be modified between starting the AppVeyor build and calling SignPath
 * The build configuration must be stored in the root directory under the name `appveyor.yml` or `.appveyor.yml` (no custom name is allowed to be set under *Project settings* and *Custom configuration .yml file name*)
 * For Open Source subscriptions, the AppVeyor project and the Git repository must be public.
 
@@ -37,7 +37,7 @@ These checks are performed to ensure that the binary artifacts result purely fro
 > At the moment those supported are: GitHub (hosted and on-premises), Bitbucket (hosted and on-premises), GitLab (hosted and on-premises), Azure DevOps, Kiln and Gitea. 
 
 ## Setup
-This figure shows the secrets that must be shared between AppVeyor.com and SignPath.io:
+This figure shows the secrets that must be shared between AppVeyor.com and SignPath:
 ![AppVeyor Setup flow](/assets/img/resources/documentation/build-integration_appveyor.png)
 
 {%- include render-table.html table=site.data.tables.trusted-build-systems.appveyor-setup -%}

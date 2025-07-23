@@ -18,7 +18,7 @@ description: Using SignPath in a DevOps pipeline
       <div>
         <h2>Code Signing in the pipeline</h2>
         <p>
-        With SignPath.io, code signing can be integrated into your existing continous deployment pipeline with just a few steps. You don't need to worry about connecting usb tokens to build servers, handling passwords prompts or securing your private keys. Signing just becomes one more step in your process, even for nested artifacts. Thanks to a clear separation of concerns, DevOps engineers can focus on the build and deployment process and leave the security concerns to their InfoSec colleagues.</p>
+        With SignPath, code signing can be integrated into your existing continous deployment pipeline with just a few steps. You don't need to worry about connecting usb tokens to build servers, handling passwords prompts or securing your private keys. Signing just becomes one more step in your process, even for nested artifacts. Thanks to a clear separation of concerns, DevOps engineers can focus on the build and deployment process and leave the security concerns to their InfoSec colleagues.</p>
       </div>
     </div>
     <p class='center'><a class='btn btn-primary trial' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial'>Start free trial</a></p>
@@ -29,7 +29,7 @@ description: Using SignPath in a DevOps pipeline
   <div>
     <h2>Build process integration</h2>
     <p>
-      SignPath.io is built with DevOps in mind. Adding a code signing step to your build process requires just a few lines of code by including our PowerShell script, calling the API directly or using one of our build system integrations. The artifact is then extracted, and all specified files are signed recursively. SignPath can be integrated in a synchronous and an asynchronous call, providing flexibility for different use cases. In the synchronous case, the build job waits for the uploaded artifact to be signed and continues with the following steps right away. In the asynchronous case, the signing request has to be approved and a second pipeline is then started for e.g. deploying the signed artifact. Deeper integration including origin verification is supported with AppVeyor, all other CI systems such as Jenkins, Travis, TeamCity or CircleCI can be integrated by using a generic REST call via PowerShell or cURL.
+      SignPath is built with DevOps in mind. Adding a code signing step to your build process requires just a few lines of code by including our PowerShell script, calling the API directly or using one of our build system integrations. The artifact is then extracted, and all specified files are signed recursively. SignPath can be integrated in a synchronous and an asynchronous call, providing flexibility for different use cases. In the synchronous case, the build job waits for the uploaded artifact to be signed and continues with the following steps right away. In the asynchronous case, the signing request has to be approved and a second pipeline is then started for e.g. deploying the signed artifact. Deeper integration including origin verification is supported with AppVeyor, all other CI systems such as Jenkins, Travis, TeamCity or CircleCI can be integrated by using a generic REST call via PowerShell or cURL.
     </p>
     <p><a class='btn btn-primary' href='/documentation/build-system-integration'>View documentation</a></p>
     <div class='tabs'>
@@ -135,7 +135,7 @@ description: Using SignPath in a DevOps pipeline
         {% include user_big.svg %}
         <h2>Manual approval steps</h2>
         <p>
-          Security critical tasks such as code signing often include manual approval steps in order to increase the security and avoid malicious code to be deployed into a production system. SignPath.io allows you to configure multiple security restrictions, including manual approvals. All details necessary to validate the artifact, such as its origin, SHA256 hash and contents are readily available in the web application.</p>
+          Security critical tasks such as code signing often include manual approval steps in order to increase the security and avoid malicious code to be deployed into a production system. SignPath allows you to configure multiple security restrictions, including manual approvals. All details necessary to validate the artifact, such as its origin, SHA256 hash and contents are readily available in the web application.</p>
       </div>
     </div>
   </div>
