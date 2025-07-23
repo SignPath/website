@@ -109,7 +109,7 @@ You will usually specifiy the Project and Signing Policy and let SignPath select
 The following values
 * should be provieded for other [PKCS #11/Cryptoki](cryptoki) signing tools that don't accept a _key ID_ parameter
 * are internally used for GPG signing via PKCS #11 (see [GPG](gpg#configure-gnupg))
-* can be provided for macOS CryptoTokenKit as default values (see [macOS](macos#usage-project-siging-policy))
+* can be provided for macOS CryptoTokenKit as default values (see [macOS](macos#usage-project-signing-policy))
 
 | JSON setting                            | Environment variable                                   | Description
 |-----------------------------------------|--------------------------------------------------------|--------------------------

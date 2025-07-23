@@ -62,7 +62,7 @@ There are two ways to gain **SmartScreen reputation**:
 > 
 > **SignPath.io** stores certificates on a secure HSM, so you can purchase and use EV certificates without tokens. 
 > 
-> * Request an attested certificate siging request (CSR) from SignPath.io
+> * Request an attested certificate signing request (CSR) from SignPath.io
 > * Buy an EV certificate from your favorite CA
 > * Download the certificate from the CA, upload it to SignPath.io (does not include private key)
 
