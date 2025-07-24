@@ -101,3 +101,10 @@ Guarantee: If the provenance is signed by SignPath, the build was executed on a 
 | Build System | Guarantee                      |
 | --           | ------------------------------ |
 | Azure DevOps | Cache usage has to be explicitly defined in the pipeline definition and cannot be shared across pipelines or branches (see [the official documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/release/caching?view=azure-devops&tabs=bundler#cache-isolation-and-security))
+
+{:.quote}
+> The build platform MUST NOT open services that allow for remote influence unless all such interactions are captured as externalParameters in the provenance
+
+| Build System | Guarantee                      |
+| --           | ------------------------------ |
+| Azure DevOps | The build was executed on a runner from the Microsoft-hosted pools, which do not provide the ability to remotely connect (see [the official documentation](https://learn.microsoft.com/en-us/azure/devops/pipelines/agents/hosted)).
