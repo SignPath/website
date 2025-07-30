@@ -282,9 +282,9 @@ Create detached GPG signatures to sign any file with a GPG key
 {:.panel.info}
 > **Naming: GPG and OpenPGP, keys and certificates**
 >
-> While OpenPGP would be technically correct term for these key and signature types, the standard is usually referred to via its de-facto standard implementation, _GNU Privacy Guard_ (GPG or GnuPG). The first implementation was _Pretty Good Privacy_ (PGP), and the format was ultimately standardized as OpenPGP, but the term GPG is commonly used to refer to the key and signature formats too.
+> Our documentation uses the term GPG for these key and signature types. While OpenPGP would be the technically correct term, is often referred to via its de-facto standard implementation, _GNU Privacy Guard_ (GPG or GnuPG). The first implementation was _Pretty Good Privacy_ (PGP), and the format was ultimately standardized as OpenPGP. 
 >
-> GPG uses various terms for certificates, including _public key_, or more correctly, _transferable public key_. To avoid confusion with the public key of a asymmetric key pair, and for consistency within our documentation, we use the term certificate. See [Managing Certificates](/documentation/managing-certificates#certificate-types) for more information.
+> The GPG community uses various terms for certificates, including _GPG Key_, _Public Key_, _Transferable Public Key_ and _Certificate_. To avoid confusion with the public key of a asymmetric key pair, and for consistency within our documentation, we use the term _GPG Key_ as a specific type of _Certificate_. See [Managing Certificates](/documentation/managing-certificates#certificate-types) for more information.
 
 {:.panel.note}
 > **Detached signature files and GPG key reference**
