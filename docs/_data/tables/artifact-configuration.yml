@@ -101,7 +101,7 @@ signing-file-elements:
         [`<create-gpg-signature>`](#create-gpg-signature),
         [`<create-raw-signature>`](#create-raw-signature)
       extensions: "*"
-      description: "Arbitrary files. Create detached [CMS](#create-cms-signature), [GPG](#create-gpg-signature) or [raw](#create-raw-signature) signatures (available for Advanced Code Signing)."
+      description: "Arbitrary files. Create detached [CMS/PKCS #7](#create-cms-signature), [GPG/OpenPGP](#create-gpg-signature) or [raw](#create-raw-signature) signatures (available for Advanced Code Signing)."
 
 authenticode-attributes:
   headers:
