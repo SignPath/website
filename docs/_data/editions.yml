@@ -40,7 +40,7 @@
     manual_approval: false
     quorum_approval: false
     signing_policies_per_project: 'test & release'
-    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-signing.'
     policies_for_certs: false
     resubmit: false
     disable_malware_scanning: false
@@ -108,7 +108,7 @@
     manual_approval: true
     quorum_approval: false
     signing_policies_per_project: 'test & release'
-    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-siging.'
+    signing_policies_per_project-hint: 'Each project has predefined policies for test- and release-signing.'
     policies_for_certs: false
     resubmit: false
     disable_malware_scanning: false

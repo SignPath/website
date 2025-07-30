@@ -49,7 +49,7 @@ open SignPathCryptoTokenKit.app --args \
   --organization-id 0241f767-69c8-448d-ad5e-8bd453916068
 ~~~
 
-#### Project and signing policy {#usage-project-siging-policy}
+#### Project and signing policy {#usage-project-signing-policy}
 
 Identify a specific _Signing Policy_ by specifying _Project_ and _Signing Policy_ slugs. The SignPath CryptoTokenKit provider will select that policy's certificate.
 
