@@ -18,7 +18,10 @@ description: Using SignPath in a DevOps pipeline
       <div>
         <h2>Code Signing in the pipeline</h2>
         <p>
-        With SignPath, code signing can be integrated into your existing continous deployment pipeline with just a few steps. You don't need to worry about connecting usb tokens to build servers, handling passwords prompts or securing your private keys. Signing just becomes one more step in your process, even for nested artifacts. Thanks to a clear separation of concerns, DevOps engineers can focus on the build and deployment process and leave the security concerns to their InfoSec colleagues.</p>
+          With SignPath, code signing can be integrated into your existing continous deployment pipeline with just a few steps. You don't need to worry about connecting USB tokens to build servers, handling passwords prompts or securing your private keys. Signing just becomes one more step in your process, even for nested artifacts. 
+        </p><p>
+          Thanks to a clear separation of concerns, DevOps engineers can focus on the build and deployment process and leave the security concerns to their InfoSec colleagues.
+        </p>
       </div>
     </div>
     <p class='center'><a class='btn btn-primary trial' href='{{ site.data.hosts.app[site.target_environment] }}/Web/Subscription/StartFreeTrial'>Start free trial</a></p>
@@ -29,9 +32,27 @@ description: Using SignPath in a DevOps pipeline
   <div>
     <h2>Build process integration</h2>
     <p>
-      SignPath is built with DevOps in mind. Adding a code signing step to your build process requires just a few lines of code by including our PowerShell script, calling the API directly or using one of our build system integrations. The artifact is then extracted, and all specified files are signed recursively. SignPath can be integrated in a synchronous and an asynchronous call, providing flexibility for different use cases. In the synchronous case, the build job waits for the uploaded artifact to be signed and continues with the following steps right away. In the asynchronous case, the signing request has to be approved and a second pipeline is then started for e.g. deploying the signed artifact. Deeper integration including origin verification is supported with AppVeyor, all other CI systems such as Jenkins, Travis, TeamCity or CircleCI can be integrated by using a generic REST call via PowerShell or cURL.
+      SignPath is built with DevOps in mind. To add code signing, just use the SignPath extension for your CI/CD system. When using Pipeline Integrity, this integration verifies the build's origin and the artifact's integrity. Optionally, security parameters of source code and build pipeline can be analyzed and constrained by policies. 
+    </p><p class="center">
+      <a class='btn btn-primary' href='/documentation/trusted-build-systems'>View CI/CD connector documentation</a>
+    </p><p>
+      Other CI/CD systems, such as Travis, CircleCI, or Bamboo, can be integrated via the command line (PowerShell cmdlet) or a REST call.
+    </p><p class="center">
+      <a class='btn btn-primary' href='/documentation/build-system-integration'>View general integration documentation</a>
+    </p><p>
+      SignPath processes entire releases. All artifacts are analyzed, compared to artifact configurations, and then signed. Nested components, such as installers and packages, can be processed in place. 
+    </p><p class="center">
+      <a class='btn btn-primary' href='/documentation/artifact-configuration/'>View artifact configuration documentation</a>
+    </p><p>
+      SignPath can be integrated synchronously or asynchronously, providing flexibility for different use cases:
     </p>
-    <p><a class='btn btn-primary' href='/documentation/build-system-integration'>View documentation</a></p>
+    <ul>
+      <li>
+        Synchronous integration: the build job waits for the signed artifacts and continues with the following steps right away. 
+      </li><li>
+        Asynchronous integration: the build job can terminate or pause after submitting the signing request (depending on CI/CD system). This allows for large signing requests (without blocking CI/CD agents) and manual approval. The signed artifact can then be picked up directly from SignPath or processed by a new or resumed CI job.
+      </li>
+    </ul>
     <div class='tabs'>
       <ul class='header'>
         <li class='active'><a data-tabkey='jenkins' href="#"><i class="icon-jenkins"></i> <span>Jenkins</span></a></li>

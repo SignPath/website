@@ -42,20 +42,20 @@
 - text: Trusted Build Systems
   path: trusted-build-systems
   items:
-    - text: AppVeyor
-      path: appveyor
-
-    - text: Azure DevOps
-      path: azure-devops
-
     - text: Jenkins
       path: jenkins
 
     - text: GitHub
       path: github
 
+    - text: Azure DevOps
+      path: azure-devops
+
     - text: TeamCity
       path: teamcity
+
+    - text: AppVeyor
+      path: appveyor
 
     - text: Double Authentication Proxy
       path: double-authentication-proxy
