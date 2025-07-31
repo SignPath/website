@@ -1,0 +1,1 @@
+Cmd: ./llava-v1.5-7b-q4.llamafile -m llava-v1.5-7b-Q4_K.gguf --mmproj llava-v1.5-7b-mmproj-Q4_0.gguf --cli --image lemurs.jpg --temp 0 -e -p "### User: What do you see?\n### Assistant:" --silent-prompt
