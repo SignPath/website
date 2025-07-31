@@ -225,7 +225,7 @@ See also:
 
 {%- include_relative render-ac-directive-table.inc directive="create-cms-signature" -%}
 
-Create Cryptographic Message Syntax (CMS) signatures to sign any file with a X.509 certificates. Tools like `openssl cms` can be used to verify these signatures.
+Create [_Cryptographic Message Syntax_ (CMS)][RFC5652] signatures to sign any file with a X.509 certificates. Tools like `openssl cms` can be used to verify these signatures. (Note that CMS is often referred to as PKCS #7, which is technically the name of the standard preceding CMS.)
 
 {:.panel.note}
 > **This directive creates a detached signature file**
@@ -277,7 +277,14 @@ openssl cms -verify -purpose codesign -content myfile.bin -inform PEM -in myfile
 
 {%- include_relative render-ac-directive-table.inc directive="create-gpg-signature" -%}
 
-Create detached GPG signatures to sign any file with a GPG key.
+Create detached GPG signatures to sign any file with a GPG key
+
+{:.panel.info}
+> **Naming: GPG and OpenPGP, keys and certificates**
+>
+> Our documentation uses the term GPG for these key and signature types. While OpenPGP would be the technically correct term, is often referred to via its de-facto standard implementation, _GNU Privacy Guard_ (GPG or GnuPG). The first implementation was _Pretty Good Privacy_ (PGP), and the format was ultimately standardized as OpenPGP. 
+>
+> The GPG community uses various terms for certificates, including _GPG Key_, _Public Key_, _Transferable Public Key_ and _Certificate_. To avoid confusion with the public key of a asymmetric key pair, and for consistency within our documentation, we use the term _GPG Key_ as a specific type of _Certificate_. See [Managing Certificates](/documentation/managing-certificates#certificate-types) for more information.
 
 {:.panel.note}
 > **Detached signature files and GPG key reference**
@@ -441,3 +448,5 @@ The restrictions can be applied to file elements, [file set elements](syntax#fil
 **Footnotes:**
 
 [^jscript]: Note that [JScript](https://en.wikipedia.org/wiki/JScript) is not the same as JavaScript. While it is possible to use this option to sign JavaScript files, JavaScript engines will not be able to use this signature.
+
+[RFC5652]: https://datatracker.ietf.org/doc/html/rfc5652
