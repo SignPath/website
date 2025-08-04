@@ -1,4 +1,4 @@
 ---
 # Used in the powershell module
-redirect_to: /documentation/powershell/Submit-SigningRequest
+redirect_to: https://docs.signpath.io/powershell/Submit-SigningRequest
 ---

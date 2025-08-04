@@ -1,4 +1,4 @@
 ---
 # Used on the create and edit project pages in the "Read more" link
-redirect_to: /documentation/projects
+redirect_to: https://docs.signpath.io/projects
 ---

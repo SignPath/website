@@ -1,7 +1,5 @@
 ---
-header: Documentation
-layout: resources
-toc: false
-nav_on_small_screen: true
-forward_on_big_screens: '/documentation/getting-started'
+# forward to docs.signpath.io
 ---
+{%- assign path = page.url | replace: '/documentation/', '/' -%}
+{% include redirect_to_docs.html target='/' %}
