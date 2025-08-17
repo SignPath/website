@@ -43,13 +43,15 @@ include:
   - component: gitlab.com/signpath/components/submit-signing-request@0.1
     inputs:
       stage: build
-      job_name: sign_my_component_a
-      api_token_env_name: SIGNPATH_MY_COMPONENT_A_API_TOKEN
-      gitlab_access_token_env_name: SIGNPATH_GITLAB_ACCESS_TOKEN
-      organization_id: f437cdbb-2ec0-4958-9a85-c2c0cd5dfa1a
-      project_slug: MyComponentA
-      signing_policy_slug: release-signing
-      artifacts_job_name: build_job # TODO: needs to be entered in dependencies
+      job-name: sign_my_component_a
+      api-token-env-name: SIGNPATH_MY_COMPONENT_A_API_TOKEN
+      gitlab-access-token-env-name: SIGNPATH_GITLAB_ACCESS_TOKEN
+      organization-id: f437cdbb-2ec0-4958-9a85-c2c0cd5dfa1a
+      project-slug: MyComponentA
+      signing-policy-slug: release-signing
+      gitlab-artifact-job-name: build_job # TODO: needs to be entered in dependencies?
+      gitlab-artifact-path: my.exe
+
       wait_for_completion: true # TODO: automatically publishes the artifact?
 
 build_job:
@@ -93,7 +95,8 @@ sign_job:
         --organization-id $SIGNPATH_ORGANIZATION_ID \
         --project-slug MyProject \
         --signing-policy-slug release-signing \
-        --artifacts-job-name build_job \
+        --gitlab-artifact-job-name build_job \
+        --gitlab-artifact-path output/my-executable \
         --wait-for-completion true \
         --output-artifact-directory signed-output \
   artifacts:
